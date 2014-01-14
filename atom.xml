@@ -39,7 +39,11 @@ googleで検索すると&lt;a href=&quot;http://modalsoul.github.io/environment/
 &lt;p&gt;1 githubのメニューからusername.github.ioという名前のrepositoryを新規作成&lt;br/&gt;
 2 ローカル環境にcloneして、jekyll generatorで出力した_siteディレクトリ以下のファイルをcopyしてcommit&lt;br/&gt;
   &lt;code&gt;git clone https://github.com/username/username.github.io.git&lt;/code&gt;&lt;br/&gt;
+<<<<<<< HEAD
   &lt;code&gt;cp -rp ../localrepository/_site/* .&lt;/code&gt;&lt;br/&gt;
+=======
+  &lt;code&gt;cp ../localrepository/_site/* .&lt;/code&gt;&lt;br/&gt;
+>>>>>>> origin/master
   &lt;code&gt;git commit -a -m &quot;copy from _site directory of jekyll project&quot;&lt;/code&gt;&lt;br/&gt;
 3 masterブランチとしてpush&lt;br/&gt;
   &lt;code&gt;git push origin&lt;/code&gt;&lt;/p&gt;
