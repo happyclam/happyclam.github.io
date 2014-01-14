@@ -53,23 +53,34 @@
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>テンプレート<a href="http://themes.jekyllbootstrap.com/" title="Jekyll-bootstrap">Jekyll Bootstrap</a>を適用してローカルで動作確認できたからgithub.ioにpushしたんだけど表示されない。</p>
+					<p><a href="http://melborne.github.io/2012/05/13/first-step-of-jekyll/">「30分のチュートリアルでJekyllを理解する」</a>を見て一通り理解できたので、見た目を格好良くしようと思い<a href="http://themes.jekyllbootstrap.com/" title="Jekyll-bootstrap">Jekyll Bootstrap</a>のテンプレートを適用後username.github.ioにpushしたんだけど表示されない。</p>
 
-<p>1 まずgithubから <br/>
+<ul>
+<li><p>まずgithubから <br/>
 <code>The submodule 'xxxxx' was not properly initialized with a '.gitmodules' file.</code><br/>
 というメールが来た。どうもsubmoduleというのがよく分からなかったのだけど<a href="http://qiita.com/sotarok/items/0d525e568a6088f6f6bb" title="Git submodule の基礎">ここ</a>を参考に解決<br/>
-<code>jekyll build</code>で静的ファイルを生成したはずだから、build後はテンプレートは必要ないのかと思ったけどsubmoduleとしてcommitしなければいけないらしい。今までgit使っていてsubmoduleなんて使ったこと無かったけど、submodule内のcommitは外のcommitとは別途実行する必要（当然といえば当然だけど）があるみたいで、なんだかややこしそうな仕組みだ。</p>
-
-<p>2 次に来たメールがこんなの<br/>
+<code>jekyll build</code>で静的ファイルを生成したはずだから、build後はテンプレートは必要ないのかと思ったけどsubmoduleとしてcommitしなければいけないらしい。今までgit使っていてsubmoduleなんて使ったこと無かったけど、submodule内のcommitは外のcommitとは別途実行する必要（当然といえば当然だけど）があるみたいで、なんだかややこしそうな仕組みだ。</p></li>
+<li><p>次に来たメールがこんなの<br/>
 <code>The tag 'math' in 'xxxxx' is not a recognized Liquid tag.</code><br/>
-<a href="http://melborne.github.io/2012/05/13/first-step-of-jekyll/" title="30分のチュートリアルでJekyllを理解する">数式を表示するプラグイン（Mathjax.rb）</a>を試しに使っていたのだが、テンプレートを適用したためテンプレート内に存在するdefault.htmlを修正する必要が出てきた。テンプレート内のファイルに変更を加えたらテンプレートをupdateしたときに問題が出るんじゃないの？と思いながらもテンプレート内のdefault.html<a href="%22default.html%E3%81%8C%E8%A4%87%E6%95%B0%E3%81%82%E3%81%A3%E3%81%A6%E3%82%84%E3%82%84%E3%81%93%E3%81%97%E3%81%84%E3%81%A7%E3%81%99%E3%81%8C%E3%80%81%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E5%86%85%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B%E5%BF%85%E8%A6%81%E3%81%AF%E7%84%A1%E3%81%8F%E3%80%81_include/%E4%BB%A5%E4%B8%8B%E3%81%AB%E3%81%82%E3%82%8Bdefault.html%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8C%E3%81%B0%E3%81%84%E3%81%84%E3%82%88%E3%81%86%E3%81%A7%E3%81%99%E3%80%82%22">^1</a>にMathJax.jsを読み込むコードを追加</p>
-
-<p>3 ようやく表示出来るかとおもったら、また次のようなメールが<br/>
+<a href="http://melborne.github.io/2012/05/13/first-step-of-jekyll/" title="30分のチュートリアルでJekyllを理解する">数式を表示するプラグイン（Mathjax.rb）</a>を試しに使っていたのだが、テンプレートを適用したためテンプレート内に存在するdefault.htmlを修正する必要が出てきた。テンプレート内のファイルに変更を加えたらテンプレートをupdateしたときに問題が出るんじゃないの？と思いながらもテンプレート内のdefault.html<a href="%22default.html%E3%81%8C%E8%A4%87%E6%95%B0%E3%81%82%E3%81%A3%E3%81%A6%E3%82%84%E3%82%84%E3%81%93%E3%81%97%E3%81%84%E3%81%A7%E3%81%99%E3%81%8C%E3%80%81%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E5%86%85%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B%E5%BF%85%E8%A6%81%E3%81%AF%E7%84%A1%E3%81%8F%E3%80%81_include/%E4%BB%A5%E4%B8%8B%E3%81%AB%E3%81%82%E3%82%8Bdefault.html%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8C%E3%81%B0%E3%81%84%E3%81%84%E3%82%88%E3%81%86%E3%81%A7%E3%81%99%E3%80%82%22">^1</a>にMathJax.jsを読み込むコードを追加</p></li>
+<li><p>ようやく表示出来るかとおもったら、また次のようなメールが<br/>
 <code>page build failed</code><br/>
 今回のメールは理由が書いていない。どうすりゃいいの？ローカルでは問題ないのに。<br/>
-googleで検索すると<a href="http://modalsoul.github.io/environment/2013/08/17/Github-pages-build-failure/">ここ</a>にいろんなケースが書いてあった。こんなこと全部はやってられるかって感じ。herokuでも感じていたけど、やりたいことと関係ないところで手間がかかるから、運用の手間は増えるけどEC2とかを使って全部自分でサーバー環境作るべきか？とか思案に耽ってしまった。</p>
+googleで検索すると<a href="http://modalsoul.github.io/environment/2013/08/17/Github-pages-build-failure/">ここ</a>にいろんなケースが書いてあった。こんなこと全部はやってられるかって感じ。herokuでも感じていたけど、やりたいことと関係ないところで手間がかかるから、運用の手間は増えるけどEC2とかを使って全部自分でサーバー環境作るべきか？とか思案に耽ってしまった。</p></li>
+<li><p>気分を入れ替えてgithubのレポジトリを削除して作り直すことにした。そもそも<a href="http://krakenbeal.blogspot.jp/2012/05/ruby-jekyll-jekyll-bootstrap.html">このサイト</a>を参考にjekyllのbuild環境を含めてレポジトリを作ったのだけど、githubにある「Automatic Page Generator」のボタンをクリックしてレポジトリを新しく作り直してみると、リポジトリには生成された静的コンテンツのみが含まれていた。ということはgithubのリポジトリにはjekyllで生成された結果ファイルのみを含めるべきなのか？まぁgeneratorとはそうやって使うのが普通だろうけど、herokuを使っている自分としては開発環境（というかファイル生成環境）毎pushするのかと思っていたので少々面食らった。githubからbuild errorの通知メールを送ってくれるということはgithub側で自動buildしてくれる仕組みはあるようだけど、ローカル環境でbuildした結果だけをpushしても問題はないようだ。</p></li>
+<li><p>結論。やったのは以下の３作業だけ。ネットで検索しているとgh-pagesブランチを作れとか書いてあるが、別ブランチを作ったらgithubからbuild errorのメールが届いたのでmasterブランチのままです。</p></li>
+</ul>
 
-<p>4 気分を入れ替えてgithubのレポジトリを削除して作り直すことにした。そもそも<a href="http://krakenbeal.blogspot.jp/2012/05/ruby-jekyll-jekyll-bootstrap.html">このサイト</a>を参考にjekyllのbuild環境を含めてレポジトリを作ったのだけど、githubにある「Automatic Page Generator」のボタンをクリックしてレポジトリを新しく作り直してみると、リポジトリには生成された静的コンテンツのみが含まれていた。ということはgithubのリポジトリにはjekyllで生成された結果ファイルのみを含めるべきなのか？まぁgeneratorとはそうやって使うのが普通だろうけど、herokuを使っている自分としては開発環境（というかファイル生成環境）毎pushするのかと思っていたので少々面食らった。githubからbuild errorの通知メールを送ってくれるということはgithub側で自動buildしてくれる仕組みはあるようだけど、ローカル環境でbuildした結果だけをpushしても問題はないようだ。</p>
+
+<p>1 githubのメニューからusername.github.ioという名前のrepositoryを新規作成<br/>
+2 ローカル環境にcloneして、jekyll generatorで出力した_siteディレクトリ以下のファイルをcopyしてcommit<br/>
+  <code>git clone https://github.com/username/username.github.io.git</code><br/>
+  <code>cp ../localrepository/_site/* .</code><br/>
+  <code>git commit -a -m "copy from _site directory of jekyll project"</code><br/>
+3 masterブランチとしてpush<br/>
+  <code>git push origin</code></p>
+
+<p>  何かネットの情報に振り回されて余計な時間を喰ってしまった感じです。githubの仕様が変わったのか、今頃github-pagesに手を出す私は珍しいのか、ローカルにjekyllをインストールして使う人は少ないのか知りませんが、上に書いた手順を紹介しているサイトは見かけませんでした。このやり方で運用しようと思います。</p>
 
 					<div class="meta">
 						<p class="date-publish">
