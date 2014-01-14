@@ -1,0 +1,13 @@
+
+http://happyclam.github.io/atom.xml
+http://happyclam.github.io/rss.xml
+http://happyclam.github.io/sitemap.txt
+http://happyclam.github.io/categories.html
+http://happyclam.github.io/pages.html
+http://happyclam.github.io/tags.html
+http://happyclam.github.io/index.html
+http://happyclam.github.io/archive.html
+
+http://happyclam.github.io/practice/2014-01-12/jekyll-bootstrap
+http://happyclam.github.io/practice/2014-01-10/jekyll-practice
+http://happyclam.github.io/practice/2014-01-09/ruby-is-great

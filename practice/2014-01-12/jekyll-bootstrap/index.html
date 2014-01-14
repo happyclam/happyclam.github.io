@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9 ie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Jekyll Bootstrapのテンプレート　</title>
+	<meta name="author" content="happyclam">
+	<link href='/assets/themes/the-minimum/css/style.css' rel="stylesheet" media="all">
+    <link rel="stylesheet" href="/assets/themes/the-minimum/css/syntax.css" type="text/css">
+	<link href="http://feeds.feedburner.com/" rel="alternate" title="Jekyll Bootstrapのテンプレート　" type="application/atom+xml">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+
+<div id="page" class="hentry">
+	<header class="the-header">
+		<div class="unit-head">
+			<div class="unit-inner unit-head-inner">
+				<p class="logo"><a href="/">自己満足プログラミング</a></p>
+				<nav class="nav-global">
+					<ul>
+						<li class="archive"><a href="/archive.html">archive</a></li>
+						<li class="page"><a href="/pages.html">pages</a></li>
+						<li class="category"><a href="/categories.html">categories</a></li>
+						<li class="tag"><a href="/tags.html">tags</a></li>
+						<li class="forkme"><iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=plusjade&repo=jekyll-bootstrap&type=fork&count=true"
+								allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe></li>
+					</ul>
+				</nav>
+			</div><!-- unit-inner -->
+		</div><!-- unit-head -->
+	</header>
+	<div class="body" role="main">
+		<div class="unit-body">
+			<div class="unit-inner unit-body-inner">
+				<div class="entry-content">
+					
+<article class="unit-article layout-post">
+	<div class="unit-inner unit-article-inner">
+		<div class="content">
+			<header>
+				<div class="unit-head">
+					<div class="unit-inner unit-head-inner">
+						<h1 class="h2 entry-title">Jekyll Bootstrapのテンプレート　</h1>
+					</div><!-- unit-inner -->
+				</div><!-- unit-head -->
+			</header>
+
+			<div class="bd">
+				<div class="entry-content">
+					<p>テンプレート<a href="http://themes.jekyllbootstrap.com/" title="Jekyll-bootstrap">Jekyll Bootstrap</a>を適用してローカルで動作確認できたからgithub.ioにpushしたんだけど表示されない。</p>
+
+<p>1 まずgithubから <br/>
+<code>The submodule 'xxxxx' was not properly initialized with a '.gitmodules' file.</code><br/>
+というメールが来た。どうもsubmoduleというのがよく分からなかったのだけど<a href="http://qiita.com/sotarok/items/0d525e568a6088f6f6bb" title="Git submodule の基礎">ここ</a>を参考に解決<br/>
+<code>jekyll build</code>で静的ファイルを生成したはずだから、build後はテンプレートは必要ないのかと思ったけどsubmoduleとしてcommitしなければいけないらしい。今までgit使っていてsubmoduleなんて使ったこと無かったけど、submodule内のcommitは外のcommitとは別途実行する必要（当然といえば当然だけど）があるみたいで、なんだかややこしそうな仕組みだ。</p>
+
+<p>2 次に来たメールがこんなの<br/>
+<code>The tag 'math' in 'xxxxx' is not a recognized Liquid tag.</code><br/>
+<a href="http://melborne.github.io/2012/05/13/first-step-of-jekyll/" title="30分のチュートリアルでJekyllを理解する">数式を表示するプラグイン（Mathjax.rb）</a>を試しに使っていたのだが、テンプレートを適用したためテンプレート内に存在するdefault.htmlを修正する必要が出てきた。テンプレート内のファイルに変更を加えたらテンプレートをupdateしたときに問題が出るんじゃないの？と思いながらもテンプレート内のdefault.html<a href="%22default.html%E3%81%8C%E8%A4%87%E6%95%B0%E3%81%82%E3%81%A3%E3%81%A6%E3%82%84%E3%82%84%E3%81%93%E3%81%97%E3%81%84%E3%81%A7%E3%81%99%E3%81%8C%E3%80%81%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E5%86%85%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B%E5%BF%85%E8%A6%81%E3%81%AF%E7%84%A1%E3%81%8F%E3%80%81_include/%E4%BB%A5%E4%B8%8B%E3%81%AB%E3%81%82%E3%82%8Bdefault.html%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8C%E3%81%B0%E3%81%84%E3%81%84%E3%82%88%E3%81%86%E3%81%A7%E3%81%99%E3%80%82%22">^1</a>にMathJax.jsを読み込むコードを追加</p>
+
+<p>3 ようやく表示出来るかとおもったら、また次のようなメールが<br/>
+<code>page build failed</code><br/>
+今回のメールは理由が書いていない。どうすりゃいいの？ローカルでは問題ないのに。<br/>
+googleで検索すると<a href="http://modalsoul.github.io/environment/2013/08/17/Github-pages-build-failure/">ここ</a>にいろんなケースが書いてあった。こんなこと全部はやってられるかって感じ。herokuでも感じていたけど、やりたいことと関係ないところで手間がかかるから、運用の手間は増えるけどEC2とかを使って全部自分でサーバー環境作るべきか？とか思案に耽ってしまった。</p>
+
+<p>4 気分を入れ替えてgithubのレポジトリを削除して作り直すことにした。そもそも<a href="http://krakenbeal.blogspot.jp/2012/05/ruby-jekyll-jekyll-bootstrap.html">このサイト</a>を参考にjekyllのbuild環境を含めてレポジトリを作ったのだけど、githubにある「Automatic Page Generator」のボタンをクリックしてレポジトリを新しく作り直してみると、リポジトリには生成された静的コンテンツのみが含まれていた。ということはgithubのリポジトリにはjekyllで生成された結果ファイルのみを含めるべきなのか？まぁgeneratorとはそうやって使うのが普通だろうけど、herokuを使っている自分としては開発環境（というかファイル生成環境）毎pushするのかと思っていたので少々面食らった。githubからbuild errorの通知メールを送ってくれるということはgithub側で自動buildしてくれる仕組みはあるようだけど、ローカル環境でbuildした結果だけをpushしても問題はないようだ。</p>
+
+					<div class="meta">
+						<p class="date-publish">
+							Published: 
+							<date class="date-pub" title="2014-01-12T00:00:00+09:00" datetime="2014-01-12T00:00:00+09:00" pubdate>
+							<span class="month"><abbr>January</abbr></span>
+							<span class="day">12</span>
+							<span class="year">2014</span>
+							</date>
+						</p>
+						<ul class="list-category list-linear">
+							<li class="list-head">category: </li>
+							
+							
+
+
+  
+     
+    	<li><a href="/categories.html#practice-ref">
+    		practice <span>3</span>
+    	</a></li>
+    
+  
+
+
+						</ul>
+						<ul class="list-tag list-linear">
+							<li class="list-head">tags: </li>
+							
+							
+
+
+  
+     
+    	<li><a href="/tags.html#ruby-ref">ruby <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#jekyll-ref">jekyll <span>3</span></a></li>
+    
+  
+
+
+
+						</ul>
+					</div><!-- meta -->
+				</div><!-- entry-content -->
+				<div class="misc-content">
+					<div class="social">
+						<ul class="list-linear">
+							<li><div class="twitter-tweet"><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="SappierBoy" data-lang="en">Tweet</a></div></li>
+							<li><div class="twitter-follow"><a href="https://twitter.com/SappierBoy" class="twitter-follow-button" data-show-count="false" data-lang="en"></a></div></li>
+						</ul>
+					</div>
+					
+					
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+				</div><!-- misc-content -->
+				
+			</div><!-- bd -->
+			<footer class="unit-foot">
+				<div class="unit-inner unit-foot-inner">
+					<nav class="pagination">
+						<ul>
+							
+							<li class="prev"><a class="internal" rel="prev"  href="/practice/2014-01-10/jekyll-practice" title="View Jekyllの練習">&laquo; Jekyllの練習</a></li>
+							
+							
+							
+						</ul>
+					</nav>
+					<p class="gotop">
+						<a href="#page">Back to Top</a>
+					</p>
+				</div>
+			</footer>
+
+		</div><!-- content -->
+	</div><!-- unit-inner -->
+</article>
+
+
+				</div>
+			</div><!-- unit-inner -->
+		</div><!-- unit-body -->
+	</div><!-- body -->
+	<footer class="the-footer">
+		<div class="unit-foot">
+			<div class="unit-inner unit-foot-inner">
+				<div class="misc vcard">
+					<h4>about</h4>
+					<ul>
+<!-- 						<li class="contact"><address><span class="author fn n">happyclam</span> - <span class="fn email">happyclam.u@gmail.com</span></address></li> -->
+						<li class="github"><a href="http://github.com/happyclam/" rel="me">github.com/happyclam</a></li>
+						<li class="twitter"><a href="http://twitter.com/SappierBoy/" rel="me">twitter.com/SappierBoy</a></li>
+<!-- 						<li class="rss"><a href="http://feeds.feedburner.com/">Subscribe to RSS Feed</a></li> -->
+					</ul>
+				</div><!-- misc -->
+				<p class="licence">
+					Theme: <a href="http://layouts-the.me">the_minimum</a> based on <a href="http://jekyllbootstrap.com/">Jekyll-bootstrap</a>.<br>
+					Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a>.
+				</p>
+			</div><!-- unit-foot-inner -->
+		</div><!-- unit-foot -->
+	</footer>
+</div><!-- page -->
+<script>
+	(function(d, s) {
+		var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.src = url; js.id = id;
+		fjs.parentNode.insertBefore(js, fjs);
+		};
+	load('//platform.twitter.com/widgets.js', 'tweetjs');
+	// load('https://apis.google.com/js/plusone.js', 'gplus1js'); // Checkout http://j.mp/ApDgMr for usage html for this is <div class="g-plusone" data-size="medium"></div>
+	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/practice/2014-01-12/jekyll-bootstrap" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
+	}(document, 'script'));
+</script>
+<script>
+/*! A fix for the iOS orientationchange zoom bug.Script by @scottjehl, rebound by @wilto. MIT License.*/
+(function(j){var i=j.document;if(!i.querySelectorAll){return}var l=i.querySelectorAll("meta[name=viewport]")[0],a=l&&l.getAttribute("content"),h=a+", maximum-scale=1.0",d=a+", maximum-scale=10.0",g=true,c=j.orientation,k=0;if(!l){return}function f(){l.setAttribute("content",d);g=true}function b(){l.setAttribute("content",h);g=false}function e(m){c=Math.abs(j.orientation);k=Math.abs(m.gamma);if(k>8&&c===0){if(g){b()}}else{if(!g){f()}}}j.addEventListener("orientationchange",f,false);j.addEventListener("deviceorientation",e,false)})(this);
+</script>
+
+  
+</body>
+</html>
+

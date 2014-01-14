@@ -1,0 +1,134 @@
+a:link.non-ul,
+a:visited.non-ul,
+a:hover.non-ul,
+a:active.non-ul {
+  color: #003333;
+  background:transparent;
+  text-decoration:none;
+}
+A.non-ul {
+  display:block;
+  width:90%;
+  height:100%;
+  padding:3px 0px 3px 0px;
+  margin:0px 0px 0px 3px;
+  border-right-width : 1px;
+  border-right-style : solid;
+  border-right-color : #ffffff;
+  border-bottom-width : 1px;
+  border-bottom-style : solid;
+  border-bottom-color : #ffffff;
+  text-decoration: none;
+}
+A.non-ul:LINK {
+  border-rightleft-width : 1px;
+  border-right-style : solid;
+  border-right-color : #ffffff;
+  border-bottom-width : 1px;
+  border-bottom-style : solid;
+  border-bottom-color : #ffffff;
+  text-decoration: none;
+}
+
+A.non-ul:VISITED {
+  border-right-width : 1px;
+  border-right-style : solid;
+  border-right-color : #ffffff;
+  border-bottom-width : 1px;
+  border-bottom-style : solid;
+  border-bottom-color : #ffffff;
+  text-decoration: none;
+}
+
+A.non-ul:HOVER {
+  border-right-width : 1px;
+  border-right-style : solid;
+  border-right-color : #AAAAAA;
+  border-bottom-width : 1px;
+  border-bottom-style : solid;
+  border-bottom-color : #AAAAAA;
+  text-decoration: none;
+}
+
+A.non-ul:ACTIVE {
+  border-right-width : 3px;
+  border-right-style : solid;
+  border-right-color : #F9F9F9;
+  border-bottom-width : 1px;
+  border-bottom-style : solid;
+  border-bottom-color : #F9F9F9;
+  text-decoration: none;
+}
+
+a:link {
+  background:transparent;
+  color:#006699;
+}
+a:visited {
+  background:transparent;
+  color: #666600;
+}
+a:hover {
+  background:transparent;
+  color:#003399
+}
+a:active {
+  background:transparent;
+  color:#6666ff
+}
+body {
+  background-color: #fff;
+  color: #242550;
+}
+
+span {
+  color: #435495;
+}
+
+h1 {
+  color: #435495;
+}
+
+h2 {
+  color: #384D98;
+}
+
+header {
+/*  border-bottom: 10px solid #a33; */
+  border-bottom: 10px solid #069;
+}
+
+.story {
+  /* the frame around all elements of one story */
+  background:transparent;
+  color:#003333;
+}
+.story h3{
+  background:transparent;
+  color: #38a1db;
+  font-weight:bold;
+  padding-left:1px;
+  display: inline;
+}
+.story-body {
+  padding:3px;
+}
+div.story-body a,
+div.story-body a:link,
+div.story-body a:visited {
+  color: #003333;
+}
+div.story-body a:hover {
+  color: #666600;
+}
+
+div.story-body a:focus,
+div.story-body a:active {
+  color: #003399;
+}
+
+footer {
+/*  background-color: #a33; */
+  background-color: #069;
+  color: #fff;
+}
