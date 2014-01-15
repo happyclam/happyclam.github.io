@@ -91,7 +91,9 @@ h2 {
 
 header {
 /*  border-bottom: 10px solid #a33; */
-  border-bottom: 10px solid #069;
+/*  border-bottom: 10px solid #069; */
+  border-bottom: 10px solid #033;
+
 }
 
 .story {
