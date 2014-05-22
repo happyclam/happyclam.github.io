@@ -5,10 +5,81 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2014-01-15T20:46:44+09:00</lastBuildDate>
-        <pubDate>2014-01-15T20:46:44+09:00</pubDate>
+        <lastBuildDate>2014-05-22T15:02:35+09:00</lastBuildDate>
+        <pubDate>2014-05-22T15:02:35+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>rspecに納得できない</title>
+                <description>&lt;p&gt;先日衝動買いした&lt;a href=&quot;http://www.amazon.co.jp/Instant-RSpec-Test-Driven-Development-How-ebook/dp/B00DMYO1QK&quot;&gt;Instant RSpec Test-Driven Development How-to [Kindle版]&lt;/a&gt;の最初に出てくるサンプルコード&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;ruby:location_spec.rb&quot;&gt;describe Location do
+  describe &quot;#initialize&quot; do
+    it &quot;sets the latitude and longitude&quot; do
+      loc = Location.new(:latitude =&amp;gt; 38.911268,
+                         :longitude =&amp;gt; -77.444243)
+      loc.latitude.should == 38.911268
+      loc.longitude.should == -77.444243
+    end
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li&gt;上記テストを通過させるために「自分が書いたコード」が以下のもの&lt;code&gt;rspec failed&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;pre&gt;&lt;code class=&quot;ruby:my_answer.rb  &quot;&gt;   class  Location  
+       attr_accessor :latitude  
+       attr_accessor :longitude  
+       def initialize(lati=nil, long=nil)  
+           @latitude = lati  
+           @longitude = long  
+       end  
+   end  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;「リファクタリング前のコード」として本で紹介されているコード&lt;code&gt;rspec passed&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;pre&gt;&lt;code class=&quot;ruby:bad_answer.rb&quot;&gt;   class  Location
+       def initialize(args = {});end
+       def latitude
+           38.911268
+       end
+       def longitude
+           -77.444243
+       end
+   end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;「リファクタリング後のコード」として本で紹介されているコード&lt;code&gt;rspec passed&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;pre&gt;&lt;code class=&quot;ruby:model_answer.rb&quot;&gt;   class Location
+       attr_accessor :latitude, :longitude
+       def initialize(args = {})
+           self.latitude = args[:latitude]
+           self.longitude = args[:longitude]
+       end
+   end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;テストを通過させるためだけに書かれたような「リファクタリング前のコード」がエラーにならないのに、上記「自分のコード」がエラーになるのは納得がいかない。&lt;br/&gt;
+自分のコードに何かエラーにしなければならない理由があるのか？自分にはわからないので誰か教えてください。&lt;/p&gt;
+</description>
+                <link>http://happyclam.github.io/programming/2014-05-17/inflexible-rspec</link>
+                <guid>http://happyclam.github.io/programming/2014-05-17/inflexible-rspec</guid>
+                <pubDate>2014-05-17T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>Jekyll Bootstrapのテンプレート　</title>
@@ -16,12 +87,12 @@
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;まずgithubから &lt;br/&gt;
-&lt;code&gt;The submodule 'xxxxx' was not properly initialized with a '.gitmodules' file.&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;The submodule &#39;xxxxx&#39; was not properly initialized with a &#39;.gitmodules&#39; file.&lt;/code&gt;&lt;br/&gt;
 というメールが来た。どうもsubmoduleというのがよく分からなかったのだけど&lt;a href=&quot;http://qiita.com/sotarok/items/0d525e568a6088f6f6bb&quot; title=&quot;Git submodule の基礎&quot;&gt;ここ&lt;/a&gt;を参考に解決&lt;br/&gt;
 &lt;code&gt;jekyll build&lt;/code&gt;で静的ファイルを生成したはずだから、build後はテンプレートは必要ないのかと思ったけどsubmoduleとしてcommitしなければいけないらしい。今までgit使っていてsubmoduleなんて使ったこと無かったけど、submodule内のcommitは外のcommitとは別途実行する必要（当然といえば当然だけど）があるみたいで、なんだかややこしそうな仕組みだ。&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;次に来たメールがこんなの&lt;br/&gt;
-&lt;code&gt;The tag 'math' in 'xxxxx' is not a recognized Liquid tag.&lt;/code&gt;&lt;br/&gt;
-&lt;a href=&quot;http://melborne.github.io/2012/05/13/first-step-of-jekyll/&quot; title=&quot;30分のチュートリアルでJekyllを理解する&quot;&gt;数式を表示するプラグイン（Mathjax.rb）&lt;/a&gt;を試しに使っていたのだが、テンプレートを適用したためテンプレート内に存在するdefault.htmlを修正する必要が出てきた。テンプレート内のファイルに変更を加えたらテンプレートをupdateしたときに問題が出るんじゃないの？と思いながらもとりあえずテンプレート内のdefault.html&lt;a href=&quot;%22default.html%E3%81%8C%E8%A4%87%E6%95%B0%E3%81%82%E3%81%A3%E3%81%A6%E3%82%84%E3%82%84%E3%81%93%E3%81%97%E3%81%84%E3%81%A7%E3%81%99%E3%81%8C%E3%80%81%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E5%86%85%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B%E5%BF%85%E8%A6%81%E3%81%AF%E7%84%A1%E3%81%8F%E3%80%81_include/%E4%BB%A5%E4%B8%8B%E3%81%AB%E3%81%82%E3%82%8Bdefault.html%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8C%E3%81%B0%E3%81%84%E3%81%84%E3%82%88%E3%81%86%E3%81%A7%E3%81%99%E3%80%82%22&quot;&gt;^1&lt;/a&gt;にMathJax.jsを読み込むコードを追加&lt;/p&gt;&lt;/li&gt;
+&lt;code&gt;The tag &#39;math&#39; in &#39;xxxxx&#39; is not a recognized Liquid tag.&lt;/code&gt;&lt;br/&gt;
+&lt;a href=&quot;http://melborne.github.io/2012/05/13/first-step-of-jekyll/&quot; title=&quot;30分のチュートリアルでJekyllを理解する&quot;&gt;数式を表示するプラグイン（Mathjax.rb）&lt;/a&gt;を試しに使っていたのだが、テンプレートを適用したためテンプレート内に存在するdefault.htmlを修正する必要が出てきた。テンプレート内のファイルに変更を加えたらテンプレートをupdateしたときに問題が出るんじゃないの？と思いながらもとりあえずテンプレート内のdefault.html&lt;a href=&quot;#fn1&quot;&gt;&lt;sup&gt;*1&lt;/sup&gt;&lt;/a&gt;にMathJax.jsを読み込むコードを追加&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;ようやく表示出来るかとおもったら、また次のようなメールが&lt;br/&gt;
 &lt;code&gt;page build failed&lt;/code&gt;&lt;br/&gt;
 今回のメールは理由が書いていない。どうすりゃいいの？ローカルでは問題ないのに。&lt;br/&gt;
@@ -40,6 +111,8 @@ googleで検索すると&lt;a href=&quot;http://modalsoul.github.io/environment/
   &lt;code&gt;git push origin&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;  何かネットの情報に振り回されて余計な時間を喰ってしまった感じです。githubの仕様が変わったのか、今頃github-pagesに手を出す私は珍しいのか、ローカルにjekyllをインストールして使う人は少ないのか知りませんが、上に書いた手順を紹介しているサイトは見かけなかったので、何か間違っているのかもしれませんが。このやり方で運用しようと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;fn1&quot;&gt;*1&lt;/a&gt;default.htmlが複数あってややこしいですが、テンプレート内のファイルを変更する必要は無く、_include/以下にあるdefault.htmlを変更すればいいようです。&lt;/p&gt;
 </description>
                 <link>http://happyclam.github.io/practice/2014-01-12/jekyll-bootstrap</link>
                 <guid>http://happyclam.github.io/practice/2014-01-12/jekyll-bootstrap</guid>
