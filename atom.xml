@@ -4,13 +4,498 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2014-05-22T15:02:35+09:00</updated>
+ <updated>2014-05-24T21:24:39+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>DBのカラムに対応しないプロパティ</title>
+   <link href="http://happyclam.github.io/programming/2014-05-24/my-posi_tip1"/>
+   <updated>2014-05-24T19:49:47+09:00</updated>
+   <id>http://happyclam.github.io/programming/2014-05-24/my-posi_tip1</id>
+   <content type="html">&lt;h3&gt;日付型のカラムのデータを年月だけの文字列にしてコンボボックスに表示したい&lt;/h3&gt;
+
+&lt;p&gt;先物やオプションの建玉を入力する時には限月を選ぶ必要がありますが、必要なのは年と月(&quot;2014/06&quot;等の文字列)だけです。でもDBに&quot;年/月&quot;のフォーマットで文字列として格納するのはあまりにも汚い。DBのカラム属性は日付型にしておいた方が何かと便利、というかしておくべきでしょう（日数や時間の差を計算する時に困ります）。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/dropdown_exp.png&quot; title=&quot;限月の選択&quot; alt=&quot;限月の選択&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;こういう場合、昔PHPで仕事していた時には、文字列型と日付型を相互にフォーマット変換するコードをView上のあちこちに散りばめながら実現していた記憶があります。&lt;/p&gt;
+
+&lt;h3&gt;シンプルな実現方法&lt;/h3&gt;
+
+&lt;p&gt;Position.expirationがDBのカラムに対応するプロパティで日付型です。そこにPosition.ym_expirationというDBにカラムが存在しない入出力用のプロパティを用意し、そのsetterとgetterを定義します。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Model(Position)&lt;br/&gt;
+getter(日付型のデータを、年/月のフォーマットの文字列に変換してして返す)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;pre&gt;&lt;code class=&quot;ruby:position.rb&quot;&gt;  def ym_expiration
+    return self.expiration.strftime(&quot;%Y/%m&quot;) if self.expiration
+  end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;setter(年/月の文字列データを日付01を付加して日付型に変換して格納)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;ruby:position.rb&quot;&gt;  def ym_expiration=(ym_expiration)
+    self.expiration = Date.strptime(ym_expiration + &quot;/01&quot;, &quot;%Y/%m/%d&quot;)
+  end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Viewから呼ばれる、年/月の文字列データを返すメソッド&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;ruby:position.rb&quot;&gt;  def get_expiration_list
+    :省略
+    :
+  end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;View(_edit_position.html.erb)&lt;br/&gt;
+Viewでは入出力用に追加したym_expirationプロパティだけを使うようにすれば、あたかもDBに対応するカラムのように扱えます。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;pre&gt;&lt;code class=&quot;ruby:_edit_position.html.erb&quot;&gt;&amp;lt;td align=&quot;center&quot;&amp;gt;&amp;lt;%= f.select(&quot;ym_expiration&quot;, position.get_expiration_list, {:include_blank =&amp;gt; false}, {:class =&amp;gt; &quot;span6&quot;, :style =&amp;gt; &quot;width:90px;&quot;}) %&amp;gt;&amp;lt;/td&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;CakephpやPHP5以上ならたぶん同じことが出来ると思いますが、もうPHPに戻りたくないし調べる気にもなりません&lt;/p&gt;
+
+&lt;hr /&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>先物・オプションのシミュレーションサイト</title>
+   <link href="http://happyclam.github.io/project/2014-05-24/my-posi"/>
+   <updated>2014-05-24T19:46:37+09:00</updated>
+   <id>http://happyclam.github.io/project/2014-05-24/my-posi</id>
+   <content type="html">&lt;p&gt;Project: 「&lt;a href=&quot;http://my-posi.herokuapp.com/&quot;&gt;&lt;strong&gt;みんなのポジション&lt;/strong&gt;&lt;/a&gt;」: &lt;a href=&quot;https://github.com/happyclam/my-posi&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;開発の動機&lt;/h3&gt;
+
+&lt;p&gt;当時、利用している証券会社のシステムが物足りなく信用できないものであったため自作しました。でも自分で作成した後、まもなくネット証券側もシステムをリニューアルして、自分のものより遥に高機能なものに置き換わったのですが、損益グラフを表示した時にグラフのメモリ幅を変更出来ないため見にくいという不満があったりするので、その点でまだは自分のソフトの方が優れているかなと思っています。まぁオプション売買を活発にしている人はそれ程多くないと思いますので、証券会社も力を入れていないのだと思います。５社ほどで取引したことありますが、そもそもオプション売買のシミュレーション機能なんて無い証券会社もありました。&lt;br/&gt;
+最近は自分もあまりオプション取引をしていないのでよく知りませんが、今ではWebベースでもWindowsネイティブソフト並にユーザインターフェースに凝ったソフトを提供している証券会社があるかもしれません。&lt;/p&gt;
+
+&lt;h3&gt;機能&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;日経225先物、日経225先物ミニ、日経225オプション(CALL,PUT)の建玉を一つのポジション、複数のポジションをまとめたものをストラテジーとして、ユーザ毎の複数のストラテジーの保存。&lt;/li&gt;
+&lt;li&gt;複数の建玉の売買シミュレーションと損益推移（個別・合算）グラフを表示&lt;br/&gt;
+※ブラックショールズモデルを利用したオプション理論価格計算に対応しているので、満期（SQ）時の損益だけでなく、現時点での原資産価格（日経225先物価格）毎の損益推移を表示出来ます&lt;/li&gt;
+&lt;li&gt;twitterを利用したユーザー認証とポジションをtwitterで呟く&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;ER図&lt;/h3&gt;
+
+&lt;object data=&quot;/pdf/ERD.pdf&quot; width=&quot;760&quot; height=&quot;480&quot;&gt;
+&lt;p&gt;ご覧の環境では、object要素がサポートされていないようです。&lt;a href=&quot;/pdf/ERD.pdf&quot;&gt;PDFファイルをダウンロードしてください&lt;/a&gt;&lt;/p&gt;
+&lt;/object&gt;
+
+
+&lt;p&gt;UserモデルとStrategyモデルが1対多、StrategyモデルとPositionモデルが1対多で関連付けられている単純なテーブル構造です。&lt;br/&gt;
+他のテーブルと関連付けられていないCandlestickモデルというのはネット上に転がっている先物価格のロウソク足用のcsvデータを流し込むためのテーブルで、ヒストリカル・ボラティリティ（HV）を計算するためだけに使用しています。HVの計算方法には色々あるようですが、自分が使用したのは&lt;a href=&quot;http://www.option-dojo.com/kn/225_vola.html&quot;&gt;ここ&lt;/a&gt;に記載されている方法に倣っています。&lt;br/&gt;
+気が向いたときにcsvデータを手動で更新するという運用の仕方をしてました。画面から手入力するとその値を優先して使用するようにしているので、実際にはHVを手入力して使うことが多かったです。開発当時は無かったのですが、今なら日経平均ボラティリティインデックスがリアルタイムで更新されているのでその値を手入力する方がいいかもしれません。20%（日経平均VIが20ポイント）であれば0.2を入力します。このHVの値を使ってオプション理論価格を算出します。&lt;br/&gt;
+※ボラティリティにはHVとは別にインプライド・ボラティリティ（IV）というものがありますが、ボラティリティに関しては別記事を書こうと思います。&lt;/p&gt;
+
+&lt;h3&gt;テーブル構造&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Userテーブル&lt;/em&gt;&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt; 名称         &lt;/th&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt; 内容                                           &lt;/th&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt; 例            &lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; name         &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; サイト内で使用する独自のユーザ名                 &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;               &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; provider     &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; twitter認証APIで返される文字列                  &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; &quot;twitter&quot;     &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; screen_name  &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; twitter認証APIで返される文字列                  &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; &quot;SappierBoy&quot;  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; uid          &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; twitter認証APIで返される文字列                  &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; &quot;1111111111&quot;  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Strategyテーブル&lt;/em&gt;&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt; 名称         &lt;/th&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt; 内容                                                &lt;/th&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt; 例            &lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; draw_type    &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 損益グラフを個別表示するか合算表示するか              &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 1,未定義      &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; interest     &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 金利                                                &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 0.02          &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; name         &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; ストラテジー名                                       &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; &quot;abc戦略&quot;     &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; range        &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; グラフの幅デフォルト500とした相対数値で拡大・縮小      &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 500          &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; sigma        &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; オプション理論価格計算に使用するボラティリティ(HV)     &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 0.2          &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Positionテーブル&lt;/em&gt;&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt; 名称         &lt;/th&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt; 内容                                           &lt;/th&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt; 例            &lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; distinct     &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 商品種別（日経225先物、日経225先物mini、CALLオプション、PUTオプション） &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;       &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; exercise     &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 行使価格（オプションの場合のみ、先物の場合はnil） &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 0.02          &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; expiration   &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 限月（満期月）                                  &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; &quot;2014/06&quot;     &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; maturity     &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 残存日数（1日に満たない場合も日数換算）          &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 0.1～365      &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; number       &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; オプション理論価格計算に使用するボラティリティ    &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 0.2           &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; sale         &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 売り、買いの区別                                &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;               &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; unit         &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 商品単価                                        &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;               &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Candlestickテーブル&lt;/em&gt;&lt;br/&gt;
+※どこから先物価格のデータを取得するかでテーブル構造は変わるので省略します。必要なのはオプションの原資産となる先物価格の終値20日分です。私が利用していたのは&lt;a href=&quot;http://k-db.com/&quot;&gt;このサイト&lt;/a&gt;です。&lt;br/&gt;
+以下のようにcsvデータをダウンロード&lt;br/&gt;
+&lt;code&gt;
+wget -O ./lib/futures.csv &quot;http://k-db.com/site/jikeiretsuF.aspx?c=101&amp;amp;year=0&amp;amp;download=csv&quot;  
+&lt;/code&gt;&lt;br/&gt;
+csvデータから先物価格データを格納    &lt;br/&gt;
+&lt;code&gt;  
+rails runner Candlestick::biteoff
+&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;参考文献&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.amazon.co.jp/%E4%B8%96%E7%95%8C%E4%B8%80%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E9%87%91%E8%9E%8D%E5%B7%A5%E5%AD%A6%E3%81%AE%E6%9C%AC%E3%81%A7%E3%81%99-%E7%94%B0%E6%B8%95-%E7%9B%B4%E4%B9%9F/dp/4534040512]&quot;&gt;「世界一やさしい金融工学の本です」&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>ツイートを監視して集計する</title>
+   <link href="http://happyclam.github.io/project/2014-05-24/tweetwatch"/>
+   <updated>2014-05-24T15:54:22+09:00</updated>
+   <id>http://happyclam.github.io/project/2014-05-24/tweetwatch</id>
+   <content type="html">&lt;p&gt;Project: 「tweetwatch」: まだGitHubにはアップしていません&lt;/p&gt;
+
+&lt;h3&gt;開発の動機&lt;/h3&gt;
+
+&lt;p&gt;今年の都知事選の頃、多くのフォロワーを抱えていいる人（以下a氏と表記）が&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Twitterで&lt;strong&gt;#都知事選&lt;/strong&gt;というタグをつけて自分が投票した候補者の名前を呟けば、それを集計してくれるアプリ作れないかな～&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;と物欲しそうに呟いていたのが目に止まりました。&lt;br/&gt;
+Yahooのアンケートのように、誰がどれぐらい票を獲得しているかtwitterで独自に確認しようという意図のようです。
+プログラマたるもの、そこで「すぐ出来ますよ」とリプライするような軽率な行動をとってはいけません。職業プログラマなら尚更です。誰かが手を挙げるかもと思いながらしばらく様子を見ていましたが、その呟きに対して反応する人はいなかったようです。こういう場合、相手がどれほどのものを要求しているかわからないので迂闊に出来ますなんて言えませんが、StreamingAPI使えばとりあえず使える程度のものであれば、すぐ出来るんじゃないかと思い調べてみました。&lt;/p&gt;
+
+&lt;h3&gt;とりあえずローカル環境で動くもの&lt;/h3&gt;
+
+&lt;p&gt;「StreamingAPI」で検索すると役に立ちそうなサイトはすぐに見つかりました→&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;「Herokuの無料枠でTwitter Stream APIを常時監視 =&gt; DBに保存するRubyコード」&lt;/a&gt;&lt;br/&gt;
+このmorizyunって人のサイトは調べ物をしている際にはよくお世話になっていますが、今回見つけた記事も自分の要望その物です。私はherokuは使いませんでしたがほぼこの記事のコードそのままがローカル環境で動作しました。ツイートの集計がしたいのであればDBに溜まったデータに対してSQLを打ち込めば好きな結果が得られます。a氏に教えてあげようかとも思いましたが、おそらくプログラミングやSQLも知らないa氏が実際に自分のPCで動かすためにはそうとうな時間をかけてサポートしてあげないと無理だろうと思って止めておきました。自分が良かれと思って教えても、逆に恨まれることになり兼ねません。そうなんです、自分でニタニタ楽しむためのソフトを作れたとしても、それをひと様に使ってもらおうとするとまた一段とハードルが高くなるんですねぇ。&lt;/p&gt;
+
+&lt;h3&gt;ひと様が使えるようにするために&lt;/h3&gt;
+
+&lt;p&gt;最初はDBにデータを格納するだけのシェルスクリプトを起動しながら、ユーザー向けのwebインターフェースを提供してあげればいいだけだからそれほど手間はかからないと思いましたが、そうすると２プロセス動かすことになり、herokuの無料枠では済まなくなるし、自分のtwitterアカウントの認証キーがそのサービスに縛られるので開発に取りかかるのは躊躇してました。&lt;br/&gt;
+結局、現時点では&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;運用環境に関してはとりあえず自宅サーバで動くようにしてから考える&lt;/li&gt;
+&lt;li&gt;twitterのAPIキーをユーザ自身が登録して、そのキーを利用しながらDB格納プロセスを起動するようにする&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;という方針で作りました。
+DBにデータを格納するシェルスクリプトは、&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;morizyun氏のコード&lt;/a&gt;を叩き台にしてRailsで作ったWebサイトから制御するためのプロセス間通信用インターフェースを追加し、そのサーバーとなるシェルスクリプトに接続するクライアントとなるユーザ向けのwebサイトは&lt;a href=&quot;http://railstutorial.jp/&quot;&gt;Ruby on Rails チュートリアル&lt;/a&gt;でRSpecの勉強（写経）をしながら作ったものを流用しています。&lt;br/&gt;
+以後、DBにデータを格納する&lt;em&gt;サーバースクリプト&lt;/em&gt;とRails製&lt;em&gt;Webサイト&lt;/em&gt;に分けて紹介します。&lt;/p&gt;
+
+&lt;hr /&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>先物・オプションのシミュレーションサイト</title>
+   <link href="http://happyclam.github.io/project/2014-05-24/my-posi"/>
+   <updated>2014-05-24T00:00:00+09:00</updated>
+   <id>http://happyclam.github.io/project/2014-05-24/my-posi</id>
+   <content type="html">&lt;p&gt;Project: 「&lt;a href=&quot;http://my-posi.herokuapp.com/&quot;&gt;&lt;strong&gt;みんなのポジション&lt;/strong&gt;&lt;/a&gt;」: &lt;a href=&quot;https://github.com/happyclam/my-posi&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;開発の動機&lt;/h3&gt;
+
+&lt;p&gt;当時、利用している証券会社のシステムが物足りなく信用できないものであったため自作しました。でも自分で作成した後、まもなくネット証券側もシステムをリニューアルして、自分のものより遥に高機能なものに置き換わったのですが、損益グラフを表示した時にグラフのメモリ幅を変更出来ないため見にくいという不満があったりするので、その点でまだは自分のソフトの方が優れているかなと思っています。まぁオプション売買を活発にしている人はそれ程多くないと思いますので、証券会社も力を入れていないのだと思います。５社ほどで取引したことありますが、そもそもオプション売買のシミュレーション機能なんて無い証券会社もありました。&lt;br/&gt;
+最近は自分もあまりオプション取引をしていないのでよく知りませんが、今ではWebベースでもWindowsネイティブソフト並にユーザインターフェースに凝ったソフトを提供している証券会社があるかもしれません。&lt;/p&gt;
+
+&lt;h3&gt;機能&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;日経225先物、日経225先物ミニ、日経225オプション(CALL,PUT)の建玉を一つのポジション、複数のポジションをまとめたものをストラテジーとして、ユーザ毎の複数のストラテジーの保存。&lt;/li&gt;
+&lt;li&gt;複数の建玉の売買シミュレーションと損益推移（個別・合算）グラフを表示&lt;br/&gt;
+※ブラックショールズモデルを利用したオプション理論価格計算に対応しているので、満期（SQ）時の損益だけでなく、現時点での原資産価格（日経225先物価格）毎の損益推移を表示出来ます&lt;/li&gt;
+&lt;li&gt;twitterを利用したユーザー認証とポジションをtwitterで呟く&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;ER図&lt;/h3&gt;
+
+&lt;object data=&quot;/pdf/ERD.pdf&quot; width=&quot;760&quot; height=&quot;480&quot;&gt;
+&lt;p&gt;ご覧の環境では、object要素がサポートされていないようです。&lt;a href=&quot;/pdf/ERD.pdf&quot;&gt;PDFファイルをダウンロードしてください&lt;/a&gt;&lt;/p&gt;
+&lt;/object&gt;
+
+
+&lt;p&gt;UserモデルとStrategyモデルが1対多、StrategyモデルとPositionモデルが1対多で関連付けられている単純なテーブル構造です。&lt;br/&gt;
+他のテーブルと関連付けられていないCandlestickモデルというのはネット上に転がっている先物価格のロウソク足用のcsvデータを流し込むためのテーブルで、ヒストリカル・ボラティリティ（HV）を計算するためだけに使用しています。HVの計算方法には色々あるようですが、自分が使用したのは&lt;a href=&quot;http://www.option-dojo.com/kn/225_vola.html&quot;&gt;ここ&lt;/a&gt;に記載されている方法に倣っています。&lt;br/&gt;
+気が向いたときにcsvデータを手動で更新するという運用の仕方をしてました。画面から手入力するとその値を優先して使用するようにしているので、実際にはHVを手入力して使うことが多かったです。開発当時は無かったのですが、今なら日経平均ボラティリティインデックスがリアルタイムで更新されているのでその値を手入力する方がいいかもしれません。20%（日経平均VIが20ポイント）であれば0.2を入力します。このHVの値を使ってオプション理論価格を算出します。&lt;br/&gt;
+※ボラティリティにはHVとは別にインプライド・ボラティリティ（IV）というものがありますが、ボラティリティに関しては別記事を書こうと思います。&lt;/p&gt;
+
+&lt;h3&gt;テーブル構造&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Userテーブル&lt;/em&gt;&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt; 名称         &lt;/th&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt; 内容                                           &lt;/th&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt; 例            &lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; name         &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; サイト内で使用する独自のユーザ名                 &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;               &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; provider     &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; twitter認証APIで返される文字列                  &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; &quot;twitter&quot;     &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; screen_name  &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; twitter認証APIで返される文字列                  &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; &quot;SappierBoy&quot;  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; uid          &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; twitter認証APIで返される文字列                  &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; &quot;1111111111&quot;  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Strategyテーブル&lt;/em&gt;&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt; 名称         &lt;/th&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt; 内容                                                &lt;/th&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt; 例            &lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; draw_type    &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 損益グラフを個別表示するか合算表示するか              &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 1,未定義      &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; interest     &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 金利                                                &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 0.02          &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; name         &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; ストラテジー名                                       &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; &quot;abc戦略&quot;     &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; range        &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; グラフの幅デフォルト500とした相対数値で拡大・縮小      &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 500          &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; sigma        &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; オプション理論価格計算に使用するボラティリティ(HV)     &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 0.2          &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Positionテーブル&lt;/em&gt;&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt; 名称         &lt;/th&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt; 内容                                           &lt;/th&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt; 例            &lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; distinct     &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 商品種別（日経225先物、日経225先物mini、CALLオプション、PUTオプション） &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;       &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; exercise     &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 行使価格（オプションの場合のみ、先物の場合はnil） &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 0.02          &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; expiration   &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 限月（満期月）                                  &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; &quot;2014/06&quot;     &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; maturity     &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 残存日数（1日に満たない場合も日数換算）          &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 0.1～365      &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; number       &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; オプション理論価格計算に使用するボラティリティ    &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 0.2           &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; sale         &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 売り、買いの区別                                &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;               &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; unit         &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 商品単価                                        &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;               &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Candlestickテーブル&lt;/em&gt;&lt;br/&gt;
+※どこから先物価格のデータを取得するかでテーブル構造は変わるので省略します。必要なのはオプションの原資産となる先物価格の終値20日分です。私が利用していたのは&lt;a href=&quot;http://k-db.com/&quot;&gt;このサイト&lt;/a&gt;です。&lt;br/&gt;
+以下のようにcsvデータをダウンロード&lt;br/&gt;
+&lt;code&gt;
+wget -O ./lib/futures.csv &quot;http://k-db.com/site/jikeiretsuF.aspx?c=101&amp;amp;year=0&amp;amp;download=csv&quot;  
+&lt;/code&gt;&lt;br/&gt;
+csvデータから先物価格データを格納    &lt;br/&gt;
+&lt;code&gt;  
+rails runner Candlestick::biteoff
+&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;参考文献&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.amazon.co.jp/%E4%B8%96%E7%95%8C%E4%B8%80%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E9%87%91%E8%9E%8D%E5%B7%A5%E5%AD%A6%E3%81%AE%E6%9C%AC%E3%81%A7%E3%81%99-%E7%94%B0%E6%B8%95-%E7%9B%B4%E4%B9%9F/dp/4534040512]&quot;&gt;「世界一やさしい金融工学の本です」&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>ボラティリティについて</title>
+   <link href="http://happyclam.github.io/miscellaneous/2014-05-23/my-posi_vola"/>
+   <updated>2014-05-23T18:11:39+09:00</updated>
+   <id>http://happyclam.github.io/miscellaneous/2014-05-23/my-posi_vola</id>
+   <content type="html">&lt;h3&gt;インプライド・ボラティリティとヒストリカル・ボラティリティ&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;math&quot;&gt;&lt;/code&gt;&lt;/pre&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>αβ法に関して</title>
+   <link href="http://happyclam.github.io/software/2014-05-18/ab_method"/>
+   <updated>2014-05-18T19:16:10+09:00</updated>
+   <id>http://happyclam.github.io/software/2014-05-18/ab_method</id>
+   <content type="html">&lt;p&gt;αβ法に関して&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>rspecに納得できない</title>
@@ -80,6 +565,45 @@ end
 
 &lt;p&gt;テストを通過させるためだけに書かれたような「リファクタリング前のコード」がエラーにならないのに、上記「自分のコード」がエラーになるのは納得がいかない。&lt;br/&gt;
 自分のコードに何かエラーにしなければならない理由があるのか？自分にはわからないので誰か教えてください。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>αβ法　</title>
+   <link href="http://happyclam.github.io/software/2014-01-20/2014-02-09-draft"/>
+   <updated>2014-01-20T00:00:00+09:00</updated>
+   <id>http://happyclam.github.io/software/2014-01-20/2014-02-09-draft</id>
+   <content type="html">&lt;h3&gt;参考にした本&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;「リバーシアルゴリズム」&lt;/li&gt;
+&lt;li&gt;「アルゴリズムクイックブック」&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>αβ法　</title>
+   <link href="http://happyclam.github.io/software/2014-01-20/2014-01-22-draft"/>
+   <updated>2014-01-20T00:00:00+09:00</updated>
+   <id>http://happyclam.github.io/software/2014-01-20/2014-01-22-draft</id>
+   <content type="html">&lt;h3&gt;参考にした本&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;「リバーシアルゴリズム」&lt;/li&gt;
+&lt;li&gt;「アルゴリズムクイックブック」&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Jekyll Introduction Draft</title>
+   <link href="http://happyclam.github.io/lessons/2014-01-14/jekyll-introduction-draft"/>
+   <updated>2014-01-14T22:06:04+09:00</updated>
+   <id>http://happyclam.github.io/lessons/2014-01-14/jekyll-introduction-draft</id>
+   <content type="html">&lt;p&gt;This is an example of a draft. Read more here: &lt;a href=&quot;http://jekyllrb.com/docs/drafts/&quot;&gt;http://jekyllrb.com/docs/drafts/&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
