@@ -8,8 +8,13 @@ http://happyclam.github.io/tags.html
 http://happyclam.github.io/index.html
 http://happyclam.github.io/archive.html
 
+http://happyclam.github.io/programming/2014-05-26/my-posi_tip1
+http://happyclam.github.io/miscellaneous/2014-05-25/my-posi_vola
+http://happyclam.github.io/project/2014-05-24/tweetwatch
 http://happyclam.github.io/project/2014-05-24/my-posi
+http://happyclam.github.io/software/2014-05-18/ab_method
 http://happyclam.github.io/programming/2014-05-17/inflexible-rspec
+http://happyclam.github.io/lessons/2014-01-14/jekyll-introduction-draft
 http://happyclam.github.io/practice/2014-01-12/jekyll-bootstrap
 http://happyclam.github.io/practice/2014-01-10/jekyll-practice
 http://happyclam.github.io/practice/2014-01-09/ruby-is-great

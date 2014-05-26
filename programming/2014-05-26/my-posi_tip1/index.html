@@ -8,13 +8,13 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>rspecに納得できない</title>
+	<title>DBのカラムに対応しないプロパティ</title>
     <meta name="Keywords" content="自己満足プログラミング" lang="ja">
     <meta name="description" content="Ruby on rails, programming for my enjoyment">
 	<meta name="author" content="happyclam">
 	<link href='/assets/themes/the-minimum/css/style.css' rel="stylesheet" media="all">
     <link rel="stylesheet" href="/assets/themes/the-minimum/css/syntax.css" type="text/css">
-	<link href="http://feeds.feedburner.com/" rel="alternate" title="rspecに納得できない" type="application/atom+xml">
+	<link href="http://feeds.feedburner.com/" rel="alternate" title="DBのカラムに対応しないプロパティ" type="application/atom+xml">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -58,83 +58,74 @@
 			<header>
 				<div class="unit-head">
 					<div class="unit-inner unit-head-inner">
-						<h1 class="h2 entry-title">rspecに納得できない</h1>
+						<h1 class="h2 entry-title">DBのカラムに対応しないプロパティ</h1>
 					</div><!-- unit-inner -->
 				</div><!-- unit-head -->
 			</header>
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>先日衝動買いした<a href="http://www.amazon.co.jp/Instant-RSpec-Test-Driven-Development-How-ebook/dp/B00DMYO1QK">Instant RSpec Test-Driven Development How-to [Kindle版]</a>の最初に出てくるサンプルコード</p>
+					<h3>日付型のカラムのデータを年月だけの文字列にしてコンボボックスに表示したい</h3>
 
-<pre><code class="ruby:location_spec.rb">describe Location do
-  describe "#initialize" do
-    it "sets the latitude and longitude" do
-      loc = Location.new(:latitude =&gt; 38.911268,
-                         :longitude =&gt; -77.444243)
-      loc.latitude.should == 38.911268
-      loc.longitude.should == -77.444243
-    end
-  end
-end
-</code></pre>
+<p>先物やオプションの建玉を入力する時には限月を選ぶ必要がありますが、必要なのは年と月("2014/06"等の文字列)だけです。でもDBに"年/月"のフォーマットで文字列として格納するのはあまりにも汚い。DBのカラム属性は日付型にしておいた方が何かと便利、というかしておくべきでしょう（日数や時間の差を計算する時に困ります）。</p>
 
 <hr />
 
-<ol>
-<li>上記テストを通過させるために「自分が書いたコード」が以下のもの<code>rspec failed</code></li>
-</ol>
+<p><img src="/images/dropdown_exp.png" title="限月の選択" alt="限月の選択" /></p>
+
+<hr />
+
+<p>こういう場合、昔PHPで仕事していた時には、文字列型と日付型を相互にフォーマット変換するコードをView上のあちこちに散りばめながら実現していた記憶があります。</p>
+
+<h3>シンプルな実現方法</h3>
+
+<p>Position.expirationがDBのカラムに対応するプロパティで日付型です。そこにPosition.ym_expirationというDBにカラムが存在しない入出力用のプロパティを用意し、そのsetterとgetterを定義します。</p>
+
+<ul>
+<li>Model(Position)<br/>
+getter(日付型のデータを、年/月のフォーマットの文字列に変換してして返す)</li>
+</ul>
 
 
-<pre><code class="ruby:my_answer.rb  ">   class  Location  
-       attr_accessor :latitude  
-       attr_accessor :longitude  
-       def initialize(lati=nil, long=nil)  
-           @latitude = lati  
-           @longitude = long  
-       end  
-   end  
+<pre><code class="ruby:position.rb">  def ym_expiration
+    return self.expiration.strftime("%Y/%m") if self.expiration
+  end
 </code></pre>
 
-<ol>
-<li>「リファクタリング前のコード」として本で紹介されているコード<code>rspec passed</code></li>
-</ol>
+<p>setter(年/月の文字列データを日付01を付加して日付型に変換して格納)</p>
 
-
-<pre><code class="ruby:bad_answer.rb">   class  Location
-       def initialize(args = {});end
-       def latitude
-           38.911268
-       end
-       def longitude
-           -77.444243
-       end
-   end
+<pre><code class="ruby:position.rb">  def ym_expiration=(ym_expiration)
+    self.expiration = Date.strptime(ym_expiration + "/01", "%Y/%m/%d")
+  end
 </code></pre>
 
-<ol>
-<li>「リファクタリング後のコード」として本で紹介されているコード<code>rspec passed</code></li>
-</ol>
+<p>Viewから呼ばれる、年/月の文字列データを返すメソッド</p>
 
-
-<pre><code class="ruby:model_answer.rb">   class Location
-       attr_accessor :latitude, :longitude
-       def initialize(args = {})
-           self.latitude = args[:latitude]
-           self.longitude = args[:longitude]
-       end
-   end
+<pre><code class="ruby:position.rb">  def get_expiration_list
+    :省略
+    :
+  end
 </code></pre>
 
-<p>テストを通過させるためだけに書かれたような「リファクタリング前のコード」がエラーにならないのに、上記「自分のコード」がエラーになるのは納得がいかない。<br/>
-自分のコードに何かエラーにしなければならない理由があるのか？自分にはわからないので誰か教えてください。</p>
+<ul>
+<li>View(_edit_position.html.erb)<br/>
+Viewでは入出力用に追加したym_expirationプロパティだけを使うようにすれば、あたかもDBに対応するカラムのように扱えます。</li>
+</ul>
+
+
+<pre><code class="ruby:_edit_position.html.erb">&lt;td align="center"&gt;&lt;%= f.select("ym_expiration", position.get_expiration_list, {:include_blank =&gt; false}, {:class =&gt; "span6", :style =&gt; "width:90px;"}) %&gt;&lt;/td&gt;
+</code></pre>
+
+<p>CakephpやPHP5以上ならたぶん同じことが出来ると思いますが、もうPHPに戻りたくないし調べる気にもなりません</p>
+
+<hr />
 
 					<div class="meta">
 						<p class="date-publish">
 							Published: 
-							<date class="date-pub" title="2014-05-17T00:00:00+09:00" datetime="2014-05-17T00:00:00+09:00" pubdate>
+							<date class="date-pub" title="2014-05-26T00:00:00+09:00" datetime="2014-05-26T00:00:00+09:00" pubdate>
 							<span class="month"><abbr>May</abbr></span>
-							<span class="day">17</span>
+							<span class="day">26</span>
 							<span class="year">2014</span>
 							</date>
 						</p>
@@ -162,9 +153,9 @@ end
 
   
      
-    	<li><a href="/tags.html#ruby-ref">ruby <span>6</span></a></li>
+    	<li><a href="/tags.html#rails-ref">rails <span>4</span></a></li>
      
-    	<li><a href="/tags.html#rspec-ref">rspec <span>1</span></a></li>
+    	<li><a href="/tags.html#my-posi-ref">my-posi <span>3</span></a></li>
     
   
 
@@ -210,13 +201,9 @@ end
 					<nav class="pagination">
 						<ul>
 							
-							<li class="prev"><a class="internal" rel="prev"  href="/lessons/2014-01-14/jekyll-introduction-draft" title="View Jekyll Introduction Draft">&laquo; Jekyll Introduction Draft</a></li>
+							<li class="prev"><a class="internal" rel="prev"  href="/miscellaneous/2014-05-25/my-posi_vola" title="View ボラティリティについて">&laquo; ボラティリティについて</a></li>
 							
 							
-							<li class="pipe"> | </li>
-							
-							
-							<li class="next"><a class="internal" rel="next"  href="/software/2014-05-18/ab_method" title="View αβ法に関して">αβ法に関して &raquo;</a></li>
 							
 						</ul>
 					</nav>
@@ -264,7 +251,7 @@ end
 		};
 	load('//platform.twitter.com/widgets.js', 'tweetjs');
 	// load('https://apis.google.com/js/plusone.js', 'gplus1js'); // Checkout http://j.mp/ApDgMr for usage html for this is <div class="g-plusone" data-size="medium"></div>
-	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/programming/2014-05-17/inflexible-rspec" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
+	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/programming/2014-05-26/my-posi_tip1" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
 	}(document, 'script'));
 </script>
 <script>
