@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2014-05-26T11:08:09+09:00</updated>
+ <updated>2014-05-26T11:14:12+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -69,76 +69,6 @@ Viewでは入出力用に追加したym_expirationプロパティだけを使う
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;CakephpやPHP5以上ならたぶん同じことが出来ると思いますが、もうPHPに戻りたくないし調べる気にもなりません&lt;/p&gt;
-
-&lt;hr /&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>ボラティリティについて</title>
-   <link href="http://happyclam.github.io/miscellaneous/2014-05-25/my-posi_vola"/>
-   <updated>2014-05-25T21:05:00+09:00</updated>
-   <id>http://happyclam.github.io/miscellaneous/2014-05-25/my-posi_vola</id>
-   <content type="html">&lt;h3&gt;インプライド・ボラティリティとヒストリカル・ボラティリティ&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&quot;math&quot;&gt;tex:l=\sqrt{a^2+b^2}
-l=\sqrt{a^2+b^2}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;
-call price = 先物価格 * 3\\
-
-
-Formular\ from Wikipedia\\
-l=\sqrt{a^2+b^2}\\
-
-\int_0^3 9x^2 + 2x + 4\, dx = 3x^3 + x^2 + 4x + C \Big\rbrack_0^3 = 102\\
-
-e^{x+iy} = e^x(\cos y + i\sin y)\\
-
-x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
-  \\
-&lt;/script&gt;
-
-</content>
- </entry>
- 
- <entry>
-   <title>ツイートを監視して集計する</title>
-   <link href="http://happyclam.github.io/project/2014-05-24/tweetwatch"/>
-   <updated>2014-05-24T15:54:22+09:00</updated>
-   <id>http://happyclam.github.io/project/2014-05-24/tweetwatch</id>
-   <content type="html">&lt;p&gt;Project: 「tweetwatch」: まだGitHubにはアップしていません&lt;/p&gt;
-
-&lt;h3&gt;開発の動機&lt;/h3&gt;
-
-&lt;p&gt;今年の都知事選の頃、多くのフォロワーを抱えていいる人（以下a氏と表記）が&lt;/p&gt;
-
-&lt;blockquote&gt;&lt;p&gt;Twitterで&lt;strong&gt;#都知事選&lt;/strong&gt;というタグをつけて自分が投票した候補者の名前を呟けば、それを集計してくれるアプリ作れないかな～&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;と物欲しそうに呟いていたのが目に止まりました。&lt;br/&gt;
-Yahooのアンケートのように、誰がどれぐらい票を獲得しているかtwitterで独自に確認しようという意図のようです。
-プログラマたるもの、そこで「すぐ出来ますよ」とリプライするような軽率な行動をとってはいけません。職業プログラマなら尚更です。誰かが手を挙げるかもと思いながらしばらく様子を見ていましたが、その呟きに対して反応する人はいなかったようです。こういう場合、相手がどれほどのものを要求しているかわからないので迂闊に出来ますなんて言えませんが、StreamingAPI使えばとりあえず使える程度のものであれば、すぐ出来るんじゃないかと思い調べてみました。&lt;/p&gt;
-
-&lt;h3&gt;とりあえずローカル環境で動くもの&lt;/h3&gt;
-
-&lt;p&gt;「StreamingAPI」で検索すると役に立ちそうなサイトはすぐに見つかりました→&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;「Herokuの無料枠でTwitter Stream APIを常時監視 =&gt; DBに保存するRubyコード」&lt;/a&gt;&lt;br/&gt;
-このmorizyunって人のサイトは調べ物をしている際にはよくお世話になっていますが、今回見つけた記事も自分の要望その物です。私はherokuは使いませんでしたがほぼこの記事のコードそのままがローカル環境で動作しました。ツイートの集計がしたいのであればDBに溜まったデータに対してSQLを打ち込めば好きな結果が得られます。a氏に教えてあげようかとも思いましたが、おそらくプログラミングやSQLも知らないa氏が実際に自分のPCで動かすためにはそうとうな時間をかけてサポートしてあげないと無理だろうと思って止めておきました。自分が良かれと思って教えても、逆に恨まれることになり兼ねません。そうなんです、自分でニタニタ楽しむためのソフトを作れたとしても、それをひと様に使ってもらおうとするとまた一段とハードルが高くなるんですねぇ。&lt;/p&gt;
-
-&lt;h3&gt;ひと様が使えるようにするために&lt;/h3&gt;
-
-&lt;p&gt;最初はDBにデータを格納するだけのシェルスクリプトを起動しながら、ユーザー向けのwebインターフェースを提供してあげればいいだけだからそれほど手間はかからないと思いましたが、そうすると２プロセス動かすことになり、herokuの無料枠では済まなくなるし、自分のtwitterアカウントの認証キーがそのサービスに縛られるので開発に取りかかるのは躊躇してました。&lt;br/&gt;
-結局、現時点では&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;運用環境に関してはとりあえず自宅サーバで動くようにしてから考える&lt;/li&gt;
-&lt;li&gt;twitterのAPIキーをユーザ自身が登録して、そのキーを利用しながらDB格納プロセスを起動するようにする&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;という方針で作りました。
-DBにデータを格納するシェルスクリプトは、&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;morizyun氏のコード&lt;/a&gt;を叩き台にしてRailsで作ったWebサイトから制御するためのプロセス間通信用インターフェースを追加し、そのサーバーとなるシェルスクリプトに接続するクライアントとなるユーザ向けのwebサイトは&lt;a href=&quot;http://railstutorial.jp/&quot;&gt;Ruby on Rails チュートリアル&lt;/a&gt;でRSpecの勉強（写経）をしながら作ったものを流用しています。&lt;br/&gt;
-以後、DBにデータを格納する&lt;em&gt;サーバースクリプト&lt;/em&gt;とRails製&lt;em&gt;Webサイト&lt;/em&gt;に分けて紹介します。&lt;/p&gt;
 
 &lt;hr /&gt;
 </content>
@@ -326,15 +256,6 @@ rails runner Candlestick::biteoff
  </entry>
  
  <entry>
-   <title>αβ法に関して</title>
-   <link href="http://happyclam.github.io/software/2014-05-18/ab_method"/>
-   <updated>2014-05-18T19:16:10+09:00</updated>
-   <id>http://happyclam.github.io/software/2014-05-18/ab_method</id>
-   <content type="html">&lt;p&gt;αβ法に関して&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
    <title>rspecに納得できない</title>
    <link href="http://happyclam.github.io/programming/2014-05-17/inflexible-rspec"/>
    <updated>2014-05-17T00:00:00+09:00</updated>
@@ -402,15 +323,6 @@ end
 
 &lt;p&gt;テストを通過させるためだけに書かれたような「リファクタリング前のコード」がエラーにならないのに、上記「自分のコード」がエラーになるのは納得がいかない。&lt;br/&gt;
 自分のコードに何かエラーにしなければならない理由があるのか？自分にはわからないので誰か教えてください。&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Jekyll Introduction Draft</title>
-   <link href="http://happyclam.github.io/lessons/2014-01-14/jekyll-introduction-draft"/>
-   <updated>2014-01-14T22:06:04+09:00</updated>
-   <id>http://happyclam.github.io/lessons/2014-01-14/jekyll-introduction-draft</id>
-   <content type="html">&lt;p&gt;This is an example of a draft. Read more here: &lt;a href=&quot;http://jekyllrb.com/docs/drafts/&quot;&gt;http://jekyllrb.com/docs/drafts/&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
