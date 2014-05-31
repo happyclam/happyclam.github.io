@@ -8,13 +8,13 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>ツイートを監視して集計する</title>
+	<title>モウセンゴケ買ってみた</title>
     <meta name="Keywords" content="自己満足プログラミング" lang="ja">
     <meta name="description" content="Ruby on rails, programming for my enjoyment">
 	<meta name="author" content="happyclam">
 	<link href='/assets/themes/the-minimum/css/style.css' rel="stylesheet" media="all">
     <link rel="stylesheet" href="/assets/themes/the-minimum/css/syntax.css" type="text/css">
-	<link href="http://feeds.feedburner.com/" rel="alternate" title="ツイートを監視して集計する" type="application/atom+xml">
+	<link href="http://feeds.feedburner.com/" rel="alternate" title="モウセンゴケ買ってみた" type="application/atom+xml">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -58,54 +58,40 @@
 			<header>
 				<div class="unit-head">
 					<div class="unit-inner unit-head-inner">
-						<h1 class="h2 entry-title">ツイートを監視して集計する</h1>
+						<h1 class="h2 entry-title">モウセンゴケ買ってみた</h1>
 					</div><!-- unit-inner -->
 				</div><!-- unit-head -->
 			</header>
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>Project: 「tweetwatch」: まだGitHubにはアップしていません</p>
+					<h3><a href="http://www.amazon.co.jp/gp/product/B002DOEJ1W/ref=pd_lpo_sbs_dp_ss_3?pf_rd_p=466449256&amp;pf_rd_s=lpo-top-stripe&amp;pf_rd_t=201&amp;pf_rd_i=B0029PVS32&amp;pf_rd_m=AN1VRQENFRJN5&amp;pf_rd_r=1PA8NW26VM11682HVNSS">「コバエがホイホイ」</a>の代わりになるかも</h3>
 
-<h3>開発の動機</h3>
+<p>　<a href="http://o.x0.com/m/35898">トコトン掘り下げ隊！生き物にサンキュー！！【★巨大食虫植物ＳＰ】</a>というテレビ番組で食虫植物が虫を捕えているのを見ながら、そう言えば毎年暑くなってくると<a href="http://www.amazon.co.jp/gp/product/B002DOEJ1W/ref=pd_lpo_sbs_dp_ss_3?pf_rd_p=466449256&amp;pf_rd_s=lpo-top-stripe&amp;pf_rd_t=201&amp;pf_rd_i=B0029PVS32&amp;pf_rd_m=AN1VRQENFRJN5&amp;pf_rd_r=1PA8NW26VM11682HVNSS">コバエがホイホイ</a>を２回ほど購入していることを思いだし、こいつらを飼っていれば金使わなくて済むじゃんと考えモウセンゴケを買うことにしました。<br/>
+　コバエ退治が目的なのでハエトリソウだとスカスカで逃げられると思ったのでモウセンゴケに決めたんだけど、室内で飼うことを考えたら、サイズ的にも見てくれから判断してもモウセンゴケが一番良さそうです。Amazonで調べると実に種類が豊富。一番定番そうなドロセラ・カペンシスを購入したのですが、シャモジ型の葉のドロセラ・アングリカも欲しくなって、オマケにテレビで紹介されていなかったムシトリスミレと立て続けに購入してしまいました。
+全然知らない世界でしたが、値段が結構お手頃なのも趣味にするには良さそうですね、今はセファロタス（和名：フクロユキノシタ）が欲しくなってきてます。すでに食虫植物に嵌ってるかも。<br/>
+　今後ちゃんと飼育できるかどうかまだ分からないし、もし熱が冷めなければ、カテゴリ作って定期的に記事を書いていこうかなと思ってます。</p>
 
-<p>　今年の都知事選の頃、多くのフォロワーを抱えていいる人（以下a氏と表記）が</p>
+<h3>飼育環境</h3>
 
-<blockquote><p>Twitterで<strong>#都知事選</strong>というタグをつけて自分が投票した候補者の名前を呟けば、それを集計してくれるアプリ作れないかな～</p></blockquote>
-
-<p>と物欲しそうに呟いていたのが目に止まりました。<br/>
-Yahooのアンケートのように、誰がどれぐらい票を獲得しているかtwitterで独自に確認しようという意図のようです。
-　プログラマたるもの、そこで「すぐ出来ますよ」とリプライするような軽率な行動をとってはいけません。職業プログラマなら尚更です。誰かが手を挙げるかもと思いながらしばらく様子を見ていましたが、その呟きに対して反応する人はいなかったようです。こういう場合、相手がどれほどのものを要求しているかわからないので迂闊に出来ますなんて言えませんが、StreamingAPI使えばとりあえず使える程度のものであれば、すぐ出来るんじゃないかと思い調べてみました。</p>
-
-<h3>とりあえずローカル環境で動くもの</h3>
-
-<p>　「StreamingAPI」で検索すると役に立ちそうなサイトはすぐに見つかりました→<a href="http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/">「Herokuの無料枠でTwitter Stream APIを常時監視 => DBに保存するRubyコード」</a><br/>
-このmorizyunって人のサイトは調べ物をしている際にはよくお世話になっていますが、今回見つけた記事も自分の要望その物です。私はherokuは使いませんでしたがほぼこの記事のコードそのままがローカル環境で動作しました。ツイートの集計がしたいのであればDBに溜まったデータに対してSQLを打ち込めば好きな結果が得られます。a氏に教えてあげようかとも思いましたが、おそらくプログラミングやSQLも知らないa氏が実際に自分のPCで動かすためにはそうとうな時間をかけてサポートしてあげないと無理だろうと思って止めておきました。自分が良かれと思って教えても、逆に恨まれることになり兼ねません。そうなんです、自分でニタニタ楽しむためのソフトを作れたとしても、それをひと様に使ってもらおうとするとまた一段とハードルが高くなるんですねぇ。</p>
-
-<h3>ひと様が使えるようにするために</h3>
-
-<p>　最初はDBにデータを格納するだけのシェルスクリプトを起動しながら、ユーザー向けのwebインターフェースを提供してあげればいいだけだからそれほど手間はかからないと思いましたが、そうすると２プロセス動かすことになり、herokuの無料枠では済まなくなります。それに運用環境を何とか用意したとしても、自分のtwitterアカウントの認証キーをそのサービスで利用するとなると、一人しか利用できないwebサービスになってしまいます。twitter社にAPI利用料を支払えば解決ですが、そこまでする気もないので開発に取りかかるのは躊躇してました。<br/>
-で結局、</p>
+<p>　購入時に入っていたプラケースのまま様子を見てもよかったのかもしれませんが、既に購入した植物たちに愛着が湧いているので、プラケースじゃ可哀想、せめて素焼きの鉢に入れてあげようと思い早速植え替えることにしました。植物にとって入れ物がプラスチックから素焼きに変わったことでどれ程うれしいことなのか分かりませんが、少なくとも悪いことでは無いでしょう。鉢のまわりを水で浸す「腰水」という方法がいいらしいので写真のようにしました。以外に根が長かったのでこれぐらい細長い鉢のほうがよさそうです。<br/>
+<img src="/images/drosera_garbini.png" alt="カペンシス" /></p>
 
 <ul>
-<li>運用環境に関してはとりあえず自宅サーバで動くようにしてから考える</li>
-<li>twitterのAPIキーをユーザ自身が登録して、そのキーを利用しながらDB格納プロセスを起動するようにする</li>
+<li><a href="http://www.amazon.co.jp/umbra-%E3%82%A2%E3%83%B3%E3%83%96%E3%83%A9-%E3%80%90Umbra%E3%80%91%E3%82%AC%E3%83%AB%E3%83%93%E3%83%8B%E3%82%AB%E3%83%B3-GARBINI-%E3%83%A1%E3%82%BF%E3%83%AA%E3%83%83%E3%82%AF%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88/dp/B003JMQ0GO">【Umbra】ガルビニカン GARBINI CAN　 メタリックホワイト</a></li>
+<li><a href="http://www.amazon.co.jp/%E5%9B%BD%E5%86%85%E4%B8%89%E6%B2%B3%E9%89%A2-%E3%83%8F%E3%83%BC%E3%83%A2%E3%83%8B%E3%83%BC-%E7%B4%A0%E7%84%BC-%EF%BC%93%E5%8F%B7-%EF%BC%8F%E6%A4%8D%E6%9C%A8%E9%89%A2/dp/B007QJCLWI/ref=sr_1_1?s=diy&amp;ie=UTF8&amp;qid=1401491200&amp;sr=1-1&amp;keywords=%E3%83%8F%E3%83%BC%E3%83%A2%E3%83%8B%E3%83%BC+%E7%B4%A0%E7%84%BC+%EF%BC%93%E5%8F%B7">素焼 ３号 ／植木鉢</a></li>
 </ul>
 
 
-<p>という方針で作りました。
-<img src="/images/tweetwatch_screen.png" alt="集計画面" />  <br/>
-DBにデータを格納するシェルスクリプトは、<a href="http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/">morizyun氏のコード</a>を叩き台にしてWebサイトから制御するためのプロセス間通信用インターフェースを追加し、そのサーバーとなるシェルスクリプトに接続するクライアントアプリとなるユーザ向けのwebサイトは<a href="http://railstutorial.jp/">Ruby on Rails チュートリアル</a>でRSpecの勉強（写経）をしながら作ったものを流用しています。<br/>
-以降、DBにデータを格納する<em>サーバースクリプト</em>とRails製<em>Webサイト</em>に分けて紹介します。</p>
-
-<hr />
+<p>　モウセンゴケは酸性土を好むらしいので土は<a href="http://www.amazon.co.jp/%E8%8A%B1%E3%81%94%E3%81%93%E3%82%8D-%E3%83%96%E3%83%AB%E3%83%BC%E3%83%99%E3%83%AA%E3%83%BC%E3%81%AE%E5%9C%9F-5l/dp/B000IA88KG">これ</a>にしました。ホームセンターに置いてある物は一番少ないものでも５リットル入りで、そんなに要らないと思ったのですが、玄関脇に放ったらかしで植えてある<ruby><rb>山茶花</rb><rp>（</rp><rt>サザンカ</rt><rp>）</rp></ruby>も調べてみると酸性土を好むらしいので、余ったらそちらに使えばいいと思い決めました。<br/>
+　今の心配は設置場所。<ruby><rb>西陽</rb><rp>（</rp><rt>にしび</rt><rp>）</rp></ruby>しかあたらない場所なので、調子悪いようであれば室内で飼うことは諦めるかもしれません。</p>
 
 					<div class="meta">
 						<p class="date-publish">
 							Published: 
-							<date class="date-pub" title="2014-05-30T00:00:00+09:00" datetime="2014-05-30T00:00:00+09:00" pubdate>
+							<date class="date-pub" title="2014-05-31T00:00:00+09:00" datetime="2014-05-31T00:00:00+09:00" pubdate>
 							<span class="month"><abbr>May</abbr></span>
-							<span class="day">30</span>
+							<span class="day">31</span>
 							<span class="year">2014</span>
 							</date>
 						</p>
@@ -117,8 +103,8 @@ DBにデータを格納するシェルスクリプトは、<a href="http://moriz
 
   
      
-    	<li><a href="/categories.html#project-ref">
-    		project <span>2</span>
+    	<li><a href="/categories.html#miscellaneous-ref">
+    		miscellaneous <span>2</span>
     	</a></li>
     
   
@@ -133,11 +119,7 @@ DBにデータを格納するシェルスクリプトは、<a href="http://moriz
 
   
      
-    	<li><a href="/tags.html#rails-ref">rails <span>4</span></a></li>
-     
-    	<li><a href="/tags.html#ruby-ref">ruby <span>5</span></a></li>
-     
-    	<li><a href="/tags.html#tweetwatch-ref">tweetwatch <span>1</span></a></li>
+    	<li><a href="/tags.html#gardening-ref">gardening <span>1</span></a></li>
     
   
 
@@ -183,13 +165,9 @@ DBにデータを格納するシェルスクリプトは、<a href="http://moriz
 					<nav class="pagination">
 						<ul>
 							
-							<li class="prev"><a class="internal" rel="prev"  href="/miscellaneous/2014-05-27/my-posi_vola" title="View ボラティリティについて">&laquo; ボラティリティについて</a></li>
+							<li class="prev"><a class="internal" rel="prev"  href="/project/2014-05-30/tweetwatch" title="View ツイートを監視して集計する">&laquo; ツイートを監視して集計する</a></li>
 							
 							
-							<li class="pipe"> | </li>
-							
-							
-							<li class="next"><a class="internal" rel="next"  href="/miscellaneous/2014-05-31/drosera" title="View モウセンゴケ買ってみた">モウセンゴケ買ってみた &raquo;</a></li>
 							
 						</ul>
 					</nav>
@@ -237,7 +215,7 @@ DBにデータを格納するシェルスクリプトは、<a href="http://moriz
 		};
 	load('//platform.twitter.com/widgets.js', 'tweetjs');
 	// load('https://apis.google.com/js/plusone.js', 'gplus1js'); // Checkout http://j.mp/ApDgMr for usage html for this is <div class="g-plusone" data-size="medium"></div>
-	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/project/2014-05-30/tweetwatch" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
+	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/miscellaneous/2014-05-31/drosera" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
 	}(document, 'script'));
 </script>
 <script>
