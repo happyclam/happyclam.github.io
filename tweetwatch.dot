@@ -1,0 +1,11 @@
+digraph servs_states {
+    down      [label = "停止中(down)", fontname="Takaoゴシック"];
+    prepared  [label = "待機中(prepared)", fontname="Takaoゴシック"];
+    storing   [label = "集計中(storing)", fontname="Takaoゴシック"];
+    
+
+    down -> prepared;
+    prepared -> storing;
+    storing -> down;
+    prepared -> down;
+}

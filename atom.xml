@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2014-06-01T20:38:05+09:00</updated>
+ <updated>2014-06-05T10:54:06+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -49,7 +49,7 @@
 
 &lt;h3&gt;開発の動機&lt;/h3&gt;
 
-&lt;p&gt;　今年の都知事選の頃、多くのフォロワーを抱えていいる人（以下a氏と表記）が&lt;/p&gt;
+&lt;p&gt;　今年の都知事選の頃、多くのフォロワーを抱えている人（以下a氏と表記）が&lt;/p&gt;
 
 &lt;blockquote&gt;&lt;p&gt;Twitterで&lt;strong&gt;#都知事選&lt;/strong&gt;というタグをつけて自分が投票した候補者の名前を呟けば、それを集計してくれるアプリ作れないかな～&lt;/p&gt;&lt;/blockquote&gt;
 
@@ -60,7 +60,7 @@ Yahooのアンケートのように、誰がどれぐらい票を獲得してい
 &lt;h3&gt;とりあえずローカル環境で動くもの&lt;/h3&gt;
 
 &lt;p&gt;　「StreamingAPI」で検索すると役に立ちそうなサイトはすぐに見つかりました→&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;「Herokuの無料枠でTwitter Stream APIを常時監視 =&gt; DBに保存するRubyコード」&lt;/a&gt;&lt;br/&gt;
-このmorizyunって人のサイトは調べ物をしている際にはよくお世話になっていますが、今回見つけた記事も自分の要望その物です。私はherokuは使いませんでしたがほぼこの記事のコードそのままがローカル環境で動作しました。ツイートの集計がしたいのであればDBに溜まったデータに対してSQLを打ち込めば好きな結果が得られます。a氏に教えてあげようかとも思いましたが、おそらくプログラミングやSQLも知らないa氏が実際に自分のPCで動かすためにはそうとうな時間をかけてサポートしてあげないと無理だろうと思って止めておきました。自分が良かれと思って教えても、逆に恨まれることになり兼ねません。そうなんです、自分でニタニタ楽しむためのソフトを作れたとしても、それをひと様に使ってもらおうとするとまた一段とハードルが高くなるんですねぇ。&lt;/p&gt;
+このmorizyunって人のサイトは調べ物をしている際にはよくお世話になっていますが、今回見つけた記事も自分の要望その物です。私はherokuは使いませんでしたがほぼこの記事のコードそのままがローカル環境で動作しました。ツイートの集計がしたいのであればDBに溜まったデータに対してSQLを打ち込めば好きな結果が得られます。a氏に教えてあげようかとも思いましたが、おそらくプログラミングやSQLも知らないa氏が実際に自分のPCで動かすためにはそうとうな時間をかけてサポートしてあげないと無理だろうと思って止めておきました。自分が良かれと思って教えても、逆に恨まれることになり兼ねません。そうなんです、自分でニタニタ楽しむためのソフトを作れたとしても、それをひと様に使ってもらおうとするとまた一段とハードルが高くなるんですねぇ（今回は自分で楽しむものさえパクリですが）。&lt;/p&gt;
 
 &lt;h3&gt;ひと様が使えるようにするために&lt;/h3&gt;
 
@@ -75,8 +75,8 @@ Yahooのアンケートのように、誰がどれぐらい票を獲得してい
 
 &lt;p&gt;という方針で作りました。
 &lt;img src=&quot;/images/tweetwatch_screen.png&quot; alt=&quot;集計画面&quot; /&gt;  &lt;br/&gt;
-DBにデータを格納するシェルスクリプトは、&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;morizyun氏のコード&lt;/a&gt;を叩き台にしてWebサイトから制御するためのプロセス間通信用インターフェースを追加し、そのサーバーとなるシェルスクリプトに接続するクライアントアプリとなるユーザ向けのwebサイトは&lt;a href=&quot;http://railstutorial.jp/&quot;&gt;Ruby on Rails チュートリアル&lt;/a&gt;でRSpecの勉強（写経）をしながら作ったものを流用しています。&lt;br/&gt;
-以降、DBにデータを格納する&lt;em&gt;サーバースクリプト&lt;/em&gt;とRails製&lt;em&gt;Webサイト&lt;/em&gt;に分けて紹介します。&lt;/p&gt;
+DBにデータを格納するシェルスクリプトは、&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;morizyun氏のコード&lt;/a&gt;を叩き台にしてWebサイトから制御するためのプロセス間通信用インターフェースを追加し、そのサーバーとなるシェルスクリプトに接続するクライアントアプリとなるユーザ向けのwebサイトを作る。そのwebサイトは&lt;a href=&quot;http://railstutorial.jp/&quot;&gt;Ruby on Rails チュートリアル&lt;/a&gt;でRSpecの勉強（写経）をしながら作ったものがあったのでそれを流用しています。&lt;br/&gt;
+以降、DBにデータを格納する&lt;em&gt;サーバースクリプト（server側）&lt;/em&gt;とRails製&lt;em&gt;Webサイト（client側）&lt;/em&gt;に分けて紹介します。&lt;/p&gt;
 
 &lt;hr /&gt;
 </content>
