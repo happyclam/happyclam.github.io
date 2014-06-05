@@ -8,13 +8,13 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>DBのカラムに対応しないプロパティ</title>
+	<title>ツイートを監視して集計する（server側）</title>
     <meta name="Keywords" content="自己満足プログラミング" lang="ja">
     <meta name="description" content="Ruby on rails, programming for my enjoyment">
 	<meta name="author" content="happyclam">
 	<link href='/assets/themes/the-minimum/css/style.css' rel="stylesheet" media="all">
     <link rel="stylesheet" href="/assets/themes/the-minimum/css/syntax.css" type="text/css">
-	<link href="http://feeds.feedburner.com/" rel="alternate" title="DBのカラムに対応しないプロパティ" type="application/atom+xml">
+	<link href="http://feeds.feedburner.com/" rel="alternate" title="ツイートを監視して集計する（server側）" type="application/atom+xml">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -58,74 +58,135 @@
 			<header>
 				<div class="unit-head">
 					<div class="unit-inner unit-head-inner">
-						<h1 class="h2 entry-title">DBのカラムに対応しないプロパティ</h1>
+						<h1 class="h2 entry-title">ツイートを監視して集計する（server側）</h1>
 					</div><!-- unit-inner -->
 				</div><!-- unit-head -->
 			</header>
 
 			<div class="bd">
 				<div class="entry-content">
-					<h3>日付型のカラムのデータを年月だけの文字列にしてコンボボックスに表示したい</h3>
+					<h3>EventMachineで簡単インターフェース</h3>
 
-<p>先物やオプションの建玉を入力する時には限月を選ぶ必要がありますが、必要なのは年と月("2014/06"等の文字列)だけです。でもDBに"年/月"のフォーマットで文字列として格納するのはあまりにも汚い。DBのカラム属性は日付型にしておいた方が何かと便利、というかしておくべきでしょう（日数や時間の差を計算する時に困ります）。</p>
+<p>　初めて<a href="http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/">morizyun氏のこの記事</a>を読んだときはEventMachineとかforemanとかって何をするものか知らなかったのですが、EventMachineというのは「<a href="https://morizyun.github.io/blog/reactor-pattern-ruby/">[Ruby] Reactorパターンについて</a>」にも書いてある通り、ソケットの受信待機をして貰って簡単にReactorパターンを実現することが出来るツールってことのようです。だからわざわざ自分でプロセス間通信の手続きを書く必要がなくアプリケーションレベルのコマンドを用意してあげるだけで済むのではないか？と思いながら作ったら思惑通りにうまく動いたって感じです。実際に組み込む前には、以下のような単純なサンプルで確認しました。</p>
 
-<hr />
+<pre><code class="ruby:serv_sample.rb">#server側サンプル  
+require 'eventmachine'
 
-<p><img src="/images/dropdown_exp.png" title="限月の選択" alt="限月の選択" /></p>
-
-<hr />
-
-<p>こういう場合、昔PHPで仕事していた時には、文字列型と日付型を相互にフォーマット変換するコードをView上のあちこちに散りばめながら実現していた記憶があります。</p>
-
-<h3>シンプルな実現方法</h3>
-
-<p>Position.expirationがDBのカラムに対応するプロパティで日付型です。そこにPosition.ym_expirationというDBにカラムが存在しない入出力用のプロパティを用意し、そのsetterとgetterを定義します。</p>
-
-<ul>
-<li>Model(Position)<br/>
-getter(日付型のデータを、年/月のフォーマットの文字列に変換してして返す)</li>
-</ul>
-
-
-<pre><code class="ruby:position.rb">  def ym_expiration
-    return self.expiration.strftime("%Y/%m") if self.expiration
+class Serv &lt; EM::Connection
+  attr_accessor :track
+  def post_init
+    puts "myserv: init"
   end
+
+  def receive_data(data)
+    puts data
+    send_data @track
+    EM.stop if data =~ /stop/i
+  end
+
+  def connection_completed
+    puts "myserv: completed"
+  end
+
+  def unbind
+    puts "myserv: unbind"
+  end
+end
+
+EM.run do
+  EM.start_server("127.0.0.1", 10000, Serv) do |conn|
+    conn.track = ARGV[0]
+  end
+end
 </code></pre>
 
-<p>setter(年/月の文字列データを日付01を付加して日付型に変換して格納)</p>
+<p>以下のようにコマンドラインパラメータを付加して起動し、<br/>
+<code>ruby myserv.rb O.K.</code><br/>
+クライアント接続時にServクラスのプロパティに保持されていることを確認する。</p>
 
-<pre><code class="ruby:position.rb">  def ym_expiration=(ym_expiration)
-    self.expiration = Date.strptime(ym_expiration + "/01", "%Y/%m/%d")
-  end
+<pre><code class="ruby:client.rb">#client側サンプル
+require "net/telnet"
+
+begin
+  localhost = Net::Telnet::new("Host" =&gt; "localhost",
+                             "Port" =&gt; 10000,
+                             "Timeout" =&gt; 1,
+                             "Telnetmode" =&gt; false,
+                             "Output_log" =&gt; "./temp0.log",
+                             "Prompt" =&gt; "O.K.")
+  localhost.cmd("search word") { |c| print c }
+  localhost.close
+  localhost = nil
+  p "end"
+rescue Net::ReadTimeout
+  p "readtimeout"
+  p $!.to_s
+rescue
+  p $!.to_s
+end
 </code></pre>
 
-<p>Viewから呼ばれる、年/月の文字列データを返すメソッド</p>
+<p>このserver側の処理を、twitterAPIを使ってDBに検索結果を保存するスクリプトに組み込んで、client側の処理をRails製のサイトに組み込めばいいわけです。<br/>
+　あと、server側のスクリプトは、ユーザ毎に起動してユーザがWebサイトから制御しなければならないので、foremanは必要無さそうです。</p>
 
-<pre><code class="ruby:position.rb">  def get_expiration_list
-    :省略
+<h3>サーバースクリプトへのパラメータの受け渡し</h3>
+
+<p>　EventMachine::Connectionを継承したクラスServにユーザ情報を保存するメンバ変数（プロパティ）を用意して、Webサイト（client側）からサーバースクリプトを起動する時にコマンドライン引数でそれらの値を渡してあげます。起動の際に「10000+ユーザID」をポート番号に指定することでWebサイト利用者とサーバースクリプト利用者を一致させています。EventMachineを使ったプログラム同士が変数を共有する仕組みのようなものがあるかもしれませんが、ステートレスなHTTPで動いているWebサイトから起動するのだから、コマンドラインで渡すのがちょうど良さそうです。<br/>
+　twitterのStreamingAPIを使用する部分は<a href="/project/2014-05-30/tweetwatch">以前書いた記事</a>で紹介したmorizyun氏のコードをServ.trackingメソッドに閉じ込めてほぼそのまま動かしています。twitter側でエラーが発生した場合このままでいいのかよく分かりませんが、エラーになればWebサイト側からサーバースクリプトを再起動してもらえばいいという考え方で作ってます。<br/>
+　client側からserver側スクリプトに受け渡すパラメータはTwitterAPIを利用するために必要な認証key文字列（４種類）とユーザIDとTwitterのfilterAPIに渡す検索文字列（検索タグ）です。</p>
+
+<pre><code class="ruby:myserv.rb">#実際のソースの一部
+require 'eventmachine'
+require 'optparse'
+
+class Serv &lt; EM::Connection
+  attr_accessor :uid
+  attr_accessor :track
+  attr_accessor :c_key
+  attr_accessor :c_secret
+  attr_accessor :a_key
+  attr_accessor :a_secret
+  def receive_data(data)
+    case data
+    when /stop/i
+      send_data "O.K."
+      EM.stop
+    when /check/i
+      send_data @track
+    省略
+      :
+
+  def tracking(track, c_key, c_secret, a_key, a_secret, uid)
+    stream = Twitter::JSONStream.connect(
+  省略
     :
+
+EM.run do
+  EM.start_server("127.0.0.1", 10000 + params["p"].to_i, Serv) do |conn|
+    conn.track = params["t"]
+    conn.uid = params["p"].to_i
+    conn.c_key = params["c"]
+    conn.c_secret = params["k"]
+    conn.a_key = params["s"]
+    conn.a_secret = params["a"]
   end
+end
 </code></pre>
+
+<h3>参考サイト</h3>
 
 <ul>
-<li>View(_edit_position.html.erb)<br/>
-Viewでは入出力用に追加したym_expirationプロパティだけを使うようにすれば、あたかもDBに対応するカラムのように扱えます。</li>
+<li><a href="http://keijinsonyaban.blogspot.jp/2010/12/eventmachine.html">【翻訳】EventMachine入門 </a></li>
+<li><a href="http://gihyo.jp/dev/serial/01/ruby/0032">Reactorで非同期処理をやってみよう（2）</a></li>
 </ul>
 
-
-<pre><code class="ruby:_edit_position.html.erb">&lt;td align="center"&gt;&lt;%= f.select("ym_expiration", position.get_expiration_list, {:include_blank =&gt; false}, {:class =&gt; "span6", :style =&gt; "width:90px;"}) %&gt;&lt;/td&gt;
-</code></pre>
-
-<p>CakephpやPHP5以上ならたぶん同じことが出来ると思いますが、もうPHPに戻りたくないし調べる気にもなりません</p>
-
-<hr />
 
 					<div class="meta">
 						<p class="date-publish">
 							Published: 
-							<date class="date-pub" title="2014-05-26T00:00:00+09:00" datetime="2014-05-26T00:00:00+09:00" pubdate>
-							<span class="month"><abbr>May</abbr></span>
-							<span class="day">26</span>
+							<date class="date-pub" title="2014-06-06T00:00:00+09:00" datetime="2014-06-06T00:00:00+09:00" pubdate>
+							<span class="month"><abbr>June</abbr></span>
+							<span class="day">06</span>
 							<span class="year">2014</span>
 							</date>
 						</p>
@@ -137,8 +198,8 @@ Viewでは入出力用に追加したym_expirationプロパティだけを使う
 
   
      
-    	<li><a href="/categories.html#programming-ref">
-    		programming <span>2</span>
+    	<li><a href="/categories.html#project-ref">
+    		project <span>3</span>
     	</a></li>
     
   
@@ -155,7 +216,9 @@ Viewでは入出力用に追加したym_expirationプロパティだけを使う
      
     	<li><a href="/tags.html#rails-ref">rails <span>5</span></a></li>
      
-    	<li><a href="/tags.html#my-posi-ref">my-posi <span>3</span></a></li>
+    	<li><a href="/tags.html#ruby-ref">ruby <span>6</span></a></li>
+     
+    	<li><a href="/tags.html#tweetwatch-ref">tweetwatch <span>2</span></a></li>
     
   
 
@@ -201,13 +264,9 @@ Viewでは入出力用に追加したym_expirationプロパティだけを使う
 					<nav class="pagination">
 						<ul>
 							
-							<li class="prev"><a class="internal" rel="prev"  href="/project/2014-05-24/my-posi" title="View 先物・オプションのシミュレーションサイト">&laquo; 先物・オプションのシミュレーションサイト</a></li>
+							<li class="prev"><a class="internal" rel="prev"  href="/miscellaneous/2014-05-31/drosera" title="View モウセンゴケ買ってみた">&laquo; モウセンゴケ買ってみた</a></li>
 							
 							
-							<li class="pipe"> | </li>
-							
-							
-							<li class="next"><a class="internal" rel="next"  href="/miscellaneous/2014-05-27/my-posi_vola" title="View ボラティリティについて">ボラティリティについて &raquo;</a></li>
 							
 						</ul>
 					</nav>
@@ -255,7 +314,7 @@ Viewでは入出力用に追加したym_expirationプロパティだけを使う
 		};
 	load('//platform.twitter.com/widgets.js', 'tweetjs');
 	// load('https://apis.google.com/js/plusone.js', 'gplus1js'); // Checkout http://j.mp/ApDgMr for usage html for this is <div class="g-plusone" data-size="medium"></div>
-	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/programming/2014-05-26/my-posi_tip1" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
+	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/project/2014-06-06/tweetwatch_server" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
 	}(document, 'script'));
 </script>
 <script>

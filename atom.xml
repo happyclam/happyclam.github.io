@@ -4,13 +4,136 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2014-06-05T10:54:06+09:00</updated>
+ <updated>2014-06-06T07:35:42+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>ツイートを監視して集計する（server側）</title>
+   <link href="http://happyclam.github.io/project/2014-06-06/tweetwatch_server"/>
+   <updated>2014-06-06T00:00:00+09:00</updated>
+   <id>http://happyclam.github.io/project/2014-06-06/tweetwatch_server</id>
+   <content type="html">&lt;h3&gt;EventMachineで簡単インターフェース&lt;/h3&gt;
+
+&lt;p&gt;　初めて&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;morizyun氏のこの記事&lt;/a&gt;を読んだときはEventMachineとかforemanとかって何をするものか知らなかったのですが、EventMachineというのは「&lt;a href=&quot;https://morizyun.github.io/blog/reactor-pattern-ruby/&quot;&gt;[Ruby] Reactorパターンについて&lt;/a&gt;」にも書いてある通り、ソケットの受信待機をして貰って簡単にReactorパターンを実現することが出来るツールってことのようです。だからわざわざ自分でプロセス間通信の手続きを書く必要がなくアプリケーションレベルのコマンドを用意してあげるだけで済むのではないか？と思いながら作ったら思惑通りにうまく動いたって感じです。実際に組み込む前には、以下のような単純なサンプルで確認しました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;ruby:serv_sample.rb&quot;&gt;#server側サンプル  
+require &#39;eventmachine&#39;
+
+class Serv &amp;lt; EM::Connection
+  attr_accessor :track
+  def post_init
+    puts &quot;myserv: init&quot;
+  end
+
+  def receive_data(data)
+    puts data
+    send_data @track
+    EM.stop if data =~ /stop/i
+  end
+
+  def connection_completed
+    puts &quot;myserv: completed&quot;
+  end
+
+  def unbind
+    puts &quot;myserv: unbind&quot;
+  end
+end
+
+EM.run do
+  EM.start_server(&quot;127.0.0.1&quot;, 10000, Serv) do |conn|
+    conn.track = ARGV[0]
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以下のようにコマンドラインパラメータを付加して起動し、&lt;br/&gt;
+&lt;code&gt;ruby myserv.rb O.K.&lt;/code&gt;&lt;br/&gt;
+クライアント接続時にServクラスのプロパティに保持されていることを確認する。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;ruby:client.rb&quot;&gt;#client側サンプル
+require &quot;net/telnet&quot;
+
+begin
+  localhost = Net::Telnet::new(&quot;Host&quot; =&amp;gt; &quot;localhost&quot;,
+                             &quot;Port&quot; =&amp;gt; 10000,
+                             &quot;Timeout&quot; =&amp;gt; 1,
+                             &quot;Telnetmode&quot; =&amp;gt; false,
+                             &quot;Output_log&quot; =&amp;gt; &quot;./temp0.log&quot;,
+                             &quot;Prompt&quot; =&amp;gt; &quot;O.K.&quot;)
+  localhost.cmd(&quot;search word&quot;) { |c| print c }
+  localhost.close
+  localhost = nil
+  p &quot;end&quot;
+rescue Net::ReadTimeout
+  p &quot;readtimeout&quot;
+  p $!.to_s
+rescue
+  p $!.to_s
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;このserver側の処理を、twitterAPIを使ってDBに検索結果を保存するスクリプトに組み込んで、client側の処理をRails製のサイトに組み込めばいいわけです。&lt;br/&gt;
+　あと、server側のスクリプトは、ユーザ毎に起動してユーザがWebサイトから制御しなければならないので、foremanは必要無さそうです。&lt;/p&gt;
+
+&lt;h3&gt;サーバースクリプトへのパラメータの受け渡し&lt;/h3&gt;
+
+&lt;p&gt;　EventMachine::Connectionを継承したクラスServにユーザ情報を保存するメンバ変数（プロパティ）を用意して、Webサイト（client側）からサーバースクリプトを起動する時にコマンドライン引数でそれらの値を渡してあげます。起動の際に「10000+ユーザID」をポート番号に指定することでWebサイト利用者とサーバースクリプト利用者を一致させています。EventMachineを使ったプログラム同士が変数を共有する仕組みのようなものがあるかもしれませんが、ステートレスなHTTPで動いているWebサイトから起動するのだから、コマンドラインで渡すのがちょうど良さそうです。&lt;br/&gt;
+　twitterのStreamingAPIを使用する部分は&lt;a href=&quot;/project/2014-05-30/tweetwatch&quot;&gt;以前書いた記事&lt;/a&gt;で紹介したmorizyun氏のコードをServ.trackingメソッドに閉じ込めてほぼそのまま動かしています。twitter側でエラーが発生した場合このままでいいのかよく分かりませんが、エラーになればWebサイト側からサーバースクリプトを再起動してもらえばいいという考え方で作ってます。&lt;br/&gt;
+　client側からserver側スクリプトに受け渡すパラメータはTwitterAPIを利用するために必要な認証key文字列（４種類）とユーザIDとTwitterのfilterAPIに渡す検索文字列（検索タグ）です。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;ruby:myserv.rb&quot;&gt;#実際のソースの一部
+require &#39;eventmachine&#39;
+require &#39;optparse&#39;
+
+class Serv &amp;lt; EM::Connection
+  attr_accessor :uid
+  attr_accessor :track
+  attr_accessor :c_key
+  attr_accessor :c_secret
+  attr_accessor :a_key
+  attr_accessor :a_secret
+  def receive_data(data)
+    case data
+    when /stop/i
+      send_data &quot;O.K.&quot;
+      EM.stop
+    when /check/i
+      send_data @track
+    省略
+      :
+
+  def tracking(track, c_key, c_secret, a_key, a_secret, uid)
+    stream = Twitter::JSONStream.connect(
+  省略
+    :
+
+EM.run do
+  EM.start_server(&quot;127.0.0.1&quot;, 10000 + params[&quot;p&quot;].to_i, Serv) do |conn|
+    conn.track = params[&quot;t&quot;]
+    conn.uid = params[&quot;p&quot;].to_i
+    conn.c_key = params[&quot;c&quot;]
+    conn.c_secret = params[&quot;k&quot;]
+    conn.a_key = params[&quot;s&quot;]
+    conn.a_secret = params[&quot;a&quot;]
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;参考サイト&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://keijinsonyaban.blogspot.jp/2010/12/eventmachine.html&quot;&gt;【翻訳】EventMachine入門 &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://gihyo.jp/dev/serial/01/ruby/0032&quot;&gt;Reactorで非同期処理をやってみよう（2）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>モウセンゴケ買ってみた</title>
