@@ -8,13 +8,13 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>Jekyll Bootstrapのテンプレート　</title>
+	<title>ツイートを監視して集計する（client側）</title>
     <meta name="Keywords" content="自己満足プログラミング" lang="ja">
     <meta name="description" content="Ruby on rails, programming for my enjoyment">
 	<meta name="author" content="happyclam">
 	<link href='/assets/themes/the-minimum/css/style.css' rel="stylesheet" media="all">
     <link rel="stylesheet" href="/assets/themes/the-minimum/css/syntax.css" type="text/css">
-	<link href="http://feeds.feedburner.com/" rel="alternate" title="Jekyll Bootstrapのテンプレート　" type="application/atom+xml">
+	<link href="http://feeds.feedburner.com/" rel="alternate" title="ツイートを監視して集計する（client側）" type="application/atom+xml">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -58,50 +58,104 @@
 			<header>
 				<div class="unit-head">
 					<div class="unit-inner unit-head-inner">
-						<h1 class="h2 entry-title">Jekyll Bootstrapのテンプレート　</h1>
+						<h1 class="h2 entry-title">ツイートを監視して集計する（client側）</h1>
 					</div><!-- unit-inner -->
 				</div><!-- unit-head -->
 			</header>
 
 			<div class="bd">
 				<div class="entry-content">
-					<p><a href="http://melborne.github.io/2012/05/13/first-step-of-jekyll/">「30分のチュートリアルでJekyllを理解する」</a>を見て一通り理解できたので、見た目を格好良くしようと思い<a href="http://jekyllbootstrap.com/usage/jekyll-theming.html" title="Jekyll-bootstrap">Jekyll Bootstrap</a>のテーマをダウンロードして適用しました。そうしたらそれまで見れていたサイトgithub pages(http://username.github.io/)が表示されなくなったのでその顛末を書いています。</p>
+					<h3>サーバースクリプトの状態遷移</h3>
+
+<p>　言うまでもなくclient側と言ってもWebサーバ上で動いているわけなのでユーザから見ればサーバーとして機能しているわけですが、TwitterAPIを使ってデータをDBに保存するサーバースクリプトに対してclient側ということです。<br/>
+state_machine gemを利用してサーバースクリプトの状態を管理しています。
+<img src="/images/tweetwatch.png" alt="状態遷移図" /></p>
 
 <ul>
-<li><p>まずgithubから <br/>
-<code>The submodule 'xxxxx' was not properly initialized with a '.gitmodules' file.</code><br/>
-というメールが来た。どうもsubmoduleというのがよく分からなかったのだけど<a href="http://qiita.com/sotarok/items/0d525e568a6088f6f6bb" title="Git submodule の基礎">ここ</a>を参考に解決<br/>
-<code>jekyll build</code>で静的ファイルを生成したはずだから、build後はテンプレートは必要ないのかと思ったけどsubmoduleとしてcommitしなければいけないらしい。今までgit使っていてsubmoduleなんて使ったこと無かったけど、submodule内のcommitは外のcommitとは別途実行する必要（当然といえば当然だけど）があるみたいで、なんだかややこしそうな仕組みだ。</p></li>
-<li><p>次に来たメールがこんなの<br/>
-<code>The tag 'math' in 'xxxxx' is not a recognized Liquid tag.</code><br/>
-<a href="http://melborne.github.io/2012/05/13/first-step-of-jekyll/" title="30分のチュートリアルでJekyllを理解する">数式を表示するプラグイン（Mathjax.rb）</a>を試しに使っていたのだが、テンプレートを適用したためテンプレート内に存在するdefault.htmlを修正する必要が出てきた。テンプレート内のファイルに変更を加えたらテンプレートをupdateしたときに問題が出るんじゃないの？と思いながらもとりあえずテンプレート内のdefault.html<a href="#fn1"><sup>*1</sup></a>にMathJax.jsを読み込むコードを追加</p></li>
-<li><p>ようやく表示出来るかとおもったら、また次のようなメールが<br/>
-<code>page build failed</code><br/>
-今回のメールは理由が書いていない。どうすりゃいいの？ローカルでは問題ないのに。<br/>
-googleで検索すると<a href="http://modalsoul.github.io/environment/2013/08/17/Github-pages-build-failure/">ここ</a>にいろんなケースが書いてあった。こんなこと全部はやってられるかって感じ。herokuでも感じていたけど、やりたいことと関係ないところで手間がかかるから、運用の手間は増えるけどEC2とかを使って全部自分でサーバー環境作るべきか？とか思案に耽ってしまった。</p></li>
-<li><p>気分を入れ替えてgithubのレポジトリを削除して作り直すことにした。そもそも<a href="http://krakenbeal.blogspot.jp/2012/05/ruby-jekyll-jekyll-bootstrap.html">このサイト</a>を参考にjekyllのbuild環境を含めてレポジトリを作ったのだけど、githubにある「Automatic Page Generator」のボタンをクリックしてレポジトリを新しく作り直してみると、リポジトリには生成された静的コンテンツのみが含まれていた。ということはgithubのリポジトリにはjekyllで生成された結果ファイルのみを含めるべきなのか？まぁgeneratorとはそうやって使うのが普通だろうけど、herokuを使っている自分としては開発環境（というかファイル生成環境）毎pushするのかと思っていたので少々面食らった。githubからbuild errorの通知メールを送ってくれるわけだからgithub側で自動buildしてくれる仕組みはあるようだけど、ローカル環境でbuildした結果だけをpushしても問題はないようだ。</p></li>
-<li><p><strong>結論。</strong>やったのは以下の３作業だけ。ネットで検索しているとgh-pagesブランチを作れとか書いてあるが、別ブランチを作ったらgithubからbuild errorのメールが届いたのでmasterブランチのままです。</p></li>
+<li><p><em>状態遷移表</em></p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;"> status\method    </th>
+<th style="text-align:center;">     start       </th>
+<th style="text-align:center;">     store       </th>
+<th style="text-align:center;">     stop        </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;"> 停止中(down)      </td>
+<td style="text-align:center;"> 待機中(prepared) </td>
+<td style="text-align:center;">      -          </td>
+<td style="text-align:center;">      -         </td>
+</tr>
+<tr>
+<td style="text-align:left;"> 待機中(prepared)  </td>
+<td style="text-align:center;">       -          </td>
+<td style="text-align:center;"> 集計中(storing) </td>
+<td style="text-align:center;"> 停止中(down)   </td>
+</tr>
+<tr>
+<td style="text-align:left;"> 集計中(storing)   </td>
+<td style="text-align:center;">       -          </td>
+<td style="text-align:center;">      -          </td>
+<td style="text-align:center;"> 停止中(down)   </td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p><em>サーバー停止中のユーザー画面</em><br/>
+<img src="/images/state1.png" alt="サーバー停止中" /></p></li>
+<li><em>サーバー集計中のユーザー画面</em><br/>
+<img src="/images/state2.png" alt="サーバー集計中" /><br/>
+　ユーザ向け画面では「停止中」と「集計中」の２つの状態しかないのですが、EventMachineを使用しているサーバースクリプトでは、接続確立が完了した状態（post_initイベントが発生後）にならないとコマンドラインで渡したパラメータが有効にならないので、サーバースクリプトを起動した直後の状態を「待機中」として管理しています。</li>
 </ul>
 
 
-<p>1 githubのメニューからusername.github.ioという名前のrepositoryを新規作成<br/>
-2 ローカル環境にcloneして、jekyll generatorで出力した_siteディレクトリ以下のファイルをcopyしてcommit<br/>
-  <code>git clone https://github.com/username/username.github.io.git</code><br/>
-  <code>cp -rp ../localrepository/_site/* .</code><br/>
-  <code>git commit -a -m "copy from _site directory of jekyll project"</code><br/>
-3 masterブランチとしてpush<br/>
-  <code>git push origin</code></p>
+<!-- other list -->
 
-<p>  何かネットの情報に振り回されて余計な時間を喰ってしまった感じです。githubの仕様が変わったのか、今頃github-pagesに手を出す私は珍しいのか、ローカルにjekyllをインストールして使う人は少ないのか知りませんが、上に書いた手順を紹介しているサイトは見かけなかったので、何か間違っているのかもしれませんが。このやり方で運用しようと思います。</p>
 
-<p><a name="fn1">*1</a>default.htmlが複数あってややこしいですが、テンプレート内のファイルを変更する必要は無く、_include/以下にあるdefault.htmlを変更すればいいようです。</p>
+<ul>
+<li>停止中 ----- サーバースクリプト停止中</li>
+<li>待機中 ----- サーバースクリプトが起動しているが、TwitterAPIを呼び出していない状態</li>
+<li>集計中 ----- TwitterAPIを呼び出しツイートデータをDBに保存している状態<br/>
+※「集計中」から「待機中」には遷移できません（停止して再起動）。</li>
+</ul>
+
+
+<h3>機能</h3>
+
+<ul>
+<li>server側スクリプトの制御（起動、終了、状態確認）<br/>
+※遅いノートPC（Atom機）で試したところserver側スクリプト起動に時間がかかり、接続がタイムアウトすることがあったので５秒のsleepを入れています。</li>
+<li>server側のスクリプトがDBに保存したツイートデータを集計してグラフ表示する。<br/>
+※Twitterのデータ構造はハッシュタグを本文とは別に保持しているようですが、SQLで集計する際にハッシュタグで集計するのはコストがかかるので、本文の内容でgroup byするという単純なやり方で妥協しています。詳細は別記事にするつもりです。</li>
+</ul>
+
+
+<h3>ER図</h3>
+
+<object data="/pdf/struct_tweetwatch.pdf" width="600" height="600">
+<p>ご覧の環境では、object要素がサポートされていないようです。<a href="/pdf/struct_tweetwatch.pdf">PDFファイルをダウンロードしてください</a></p>
+</object>
+
+
+<ul>
+<li>Tweetテーブルへの書き込みはサーバースクリプトのみで、client側のRailsアプリからTweetテーブルへのアクセスはRead onlyです。</li>
+<li>Servモデルはユーザがサーバースクリプトを起動する時に指定したTwitter検索タグとサーバースクリプトの状態を管理します。</li>
+<li>ユーザは複数のTrackモデル（検索タグ）を保存できますが、サーバースクリプト起動時に指定出来るタグは一つだけです。</li>
+</ul>
+
+
+<p>　</p>
 
 					<div class="meta">
 						<p class="date-publish">
 							Published: 
-							<date class="date-pub" title="2014-01-12T00:00:00+09:00" datetime="2014-01-12T00:00:00+09:00" pubdate>
-							<span class="month"><abbr>January</abbr></span>
-							<span class="day">12</span>
+							<date class="date-pub" title="2014-06-07T00:00:00+09:00" datetime="2014-06-07T00:00:00+09:00" pubdate>
+							<span class="month"><abbr>June</abbr></span>
+							<span class="day">07</span>
 							<span class="year">2014</span>
 							</date>
 						</p>
@@ -113,8 +167,8 @@ googleで検索すると<a href="http://modalsoul.github.io/environment/2013/08/
 
   
      
-    	<li><a href="/categories.html#practice-ref">
-    		practice <span>3</span>
+    	<li><a href="/categories.html#project-ref">
+    		project <span>4</span>
     	</a></li>
     
   
@@ -129,9 +183,11 @@ googleで検索すると<a href="http://modalsoul.github.io/environment/2013/08/
 
   
      
+    	<li><a href="/tags.html#rails-ref">rails <span>6</span></a></li>
+     
     	<li><a href="/tags.html#ruby-ref">ruby <span>7</span></a></li>
      
-    	<li><a href="/tags.html#jekyll-ref">jekyll <span>3</span></a></li>
+    	<li><a href="/tags.html#tweetwatch-ref">tweetwatch <span>3</span></a></li>
     
   
 
@@ -177,13 +233,9 @@ googleで検索すると<a href="http://modalsoul.github.io/environment/2013/08/
 					<nav class="pagination">
 						<ul>
 							
-							<li class="prev"><a class="internal" rel="prev"  href="/practice/2014-01-10/jekyll-practice" title="View Jekyllの練習">&laquo; Jekyllの練習</a></li>
+							<li class="prev"><a class="internal" rel="prev"  href="/project/2014-06-06/tweetwatch_server" title="View ツイートを監視して集計する（server側）">&laquo; ツイートを監視して集計する（server側）</a></li>
 							
 							
-							<li class="pipe"> | </li>
-							
-							
-							<li class="next"><a class="internal" rel="next"  href="/programming/2014-05-17/inflexible-rspec" title="View rspecに納得できない">rspecに納得できない &raquo;</a></li>
 							
 						</ul>
 					</nav>
@@ -231,7 +283,7 @@ googleで検索すると<a href="http://modalsoul.github.io/environment/2013/08/
 		};
 	load('//platform.twitter.com/widgets.js', 'tweetjs');
 	// load('https://apis.google.com/js/plusone.js', 'gplus1js'); // Checkout http://j.mp/ApDgMr for usage html for this is <div class="g-plusone" data-size="medium"></div>
-	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/practice/2014-01-12/jekyll-bootstrap" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
+	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/project/2014-06-07/tweetwatch_client" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
 	}(document, 'script'));
 </script>
 <script>

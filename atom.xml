@@ -4,13 +4,105 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2014-06-06T07:35:42+09:00</updated>
+ <updated>2014-06-07T19:38:07+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>ツイートを監視して集計する（client側）</title>
+   <link href="http://happyclam.github.io/project/2014-06-07/tweetwatch_client"/>
+   <updated>2014-06-07T00:00:00+09:00</updated>
+   <id>http://happyclam.github.io/project/2014-06-07/tweetwatch_client</id>
+   <content type="html">&lt;h3&gt;サーバースクリプトの状態遷移&lt;/h3&gt;
+
+&lt;p&gt;　言うまでもなくclient側と言ってもWebサーバ上で動いているわけなのでユーザから見ればサーバーとして機能しているわけですが、TwitterAPIを使ってデータをDBに保存するサーバースクリプトに対してclient側ということです。&lt;br/&gt;
+state_machine gemを利用してサーバースクリプトの状態を管理しています。
+&lt;img src=&quot;/images/tweetwatch.png&quot; alt=&quot;状態遷移図&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;状態遷移表&lt;/em&gt;&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt; status\method    &lt;/th&gt;
+&lt;th style=&quot;text-align:center;&quot;&gt;     start       &lt;/th&gt;
+&lt;th style=&quot;text-align:center;&quot;&gt;     store       &lt;/th&gt;
+&lt;th style=&quot;text-align:center;&quot;&gt;     stop        &lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 停止中(down)      &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt; 待機中(prepared) &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt;      -          &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt;      -         &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 待機中(prepared)  &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt;       -          &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt; 集計中(storing) &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt; 停止中(down)   &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 集計中(storing)   &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt;       -          &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt;      -          &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt; 停止中(down)   &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;サーバー停止中のユーザー画面&lt;/em&gt;&lt;br/&gt;
+&lt;img src=&quot;/images/state1.png&quot; alt=&quot;サーバー停止中&quot; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;サーバー集計中のユーザー画面&lt;/em&gt;&lt;br/&gt;
+&lt;img src=&quot;/images/state2.png&quot; alt=&quot;サーバー集計中&quot; /&gt;&lt;br/&gt;
+　ユーザ向け画面では「停止中」と「集計中」の２つの状態しかないのですが、EventMachineを使用しているサーバースクリプトでは、接続確立が完了した状態（post_initイベントが発生後）にならないとコマンドラインで渡したパラメータが有効にならないので、サーバースクリプトを起動した直後の状態を「待機中」として管理しています。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;!-- other list --&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;停止中 ----- サーバースクリプト停止中&lt;/li&gt;
+&lt;li&gt;待機中 ----- サーバースクリプトが起動しているが、TwitterAPIを呼び出していない状態&lt;/li&gt;
+&lt;li&gt;集計中 ----- TwitterAPIを呼び出しツイートデータをDBに保存している状態&lt;br/&gt;
+※「集計中」から「待機中」には遷移できません（停止して再起動）。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;機能&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;server側スクリプトの制御（起動、終了、状態確認）&lt;br/&gt;
+※遅いノートPC（Atom機）で試したところserver側スクリプト起動に時間がかかり、接続がタイムアウトすることがあったので５秒のsleepを入れています。&lt;/li&gt;
+&lt;li&gt;server側のスクリプトがDBに保存したツイートデータを集計してグラフ表示する。&lt;br/&gt;
+※Twitterのデータ構造はハッシュタグを本文とは別に保持しているようですが、SQLで集計する際にハッシュタグで集計するのはコストがかかるので、本文の内容でgroup byするという単純なやり方で妥協しています。詳細は別記事にするつもりです。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;ER図&lt;/h3&gt;
+
+&lt;object data=&quot;/pdf/struct_tweetwatch.pdf&quot; width=&quot;600&quot; height=&quot;600&quot;&gt;
+&lt;p&gt;ご覧の環境では、object要素がサポートされていないようです。&lt;a href=&quot;/pdf/struct_tweetwatch.pdf&quot;&gt;PDFファイルをダウンロードしてください&lt;/a&gt;&lt;/p&gt;
+&lt;/object&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Tweetテーブルへの書き込みはサーバースクリプトのみで、client側のRailsアプリからTweetテーブルへのアクセスはRead onlyです。&lt;/li&gt;
+&lt;li&gt;Servモデルはユーザがサーバースクリプトを起動する時に指定したTwitter検索タグとサーバースクリプトの状態を管理します。&lt;/li&gt;
+&lt;li&gt;ユーザは複数のTrackモデル（検索タグ）を保存できますが、サーバースクリプト起動時に指定出来るタグは一つだけです。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;　&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>ツイートを監視して集計する（server側）</title>
