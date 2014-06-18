@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2014-06-17T09:16:22+09:00</lastBuildDate>
-        <pubDate>2014-06-17T09:16:22+09:00</pubDate>
+        <lastBuildDate>2014-06-18T13:47:13+09:00</lastBuildDate>
+        <pubDate>2014-06-18T13:47:13+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -108,7 +108,7 @@ state_machine gemを利用してサーバースクリプトの状態を管理し
 
 &lt;p&gt;　初めて&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;morizyun氏のこの記事&lt;/a&gt;を読んだときはEventMachineとかforemanとかって何をするものか知らなかったのですが、EventMachineというのは「&lt;a href=&quot;https://morizyun.github.io/blog/reactor-pattern-ruby/&quot;&gt;[Ruby] Reactorパターンについて&lt;/a&gt;」にも書いてある通り、ソケットの受信待機をして貰って簡単にReactorパターンを実現することが出来るツールってことのようです。だからわざわざ自分でプロセス間通信の手続きを書く必要がなくアプリケーションレベルのコマンドを用意してあげるだけで済むのではないか？と思いながら作ったら思惑通りにうまく動いたって感じです。実際に組み込む前には、以下のような単純なサンプルで確認しました。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;ruby:serv_sample.rb&quot;&gt;#server側サンプル  
+&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;#server側サンプル  
 require &#39;eventmachine&#39;
 
 class Serv &amp;lt; EM::Connection
@@ -358,21 +358,21 @@ getter(日付型のデータを、年/月のフォーマットの文字列に変
 &lt;/ul&gt;
 
 
-&lt;pre&gt;&lt;code class=&quot;ruby:position.rb&quot;&gt;  def ym_expiration
+&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;  def ym_expiration
     return self.expiration.strftime(&quot;%Y/%m&quot;) if self.expiration
   end
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;setter(年/月の文字列データを日付01を付加して日付型に変換して格納)&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;ruby:position.rb&quot;&gt;  def ym_expiration=(ym_expiration)
+&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;  def ym_expiration=(ym_expiration)
     self.expiration = Date.strptime(ym_expiration + &quot;/01&quot;, &quot;%Y/%m/%d&quot;)
   end
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Viewから呼ばれる、年/月の文字列データを返すメソッド&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;ruby:position.rb&quot;&gt;  def get_expiration_list
+&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;  def get_expiration_list
     :省略
     :
   end
@@ -581,7 +581,8 @@ rails runner Candlestick::biteoff
                 <title>rspecに納得できない</title>
                 <description>&lt;p&gt;先日衝動買いした&lt;a href=&quot;http://www.amazon.co.jp/Instant-RSpec-Test-Driven-Development-How-ebook/dp/B00DMYO1QK&quot;&gt;Instant RSpec Test-Driven Development How-to [Kindle版]&lt;/a&gt;の最初に出てくるサンプルコード&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;ruby:location_spec.rb&quot;&gt;describe Location do
+&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;#location_spec.rb
+describe Location do
   describe &quot;#initialize&quot; do
     it &quot;sets the latitude and longitude&quot; do
       loc = Location.new(:latitude =&amp;gt; 38.911268,
@@ -600,7 +601,8 @@ end
 &lt;/ol&gt;
 
 
-&lt;pre&gt;&lt;code class=&quot;ruby:my_answer.rb  &quot;&gt;   class  Location  
+&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;   #my_answer.rb  
+   class  Location  
        attr_accessor :latitude  
        attr_accessor :longitude  
        def initialize(lati=nil, long=nil)  
@@ -615,7 +617,8 @@ end
 &lt;/ol&gt;
 
 
-&lt;pre&gt;&lt;code class=&quot;ruby:bad_answer.rb&quot;&gt;   class  Location
+&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;   #bad_answer.rb
+   class  Location
        def initialize(args = {});end
        def latitude
            38.911268
@@ -631,7 +634,8 @@ end
 &lt;/ol&gt;
 
 
-&lt;pre&gt;&lt;code class=&quot;ruby:model_answer.rb&quot;&gt;   class Location
+&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;   #model_answer.rb
+   class Location
        attr_accessor :latitude, :longitude
        def initialize(args = {})
            self.latitude = args[:latitude]

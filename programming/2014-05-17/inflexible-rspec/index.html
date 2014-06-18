@@ -67,7 +67,8 @@
 				<div class="entry-content">
 					<p>先日衝動買いした<a href="http://www.amazon.co.jp/Instant-RSpec-Test-Driven-Development-How-ebook/dp/B00DMYO1QK">Instant RSpec Test-Driven Development How-to [Kindle版]</a>の最初に出てくるサンプルコード</p>
 
-<pre><code class="ruby:location_spec.rb">describe Location do
+<pre><code class="Ruby">#location_spec.rb
+describe Location do
   describe "#initialize" do
     it "sets the latitude and longitude" do
       loc = Location.new(:latitude =&gt; 38.911268,
@@ -86,7 +87,8 @@ end
 </ol>
 
 
-<pre><code class="ruby:my_answer.rb  ">   class  Location  
+<pre><code class="Ruby">   #my_answer.rb  
+   class  Location  
        attr_accessor :latitude  
        attr_accessor :longitude  
        def initialize(lati=nil, long=nil)  
@@ -101,7 +103,8 @@ end
 </ol>
 
 
-<pre><code class="ruby:bad_answer.rb">   class  Location
+<pre><code class="Ruby">   #bad_answer.rb
+   class  Location
        def initialize(args = {});end
        def latitude
            38.911268
@@ -117,7 +120,8 @@ end
 </ol>
 
 
-<pre><code class="ruby:model_answer.rb">   class Location
+<pre><code class="Ruby">   #model_answer.rb
+   class Location
        attr_accessor :latitude, :longitude
        def initialize(args = {})
            self.latitude = args[:latitude]

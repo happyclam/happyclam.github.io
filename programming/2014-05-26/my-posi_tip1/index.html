@@ -87,21 +87,21 @@ getter(日付型のデータを、年/月のフォーマットの文字列に変
 </ul>
 
 
-<pre><code class="ruby:position.rb">  def ym_expiration
+<pre><code class="Ruby">  def ym_expiration
     return self.expiration.strftime("%Y/%m") if self.expiration
   end
 </code></pre>
 
 <p>setter(年/月の文字列データを日付01を付加して日付型に変換して格納)</p>
 
-<pre><code class="ruby:position.rb">  def ym_expiration=(ym_expiration)
+<pre><code class="Ruby">  def ym_expiration=(ym_expiration)
     self.expiration = Date.strptime(ym_expiration + "/01", "%Y/%m/%d")
   end
 </code></pre>
 
 <p>Viewから呼ばれる、年/月の文字列データを返すメソッド</p>
 
-<pre><code class="ruby:position.rb">  def get_expiration_list
+<pre><code class="Ruby">  def get_expiration_list
     :省略
     :
   end
