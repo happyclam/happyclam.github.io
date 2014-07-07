@@ -1,14 +1,17 @@
 
-http://happyclam.github.io/categories.html
-http://happyclam.github.io/index.html
-http://happyclam.github.io/rss.xml
 http://happyclam.github.io/atom.xml
-http://happyclam.github.io/tags.html
-http://happyclam.github.io/pages.html
-http://happyclam.github.io/archive.html
+http://happyclam.github.io/rss.xml
 http://happyclam.github.io/sitemap.txt
+http://happyclam.github.io/categories.html
+http://happyclam.github.io/pages.html
+http://happyclam.github.io/tags.html
+http://happyclam.github.io/index.html
+http://happyclam.github.io/archive.html
 
+<<<<<<< HEAD
 http://happyclam.github.io/programming/2014-07-07/rails_env
+=======
+>>>>>>> origin/master
 http://happyclam.github.io/project/2014-06-07/tweetwatch_client
 http://happyclam.github.io/project/2014-06-06/tweetwatch_server
 http://happyclam.github.io/miscellaneous/2014-05-31/drosera

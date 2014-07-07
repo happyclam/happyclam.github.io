@@ -4,7 +4,11 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
+<<<<<<< HEAD
  <updated>2014-07-07T21:08:09+09:00</updated>
+=======
+ <updated>2014-06-18T13:47:13+09:00</updated>
+>>>>>>> origin/master
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -13,6 +17,7 @@
 
  
  <entry>
+<<<<<<< HEAD
    <title>production環境でjQueryが発動しない</title>
    <link href="http://happyclam.github.io/programming/2014-07-07/rails_env"/>
    <updated>2014-07-07T00:00:00+09:00</updated>
@@ -197,6 +202,8 @@ config.assets.compile = falseでdevelopment,production両方の環境で動き�
  </entry>
  
  <entry>
+=======
+>>>>>>> origin/master
    <title>ツイートを監視して集計する（client側）</title>
    <link href="http://happyclam.github.io/project/2014-06-07/tweetwatch_client"/>
    <updated>2014-06-07T00:00:00+09:00</updated>
@@ -298,7 +305,11 @@ state_machine gemを利用してサーバースクリプトの状態を管理し
 &lt;p&gt;　初めて&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;morizyun氏のこの記事&lt;/a&gt;を読んだときはEventMachineとかforemanとかって何をするものか知らなかったのですが、EventMachineというのは「&lt;a href=&quot;https://morizyun.github.io/blog/reactor-pattern-ruby/&quot;&gt;[Ruby] Reactorパターンについて&lt;/a&gt;」にも書いてある通り、ソケットの受信待機をして貰って簡単にReactorパターンを実現することが出来るツールってことのようです。だからわざわざ自分でプロセス間通信の手続きを書く必要がなくアプリケーションレベルのコマンドを用意してあげるだけで済むのではないか？と思いながら作ったら思惑通りにうまく動いたって感じです。実際に組み込む前には、以下のような単純なサンプルで確認しました。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;#server側サンプル  
+<<<<<<< HEAD
 require 'eventmachine'
+=======
+require &#39;eventmachine&#39;
+>>>>>>> origin/master
 
 class Serv &amp;lt; EM::Connection
   attr_accessor :track
@@ -364,8 +375,13 @@ end
 　client側からserver側スクリプトに受け渡すパラメータはTwitterAPIを利用するために必要な認証key文字列（４種類）とユーザIDとTwitterのfilterAPIに渡す検索文字列（検索タグ）です。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;ruby:myserv.rb&quot;&gt;#実際のソースの一部
+<<<<<<< HEAD
 require 'eventmachine'
 require 'optparse'
+=======
+require &#39;eventmachine&#39;
+require &#39;optparse&#39;
+>>>>>>> origin/master
 
 class Serv &amp;lt; EM::Connection
   attr_accessor :uid
