@@ -5,30 +5,499 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2014-05-27T11:22:09+09:00</lastBuildDate>
-        <pubDate>2014-05-27T11:22:09+09:00</pubDate>
+        <lastBuildDate>2014-07-07T21:08:09+09:00</lastBuildDate>
+        <pubDate>2014-07-07T21:08:09+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>production環境でjQueryが発動しない</title>
+                <description>&lt;h3&gt;自宅サーバーにdeployment&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;/project/2014-05-30/tweetwatch&quot;&gt;TweetWatch&lt;/a&gt;がとりあえず完成したので、自鯖（Apatch）で動かしてみたらjQueryの一部（画面描画時&lt;code&gt;$(document).ready()&lt;/code&gt;の処理だけ）が上手く動かなかったので動くようになったまでの顛末を書きます（Rails 4.0.2, ruby 2.0.0p353）。&lt;br/&gt;
+コードは以下の通りです&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;#app/assets/javascripts/users.js
+$(document).ready(function(){
+    $.ajax({
+        url: '/tweets/check', 
+        data: {},
+        dataType: &quot;script&quot;
+    }).done(function(data, status, xhr) {
+    }).fail(function(xhr, status, error) {
+        alert('Error Occured(' + error + ')');
+    });
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;処理の内容はあまり関係ないと思いますが、jqueryからcontrollerのメソッドを呼び出し、サーバースクリプトが動いているかどうかをチェックして画面にstatusを表示する処理をしています。このusers.jsがdevelopment環境では動くのにproduction環境では動かないという現象に悩まされました。動くようになるまでに辿った作業を順に箇条書きにしてみると以下のようになります。&lt;/p&gt;
+
+&lt;dl&gt;
+&lt;dt&gt;&lt;p&gt;1. Apache+Passenger環境でうまく動かないので、以下の設定でwebrickでproduction環境を試す。特にwebrick用の設定とも言える&lt;code&gt;serve_static_assets = true&lt;/code&gt;がdevelopment環境との大きな違い&lt;/p&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;pre&gt;&lt;code&gt;
+    #config/environments/production.rb
+    config.assets.compile = false
+    config.assets.js_compressor = :uglifier
+    config.serve_static_assets = true
+    config.assets.digest = true
+    config.assets.debug = true
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;rake assets:precompile RAILS_ENV=production&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;rails s -e production&lt;/code&gt;&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;p&gt;2. 変化が無かったのでjquery-turbolinks gemを追加してみる&lt;/p&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;pre&gt;&lt;code&gt;
+    #Gemfile
+    gem 'jquery-turbolinks'  &lt;- 追加
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;bundle install&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+    #app/assets/javascripts/application.js
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap
+//= require users.js
+//= require turbolinks
+//= require jquery.turbolinks     &lt;- 追加
+//= require highcharts/highcharts
+//= require highcharts/highcharts-more
+//= require highcharts/highstock
+//= require_tree .
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;rake assets:precompile RAILS_ENV=production&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;rails s -e production&lt;/code&gt;
+&lt;/p&gt;
+※&lt;a href=https://github.com/kossnocorp/jquery.turbolinks/blob/master/README.md&gt;jquery-turbolinksのドキュメント&lt;/a&gt;
+&lt;/dd&gt;
+&lt;br /&gt;
+&lt;dt&gt;&lt;p&gt;3. jquery-turbolinks gemを追加してもダメだったので、今度は逆にturbolinksを無効にしてみる&lt;/p&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;pre&gt;&lt;code&gt;
+    #Gemfile
+#    gem 'turbolinks'         &lt;- コメント化
+#    gem 'jquery-turbolinks'  &lt;- コメント化
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;
+    #app/assets/javascripts/application.js
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap
+//= require users.js
+//= require turbolinks            &lt;- この行を削除
+//= require jquery.turbolinks     &lt;- この行を削除
+//= require highcharts/highcharts
+//= require highcharts/highcharts-more
+//= require highcharts/highstock
+//= require_tree .
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;bundle install&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+    #app/views/layouts/application.html.erb
+    #変更前
+  &lt;%= stylesheet_link_tag    &quot;application&quot;, media: &quot;all&quot;, &quot;data-turbolinks-track&quot; =&gt; true %&gt;
+  &lt;%= javascript_include_tag &quot;application&quot;, &quot;data-turbolinks-track&quot; =&gt; true %&gt;
+    #変更後
+  &lt;%= stylesheet_link_tag    &quot;application&quot;, media: &quot;all&quot; %&gt;
+  &lt;%= javascript_include_tag &quot;application&quot; %&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;rake assets:precompile RAILS_ENV=production&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;rails s -e production&lt;/code&gt;&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;p&gt;4. turbolinksは関係なかったので、関係ないと思ったけど今度はcoffee scriptに変えてみる&lt;/p&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;span&gt;jqueryとturbolinks両イベント対応の書き方&lt;/span&gt;
+&lt;pre&gt;&lt;code&gt;
+#app/assets/javascripts/user.js.coffee
+$(document).on 'ready page:load', -&gt;
+  url = '/tweets/check'
+  dfd = $.ajax
+    url: url
+    format: 'script'
+    data: {}
+    method: 'get'
+  promise = dfd.promise()
+  promise.done((data, status, xhr) -&gt;
+  )
+  promise.fail((xhr, status, error) -&gt;
+    alert(error)
+  )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;span&gt;jqueryイベントとturbolinksイベントを分けた書き方&lt;/span&gt;
+&lt;pre&gt;&lt;code&gt;
+#app/assets/javascripts/user.js.coffee
+ready = -&gt;
+  url = '/tweets/check'
+  dfd = $.ajax
+    url: url
+    format: 'script'
+    data: {}
+    method: 'get'
+  promise = dfd.promise()
+  promise.done((data, status, xhr) -&gt;
+  )
+  promise.fail((xhr, status, error) -&gt;
+    alert(error)
+  )
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;rake assets:precompile RAILS_ENV=production&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;rails s -e production&lt;/code&gt;&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;p&gt;5. どっちのcoffee scriptでもダメなので、こんどは正常に動作しているdevelopment環境の設定をproduction環境と同じにして確認。&lt;/p&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;pre&gt;&lt;code&gt;
+    #config/environments/development.rb
+    config.assets.compile = false
+    config.assets.js_compressor = :uglifier
+    config.serve_static_assets = true
+    config.assets.digest = true
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;デフォルトでは書かれていない上記設定をdevelopment環境の設定ファイルに追加して&lt;code&gt;rails s -e development&lt;/code&gt;すると、めでたく？production環境と同じくページload時のjqueryだけが発動しない現象が再現しました。結局config.assets.compileがtrueかfalseかで動作が変わるようです。念のためdevelopment環境でconfig.assets.compileの値だけを書き換えて現象の発生の有無を確認しました。&lt;br /&gt;
+　でも本番（production）環境でconfig.assets.compile = trueにして運用することは、重くなるので普通はしないと思いますし、結局config.assets.compile = falseのままではturbolinksの有効・無効に関係なく、このjqueryを発動させることは出来ませんでした。
+&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;p&gt;6. 何か方法はないかとテンプレートファイルに直接jqueryを直書きしてみたところ&lt;/p&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;pre&gt;&lt;code&gt;
+#app/views/users/show.html.erb
+&lt;%= javascript_tag do %&gt;
+$(document).ready(function(){
+    $.ajax({
+        url: '/tweets/check', 
+        data: {},
+        dataType: &quot;script&quot;
+    }).done(function(data, status, xhr) {
+    }).fail(function(xhr, status, error) {
+        alert('Error Occured(' + error + ')');
+    });
+});
+&lt;% end %&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;これでdevelopment環境でもproduction環境でもページ読み込み時のjqueryが正常に動作しました。&lt;br /&gt;
+config.assets.compile = falseでdevelopment,production両方の環境で動きます。いろいろ環境を弄りましたが元の環境からjqueryをテンプレートに直書きするように変えるだけで他は変更しなくてよかったみたいです。turbolinksが有効でも無効でも大丈夫です
+&lt;/p&gt;
+&lt;/dd&gt;
+
+&lt;/dl&gt;
+
+
+&lt;p&gt;&lt;em&gt;結論&lt;/em&gt;&lt;br/&gt;
+「$document.readyイベントを使うjqueryが動作しない時は、テンプレートに直書きしてみる。」&lt;br/&gt;
+※ネットの情報を漁っていると、jquery-turbolinks gemを使えば解決するというものが多いのですが、$document.readyイベントに関してはそういうわけにはいかないようです。&lt;/p&gt;
+</description>
+                <link>http://happyclam.github.io/programming/2014-07-07/rails_env</link>
+                <guid>http://happyclam.github.io/programming/2014-07-07/rails_env</guid>
+                <pubDate>2014-07-07T00:00:00+09:00</pubDate>
+        </item>
+
+        <item>
+                <title>ツイートを監視して集計する（client側）</title>
+                <description>&lt;h3&gt;サーバースクリプトの状態遷移&lt;/h3&gt;
+
+&lt;p&gt;　言うまでもなくclient側と言ってもWebサーバ上で動いているわけなのでユーザから見ればサーバーとして機能しているわけですが、TwitterAPIを使ってデータをDBに保存するサーバースクリプトに対してclient側ということです。&lt;br/&gt;
+state_machine gemを利用してサーバースクリプトの状態を管理しています。
+&lt;img src=&quot;/images/tweetwatch.png&quot; alt=&quot;状態遷移図&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;状態遷移表&lt;/em&gt;&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt; status\method    &lt;/th&gt;
+&lt;th style=&quot;text-align:center;&quot;&gt;     start       &lt;/th&gt;
+&lt;th style=&quot;text-align:center;&quot;&gt;     store       &lt;/th&gt;
+&lt;th style=&quot;text-align:center;&quot;&gt;     stop        &lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 停止中(down)      &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt; 待機中(prepared) &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt;      -          &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt;      -         &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 待機中(prepared)  &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt;       -          &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt; 集計中(storing) &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt; 停止中(down)   &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 集計中(storing)   &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt;       -          &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt;      -          &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt; 停止中(down)   &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;サーバー停止中のユーザー画面&lt;/em&gt;&lt;br/&gt;
+&lt;img src=&quot;/images/state1.png&quot; alt=&quot;サーバー停止中&quot; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;サーバー集計中のユーザー画面&lt;/em&gt;&lt;br/&gt;
+&lt;img src=&quot;/images/state2.png&quot; alt=&quot;サーバー集計中&quot; /&gt;&lt;br/&gt;
+　ユーザ向け画面では「停止中」と「集計中」の２つの状態しかないのですが、EventMachineを使用しているサーバースクリプトでは、接続確立が完了した状態（post_initイベントが発生後）にならないとコマンドラインで渡したパラメータが有効にならないので、サーバースクリプトを起動した直後の状態を「待機中」として管理しています。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;!-- other list --&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;停止中 ----- サーバースクリプト停止中&lt;/li&gt;
+&lt;li&gt;待機中 ----- サーバースクリプトが起動しているが、TwitterAPIを呼び出していない状態&lt;/li&gt;
+&lt;li&gt;集計中 ----- TwitterAPIを呼び出しツイートデータをDBに保存している状態&lt;br/&gt;
+※「集計中」から「待機中」には遷移できません（停止して再起動）。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;機能&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;server側スクリプトの制御（起動、終了、状態確認）&lt;br/&gt;
+※遅いノートPC（Atom機）で試したところserver側スクリプト起動に時間がかかり、接続がタイムアウトすることがあったので５秒のsleepを入れています。&lt;/li&gt;
+&lt;li&gt;server側のスクリプトがDBに保存したツイートデータを集計してグラフ表示する。&lt;br/&gt;
+※Twitterのデータ構造はハッシュタグを本文とは別に保持しているようですが、SQLで集計する際にハッシュタグで集計するのはコストがかかるので、本文の内容でgroup byするという単純なやり方で妥協しています。詳細は別記事にするつもりです。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;ER図&lt;/h3&gt;
+
+&lt;object data=&quot;/pdf/struct_tweetwatch.pdf&quot; width=&quot;600&quot; height=&quot;600&quot;&gt;
+&lt;p&gt;ご覧の環境では、object要素がサポートされていないようです。&lt;a href=&quot;/pdf/struct_tweetwatch.pdf&quot;&gt;PDFファイルをダウンロードしてください&lt;/a&gt;&lt;/p&gt;
+&lt;/object&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Tweetテーブルへの書き込みはサーバースクリプトのみで、client側のRailsアプリからTweetテーブルへのアクセスはRead onlyです。&lt;/li&gt;
+&lt;li&gt;Servモデルはユーザがサーバースクリプトを起動する時に指定したTwitter検索タグとサーバースクリプトの状態を管理します。&lt;/li&gt;
+&lt;li&gt;ユーザは複数のTrackモデル（検索タグ）を保存できますが、サーバースクリプト起動時に指定出来るタグは一つだけです。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;　&lt;/p&gt;
+</description>
+                <link>http://happyclam.github.io/project/2014-06-07/tweetwatch_client</link>
+                <guid>http://happyclam.github.io/project/2014-06-07/tweetwatch_client</guid>
+                <pubDate>2014-06-07T00:00:00+09:00</pubDate>
+        </item>
+
+        <item>
+                <title>ツイートを監視して集計する（server側）</title>
+                <description>&lt;h3&gt;EventMachineで簡単インターフェース&lt;/h3&gt;
+
+&lt;p&gt;　初めて&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;morizyun氏のこの記事&lt;/a&gt;を読んだときはEventMachineとかforemanとかって何をするものか知らなかったのですが、EventMachineというのは「&lt;a href=&quot;https://morizyun.github.io/blog/reactor-pattern-ruby/&quot;&gt;[Ruby] Reactorパターンについて&lt;/a&gt;」にも書いてある通り、ソケットの受信待機をして貰って簡単にReactorパターンを実現することが出来るツールってことのようです。だからわざわざ自分でプロセス間通信の手続きを書く必要がなくアプリケーションレベルのコマンドを用意してあげるだけで済むのではないか？と思いながら作ったら思惑通りにうまく動いたって感じです。実際に組み込む前には、以下のような単純なサンプルで確認しました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;#server側サンプル  
+require 'eventmachine'
+
+class Serv &amp;lt; EM::Connection
+  attr_accessor :track
+  def post_init
+    puts &quot;myserv: init&quot;
+  end
+
+  def receive_data(data)
+    puts data
+    send_data @track
+    EM.stop if data =~ /stop/i
+  end
+
+  def connection_completed
+    puts &quot;myserv: completed&quot;
+  end
+
+  def unbind
+    puts &quot;myserv: unbind&quot;
+  end
+end
+
+EM.run do
+  EM.start_server(&quot;127.0.0.1&quot;, 10000, Serv) do |conn|
+    conn.track = ARGV[0]
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以下のようにコマンドラインパラメータを付加して起動し、&lt;br/&gt;
+&lt;code&gt;ruby myserv.rb O.K.&lt;/code&gt;&lt;br/&gt;
+クライアント接続時にServクラスのプロパティに保持されていることを確認する。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;ruby:client.rb&quot;&gt;#client側サンプル
+require &quot;net/telnet&quot;
+
+begin
+  localhost = Net::Telnet::new(&quot;Host&quot; =&amp;gt; &quot;localhost&quot;,
+                             &quot;Port&quot; =&amp;gt; 10000,
+                             &quot;Timeout&quot; =&amp;gt; 1,
+                             &quot;Telnetmode&quot; =&amp;gt; false,
+                             &quot;Output_log&quot; =&amp;gt; &quot;./temp0.log&quot;,
+                             &quot;Prompt&quot; =&amp;gt; &quot;O.K.&quot;)
+  localhost.cmd(&quot;search word&quot;) { |c| print c }
+  localhost.close
+  localhost = nil
+  p &quot;end&quot;
+rescue Net::ReadTimeout
+  p &quot;readtimeout&quot;
+  p $!.to_s
+rescue
+  p $!.to_s
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;このserver側の処理を、twitterAPIを使ってDBに検索結果を保存するスクリプトに組み込んで、client側の処理をRails製のサイトに組み込めばいいわけです。&lt;br/&gt;
+　あと、server側のスクリプトは、ユーザ毎に起動してユーザがWebサイトから制御しなければならないので、foremanは必要無さそうです。&lt;/p&gt;
+
+&lt;h3&gt;サーバースクリプトへのパラメータの受け渡し&lt;/h3&gt;
+
+&lt;p&gt;　EventMachine::Connectionを継承したクラスServにユーザ情報を保存するメンバ変数（プロパティ）を用意して、Webサイト（client側）からサーバースクリプトを起動する時にコマンドライン引数でそれらの値を渡してあげます。起動の際に「10000+ユーザID」をポート番号に指定することでWebサイト利用者とサーバースクリプト利用者を一致させています。EventMachineを使ったプログラム同士が変数を共有する仕組みのようなものがあるかもしれませんが、ステートレスなHTTPで動いているWebサイトから起動するのだから、コマンドラインで渡すのがちょうど良さそうです。&lt;br/&gt;
+　twitterのStreamingAPIを使用する部分は&lt;a href=&quot;/project/2014-05-30/tweetwatch&quot;&gt;以前書いた記事&lt;/a&gt;で紹介したmorizyun氏のコードをServ.trackingメソッドに閉じ込めてほぼそのまま動かしています。twitter側でエラーが発生した場合このままでいいのかよく分かりませんが、エラーになればWebサイト側からサーバースクリプトを再起動してもらえばいいという考え方で作ってます。&lt;br/&gt;
+　client側からserver側スクリプトに受け渡すパラメータはTwitterAPIを利用するために必要な認証key文字列（４種類）とユーザIDとTwitterのfilterAPIに渡す検索文字列（検索タグ）です。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;ruby:myserv.rb&quot;&gt;#実際のソースの一部
+require 'eventmachine'
+require 'optparse'
+
+class Serv &amp;lt; EM::Connection
+  attr_accessor :uid
+  attr_accessor :track
+  attr_accessor :c_key
+  attr_accessor :c_secret
+  attr_accessor :a_key
+  attr_accessor :a_secret
+  def receive_data(data)
+    case data
+    when /stop/i
+      send_data &quot;O.K.&quot;
+      EM.stop
+    when /check/i
+      send_data @track
+    省略
+      :
+
+  def tracking(track, c_key, c_secret, a_key, a_secret, uid)
+    stream = Twitter::JSONStream.connect(
+  省略
+    :
+
+EM.run do
+  EM.start_server(&quot;127.0.0.1&quot;, 10000 + params[&quot;p&quot;].to_i, Serv) do |conn|
+    conn.track = params[&quot;t&quot;]
+    conn.uid = params[&quot;p&quot;].to_i
+    conn.c_key = params[&quot;c&quot;]
+    conn.c_secret = params[&quot;k&quot;]
+    conn.a_key = params[&quot;s&quot;]
+    conn.a_secret = params[&quot;a&quot;]
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;参考サイト&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://keijinsonyaban.blogspot.jp/2010/12/eventmachine.html&quot;&gt;【翻訳】EventMachine入門 &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://gihyo.jp/dev/serial/01/ruby/0032&quot;&gt;Reactorで非同期処理をやってみよう（2）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+                <link>http://happyclam.github.io/project/2014-06-06/tweetwatch_server</link>
+                <guid>http://happyclam.github.io/project/2014-06-06/tweetwatch_server</guid>
+                <pubDate>2014-06-06T00:00:00+09:00</pubDate>
+        </item>
+
+        <item>
+                <title>モウセンゴケ買ってみた</title>
+                <description>&lt;h3&gt;&lt;a href=&quot;http://www.amazon.co.jp/gp/product/B002DOEJ1W/ref=pd_lpo_sbs_dp_ss_3?pf_rd_p=466449256&amp;amp;pf_rd_s=lpo-top-stripe&amp;amp;pf_rd_t=201&amp;amp;pf_rd_i=B0029PVS32&amp;amp;pf_rd_m=AN1VRQENFRJN5&amp;amp;pf_rd_r=1PA8NW26VM11682HVNSS&quot;&gt;「コバエがホイホイ」&lt;/a&gt;の代わりになるかも&lt;/h3&gt;
+
+&lt;p&gt;　&lt;a href=&quot;http://o.x0.com/m/35898&quot;&gt;トコトン掘り下げ隊！生き物にサンキュー！！【★巨大食虫植物ＳＰ】&lt;/a&gt;というテレビ番組で食虫植物が虫を捕えているのを見ながら、そう言えば毎年暑くなってくると&lt;a href=&quot;http://www.amazon.co.jp/gp/product/B002DOEJ1W/ref=pd_lpo_sbs_dp_ss_3?pf_rd_p=466449256&amp;amp;pf_rd_s=lpo-top-stripe&amp;amp;pf_rd_t=201&amp;amp;pf_rd_i=B0029PVS32&amp;amp;pf_rd_m=AN1VRQENFRJN5&amp;amp;pf_rd_r=1PA8NW26VM11682HVNSS&quot;&gt;コバエがホイホイ&lt;/a&gt;を２回ほど購入していることを思いだし、こいつらを飼っていれば金使わなくて済むじゃんと考えモウセンゴケを買うことにしました。&lt;br/&gt;
+　コバエ退治が目的なのでハエトリソウだとスカスカで逃げられると思ったのでモウセンゴケに決めたんだけど、室内で飼うことを考えたら、サイズ的にも見てくれから判断してもモウセンゴケが一番良さそうです。Amazonで調べると実に種類が豊富。一番定番そうなドロセラ・カペンシスを購入したのですが、シャモジ型の葉のドロセラ・アングリカも欲しくなって、オマケにテレビで紹介されていなかったムシトリスミレと立て続けに購入してしまいました。
+全然知らない世界でしたが、値段が結構お手頃なのも趣味にするには良さそうですね、今はセファロタス（和名：フクロユキノシタ）が欲しくなってきてます。すでに食虫植物に嵌ってるかも。&lt;br/&gt;
+　今後ちゃんと飼育できるかどうかまだ分からないし、もし熱が冷めなければ、カテゴリ作って定期的に記事を書いていこうかなと思ってます。&lt;/p&gt;
+
+&lt;h3&gt;飼育環境&lt;/h3&gt;
+
+&lt;p&gt;　購入時に入っていたプラケースのまま様子を見てもよかったのかもしれませんが、既に購入した植物たちに愛着が湧いているので、プラケースじゃ可哀想、せめて素焼きの鉢に入れてあげようと思い早速植え替えることにしました。植物にとって入れ物がプラスチックから素焼きに変わったことでどれ程うれしいことなのか分かりませんが、少なくとも悪いことでは無いでしょう。鉢のまわりを水で浸す「&lt;ruby&gt;&lt;rb&gt;腰水&lt;/rb&gt;&lt;rp&gt;（&lt;/rp&gt;&lt;rt&gt;こしみず&lt;/rt&gt;&lt;rp&gt;）&lt;/rp&gt;&lt;/ruby&gt;」という方法がいいらしいので写真のようにしました。意外に根が長かったのでこれぐらい細長い鉢のほうがよさそうです。&lt;br/&gt;
+&lt;img src=&quot;/images/drosera_garbini.png&quot; alt=&quot;カペンシス&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.amazon.co.jp/umbra-%E3%82%A2%E3%83%B3%E3%83%96%E3%83%A9-%E3%80%90Umbra%E3%80%91%E3%82%AC%E3%83%AB%E3%83%93%E3%83%8B%E3%82%AB%E3%83%B3-GARBINI-%E3%83%A1%E3%82%BF%E3%83%AA%E3%83%83%E3%82%AF%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88/dp/B003JMQ0GO&quot;&gt;【Umbra】ガルビニカン GARBINI CAN　 メタリックホワイト&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.amazon.co.jp/%E5%9B%BD%E5%86%85%E4%B8%89%E6%B2%B3%E9%89%A2-%E3%83%8F%E3%83%BC%E3%83%A2%E3%83%8B%E3%83%BC-%E7%B4%A0%E7%84%BC-%EF%BC%93%E5%8F%B7-%EF%BC%8F%E6%A4%8D%E6%9C%A8%E9%89%A2/dp/B007QJCLWI/ref=sr_1_1?s=diy&amp;amp;ie=UTF8&amp;amp;qid=1401491200&amp;amp;sr=1-1&amp;amp;keywords=%E3%83%8F%E3%83%BC%E3%83%A2%E3%83%8B%E3%83%BC+%E7%B4%A0%E7%84%BC+%EF%BC%93%E5%8F%B7&quot;&gt;素焼 ３号 ／植木鉢&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;　モウセンゴケは酸性土を好むらしいので土は&lt;a href=&quot;http://www.amazon.co.jp/%E8%8A%B1%E3%81%94%E3%81%93%E3%82%8D-%E3%83%96%E3%83%AB%E3%83%BC%E3%83%99%E3%83%AA%E3%83%BC%E3%81%AE%E5%9C%9F-5l/dp/B000IA88KG&quot;&gt;これ&lt;/a&gt;にしました。ホームセンターに置いてある物は一番少ないものでも５リットル入りで、そんなに要らないと思ったのですが、玄関脇に放ったらかしで植えてある&lt;ruby&gt;&lt;rb&gt;山茶花&lt;/rb&gt;&lt;rp&gt;（&lt;/rp&gt;&lt;rt&gt;サザンカ&lt;/rt&gt;&lt;rp&gt;）&lt;/rp&gt;&lt;/ruby&gt;も調べてみると酸性土を好むらしいので、余ったらそちらに使えばいいと思い決めました。&lt;br/&gt;
+　今の心配は設置場所。&lt;ruby&gt;&lt;rb&gt;西陽&lt;/rb&gt;&lt;rp&gt;（&lt;/rp&gt;&lt;rt&gt;にしび&lt;/rt&gt;&lt;rp&gt;）&lt;/rp&gt;&lt;/ruby&gt;しかあたらない場所なので、調子悪いようであれば室内で飼うことは諦めるかもしれません。&lt;/p&gt;
+</description>
+                <link>http://happyclam.github.io/miscellaneous/2014-05-31/drosera</link>
+                <guid>http://happyclam.github.io/miscellaneous/2014-05-31/drosera</guid>
+                <pubDate>2014-05-31T00:00:00+09:00</pubDate>
+        </item>
+
+        <item>
+                <title>ツイートを監視して集計する</title>
+                <description>&lt;p&gt;Project: 「tweetwatch」: まだGitHubにはアップしていません&lt;/p&gt;
+
+&lt;h3&gt;開発の動機&lt;/h3&gt;
+
+&lt;p&gt;　今年の都知事選の頃、多くのフォロワーを抱えている人（以下a氏と表記）が&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Twitterで&lt;strong&gt;#都知事選&lt;/strong&gt;というタグをつけて自分が投票した候補者の名前を呟けば、それを集計してくれるアプリ作れないかな～&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;と物欲しそうに呟いていたのが目に止まりました。&lt;br/&gt;
+Yahooのアンケートのように、誰がどれぐらい票を獲得しているかtwitterで独自に確認しようという意図のようです。
+　プログラマたるもの、そこで「すぐ出来ますよ」とリプライするような軽率な行動をとってはいけません。職業プログラマなら尚更です。誰かが手を挙げるかもと思いながらしばらく様子を見ていましたが、その呟きに対して反応する人はいなかったようです。こういう場合、相手がどれほどのものを要求しているかわからないので迂闊に出来ますなんて言えませんが、StreamingAPI使えばとりあえず使える程度のものであれば、すぐ出来るんじゃないかと思い調べてみました。&lt;/p&gt;
+
+&lt;h3&gt;とりあえずローカル環境で動くもの&lt;/h3&gt;
+
+&lt;p&gt;　「StreamingAPI」で検索すると役に立ちそうなサイトはすぐに見つかりました→&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;「Herokuの無料枠でTwitter Stream APIを常時監視 =&gt; DBに保存するRubyコード」&lt;/a&gt;&lt;br/&gt;
+このmorizyunって人のサイトは調べ物をしている際にはよくお世話になっていますが、今回見つけた記事も自分の要望その物です。私はherokuは使いませんでしたがほぼこの記事のコードそのままがローカル環境で動作しました。ツイートの集計がしたいのであればDBに溜まったデータに対してSQLを打ち込めば好きな結果が得られます。a氏に教えてあげようかとも思いましたが、おそらくプログラミングやSQLも知らないa氏が実際に自分のPCで動かすためにはそうとうな時間をかけてサポートしてあげないと無理だろうと思って止めておきました。自分が良かれと思って教えても、逆に恨まれることになり兼ねません。そうなんです、自分でニタニタ楽しむためのソフトを作れたとしても、それをひと様に使ってもらおうとするとまた一段とハードルが高くなるんですねぇ（今回は自分で楽しむものさえパクリですが）。&lt;/p&gt;
+
+&lt;h3&gt;ひと様が使えるようにするために&lt;/h3&gt;
+
+&lt;p&gt;　最初はDBにデータを格納するだけのシェルスクリプトを起動しながら、ユーザー向けのwebインターフェースを提供してあげればいいだけだからそれほど手間はかからないと思いましたが、そうすると２プロセス動かすことになり、herokuの無料枠では済まなくなります。それに運用環境を何とか用意したとしても、自分のtwitterアカウントの認証キーをそのサービスで利用するとなると、一人しか利用できないwebサービスになってしまいます。twitter社にAPI利用料を支払えば解決ですが、そこまでする気もないので開発に取りかかるのは躊躇してました。&lt;br/&gt;
+で結局、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;運用環境に関してはとりあえず自宅サーバで動くようにしてから考える&lt;/li&gt;
+&lt;li&gt;twitterのAPIキーをユーザ自身が登録して、そのキーを利用しながらDB格納プロセスを起動するようにする&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;という方針で作りました。
+&lt;img src=&quot;/images/tweetwatch_screen.png&quot; alt=&quot;集計画面&quot; /&gt;  &lt;br/&gt;
+DBにデータを格納するシェルスクリプトは、&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;morizyun氏のコード&lt;/a&gt;を叩き台にしてWebサイトから制御するためのプロセス間通信用インターフェースを追加し、そのサーバーとなるシェルスクリプトに接続するクライアントアプリとなるユーザ向けのwebサイトを作る。そのwebサイトは&lt;a href=&quot;http://railstutorial.jp/&quot;&gt;Ruby on Rails チュートリアル&lt;/a&gt;でRSpecの勉強（写経）をしながら作ったものがあったのでそれを流用しています。&lt;br/&gt;
+以降、DBにデータを格納する&lt;em&gt;サーバースクリプト（server側）&lt;/em&gt;とRails製&lt;em&gt;Webサイト（client側）&lt;/em&gt;に分けて紹介します。&lt;/p&gt;
+
+&lt;hr /&gt;
+</description>
+                <link>http://happyclam.github.io/project/2014-05-30/tweetwatch</link>
+                <guid>http://happyclam.github.io/project/2014-05-30/tweetwatch</guid>
+                <pubDate>2014-05-30T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>ボラティリティについて</title>
                 <description>&lt;h3&gt;インプライド・ボラティリティ（IV）とヒストリカル・ボラティリティ（HV）&lt;/h3&gt;
 
-&lt;p&gt;ボラティリティには２種類ありますが、ニュースの記者や市況解説者が「ボラティリティ」という言葉を理解していないまま使っていることが多いので、一言書いておこうと思います。&lt;br/&gt;
-特に先物市場の解説をしている人が、先物価格の値動きが荒かった日などに「今日はボラの大きな一日でした」と解説しているのを聞くと「(・_・)......ン?」となることがあります、そういう日でもインプライドボラティリティ(IV)が低い日も結構あるからです。オプションの買いで勝負する時はボラが高い時が有利、逆に売りはボラが低い時が有利なのですが、IVが低い日に「今日は（オプション買いに）手出ししなくてよかった」と思っているところに、市況解説で「ボラの高い一日でした」なんて言われると「(‾△‾;)エッ・・そうだっけ？」となるわけです。実際にIVが高かったかどうかはスマイルチャートなどで確認できます。&lt;br/&gt;
-&lt;a href=&quot;http://www.option-dojo.com/kn/225_latest.html&quot;&gt;直近1年のボラティリティー&lt;/a&gt;をみればよく分かりますが、ヒストリカル・ボラティリティ（HV）とインプライド・ボラティリティ（IV）の動きは必ずしも一致していません。原資産である先物の動きがそれ程なくても、オプションの値動きが激しい日もあるということです。それにオプションは先物と違い、満期(SQ)が近づくとボラ(IV)が高くなるという性質（時間価値の減少に伴うもの）もあります。また、日経２２５先物とそれを原資産とする派生商品である日経２２５オプションの関係だけでなく、現物株とそれを原資産とする派生商品（株オプ等）の間でも同じことが言えます。&lt;br/&gt;
-まぁIVとHVの違いは理解しているけど、ボラティリティと言う言葉は単に「値動き」とか「値幅」と同義で使っているだけなので、区別する必要はないという言われればそれまでなのですが。&lt;/p&gt;
+&lt;p&gt;　ボラティリティには２種類ありますが、ニュースの記者や市況解説者が「ボラティリティ」という言葉を理解していないまま使っていることが多いと感じるので、以前から一言言っておきたいと思っていたことを書いておこうと思います。&lt;br/&gt;
+　市況解説の中でも現物市場ではなく特に先物市場の解説をしている人が、先物価格の値動きが荒かった日などに「今日はボラの大きな一日でした」と解説しているのを聞くと「(・_・)......ン?」となることがあります、そういう日でもインプライドボラティリティ(IV)が低い日も結構あるからです。オプションの買いで勝負する時はボラが高い時が有利、逆に売りはボラが低い時が有利なのですが、IVが低い日に「今日は（オプション買いに）手出ししなくてよかった」と思っているところに、市況解説で「ボラの高い一日でした」なんて言われると「(‾△‾;)エッ・・そうだっけ？」となるわけです。実際にIVが高かったかどうかはスマイルチャートなどで確認できます。&lt;br/&gt;
+　&lt;a href=&quot;http://www.option-dojo.com/kn/225_latest.html&quot;&gt;直近1年のボラティリティー&lt;/a&gt;をみればよく分かりますが、ヒストリカル・ボラティリティ（HV）とインプライド・ボラティリティ（IV）の動きは必ずしも一致していません。原資産である先物の動きがそれ程なくても、オプションの値動きが激しい日もあるということです。それにオプションは先物と違い、満期(SQ)が近づくとボラ(IV)が高くなるという性質（時間価値の減少に伴うもの）もあります。また、日経２２５先物とそれを原資産とする派生商品である日経２２５オプションの関係だけでなく、現物株とそれを原資産とする派生商品（株オプ等）の間でも同じことが言えます。&lt;br/&gt;
+　まぁIVとHVの違いは理解しているけど、ボラティリティと言う言葉は単に「値動き」とか「値幅」と同義で使っているだけなので、区別する必要はないと言われればそれまでなのですが。&lt;/p&gt;
 
 &lt;h3&gt;誤解を生む説明の仕方&lt;/h3&gt;
 
-&lt;p&gt;ネットや本ではよく「ボラティリティが高いとオプションのプレミアムが高くなる、ボラティリティが低いとオプションのプレミアムが低くなる」と説明されています。でもこの文を読んでいる人を騙そうとする悪意があるかどうかは別にして、非常に誤解を生みやすい説明だと思います。なぜなら、&lt;strong&gt;ボラティリティが高いと&lt;/strong&gt;という前提条件がIVのことを指しているのかHVのことを指しているのかわかりません。&lt;br/&gt;
-　もしIVのことを指しているとしたら、IVが高いとプレミアムが高くなるのはその通りですが、そのIVというものはオプションの価格から算出されているものだから当たり前のことを言っているに過ぎません。IVが高いとオプションのプレミアムが高くなるわけではなく、IVが高いってことはオプションのプレミアムが高いってことです。&lt;br/&gt;
-　また、&lt;strong&gt;ボラティリティが高いと&lt;/strong&gt;という前提条件がHVのことを指しているのだとすると、HVが高いからオプションの理論価格は高くなることは間違いないですが、実際のオプションのプレミアムが理論価格通りに高くなるとは限りません。HVが高いとオプションのプレミアムが高くなるのではなく、HVが高いとオプションの理論価格が高くなると言うべきです。&lt;br/&gt;
-　&lt;strong&gt;ボラティリティが高いと&lt;/strong&gt;という表現がIVのことを指しているとしてもHVのことを指しているとしても、いずれも誤った文章だと言えます。&lt;/p&gt;
+&lt;p&gt;　ネットや本ではよく&lt;strong&gt;「ボラティリティが高いとオプションのプレミアムが高くなる、ボラティリティが低いとオプションのプレミアムが低くなる」&lt;/strong&gt;と説明されています。でもこの文を読んでいる人を騙そうとする悪意があるかどうかは別にして、非常に誤解を生みやすい説明だと思います。なぜなら、&lt;strong&gt;ボラティリティが高いと&lt;/strong&gt;という前提条件がIVのことを指しているのかHVのことを指しているのかわかりません。&lt;br/&gt;
+　もしIVのことを指しているとしたら、IVが高いとプレミアムが高くなるのはその通りですが、そのIVというものはオプションの価格から算出されているものだから当たり前のことを言っているに過ぎません。IVが高いとオプションのプレミアムが高くなるわけではなく、IVが高いってことはオプションが割高に買われているってことです。&lt;br/&gt;
+　また、&lt;strong&gt;ボラティリティが高いと&lt;/strong&gt;という前提条件がHVのことを指しているのだとすると、HVが高いとオプションの&lt;strong&gt;理論価格&lt;/strong&gt;が高くなることは間違いないですが、オプションの&lt;strong&gt;実際の価格&lt;/strong&gt;が理論価格通りに高くなるとは限りません。HVが高いとオプションの価格（プレミアム）が高くなるのではなく、HVが高いとオプションの&lt;strong&gt;理論価格&lt;/strong&gt;が高くなると言うべきです。&lt;br/&gt;
+　&lt;strong&gt;ボラティリティが高いと&lt;/strong&gt;という表現がIVのことを指しているとしてもHVのことを指しているとしても、いずれも不正確な文章だと言えます。IVとHVの違いを理解している人でもつい説明する手間を省いて、こういう表現をしがちなんだと思いますが、説明する側がよく理解していないケースも多いと思います。&lt;/p&gt;
 
 &lt;h3&gt;違いが分かる説明の仕方&lt;/h3&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://ja.wikipedia.org/wiki/%E3%83%9C%E3%83%A9%E3%83%86%E3%82%A3%E3%83%AA%E3%83%86%E3%82%A3&quot;&gt;wikipediaによるボラティリティの説明&lt;/a&gt;は学問的で、これはこれでいいのかもしれません。それに「インプライド・ボラティリティとは&lt;strong&gt;現実のオプション市場でついたオプション価格から逆算されたボラティリティ&lt;/strong&gt;のことである」とこれ以上望めない簡潔な言葉で言い表されています。&lt;br/&gt;
+&lt;p&gt;　&lt;a href=&quot;http://ja.wikipedia.org/wiki/%E3%83%9C%E3%83%A9%E3%83%86%E3%82%A3%E3%83%AA%E3%83%86%E3%82%A3&quot;&gt;wikipediaによるボラティリティの説明&lt;/a&gt;は学問的で、これはこれでいいのかもしれません。それに「インプライド・ボラティリティとは&lt;strong&gt;現実のオプション市場でついたオプション価格から逆算されたボラティリティ&lt;/strong&gt;のことである」とこれ以上望めない簡潔な言葉で言い表されています。&lt;br/&gt;
 しかし、これ&lt;br/&gt;
 &lt;img src=&quot;http://upload.wikimedia.org/math/c/8/9/c89911f0951782890cbb855572aa9de7.png&quot; alt=&quot;wikipediaのHVの数式&quot; /&gt;とか、&lt;br/&gt;
 こういう&lt;br/&gt;
@@ -73,21 +542,21 @@ getter(日付型のデータを、年/月のフォーマットの文字列に変
 &lt;/ul&gt;
 
 
-&lt;pre&gt;&lt;code class=&quot;ruby:position.rb&quot;&gt;  def ym_expiration
+&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;  def ym_expiration
     return self.expiration.strftime(&quot;%Y/%m&quot;) if self.expiration
   end
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;setter(年/月の文字列データを日付01を付加して日付型に変換して格納)&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;ruby:position.rb&quot;&gt;  def ym_expiration=(ym_expiration)
+&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;  def ym_expiration=(ym_expiration)
     self.expiration = Date.strptime(ym_expiration + &quot;/01&quot;, &quot;%Y/%m/%d&quot;)
   end
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Viewから呼ばれる、年/月の文字列データを返すメソッド&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;ruby:position.rb&quot;&gt;  def get_expiration_list
+&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;  def get_expiration_list
     :省略
     :
   end
@@ -296,7 +765,8 @@ rails runner Candlestick::biteoff
                 <title>rspecに納得できない</title>
                 <description>&lt;p&gt;先日衝動買いした&lt;a href=&quot;http://www.amazon.co.jp/Instant-RSpec-Test-Driven-Development-How-ebook/dp/B00DMYO1QK&quot;&gt;Instant RSpec Test-Driven Development How-to [Kindle版]&lt;/a&gt;の最初に出てくるサンプルコード&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;ruby:location_spec.rb&quot;&gt;describe Location do
+&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;#location_spec.rb
+describe Location do
   describe &quot;#initialize&quot; do
     it &quot;sets the latitude and longitude&quot; do
       loc = Location.new(:latitude =&amp;gt; 38.911268,
@@ -315,7 +785,8 @@ end
 &lt;/ol&gt;
 
 
-&lt;pre&gt;&lt;code class=&quot;ruby:my_answer.rb  &quot;&gt;   class  Location  
+&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;   #my_answer.rb  
+   class  Location  
        attr_accessor :latitude  
        attr_accessor :longitude  
        def initialize(lati=nil, long=nil)  
@@ -330,7 +801,8 @@ end
 &lt;/ol&gt;
 
 
-&lt;pre&gt;&lt;code class=&quot;ruby:bad_answer.rb&quot;&gt;   class  Location
+&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;   #bad_answer.rb
+   class  Location
        def initialize(args = {});end
        def latitude
            38.911268
@@ -346,7 +818,8 @@ end
 &lt;/ol&gt;
 
 
-&lt;pre&gt;&lt;code class=&quot;ruby:model_answer.rb&quot;&gt;   class Location
+&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;   #model_answer.rb
+   class Location
        attr_accessor :latitude, :longitude
        def initialize(args = {})
            self.latitude = args[:latitude]
@@ -361,106 +834,6 @@ end
                 <link>http://happyclam.github.io/programming/2014-05-17/inflexible-rspec</link>
                 <guid>http://happyclam.github.io/programming/2014-05-17/inflexible-rspec</guid>
                 <pubDate>2014-05-17T00:00:00+09:00</pubDate>
-        </item>
-
-        <item>
-                <title>Jekyll Bootstrapのテンプレート　</title>
-                <description>&lt;p&gt;&lt;a href=&quot;http://melborne.github.io/2012/05/13/first-step-of-jekyll/&quot;&gt;「30分のチュートリアルでJekyllを理解する」&lt;/a&gt;を見て一通り理解できたので、見た目を格好良くしようと思い&lt;a href=&quot;http://jekyllbootstrap.com/usage/jekyll-theming.html&quot; title=&quot;Jekyll-bootstrap&quot;&gt;Jekyll Bootstrap&lt;/a&gt;のテーマをダウンロードして適用しました。そうしたらそれまで見れていたサイトgithub pages(http://username.github.io/)が表示されなくなったのでその顛末を書いています。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;まずgithubから &lt;br/&gt;
-&lt;code&gt;The submodule 'xxxxx' was not properly initialized with a '.gitmodules' file.&lt;/code&gt;&lt;br/&gt;
-というメールが来た。どうもsubmoduleというのがよく分からなかったのだけど&lt;a href=&quot;http://qiita.com/sotarok/items/0d525e568a6088f6f6bb&quot; title=&quot;Git submodule の基礎&quot;&gt;ここ&lt;/a&gt;を参考に解決&lt;br/&gt;
-&lt;code&gt;jekyll build&lt;/code&gt;で静的ファイルを生成したはずだから、build後はテンプレートは必要ないのかと思ったけどsubmoduleとしてcommitしなければいけないらしい。今までgit使っていてsubmoduleなんて使ったこと無かったけど、submodule内のcommitは外のcommitとは別途実行する必要（当然といえば当然だけど）があるみたいで、なんだかややこしそうな仕組みだ。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;次に来たメールがこんなの&lt;br/&gt;
-&lt;code&gt;The tag 'math' in 'xxxxx' is not a recognized Liquid tag.&lt;/code&gt;&lt;br/&gt;
-&lt;a href=&quot;http://melborne.github.io/2012/05/13/first-step-of-jekyll/&quot; title=&quot;30分のチュートリアルでJekyllを理解する&quot;&gt;数式を表示するプラグイン（Mathjax.rb）&lt;/a&gt;を試しに使っていたのだが、テンプレートを適用したためテンプレート内に存在するdefault.htmlを修正する必要が出てきた。テンプレート内のファイルに変更を加えたらテンプレートをupdateしたときに問題が出るんじゃないの？と思いながらもとりあえずテンプレート内のdefault.html&lt;a href=&quot;#fn1&quot;&gt;&lt;sup&gt;*1&lt;/sup&gt;&lt;/a&gt;にMathJax.jsを読み込むコードを追加&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;ようやく表示出来るかとおもったら、また次のようなメールが&lt;br/&gt;
-&lt;code&gt;page build failed&lt;/code&gt;&lt;br/&gt;
-今回のメールは理由が書いていない。どうすりゃいいの？ローカルでは問題ないのに。&lt;br/&gt;
-googleで検索すると&lt;a href=&quot;http://modalsoul.github.io/environment/2013/08/17/Github-pages-build-failure/&quot;&gt;ここ&lt;/a&gt;にいろんなケースが書いてあった。こんなこと全部はやってられるかって感じ。herokuでも感じていたけど、やりたいことと関係ないところで手間がかかるから、運用の手間は増えるけどEC2とかを使って全部自分でサーバー環境作るべきか？とか思案に耽ってしまった。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;気分を入れ替えてgithubのレポジトリを削除して作り直すことにした。そもそも&lt;a href=&quot;http://krakenbeal.blogspot.jp/2012/05/ruby-jekyll-jekyll-bootstrap.html&quot;&gt;このサイト&lt;/a&gt;を参考にjekyllのbuild環境を含めてレポジトリを作ったのだけど、githubにある「Automatic Page Generator」のボタンをクリックしてレポジトリを新しく作り直してみると、リポジトリには生成された静的コンテンツのみが含まれていた。ということはgithubのリポジトリにはjekyllで生成された結果ファイルのみを含めるべきなのか？まぁgeneratorとはそうやって使うのが普通だろうけど、herokuを使っている自分としては開発環境（というかファイル生成環境）毎pushするのかと思っていたので少々面食らった。githubからbuild errorの通知メールを送ってくれるわけだからgithub側で自動buildしてくれる仕組みはあるようだけど、ローカル環境でbuildした結果だけをpushしても問題はないようだ。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;結論。&lt;/strong&gt;やったのは以下の３作業だけ。ネットで検索しているとgh-pagesブランチを作れとか書いてあるが、別ブランチを作ったらgithubからbuild errorのメールが届いたのでmasterブランチのままです。&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;1 githubのメニューからusername.github.ioという名前のrepositoryを新規作成&lt;br/&gt;
-2 ローカル環境にcloneして、jekyll generatorで出力した_siteディレクトリ以下のファイルをcopyしてcommit&lt;br/&gt;
-  &lt;code&gt;git clone https://github.com/username/username.github.io.git&lt;/code&gt;&lt;br/&gt;
-  &lt;code&gt;cp -rp ../localrepository/_site/* .&lt;/code&gt;&lt;br/&gt;
-  &lt;code&gt;git commit -a -m &quot;copy from _site directory of jekyll project&quot;&lt;/code&gt;&lt;br/&gt;
-3 masterブランチとしてpush&lt;br/&gt;
-  &lt;code&gt;git push origin&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;  何かネットの情報に振り回されて余計な時間を喰ってしまった感じです。githubの仕様が変わったのか、今頃github-pagesに手を出す私は珍しいのか、ローカルにjekyllをインストールして使う人は少ないのか知りませんが、上に書いた手順を紹介しているサイトは見かけなかったので、何か間違っているのかもしれませんが。このやり方で運用しようと思います。&lt;/p&gt;
-
-&lt;p&gt;&lt;a name=&quot;fn1&quot;&gt;*1&lt;/a&gt;default.htmlが複数あってややこしいですが、テンプレート内のファイルを変更する必要は無く、_include/以下にあるdefault.htmlを変更すればいいようです。&lt;/p&gt;
-</description>
-                <link>http://happyclam.github.io/practice/2014-01-12/jekyll-bootstrap</link>
-                <guid>http://happyclam.github.io/practice/2014-01-12/jekyll-bootstrap</guid>
-                <pubDate>2014-01-12T00:00:00+09:00</pubDate>
-        </item>
-
-        <item>
-                <title>Jekyllの練習</title>
-                <description>&lt;p&gt;jekyllで数式出力を試してみた。&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;
-Formular\ from Wikipedia\\
-
-\int_0^3 9x^2 + 2x + 4\, dx = 3x^3 + x^2 + 4x + C \Big\rbrack_0^3 = 102\\
-
-e^{x+iy} = e^x(\cos y + i\sin y)\\
-
-x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
-  \\
-Simple\ FDTD\ Algorithm\ and\ Devils\ in\ the\ Details \\
-\begin{eqnarray}
-\psi(x,t + \Delta t) &amp;=&amp; -\psi(x, t - \Delta t) + [2 + \frac{v^2\Delta t^2}{\Delta x ^2} d_x^2] \psi(x,t) \\
-                       &amp;=&amp; -\psi(x, t - \Delta t) + 2\psi(x,t) + \frac{v^2\Delta t^2}{\Delta x ^2} d_x^2 \psi(x,t) \\
-                       &amp;=&amp; -\psi(x, t - \Delta t) + 2\psi(x,t) + \frac{v^2\Delta t^2}{\Delta x ^2}
-                       [ \psi(x - \Delta x, t) + \psi(x + \Delta x, t) - 2 \psi(x, t) ] \\
-\end{eqnarray}
-
-&lt;/script&gt;
-
-</description>
-                <link>http://happyclam.github.io/practice/2014-01-10/jekyll-practice</link>
-                <guid>http://happyclam.github.io/practice/2014-01-10/jekyll-practice</guid>
-                <pubDate>2014-01-10T00:00:00+09:00</pubDate>
-        </item>
-
-        <item>
-                <title>shoesおもしろい</title>
-                <description>&lt;h2&gt;shoesとは&lt;/h2&gt;
-
-&lt;p&gt;shoesはrubyで作られたgui開発ツールです。&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/5485761.js?file=drawing.rb&quot;&gt; &lt;/script&gt;
-
-
-&lt;h2&gt;Try Ruby&lt;/h2&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Person&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt;   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt;     &lt;span class=&quot;vi&quot;&gt;@name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt;   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt;   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt; 
-&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt;     &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hello, friend!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; Myname is #[@name}!&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt;   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;happyclam&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;happyclam&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;happyclam&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hello&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;11&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# &amp;gt;&amp;gt; Hello, friend!&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# &amp;gt;&amp;gt; My name is happyclam!&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-
-</description>
-                <link>http://happyclam.github.io/practice/2014-01-09/ruby-is-great</link>
-                <guid>http://happyclam.github.io/practice/2014-01-09/ruby-is-great</guid>
-                <pubDate>2014-01-09T00:00:00+09:00</pubDate>
         </item>
 
 

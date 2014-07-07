@@ -8,13 +8,13 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>rspecに納得できない</title>
+	<title>ツイートを監視して集計する（client側）</title>
     <meta name="Keywords" content="自己満足プログラミング" lang="ja">
     <meta name="description" content="Ruby on rails, programming for my enjoyment">
 	<meta name="author" content="happyclam">
 	<link href='/assets/themes/the-minimum/css/style.css' rel="stylesheet" media="all">
     <link rel="stylesheet" href="/assets/themes/the-minimum/css/syntax.css" type="text/css">
-	<link href="http://feeds.feedburner.com/" rel="alternate" title="rspecに納得できない" type="application/atom+xml">
+	<link href="http://feeds.feedburner.com/" rel="alternate" title="ツイートを監視して集計する（client側）" type="application/atom+xml">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -58,87 +58,104 @@
 			<header>
 				<div class="unit-head">
 					<div class="unit-inner unit-head-inner">
-						<h1 class="h2 entry-title">rspecに納得できない</h1>
+						<h1 class="h2 entry-title">ツイートを監視して集計する（client側）</h1>
 					</div><!-- unit-inner -->
 				</div><!-- unit-head -->
 			</header>
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>先日衝動買いした<a href="http://www.amazon.co.jp/Instant-RSpec-Test-Driven-Development-How-ebook/dp/B00DMYO1QK">Instant RSpec Test-Driven Development How-to [Kindle版]</a>の最初に出てくるサンプルコード</p>
+					<h3>サーバースクリプトの状態遷移</h3>
 
-<pre><code class="Ruby">#location_spec.rb
-describe Location do
-  describe "#initialize" do
-    it "sets the latitude and longitude" do
-      loc = Location.new(:latitude =&gt; 38.911268,
-                         :longitude =&gt; -77.444243)
-      loc.latitude.should == 38.911268
-      loc.longitude.should == -77.444243
-    end
-  end
-end
-</code></pre>
+<p>　言うまでもなくclient側と言ってもWebサーバ上で動いているわけなのでユーザから見ればサーバーとして機能しているわけですが、TwitterAPIを使ってデータをDBに保存するサーバースクリプトに対してclient側ということです。<br/>
+state_machine gemを利用してサーバースクリプトの状態を管理しています。
+<img src="/images/tweetwatch.png" alt="状態遷移図" /></p>
 
-<hr />
+<ul>
+<li><p><em>状態遷移表</em></p>
 
-<ol>
-<li>上記テストを通過させるために「自分が書いたコード」が以下のもの<code>rspec failed</code></li>
-</ol>
-
-
-<pre><code class="Ruby">   #my_answer.rb  
-   class  Location  
-       attr_accessor :latitude  
-       attr_accessor :longitude  
-       def initialize(lati=nil, long=nil)  
-           @latitude = lati  
-           @longitude = long  
-       end  
-   end  
-</code></pre>
-
-<ol>
-<li>「リファクタリング前のコード」として本で紹介されているコード<code>rspec passed</code></li>
-</ol>
-
-
-<pre><code class="Ruby">   #bad_answer.rb
-   class  Location
-       def initialize(args = {});end
-       def latitude
-           38.911268
-       end
-       def longitude
-           -77.444243
-       end
-   end
-</code></pre>
-
-<ol>
-<li>「リファクタリング後のコード」として本で紹介されているコード<code>rspec passed</code></li>
-</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;"> status\method    </th>
+<th style="text-align:center;">     start       </th>
+<th style="text-align:center;">     store       </th>
+<th style="text-align:center;">     stop        </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;"> 停止中(down)      </td>
+<td style="text-align:center;"> 待機中(prepared) </td>
+<td style="text-align:center;">      -          </td>
+<td style="text-align:center;">      -         </td>
+</tr>
+<tr>
+<td style="text-align:left;"> 待機中(prepared)  </td>
+<td style="text-align:center;">       -          </td>
+<td style="text-align:center;"> 集計中(storing) </td>
+<td style="text-align:center;"> 停止中(down)   </td>
+</tr>
+<tr>
+<td style="text-align:left;"> 集計中(storing)   </td>
+<td style="text-align:center;">       -          </td>
+<td style="text-align:center;">      -          </td>
+<td style="text-align:center;"> 停止中(down)   </td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p><em>サーバー停止中のユーザー画面</em><br/>
+<img src="/images/state1.png" alt="サーバー停止中" /></p></li>
+<li><em>サーバー集計中のユーザー画面</em><br/>
+<img src="/images/state2.png" alt="サーバー集計中" /><br/>
+　ユーザ向け画面では「停止中」と「集計中」の２つの状態しかないのですが、EventMachineを使用しているサーバースクリプトでは、接続確立が完了した状態（post_initイベントが発生後）にならないとコマンドラインで渡したパラメータが有効にならないので、サーバースクリプトを起動した直後の状態を「待機中」として管理しています。</li>
+</ul>
 
 
-<pre><code class="Ruby">   #model_answer.rb
-   class Location
-       attr_accessor :latitude, :longitude
-       def initialize(args = {})
-           self.latitude = args[:latitude]
-           self.longitude = args[:longitude]
-       end
-   end
-</code></pre>
+<!-- other list -->
 
-<p>テストを通過させるためだけに書かれたような「リファクタリング前のコード」がエラーにならないのに、上記「自分のコード」がエラーになるのは納得がいかない。<br/>
-自分のコードに何かエラーにしなければならない理由があるのか？自分にはわからないので誰か教えてください。</p>
+
+<ul>
+<li>停止中 ----- サーバースクリプト停止中</li>
+<li>待機中 ----- サーバースクリプトが起動しているが、TwitterAPIを呼び出していない状態</li>
+<li>集計中 ----- TwitterAPIを呼び出しツイートデータをDBに保存している状態<br/>
+※「集計中」から「待機中」には遷移できません（停止して再起動）。</li>
+</ul>
+
+
+<h3>機能</h3>
+
+<ul>
+<li>server側スクリプトの制御（起動、終了、状態確認）<br/>
+※遅いノートPC（Atom機）で試したところserver側スクリプト起動に時間がかかり、接続がタイムアウトすることがあったので５秒のsleepを入れています。</li>
+<li>server側のスクリプトがDBに保存したツイートデータを集計してグラフ表示する。<br/>
+※Twitterのデータ構造はハッシュタグを本文とは別に保持しているようですが、SQLで集計する際にハッシュタグで集計するのはコストがかかるので、本文の内容でgroup byするという単純なやり方で妥協しています。詳細は別記事にするつもりです。</li>
+</ul>
+
+
+<h3>ER図</h3>
+
+<object data="/pdf/struct_tweetwatch.pdf" width="600" height="600">
+<p>ご覧の環境では、object要素がサポートされていないようです。<a href="/pdf/struct_tweetwatch.pdf">PDFファイルをダウンロードしてください</a></p>
+</object>
+
+
+<ul>
+<li>Tweetテーブルへの書き込みはサーバースクリプトのみで、client側のRailsアプリからTweetテーブルへのアクセスはRead onlyです。</li>
+<li>Servモデルはユーザがサーバースクリプトを起動する時に指定したTwitter検索タグとサーバースクリプトの状態を管理します。</li>
+<li>ユーザは複数のTrackモデル（検索タグ）を保存できますが、サーバースクリプト起動時に指定出来るタグは一つだけです。</li>
+</ul>
+
+
+<p>　</p>
 
 					<div class="meta">
 						<p class="date-publish">
 							Published: 
-							<date class="date-pub" title="2014-05-17T00:00:00+09:00" datetime="2014-05-17T00:00:00+09:00" pubdate>
-							<span class="month"><abbr>May</abbr></span>
-							<span class="day">17</span>
+							<date class="date-pub" title="2014-06-07T00:00:00+09:00" datetime="2014-06-07T00:00:00+09:00" pubdate>
+							<span class="month"><abbr>June</abbr></span>
+							<span class="day">07</span>
 							<span class="year">2014</span>
 							</date>
 						</p>
@@ -150,8 +167,8 @@ end
 
   
      
-    	<li><a href="/categories.html#programming-ref">
-    		programming <span>3</span>
+    	<li><a href="/categories.html#project-ref">
+    		project <span>4</span>
     	</a></li>
     
   
@@ -166,9 +183,11 @@ end
 
   
      
+    	<li><a href="/tags.html#rails-ref">rails <span>7</span></a></li>
+     
     	<li><a href="/tags.html#ruby-ref">ruby <span>4</span></a></li>
      
-    	<li><a href="/tags.html#rspec-ref">rspec <span>1</span></a></li>
+    	<li><a href="/tags.html#tweetwatch-ref">tweetwatch <span>4</span></a></li>
     
   
 
@@ -214,9 +233,13 @@ end
 					<nav class="pagination">
 						<ul>
 							
+							<li class="prev"><a class="internal" rel="prev"  href="/project/2014-06-06/tweetwatch_server" title="View ツイートを監視して集計する（server側）">&laquo; ツイートを監視して集計する（server側）</a></li>
 							
 							
-							<li class="next"><a class="internal" rel="next"  href="/project/2014-05-24/my-posi" title="View 先物・オプションのシミュレーションサイト">先物・オプションのシミュレーションサイト &raquo;</a></li>
+							<li class="pipe"> | </li>
+							
+							
+							<li class="next"><a class="internal" rel="next"  href="/programming/2014-07-07/rails_env" title="View production環境でjQueryが発動しない">production環境でjQueryが発動しない &raquo;</a></li>
 							
 						</ul>
 					</nav>
@@ -264,7 +287,7 @@ end
 		};
 	load('//platform.twitter.com/widgets.js', 'tweetjs');
 	// load('https://apis.google.com/js/plusone.js', 'gplus1js'); // Checkout http://j.mp/ApDgMr for usage html for this is <div class="g-plusone" data-size="medium"></div>
-	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/programming/2014-05-17/inflexible-rspec" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
+	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/project/2014-06-07/tweetwatch_client" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
 	}(document, 'script'));
 </script>
 <script>

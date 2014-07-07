@@ -8,13 +8,13 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>rspecに納得できない</title>
+	<title>ツイートを監視して集計する（server側）</title>
     <meta name="Keywords" content="自己満足プログラミング" lang="ja">
     <meta name="description" content="Ruby on rails, programming for my enjoyment">
 	<meta name="author" content="happyclam">
 	<link href='/assets/themes/the-minimum/css/style.css' rel="stylesheet" media="all">
     <link rel="stylesheet" href="/assets/themes/the-minimum/css/syntax.css" type="text/css">
-	<link href="http://feeds.feedburner.com/" rel="alternate" title="rspecに納得できない" type="application/atom+xml">
+	<link href="http://feeds.feedburner.com/" rel="alternate" title="ツイートを監視して集計する（server側）" type="application/atom+xml">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -58,87 +58,135 @@
 			<header>
 				<div class="unit-head">
 					<div class="unit-inner unit-head-inner">
-						<h1 class="h2 entry-title">rspecに納得できない</h1>
+						<h1 class="h2 entry-title">ツイートを監視して集計する（server側）</h1>
 					</div><!-- unit-inner -->
 				</div><!-- unit-head -->
 			</header>
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>先日衝動買いした<a href="http://www.amazon.co.jp/Instant-RSpec-Test-Driven-Development-How-ebook/dp/B00DMYO1QK">Instant RSpec Test-Driven Development How-to [Kindle版]</a>の最初に出てくるサンプルコード</p>
+					<h3>EventMachineで簡単インターフェース</h3>
 
-<pre><code class="Ruby">#location_spec.rb
-describe Location do
-  describe "#initialize" do
-    it "sets the latitude and longitude" do
-      loc = Location.new(:latitude =&gt; 38.911268,
-                         :longitude =&gt; -77.444243)
-      loc.latitude.should == 38.911268
-      loc.longitude.should == -77.444243
-    end
+<p>　初めて<a href="http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/">morizyun氏のこの記事</a>を読んだときはEventMachineとかforemanとかって何をするものか知らなかったのですが、EventMachineというのは「<a href="https://morizyun.github.io/blog/reactor-pattern-ruby/">[Ruby] Reactorパターンについて</a>」にも書いてある通り、ソケットの受信待機をして貰って簡単にReactorパターンを実現することが出来るツールってことのようです。だからわざわざ自分でプロセス間通信の手続きを書く必要がなくアプリケーションレベルのコマンドを用意してあげるだけで済むのではないか？と思いながら作ったら思惑通りにうまく動いたって感じです。実際に組み込む前には、以下のような単純なサンプルで確認しました。</p>
+
+<pre><code class="Ruby">#server側サンプル  
+require 'eventmachine'
+
+class Serv &lt; EM::Connection
+  attr_accessor :track
+  def post_init
+    puts "myserv: init"
+  end
+
+  def receive_data(data)
+    puts data
+    send_data @track
+    EM.stop if data =~ /stop/i
+  end
+
+  def connection_completed
+    puts "myserv: completed"
+  end
+
+  def unbind
+    puts "myserv: unbind"
+  end
+end
+
+EM.run do
+  EM.start_server("127.0.0.1", 10000, Serv) do |conn|
+    conn.track = ARGV[0]
   end
 end
 </code></pre>
 
-<hr />
+<p>以下のようにコマンドラインパラメータを付加して起動し、<br/>
+<code>ruby myserv.rb O.K.</code><br/>
+クライアント接続時にServクラスのプロパティに保持されていることを確認する。</p>
 
-<ol>
-<li>上記テストを通過させるために「自分が書いたコード」が以下のもの<code>rspec failed</code></li>
-</ol>
+<pre><code class="ruby:client.rb">#client側サンプル
+require "net/telnet"
 
-
-<pre><code class="Ruby">   #my_answer.rb  
-   class  Location  
-       attr_accessor :latitude  
-       attr_accessor :longitude  
-       def initialize(lati=nil, long=nil)  
-           @latitude = lati  
-           @longitude = long  
-       end  
-   end  
+begin
+  localhost = Net::Telnet::new("Host" =&gt; "localhost",
+                             "Port" =&gt; 10000,
+                             "Timeout" =&gt; 1,
+                             "Telnetmode" =&gt; false,
+                             "Output_log" =&gt; "./temp0.log",
+                             "Prompt" =&gt; "O.K.")
+  localhost.cmd("search word") { |c| print c }
+  localhost.close
+  localhost = nil
+  p "end"
+rescue Net::ReadTimeout
+  p "readtimeout"
+  p $!.to_s
+rescue
+  p $!.to_s
+end
 </code></pre>
 
-<ol>
-<li>「リファクタリング前のコード」として本で紹介されているコード<code>rspec passed</code></li>
-</ol>
+<p>このserver側の処理を、twitterAPIを使ってDBに検索結果を保存するスクリプトに組み込んで、client側の処理をRails製のサイトに組み込めばいいわけです。<br/>
+　あと、server側のスクリプトは、ユーザ毎に起動してユーザがWebサイトから制御しなければならないので、foremanは必要無さそうです。</p>
 
+<h3>サーバースクリプトへのパラメータの受け渡し</h3>
 
-<pre><code class="Ruby">   #bad_answer.rb
-   class  Location
-       def initialize(args = {});end
-       def latitude
-           38.911268
-       end
-       def longitude
-           -77.444243
-       end
-   end
+<p>　EventMachine::Connectionを継承したクラスServにユーザ情報を保存するメンバ変数（プロパティ）を用意して、Webサイト（client側）からサーバースクリプトを起動する時にコマンドライン引数でそれらの値を渡してあげます。起動の際に「10000+ユーザID」をポート番号に指定することでWebサイト利用者とサーバースクリプト利用者を一致させています。EventMachineを使ったプログラム同士が変数を共有する仕組みのようなものがあるかもしれませんが、ステートレスなHTTPで動いているWebサイトから起動するのだから、コマンドラインで渡すのがちょうど良さそうです。<br/>
+　twitterのStreamingAPIを使用する部分は<a href="/project/2014-05-30/tweetwatch">以前書いた記事</a>で紹介したmorizyun氏のコードをServ.trackingメソッドに閉じ込めてほぼそのまま動かしています。twitter側でエラーが発生した場合このままでいいのかよく分かりませんが、エラーになればWebサイト側からサーバースクリプトを再起動してもらえばいいという考え方で作ってます。<br/>
+　client側からserver側スクリプトに受け渡すパラメータはTwitterAPIを利用するために必要な認証key文字列（４種類）とユーザIDとTwitterのfilterAPIに渡す検索文字列（検索タグ）です。</p>
+
+<pre><code class="ruby:myserv.rb">#実際のソースの一部
+require 'eventmachine'
+require 'optparse'
+
+class Serv &lt; EM::Connection
+  attr_accessor :uid
+  attr_accessor :track
+  attr_accessor :c_key
+  attr_accessor :c_secret
+  attr_accessor :a_key
+  attr_accessor :a_secret
+  def receive_data(data)
+    case data
+    when /stop/i
+      send_data "O.K."
+      EM.stop
+    when /check/i
+      send_data @track
+    省略
+      :
+
+  def tracking(track, c_key, c_secret, a_key, a_secret, uid)
+    stream = Twitter::JSONStream.connect(
+  省略
+    :
+
+EM.run do
+  EM.start_server("127.0.0.1", 10000 + params["p"].to_i, Serv) do |conn|
+    conn.track = params["t"]
+    conn.uid = params["p"].to_i
+    conn.c_key = params["c"]
+    conn.c_secret = params["k"]
+    conn.a_key = params["s"]
+    conn.a_secret = params["a"]
+  end
+end
 </code></pre>
 
-<ol>
-<li>「リファクタリング後のコード」として本で紹介されているコード<code>rspec passed</code></li>
-</ol>
+<h3>参考サイト</h3>
 
+<ul>
+<li><a href="http://keijinsonyaban.blogspot.jp/2010/12/eventmachine.html">【翻訳】EventMachine入門 </a></li>
+<li><a href="http://gihyo.jp/dev/serial/01/ruby/0032">Reactorで非同期処理をやってみよう（2）</a></li>
+</ul>
 
-<pre><code class="Ruby">   #model_answer.rb
-   class Location
-       attr_accessor :latitude, :longitude
-       def initialize(args = {})
-           self.latitude = args[:latitude]
-           self.longitude = args[:longitude]
-       end
-   end
-</code></pre>
-
-<p>テストを通過させるためだけに書かれたような「リファクタリング前のコード」がエラーにならないのに、上記「自分のコード」がエラーになるのは納得がいかない。<br/>
-自分のコードに何かエラーにしなければならない理由があるのか？自分にはわからないので誰か教えてください。</p>
 
 					<div class="meta">
 						<p class="date-publish">
 							Published: 
-							<date class="date-pub" title="2014-05-17T00:00:00+09:00" datetime="2014-05-17T00:00:00+09:00" pubdate>
-							<span class="month"><abbr>May</abbr></span>
-							<span class="day">17</span>
+							<date class="date-pub" title="2014-06-06T00:00:00+09:00" datetime="2014-06-06T00:00:00+09:00" pubdate>
+							<span class="month"><abbr>June</abbr></span>
+							<span class="day">06</span>
 							<span class="year">2014</span>
 							</date>
 						</p>
@@ -150,8 +198,8 @@ end
 
   
      
-    	<li><a href="/categories.html#programming-ref">
-    		programming <span>3</span>
+    	<li><a href="/categories.html#project-ref">
+    		project <span>4</span>
     	</a></li>
     
   
@@ -166,9 +214,11 @@ end
 
   
      
+    	<li><a href="/tags.html#rails-ref">rails <span>7</span></a></li>
+     
     	<li><a href="/tags.html#ruby-ref">ruby <span>4</span></a></li>
      
-    	<li><a href="/tags.html#rspec-ref">rspec <span>1</span></a></li>
+    	<li><a href="/tags.html#tweetwatch-ref">tweetwatch <span>4</span></a></li>
     
   
 
@@ -214,9 +264,13 @@ end
 					<nav class="pagination">
 						<ul>
 							
+							<li class="prev"><a class="internal" rel="prev"  href="/miscellaneous/2014-05-31/drosera" title="View モウセンゴケ買ってみた">&laquo; モウセンゴケ買ってみた</a></li>
 							
 							
-							<li class="next"><a class="internal" rel="next"  href="/project/2014-05-24/my-posi" title="View 先物・オプションのシミュレーションサイト">先物・オプションのシミュレーションサイト &raquo;</a></li>
+							<li class="pipe"> | </li>
+							
+							
+							<li class="next"><a class="internal" rel="next"  href="/project/2014-06-07/tweetwatch_client" title="View ツイートを監視して集計する（client側）">ツイートを監視して集計する（client側） &raquo;</a></li>
 							
 						</ul>
 					</nav>
@@ -264,7 +318,7 @@ end
 		};
 	load('//platform.twitter.com/widgets.js', 'tweetjs');
 	// load('https://apis.google.com/js/plusone.js', 'gplus1js'); // Checkout http://j.mp/ApDgMr for usage html for this is <div class="g-plusone" data-size="medium"></div>
-	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/programming/2014-05-17/inflexible-rspec" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
+	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/project/2014-06-06/tweetwatch_server" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
 	}(document, 'script'));
 </script>
 <script>

@@ -1,0 +1,387 @@
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9 ie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>production環境でjQueryが発動しない</title>
+    <meta name="Keywords" content="自己満足プログラミング" lang="ja">
+    <meta name="description" content="Ruby on rails, programming for my enjoyment">
+	<meta name="author" content="happyclam">
+	<link href='/assets/themes/the-minimum/css/style.css' rel="stylesheet" media="all">
+    <link rel="stylesheet" href="/assets/themes/the-minimum/css/syntax.css" type="text/css">
+	<link href="http://feeds.feedburner.com/" rel="alternate" title="production環境でjQueryが発動しない" type="application/atom+xml">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-1752720-7', 'happyclam.github.io');
+      ga('send', 'pageview');
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+</head>
+<body>
+
+<div id="page" class="hentry">
+	<header class="the-header">
+		<div class="unit-head">
+			<div class="unit-inner unit-head-inner">
+				<p class="logo"><a href="/">自己満足プログラミング</a></p>
+				<nav class="nav-global">
+					<ul>
+						<li class="archive"><a href="/archive.html">archive</a></li>
+						<li class="page"><a href="/pages.html">pages</a></li>
+						<li class="category"><a href="/categories.html">categories</a></li>
+						<li class="tag"><a href="/tags.html">tags</a></li>
+						<li class="forkme"><iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=plusjade&repo=jekyll-bootstrap&type=fork&count=true"
+								allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe></li>
+					</ul>
+				</nav>
+			</div><!-- unit-inner -->
+		</div><!-- unit-head -->
+	</header>
+	<div class="body" role="main">
+		<div class="unit-body">
+			<div class="unit-inner unit-body-inner">
+				<div class="entry-content">
+					
+<article class="unit-article layout-post">
+	<div class="unit-inner unit-article-inner">
+		<div class="content">
+			<header>
+				<div class="unit-head">
+					<div class="unit-inner unit-head-inner">
+						<h1 class="h2 entry-title">production環境でjQueryが発動しない</h1>
+					</div><!-- unit-inner -->
+				</div><!-- unit-head -->
+			</header>
+
+			<div class="bd">
+				<div class="entry-content">
+					<h3>自宅サーバーにdeployment</h3>
+
+<p><a href="/project/2014-05-30/tweetwatch">TweetWatch</a>がとりあえず完成したので、自鯖（Apatch）で動かしてみたらjQueryの一部（画面描画時<code>$(document).ready()</code>の処理だけ）が上手く動かなかったので動くようになったまでの顛末を書きます（Rails 4.0.2, ruby 2.0.0p353）。<br/>
+コードは以下の通りです</p>
+
+<pre><code class="Ruby">#app/assets/javascripts/users.js
+$(document).ready(function(){
+    $.ajax({
+        url: '/tweets/check', 
+        data: {},
+        dataType: "script"
+    }).done(function(data, status, xhr) {
+    }).fail(function(xhr, status, error) {
+        alert('Error Occured(' + error + ')');
+    });
+});
+</code></pre>
+
+<p>処理の内容はあまり関係ないと思いますが、jqueryからcontrollerのメソッドを呼び出し、サーバースクリプトが動いているかどうかをチェックして画面にstatusを表示する処理をしています。このusers.jsがdevelopment環境では動くのにproduction環境では動かないという現象に悩まされました。動くようになるまでに辿った作業を順に箇条書きにしてみると以下のようになります。</p>
+
+<dl>
+<dt><p>1. Apache+Passenger環境でうまく動かないので、以下の設定でwebrickでproduction環境を試す。特にwebrick用の設定とも言える<code>serve_static_assets = true</code>がdevelopment環境との大きな違い</p></dt>
+<dd>
+<pre><code>
+    #config/environments/production.rb
+    config.assets.compile = false
+    config.assets.js_compressor = :uglifier
+    config.serve_static_assets = true
+    config.assets.digest = true
+    config.assets.debug = true
+</code></pre>
+<p><code>rake assets:precompile RAILS_ENV=production</code><br />
+<code>rails s -e production</code></p>
+</dd>
+<dt><p>2. 変化が無かったのでjquery-turbolinks gemを追加してみる</p></dt>
+<dd>
+<pre><code>
+    #Gemfile
+    gem 'jquery-turbolinks'  <- 追加
+</code></pre>
+<p><code>bundle install</code></p>
+<pre><code>
+    #app/assets/javascripts/application.js
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap
+//= require users.js
+//= require turbolinks
+//= require jquery.turbolinks     <- 追加
+//= require highcharts/highcharts
+//= require highcharts/highcharts-more
+//= require highcharts/highstock
+//= require_tree .
+</code></pre>
+<p><code>rake assets:precompile RAILS_ENV=production</code><br />
+<code>rails s -e production</code>
+</p>
+※<a href=https://github.com/kossnocorp/jquery.turbolinks/blob/master/README.md>jquery-turbolinksのドキュメント</a>
+</dd>
+<br />
+<dt><p>3. jquery-turbolinks gemを追加してもダメだったので、今度は逆にturbolinksを無効にしてみる</p></dt>
+<dd>
+<pre><code>
+    #Gemfile
+#    gem 'turbolinks'         <- コメント化
+#    gem 'jquery-turbolinks'  <- コメント化
+</code></pre>
+<pre><code>
+    #app/assets/javascripts/application.js
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap
+//= require users.js
+//= require turbolinks            <- この行を削除
+//= require jquery.turbolinks     <- この行を削除
+//= require highcharts/highcharts
+//= require highcharts/highcharts-more
+//= require highcharts/highstock
+//= require_tree .
+</code></pre>
+<p><code>bundle install</code></p>
+<pre><code>
+    #app/views/layouts/application.html.erb
+    #変更前
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    #変更後
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+</code></pre>
+<p><code>rake assets:precompile RAILS_ENV=production</code><br />
+<code>rails s -e production</code></p>
+</dd>
+<dt><p>4. turbolinksは関係なかったので、関係ないと思ったけど今度はcoffee scriptに変えてみる</p></dt>
+<dd>
+<span>jqueryとturbolinks両イベント対応の書き方</span>
+<pre><code>
+#app/assets/javascripts/user.js.coffee
+$(document).on 'ready page:load', ->
+  url = '/tweets/check'
+  dfd = $.ajax
+    url: url
+    format: 'script'
+    data: {}
+    method: 'get'
+  promise = dfd.promise()
+  promise.done((data, status, xhr) ->
+  )
+  promise.fail((xhr, status, error) ->
+    alert(error)
+  )
+</code></pre>
+<span>jqueryイベントとturbolinksイベントを分けた書き方</span>
+<pre><code>
+#app/assets/javascripts/user.js.coffee
+ready = ->
+  url = '/tweets/check'
+  dfd = $.ajax
+    url: url
+    format: 'script'
+    data: {}
+    method: 'get'
+  promise = dfd.promise()
+  promise.done((data, status, xhr) ->
+  )
+  promise.fail((xhr, status, error) ->
+    alert(error)
+  )
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
+</code></pre>
+<p><code>rake assets:precompile RAILS_ENV=production</code><br />
+<code>rails s -e production</code></p>
+</dd>
+<dt><p>5. どっちのcoffee scriptでもダメなので、こんどは正常に動作しているdevelopment環境の設定をproduction環境と同じにして確認。</p></dt>
+<dd>
+<pre><code>
+    #config/environments/development.rb
+    config.assets.compile = false
+    config.assets.js_compressor = :uglifier
+    config.serve_static_assets = true
+    config.assets.digest = true
+</code></pre>
+<p>デフォルトでは書かれていない上記設定をdevelopment環境の設定ファイルに追加して<code>rails s -e development</code>すると、めでたく？production環境と同じくページload時のjqueryだけが発動しない現象が再現しました。結局config.assets.compileがtrueかfalseかで動作が変わるようです。念のためdevelopment環境でconfig.assets.compileの値だけを書き換えて現象の発生の有無を確認しました。<br />
+　でも本番（production）環境でconfig.assets.compile = trueにして運用することは、重くなるので普通はしないと思いますし、結局config.assets.compile = falseのままではturbolinksの有効・無効に関係なく、このjqueryを発動させることは出来ませんでした。
+</p>
+</dd>
+<dt><p>6. 何か方法はないかとテンプレートファイルに直接jqueryを直書きしてみたところ</p></dt>
+<dd>
+<pre><code>
+#app/views/users/show.html.erb
+<%= javascript_tag do %>
+$(document).ready(function(){
+    $.ajax({
+        url: '/tweets/check', 
+        data: {},
+        dataType: "script"
+    }).done(function(data, status, xhr) {
+    }).fail(function(xhr, status, error) {
+        alert('Error Occured(' + error + ')');
+    });
+});
+<% end %>
+</code></pre>
+<p>これでdevelopment環境でもproduction環境でもページ読み込み時のjqueryが正常に動作しました。<br />
+config.assets.compile = falseでdevelopment,production両方の環境で動きます。いろいろ環境を弄りましたが元の環境からjqueryをテンプレートに直書きするように変えるだけで他は変更しなくてよかったみたいです。turbolinksが有効でも無効でも大丈夫です
+</p>
+</dd>
+
+</dl>
+
+
+<p><em>結論</em><br/>
+「$document.readyイベントを使うjqueryが動作しない時は、テンプレートに直書きしてみる。」<br/>
+※ネットの情報を漁っていると、jquery-turbolinks gemを使えば解決するというものが多いのですが、$document.readyイベントに関してはそういうわけにはいかないようです。</p>
+
+					<div class="meta">
+						<p class="date-publish">
+							Published: 
+							<date class="date-pub" title="2014-07-07T00:00:00+09:00" datetime="2014-07-07T00:00:00+09:00" pubdate>
+							<span class="month"><abbr>July</abbr></span>
+							<span class="day">07</span>
+							<span class="year">2014</span>
+							</date>
+						</p>
+						<ul class="list-category list-linear">
+							<li class="list-head">category: </li>
+							
+							
+
+
+  
+     
+    	<li><a href="/categories.html#programming-ref">
+    		programming <span>3</span>
+    	</a></li>
+    
+  
+
+
+						</ul>
+						<ul class="list-tag list-linear">
+							<li class="list-head">tags: </li>
+							
+							
+
+
+  
+     
+    	<li><a href="/tags.html#rails-ref">rails <span>7</span></a></li>
+     
+    	<li><a href="/tags.html#tweetwatch-ref">tweetwatch <span>4</span></a></li>
+    
+  
+
+
+
+						</ul>
+					</div><!-- meta -->
+				</div><!-- entry-content -->
+				<div class="misc-content">
+					<div class="social">
+						<ul class="list-linear">
+							<li><div class="twitter-tweet"><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="SappierBoy" data-lang="en">Tweet</a></div></li>
+							<li><div class="twitter-follow"><a href="https://twitter.com/SappierBoy" class="twitter-follow-button" data-show-count="false" data-lang="en"></a></div></li>
+						</ul>
+					</div>
+					
+					
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+				</div><!-- misc-content -->
+				
+			</div><!-- bd -->
+			<footer class="unit-foot">
+				<div class="unit-inner unit-foot-inner">
+					<nav class="pagination">
+						<ul>
+							
+							<li class="prev"><a class="internal" rel="prev"  href="/project/2014-06-07/tweetwatch_client" title="View ツイートを監視して集計する（client側）">&laquo; ツイートを監視して集計する（client側）</a></li>
+							
+							
+							
+						</ul>
+					</nav>
+					<p class="gotop">
+						<a href="#page">Back to Top</a>
+					</p>
+				</div>
+			</footer>
+
+		</div><!-- content -->
+	</div><!-- unit-inner -->
+</article>
+
+
+				</div>
+			</div><!-- unit-inner -->
+		</div><!-- unit-body -->
+	</div><!-- body -->
+	<footer class="the-footer">
+		<div class="unit-foot">
+			<div class="unit-inner unit-foot-inner">
+				<div class="misc vcard">
+					<h4>about</h4>
+					<ul>
+<!-- 						<li class="contact"><address><span class="author fn n">happyclam</span> - <span class="fn email">happyclam.u@gmail.com</span></address></li> -->
+						<li class="github"><a href="http://github.com/happyclam/" rel="me">github.com/happyclam</a></li>
+						<li class="twitter"><a href="http://twitter.com/SappierBoy/" rel="me">twitter.com/SappierBoy</a></li>
+<!-- 						<li class="rss"><a href="http://feeds.feedburner.com/">Subscribe to RSS Feed</a></li> -->
+					</ul>
+				</div><!-- misc -->
+				<p class="licence">
+					Theme: <a href="http://layouts-the.me">the_minimum</a> based on <a href="http://jekyllbootstrap.com/">Jekyll-bootstrap</a>.<br>
+					Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a>.
+				</p>
+			</div><!-- unit-foot-inner -->
+		</div><!-- unit-foot -->
+	</footer>
+</div><!-- page -->
+<script>
+	(function(d, s) {
+		var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.src = url; js.id = id;
+		fjs.parentNode.insertBefore(js, fjs);
+		};
+	load('//platform.twitter.com/widgets.js', 'tweetjs');
+	// load('https://apis.google.com/js/plusone.js', 'gplus1js'); // Checkout http://j.mp/ApDgMr for usage html for this is <div class="g-plusone" data-size="medium"></div>
+	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/programming/2014-07-07/rails_env" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
+	}(document, 'script'));
+</script>
+<script>
+/*! A fix for the iOS orientationchange zoom bug.Script by @scottjehl, rebound by @wilto. MIT License.*/
+(function(j){var i=j.document;if(!i.querySelectorAll){return}var l=i.querySelectorAll("meta[name=viewport]")[0],a=l&&l.getAttribute("content"),h=a+", maximum-scale=1.0",d=a+", maximum-scale=10.0",g=true,c=j.orientation,k=0;if(!l){return}function f(){l.setAttribute("content",d);g=true}function b(){l.setAttribute("content",h);g=false}function e(m){c=Math.abs(j.orientation);k=Math.abs(m.gamma);if(k>8&&c===0){if(g){b()}}else{if(!g){f()}}}j.addEventListener("orientationchange",f,false);j.addEventListener("deviceorientation",e,false)})(this);
+</script>
+
+  
+</body>
+</html>
+

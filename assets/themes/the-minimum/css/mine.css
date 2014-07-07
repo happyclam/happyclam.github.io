@@ -81,6 +81,14 @@ body {
   color: #242550;
 }
 
+pre {
+  line-height: 100%;
+}
+
+table {
+  line-height: 100%;
+}
+
 span {
   color: #435495;
 }
