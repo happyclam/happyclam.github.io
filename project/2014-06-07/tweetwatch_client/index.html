@@ -65,90 +65,80 @@
 
 			<div class="bd">
 				<div class="entry-content">
-					<h3>サーバースクリプトの状態遷移</h3>
-
-<p>　言うまでもなくclient側と言ってもWebサーバ上で動いているわけなのでユーザから見ればサーバーとして機能しているわけですが、TwitterAPIを使ってデータをDBに保存するサーバースクリプトに対してclient側ということです。<br/>
+					<h3 id="section">サーバースクリプトの状態遷移</h3>
+<p>　言うまでもなくclient側と言ってもWebサーバ上で動いているわけなのでユーザから見ればサーバーとして機能しているわけですが、TwitterAPIを使ってデータをDBに保存するサーバースクリプトに対してclient側ということです。<br />
 state_machine gemを利用してサーバースクリプトの状態を管理しています。
 <img src="/images/tweetwatch.png" alt="状態遷移図" /></p>
 
 <ul>
-<li><p><em>状態遷移表</em></p>
+  <li>
+    <p><em>状態遷移表</em>  </p>
 
-<table>
-<thead>
-<tr>
-<th style="text-align:left;"> status\method    </th>
-<th style="text-align:center;">     start       </th>
-<th style="text-align:center;">     store       </th>
-<th style="text-align:center;">     stop        </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;"> 停止中(down)      </td>
-<td style="text-align:center;"> 待機中(prepared) </td>
-<td style="text-align:center;">      -          </td>
-<td style="text-align:center;">      -         </td>
-</tr>
-<tr>
-<td style="text-align:left;"> 待機中(prepared)  </td>
-<td style="text-align:center;">       -          </td>
-<td style="text-align:center;"> 集計中(storing) </td>
-<td style="text-align:center;"> 停止中(down)   </td>
-</tr>
-<tr>
-<td style="text-align:left;"> 集計中(storing)   </td>
-<td style="text-align:center;">       -          </td>
-<td style="text-align:center;">      -          </td>
-<td style="text-align:center;"> 停止中(down)   </td>
-</tr>
-</tbody>
-</table>
-</li>
-<li><p><em>サーバー停止中のユーザー画面</em><br/>
-<img src="/images/state1.png" alt="サーバー停止中" /></p></li>
-<li><em>サーバー集計中のユーザー画面</em><br/>
-<img src="/images/state2.png" alt="サーバー集計中" /><br/>
-　ユーザ向け画面では「停止中」と「集計中」の２つの状態しかないのですが、EventMachineを使用しているサーバースクリプトでは、接続確立が完了した状態（post_initイベントが発生後）にならないとコマンドラインで渡したパラメータが有効にならないので、サーバースクリプトを起動した直後の状態を「待機中」として管理しています。</li>
-</ul>
-
-
-<!-- other list -->
-
-
-<ul>
-<li>停止中 ----- サーバースクリプト停止中</li>
-<li>待機中 ----- サーバースクリプトが起動しているが、TwitterAPIを呼び出していない状態</li>
-<li>集計中 ----- TwitterAPIを呼び出しツイートデータをDBに保存している状態<br/>
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align: left">status\method</th>
+          <th style="text-align: center">start</th>
+          <th style="text-align: center">store</th>
+          <th style="text-align: center">stop</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: left">停止中(down)</td>
+          <td style="text-align: center">待機中(prepared)</td>
+          <td style="text-align: center">-</td>
+          <td style="text-align: center">-</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">待機中(prepared)</td>
+          <td style="text-align: center">-</td>
+          <td style="text-align: center">集計中(storing)</td>
+          <td style="text-align: center">停止中(down)</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">集計中(storing)</td>
+          <td style="text-align: center">-</td>
+          <td style="text-align: center">-</td>
+          <td style="text-align: center">停止中(down)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li><em>サーバー停止中のユーザー画面</em><br />
+<img src="/images/state1.png" alt="サーバー停止中" /></li>
+  <li><em>サーバー集計中のユーザー画面</em><br />
+<img src="/images/state2.png" alt="サーバー集計中" /><br />
+　ユーザ向け画面では「停止中」と「集計中」の２つの状態しかないのですが、EventMachineを使用しているサーバースクリプトでは、接続確立が完了した状態（post_initイベントが発生後）にならないとコマンドラインで渡したパラメータが有効にならないので、サーバースクリプトを起動した直後の状態を「待機中」として管理しています。<br />
+<!-- other list --></li>
+  <li>停止中 —– サーバースクリプト停止中</li>
+  <li>待機中 —– サーバースクリプトが起動しているが、TwitterAPIを呼び出していない状態</li>
+  <li>集計中 —– TwitterAPIを呼び出しツイートデータをDBに保存している状態<br />
 ※「集計中」から「待機中」には遷移できません（停止して再起動）。</li>
 </ul>
 
-
-<h3>機能</h3>
+<h3 id="section-1">機能</h3>
 
 <ul>
-<li>server側スクリプトの制御（起動、終了、状態確認）<br/>
+  <li>server側スクリプトの制御（起動、終了、状態確認）<br />
 ※遅いノートPC（Atom機）で試したところserver側スクリプト起動に時間がかかり、接続がタイムアウトすることがあったので５秒のsleepを入れています。</li>
-<li>server側のスクリプトがDBに保存したツイートデータを集計してグラフ表示する。<br/>
+  <li>server側のスクリプトがDBに保存したツイートデータを集計してグラフ表示する。<br />
 ※Twitterのデータ構造はハッシュタグを本文とは別に保持しているようですが、SQLで集計する際にハッシュタグで集計するのはコストがかかるので、本文の内容でgroup byするという単純なやり方で妥協しています。詳細は別記事にするつもりです。</li>
 </ul>
 
-
-<h3>ER図</h3>
-
+<h3 id="er">ER図</h3>
 <object data="/pdf/struct_tweetwatch.pdf" width="600" height="600">
 <p>ご覧の環境では、object要素がサポートされていないようです。<a href="/pdf/struct_tweetwatch.pdf">PDFファイルをダウンロードしてください</a></p>
 </object>
 
-
 <ul>
-<li>Tweetテーブルへの書き込みはサーバースクリプトのみで、client側のRailsアプリからTweetテーブルへのアクセスはRead onlyです。</li>
-<li>Servモデルはユーザがサーバースクリプトを起動する時に指定したTwitter検索タグとサーバースクリプトの状態を管理します。</li>
-<li>ユーザは複数のTrackモデル（検索タグ）を保存できますが、サーバースクリプト起動時に指定出来るタグは一つだけです。</li>
+  <li>Tweetテーブルへの書き込みはサーバースクリプトのみで、client側のRailsアプリからTweetテーブルへのアクセスはRead onlyです。  </li>
+  <li>Servモデルはユーザがサーバースクリプトを起動する時に指定したTwitter検索タグとサーバースクリプトの状態を管理します。  </li>
+  <li>ユーザは複数のTrackモデル（検索タグ）を保存できますが、サーバースクリプト起動時に指定出来るタグは一つだけです。  </li>
 </ul>
 
-
 <p>　</p>
+
 
 					<div class="meta">
 						<p class="date-publish">
@@ -168,7 +158,7 @@ state_machine gemを利用してサーバースクリプトの状態を管理し
   
      
     	<li><a href="/categories.html#project-ref">
-    		project <span>4</span>
+    		project <span>5</span>
     	</a></li>
     
   
@@ -185,7 +175,7 @@ state_machine gemを利用してサーバースクリプトの状態を管理し
      
     	<li><a href="/tags.html#rails-ref">rails <span>7</span></a></li>
      
-    	<li><a href="/tags.html#ruby-ref">ruby <span>4</span></a></li>
+    	<li><a href="/tags.html#ruby-ref">ruby <span>5</span></a></li>
      
     	<li><a href="/tags.html#tweetwatch-ref">tweetwatch <span>4</span></a></li>
     

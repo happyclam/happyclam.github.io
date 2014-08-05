@@ -65,57 +65,58 @@
 
 			<div class="bd">
 				<div class="entry-content">
-					<h3>日付型のカラムのデータを年月だけの文字列にしてコンボボックスに表示したい</h3>
+					<h3 id="section">日付型のカラムのデータを年月だけの文字列にしてコンボボックスに表示したい</h3>
+<p>先物やオプションの建玉を入力する時には限月を選ぶ必要がありますが、必要なのは年と月(“2014/06”等の文字列)だけです。でもDBに”年/月”のフォーマットで文字列として格納するのはあまりにも汚い。DBのカラム属性は日付型にしておいた方が何かと便利、というかしておくべきでしょう（日数や時間の差を計算する時に困ります）。<br />
+<em>**
+<img src="/images/dropdown_exp.png" alt="限月の選択" title="限月の選択" />
+**</em>
+こういう場合、昔PHPで仕事していた時には、文字列型と日付型を相互にフォーマット変換するコードをView上のあちこちに散りばめながら実現していた記憶があります。</p>
 
-<p>先物やオプションの建玉を入力する時には限月を選ぶ必要がありますが、必要なのは年と月("2014/06"等の文字列)だけです。でもDBに"年/月"のフォーマットで文字列として格納するのはあまりにも汚い。DBのカラム属性は日付型にしておいた方が何かと便利、というかしておくべきでしょう（日数や時間の差を計算する時に困ります）。</p>
-
-<hr />
-
-<p><img src="/images/dropdown_exp.png" title="限月の選択" alt="限月の選択" /></p>
-
-<hr />
-
-<p>こういう場合、昔PHPで仕事していた時には、文字列型と日付型を相互にフォーマット変換するコードをView上のあちこちに散りばめながら実現していた記憶があります。</p>
-
-<h3>シンプルな実現方法</h3>
-
+<h3 id="section-1">シンプルな実現方法</h3>
 <p>Position.expirationがDBのカラムに対応するプロパティで日付型です。そこにPosition.ym_expirationというDBにカラムが存在しない入出力用のプロパティを用意し、そのsetterとgetterを定義します。</p>
 
 <ul>
-<li>Model(Position)<br/>
+  <li>Model(Position)<br />
 getter(日付型のデータを、年/月のフォーマットの文字列に変換してして返す)</li>
 </ul>
 
-
-<pre><code class="Ruby">  def ym_expiration
-    return self.expiration.strftime("%Y/%m") if self.expiration
-  end
-</code></pre>
-
+<div><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">ym_expiration</span>
+<span class="line-numbers"><a href="#n2" name="n2">2</a></span>    <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">self</span>.expiration.strftime(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">%Y/%m</span><span style="color:#710">&quot;</span></span>) <span style="color:#080;font-weight:bold">if</span> <span style="color:#069">self</span>.expiration
+<span class="line-numbers"><a href="#n3" name="n3">3</a></span>  <span style="color:#080;font-weight:bold">end</span>
+</pre></div>
+</div>
+</div>
 <p>setter(年/月の文字列データを日付01を付加して日付型に変換して格納)</p>
 
-<pre><code class="Ruby">  def ym_expiration=(ym_expiration)
-    self.expiration = Date.strptime(ym_expiration + "/01", "%Y/%m/%d")
-  end
-</code></pre>
-
+<div><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">ym_expiration=</span>(ym_expiration)
+<span class="line-numbers"><a href="#n2" name="n2">2</a></span>    <span style="color:#069">self</span>.expiration = <span style="color:#036;font-weight:bold">Date</span>.strptime(ym_expiration + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">/01</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">%Y/%m/%d</span><span style="color:#710">&quot;</span></span>)
+<span class="line-numbers"><a href="#n3" name="n3">3</a></span>  <span style="color:#080;font-weight:bold">end</span>
+</pre></div>
+</div>
+</div>
 <p>Viewから呼ばれる、年/月の文字列データを返すメソッド</p>
 
-<pre><code class="Ruby">  def get_expiration_list
-    :省略
-    :
-  end
-</code></pre>
+<div><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">get_expiration_list</span>
+<span class="line-numbers"><a href="#n2" name="n2">2</a></span>    <span style="color:#A60">:省略</span>
+<span class="line-numbers"><a href="#n3" name="n3">3</a></span>    :
+<span class="line-numbers"><a href="#n4" name="n4">4</a></span>  <span style="color:#080;font-weight:bold">end</span>
+</pre></div>
+</div>
+</div>
 
 <ul>
-<li>View(_edit_position.html.erb)<br/>
+  <li>View(_edit_position.html.erb)<br />
 Viewでは入出力用に追加したym_expirationプロパティだけを使うようにすれば、あたかもDBに対応するカラムのように扱えます。</li>
 </ul>
 
-
-<pre><code class="ruby:_edit_position.html.erb">&lt;td align="center"&gt;&lt;%= f.select("ym_expiration", position.get_expiration_list, {:include_blank =&gt; false}, {:class =&gt; "span6", :style =&gt; "width:90px;"}) %&gt;&lt;/td&gt;
-</code></pre>
-
+<div><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span><span style="color:#070;font-weight:bold">&lt;td</span> <span style="color:#b48">align</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">center</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">&lt;%=</span> f.select(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">ym_expiration</span><span style="color:#710">&quot;</span></span>, position.get_expiration_list, {<span style="color:#A60">:include_blank</span> =&gt; <span style="color:#069">false</span>}, {<span style="color:#A60">:class</span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">span6</span><span style="color:#710">&quot;</span></span>, <span style="color:#A60">:style</span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">width:90px;</span><span style="color:#710">&quot;</span></span>}) <span style="font-weight:bold;color:#666">%&gt;</span></span><span style="color:#070;font-weight:bold">&lt;/td&gt;</span>
+</pre></div>
+</div>
+</div>
 <p>CakephpやPHP5以上ならたぶん同じことが出来ると思いますが、もうPHPに戻りたくないし調べる気にもなりません</p>
 
 <hr />

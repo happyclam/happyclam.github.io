@@ -67,175 +67,173 @@
 				<div class="entry-content">
 					<p>Project: 「<a href="http://my-posi.herokuapp.com/"><strong>みんなのポジション</strong></a>」: <a href="https://github.com/happyclam/my-posi">GitHub</a></p>
 
-<h3>開発の動機</h3>
-
-<p>当時、利用している証券会社のシステムが物足りなく信用できないものであったため自作しました。でも自分で作成した後、まもなくネット証券側もシステムをリニューアルして、自分のものより遥に高機能なものに置き換わったのですが、損益グラフを表示した時にグラフのメモリ幅を変更出来ないため見にくいという不満があったりするので、その点でまだは自分のソフトの方が優れているかなと思っています。まぁオプション売買を活発にしている人はそれ程多くないと思いますので、証券会社も力を入れていないのだと思います。５社ほどで取引したことありますが、そもそもオプション売買のシミュレーション機能なんて無い証券会社もありました。<br/>
+<h3 id="section">開発の動機</h3>
+<p>当時、利用している証券会社のシステムが物足りなく信用できないものであったため自作しました。でも自分で作成した後、まもなくネット証券側もシステムをリニューアルして、自分のものより遥に高機能なものに置き換わったのですが、損益グラフを表示した時にグラフのメモリ幅を変更出来ないため見にくいという不満があったりするので、その点でまだは自分のソフトの方が優れているかなと思っています。まぁオプション売買を活発にしている人はそれ程多くないと思いますので、証券会社も力を入れていないのだと思います。５社ほどで取引したことありますが、そもそもオプション売買のシミュレーション機能なんて無い証券会社もありました。<br />
 最近は自分もあまりオプション取引をしていないのでよく知りませんが、今ではWebベースでもWindowsネイティブソフト並にユーザインターフェースに凝ったソフトを提供している証券会社があるかもしれません。</p>
 
-<h3>機能</h3>
-
+<h3 id="section-1">機能</h3>
 <ul>
-<li>日経225先物、日経225先物ミニ、日経225オプション(CALL,PUT)の建玉を一つのポジション、複数のポジションをまとめたものをストラテジーとして、ユーザ毎の複数のストラテジーの保存。</li>
-<li>複数の建玉の売買シミュレーションと損益推移（個別・合算）グラフを表示<br/>
+  <li>日経225先物、日経225先物ミニ、日経225オプション(CALL,PUT)の建玉を一つのポジション、複数のポジションをまとめたものをストラテジーとして、ユーザ毎の複数のストラテジーの保存。</li>
+  <li>複数の建玉の売買シミュレーションと損益推移（個別・合算）グラフを表示<br />
 ※ブラックショールズモデルを利用したオプション理論価格計算に対応しているので、満期（SQ）時の損益だけでなく、現時点での原資産価格（日経225先物価格）毎の損益推移を表示出来ます</li>
-<li>twitterを利用したユーザー認証とポジションをtwitterで呟く</li>
+  <li>twitterを利用したユーザー認証とポジションをtwitterで呟く</li>
 </ul>
 
-
-<h3>ER図</h3>
-
+<h3 id="er">ER図</h3>
 <object data="/pdf/ERD.pdf" width="760" height="480">
 <p>ご覧の環境では、object要素がサポートされていないようです。<a href="/pdf/ERD.pdf">PDFファイルをダウンロードしてください</a></p>
 </object>
 
-
-<p>UserモデルとStrategyモデルが1対多、StrategyモデルとPositionモデルが1対多で関連付けられている単純なテーブル構造です。<br/>
-他のテーブルと関連付けられていないCandlestickモデルというのはネット上に転がっている先物価格のロウソク足用のcsvデータを流し込むためのテーブルで、ヒストリカル・ボラティリティ（HV）を計算するためだけに使用しています。HVの計算方法には色々あるようですが、自分が使用したのは<a href="http://www.option-dojo.com/kn/225_vola.html">ここ</a>に記載されている方法に倣っています。<br/>
-気が向いたときにcsvデータを手動で更新するという運用の仕方をしてました。画面から手入力するとその値を優先して使用するようにしているので、実際にはHVを手入力して使うことが多かったです。開発当時は無かったのですが、今なら日経平均ボラティリティインデックスがリアルタイムで更新されているのでその値を手入力する方がいいかもしれません。20%（日経平均VIが20ポイント）であれば0.2を入力します。このHVの値を使ってオプション理論価格を算出します。<br/>
+<p>UserモデルとStrategyモデルが1対多、StrategyモデルとPositionモデルが1対多で関連付けられている単純なテーブル構造です。<br />
+他のテーブルと関連付けられていないCandlestickモデルというのはネット上に転がっている先物価格のロウソク足用のcsvデータを流し込むためのテーブルで、ヒストリカル・ボラティリティ（HV）を計算するためだけに使用しています。HVの計算方法には色々あるようですが、自分が使用したのは<a href="http://www.option-dojo.com/kn/225_vola.html">ここ</a>に記載されている方法に倣っています。<br />
+気が向いたときにcsvデータを手動で更新するという運用の仕方をしてました。画面から手入力するとその値を優先して使用するようにしているので、実際にはHVを手入力して使うことが多かったです。開発当時は無かったのですが、今なら日経平均ボラティリティインデックスがリアルタイムで更新されているのでその値を手入力する方がいいかもしれません。20%（日経平均VIが20ポイント）であれば0.2を入力します。このHVの値を使ってオプション理論価格を算出します。<br />
 ※ボラティリティにはHVとは別にインプライド・ボラティリティ（IV）というものがありますが、ボラティリティに関しては別記事を書こうと思います。</p>
 
-<h3>テーブル構造</h3>
-
+<h3 id="section-2">テーブル構造</h3>
 <ul>
-<li><p><em>Userテーブル</em></p>
+  <li>
+    <p><em>Userテーブル</em>  </p>
 
-<table>
-<thead>
-<tr>
-<th style="text-align:left;"> 名称         </th>
-<th style="text-align:left;"> 内容                                           </th>
-<th style="text-align:left;"> 例            </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;"> name         </td>
-<td style="text-align:left;"> サイト内で使用する独自のユーザ名                 </td>
-<td style="text-align:left;">               </td>
-</tr>
-<tr>
-<td style="text-align:left;"> provider     </td>
-<td style="text-align:left;"> twitter認証APIで返される文字列                  </td>
-<td style="text-align:left;"> "twitter"     </td>
-</tr>
-<tr>
-<td style="text-align:left;"> screen_name  </td>
-<td style="text-align:left;"> twitter認証APIで返される文字列                  </td>
-<td style="text-align:left;"> "SappierBoy"  </td>
-</tr>
-<tr>
-<td style="text-align:left;"> uid          </td>
-<td style="text-align:left;"> twitter認証APIで返される文字列                  </td>
-<td style="text-align:left;"> "1111111111"  </td>
-</tr>
-</tbody>
-</table>
-</li>
-<li><p><em>Strategyテーブル</em></p>
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align: left">名称</th>
+          <th style="text-align: left">内容</th>
+          <th style="text-align: left">例</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: left">name</td>
+          <td style="text-align: left">サイト内で使用する独自のユーザ名</td>
+          <td style="text-align: left"> </td>
+        </tr>
+        <tr>
+          <td style="text-align: left">provider</td>
+          <td style="text-align: left">twitter認証APIで返される文字列</td>
+          <td style="text-align: left">“twitter”</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">screen_name</td>
+          <td style="text-align: left">twitter認証APIで返される文字列</td>
+          <td style="text-align: left">“SappierBoy”</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">uid</td>
+          <td style="text-align: left">twitter認証APIで返される文字列</td>
+          <td style="text-align: left">“1111111111”</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p><em>Strategyテーブル</em>  </p>
 
-<table>
-<thead>
-<tr>
-<th style="text-align:left;"> 名称         </th>
-<th style="text-align:left;"> 内容                                                </th>
-<th style="text-align:left;"> 例            </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;"> draw_type    </td>
-<td style="text-align:left;"> 損益グラフを個別表示するか合算表示するか              </td>
-<td style="text-align:left;"> 1,未定義      </td>
-</tr>
-<tr>
-<td style="text-align:left;"> interest     </td>
-<td style="text-align:left;"> 金利                                                </td>
-<td style="text-align:left;"> 0.02          </td>
-</tr>
-<tr>
-<td style="text-align:left;"> name         </td>
-<td style="text-align:left;"> ストラテジー名                                       </td>
-<td style="text-align:left;"> "abc戦略"     </td>
-</tr>
-<tr>
-<td style="text-align:left;"> range        </td>
-<td style="text-align:left;"> グラフの幅デフォルト500とした相対数値で拡大・縮小      </td>
-<td style="text-align:left;"> 500          </td>
-</tr>
-<tr>
-<td style="text-align:left;"> sigma        </td>
-<td style="text-align:left;"> オプション理論価格計算に使用するボラティリティ(HV)     </td>
-<td style="text-align:left;"> 0.2          </td>
-</tr>
-</tbody>
-</table>
-</li>
-<li><p><em>Positionテーブル</em></p>
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align: left">名称</th>
+          <th style="text-align: left">内容</th>
+          <th style="text-align: left">例</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: left">draw_type</td>
+          <td style="text-align: left">損益グラフを個別表示するか合算表示するか</td>
+          <td style="text-align: left">1,未定義</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">interest</td>
+          <td style="text-align: left">金利</td>
+          <td style="text-align: left">0.02</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">name</td>
+          <td style="text-align: left">ストラテジー名</td>
+          <td style="text-align: left">“abc戦略”</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">range</td>
+          <td style="text-align: left">グラフの幅デフォルト500とした相対数値で拡大・縮小</td>
+          <td style="text-align: left">500</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">sigma</td>
+          <td style="text-align: left">オプション理論価格計算に使用するボラティリティ(HV)</td>
+          <td style="text-align: left">0.2</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p><em>Positionテーブル</em>  </p>
 
-<table>
-<thead>
-<tr>
-<th style="text-align:left;"> 名称         </th>
-<th style="text-align:left;"> 内容                                           </th>
-<th style="text-align:left;"> 例            </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;"> distinct     </td>
-<td style="text-align:left;"> 商品種別（日経225先物、日経225先物mini、CALLオプション、PUTオプション） </td>
-<td style="text-align:left;">       </td>
-</tr>
-<tr>
-<td style="text-align:left;"> exercise     </td>
-<td style="text-align:left;"> 行使価格（オプションの場合のみ、先物の場合はnil） </td>
-<td style="text-align:left;"> 0.02          </td>
-</tr>
-<tr>
-<td style="text-align:left;"> expiration   </td>
-<td style="text-align:left;"> 限月（満期月）                                  </td>
-<td style="text-align:left;"> "2014/06"     </td>
-</tr>
-<tr>
-<td style="text-align:left;"> maturity     </td>
-<td style="text-align:left;"> 残存日数（1日に満たない場合も日数換算）          </td>
-<td style="text-align:left;"> 0.1～365      </td>
-</tr>
-<tr>
-<td style="text-align:left;"> number       </td>
-<td style="text-align:left;"> オプション理論価格計算に使用するボラティリティ    </td>
-<td style="text-align:left;"> 0.2           </td>
-</tr>
-<tr>
-<td style="text-align:left;"> sale         </td>
-<td style="text-align:left;"> 売り、買いの区別                                </td>
-<td style="text-align:left;">               </td>
-</tr>
-<tr>
-<td style="text-align:left;"> unit         </td>
-<td style="text-align:left;"> 商品単価                                        </td>
-<td style="text-align:left;">               </td>
-</tr>
-</tbody>
-</table>
-</li>
-<li><p><em>Candlestickテーブル</em><br/>
-※どこから先物価格のデータを取得するかでテーブル構造は変わるので省略します。必要なのはオプションの原資産となる先物価格の終値20日分です。私が利用していたのは<a href="http://k-db.com/">このサイト</a>です。<br/>
-以下のようにcsvデータをダウンロード<br/>
-<code>
-wget -O ./lib/futures.csv "http://k-db.com/site/jikeiretsuF.aspx?c=101&amp;year=0&amp;download=csv"  
-</code><br/>
-csvデータから先物価格データを格納    <br/>
-<code>  
-rails runner Candlestick::biteoff
-</code></p></li>
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align: left">名称</th>
+          <th style="text-align: left">内容</th>
+          <th style="text-align: left">例</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: left">distinct</td>
+          <td style="text-align: left">商品種別（日経225先物、日経225先物mini、CALLオプション、PUTオプション）</td>
+          <td style="text-align: left"> </td>
+        </tr>
+        <tr>
+          <td style="text-align: left">exercise</td>
+          <td style="text-align: left">行使価格（オプションの場合のみ、先物の場合はnil）</td>
+          <td style="text-align: left">0.02</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">expiration</td>
+          <td style="text-align: left">限月（満期月）</td>
+          <td style="text-align: left">“2014/06”</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">maturity</td>
+          <td style="text-align: left">残存日数（1日に満たない場合も日数換算）</td>
+          <td style="text-align: left">0.1～365</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">number</td>
+          <td style="text-align: left">オプション理論価格計算に使用するボラティリティ</td>
+          <td style="text-align: left">0.2</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">sale</td>
+          <td style="text-align: left">売り、買いの区別</td>
+          <td style="text-align: left"> </td>
+        </tr>
+        <tr>
+          <td style="text-align: left">unit</td>
+          <td style="text-align: left">商品単価</td>
+          <td style="text-align: left"> </td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p><em>Candlestickテーブル</em><br />
+※どこから先物価格のデータを取得するかでテーブル構造は変わるので省略します。必要なのはオプションの原資産となる先物価格の終値20日分です。私が利用していたのは<a href="http://k-db.com/">このサイト</a>です。<br />
+以下のようにcsvデータをダウンロード  </p>
+  </li>
 </ul>
 
+<pre><code>wget -O ./lib/futures.csv "http://k-db.com/site/jikeiretsuF.aspx?c=101&amp;year=0&amp;download=csv"  
+</code></pre>
+<p>csvデータから先物価格データを格納      </p>
 
-<h3>参考文献</h3>
+<pre><code>rails runner Candlestick::biteoff
+</code></pre>
+
+<h3 id="section-3">参考文献</h3>
 
 <ul>
-<li><a href="http://www.amazon.co.jp/%E4%B8%96%E7%95%8C%E4%B8%80%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E9%87%91%E8%9E%8D%E5%B7%A5%E5%AD%A6%E3%81%AE%E6%9C%AC%E3%81%A7%E3%81%99-%E7%94%B0%E6%B8%95-%E7%9B%B4%E4%B9%9F/dp/4534040512]">「世界一やさしい金融工学の本です」</a></li>
+  <li><a href="http://www.amazon.co.jp/%E4%B8%96%E7%95%8C%E4%B8%80%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E9%87%91%E8%9E%8D%E5%B7%A5%E5%AD%A6%E3%81%AE%E6%9C%AC%E3%81%A7%E3%81%99-%E7%94%B0%E6%B8%95-%E7%9B%B4%E4%B9%9F/dp/4534040512]">「世界一やさしい金融工学の本です」</a></li>
 </ul>
 
 
@@ -257,7 +255,7 @@ rails runner Candlestick::biteoff
   
      
     	<li><a href="/categories.html#project-ref">
-    		project <span>4</span>
+    		project <span>5</span>
     	</a></li>
     
   

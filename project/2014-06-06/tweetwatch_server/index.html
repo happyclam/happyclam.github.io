@@ -65,119 +65,127 @@
 
 			<div class="bd">
 				<div class="entry-content">
-					<h3>EventMachineで簡単インターフェース</h3>
+					<h3 id="eventmachine">EventMachineで簡単インターフェース</h3>
+<p>　初めて<a href="http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/">morizyun氏のこの記事</a>を読んだときはEventMachineとかforemanとかって何をするものか知らなかったのですが、EventMachineというのは「<a href="https://morizyun.github.io/blog/reactor-pattern-ruby/">[Ruby] Reactorパターンについて</a>」にも書いてある通り、ソケットの受信待機をして貰って簡単にReactorパターンを実現することが出来るツールってことのようです。だからわざわざ自分でプロセス間通信の手続きを書く必要がなくアプリケーションレベルのコマンドを用意してあげるだけで済むのではないか？と思いながら作ったら思惑通りにうまく動いたって感じです。実際に組み込む前には、以下のような単純なサンプルで確認しました。  </p>
 
-<p>　初めて<a href="http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/">morizyun氏のこの記事</a>を読んだときはEventMachineとかforemanとかって何をするものか知らなかったのですが、EventMachineというのは「<a href="https://morizyun.github.io/blog/reactor-pattern-ruby/">[Ruby] Reactorパターンについて</a>」にも書いてある通り、ソケットの受信待機をして貰って簡単にReactorパターンを実現することが出来るツールってことのようです。だからわざわざ自分でプロセス間通信の手続きを書く必要がなくアプリケーションレベルのコマンドを用意してあげるだけで済むのではないか？と思いながら作ったら思惑通りにうまく動いたって感じです。実際に組み込む前には、以下のような単純なサンプルで確認しました。</p>
+<div><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#777">#server側サンプル  </span>
+<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>require <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">eventmachine</span><span style="color:#710">'</span></span>
+<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>
+<span class="line-numbers"> <a href="#n4" name="n4">4</a></span><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Serv</span> &lt; <span style="color:#036;font-weight:bold">EM</span>::<span style="color:#036;font-weight:bold">Connection</span>
+<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>  attr_accessor <span style="color:#A60">:track</span>
+<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">post_init</span>
+<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>    puts <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">myserv: init</span><span style="color:#710">&quot;</span></span>
+<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>  <span style="color:#080;font-weight:bold">end</span>
+<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>
+<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">receive_data</span>(data)
+<span class="line-numbers"><a href="#n11" name="n11">11</a></span>    puts data
+<span class="line-numbers"><a href="#n12" name="n12">12</a></span>    send_data <span style="color:#33B">@track</span>
+<span class="line-numbers"><a href="#n13" name="n13">13</a></span>    <span style="color:#036;font-weight:bold">EM</span>.stop <span style="color:#080;font-weight:bold">if</span> data =~ <span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">stop</span><span style="color:#404">/</span><span style="color:#C2C">i</span></span>
+<span class="line-numbers"><a href="#n14" name="n14">14</a></span>  <span style="color:#080;font-weight:bold">end</span>
+<span class="line-numbers"><a href="#n15" name="n15">15</a></span>
+<span class="line-numbers"><a href="#n16" name="n16">16</a></span>  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">connection_completed</span>
+<span class="line-numbers"><a href="#n17" name="n17">17</a></span>    puts <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">myserv: completed</span><span style="color:#710">&quot;</span></span>
+<span class="line-numbers"><a href="#n18" name="n18">18</a></span>  <span style="color:#080;font-weight:bold">end</span>
+<span class="line-numbers"><a href="#n19" name="n19">19</a></span>
+<span class="line-numbers"><strong><a href="#n20" name="n20">20</a></strong></span>  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">unbind</span>
+<span class="line-numbers"><a href="#n21" name="n21">21</a></span>    puts <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">myserv: unbind</span><span style="color:#710">&quot;</span></span>
+<span class="line-numbers"><a href="#n22" name="n22">22</a></span>  <span style="color:#080;font-weight:bold">end</span>
+<span class="line-numbers"><a href="#n23" name="n23">23</a></span><span style="color:#080;font-weight:bold">end</span>
+<span class="line-numbers"><a href="#n24" name="n24">24</a></span>
+<span class="line-numbers"><a href="#n25" name="n25">25</a></span><span style="color:#036;font-weight:bold">EM</span>.run <span style="color:#080;font-weight:bold">do</span>
+<span class="line-numbers"><a href="#n26" name="n26">26</a></span>  <span style="color:#036;font-weight:bold">EM</span>.start_server(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">127.0.0.1</span><span style="color:#710">&quot;</span></span>, <span style="color:#00D">10000</span>, <span style="color:#036;font-weight:bold">Serv</span>) <span style="color:#080;font-weight:bold">do</span> |conn|
+<span class="line-numbers"><a href="#n27" name="n27">27</a></span>    conn.track = <span style="color:#069">ARGV</span>[<span style="color:#00D">0</span>]
+<span class="line-numbers"><a href="#n28" name="n28">28</a></span>  <span style="color:#080;font-weight:bold">end</span>
+<span class="line-numbers"><a href="#n29" name="n29">29</a></span><span style="color:#080;font-weight:bold">end</span>
+</pre></div>
+</div>
+</div>
+<p>以下のようにコマンドラインパラメータを付加して起動し、  </p>
 
-<pre><code class="Ruby">#server側サンプル  
-require 'eventmachine'
-
-class Serv &lt; EM::Connection
-  attr_accessor :track
-  def post_init
-    puts "myserv: init"
-  end
-
-  def receive_data(data)
-    puts data
-    send_data @track
-    EM.stop if data =~ /stop/i
-  end
-
-  def connection_completed
-    puts "myserv: completed"
-  end
-
-  def unbind
-    puts "myserv: unbind"
-  end
-end
-
-EM.run do
-  EM.start_server("127.0.0.1", 10000, Serv) do |conn|
-    conn.track = ARGV[0]
-  end
-end
-</code></pre>
-
-<p>以下のようにコマンドラインパラメータを付加して起動し、<br/>
-<code>ruby myserv.rb O.K.</code><br/>
+<p><code>ruby myserv.rb O.K.</code><br />
 クライアント接続時にServクラスのプロパティに保持されていることを確認する。</p>
 
-<pre><code class="ruby:client.rb">#client側サンプル
-require "net/telnet"
+<div><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#777">#client側サンプル</span>
+<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>require <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">net/telnet</span><span style="color:#710">&quot;</span></span>
+<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>
+<span class="line-numbers"> <a href="#n4" name="n4">4</a></span><span style="color:#080;font-weight:bold">begin</span>
+<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>  localhost = <span style="color:#036;font-weight:bold">Net</span>::<span style="color:#036;font-weight:bold">Telnet</span>::new(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Host</span><span style="color:#710">&quot;</span></span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">localhost</span><span style="color:#710">&quot;</span></span>,
+<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>                             <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Port</span><span style="color:#710">&quot;</span></span> =&gt; <span style="color:#00D">10000</span>,
+<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>                             <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Timeout</span><span style="color:#710">&quot;</span></span> =&gt; <span style="color:#00D">1</span>,
+<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>                             <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Telnetmode</span><span style="color:#710">&quot;</span></span> =&gt; <span style="color:#069">false</span>,
+<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>                             <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Output_log</span><span style="color:#710">&quot;</span></span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">./temp0.log</span><span style="color:#710">&quot;</span></span>,
+<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>                             <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Prompt</span><span style="color:#710">&quot;</span></span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">O.K.</span><span style="color:#710">&quot;</span></span>)
+<span class="line-numbers"><a href="#n11" name="n11">11</a></span>  localhost.cmd(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">search word</span><span style="color:#710">&quot;</span></span>) { |c| print c }
+<span class="line-numbers"><a href="#n12" name="n12">12</a></span>  localhost.close
+<span class="line-numbers"><a href="#n13" name="n13">13</a></span>  localhost = <span style="color:#069">nil</span>
+<span class="line-numbers"><a href="#n14" name="n14">14</a></span>  p <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">end</span><span style="color:#710">&quot;</span></span>
+<span class="line-numbers"><a href="#n15" name="n15">15</a></span><span style="color:#080;font-weight:bold">rescue</span> <span style="color:#036;font-weight:bold">Net</span>::<span style="color:#036;font-weight:bold">ReadTimeout</span>
+<span class="line-numbers"><a href="#n16" name="n16">16</a></span>  p <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">readtimeout</span><span style="color:#710">&quot;</span></span>
+<span class="line-numbers"><a href="#n17" name="n17">17</a></span>  p <span style="color:#d70">$!</span>.to_s
+<span class="line-numbers"><a href="#n18" name="n18">18</a></span><span style="color:#080;font-weight:bold">rescue</span>
+<span class="line-numbers"><a href="#n19" name="n19">19</a></span>  p <span style="color:#d70">$!</span>.to_s
+<span class="line-numbers"><strong><a href="#n20" name="n20">20</a></strong></span><span style="color:#080;font-weight:bold">end</span>
+<span class="line-numbers"><a href="#n21" name="n21">21</a></span>
+</pre></div>
+</div>
+</div>
 
-begin
-  localhost = Net::Telnet::new("Host" =&gt; "localhost",
-                             "Port" =&gt; 10000,
-                             "Timeout" =&gt; 1,
-                             "Telnetmode" =&gt; false,
-                             "Output_log" =&gt; "./temp0.log",
-                             "Prompt" =&gt; "O.K.")
-  localhost.cmd("search word") { |c| print c }
-  localhost.close
-  localhost = nil
-  p "end"
-rescue Net::ReadTimeout
-  p "readtimeout"
-  p $!.to_s
-rescue
-  p $!.to_s
-end
-</code></pre>
+<p>このserver側の処理を、twitterAPIを使ってDBに検索結果を保存するスクリプトに組み込んで、client側の処理をRails製のサイトに組み込めばいいわけです。<br />
+　あと、server側のスクリプトは、ユーザ毎に起動してユーザがWebサイトから制御しなければならないので、foremanは必要無さそうです。  </p>
 
-<p>このserver側の処理を、twitterAPIを使ってDBに検索結果を保存するスクリプトに組み込んで、client側の処理をRails製のサイトに組み込めばいいわけです。<br/>
-　あと、server側のスクリプトは、ユーザ毎に起動してユーザがWebサイトから制御しなければならないので、foremanは必要無さそうです。</p>
-
-<h3>サーバースクリプトへのパラメータの受け渡し</h3>
-
-<p>　EventMachine::Connectionを継承したクラスServにユーザ情報を保存するメンバ変数（プロパティ）を用意して、Webサイト（client側）からサーバースクリプトを起動する時にコマンドライン引数でそれらの値を渡してあげます。起動の際に「10000+ユーザID」をポート番号に指定することでWebサイト利用者とサーバースクリプト利用者を一致させています。EventMachineを使ったプログラム同士が変数を共有する仕組みのようなものがあるかもしれませんが、ステートレスなHTTPで動いているWebサイトから起動するのだから、コマンドラインで渡すのがちょうど良さそうです。<br/>
-　twitterのStreamingAPIを使用する部分は<a href="/project/2014-05-30/tweetwatch">以前書いた記事</a>で紹介したmorizyun氏のコードをServ.trackingメソッドに閉じ込めてほぼそのまま動かしています。twitter側でエラーが発生した場合このままでいいのかよく分かりませんが、エラーになればWebサイト側からサーバースクリプトを再起動してもらえばいいという考え方で作ってます。<br/>
+<h3 id="section">サーバースクリプトへのパラメータの受け渡し</h3>
+<p>　EventMachine::Connectionを継承したクラスServにユーザ情報を保存するメンバ変数（プロパティ）を用意して、Webサイト（client側）からサーバースクリプトを起動する時にコマンドライン引数でそれらの値を渡してあげます。起動の際に「10000+ユーザID」をポート番号に指定することでWebサイト利用者とサーバースクリプト利用者を一致させています。EventMachineを使ったプログラム同士が変数を共有する仕組みのようなものがあるかもしれませんが、ステートレスなHTTPで動いているWebサイトから起動するのだから、コマンドラインで渡すのがちょうど良さそうです。<br />
+　twitterのStreamingAPIを使用する部分は<a href="/project/2014-05-30/tweetwatch">以前書いた記事</a>で紹介したmorizyun氏のコードをServ.trackingメソッドに閉じ込めてほぼそのまま動かしています。twitter側でエラーが発生した場合このままでいいのかよく分かりませんが、エラーになればWebサイト側からサーバースクリプトを再起動してもらえばいいという考え方で作ってます。<br />
 　client側からserver側スクリプトに受け渡すパラメータはTwitterAPIを利用するために必要な認証key文字列（４種類）とユーザIDとTwitterのfilterAPIに渡す検索文字列（検索タグ）です。</p>
 
-<pre><code class="ruby:myserv.rb">#実際のソースの一部
-require 'eventmachine'
-require 'optparse'
+<div><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#777">#実際のソースの一部</span>
+<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>require <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">eventmachine</span><span style="color:#710">'</span></span>
+<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>require <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">optparse</span><span style="color:#710">'</span></span>
+<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>
+<span class="line-numbers"> <a href="#n5" name="n5">5</a></span><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Serv</span> &lt; <span style="color:#036;font-weight:bold">EM</span>::<span style="color:#036;font-weight:bold">Connection</span>
+<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>  attr_accessor <span style="color:#A60">:uid</span>
+<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>  attr_accessor <span style="color:#A60">:track</span>
+<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>  attr_accessor <span style="color:#A60">:c_key</span>
+<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>  attr_accessor <span style="color:#A60">:c_secret</span>
+<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>  attr_accessor <span style="color:#A60">:a_key</span>
+<span class="line-numbers"><a href="#n11" name="n11">11</a></span>  attr_accessor <span style="color:#A60">:a_secret</span>
+<span class="line-numbers"><a href="#n12" name="n12">12</a></span>  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">receive_data</span>(data)
+<span class="line-numbers"><a href="#n13" name="n13">13</a></span>    <span style="color:#080;font-weight:bold">case</span> data
+<span class="line-numbers"><a href="#n14" name="n14">14</a></span>    <span style="color:#080;font-weight:bold">when</span> <span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">stop</span><span style="color:#404">/</span><span style="color:#C2C">i</span></span>
+<span class="line-numbers"><a href="#n15" name="n15">15</a></span>      send_data <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">O.K.</span><span style="color:#710">&quot;</span></span>
+<span class="line-numbers"><a href="#n16" name="n16">16</a></span>      <span style="color:#036;font-weight:bold">EM</span>.stop
+<span class="line-numbers"><a href="#n17" name="n17">17</a></span>    <span style="color:#080;font-weight:bold">when</span> <span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">check</span><span style="color:#404">/</span><span style="color:#C2C">i</span></span>
+<span class="line-numbers"><a href="#n18" name="n18">18</a></span>      send_data <span style="color:#33B">@track</span>
+<span class="line-numbers"><a href="#n19" name="n19">19</a></span>    省略
+<span class="line-numbers"><strong><a href="#n20" name="n20">20</a></strong></span>      :
+<span class="line-numbers"><a href="#n21" name="n21">21</a></span>
+<span class="line-numbers"><a href="#n22" name="n22">22</a></span>  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">tracking</span>(track, c_key, c_secret, a_key, a_secret, uid)
+<span class="line-numbers"><a href="#n23" name="n23">23</a></span>    stream = <span style="color:#036;font-weight:bold">Twitter</span>::<span style="color:#036;font-weight:bold">JSONStream</span>.connect(
+<span class="line-numbers"><a href="#n24" name="n24">24</a></span>  省略
+<span class="line-numbers"><a href="#n25" name="n25">25</a></span>    :
+<span class="line-numbers"><a href="#n26" name="n26">26</a></span>
+<span class="line-numbers"><a href="#n27" name="n27">27</a></span><span style="color:#036;font-weight:bold">EM</span>.run <span style="color:#080;font-weight:bold">do</span>
+<span class="line-numbers"><a href="#n28" name="n28">28</a></span>  <span style="color:#036;font-weight:bold">EM</span>.start_server(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">127.0.0.1</span><span style="color:#710">&quot;</span></span>, <span style="color:#00D">10000</span> + params[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">p</span><span style="color:#710">&quot;</span></span>].to_i, <span style="color:#036;font-weight:bold">Serv</span>) <span style="color:#080;font-weight:bold">do</span> |conn|
+<span class="line-numbers"><a href="#n29" name="n29">29</a></span>    conn.track = params[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">t</span><span style="color:#710">&quot;</span></span>]
+<span class="line-numbers"><strong><a href="#n30" name="n30">30</a></strong></span>    conn.uid = params[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">p</span><span style="color:#710">&quot;</span></span>].to_i
+<span class="line-numbers"><a href="#n31" name="n31">31</a></span>    conn.c_key = params[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">c</span><span style="color:#710">&quot;</span></span>]
+<span class="line-numbers"><a href="#n32" name="n32">32</a></span>    conn.c_secret = params[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">k</span><span style="color:#710">&quot;</span></span>]
+<span class="line-numbers"><a href="#n33" name="n33">33</a></span>    conn.a_key = params[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">s</span><span style="color:#710">&quot;</span></span>]
+<span class="line-numbers"><a href="#n34" name="n34">34</a></span>    conn.a_secret = params[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">a</span><span style="color:#710">&quot;</span></span>]
+<span class="line-numbers"><a href="#n35" name="n35">35</a></span>  <span style="color:#080;font-weight:bold">end</span>
+<span class="line-numbers"><a href="#n36" name="n36">36</a></span><span style="color:#080;font-weight:bold">end</span>
+</pre></div>
+</div>
+</div>
 
-class Serv &lt; EM::Connection
-  attr_accessor :uid
-  attr_accessor :track
-  attr_accessor :c_key
-  attr_accessor :c_secret
-  attr_accessor :a_key
-  attr_accessor :a_secret
-  def receive_data(data)
-    case data
-    when /stop/i
-      send_data "O.K."
-      EM.stop
-    when /check/i
-      send_data @track
-    省略
-      :
-
-  def tracking(track, c_key, c_secret, a_key, a_secret, uid)
-    stream = Twitter::JSONStream.connect(
-  省略
-    :
-
-EM.run do
-  EM.start_server("127.0.0.1", 10000 + params["p"].to_i, Serv) do |conn|
-    conn.track = params["t"]
-    conn.uid = params["p"].to_i
-    conn.c_key = params["c"]
-    conn.c_secret = params["k"]
-    conn.a_key = params["s"]
-    conn.a_secret = params["a"]
-  end
-end
-</code></pre>
-
-<h3>参考サイト</h3>
+<h3 id="section-1">参考サイト</h3>
 
 <ul>
-<li><a href="http://keijinsonyaban.blogspot.jp/2010/12/eventmachine.html">【翻訳】EventMachine入門 </a></li>
-<li><a href="http://gihyo.jp/dev/serial/01/ruby/0032">Reactorで非同期処理をやってみよう（2）</a></li>
+  <li><a href="http://keijinsonyaban.blogspot.jp/2010/12/eventmachine.html">【翻訳】EventMachine入門 </a></li>
+  <li><a href="http://gihyo.jp/dev/serial/01/ruby/0032">Reactorで非同期処理をやってみよう（2）</a></li>
 </ul>
 
 
@@ -199,7 +207,7 @@ end
   
      
     	<li><a href="/categories.html#project-ref">
-    		project <span>4</span>
+    		project <span>5</span>
     	</a></li>
     
   
@@ -216,7 +224,7 @@ end
      
     	<li><a href="/tags.html#rails-ref">rails <span>7</span></a></li>
      
-    	<li><a href="/tags.html#ruby-ref">ruby <span>4</span></a></li>
+    	<li><a href="/tags.html#ruby-ref">ruby <span>5</span></a></li>
      
     	<li><a href="/tags.html#tweetwatch-ref">tweetwatch <span>4</span></a></li>
     

@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2014-07-12T13:48:44+09:00</updated>
+ <updated>2014-08-05T14:45:17+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -13,25 +13,126 @@
 
  
  <entry>
+   <title>三目並べ（tictactoe）</title>
+   <link href="http://happyclam.github.io/project/2014-08-05/tictactoe"/>
+   <updated>2014-08-05T00:00:00+09:00</updated>
+   <id>http://happyclam.github.io/project/2014-08-05/tictactoe</id>
+   <content type="html">&lt;p&gt;Project: 「&lt;strong&gt;三目並べ&lt;/strong&gt;」: &lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;開発の動機&lt;/h3&gt;
+&lt;p&gt;　Ruby用のGUI開発ツールShoesを使って一通り機能を備えた将棋ソフトを作ってみたのですが、思っていた以上に弱い。大昔にオセロのソフトを作ったことがあるのですが、min-max法とαβ法を使えば普通の人では勝てないぐらいのものが簡単に作れました。オセロでは四隅を取ると有利になるので、隅のコマは点数を高くして、その隣の位置は点数を低くするという、コマを置く盤面の位置に重み付けすることで局面を評価するよくある評価関数を使えば十分でした。&lt;br /&gt;
+　だから将棋の場合もそれぞれの駒に重み付けをして評価関数を作れば、オセロに比べると読む局面の数が多くなるとはいえ、それなりに強いものが出来ると思っていたのにあまりにも弱かったのです。そこで評価関数は置いといて局面の先読み部分がうまくいってるのか確認するために、まずはより単純なゲームである三目並べで確認しようと思ったのが作成のきっかけです。三目並べ（tictactoe）なら初手からゲーム終了まで読みきれるので先読み関数に問題がないかどうか判断しやすいと思ったからです。  &lt;/p&gt;
+
+&lt;h3 id=&quot;min-max&quot;&gt;min-max法&lt;/h3&gt;
+
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#777&quot;&gt;#先手×は最大値、後手○は最小値を選択するように再帰しながら局面を先読み&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;lookahead&lt;/span&gt;(board, turn, cnt)
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; turn == &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;CROSS&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;      value = &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;MIN_VALUE&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;else&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;      value = &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;MAX_VALUE&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;    locate = &lt;span style=&quot;color:#069&quot;&gt;nil&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;    board.each_with_index {|b, i|
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n10&quot; name=&quot;n10&quot;&gt;10&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;      &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;next&lt;/span&gt; &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; b
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n11&quot; name=&quot;n11&quot;&gt;11&lt;/a&gt;&lt;/span&gt;      board[i] = turn
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n12&quot; name=&quot;n12&quot;&gt;12&lt;/a&gt;&lt;/span&gt;      temp_v = evaluation(board)
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n13&quot; name=&quot;n13&quot;&gt;13&lt;/a&gt;&lt;/span&gt;      teban = (turn == &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;CROSS&lt;/span&gt;) ? &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;NOUGHT&lt;/span&gt; : &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;CROSS&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n14&quot; name=&quot;n14&quot;&gt;14&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; (temp_v != &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;MAX_VALUE&lt;/span&gt; &amp;amp;&amp;amp; temp_v != &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;MIN_VALUE&lt;/span&gt; &amp;amp;&amp;amp; cnt &amp;lt; &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;SIZE&lt;/span&gt; - &lt;span style=&quot;color:#00D&quot;&gt;1&lt;/span&gt;)
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n15&quot; name=&quot;n15&quot;&gt;15&lt;/a&gt;&lt;/span&gt;        &lt;span style=&quot;color:#777&quot;&gt;#指定した深さまで再帰呼出し&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n16&quot; name=&quot;n16&quot;&gt;16&lt;/a&gt;&lt;/span&gt;        temp_v, temp_locate = lookahead(board, teban, cnt + &lt;span style=&quot;color:#00D&quot;&gt;1&lt;/span&gt;)
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n17&quot; name=&quot;n17&quot;&gt;17&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n18&quot; name=&quot;n18&quot;&gt;18&lt;/a&gt;&lt;/span&gt;      board[i] = &lt;span style=&quot;color:#069&quot;&gt;nil&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n19&quot; name=&quot;n19&quot;&gt;19&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#777&quot;&gt;#先手×の番と後手○の番で、同じ深さでの最小、最大の評価値をvalueに保存&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n20&quot; name=&quot;n20&quot;&gt;20&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;      &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; (temp_v &amp;gt; value &amp;amp;&amp;amp; turn == &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;CROSS&lt;/span&gt;) || (temp_v &amp;lt; value &amp;amp;&amp;amp; turn == &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;NOUGHT&lt;/span&gt;)
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n21&quot; name=&quot;n21&quot;&gt;21&lt;/a&gt;&lt;/span&gt;        value = temp_v 
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n22&quot; name=&quot;n22&quot;&gt;22&lt;/a&gt;&lt;/span&gt;        locate = i
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n23&quot; name=&quot;n23&quot;&gt;23&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n24&quot; name=&quot;n24&quot;&gt;24&lt;/a&gt;&lt;/span&gt;    }
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n25&quot; name=&quot;n25&quot;&gt;25&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#777&quot;&gt;#同じ深さでの最小、最大の評価値を返す&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n26&quot; name=&quot;n26&quot;&gt;26&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;return&lt;/span&gt; value, locate
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n27&quot; name=&quot;n27&quot;&gt;27&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;αβ法&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;min-max法に、親局面の評価値を子局面に伝えるための引数（α値＝下限値、β値＝上限値）を追加&lt;/li&gt;
+  &lt;li&gt;引数で渡された親局面の評価値と現局面を比較して、現局面が選択されることがないことがわかったら、先読みを中断してreturnする（αカットとβカット）&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#777&quot;&gt;#現局面の評価値を子局面に渡しながら再帰関数で局面を先読み&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;lookahead&lt;/span&gt;(board, turn, cnt, threshold)
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; turn == &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;CROSS&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;      value = &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;MIN_VALUE&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;else&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;      value = &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;MAX_VALUE&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;    locate = &lt;span style=&quot;color:#069&quot;&gt;nil&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;    board.each_with_index {|b, i|
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n10&quot; name=&quot;n10&quot;&gt;10&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;      &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;next&lt;/span&gt; &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; b
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n11&quot; name=&quot;n11&quot;&gt;11&lt;/a&gt;&lt;/span&gt;      board[i] = turn
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n12&quot; name=&quot;n12&quot;&gt;12&lt;/a&gt;&lt;/span&gt;      temp_v = evaluation(board)
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n13&quot; name=&quot;n13&quot;&gt;13&lt;/a&gt;&lt;/span&gt;      teban = (turn == &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;CROSS&lt;/span&gt;) ? &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;NOUGHT&lt;/span&gt; : &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;CROSS&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n14&quot; name=&quot;n14&quot;&gt;14&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; (temp_v != &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;MAX_VALUE&lt;/span&gt; &amp;amp;&amp;amp; temp_v != &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;MIN_VALUE&lt;/span&gt; &amp;amp;&amp;amp; cnt &amp;lt; &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;SIZE&lt;/span&gt; - &lt;span style=&quot;color:#00D&quot;&gt;1&lt;/span&gt;)
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n15&quot; name=&quot;n15&quot;&gt;15&lt;/a&gt;&lt;/span&gt;        temp_v, temp_locate = lookahead(board, teban, cnt + &lt;span style=&quot;color:#00D&quot;&gt;1&lt;/span&gt;, temp_v)
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n16&quot; name=&quot;n16&quot;&gt;16&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n17&quot; name=&quot;n17&quot;&gt;17&lt;/a&gt;&lt;/span&gt;      board[i] = &lt;span style=&quot;color:#069&quot;&gt;nil&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n18&quot; name=&quot;n18&quot;&gt;18&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#777&quot;&gt;#先手×の番&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n19&quot; name=&quot;n19&quot;&gt;19&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; (temp_v &amp;gt; value &amp;amp;&amp;amp; turn == &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;CROSS&lt;/span&gt;) 
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n20&quot; name=&quot;n20&quot;&gt;20&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;        value = temp_v 
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n21&quot; name=&quot;n21&quot;&gt;21&lt;/a&gt;&lt;/span&gt;        locate = i
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n22&quot; name=&quot;n22&quot;&gt;22&lt;/a&gt;&lt;/span&gt;        &lt;span style=&quot;color:#777&quot;&gt;#上限値を上回ったら先読み中止（βカット）&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n23&quot; name=&quot;n23&quot;&gt;23&lt;/a&gt;&lt;/span&gt;        &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;return&lt;/span&gt; value, locate &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; threshold &amp;lt; temp_v
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n24&quot; name=&quot;n24&quot;&gt;24&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#777&quot;&gt;#後手○の番&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n25&quot; name=&quot;n25&quot;&gt;25&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;elsif&lt;/span&gt; (temp_v &amp;lt; value &amp;amp;&amp;amp; turn == &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;NOUGHT&lt;/span&gt;)
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n26&quot; name=&quot;n26&quot;&gt;26&lt;/a&gt;&lt;/span&gt;        value = temp_v 
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n27&quot; name=&quot;n27&quot;&gt;27&lt;/a&gt;&lt;/span&gt;        locate = i
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n28&quot; name=&quot;n28&quot;&gt;28&lt;/a&gt;&lt;/span&gt;        &lt;span style=&quot;color:#777&quot;&gt;#下限値を下回ったら先読み中止（αカット）&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n29&quot; name=&quot;n29&quot;&gt;29&lt;/a&gt;&lt;/span&gt;        &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;return&lt;/span&gt; value, locate &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; threshold &amp;gt; temp_v
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n30&quot; name=&quot;n30&quot;&gt;30&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;      &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n31&quot; name=&quot;n31&quot;&gt;31&lt;/a&gt;&lt;/span&gt;    }
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n32&quot; name=&quot;n32&quot;&gt;32&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#777&quot;&gt;#同じ深さでの最小、最大の評価値を返す&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n33&quot; name=&quot;n33&quot;&gt;33&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;return&lt;/span&gt; value, locate
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n34&quot; name=&quot;n34&quot;&gt;34&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n35&quot; name=&quot;n35&quot;&gt;35&lt;/a&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n36&quot; name=&quot;n36&quot;&gt;36&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n37&quot; name=&quot;n37&quot;&gt;37&lt;/a&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;※min-max法に僅かなコードを追加しただけで素晴らしい効果が得られました。&lt;a href=&quot;http://www.vaio.sony.co.jp/Products/P1/spec_vom1.html&quot;&gt;vaio type p (VGN-P90S)&lt;/a&gt;という非力なPCで比較したところ、単なるmin-max法で完全読み切りに３０秒ほどかかったのに、αβ法なら５秒で完了しました。評価関数が、勝ち、負け、引き分けの３値しかない単純なものだったせいもありますがすごいです。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;検証と意外だったこと&lt;/h3&gt;
+&lt;p&gt;　先読みがうまく機能しているかは、初手をどこに打ってゲーム開始しても引き分けという結果が返ってくることや、先手・後手でそれぞれ何度か三目並べで遊んでみて確認した程度ですが、それで十分でしょう。&lt;br /&gt;
+　でも作ってみて意外だったのは初手から完全読み切りするわけだから、ソフトに初手を指させたら当然真ん中に×をつける（打つ？指す？）と思っていたのに真ん中には打ってこなかったことです。人間ならすぐに一番勝つ可能性が高い真ん中を取るはずですが、ソフトは双方が最善手を指せば引き分けになることを読み切っているので、結局どこに打っても同じと判断するわけです。評価関数が勝ち、負け、引き分けの三値しか返さない関数なので、初手に真ん中に打てばラインを揃える可能性が一番高いとはいえ、引き分けには違いないので区別しないのだと一応納得しました。&lt;br /&gt;
+　念の為、真ん中は２点、隅は１点、その他は０点という場所による重み付けをしてその点数による評価関数を作って、それを使えば真ん中に打つことは確認しましたが、そんな評価関数では当然弱いソフトになりました。それ以外にも何とか初手に真ん中を選択しながら、強い評価関数はどうすればいいか考えてみましたが、シンプルでいい方法は思いつきませんでした。&lt;br /&gt;
+　結局オセロでも将棋でもそうですが、局面の形成判断をする評価関数と読み切り用の評価関数は分けて作るのがいいのかもしれません。&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
    <title>BlueToothマウス</title>
    <link href="http://happyclam.github.io/hardware/2014-07-12/bt_mouse"/>
    <updated>2014-07-12T00:00:00+09:00</updated>
    <id>http://happyclam.github.io/hardware/2014-07-12/bt_mouse</id>
-   <content type="html">&lt;h3&gt;携帯する気は無いが、マウスのケーブルは細い方がいい&lt;/h3&gt;
-
-&lt;p&gt;　まだ一年程しか使っていなかったマウスが壊れました。ケーブルが平べったいタイプでUSB端子をマウスの中に収納できるタイプのもの。ケーブルが巻き取れるタイプのものは携帯用の小さなマウスばかりですが、USB端子も本体に収納出来るようになっているため比較的マウス本体も大きめの作りでまぁまぁ気に入っていたのに短い命でした。このタイプのマウスでもう一つお気に入りのマウスを持っているのですが、それはビックカメラ製の今はもう製造していないであろう珍しいもの（だと思います）。10年以上前に新横浜のビックカメラで買ったものですが、ELECOM等のOEM製品だと思いますが、どういう経緯で自社ブランドで販売したのか知りませんが、確かにビックカメラ製と銘打っていたと記憶しています。あの時まとめて買いだめしておけばよかったと思います。&lt;br/&gt;
+   <content type="html">&lt;h3 id=&quot;section&quot;&gt;携帯する気は無いが、マウスのケーブルは細い方がいい&lt;/h3&gt;
+&lt;p&gt;　まだ一年程しか使っていなかったマウスが壊れました。ケーブルが平べったいタイプでUSB端子をマウスの中に収納できるタイプのもの。ケーブルが巻き取れるタイプのものは携帯用の小さなマウスばかりですが、USB端子も本体に収納出来るようになっているため比較的マウス本体も大きめの作りでまぁまぁ気に入っていたのに短い命でした。このタイプのマウスでもう一つお気に入りのマウスを持っているのですが、それはビックカメラ製の今はもう製造していないであろう珍しいもの（だと思います）。10年以上前に新横浜のビックカメラで買ったものですが、ELECOM等のOEM製品だと思いますが、どういう経緯で自社ブランドで販売したのか知りませんが、確かにビックカメラ製と銘打っていたと記憶しています。あの時まとめて買いだめしておけばよかったと思います。&lt;br /&gt;
 &lt;img src=&quot;/images/biccamera_mouse.png&quot; alt=&quot;ビックカメラ製マウス&quot; /&gt;
-　大きいマウスの方が使いやすいのですが、ケーブルが太いと、わずかではあるけどケーブルに操作を持っていかれる時があるので好きではありません。だからと言ってケーブルの無い無線方式だと何となく信頼できないというか、安心できないというかイザというとき困るんじゃないかとか、CPU切替器も使っているのでちゃんと動くかどうかわからないという不安が先走って、未だに無線方式のものは使わずにいます。マウスに関してはキーボードほど使い勝手にこだわりは無いのでそろそろ無線を試してもいいかもと思いながらも、あくまで細いケーブルの大きなマウスを求めていろんな店舗を見て回ることにしました。&lt;/p&gt;
+　大きいマウスの方が使いやすいのですが、ケーブルが太いと、わずかではあるけどケーブルに操作を持っていかれる時があるので好きではありません。だからと言ってケーブルの無い無線方式だと何となく信頼できないというか、安心できないというかイザというとき困るんじゃないかとか、CPU切替器も使っているのでちゃんと動くかどうかわからないという不安が先走って、未だに無線方式のものは使わずにいます。マウスに関してはキーボードほど使い勝手にこだわりは無いのでそろそろ無線を試してもいいかもと思いながらも、あくまで細いケーブルの大きなマウスを求めていろんな店舗を見て回ることにしました。&lt;br /&gt;
+###予定していた行動とまったく違うことすることってありますよね
+　細く平たいケーブルのマウスか、それが無ければ無線マウスを買うつもりで家を出たのに、家に持ち帰ったのはBuffalo製の&lt;a href=&quot;http://buffalo.jp/product/input/mouse/bsmbb17/&quot;&gt;BlueToothマウス&lt;/a&gt;でした。細いケーブルのマウスは携帯用の小さいものしか無く、目当てのものが売っていなかったのが最大の原因ですが、無線のマウスは専用のレシーバが必要なのが何となく嫌で躊躇していたところにそれ以外の選択肢が目についてしまったのです。プログラマっていうのはXXX社製専用というのが何となく美しくないと感じてしまうものです、そう、縛られるのが嫌いなのでしょう。BlueToothマウスもBlueTooth機能を備えていないPCで使う場合はドングルというレシーバが必要なわけですが、マウスと同じメーカーでなくても使えます。マウスと同じメーカーの対になったレシーバしか使えないという不自由さが気に入らないのでしょう（家でしか使わないならそれで十分なのに…）。そういえば昔買ってほとんど使わずじまいのドングルが家に何個かあるなぁと思い出してしまったことも購入に踏み切った原因だと思います。  &lt;/p&gt;
 
-&lt;h3&gt;予定していた行動とまったく違うことすることってありますよね&lt;/h3&gt;
-
-&lt;p&gt;　細く平たいケーブルのマウスか、それが無ければ無線マウスを買うつもりで家を出たのに、家に持ち帰ったのはBuffalo製の&lt;a href=&quot;http://buffalo.jp/product/input/mouse/bsmbb17/&quot;&gt;BlueToothマウス&lt;/a&gt;でした。細いケーブルのマウスは携帯用の小さいものしか無く、目当てのものが売っていなかったのが最大の原因ですが、無線のマウスは専用のレシーバが必要なのが何となく嫌で躊躇していたところにそれ以外の選択肢が目についてしまったのです。プログラマっていうのはXXX社製専用というのが何となく美しくないと感じてしまうものです、そう、縛られるのが嫌いなのでしょう。BlueToothマウスもBlueTooth機能を備えていないPCで使う場合はドングルというレシーバが必要なわけですが、マウスと同じメーカーでなくても使えます。マウスと同じメーカーの対になったレシーバしか使えないという不自由さが気に入らないのでしょう（家でしか使わないならそれで十分なのに…）。そういえば昔買ってほとんど使わずじまいのドングルが家に何個かあるなぁと思い出してしまったことも購入に踏み切った原因だと思います。&lt;/p&gt;
-
-&lt;h3&gt;Ubuntu12.04では使えない？&lt;/h3&gt;
-
-&lt;p&gt;　家では主にUbuntu12.04を使っているのですが、そのままでは認識すらしてくれませんでした。Windows7のノートPCでは２つのドングル（&lt;a href=&quot;http://www.planex.co.jp/product/bluetooth/bt-microedr2x/&quot;&gt;BT-MicroEDR2X&lt;/a&gt;、&lt;a href=&quot;http://www.planex.co.jp/product/bluetooth/bt-01ude.shtml&quot;&gt;BT-01UDE&lt;/a&gt;）で確認したので故障ではありません。dbusを最新のものに入れ替えたらデバイス検索でBSMBB17を検出してはくれたものの動作しませんでした。そこで以前から更新しようと思っていながら放ったらかしにしていたUbuntu14.04へのアップグレード（do-release-upgradeコマンド一発）をやってみたらすぐに認識することが出来、使えました。メデタシメデタシ。って結局マウスが壊れたおかげで以前から懸案だったUbuntuアップグレード作業をすることが出来たことが収穫って感じです。マウスが壊れたところから神様のお導きだったのかもしれません。&lt;br/&gt;
+&lt;h3 id=&quot;ubuntu1204&quot;&gt;Ubuntu12.04では使えない？&lt;/h3&gt;
+&lt;p&gt;　家では主にUbuntu12.04を使っているのですが、そのままでは認識すらしてくれませんでした。Windows7のノートPCでは２つのドングル（&lt;a href=&quot;http://www.planex.co.jp/product/bluetooth/bt-microedr2x/&quot;&gt;BT-MicroEDR2X&lt;/a&gt;、&lt;a href=&quot;http://www.planex.co.jp/product/bluetooth/bt-01ude.shtml&quot;&gt;BT-01UDE&lt;/a&gt;）で確認したので故障ではありません。dbusを最新のものに入れ替えたらデバイス検索でBSMBB17を検出してはくれたものの動作しませんでした。そこで以前から更新しようと思っていながら放ったらかしにしていたUbuntu14.04へのアップグレード（do-release-upgradeコマンド一発）をやってみたらすぐに認識することが出来、使えました。メデタシメデタシ。って結局マウスが壊れたおかげで以前から懸案だったUbuntuアップグレード作業をすることが出来たことが収穫って感じです。マウスが壊れたところから神様のお導きだったのかもしれません。&lt;br /&gt;
 &lt;a href=&quot;http://buffalo.jp/product/input/mouse/bsmbb17/&quot;&gt;&lt;img src=&quot;/images/bsmbb17_mouse.png&quot; alt=&quot;BSMBB17&quot; /&gt;&lt;/a&gt;
 　で、肝心のBlueToothマウスの使い勝手ですが、頻繁に動作が引っかかる感じでとても使い続ける気にはなりませんでした。自分的にはBlueToothマウスはまだまだ実用には堪えられないって感じです。あくまでlinuxで使う場合の話ですが…。結局マウスはしばらく買わずに、とっておきのビックカメラ製のものを使うことにします。チャンチャン。&lt;/p&gt;
+
 </content>
  </entry>
  
@@ -40,12 +141,11 @@
    <link href="http://happyclam.github.io/programming/2014-07-07/rails_env"/>
    <updated>2014-07-07T00:00:00+09:00</updated>
    <id>http://happyclam.github.io/programming/2014-07-07/rails_env</id>
-   <content type="html">&lt;h3&gt;自宅サーバーにdeployment&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;/project/2014-05-30/tweetwatch&quot;&gt;TweetWatch&lt;/a&gt;がとりあえず完成したので、自鯖（Apatch）で動かしてみたらjQueryの一部（画面描画時&lt;code&gt;$(document).ready()&lt;/code&gt;の処理だけ）が上手く動かなかったので動くようになったまでの顛末を書きます（Rails 4.0.2, ruby 2.0.0p353）。&lt;br/&gt;
+   <content type="html">&lt;h3 id=&quot;deployment&quot;&gt;自宅サーバーにdeployment&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;/project/2014-05-30/tweetwatch&quot;&gt;TweetWatch&lt;/a&gt;がとりあえず完成したので、自鯖（Apatch）で動かしてみたらjQueryの一部（画面描画時&lt;code&gt;$(document).ready()&lt;/code&gt;の処理だけ）が上手く動かなかったので動くようになったまでの顛末を書きます（Rails 4.0.2, ruby 2.0.0p353）。&lt;br /&gt;
 コードは以下の通りです&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;#app/assets/javascripts/users.js
+&lt;pre&gt;&lt;code&gt;#app/assets/javascripts/users.js
 $(document).ready(function(){
     $.ajax({
         url: &#39;/tweets/check&#39;, 
@@ -57,9 +157,7 @@ $(document).ready(function(){
     });
 });
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;処理の内容はあまり関係ないと思いますが、jqueryからcontrollerのメソッドを呼び出し、サーバースクリプトが動いているかどうかをチェックして画面にstatusを表示する処理をしています。このusers.jsがdevelopment環境では動くのにproduction環境では動かないという現象に悩まされました。動くようになるまでに辿った作業を順に箇条書きにしてみると以下のようになります。&lt;/p&gt;
-
+&lt;p&gt;処理の内容はあまり関係ないと思いますが、jqueryからcontrollerのメソッドを呼び出し、サーバースクリプトが動いているかどうかをチェックして画面にstatusを表示する処理をしています。このusers.jsがdevelopment環境では動くのにproduction環境では動かないという現象に悩まされました。動くようになるまでに辿った作業を順に箇条書きにしてみると以下のようになります。  &lt;/p&gt;
 &lt;dl&gt;
 &lt;dt&gt;&lt;p&gt;1. Apache+Passenger環境でうまく動かないので、以下の設定でwebrickでproduction環境を試す。特にwebrick用の設定とも言える&lt;code&gt;serve_static_assets = true&lt;/code&gt;がdevelopment環境との大きな違い&lt;/p&gt;&lt;/dt&gt;
 &lt;dd&gt;
@@ -78,7 +176,7 @@ $(document).ready(function(){
 &lt;dd&gt;
 &lt;pre&gt;&lt;code&gt;
     #Gemfile
-    gem &#39;jquery-turbolinks&#39;  &lt;- 追加
+    gem &#39;jquery-turbolinks&#39;  &amp;lt;- 追加
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;code&gt;bundle install&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;
@@ -88,7 +186,7 @@ $(document).ready(function(){
 //= require bootstrap
 //= require users.js
 //= require turbolinks
-//= require jquery.turbolinks     &lt;- 追加
+//= require jquery.turbolinks     &amp;lt;- 追加
 //= require highcharts/highcharts
 //= require highcharts/highcharts-more
 //= require highcharts/highstock
@@ -97,15 +195,15 @@ $(document).ready(function(){
 &lt;p&gt;&lt;code&gt;rake assets:precompile RAILS_ENV=production&lt;/code&gt;&lt;br /&gt;
 &lt;code&gt;rails s -e production&lt;/code&gt;
 &lt;/p&gt;
-※&lt;a href=https://github.com/kossnocorp/jquery.turbolinks/blob/master/README.md&gt;jquery-turbolinksのドキュメント&lt;/a&gt;
+※&amp;lt;a href=https://github.com/kossnocorp/jquery.turbolinks/blob/master/README.md&amp;gt;jquery-turbolinksのドキュメント
 &lt;/dd&gt;
 &lt;br /&gt;
 &lt;dt&gt;&lt;p&gt;3. jquery-turbolinks gemを追加してもダメだったので、今度は逆にturbolinksを無効にしてみる&lt;/p&gt;&lt;/dt&gt;
 &lt;dd&gt;
 &lt;pre&gt;&lt;code&gt;
     #Gemfile
-#    gem &#39;turbolinks&#39;         &lt;- コメント化
-#    gem &#39;jquery-turbolinks&#39;  &lt;- コメント化
+#    gem &#39;turbolinks&#39;         &amp;lt;- コメント化
+#    gem &#39;jquery-turbolinks&#39;  &amp;lt;- コメント化
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;
     #app/assets/javascripts/application.js
@@ -113,8 +211,8 @@ $(document).ready(function(){
 //= require jquery_ujs
 //= require bootstrap
 //= require users.js
-//= require turbolinks            &lt;- この行を削除
-//= require jquery.turbolinks     &lt;- この行を削除
+//= require turbolinks            &amp;lt;- この行を削除
+//= require jquery.turbolinks     &amp;lt;- この行を削除
 //= require highcharts/highcharts
 //= require highcharts/highcharts-more
 //= require highcharts/highstock
@@ -124,11 +222,11 @@ $(document).ready(function(){
 &lt;pre&gt;&lt;code&gt;
     #app/views/layouts/application.html.erb
     #変更前
-  &lt;%= stylesheet_link_tag    &quot;application&quot;, media: &quot;all&quot;, &quot;data-turbolinks-track&quot; =&gt; true %&gt;
-  &lt;%= javascript_include_tag &quot;application&quot;, &quot;data-turbolinks-track&quot; =&gt; true %&gt;
+  &amp;lt;%= stylesheet_link_tag    &quot;application&quot;, media: &quot;all&quot;, &quot;data-turbolinks-track&quot; =&amp;gt; true %&amp;gt;
+  &amp;lt;%= javascript_include_tag &quot;application&quot;, &quot;data-turbolinks-track&quot; =&amp;gt; true %&amp;gt;
     #変更後
-  &lt;%= stylesheet_link_tag    &quot;application&quot;, media: &quot;all&quot; %&gt;
-  &lt;%= javascript_include_tag &quot;application&quot; %&gt;
+  &amp;lt;%= stylesheet_link_tag    &quot;application&quot;, media: &quot;all&quot; %&amp;gt;
+  &amp;lt;%= javascript_include_tag &quot;application&quot; %&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;code&gt;rake assets:precompile RAILS_ENV=production&lt;/code&gt;&lt;br /&gt;
 &lt;code&gt;rails s -e production&lt;/code&gt;&lt;/p&gt;
@@ -138,7 +236,7 @@ $(document).ready(function(){
 &lt;span&gt;jqueryとturbolinks両イベント対応の書き方&lt;/span&gt;
 &lt;pre&gt;&lt;code&gt;
 #app/assets/javascripts/user.js.coffee
-$(document).on &#39;ready page:load&#39;, -&gt;
+$(document).on &#39;ready page:load&#39;, -&amp;gt;
   url = &#39;/tweets/check&#39;
   dfd = $.ajax
     url: url
@@ -146,16 +244,16 @@ $(document).on &#39;ready page:load&#39;, -&gt;
     data: {}
     method: &#39;get&#39;
   promise = dfd.promise()
-  promise.done((data, status, xhr) -&gt;
+  promise.done((data, status, xhr) -&amp;gt;
   )
-  promise.fail((xhr, status, error) -&gt;
+  promise.fail((xhr, status, error) -&amp;gt;
     alert(error)
   )
 &lt;/code&gt;&lt;/pre&gt;
 &lt;span&gt;jqueryイベントとturbolinksイベントを分けた書き方&lt;/span&gt;
 &lt;pre&gt;&lt;code&gt;
 #app/assets/javascripts/user.js.coffee
-ready = -&gt;
+ready = -&amp;gt;
   url = &#39;/tweets/check&#39;
   dfd = $.ajax
     url: url
@@ -163,9 +261,9 @@ ready = -&gt;
     data: {}
     method: &#39;get&#39;
   promise = dfd.promise()
-  promise.done((data, status, xhr) -&gt;
+  promise.done((data, status, xhr) -&amp;gt;
   )
-  promise.fail((xhr, status, error) -&gt;
+  promise.fail((xhr, status, error) -&amp;gt;
     alert(error)
   )
 
@@ -192,7 +290,7 @@ $(document).on(&#39;page:load&#39;, ready)
 &lt;dd&gt;
 &lt;pre&gt;&lt;code&gt;
 #app/views/users/show.html.erb
-&lt;%= javascript_tag do %&gt;
+&amp;lt;%= javascript_tag do %&amp;gt;
 $(document).ready(function(){
     $.ajax({
         url: &#39;/tweets/check&#39;, 
@@ -203,7 +301,7 @@ $(document).ready(function(){
         alert(&#39;Error Occured(&#39; + error + &#39;)&#39;);
     });
 });
-&lt;% end %&gt;
+&amp;lt;% end %&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;これでdevelopment環境でもproduction環境でもページ読み込み時のjqueryが正常に動作しました。&lt;br /&gt;
 config.assets.compile = falseでdevelopment,production両方の環境で動きます。いろいろ環境を弄りましたが元の環境からjqueryをテンプレートに直書きするように変えるだけで他は変更しなくてよかったみたいです。turbolinksが有効でも無効でも大丈夫です
@@ -212,10 +310,10 @@ config.assets.compile = falseでdevelopment,production両方の環境で動き�
 
 &lt;/dl&gt;
 
-
-&lt;p&gt;&lt;em&gt;結論&lt;/em&gt;&lt;br/&gt;
-「$document.readyイベントを使うjqueryが動作しない時は、テンプレートに直書きしてみる。」&lt;br/&gt;
+&lt;p&gt;&lt;em&gt;結論&lt;/em&gt;&lt;br /&gt;
+「$document.readyイベントを使うjqueryが動作しない時は、テンプレートに直書きしてみる。」&lt;br /&gt;
 ※ネットの情報を漁っていると、jquery-turbolinks gemを使えば解決するというものが多いのですが、$document.readyイベントに関してはそういうわけにはいかないようです。&lt;/p&gt;
+
 </content>
  </entry>
  
@@ -224,90 +322,80 @@ config.assets.compile = falseでdevelopment,production両方の環境で動き�
    <link href="http://happyclam.github.io/project/2014-06-07/tweetwatch_client"/>
    <updated>2014-06-07T00:00:00+09:00</updated>
    <id>http://happyclam.github.io/project/2014-06-07/tweetwatch_client</id>
-   <content type="html">&lt;h3&gt;サーバースクリプトの状態遷移&lt;/h3&gt;
-
-&lt;p&gt;　言うまでもなくclient側と言ってもWebサーバ上で動いているわけなのでユーザから見ればサーバーとして機能しているわけですが、TwitterAPIを使ってデータをDBに保存するサーバースクリプトに対してclient側ということです。&lt;br/&gt;
+   <content type="html">&lt;h3 id=&quot;section&quot;&gt;サーバースクリプトの状態遷移&lt;/h3&gt;
+&lt;p&gt;　言うまでもなくclient側と言ってもWebサーバ上で動いているわけなのでユーザから見ればサーバーとして機能しているわけですが、TwitterAPIを使ってデータをDBに保存するサーバースクリプトに対してclient側ということです。&lt;br /&gt;
 state_machine gemを利用してサーバースクリプトの状態を管理しています。
 &lt;img src=&quot;/images/tweetwatch.png&quot; alt=&quot;状態遷移図&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;em&gt;状態遷移表&lt;/em&gt;&lt;/p&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;em&gt;状態遷移表&lt;/em&gt;  &lt;/p&gt;
 
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&quot;text-align:left;&quot;&gt; status\method    &lt;/th&gt;
-&lt;th style=&quot;text-align:center;&quot;&gt;     start       &lt;/th&gt;
-&lt;th style=&quot;text-align:center;&quot;&gt;     store       &lt;/th&gt;
-&lt;th style=&quot;text-align:center;&quot;&gt;     stop        &lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; 停止中(down)      &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; 待機中(prepared) &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt;      -          &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt;      -         &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; 待機中(prepared)  &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt;       -          &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; 集計中(storing) &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; 停止中(down)   &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; 集計中(storing)   &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt;       -          &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt;      -          &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; 停止中(down)   &lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;em&gt;サーバー停止中のユーザー画面&lt;/em&gt;&lt;br/&gt;
-&lt;img src=&quot;/images/state1.png&quot; alt=&quot;サーバー停止中&quot; /&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;サーバー集計中のユーザー画面&lt;/em&gt;&lt;br/&gt;
-&lt;img src=&quot;/images/state2.png&quot; alt=&quot;サーバー集計中&quot; /&gt;&lt;br/&gt;
-　ユーザ向け画面では「停止中」と「集計中」の２つの状態しかないのですが、EventMachineを使用しているサーバースクリプトでは、接続確立が完了した状態（post_initイベントが発生後）にならないとコマンドラインで渡したパラメータが有効にならないので、サーバースクリプトを起動した直後の状態を「待機中」として管理しています。&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;!-- other list --&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;停止中 ----- サーバースクリプト停止中&lt;/li&gt;
-&lt;li&gt;待機中 ----- サーバースクリプトが起動しているが、TwitterAPIを呼び出していない状態&lt;/li&gt;
-&lt;li&gt;集計中 ----- TwitterAPIを呼び出しツイートデータをDBに保存している状態&lt;br/&gt;
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th style=&quot;text-align: left&quot;&gt;status\method&lt;/th&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;start&lt;/th&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;store&lt;/th&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;stop&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;停止中(down)&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;待機中(prepared)&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;待機中(prepared)&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;集計中(storing)&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;停止中(down)&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;集計中(storing)&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;停止中(down)&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;サーバー停止中のユーザー画面&lt;/em&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/state1.png&quot; alt=&quot;サーバー停止中&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;サーバー集計中のユーザー画面&lt;/em&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/state2.png&quot; alt=&quot;サーバー集計中&quot; /&gt;&lt;br /&gt;
+　ユーザ向け画面では「停止中」と「集計中」の２つの状態しかないのですが、EventMachineを使用しているサーバースクリプトでは、接続確立が完了した状態（post_initイベントが発生後）にならないとコマンドラインで渡したパラメータが有効にならないので、サーバースクリプトを起動した直後の状態を「待機中」として管理しています。&lt;br /&gt;
+&lt;!-- other list --&gt;&lt;/li&gt;
+  &lt;li&gt;停止中 —– サーバースクリプト停止中&lt;/li&gt;
+  &lt;li&gt;待機中 —– サーバースクリプトが起動しているが、TwitterAPIを呼び出していない状態&lt;/li&gt;
+  &lt;li&gt;集計中 —– TwitterAPIを呼び出しツイートデータをDBに保存している状態&lt;br /&gt;
 ※「集計中」から「待機中」には遷移できません（停止して再起動）。&lt;/li&gt;
 &lt;/ul&gt;
 
-
-&lt;h3&gt;機能&lt;/h3&gt;
+&lt;h3 id=&quot;section-1&quot;&gt;機能&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;server側スクリプトの制御（起動、終了、状態確認）&lt;br/&gt;
+  &lt;li&gt;server側スクリプトの制御（起動、終了、状態確認）&lt;br /&gt;
 ※遅いノートPC（Atom機）で試したところserver側スクリプト起動に時間がかかり、接続がタイムアウトすることがあったので５秒のsleepを入れています。&lt;/li&gt;
-&lt;li&gt;server側のスクリプトがDBに保存したツイートデータを集計してグラフ表示する。&lt;br/&gt;
+  &lt;li&gt;server側のスクリプトがDBに保存したツイートデータを集計してグラフ表示する。&lt;br /&gt;
 ※Twitterのデータ構造はハッシュタグを本文とは別に保持しているようですが、SQLで集計する際にハッシュタグで集計するのはコストがかかるので、本文の内容でgroup byするという単純なやり方で妥協しています。詳細は別記事にするつもりです。&lt;/li&gt;
 &lt;/ul&gt;
 
-
-&lt;h3&gt;ER図&lt;/h3&gt;
-
+&lt;h3 id=&quot;er&quot;&gt;ER図&lt;/h3&gt;
 &lt;object data=&quot;/pdf/struct_tweetwatch.pdf&quot; width=&quot;600&quot; height=&quot;600&quot;&gt;
 &lt;p&gt;ご覧の環境では、object要素がサポートされていないようです。&lt;a href=&quot;/pdf/struct_tweetwatch.pdf&quot;&gt;PDFファイルをダウンロードしてください&lt;/a&gt;&lt;/p&gt;
 &lt;/object&gt;
 
-
 &lt;ul&gt;
-&lt;li&gt;Tweetテーブルへの書き込みはサーバースクリプトのみで、client側のRailsアプリからTweetテーブルへのアクセスはRead onlyです。&lt;/li&gt;
-&lt;li&gt;Servモデルはユーザがサーバースクリプトを起動する時に指定したTwitter検索タグとサーバースクリプトの状態を管理します。&lt;/li&gt;
-&lt;li&gt;ユーザは複数のTrackモデル（検索タグ）を保存できますが、サーバースクリプト起動時に指定出来るタグは一つだけです。&lt;/li&gt;
+  &lt;li&gt;Tweetテーブルへの書き込みはサーバースクリプトのみで、client側のRailsアプリからTweetテーブルへのアクセスはRead onlyです。  &lt;/li&gt;
+  &lt;li&gt;Servモデルはユーザがサーバースクリプトを起動する時に指定したTwitter検索タグとサーバースクリプトの状態を管理します。  &lt;/li&gt;
+  &lt;li&gt;ユーザは複数のTrackモデル（検索タグ）を保存できますが、サーバースクリプト起動時に指定出来るタグは一つだけです。  &lt;/li&gt;
 &lt;/ul&gt;
 
-
 &lt;p&gt;　&lt;/p&gt;
+
 </content>
  </entry>
  
@@ -316,119 +404,127 @@ state_machine gemを利用してサーバースクリプトの状態を管理し
    <link href="http://happyclam.github.io/project/2014-06-06/tweetwatch_server"/>
    <updated>2014-06-06T00:00:00+09:00</updated>
    <id>http://happyclam.github.io/project/2014-06-06/tweetwatch_server</id>
-   <content type="html">&lt;h3&gt;EventMachineで簡単インターフェース&lt;/h3&gt;
+   <content type="html">&lt;h3 id=&quot;eventmachine&quot;&gt;EventMachineで簡単インターフェース&lt;/h3&gt;
+&lt;p&gt;　初めて&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;morizyun氏のこの記事&lt;/a&gt;を読んだときはEventMachineとかforemanとかって何をするものか知らなかったのですが、EventMachineというのは「&lt;a href=&quot;https://morizyun.github.io/blog/reactor-pattern-ruby/&quot;&gt;[Ruby] Reactorパターンについて&lt;/a&gt;」にも書いてある通り、ソケットの受信待機をして貰って簡単にReactorパターンを実現することが出来るツールってことのようです。だからわざわざ自分でプロセス間通信の手続きを書く必要がなくアプリケーションレベルのコマンドを用意してあげるだけで済むのではないか？と思いながら作ったら思惑通りにうまく動いたって感じです。実際に組み込む前には、以下のような単純なサンプルで確認しました。  &lt;/p&gt;
 
-&lt;p&gt;　初めて&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;morizyun氏のこの記事&lt;/a&gt;を読んだときはEventMachineとかforemanとかって何をするものか知らなかったのですが、EventMachineというのは「&lt;a href=&quot;https://morizyun.github.io/blog/reactor-pattern-ruby/&quot;&gt;[Ruby] Reactorパターンについて&lt;/a&gt;」にも書いてある通り、ソケットの受信待機をして貰って簡単にReactorパターンを実現することが出来るツールってことのようです。だからわざわざ自分でプロセス間通信の手続きを書く必要がなくアプリケーションレベルのコマンドを用意してあげるだけで済むのではないか？と思いながら作ったら思惑通りにうまく動いたって感じです。実際に組み込む前には、以下のような単純なサンプルで確認しました。&lt;/p&gt;
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#server側サンプル  &lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;require &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;eventmachine&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;class&lt;/span&gt; &lt;span style=&quot;color:#B06;font-weight:bold&quot;&gt;Serv&lt;/span&gt; &amp;lt; &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;EM&lt;/span&gt;::&lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Connection&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;  attr_accessor &lt;span style=&quot;color:#A60&quot;&gt;:track&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;post_init&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;    puts &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;myserv: init&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n10&quot; name=&quot;n10&quot;&gt;10&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;receive_data&lt;/span&gt;(data)
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n11&quot; name=&quot;n11&quot;&gt;11&lt;/a&gt;&lt;/span&gt;    puts data
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n12&quot; name=&quot;n12&quot;&gt;12&lt;/a&gt;&lt;/span&gt;    send_data &lt;span style=&quot;color:#33B&quot;&gt;@track&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n13&quot; name=&quot;n13&quot;&gt;13&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;EM&lt;/span&gt;.stop &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; data =~ &lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#404&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color:#808&quot;&gt;stop&lt;/span&gt;&lt;span style=&quot;color:#404&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color:#C2C&quot;&gt;i&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n14&quot; name=&quot;n14&quot;&gt;14&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n15&quot; name=&quot;n15&quot;&gt;15&lt;/a&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n16&quot; name=&quot;n16&quot;&gt;16&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;connection_completed&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n17&quot; name=&quot;n17&quot;&gt;17&lt;/a&gt;&lt;/span&gt;    puts &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;myserv: completed&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n18&quot; name=&quot;n18&quot;&gt;18&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n19&quot; name=&quot;n19&quot;&gt;19&lt;/a&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n20&quot; name=&quot;n20&quot;&gt;20&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;unbind&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n21&quot; name=&quot;n21&quot;&gt;21&lt;/a&gt;&lt;/span&gt;    puts &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;myserv: unbind&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n22&quot; name=&quot;n22&quot;&gt;22&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n23&quot; name=&quot;n23&quot;&gt;23&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n24&quot; name=&quot;n24&quot;&gt;24&lt;/a&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n25&quot; name=&quot;n25&quot;&gt;25&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;EM&lt;/span&gt;.run &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;do&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n26&quot; name=&quot;n26&quot;&gt;26&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;EM&lt;/span&gt;.start_server(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;127.0.0.1&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;color:#00D&quot;&gt;10000&lt;/span&gt;, &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Serv&lt;/span&gt;) &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;do&lt;/span&gt; |conn|
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n27&quot; name=&quot;n27&quot;&gt;27&lt;/a&gt;&lt;/span&gt;    conn.track = &lt;span style=&quot;color:#069&quot;&gt;ARGV&lt;/span&gt;[&lt;span style=&quot;color:#00D&quot;&gt;0&lt;/span&gt;]
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n28&quot; name=&quot;n28&quot;&gt;28&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n29&quot; name=&quot;n29&quot;&gt;29&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;以下のようにコマンドラインパラメータを付加して起動し、  &lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;#server側サンプル  
-require &#39;eventmachine&#39;
-
-class Serv &amp;lt; EM::Connection
-  attr_accessor :track
-  def post_init
-    puts &quot;myserv: init&quot;
-  end
-
-  def receive_data(data)
-    puts data
-    send_data @track
-    EM.stop if data =~ /stop/i
-  end
-
-  def connection_completed
-    puts &quot;myserv: completed&quot;
-  end
-
-  def unbind
-    puts &quot;myserv: unbind&quot;
-  end
-end
-
-EM.run do
-  EM.start_server(&quot;127.0.0.1&quot;, 10000, Serv) do |conn|
-    conn.track = ARGV[0]
-  end
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;以下のようにコマンドラインパラメータを付加して起動し、&lt;br/&gt;
-&lt;code&gt;ruby myserv.rb O.K.&lt;/code&gt;&lt;br/&gt;
+&lt;p&gt;&lt;code&gt;ruby myserv.rb O.K.&lt;/code&gt;&lt;br /&gt;
 クライアント接続時にServクラスのプロパティに保持されていることを確認する。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;ruby:client.rb&quot;&gt;#client側サンプル
-require &quot;net/telnet&quot;
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#client側サンプル&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;require &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;net/telnet&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;begin&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;  localhost = &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Net&lt;/span&gt;::&lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Telnet&lt;/span&gt;::new(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;Host&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; =&amp;gt; &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;localhost&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;,
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;                             &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;Port&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; =&amp;gt; &lt;span style=&quot;color:#00D&quot;&gt;10000&lt;/span&gt;,
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;                             &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;Timeout&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; =&amp;gt; &lt;span style=&quot;color:#00D&quot;&gt;1&lt;/span&gt;,
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;                             &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;Telnetmode&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; =&amp;gt; &lt;span style=&quot;color:#069&quot;&gt;false&lt;/span&gt;,
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;                             &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;Output_log&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; =&amp;gt; &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;./temp0.log&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;,
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n10&quot; name=&quot;n10&quot;&gt;10&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;                             &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;Prompt&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; =&amp;gt; &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;O.K.&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;)
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n11&quot; name=&quot;n11&quot;&gt;11&lt;/a&gt;&lt;/span&gt;  localhost.cmd(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;search word&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;) { |c| print c }
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n12&quot; name=&quot;n12&quot;&gt;12&lt;/a&gt;&lt;/span&gt;  localhost.close
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n13&quot; name=&quot;n13&quot;&gt;13&lt;/a&gt;&lt;/span&gt;  localhost = &lt;span style=&quot;color:#069&quot;&gt;nil&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n14&quot; name=&quot;n14&quot;&gt;14&lt;/a&gt;&lt;/span&gt;  p &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;end&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n15&quot; name=&quot;n15&quot;&gt;15&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;rescue&lt;/span&gt; &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Net&lt;/span&gt;::&lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;ReadTimeout&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n16&quot; name=&quot;n16&quot;&gt;16&lt;/a&gt;&lt;/span&gt;  p &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;readtimeout&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n17&quot; name=&quot;n17&quot;&gt;17&lt;/a&gt;&lt;/span&gt;  p &lt;span style=&quot;color:#d70&quot;&gt;$!&lt;/span&gt;.to_s
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n18&quot; name=&quot;n18&quot;&gt;18&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;rescue&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n19&quot; name=&quot;n19&quot;&gt;19&lt;/a&gt;&lt;/span&gt;  p &lt;span style=&quot;color:#d70&quot;&gt;$!&lt;/span&gt;.to_s
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n20&quot; name=&quot;n20&quot;&gt;20&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n21&quot; name=&quot;n21&quot;&gt;21&lt;/a&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
-begin
-  localhost = Net::Telnet::new(&quot;Host&quot; =&amp;gt; &quot;localhost&quot;,
-                             &quot;Port&quot; =&amp;gt; 10000,
-                             &quot;Timeout&quot; =&amp;gt; 1,
-                             &quot;Telnetmode&quot; =&amp;gt; false,
-                             &quot;Output_log&quot; =&amp;gt; &quot;./temp0.log&quot;,
-                             &quot;Prompt&quot; =&amp;gt; &quot;O.K.&quot;)
-  localhost.cmd(&quot;search word&quot;) { |c| print c }
-  localhost.close
-  localhost = nil
-  p &quot;end&quot;
-rescue Net::ReadTimeout
-  p &quot;readtimeout&quot;
-  p $!.to_s
-rescue
-  p $!.to_s
-end
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;このserver側の処理を、twitterAPIを使ってDBに検索結果を保存するスクリプトに組み込んで、client側の処理をRails製のサイトに組み込めばいいわけです。&lt;br /&gt;
+　あと、server側のスクリプトは、ユーザ毎に起動してユーザがWebサイトから制御しなければならないので、foremanは必要無さそうです。  &lt;/p&gt;
 
-&lt;p&gt;このserver側の処理を、twitterAPIを使ってDBに検索結果を保存するスクリプトに組み込んで、client側の処理をRails製のサイトに組み込めばいいわけです。&lt;br/&gt;
-　あと、server側のスクリプトは、ユーザ毎に起動してユーザがWebサイトから制御しなければならないので、foremanは必要無さそうです。&lt;/p&gt;
-
-&lt;h3&gt;サーバースクリプトへのパラメータの受け渡し&lt;/h3&gt;
-
-&lt;p&gt;　EventMachine::Connectionを継承したクラスServにユーザ情報を保存するメンバ変数（プロパティ）を用意して、Webサイト（client側）からサーバースクリプトを起動する時にコマンドライン引数でそれらの値を渡してあげます。起動の際に「10000+ユーザID」をポート番号に指定することでWebサイト利用者とサーバースクリプト利用者を一致させています。EventMachineを使ったプログラム同士が変数を共有する仕組みのようなものがあるかもしれませんが、ステートレスなHTTPで動いているWebサイトから起動するのだから、コマンドラインで渡すのがちょうど良さそうです。&lt;br/&gt;
-　twitterのStreamingAPIを使用する部分は&lt;a href=&quot;/project/2014-05-30/tweetwatch&quot;&gt;以前書いた記事&lt;/a&gt;で紹介したmorizyun氏のコードをServ.trackingメソッドに閉じ込めてほぼそのまま動かしています。twitter側でエラーが発生した場合このままでいいのかよく分かりませんが、エラーになればWebサイト側からサーバースクリプトを再起動してもらえばいいという考え方で作ってます。&lt;br/&gt;
+&lt;h3 id=&quot;section&quot;&gt;サーバースクリプトへのパラメータの受け渡し&lt;/h3&gt;
+&lt;p&gt;　EventMachine::Connectionを継承したクラスServにユーザ情報を保存するメンバ変数（プロパティ）を用意して、Webサイト（client側）からサーバースクリプトを起動する時にコマンドライン引数でそれらの値を渡してあげます。起動の際に「10000+ユーザID」をポート番号に指定することでWebサイト利用者とサーバースクリプト利用者を一致させています。EventMachineを使ったプログラム同士が変数を共有する仕組みのようなものがあるかもしれませんが、ステートレスなHTTPで動いているWebサイトから起動するのだから、コマンドラインで渡すのがちょうど良さそうです。&lt;br /&gt;
+　twitterのStreamingAPIを使用する部分は&lt;a href=&quot;/project/2014-05-30/tweetwatch&quot;&gt;以前書いた記事&lt;/a&gt;で紹介したmorizyun氏のコードをServ.trackingメソッドに閉じ込めてほぼそのまま動かしています。twitter側でエラーが発生した場合このままでいいのかよく分かりませんが、エラーになればWebサイト側からサーバースクリプトを再起動してもらえばいいという考え方で作ってます。&lt;br /&gt;
 　client側からserver側スクリプトに受け渡すパラメータはTwitterAPIを利用するために必要な認証key文字列（４種類）とユーザIDとTwitterのfilterAPIに渡す検索文字列（検索タグ）です。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;ruby:myserv.rb&quot;&gt;#実際のソースの一部
-require &#39;eventmachine&#39;
-require &#39;optparse&#39;
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#実際のソースの一部&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;require &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;eventmachine&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;require &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;optparse&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;class&lt;/span&gt; &lt;span style=&quot;color:#B06;font-weight:bold&quot;&gt;Serv&lt;/span&gt; &amp;lt; &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;EM&lt;/span&gt;::&lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Connection&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;  attr_accessor &lt;span style=&quot;color:#A60&quot;&gt;:uid&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;  attr_accessor &lt;span style=&quot;color:#A60&quot;&gt;:track&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;  attr_accessor &lt;span style=&quot;color:#A60&quot;&gt;:c_key&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;  attr_accessor &lt;span style=&quot;color:#A60&quot;&gt;:c_secret&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n10&quot; name=&quot;n10&quot;&gt;10&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;  attr_accessor &lt;span style=&quot;color:#A60&quot;&gt;:a_key&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n11&quot; name=&quot;n11&quot;&gt;11&lt;/a&gt;&lt;/span&gt;  attr_accessor &lt;span style=&quot;color:#A60&quot;&gt;:a_secret&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n12&quot; name=&quot;n12&quot;&gt;12&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;receive_data&lt;/span&gt;(data)
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n13&quot; name=&quot;n13&quot;&gt;13&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;case&lt;/span&gt; data
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n14&quot; name=&quot;n14&quot;&gt;14&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;when&lt;/span&gt; &lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#404&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color:#808&quot;&gt;stop&lt;/span&gt;&lt;span style=&quot;color:#404&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color:#C2C&quot;&gt;i&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n15&quot; name=&quot;n15&quot;&gt;15&lt;/a&gt;&lt;/span&gt;      send_data &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;O.K.&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n16&quot; name=&quot;n16&quot;&gt;16&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;EM&lt;/span&gt;.stop
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n17&quot; name=&quot;n17&quot;&gt;17&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;when&lt;/span&gt; &lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#404&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color:#808&quot;&gt;check&lt;/span&gt;&lt;span style=&quot;color:#404&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color:#C2C&quot;&gt;i&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n18&quot; name=&quot;n18&quot;&gt;18&lt;/a&gt;&lt;/span&gt;      send_data &lt;span style=&quot;color:#33B&quot;&gt;@track&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n19&quot; name=&quot;n19&quot;&gt;19&lt;/a&gt;&lt;/span&gt;    省略
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n20&quot; name=&quot;n20&quot;&gt;20&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;      :
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n21&quot; name=&quot;n21&quot;&gt;21&lt;/a&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n22&quot; name=&quot;n22&quot;&gt;22&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;tracking&lt;/span&gt;(track, c_key, c_secret, a_key, a_secret, uid)
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n23&quot; name=&quot;n23&quot;&gt;23&lt;/a&gt;&lt;/span&gt;    stream = &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Twitter&lt;/span&gt;::&lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;JSONStream&lt;/span&gt;.connect(
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n24&quot; name=&quot;n24&quot;&gt;24&lt;/a&gt;&lt;/span&gt;  省略
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n25&quot; name=&quot;n25&quot;&gt;25&lt;/a&gt;&lt;/span&gt;    :
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n26&quot; name=&quot;n26&quot;&gt;26&lt;/a&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n27&quot; name=&quot;n27&quot;&gt;27&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;EM&lt;/span&gt;.run &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;do&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n28&quot; name=&quot;n28&quot;&gt;28&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;EM&lt;/span&gt;.start_server(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;127.0.0.1&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;color:#00D&quot;&gt;10000&lt;/span&gt; + params[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;p&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;].to_i, &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Serv&lt;/span&gt;) &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;do&lt;/span&gt; |conn|
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n29&quot; name=&quot;n29&quot;&gt;29&lt;/a&gt;&lt;/span&gt;    conn.track = params[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;t&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;]
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n30&quot; name=&quot;n30&quot;&gt;30&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;    conn.uid = params[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;p&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;].to_i
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n31&quot; name=&quot;n31&quot;&gt;31&lt;/a&gt;&lt;/span&gt;    conn.c_key = params[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;c&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;]
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n32&quot; name=&quot;n32&quot;&gt;32&lt;/a&gt;&lt;/span&gt;    conn.c_secret = params[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;k&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;]
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n33&quot; name=&quot;n33&quot;&gt;33&lt;/a&gt;&lt;/span&gt;    conn.a_key = params[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;s&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;]
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n34&quot; name=&quot;n34&quot;&gt;34&lt;/a&gt;&lt;/span&gt;    conn.a_secret = params[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;a&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;]
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n35&quot; name=&quot;n35&quot;&gt;35&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n36&quot; name=&quot;n36&quot;&gt;36&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
-class Serv &amp;lt; EM::Connection
-  attr_accessor :uid
-  attr_accessor :track
-  attr_accessor :c_key
-  attr_accessor :c_secret
-  attr_accessor :a_key
-  attr_accessor :a_secret
-  def receive_data(data)
-    case data
-    when /stop/i
-      send_data &quot;O.K.&quot;
-      EM.stop
-    when /check/i
-      send_data @track
-    省略
-      :
-
-  def tracking(track, c_key, c_secret, a_key, a_secret, uid)
-    stream = Twitter::JSONStream.connect(
-  省略
-    :
-
-EM.run do
-  EM.start_server(&quot;127.0.0.1&quot;, 10000 + params[&quot;p&quot;].to_i, Serv) do |conn|
-    conn.track = params[&quot;t&quot;]
-    conn.uid = params[&quot;p&quot;].to_i
-    conn.c_key = params[&quot;c&quot;]
-    conn.c_secret = params[&quot;k&quot;]
-    conn.a_key = params[&quot;s&quot;]
-    conn.a_secret = params[&quot;a&quot;]
-  end
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3&gt;参考サイト&lt;/h3&gt;
+&lt;h3 id=&quot;section-1&quot;&gt;参考サイト&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://keijinsonyaban.blogspot.jp/2010/12/eventmachine.html&quot;&gt;【翻訳】EventMachine入門 &lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://gihyo.jp/dev/serial/01/ruby/0032&quot;&gt;Reactorで非同期処理をやってみよう（2）&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://keijinsonyaban.blogspot.jp/2010/12/eventmachine.html&quot;&gt;【翻訳】EventMachine入門 &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://gihyo.jp/dev/serial/01/ruby/0032&quot;&gt;Reactorで非同期処理をやってみよう（2）&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </content>
@@ -439,26 +535,24 @@ end
    <link href="http://happyclam.github.io/miscellaneous/2014-05-31/drosera"/>
    <updated>2014-05-31T00:00:00+09:00</updated>
    <id>http://happyclam.github.io/miscellaneous/2014-05-31/drosera</id>
-   <content type="html">&lt;h3&gt;&lt;a href=&quot;http://www.amazon.co.jp/gp/product/B002DOEJ1W/ref=pd_lpo_sbs_dp_ss_3?pf_rd_p=466449256&amp;amp;pf_rd_s=lpo-top-stripe&amp;amp;pf_rd_t=201&amp;amp;pf_rd_i=B0029PVS32&amp;amp;pf_rd_m=AN1VRQENFRJN5&amp;amp;pf_rd_r=1PA8NW26VM11682HVNSS&quot;&gt;「コバエがホイホイ」&lt;/a&gt;の代わりになるかも&lt;/h3&gt;
-
-&lt;p&gt;　&lt;a href=&quot;http://o.x0.com/m/35898&quot;&gt;トコトン掘り下げ隊！生き物にサンキュー！！【★巨大食虫植物ＳＰ】&lt;/a&gt;というテレビ番組で食虫植物が虫を捕えているのを見ながら、そう言えば毎年暑くなってくると&lt;a href=&quot;http://www.amazon.co.jp/gp/product/B002DOEJ1W/ref=pd_lpo_sbs_dp_ss_3?pf_rd_p=466449256&amp;amp;pf_rd_s=lpo-top-stripe&amp;amp;pf_rd_t=201&amp;amp;pf_rd_i=B0029PVS32&amp;amp;pf_rd_m=AN1VRQENFRJN5&amp;amp;pf_rd_r=1PA8NW26VM11682HVNSS&quot;&gt;コバエがホイホイ&lt;/a&gt;を２回ほど購入していることを思いだし、こいつらを飼っていれば金使わなくて済むじゃんと考えモウセンゴケを買うことにしました。&lt;br/&gt;
+   <content type="html">&lt;h3 id=&quot;kobaehoihoi&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/gp/product/B002DOEJ1W/ref=pd_lpo_sbs_dp_ss_3?pf_rd_p=466449256&amp;amp;pf_rd_s=lpo-top-stripe&amp;amp;pf_rd_t=201&amp;amp;pf_rd_i=B0029PVS32&amp;amp;pf_rd_m=AN1VRQENFRJN5&amp;amp;pf_rd_r=1PA8NW26VM11682HVNSS&quot;&gt;「コバエがホイホイ」&lt;/a&gt;の代わりになるかも&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;http://o.x0.com/m/35898&quot;&gt;トコトン掘り下げ隊！生き物にサンキュー！！【★巨大食虫植物ＳＰ】&lt;/a&gt;というテレビ番組で食虫植物が虫を捕えているのを見ながら、そう言えば毎年暑くなってくると&lt;a href=&quot;http://www.amazon.co.jp/gp/product/B002DOEJ1W/ref=pd_lpo_sbs_dp_ss_3?pf_rd_p=466449256&amp;amp;pf_rd_s=lpo-top-stripe&amp;amp;pf_rd_t=201&amp;amp;pf_rd_i=B0029PVS32&amp;amp;pf_rd_m=AN1VRQENFRJN5&amp;amp;pf_rd_r=1PA8NW26VM11682HVNSS&quot;&gt;コバエがホイホイ&lt;/a&gt;を２回ほど購入していることを思いだし、こいつらを飼っていれば金使わなくて済むじゃんと考えモウセンゴケを買うことにしました。&lt;br /&gt;
 　コバエ退治が目的なのでハエトリソウだとスカスカで逃げられると思ったのでモウセンゴケに決めたんだけど、室内で飼うことを考えたら、サイズ的にも見てくれから判断してもモウセンゴケが一番良さそうです。Amazonで調べると実に種類が豊富。一番定番そうなドロセラ・カペンシスを購入したのですが、シャモジ型の葉のドロセラ・アングリカも欲しくなって、オマケにテレビで紹介されていなかったムシトリスミレと立て続けに購入してしまいました。
-全然知らない世界でしたが、値段が結構お手頃なのも趣味にするには良さそうですね、今はセファロタス（和名：フクロユキノシタ）が欲しくなってきてます。すでに食虫植物に嵌ってるかも。&lt;br/&gt;
-　今後ちゃんと飼育できるかどうかまだ分からないし、もし熱が冷めなければ、カテゴリ作って定期的に記事を書いていこうかなと思ってます。&lt;/p&gt;
+全然知らない世界でしたが、値段が結構お手頃なのも趣味にするには良さそうですね、今はセファロタス（和名：フクロユキノシタ）が欲しくなってきてます。すでに食虫植物に嵌ってるかも。&lt;br /&gt;
+　今後ちゃんと飼育できるかどうかまだ分からないし、もし熱が冷めなければ、カテゴリ作って定期的に記事を書いていこうかなと思ってます。  &lt;/p&gt;
 
-&lt;h3&gt;飼育環境&lt;/h3&gt;
-
-&lt;p&gt;　購入時に入っていたプラケースのまま様子を見てもよかったのかもしれませんが、既に購入した植物たちに愛着が湧いているので、プラケースじゃ可哀想、せめて素焼きの鉢に入れてあげようと思い早速植え替えることにしました。植物にとって入れ物がプラスチックから素焼きに変わったことでどれ程うれしいことなのか分かりませんが、少なくとも悪いことでは無いでしょう。鉢のまわりを水で浸す「&lt;ruby&gt;&lt;rb&gt;腰水&lt;/rb&gt;&lt;rp&gt;（&lt;/rp&gt;&lt;rt&gt;こしみず&lt;/rt&gt;&lt;rp&gt;）&lt;/rp&gt;&lt;/ruby&gt;」という方法がいいらしいので写真のようにしました。意外に根が長かったのでこれぐらい細長い鉢のほうがよさそうです。&lt;br/&gt;
-&lt;img src=&quot;/images/drosera_garbini.png&quot; alt=&quot;カペンシス&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;section&quot;&gt;飼育環境&lt;/h3&gt;
+&lt;p&gt;　購入時に入っていたプラケースのまま様子を見てもよかったのかもしれませんが、既に購入した植物たちに愛着が湧いているので、プラケースじゃ可哀想、せめて素焼きの鉢に入れてあげようと思い早速植え替えることにしました。植物にとって入れ物がプラスチックから素焼きに変わったことでどれ程うれしいことなのか分かりませんが、少なくとも悪いことでは無いでしょう。鉢のまわりを水で浸す「&lt;ruby&gt;&lt;rb&gt;腰水&lt;/rb&gt;&lt;rp&gt;（&lt;/rp&gt;&lt;rt&gt;こしみず&lt;/rt&gt;&lt;rp&gt;）&lt;/rp&gt;&lt;/ruby&gt;」という方法がいいらしいので写真のようにしました。意外に根が長かったのでこれぐらい細長い鉢のほうがよさそうです。&lt;br /&gt;
+&lt;img src=&quot;/images/drosera_garbini.png&quot; alt=&quot;カペンシス&quot; /&gt;    &lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.amazon.co.jp/umbra-%E3%82%A2%E3%83%B3%E3%83%96%E3%83%A9-%E3%80%90Umbra%E3%80%91%E3%82%AC%E3%83%AB%E3%83%93%E3%83%8B%E3%82%AB%E3%83%B3-GARBINI-%E3%83%A1%E3%82%BF%E3%83%AA%E3%83%83%E3%82%AF%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88/dp/B003JMQ0GO&quot;&gt;【Umbra】ガルビニカン GARBINI CAN　 メタリックホワイト&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.amazon.co.jp/%E5%9B%BD%E5%86%85%E4%B8%89%E6%B2%B3%E9%89%A2-%E3%83%8F%E3%83%BC%E3%83%A2%E3%83%8B%E3%83%BC-%E7%B4%A0%E7%84%BC-%EF%BC%93%E5%8F%B7-%EF%BC%8F%E6%A4%8D%E6%9C%A8%E9%89%A2/dp/B007QJCLWI/ref=sr_1_1?s=diy&amp;amp;ie=UTF8&amp;amp;qid=1401491200&amp;amp;sr=1-1&amp;amp;keywords=%E3%83%8F%E3%83%BC%E3%83%A2%E3%83%8B%E3%83%BC+%E7%B4%A0%E7%84%BC+%EF%BC%93%E5%8F%B7&quot;&gt;素焼 ３号 ／植木鉢&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.amazon.co.jp/umbra-%E3%82%A2%E3%83%B3%E3%83%96%E3%83%A9-%E3%80%90Umbra%E3%80%91%E3%82%AC%E3%83%AB%E3%83%93%E3%83%8B%E3%82%AB%E3%83%B3-GARBINI-%E3%83%A1%E3%82%BF%E3%83%AA%E3%83%83%E3%82%AF%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88/dp/B003JMQ0GO&quot;&gt;【Umbra】ガルビニカン GARBINI CAN　 メタリックホワイト&lt;/a&gt;  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.amazon.co.jp/%E5%9B%BD%E5%86%85%E4%B8%89%E6%B2%B3%E9%89%A2-%E3%83%8F%E3%83%BC%E3%83%A2%E3%83%8B%E3%83%BC-%E7%B4%A0%E7%84%BC-%EF%BC%93%E5%8F%B7-%EF%BC%8F%E6%A4%8D%E6%9C%A8%E9%89%A2/dp/B007QJCLWI/ref=sr_1_1?s=diy&amp;amp;ie=UTF8&amp;amp;qid=1401491200&amp;amp;sr=1-1&amp;amp;keywords=%E3%83%8F%E3%83%BC%E3%83%A2%E3%83%8B%E3%83%BC+%E7%B4%A0%E7%84%BC+%EF%BC%93%E5%8F%B7&quot;&gt;素焼 ３号 ／植木鉢&lt;/a&gt;  &lt;/li&gt;
 &lt;/ul&gt;
 
-
-&lt;p&gt;　モウセンゴケは酸性土を好むらしいので土は&lt;a href=&quot;http://www.amazon.co.jp/%E8%8A%B1%E3%81%94%E3%81%93%E3%82%8D-%E3%83%96%E3%83%AB%E3%83%BC%E3%83%99%E3%83%AA%E3%83%BC%E3%81%AE%E5%9C%9F-5l/dp/B000IA88KG&quot;&gt;これ&lt;/a&gt;にしました。ホームセンターに置いてある物は一番少ないものでも５リットル入りで、そんなに要らないと思ったのですが、玄関脇に放ったらかしで植えてある&lt;ruby&gt;&lt;rb&gt;山茶花&lt;/rb&gt;&lt;rp&gt;（&lt;/rp&gt;&lt;rt&gt;サザンカ&lt;/rt&gt;&lt;rp&gt;）&lt;/rp&gt;&lt;/ruby&gt;も調べてみると酸性土を好むらしいので、余ったらそちらに使えばいいと思い決めました。&lt;br/&gt;
+&lt;p&gt;　モウセンゴケは酸性土を好むらしいので土は&lt;a href=&quot;http://www.amazon.co.jp/%E8%8A%B1%E3%81%94%E3%81%93%E3%82%8D-%E3%83%96%E3%83%AB%E3%83%BC%E3%83%99%E3%83%AA%E3%83%BC%E3%81%AE%E5%9C%9F-5l/dp/B000IA88KG&quot;&gt;これ&lt;/a&gt;にしました。ホームセンターに置いてある物は一番少ないものでも５リットル入りで、そんなに要らないと思ったのですが、玄関脇に放ったらかしで植えてある&lt;ruby&gt;&lt;rb&gt;山茶花&lt;/rb&gt;&lt;rp&gt;（&lt;/rp&gt;&lt;rt&gt;サザンカ&lt;/rt&gt;&lt;rp&gt;）&lt;/rp&gt;&lt;/ruby&gt;も調べてみると酸性土を好むらしいので、余ったらそちらに使えばいいと思い決めました。&lt;br /&gt;
 　今の心配は設置場所。&lt;ruby&gt;&lt;rb&gt;西陽&lt;/rb&gt;&lt;rp&gt;（&lt;/rp&gt;&lt;rt&gt;にしび&lt;/rt&gt;&lt;rp&gt;）&lt;/rp&gt;&lt;/ruby&gt;しかあたらない場所なので、調子悪いようであれば室内で飼うことは諦めるかもしれません。&lt;/p&gt;
+
 </content>
  </entry>
  
@@ -469,36 +563,31 @@ end
    <id>http://happyclam.github.io/project/2014-05-30/tweetwatch</id>
    <content type="html">&lt;p&gt;Project: 「tweetwatch」: &lt;a href=&quot;https://github.com/happyclam/tweetwatch&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3&gt;開発の動機&lt;/h3&gt;
+&lt;h3 id=&quot;section&quot;&gt;開発の動機&lt;/h3&gt;
+&lt;p&gt;　今年の都知事選の頃、多くのフォロワーを抱えている人（以下a氏と表記）が
+&amp;gt;Twitterで&lt;strong&gt;#都知事選&lt;/strong&gt;というタグをつけて自分が投票した候補者の名前を呟けば、それを集計してくれるアプリ作れないかな～&lt;/p&gt;
 
-&lt;p&gt;　今年の都知事選の頃、多くのフォロワーを抱えている人（以下a氏と表記）が&lt;/p&gt;
-
-&lt;blockquote&gt;&lt;p&gt;Twitterで&lt;strong&gt;#都知事選&lt;/strong&gt;というタグをつけて自分が投票した候補者の名前を呟けば、それを集計してくれるアプリ作れないかな～&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;と物欲しそうに呟いていたのが目に止まりました。&lt;br/&gt;
+&lt;p&gt;と物欲しそうに呟いていたのが目に止まりました。&lt;br /&gt;
 Yahooのアンケートのように、誰がどれぐらい票を獲得しているかtwitterで独自に確認しようという意図のようです。
-　プログラマたるもの、そこで「すぐ出来ますよ」とリプライするような軽率な行動をとってはいけません。職業プログラマなら尚更です。誰かが手を挙げるかもと思いながらしばらく様子を見ていましたが、その呟きに対して反応する人はいなかったようです。こういう場合、相手がどれほどのものを要求しているかわからないので迂闊に出来ますなんて言えませんが、StreamingAPI使えばとりあえず使える程度のものであれば、すぐ出来るんじゃないかと思い調べてみました。&lt;/p&gt;
+　プログラマたるもの、そこで「すぐ出来ますよ」とリプライするような軽率な行動をとってはいけません。職業プログラマなら尚更です。誰かが手を挙げるかもと思いながらしばらく様子を見ていましたが、その呟きに対して反応する人はいなかったようです。こういう場合、相手がどれほどのものを要求しているかわからないので迂闊に出来ますなんて言えませんが、StreamingAPI使えばとりあえず使える程度のものであれば、すぐ出来るんじゃないかと思い調べてみました。  &lt;/p&gt;
 
-&lt;h3&gt;とりあえずローカル環境で動くもの&lt;/h3&gt;
-
-&lt;p&gt;　「StreamingAPI」で検索すると役に立ちそうなサイトはすぐに見つかりました→&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;「Herokuの無料枠でTwitter Stream APIを常時監視 =&gt; DBに保存するRubyコード」&lt;/a&gt;&lt;br/&gt;
+&lt;h3 id=&quot;section-1&quot;&gt;とりあえずローカル環境で動くもの&lt;/h3&gt;
+&lt;p&gt;　「StreamingAPI」で検索すると役に立ちそうなサイトはすぐに見つかりました→&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;「Herokuの無料枠でTwitter Stream APIを常時監視 =&amp;gt; DBに保存するRubyコード」&lt;/a&gt;&lt;br /&gt;
 このmorizyunって人のサイトは調べ物をしている際にはよくお世話になっていますが、今回見つけた記事も自分の要望その物です。私はherokuは使いませんでしたがほぼこの記事のコードそのままがローカル環境で動作しました。ツイートの集計がしたいのであればDBに溜まったデータに対してSQLを打ち込めば好きな結果が得られます。a氏に教えてあげようかとも思いましたが、おそらくプログラミングやSQLも知らないa氏が実際に自分のPCで動かすためにはそうとうな時間をかけてサポートしてあげないと無理だろうと思って止めておきました。自分が良かれと思って教えても、逆に恨まれることになり兼ねません。そうなんです、自分でニタニタ楽しむためのソフトを作れたとしても、それをひと様に使ってもらおうとするとまた一段とハードルが高くなるんですねぇ（今回は自分で楽しむものさえパクリですが）。&lt;/p&gt;
 
-&lt;h3&gt;ひと様が使えるようにするために&lt;/h3&gt;
-
-&lt;p&gt;　最初はDBにデータを格納するだけのシェルスクリプトを起動しながら、ユーザー向けのwebインターフェースを提供してあげればいいだけだからそれほど手間はかからないと思いましたが、そうすると２プロセス動かすことになり、herokuの無料枠では済まなくなります。それに運用環境を何とか用意したとしても、自分のtwitterアカウントの認証キーをそのサービスで利用するとなると、一人しか利用できないwebサービスになってしまいます。twitter社にAPI利用料を支払えば解決ですが、そこまでする気もないので開発に取りかかるのは躊躇してました。&lt;br/&gt;
-で結局、&lt;/p&gt;
+&lt;h3 id=&quot;section-2&quot;&gt;ひと様が使えるようにするために&lt;/h3&gt;
+&lt;p&gt;　最初はDBにデータを格納するだけのシェルスクリプトを起動しながら、ユーザー向けのwebインターフェースを提供してあげればいいだけだからそれほど手間はかからないと思いましたが、そうすると２プロセス動かすことになり、herokuの無料枠では済まなくなります。それに運用環境を何とか用意したとしても、自分のtwitterアカウントの認証キーをそのサービスで利用するとなると、一人しか利用できないwebサービスになってしまいます。twitter社にAPI利用料を支払えば解決ですが、そこまでする気もないので開発に取りかかるのは躊躇してました。&lt;br /&gt;
+で結局、  &lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;運用環境に関してはとりあえず自宅サーバで動くようにしてから考える&lt;/li&gt;
-&lt;li&gt;twitterのAPIキーをユーザ自身が登録して、そのキーを利用しながらDB格納プロセスを起動するようにする&lt;/li&gt;
+  &lt;li&gt;運用環境に関してはとりあえず自宅サーバで動くようにしてから考える  &lt;/li&gt;
+  &lt;li&gt;twitterのAPIキーをユーザ自身が登録して、そのキーを利用しながらDB格納プロセスを起動するようにする  &lt;/li&gt;
 &lt;/ul&gt;
 
-
 &lt;p&gt;という方針で作りました。
-&lt;img src=&quot;/images/tweetwatch_screen.png&quot; alt=&quot;集計画面&quot; /&gt;  &lt;br/&gt;
-DBにデータを格納するシェルスクリプトは、&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;morizyun氏のコード&lt;/a&gt;を叩き台にしてWebサイトから制御するためのプロセス間通信用インターフェースを追加し、そのサーバーとなるシェルスクリプトに接続するクライアントアプリとなるユーザ向けのwebサイトを作る。そのwebサイトは&lt;a href=&quot;http://railstutorial.jp/&quot;&gt;Ruby on Rails チュートリアル&lt;/a&gt;でRSpecの勉強（写経）をしながら作ったものがあったのでそれを流用しています。&lt;br/&gt;
-以降、DBにデータを格納する&lt;em&gt;サーバースクリプト（server側）&lt;/em&gt;とRails製&lt;em&gt;Webサイト（client側）&lt;/em&gt;に分けて紹介します。&lt;/p&gt;
+&lt;img src=&quot;/images/tweetwatch_screen.png&quot; alt=&quot;集計画面&quot; /&gt;  &lt;br /&gt;
+DBにデータを格納するシェルスクリプトは、&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;morizyun氏のコード&lt;/a&gt;を叩き台にしてWebサイトから制御するためのプロセス間通信用インターフェースを追加し、そのサーバーとなるシェルスクリプトに接続するクライアントアプリとなるユーザ向けのwebサイトを作る。そのwebサイトは&lt;a href=&quot;http://railstutorial.jp/&quot;&gt;Ruby on Rails チュートリアル&lt;/a&gt;でRSpecの勉強（写経）をしながら作ったものがあったのでそれを流用しています。&lt;br /&gt;
+以降、DBにデータを格納する&lt;a href=&quot;/project/2014-06-06/tweetwatch_server/&quot;&gt;&lt;em&gt;サーバースクリプト（server側）&lt;/em&gt;&lt;/a&gt;とRails製&lt;a href=&quot;/project/2014-06-07/tweetwatch_client/&quot;&gt;&lt;em&gt;Webサイト（client側）&lt;/em&gt;&lt;/a&gt;に分けて紹介します。&lt;/p&gt;
 
 &lt;hr /&gt;
 </content>
@@ -509,37 +598,32 @@ DBにデータを格納するシェルスクリプトは、&lt;a href=&quot;http
    <link href="http://happyclam.github.io/miscellaneous/2014-05-27/my-posi_vola"/>
    <updated>2014-05-27T00:00:00+09:00</updated>
    <id>http://happyclam.github.io/miscellaneous/2014-05-27/my-posi_vola</id>
-   <content type="html">&lt;h3&gt;インプライド・ボラティリティ（IV）とヒストリカル・ボラティリティ（HV）&lt;/h3&gt;
-
-&lt;p&gt;　ボラティリティには２種類ありますが、ニュースの記者や市況解説者が「ボラティリティ」という言葉を理解していないまま使っていることが多いと感じるので、以前から一言言っておきたいと思っていたことを書いておこうと思います。&lt;br/&gt;
-　市況解説の中でも現物市場ではなく特に先物市場の解説をしている人が、先物価格の値動きが荒かった日などに「今日はボラの大きな一日でした」と解説しているのを聞くと「(・_・)......ン?」となることがあります、そういう日でもインプライドボラティリティ(IV)が低い日も結構あるからです。オプションの買いで勝負する時はボラが高い時が有利、逆に売りはボラが低い時が有利なのですが、IVが低い日に「今日は（オプション買いに）手出ししなくてよかった」と思っているところに、市況解説で「ボラの高い一日でした」なんて言われると「(‾△‾;)エッ・・そうだっけ？」となるわけです。実際にIVが高かったかどうかはスマイルチャートなどで確認できます。&lt;br/&gt;
-　&lt;a href=&quot;http://www.option-dojo.com/kn/225_latest.html&quot;&gt;直近1年のボラティリティー&lt;/a&gt;をみればよく分かりますが、ヒストリカル・ボラティリティ（HV）とインプライド・ボラティリティ（IV）の動きは必ずしも一致していません。原資産である先物の動きがそれ程なくても、オプションの値動きが激しい日もあるということです。それにオプションは先物と違い、満期(SQ)が近づくとボラ(IV)が高くなるという性質（時間価値の減少に伴うもの）もあります。また、日経２２５先物とそれを原資産とする派生商品である日経２２５オプションの関係だけでなく、現物株とそれを原資産とする派生商品（株オプ等）の間でも同じことが言えます。&lt;br/&gt;
+   <content type="html">&lt;h3 id=&quot;ivhv&quot;&gt;インプライド・ボラティリティ（IV）とヒストリカル・ボラティリティ（HV）&lt;/h3&gt;
+&lt;p&gt;　ボラティリティには２種類ありますが、ニュースの記者や市況解説者が「ボラティリティ」という言葉を理解していないまま使っていることが多いと感じるので、以前から一言言っておきたいと思っていたことを書いておこうと思います。&lt;br /&gt;
+　市況解説の中でも現物市場ではなく特に先物市場の解説をしている人が、先物価格の値動きが荒かった日などに「今日はボラの大きな一日でした」と解説しているのを聞くと「(・_・)……ン?」となることがあります、そういう日でもインプライドボラティリティ(IV)が低い日も結構あるからです。オプションの買いで勝負する時はボラが高い時が有利、逆に売りはボラが低い時が有利なのですが、IVが低い日に「今日は（オプション買いに）手出ししなくてよかった」と思っているところに、市況解説で「ボラの高い一日でした」なんて言われると「(‾△‾;)エッ・・そうだっけ？」となるわけです。実際にIVが高かったかどうかはスマイルチャートなどで確認できます。&lt;br /&gt;
+　&lt;a href=&quot;http://www.option-dojo.com/kn/225_latest.html&quot;&gt;直近1年のボラティリティー&lt;/a&gt;をみればよく分かりますが、ヒストリカル・ボラティリティ（HV）とインプライド・ボラティリティ（IV）の動きは必ずしも一致していません。原資産である先物の動きがそれ程なくても、オプションの値動きが激しい日もあるということです。それにオプションは先物と違い、満期(SQ)が近づくとボラ(IV)が高くなるという性質（時間価値の減少に伴うもの）もあります。また、日経２２５先物とそれを原資産とする派生商品である日経２２５オプションの関係だけでなく、現物株とそれを原資産とする派生商品（株オプ等）の間でも同じことが言えます。&lt;br /&gt;
 　まぁIVとHVの違いは理解しているけど、ボラティリティと言う言葉は単に「値動き」とか「値幅」と同義で使っているだけなので、区別する必要はないと言われればそれまでなのですが。&lt;/p&gt;
 
-&lt;h3&gt;誤解を生む説明の仕方&lt;/h3&gt;
+&lt;h3 id=&quot;section&quot;&gt;誤解を生む説明の仕方&lt;/h3&gt;
+&lt;p&gt;　ネットや本ではよく&lt;strong&gt;「ボラティリティが高いとオプションのプレミアムが高くなる、ボラティリティが低いとオプションのプレミアムが低くなる」&lt;/strong&gt;と説明されています。でもこの文を読んでいる人を騙そうとする悪意があるかどうかは別にして、非常に誤解を生みやすい説明だと思います。なぜなら、&lt;strong&gt;ボラティリティが高いと&lt;/strong&gt;という前提条件がIVのことを指しているのかHVのことを指しているのかわかりません。&lt;br /&gt;
+　もしIVのことを指しているとしたら、IVが高いとプレミアムが高くなるのはその通りですが、そのIVというものはオプションの価格から算出されているものだから当たり前のことを言っているに過ぎません。IVが高いとオプションのプレミアムが高くなるわけではなく、IVが高いってことはオプションが割高に買われているってことです。&lt;br /&gt;
+　また、&lt;strong&gt;ボラティリティが高いと&lt;/strong&gt;という前提条件がHVのことを指しているのだとすると、HVが高いとオプションの&lt;strong&gt;理論価格&lt;/strong&gt;が高くなることは間違いないですが、オプションの&lt;strong&gt;実際の価格&lt;/strong&gt;が理論価格通りに高くなるとは限りません。HVが高いとオプションの価格（プレミアム）が高くなるのではなく、HVが高いとオプションの&lt;strong&gt;理論価格&lt;/strong&gt;が高くなると言うべきです。&lt;br /&gt;
+　&lt;strong&gt;ボラティリティが高いと&lt;/strong&gt;という表現がIVのことを指しているとしてもHVのことを指しているとしても、いずれも不正確な文章だと言えます。IVとHVの違いを理解している人でもつい説明する手間を省いて、こういう表現をしがちなんだと思いますが、説明する側がよく理解していないケースも多いと思います。    &lt;/p&gt;
 
-&lt;p&gt;　ネットや本ではよく&lt;strong&gt;「ボラティリティが高いとオプションのプレミアムが高くなる、ボラティリティが低いとオプションのプレミアムが低くなる」&lt;/strong&gt;と説明されています。でもこの文を読んでいる人を騙そうとする悪意があるかどうかは別にして、非常に誤解を生みやすい説明だと思います。なぜなら、&lt;strong&gt;ボラティリティが高いと&lt;/strong&gt;という前提条件がIVのことを指しているのかHVのことを指しているのかわかりません。&lt;br/&gt;
-　もしIVのことを指しているとしたら、IVが高いとプレミアムが高くなるのはその通りですが、そのIVというものはオプションの価格から算出されているものだから当たり前のことを言っているに過ぎません。IVが高いとオプションのプレミアムが高くなるわけではなく、IVが高いってことはオプションが割高に買われているってことです。&lt;br/&gt;
-　また、&lt;strong&gt;ボラティリティが高いと&lt;/strong&gt;という前提条件がHVのことを指しているのだとすると、HVが高いとオプションの&lt;strong&gt;理論価格&lt;/strong&gt;が高くなることは間違いないですが、オプションの&lt;strong&gt;実際の価格&lt;/strong&gt;が理論価格通りに高くなるとは限りません。HVが高いとオプションの価格（プレミアム）が高くなるのではなく、HVが高いとオプションの&lt;strong&gt;理論価格&lt;/strong&gt;が高くなると言うべきです。&lt;br/&gt;
-　&lt;strong&gt;ボラティリティが高いと&lt;/strong&gt;という表現がIVのことを指しているとしてもHVのことを指しているとしても、いずれも不正確な文章だと言えます。IVとHVの違いを理解している人でもつい説明する手間を省いて、こういう表現をしがちなんだと思いますが、説明する側がよく理解していないケースも多いと思います。&lt;/p&gt;
-
-&lt;h3&gt;違いが分かる説明の仕方&lt;/h3&gt;
-
-&lt;p&gt;　&lt;a href=&quot;http://ja.wikipedia.org/wiki/%E3%83%9C%E3%83%A9%E3%83%86%E3%82%A3%E3%83%AA%E3%83%86%E3%82%A3&quot;&gt;wikipediaによるボラティリティの説明&lt;/a&gt;は学問的で、これはこれでいいのかもしれません。それに「インプライド・ボラティリティとは&lt;strong&gt;現実のオプション市場でついたオプション価格から逆算されたボラティリティ&lt;/strong&gt;のことである」とこれ以上望めない簡潔な言葉で言い表されています。&lt;br/&gt;
-しかし、これ&lt;br/&gt;
-&lt;img src=&quot;http://upload.wikimedia.org/math/c/8/9/c89911f0951782890cbb855572aa9de7.png&quot; alt=&quot;wikipediaのHVの数式&quot; /&gt;とか、&lt;br/&gt;
-こういう&lt;br/&gt;
-&lt;img src=&quot;http://upload.wikimedia.org/math/1/9/b/19beb2fcdc78f6d56e3e16ad3f04c624.png&quot; alt=&quot;wikipediaのIVの数式&quot; /&gt;難しい数式が出てくるので、「要するにどちらも値動きの荒さ、変動率のことだろ？」と言う感じで思考を中断してしまいがちだと思うのです。オプションという商品を理解しているつもりだった自分も、&lt;a href=&quot;http://my-posi.herokuapp.com&quot;&gt;先物・オプション売買損益シミュレーションサイト&lt;/a&gt;を自分で作ってみるまではIVとHVの違いを明確に区別出来ていなくて、よく似たような物ぐらいに考えていました。２つの間には相関関係が非常に薄いにも関わらずです。&lt;/p&gt;
-
+&lt;h3 id=&quot;section-1&quot;&gt;違いが分かる説明の仕方&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;http://ja.wikipedia.org/wiki/%E3%83%9C%E3%83%A9%E3%83%86%E3%82%A3%E3%83%AA%E3%83%86%E3%82%A3&quot;&gt;wikipediaによるボラティリティの説明&lt;/a&gt;は学問的で、これはこれでいいのかもしれません。それに「インプライド・ボラティリティとは&lt;strong&gt;現実のオプション市場でついたオプション価格から逆算されたボラティリティ&lt;/strong&gt;のことである」とこれ以上望めない簡潔な言葉で言い表されています。&lt;br /&gt;
+しかし、これ&lt;br /&gt;
+&lt;img src=&quot;http://upload.wikimedia.org/math/c/8/9/c89911f0951782890cbb855572aa9de7.png&quot; alt=&quot;wikipediaのHVの数式&quot; /&gt;とか、&lt;br /&gt;
+こういう&lt;br /&gt;
+&lt;img src=&quot;http://upload.wikimedia.org/math/1/9/b/19beb2fcdc78f6d56e3e16ad3f04c624.png&quot; alt=&quot;wikipediaのIVの数式&quot; /&gt;難しい数式が出てくるので、「要するにどちらも値動きの荒さ、変動率のことだろ？」と言う感じで思考を中断してしまいがちだと思うのです。オプションという商品を理解しているつもりだった自分も、&lt;a href=&quot;http://my-posi.herokuapp.com&quot;&gt;先物・オプション売買損益シミュレーションサイト&lt;/a&gt;を自分で作ってみるまではIVとHVの違いを明確に区別出来ていなくて、よく似たような物ぐらいに考えていました。２つの間には相関関係が非常に薄いにも関わらずです。&lt;br /&gt;
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;
 ヒストリカル・ボラティリティxとオプション理論価格yは以下のように表すことが出来て、  \\
 y = ax\\
 オプションの実際の価格がy_1であった時に、導き出されるものがインプライド・ボラティリティx_1である。  \\
 x_1 = \frac{y_1}{a}\\
 &lt;/script&gt;
+という感じで簡略化した数式を書いてくれれば２つのボラティリティの関係が分かりやすいと思うんですけど、どうでしょうか？&lt;/p&gt;
 
-
-&lt;p&gt;という感じで簡略化した数式を書いてくれれば２つのボラティリティの関係が分かりやすいと思うんですけど、どうでしょうか？&lt;/p&gt;
 </content>
  </entry>
  
@@ -548,57 +632,58 @@ x_1 = \frac{y_1}{a}\\
    <link href="http://happyclam.github.io/programming/2014-05-26/my-posi_tip1"/>
    <updated>2014-05-26T00:00:00+09:00</updated>
    <id>http://happyclam.github.io/programming/2014-05-26/my-posi_tip1</id>
-   <content type="html">&lt;h3&gt;日付型のカラムのデータを年月だけの文字列にしてコンボボックスに表示したい&lt;/h3&gt;
+   <content type="html">&lt;h3 id=&quot;section&quot;&gt;日付型のカラムのデータを年月だけの文字列にしてコンボボックスに表示したい&lt;/h3&gt;
+&lt;p&gt;先物やオプションの建玉を入力する時には限月を選ぶ必要がありますが、必要なのは年と月(“2014/06”等の文字列)だけです。でもDBに”年/月”のフォーマットで文字列として格納するのはあまりにも汚い。DBのカラム属性は日付型にしておいた方が何かと便利、というかしておくべきでしょう（日数や時間の差を計算する時に困ります）。&lt;br /&gt;
+&lt;em&gt;**
+&lt;img src=&quot;/images/dropdown_exp.png&quot; alt=&quot;限月の選択&quot; title=&quot;限月の選択&quot; /&gt;
+**&lt;/em&gt;
+こういう場合、昔PHPで仕事していた時には、文字列型と日付型を相互にフォーマット変換するコードをView上のあちこちに散りばめながら実現していた記憶があります。&lt;/p&gt;
 
-&lt;p&gt;先物やオプションの建玉を入力する時には限月を選ぶ必要がありますが、必要なのは年と月(&quot;2014/06&quot;等の文字列)だけです。でもDBに&quot;年/月&quot;のフォーマットで文字列として格納するのはあまりにも汚い。DBのカラム属性は日付型にしておいた方が何かと便利、というかしておくべきでしょう（日数や時間の差を計算する時に困ります）。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/dropdown_exp.png&quot; title=&quot;限月の選択&quot; alt=&quot;限月の選択&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;こういう場合、昔PHPで仕事していた時には、文字列型と日付型を相互にフォーマット変換するコードをView上のあちこちに散りばめながら実現していた記憶があります。&lt;/p&gt;
-
-&lt;h3&gt;シンプルな実現方法&lt;/h3&gt;
-
+&lt;h3 id=&quot;section-1&quot;&gt;シンプルな実現方法&lt;/h3&gt;
 &lt;p&gt;Position.expirationがDBのカラムに対応するプロパティで日付型です。そこにPosition.ym_expirationというDBにカラムが存在しない入出力用のプロパティを用意し、そのsetterとgetterを定義します。&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Model(Position)&lt;br/&gt;
+  &lt;li&gt;Model(Position)&lt;br /&gt;
 getter(日付型のデータを、年/月のフォーマットの文字列に変換してして返す)&lt;/li&gt;
 &lt;/ul&gt;
 
-
-&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;  def ym_expiration
-    return self.expiration.strftime(&quot;%Y/%m&quot;) if self.expiration
-  end
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;ym_expiration&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color:#069&quot;&gt;self&lt;/span&gt;.expiration.strftime(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;%Y/%m&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;) &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; &lt;span style=&quot;color:#069&quot;&gt;self&lt;/span&gt;.expiration
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;setter(年/月の文字列データを日付01を付加して日付型に変換して格納)&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;  def ym_expiration=(ym_expiration)
-    self.expiration = Date.strptime(ym_expiration + &quot;/01&quot;, &quot;%Y/%m/%d&quot;)
-  end
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;ym_expiration=&lt;/span&gt;(ym_expiration)
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#069&quot;&gt;self&lt;/span&gt;.expiration = &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Date&lt;/span&gt;.strptime(ym_expiration + &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;/01&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;%Y/%m/%d&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;)
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;Viewから呼ばれる、年/月の文字列データを返すメソッド&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;  def get_expiration_list
-    :省略
-    :
-  end
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;get_expiration_list&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#A60&quot;&gt;:省略&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;    :
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
 &lt;ul&gt;
-&lt;li&gt;View(_edit_position.html.erb)&lt;br/&gt;
+  &lt;li&gt;View(_edit_position.html.erb)&lt;br /&gt;
 Viewでは入出力用に追加したym_expirationプロパティだけを使うようにすれば、あたかもDBに対応するカラムのように扱えます。&lt;/li&gt;
 &lt;/ul&gt;
 
-
-&lt;pre&gt;&lt;code class=&quot;ruby:_edit_position.html.erb&quot;&gt;&amp;lt;td align=&quot;center&quot;&amp;gt;&amp;lt;%= f.select(&quot;ym_expiration&quot;, position.get_expiration_list, {:include_blank =&amp;gt; false}, {:class =&amp;gt; &quot;span6&quot;, :style =&amp;gt; &quot;width:90px;&quot;}) %&amp;gt;&amp;lt;/td&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#070;font-weight:bold&quot;&gt;&amp;lt;td&lt;/span&gt; &lt;span style=&quot;color:#b48&quot;&gt;align&lt;/span&gt;=&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;center&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;color:#070;font-weight:bold&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,0%,0%,0.07);color:black&quot;&gt;&lt;span style=&quot;font-weight:bold;color:#666&quot;&gt;&amp;lt;%=&lt;/span&gt; f.select(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;ym_expiration&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;, position.get_expiration_list, {&lt;span style=&quot;color:#A60&quot;&gt;:include_blank&lt;/span&gt; =&amp;gt; &lt;span style=&quot;color:#069&quot;&gt;false&lt;/span&gt;}, {&lt;span style=&quot;color:#A60&quot;&gt;:class&lt;/span&gt; =&amp;gt; &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;span6&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;color:#A60&quot;&gt;:style&lt;/span&gt; =&amp;gt; &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;width:90px;&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;}) &lt;span style=&quot;font-weight:bold;color:#666&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;color:#070;font-weight:bold&quot;&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;CakephpやPHP5以上ならたぶん同じことが出来ると思いますが、もうPHPに戻りたくないし調べる気にもなりません&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -612,175 +697,173 @@ Viewでは入出力用に追加したym_expirationプロパティだけを使う
    <id>http://happyclam.github.io/project/2014-05-24/my-posi</id>
    <content type="html">&lt;p&gt;Project: 「&lt;a href=&quot;http://my-posi.herokuapp.com/&quot;&gt;&lt;strong&gt;みんなのポジション&lt;/strong&gt;&lt;/a&gt;」: &lt;a href=&quot;https://github.com/happyclam/my-posi&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3&gt;開発の動機&lt;/h3&gt;
-
-&lt;p&gt;当時、利用している証券会社のシステムが物足りなく信用できないものであったため自作しました。でも自分で作成した後、まもなくネット証券側もシステムをリニューアルして、自分のものより遥に高機能なものに置き換わったのですが、損益グラフを表示した時にグラフのメモリ幅を変更出来ないため見にくいという不満があったりするので、その点でまだは自分のソフトの方が優れているかなと思っています。まぁオプション売買を活発にしている人はそれ程多くないと思いますので、証券会社も力を入れていないのだと思います。５社ほどで取引したことありますが、そもそもオプション売買のシミュレーション機能なんて無い証券会社もありました。&lt;br/&gt;
+&lt;h3 id=&quot;section&quot;&gt;開発の動機&lt;/h3&gt;
+&lt;p&gt;当時、利用している証券会社のシステムが物足りなく信用できないものであったため自作しました。でも自分で作成した後、まもなくネット証券側もシステムをリニューアルして、自分のものより遥に高機能なものに置き換わったのですが、損益グラフを表示した時にグラフのメモリ幅を変更出来ないため見にくいという不満があったりするので、その点でまだは自分のソフトの方が優れているかなと思っています。まぁオプション売買を活発にしている人はそれ程多くないと思いますので、証券会社も力を入れていないのだと思います。５社ほどで取引したことありますが、そもそもオプション売買のシミュレーション機能なんて無い証券会社もありました。&lt;br /&gt;
 最近は自分もあまりオプション取引をしていないのでよく知りませんが、今ではWebベースでもWindowsネイティブソフト並にユーザインターフェースに凝ったソフトを提供している証券会社があるかもしれません。&lt;/p&gt;
 
-&lt;h3&gt;機能&lt;/h3&gt;
-
+&lt;h3 id=&quot;section-1&quot;&gt;機能&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;日経225先物、日経225先物ミニ、日経225オプション(CALL,PUT)の建玉を一つのポジション、複数のポジションをまとめたものをストラテジーとして、ユーザ毎の複数のストラテジーの保存。&lt;/li&gt;
-&lt;li&gt;複数の建玉の売買シミュレーションと損益推移（個別・合算）グラフを表示&lt;br/&gt;
+  &lt;li&gt;日経225先物、日経225先物ミニ、日経225オプション(CALL,PUT)の建玉を一つのポジション、複数のポジションをまとめたものをストラテジーとして、ユーザ毎の複数のストラテジーの保存。&lt;/li&gt;
+  &lt;li&gt;複数の建玉の売買シミュレーションと損益推移（個別・合算）グラフを表示&lt;br /&gt;
 ※ブラックショールズモデルを利用したオプション理論価格計算に対応しているので、満期（SQ）時の損益だけでなく、現時点での原資産価格（日経225先物価格）毎の損益推移を表示出来ます&lt;/li&gt;
-&lt;li&gt;twitterを利用したユーザー認証とポジションをtwitterで呟く&lt;/li&gt;
+  &lt;li&gt;twitterを利用したユーザー認証とポジションをtwitterで呟く&lt;/li&gt;
 &lt;/ul&gt;
 
-
-&lt;h3&gt;ER図&lt;/h3&gt;
-
+&lt;h3 id=&quot;er&quot;&gt;ER図&lt;/h3&gt;
 &lt;object data=&quot;/pdf/ERD.pdf&quot; width=&quot;760&quot; height=&quot;480&quot;&gt;
 &lt;p&gt;ご覧の環境では、object要素がサポートされていないようです。&lt;a href=&quot;/pdf/ERD.pdf&quot;&gt;PDFファイルをダウンロードしてください&lt;/a&gt;&lt;/p&gt;
 &lt;/object&gt;
 
-
-&lt;p&gt;UserモデルとStrategyモデルが1対多、StrategyモデルとPositionモデルが1対多で関連付けられている単純なテーブル構造です。&lt;br/&gt;
-他のテーブルと関連付けられていないCandlestickモデルというのはネット上に転がっている先物価格のロウソク足用のcsvデータを流し込むためのテーブルで、ヒストリカル・ボラティリティ（HV）を計算するためだけに使用しています。HVの計算方法には色々あるようですが、自分が使用したのは&lt;a href=&quot;http://www.option-dojo.com/kn/225_vola.html&quot;&gt;ここ&lt;/a&gt;に記載されている方法に倣っています。&lt;br/&gt;
-気が向いたときにcsvデータを手動で更新するという運用の仕方をしてました。画面から手入力するとその値を優先して使用するようにしているので、実際にはHVを手入力して使うことが多かったです。開発当時は無かったのですが、今なら日経平均ボラティリティインデックスがリアルタイムで更新されているのでその値を手入力する方がいいかもしれません。20%（日経平均VIが20ポイント）であれば0.2を入力します。このHVの値を使ってオプション理論価格を算出します。&lt;br/&gt;
+&lt;p&gt;UserモデルとStrategyモデルが1対多、StrategyモデルとPositionモデルが1対多で関連付けられている単純なテーブル構造です。&lt;br /&gt;
+他のテーブルと関連付けられていないCandlestickモデルというのはネット上に転がっている先物価格のロウソク足用のcsvデータを流し込むためのテーブルで、ヒストリカル・ボラティリティ（HV）を計算するためだけに使用しています。HVの計算方法には色々あるようですが、自分が使用したのは&lt;a href=&quot;http://www.option-dojo.com/kn/225_vola.html&quot;&gt;ここ&lt;/a&gt;に記載されている方法に倣っています。&lt;br /&gt;
+気が向いたときにcsvデータを手動で更新するという運用の仕方をしてました。画面から手入力するとその値を優先して使用するようにしているので、実際にはHVを手入力して使うことが多かったです。開発当時は無かったのですが、今なら日経平均ボラティリティインデックスがリアルタイムで更新されているのでその値を手入力する方がいいかもしれません。20%（日経平均VIが20ポイント）であれば0.2を入力します。このHVの値を使ってオプション理論価格を算出します。&lt;br /&gt;
 ※ボラティリティにはHVとは別にインプライド・ボラティリティ（IV）というものがありますが、ボラティリティに関しては別記事を書こうと思います。&lt;/p&gt;
 
-&lt;h3&gt;テーブル構造&lt;/h3&gt;
-
+&lt;h3 id=&quot;section-2&quot;&gt;テーブル構造&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;em&gt;Userテーブル&lt;/em&gt;&lt;/p&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;em&gt;Userテーブル&lt;/em&gt;  &lt;/p&gt;
 
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&quot;text-align:left;&quot;&gt; 名称         &lt;/th&gt;
-&lt;th style=&quot;text-align:left;&quot;&gt; 内容                                           &lt;/th&gt;
-&lt;th style=&quot;text-align:left;&quot;&gt; 例            &lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; name         &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; サイト内で使用する独自のユーザ名                 &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt;               &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; provider     &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; twitter認証APIで返される文字列                  &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; &quot;twitter&quot;     &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; screen_name  &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; twitter認証APIで返される文字列                  &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; &quot;SappierBoy&quot;  &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; uid          &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; twitter認証APIで返される文字列                  &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; &quot;1111111111&quot;  &lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;em&gt;Strategyテーブル&lt;/em&gt;&lt;/p&gt;
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th style=&quot;text-align: left&quot;&gt;名称&lt;/th&gt;
+          &lt;th style=&quot;text-align: left&quot;&gt;内容&lt;/th&gt;
+          &lt;th style=&quot;text-align: left&quot;&gt;例&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;name&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;サイト内で使用する独自のユーザ名&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;provider&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;twitter認証APIで返される文字列&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;“twitter”&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;screen_name&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;twitter認証APIで返される文字列&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;“SappierBoy”&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;uid&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;twitter認証APIで返される文字列&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;“1111111111”&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;em&gt;Strategyテーブル&lt;/em&gt;  &lt;/p&gt;
 
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&quot;text-align:left;&quot;&gt; 名称         &lt;/th&gt;
-&lt;th style=&quot;text-align:left;&quot;&gt; 内容                                                &lt;/th&gt;
-&lt;th style=&quot;text-align:left;&quot;&gt; 例            &lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; draw_type    &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; 損益グラフを個別表示するか合算表示するか              &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; 1,未定義      &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; interest     &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; 金利                                                &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; 0.02          &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; name         &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; ストラテジー名                                       &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; &quot;abc戦略&quot;     &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; range        &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; グラフの幅デフォルト500とした相対数値で拡大・縮小      &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; 500          &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; sigma        &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; オプション理論価格計算に使用するボラティリティ(HV)     &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; 0.2          &lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;em&gt;Positionテーブル&lt;/em&gt;&lt;/p&gt;
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th style=&quot;text-align: left&quot;&gt;名称&lt;/th&gt;
+          &lt;th style=&quot;text-align: left&quot;&gt;内容&lt;/th&gt;
+          &lt;th style=&quot;text-align: left&quot;&gt;例&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;draw_type&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;損益グラフを個別表示するか合算表示するか&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;1,未定義&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;interest&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;金利&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;0.02&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;name&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;ストラテジー名&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;“abc戦略”&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;range&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;グラフの幅デフォルト500とした相対数値で拡大・縮小&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;500&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;sigma&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;オプション理論価格計算に使用するボラティリティ(HV)&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;0.2&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;em&gt;Positionテーブル&lt;/em&gt;  &lt;/p&gt;
 
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&quot;text-align:left;&quot;&gt; 名称         &lt;/th&gt;
-&lt;th style=&quot;text-align:left;&quot;&gt; 内容                                           &lt;/th&gt;
-&lt;th style=&quot;text-align:left;&quot;&gt; 例            &lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; distinct     &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; 商品種別（日経225先物、日経225先物mini、CALLオプション、PUTオプション） &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt;       &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; exercise     &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; 行使価格（オプションの場合のみ、先物の場合はnil） &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; 0.02          &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; expiration   &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; 限月（満期月）                                  &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; &quot;2014/06&quot;     &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; maturity     &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; 残存日数（1日に満たない場合も日数換算）          &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; 0.1～365      &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; number       &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; オプション理論価格計算に使用するボラティリティ    &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; 0.2           &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; sale         &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; 売り、買いの区別                                &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt;               &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; unit         &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt; 商品単価                                        &lt;/td&gt;
-&lt;td style=&quot;text-align:left;&quot;&gt;               &lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;em&gt;Candlestickテーブル&lt;/em&gt;&lt;br/&gt;
-※どこから先物価格のデータを取得するかでテーブル構造は変わるので省略します。必要なのはオプションの原資産となる先物価格の終値20日分です。私が利用していたのは&lt;a href=&quot;http://k-db.com/&quot;&gt;このサイト&lt;/a&gt;です。&lt;br/&gt;
-以下のようにcsvデータをダウンロード&lt;br/&gt;
-&lt;code&gt;
-wget -O ./lib/futures.csv &quot;http://k-db.com/site/jikeiretsuF.aspx?c=101&amp;amp;year=0&amp;amp;download=csv&quot;  
-&lt;/code&gt;&lt;br/&gt;
-csvデータから先物価格データを格納    &lt;br/&gt;
-&lt;code&gt;  
-rails runner Candlestick::biteoff
-&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th style=&quot;text-align: left&quot;&gt;名称&lt;/th&gt;
+          &lt;th style=&quot;text-align: left&quot;&gt;内容&lt;/th&gt;
+          &lt;th style=&quot;text-align: left&quot;&gt;例&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;distinct&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;商品種別（日経225先物、日経225先物mini、CALLオプション、PUTオプション）&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;exercise&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;行使価格（オプションの場合のみ、先物の場合はnil）&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;0.02&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;expiration&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;限月（満期月）&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;“2014/06”&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;maturity&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;残存日数（1日に満たない場合も日数換算）&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;0.1～365&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;number&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;オプション理論価格計算に使用するボラティリティ&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;0.2&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;sale&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;売り、買いの区別&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;unit&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;商品単価&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;em&gt;Candlestickテーブル&lt;/em&gt;&lt;br /&gt;
+※どこから先物価格のデータを取得するかでテーブル構造は変わるので省略します。必要なのはオプションの原資産となる先物価格の終値20日分です。私が利用していたのは&lt;a href=&quot;http://k-db.com/&quot;&gt;このサイト&lt;/a&gt;です。&lt;br /&gt;
+以下のようにcsvデータをダウンロード  &lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;pre&gt;&lt;code&gt;wget -O ./lib/futures.csv &quot;http://k-db.com/site/jikeiretsuF.aspx?c=101&amp;amp;year=0&amp;amp;download=csv&quot;  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;csvデータから先物価格データを格納      &lt;/p&gt;
 
-&lt;h3&gt;参考文献&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;rails runner Candlestick::biteoff
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;参考文献&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.amazon.co.jp/%E4%B8%96%E7%95%8C%E4%B8%80%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E9%87%91%E8%9E%8D%E5%B7%A5%E5%AD%A6%E3%81%AE%E6%9C%AC%E3%81%A7%E3%81%99-%E7%94%B0%E6%B8%95-%E7%9B%B4%E4%B9%9F/dp/4534040512]&quot;&gt;「世界一やさしい金融工学の本です」&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.amazon.co.jp/%E4%B8%96%E7%95%8C%E4%B8%80%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E9%87%91%E8%9E%8D%E5%B7%A5%E5%AD%A6%E3%81%AE%E6%9C%AC%E3%81%A7%E3%81%99-%E7%94%B0%E6%B8%95-%E7%9B%B4%E4%B9%9F/dp/4534040512]&quot;&gt;「世界一やさしい金融工学の本です」&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </content>
@@ -793,71 +876,77 @@ rails runner Candlestick::biteoff
    <id>http://happyclam.github.io/programming/2014-05-17/inflexible-rspec</id>
    <content type="html">&lt;p&gt;先日衝動買いした&lt;a href=&quot;http://www.amazon.co.jp/Instant-RSpec-Test-Driven-Development-How-ebook/dp/B00DMYO1QK&quot;&gt;Instant RSpec Test-Driven Development How-to [Kindle版]&lt;/a&gt;の最初に出てくるサンプルコード&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;#location_spec.rb
-describe Location do
-  describe &quot;#initialize&quot; do
-    it &quot;sets the latitude and longitude&quot; do
-      loc = Location.new(:latitude =&amp;gt; 38.911268,
-                         :longitude =&amp;gt; -77.444243)
-      loc.latitude.should == 38.911268
-      loc.longitude.should == -77.444243
-    end
-  end
-end
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#location_spec.rb&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;describe &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Location&lt;/span&gt; &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;do&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;  describe &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;#initialize&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;do&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;    it &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;sets the latitude and longitude&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;do&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;      loc = &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Location&lt;/span&gt;.new(&lt;span style=&quot;color:#A60&quot;&gt;:latitude&lt;/span&gt; =&amp;gt; &lt;span style=&quot;color:#60E&quot;&gt;38.911268&lt;/span&gt;,
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;                         &lt;span style=&quot;color:#A60&quot;&gt;:longitude&lt;/span&gt; =&amp;gt; &lt;span style=&quot;color:#60E&quot;&gt;-77.444243&lt;/span&gt;)
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;      loc.latitude.should == &lt;span style=&quot;color:#60E&quot;&gt;38.911268&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;      loc.longitude.should == &lt;span style=&quot;color:#60E&quot;&gt;-77.444243&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n10&quot; name=&quot;n10&quot;&gt;10&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n11&quot; name=&quot;n11&quot;&gt;11&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;hr /&gt;
-
 &lt;ol&gt;
-&lt;li&gt;上記テストを通過させるために「自分が書いたコード」が以下のもの&lt;code&gt;rspec failed&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;上記テストを通過させるために「自分が書いたコード」が以下のもの&lt;code&gt;rspec failed&lt;/code&gt;  &lt;/li&gt;
 &lt;/ol&gt;
 
-
-&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;   #my_answer.rb  
-   class  Location  
-       attr_accessor :latitude  
-       attr_accessor :longitude  
-       def initialize(lati=nil, long=nil)  
-           @latitude = lati  
-           @longitude = long  
-       end  
-   end  
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;   &lt;span style=&quot;color:#777&quot;&gt;#my_answer.rb  &lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;   &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;class&lt;/span&gt;  &lt;span style=&quot;color:#B06;font-weight:bold&quot;&gt;Location&lt;/span&gt;  
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;       attr_accessor &lt;span style=&quot;color:#A60&quot;&gt;:latitude&lt;/span&gt;  
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;       attr_accessor &lt;span style=&quot;color:#A60&quot;&gt;:longitude&lt;/span&gt;  
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;       &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;initialize&lt;/span&gt;(lati=&lt;span style=&quot;color:#069&quot;&gt;nil&lt;/span&gt;, long=&lt;span style=&quot;color:#069&quot;&gt;nil&lt;/span&gt;)  
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;           &lt;span style=&quot;color:#33B&quot;&gt;@latitude&lt;/span&gt; = lati  
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;           &lt;span style=&quot;color:#33B&quot;&gt;@longitude&lt;/span&gt; = long  
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;       &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;  
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;   &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;  
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;ol&gt;
-&lt;li&gt;「リファクタリング前のコード」として本で紹介されているコード&lt;code&gt;rspec passed&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;「リファクタリング前のコード」として本で紹介されているコード&lt;code&gt;rspec passed&lt;/code&gt;  &lt;/li&gt;
 &lt;/ol&gt;
 
-
-&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;   #bad_answer.rb
-   class  Location
-       def initialize(args = {});end
-       def latitude
-           38.911268
-       end
-       def longitude
-           -77.444243
-       end
-   end
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;   &lt;span style=&quot;color:#777&quot;&gt;#bad_answer.rb&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;   &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;class&lt;/span&gt;  &lt;span style=&quot;color:#B06;font-weight:bold&quot;&gt;Location&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;       &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;initialize&lt;/span&gt;(args = {});&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;       &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;latitude&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;           &lt;span style=&quot;color:#60E&quot;&gt;38.911268&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;       &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;       &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;longitude&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;           &lt;span style=&quot;color:#60E&quot;&gt;-77.444243&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;       &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n10&quot; name=&quot;n10&quot;&gt;10&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;   &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;ol&gt;
-&lt;li&gt;「リファクタリング後のコード」として本で紹介されているコード&lt;code&gt;rspec passed&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;「リファクタリング後のコード」として本で紹介されているコード&lt;code&gt;rspec passed&lt;/code&gt;  &lt;/li&gt;
 &lt;/ol&gt;
 
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;   &lt;span style=&quot;color:#777&quot;&gt;#model_answer.rb&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;   &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;class&lt;/span&gt; &lt;span style=&quot;color:#B06;font-weight:bold&quot;&gt;Location&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;       attr_accessor &lt;span style=&quot;color:#A60&quot;&gt;:latitude&lt;/span&gt;, &lt;span style=&quot;color:#A60&quot;&gt;:longitude&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;       &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;initialize&lt;/span&gt;(args = {})
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;           &lt;span style=&quot;color:#069&quot;&gt;self&lt;/span&gt;.latitude = args[&lt;span style=&quot;color:#A60&quot;&gt;:latitude&lt;/span&gt;]
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;           &lt;span style=&quot;color:#069&quot;&gt;self&lt;/span&gt;.longitude = args[&lt;span style=&quot;color:#A60&quot;&gt;:longitude&lt;/span&gt;]
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;       &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;   &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
-&lt;pre&gt;&lt;code class=&quot;Ruby&quot;&gt;   #model_answer.rb
-   class Location
-       attr_accessor :latitude, :longitude
-       def initialize(args = {})
-           self.latitude = args[:latitude]
-           self.longitude = args[:longitude]
-       end
-   end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;テストを通過させるためだけに書かれたような「リファクタリング前のコード」がエラーにならないのに、上記「自分のコード」がエラーになるのは納得がいかない。&lt;br/&gt;
+&lt;p&gt;テストを通過させるためだけに書かれたような「リファクタリング前のコード」がエラーにならないのに、上記「自分のコード」がエラーになるのは納得がいかない。&lt;br /&gt;
 自分のコードに何かエラーにしなければならない理由があるのか？自分にはわからないので誰か教えてください。&lt;/p&gt;
+
 </content>
  </entry>
  
