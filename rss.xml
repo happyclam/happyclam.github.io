@@ -5,13 +5,8 @@
         <description>車輪の再開発がしたい - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-<<<<<<< HEAD
         <lastBuildDate>2014-09-04T23:27:19+09:00</lastBuildDate>
         <pubDate>2014-09-04T23:27:19+09:00</pubDate>
-=======
-        <lastBuildDate>2014-08-05T14:45:17+09:00</lastBuildDate>
-        <pubDate>2014-08-05T14:45:17+09:00</pubDate>
->>>>>>> origin/master
         <ttl>1800</ttl>
 
 
@@ -22,7 +17,6 @@
 &lt;h3 id=&quot;section&quot;&gt;開発の動機&lt;/h3&gt;
 &lt;p&gt;　Ruby用のGUI開発ツールShoesを使って一通り機能を備えた将棋ソフトを作ってみたのですが、思っていた以上に弱い。大昔にオセロのソフトを作ったことがあるのですが、min-max法とαβ法を使えば普通の人では勝てないぐらいのものが簡単に作れました。オセロでは四隅を取ると有利になるので、隅のコマは点数を高くして、その隣の位置は点数を低くするという、コマを置く盤面の位置に重み付けすることで局面を評価するよくある評価関数を使えば十分でした。&lt;br /&gt;
 　だから将棋の場合もそれぞれの駒に重み付けをして評価関数を作れば、オセロに比べると読む局面の数が多くなるとはいえ、それなりに強いものが出来ると思っていたのにあまりにも弱かったのです。そこで評価関数は置いといて局面の先読み部分がうまくいってるのか確認するために、まずはより単純なゲームである三目並べで確認しようと思ったのが作成のきっかけです。三目並べ（tictactoe）なら初手からゲーム終了まで読みきれるので先読み関数に問題がないかどうか判断しやすいと思ったからです。  &lt;/p&gt;
-<<<<<<< HEAD
 
 &lt;h3 id=&quot;min-max&quot;&gt;min-max法&lt;/h3&gt;
 
@@ -123,114 +117,6 @@ end
 ###予定していた行動とまったく違うことすることってありますよね
 　細く平たいケーブルのマウスか、それが無ければ無線マウスを買うつもりで家を出たのに、家に持ち帰ったのはBuffalo製の&lt;a href=&quot;http://buffalo.jp/product/input/mouse/bsmbb17/&quot;&gt;BlueToothマウス&lt;/a&gt;でした。細いケーブルのマウスは携帯用の小さいものしか無く、目当てのものが売っていなかったのが最大の原因ですが、無線のマウスは専用のレシーバが必要なのが何となく嫌で躊躇していたところにそれ以外の選択肢が目についてしまったのです。プログラマっていうのはXXX社製専用というのが何となく美しくないと感じてしまうものです、そう、縛られるのが嫌いなのでしょう。BlueToothマウスもBlueTooth機能を備えていないPCで使う場合はドングルというレシーバが必要なわけですが、マウスと同じメーカーでなくても使えます。マウスと同じメーカーの対になったレシーバしか使えないという不自由さが気に入らないのでしょう（家でしか使わないならそれで十分なのに…）。そういえば昔買ってほとんど使わずじまいのドングルが家に何個かあるなぁと思い出してしまったことも購入に踏み切った原因だと思います。  &lt;/p&gt;
 
-=======
-
-&lt;h3 id=&quot;min-max&quot;&gt;min-max法&lt;/h3&gt;
-
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
-  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#777&quot;&gt;#先手×は最大値、後手○は最小値を選択するように再帰しながら局面を先読み&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;lookahead&lt;/span&gt;(board, turn, cnt)
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; turn == &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;CROSS&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;      value = &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;MIN_VALUE&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;else&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;      value = &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;MAX_VALUE&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;    locate = &lt;span style=&quot;color:#069&quot;&gt;nil&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;    board.each_with_index {|b, i|
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n10&quot; name=&quot;n10&quot;&gt;10&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;      &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;next&lt;/span&gt; &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; b
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n11&quot; name=&quot;n11&quot;&gt;11&lt;/a&gt;&lt;/span&gt;      board[i] = turn
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n12&quot; name=&quot;n12&quot;&gt;12&lt;/a&gt;&lt;/span&gt;      temp_v = evaluation(board)
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n13&quot; name=&quot;n13&quot;&gt;13&lt;/a&gt;&lt;/span&gt;      teban = (turn == &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;CROSS&lt;/span&gt;) ? &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;NOUGHT&lt;/span&gt; : &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;CROSS&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n14&quot; name=&quot;n14&quot;&gt;14&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; (temp_v != &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;MAX_VALUE&lt;/span&gt; &amp;amp;&amp;amp; temp_v != &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;MIN_VALUE&lt;/span&gt; &amp;amp;&amp;amp; cnt &amp;lt; &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;SIZE&lt;/span&gt; - &lt;span style=&quot;color:#00D&quot;&gt;1&lt;/span&gt;)
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n15&quot; name=&quot;n15&quot;&gt;15&lt;/a&gt;&lt;/span&gt;        &lt;span style=&quot;color:#777&quot;&gt;#指定した深さまで再帰呼出し&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n16&quot; name=&quot;n16&quot;&gt;16&lt;/a&gt;&lt;/span&gt;        temp_v, temp_locate = lookahead(board, teban, cnt + &lt;span style=&quot;color:#00D&quot;&gt;1&lt;/span&gt;)
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n17&quot; name=&quot;n17&quot;&gt;17&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n18&quot; name=&quot;n18&quot;&gt;18&lt;/a&gt;&lt;/span&gt;      board[i] = &lt;span style=&quot;color:#069&quot;&gt;nil&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n19&quot; name=&quot;n19&quot;&gt;19&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#777&quot;&gt;#先手×の番と後手○の番で、同じ深さでの最小、最大の評価値をvalueに保存&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n20&quot; name=&quot;n20&quot;&gt;20&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;      &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; (temp_v &amp;gt; value &amp;amp;&amp;amp; turn == &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;CROSS&lt;/span&gt;) || (temp_v &amp;lt; value &amp;amp;&amp;amp; turn == &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;NOUGHT&lt;/span&gt;)
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n21&quot; name=&quot;n21&quot;&gt;21&lt;/a&gt;&lt;/span&gt;        value = temp_v 
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n22&quot; name=&quot;n22&quot;&gt;22&lt;/a&gt;&lt;/span&gt;        locate = i
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n23&quot; name=&quot;n23&quot;&gt;23&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n24&quot; name=&quot;n24&quot;&gt;24&lt;/a&gt;&lt;/span&gt;    }
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n25&quot; name=&quot;n25&quot;&gt;25&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#777&quot;&gt;#同じ深さでの最小、最大の評価値を返す&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n26&quot; name=&quot;n26&quot;&gt;26&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;return&lt;/span&gt; value, locate
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n27&quot; name=&quot;n27&quot;&gt;27&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;section-1&quot;&gt;αβ法&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;min-max法に、親局面の評価値を子局面に伝えるための引数（α値＝下限値、β値＝上限値）を追加&lt;/li&gt;
-  &lt;li&gt;引数で渡された親局面の評価値と現局面を比較して、現局面が選択されることがないことがわかったら、先読みを中断してreturnする（αカットとβカット）&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
-  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#777&quot;&gt;#現局面の評価値を子局面に渡しながら再帰関数で局面を先読み&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;lookahead&lt;/span&gt;(board, turn, cnt, threshold)
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; turn == &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;CROSS&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;      value = &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;MIN_VALUE&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;else&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;      value = &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;MAX_VALUE&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;    locate = &lt;span style=&quot;color:#069&quot;&gt;nil&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;    board.each_with_index {|b, i|
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n10&quot; name=&quot;n10&quot;&gt;10&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;      &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;next&lt;/span&gt; &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; b
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n11&quot; name=&quot;n11&quot;&gt;11&lt;/a&gt;&lt;/span&gt;      board[i] = turn
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n12&quot; name=&quot;n12&quot;&gt;12&lt;/a&gt;&lt;/span&gt;      temp_v = evaluation(board)
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n13&quot; name=&quot;n13&quot;&gt;13&lt;/a&gt;&lt;/span&gt;      teban = (turn == &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;CROSS&lt;/span&gt;) ? &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;NOUGHT&lt;/span&gt; : &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;CROSS&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n14&quot; name=&quot;n14&quot;&gt;14&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; (temp_v != &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;MAX_VALUE&lt;/span&gt; &amp;amp;&amp;amp; temp_v != &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;MIN_VALUE&lt;/span&gt; &amp;amp;&amp;amp; cnt &amp;lt; &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;SIZE&lt;/span&gt; - &lt;span style=&quot;color:#00D&quot;&gt;1&lt;/span&gt;)
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n15&quot; name=&quot;n15&quot;&gt;15&lt;/a&gt;&lt;/span&gt;        temp_v, temp_locate = lookahead(board, teban, cnt + &lt;span style=&quot;color:#00D&quot;&gt;1&lt;/span&gt;, temp_v)
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n16&quot; name=&quot;n16&quot;&gt;16&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n17&quot; name=&quot;n17&quot;&gt;17&lt;/a&gt;&lt;/span&gt;      board[i] = &lt;span style=&quot;color:#069&quot;&gt;nil&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n18&quot; name=&quot;n18&quot;&gt;18&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#777&quot;&gt;#先手×の番&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n19&quot; name=&quot;n19&quot;&gt;19&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; (temp_v &amp;gt; value &amp;amp;&amp;amp; turn == &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;CROSS&lt;/span&gt;) 
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n20&quot; name=&quot;n20&quot;&gt;20&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;        value = temp_v 
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n21&quot; name=&quot;n21&quot;&gt;21&lt;/a&gt;&lt;/span&gt;        locate = i
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n22&quot; name=&quot;n22&quot;&gt;22&lt;/a&gt;&lt;/span&gt;        &lt;span style=&quot;color:#777&quot;&gt;#上限値を上回ったら先読み中止（βカット）&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n23&quot; name=&quot;n23&quot;&gt;23&lt;/a&gt;&lt;/span&gt;        &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;return&lt;/span&gt; value, locate &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; threshold &amp;lt; temp_v
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n24&quot; name=&quot;n24&quot;&gt;24&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#777&quot;&gt;#後手○の番&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n25&quot; name=&quot;n25&quot;&gt;25&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;elsif&lt;/span&gt; (temp_v &amp;lt; value &amp;amp;&amp;amp; turn == &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;NOUGHT&lt;/span&gt;)
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n26&quot; name=&quot;n26&quot;&gt;26&lt;/a&gt;&lt;/span&gt;        value = temp_v 
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n27&quot; name=&quot;n27&quot;&gt;27&lt;/a&gt;&lt;/span&gt;        locate = i
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n28&quot; name=&quot;n28&quot;&gt;28&lt;/a&gt;&lt;/span&gt;        &lt;span style=&quot;color:#777&quot;&gt;#下限値を下回ったら先読み中止（αカット）&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n29&quot; name=&quot;n29&quot;&gt;29&lt;/a&gt;&lt;/span&gt;        &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;return&lt;/span&gt; value, locate &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; threshold &amp;gt; temp_v
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n30&quot; name=&quot;n30&quot;&gt;30&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;      &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n31&quot; name=&quot;n31&quot;&gt;31&lt;/a&gt;&lt;/span&gt;    }
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n32&quot; name=&quot;n32&quot;&gt;32&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#777&quot;&gt;#同じ深さでの最小、最大の評価値を返す&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n33&quot; name=&quot;n33&quot;&gt;33&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;return&lt;/span&gt; value, locate
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n34&quot; name=&quot;n34&quot;&gt;34&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n35&quot; name=&quot;n35&quot;&gt;35&lt;/a&gt;&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n36&quot; name=&quot;n36&quot;&gt;36&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n37&quot; name=&quot;n37&quot;&gt;37&lt;/a&gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;※min-max法に僅かなコードを追加しただけで素晴らしい効果が得られました。&lt;a href=&quot;http://www.vaio.sony.co.jp/Products/P1/spec_vom1.html&quot;&gt;vaio type p (VGN-P90S)&lt;/a&gt;という非力なPCで比較したところ、単なるmin-max法で完全読み切りに３０秒ほどかかったのに、αβ法なら５秒で完了しました。評価関数が、勝ち、負け、引き分けの３値しかない単純なものだったせいもありますがすごいです。&lt;/p&gt;
-
-&lt;h3 id=&quot;section-2&quot;&gt;検証と意外だったこと&lt;/h3&gt;
-&lt;p&gt;　先読みがうまく機能しているかは、初手をどこに打ってゲーム開始しても引き分けという結果が返ってくることや、先手・後手でそれぞれ何度か三目並べで遊んでみて確認した程度ですが、それで十分でしょう。&lt;br /&gt;
-　でも作ってみて意外だったのは初手から完全読み切りするわけだから、ソフトに初手を指させたら当然真ん中に×をつける（打つ？指す？）と思っていたのに真ん中には打ってこなかったことです。人間ならすぐに一番勝つ可能性が高い真ん中を取るはずですが、ソフトは双方が最善手を指せば引き分けになることを読み切っているので、結局どこに打っても同じと判断するわけです。評価関数が勝ち、負け、引き分けの三値しか返さない関数なので、初手に真ん中に打てばラインを揃える可能性が一番高いとはいえ、引き分けには違いないので区別しないのだと一応納得しました。&lt;br /&gt;
-　念の為、真ん中は２点、隅は１点、その他は０点という場所による重み付けをしてその点数による評価関数を作って、それを使えば真ん中に打つことは確認しましたが、そんな評価関数では当然弱いソフトになりました。それ以外にも何とか初手に真ん中を選択しながら、強い評価関数はどうすればいいか考えてみましたが、シンプルでいい方法は思いつきませんでした。&lt;br /&gt;
-　結局オセロでも将棋でもそうですが、局面の形成判断をする評価関数と読み切り用の評価関数は分けて作るのがいいのかもしれません。&lt;/p&gt;
-
-</description>
-                <link>http://happyclam.github.io/project/2014-08-05/tictactoe</link>
-                <guid>http://happyclam.github.io/project/2014-08-05/tictactoe</guid>
-                <pubDate>2014-08-05T00:00:00+09:00</pubDate>
-        </item>
-
-        <item>
-                <title>BlueToothマウス</title>
-                <description>&lt;h3 id=&quot;section&quot;&gt;携帯する気は無いが、マウスのケーブルは細い方がいい&lt;/h3&gt;
-&lt;p&gt;　まだ一年程しか使っていなかったマウスが壊れました。ケーブルが平べったいタイプでUSB端子をマウスの中に収納できるタイプのもの。ケーブルが巻き取れるタイプのものは携帯用の小さなマウスばかりですが、USB端子も本体に収納出来るようになっているため比較的マウス本体も大きめの作りでまぁまぁ気に入っていたのに短い命でした。このタイプのマウスでもう一つお気に入りのマウスを持っているのですが、それはビックカメラ製の今はもう製造していないであろう珍しいもの（だと思います）。10年以上前に新横浜のビックカメラで買ったものですが、ELECOM等のOEM製品だと思いますが、どういう経緯で自社ブランドで販売したのか知りませんが、確かにビックカメラ製と銘打っていたと記憶しています。あの時まとめて買いだめしておけばよかったと思います。&lt;br /&gt;
-&lt;img src=&quot;/images/biccamera_mouse.png&quot; alt=&quot;ビックカメラ製マウス&quot; /&gt;
-　大きいマウスの方が使いやすいのですが、ケーブルが太いと、わずかではあるけどケーブルに操作を持っていかれる時があるので好きではありません。だからと言ってケーブルの無い無線方式だと何となく信頼できないというか、安心できないというかイザというとき困るんじゃないかとか、CPU切替器も使っているのでちゃんと動くかどうかわからないという不安が先走って、未だに無線方式のものは使わずにいます。マウスに関してはキーボードほど使い勝手にこだわりは無いのでそろそろ無線を試してもいいかもと思いながらも、あくまで細いケーブルの大きなマウスを求めていろんな店舗を見て回ることにしました。&lt;br /&gt;
-###予定していた行動とまったく違うことすることってありますよね
-　細く平たいケーブルのマウスか、それが無ければ無線マウスを買うつもりで家を出たのに、家に持ち帰ったのはBuffalo製の&lt;a href=&quot;http://buffalo.jp/product/input/mouse/bsmbb17/&quot;&gt;BlueToothマウス&lt;/a&gt;でした。細いケーブルのマウスは携帯用の小さいものしか無く、目当てのものが売っていなかったのが最大の原因ですが、無線のマウスは専用のレシーバが必要なのが何となく嫌で躊躇していたところにそれ以外の選択肢が目についてしまったのです。プログラマっていうのはXXX社製専用というのが何となく美しくないと感じてしまうものです、そう、縛られるのが嫌いなのでしょう。BlueToothマウスもBlueTooth機能を備えていないPCで使う場合はドングルというレシーバが必要なわけですが、マウスと同じメーカーでなくても使えます。マウスと同じメーカーの対になったレシーバしか使えないという不自由さが気に入らないのでしょう（家でしか使わないならそれで十分なのに…）。そういえば昔買ってほとんど使わずじまいのドングルが家に何個かあるなぁと思い出してしまったことも購入に踏み切った原因だと思います。  &lt;/p&gt;
-
->>>>>>> origin/master
 &lt;h3 id=&quot;ubuntu1204&quot;&gt;Ubuntu12.04では使えない？&lt;/h3&gt;
 &lt;p&gt;　家では主にUbuntu12.04を使っているのですが、そのままでは認識すらしてくれませんでした。Windows7のノートPCでは２つのドングル（&lt;a href=&quot;http://www.planex.co.jp/product/bluetooth/bt-microedr2x/&quot;&gt;BT-MicroEDR2X&lt;/a&gt;、&lt;a href=&quot;http://www.planex.co.jp/product/bluetooth/bt-01ude.shtml&quot;&gt;BT-01UDE&lt;/a&gt;）で確認したので故障ではありません。dbusを最新のものに入れ替えたらデバイス検索でBSMBB17を検出してはくれたものの動作しませんでした。そこで以前から更新しようと思っていながら放ったらかしにしていたUbuntu14.04へのアップグレード（do-release-upgradeコマンド一発）をやってみたらすぐに認識することが出来、使えました。メデタシメデタシ。って結局マウスが壊れたおかげで以前から懸案だったUbuntuアップグレード作業をすることが出来たことが収穫って感じです。マウスが壊れたところから神様のお導きだったのかもしれません。&lt;br /&gt;
 &lt;a href=&quot;http://buffalo.jp/product/input/mouse/bsmbb17/&quot;&gt;&lt;img src=&quot;/images/bsmbb17_mouse.png&quot; alt=&quot;BSMBB17&quot; /&gt;&lt;/a&gt;
@@ -510,7 +396,6 @@ state_machine gemを利用してサーバースクリプトの状態を管理し
                 <description>&lt;h3 id=&quot;eventmachine&quot;&gt;EventMachineで簡単インターフェース&lt;/h3&gt;
 &lt;p&gt;　初めて&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;morizyun氏のこの記事&lt;/a&gt;を読んだときはEventMachineとかforemanとかって何をするものか知らなかったのですが、EventMachineというのは「&lt;a href=&quot;https://morizyun.github.io/blog/reactor-pattern-ruby/&quot;&gt;[Ruby] Reactorパターンについて&lt;/a&gt;」にも書いてある通り、ソケットの受信待機をして貰って簡単にReactorパターンを実現することが出来るツールってことのようです。だからわざわざ自分でプロセス間通信の手続きを書く必要がなくアプリケーションレベルのコマンドを用意してあげるだけで済むのではないか？と思いながら作ったら思惑通りにうまく動いたって感じです。実際に組み込む前には、以下のような単純なサンプルで確認しました。  &lt;/p&gt;
 
-<<<<<<< HEAD
 &lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;#server側サンプル  
 require &#39;eventmachine&#39;
 
@@ -541,47 +426,11 @@ EM.run do
   end
 end
 &lt;/code&gt;&lt;/pre&gt;
-=======
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
-  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#server側サンプル  &lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;require &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;eventmachine&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;class&lt;/span&gt; &lt;span style=&quot;color:#B06;font-weight:bold&quot;&gt;Serv&lt;/span&gt; &amp;lt; &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;EM&lt;/span&gt;::&lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Connection&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;  attr_accessor &lt;span style=&quot;color:#A60&quot;&gt;:track&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;post_init&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;    puts &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;myserv: init&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n10&quot; name=&quot;n10&quot;&gt;10&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;receive_data&lt;/span&gt;(data)
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n11&quot; name=&quot;n11&quot;&gt;11&lt;/a&gt;&lt;/span&gt;    puts data
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n12&quot; name=&quot;n12&quot;&gt;12&lt;/a&gt;&lt;/span&gt;    send_data &lt;span style=&quot;color:#33B&quot;&gt;@track&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n13&quot; name=&quot;n13&quot;&gt;13&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;EM&lt;/span&gt;.stop &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; data =~ &lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#404&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color:#808&quot;&gt;stop&lt;/span&gt;&lt;span style=&quot;color:#404&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color:#C2C&quot;&gt;i&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n14&quot; name=&quot;n14&quot;&gt;14&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n15&quot; name=&quot;n15&quot;&gt;15&lt;/a&gt;&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n16&quot; name=&quot;n16&quot;&gt;16&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;connection_completed&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n17&quot; name=&quot;n17&quot;&gt;17&lt;/a&gt;&lt;/span&gt;    puts &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;myserv: completed&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n18&quot; name=&quot;n18&quot;&gt;18&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n19&quot; name=&quot;n19&quot;&gt;19&lt;/a&gt;&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n20&quot; name=&quot;n20&quot;&gt;20&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;unbind&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n21&quot; name=&quot;n21&quot;&gt;21&lt;/a&gt;&lt;/span&gt;    puts &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;myserv: unbind&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n22&quot; name=&quot;n22&quot;&gt;22&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n23&quot; name=&quot;n23&quot;&gt;23&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n24&quot; name=&quot;n24&quot;&gt;24&lt;/a&gt;&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n25&quot; name=&quot;n25&quot;&gt;25&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;EM&lt;/span&gt;.run &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;do&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n26&quot; name=&quot;n26&quot;&gt;26&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;EM&lt;/span&gt;.start_server(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;127.0.0.1&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;color:#00D&quot;&gt;10000&lt;/span&gt;, &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Serv&lt;/span&gt;) &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;do&lt;/span&gt; |conn|
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n27&quot; name=&quot;n27&quot;&gt;27&lt;/a&gt;&lt;/span&gt;    conn.track = &lt;span style=&quot;color:#069&quot;&gt;ARGV&lt;/span&gt;[&lt;span style=&quot;color:#00D&quot;&gt;0&lt;/span&gt;]
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n28&quot; name=&quot;n28&quot;&gt;28&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n29&quot; name=&quot;n29&quot;&gt;29&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
->>>>>>> origin/master
 &lt;p&gt;以下のようにコマンドラインパラメータを付加して起動し、  &lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;ruby myserv.rb O.K.&lt;/code&gt;&lt;br /&gt;
 クライアント接続時にServクラスのプロパティに保持されていることを確認する。&lt;/p&gt;
 
-<<<<<<< HEAD
 &lt;pre&gt;&lt;code class=&quot;language-ruby&quot;&gt;#client側サンプル
 require &quot;net/telnet&quot;
 
@@ -604,33 +453,6 @@ rescue
 end
 
 &lt;/code&gt;&lt;/pre&gt;
-=======
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
-  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#client側サンプル&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;require &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;net/telnet&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;begin&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;  localhost = &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Net&lt;/span&gt;::&lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Telnet&lt;/span&gt;::new(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;Host&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; =&amp;gt; &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;localhost&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;,
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;                             &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;Port&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; =&amp;gt; &lt;span style=&quot;color:#00D&quot;&gt;10000&lt;/span&gt;,
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;                             &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;Timeout&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; =&amp;gt; &lt;span style=&quot;color:#00D&quot;&gt;1&lt;/span&gt;,
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;                             &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;Telnetmode&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; =&amp;gt; &lt;span style=&quot;color:#069&quot;&gt;false&lt;/span&gt;,
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;                             &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;Output_log&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; =&amp;gt; &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;./temp0.log&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;,
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n10&quot; name=&quot;n10&quot;&gt;10&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;                             &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;Prompt&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; =&amp;gt; &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;O.K.&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;)
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n11&quot; name=&quot;n11&quot;&gt;11&lt;/a&gt;&lt;/span&gt;  localhost.cmd(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;search word&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;) { |c| print c }
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n12&quot; name=&quot;n12&quot;&gt;12&lt;/a&gt;&lt;/span&gt;  localhost.close
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n13&quot; name=&quot;n13&quot;&gt;13&lt;/a&gt;&lt;/span&gt;  localhost = &lt;span style=&quot;color:#069&quot;&gt;nil&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n14&quot; name=&quot;n14&quot;&gt;14&lt;/a&gt;&lt;/span&gt;  p &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;end&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n15&quot; name=&quot;n15&quot;&gt;15&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;rescue&lt;/span&gt; &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Net&lt;/span&gt;::&lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;ReadTimeout&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n16&quot; name=&quot;n16&quot;&gt;16&lt;/a&gt;&lt;/span&gt;  p &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;readtimeout&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n17&quot; name=&quot;n17&quot;&gt;17&lt;/a&gt;&lt;/span&gt;  p &lt;span style=&quot;color:#d70&quot;&gt;$!&lt;/span&gt;.to_s
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n18&quot; name=&quot;n18&quot;&gt;18&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;rescue&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n19&quot; name=&quot;n19&quot;&gt;19&lt;/a&gt;&lt;/span&gt;  p &lt;span style=&quot;color:#d70&quot;&gt;$!&lt;/span&gt;.to_s
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n20&quot; name=&quot;n20&quot;&gt;20&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n21&quot; name=&quot;n21&quot;&gt;21&lt;/a&gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
->>>>>>> origin/master
 
 &lt;p&gt;このserver側の処理を、twitterAPIを使ってDBに検索結果を保存するスクリプトに組み込んで、client側の処理をRails製のサイトに組み込めばいいわけです。&lt;br /&gt;
 　あと、server側のスクリプトは、ユーザ毎に起動してユーザがWebサイトから制御しなければならないので、foremanは必要無さそうです。  &lt;/p&gt;
@@ -640,7 +462,6 @@ end
 　twitterのStreamingAPIを使用する部分は&lt;a href=&quot;/project/2014-05-30/tweetwatch&quot;&gt;以前書いた記事&lt;/a&gt;で紹介したmorizyun氏のコードをServ.trackingメソッドに閉じ込めてほぼそのまま動かしています。twitter側でエラーが発生した場合このままでいいのかよく分かりませんが、エラーになればWebサイト側からサーバースクリプトを再起動してもらえばいいという考え方で作ってます。&lt;br /&gt;
 　client側からserver側スクリプトに受け渡すパラメータはTwitterAPIを利用するために必要な認証key文字列（４種類）とユーザIDとTwitterのfilterAPIに渡す検索文字列（検索タグ）です。&lt;/p&gt;
 
-<<<<<<< HEAD
 &lt;pre&gt;&lt;code class=&quot;language-ruby&quot;&gt;#実際のソースの一部
 require &#39;eventmachine&#39;
 require &#39;optparse&#39;
@@ -678,48 +499,6 @@ EM.run do
   end
 end
 &lt;/code&gt;&lt;/pre&gt;
-=======
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
-  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#実際のソースの一部&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;require &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;eventmachine&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;require &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;optparse&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;class&lt;/span&gt; &lt;span style=&quot;color:#B06;font-weight:bold&quot;&gt;Serv&lt;/span&gt; &amp;lt; &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;EM&lt;/span&gt;::&lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Connection&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;  attr_accessor &lt;span style=&quot;color:#A60&quot;&gt;:uid&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;  attr_accessor &lt;span style=&quot;color:#A60&quot;&gt;:track&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;  attr_accessor &lt;span style=&quot;color:#A60&quot;&gt;:c_key&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;  attr_accessor &lt;span style=&quot;color:#A60&quot;&gt;:c_secret&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n10&quot; name=&quot;n10&quot;&gt;10&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;  attr_accessor &lt;span style=&quot;color:#A60&quot;&gt;:a_key&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n11&quot; name=&quot;n11&quot;&gt;11&lt;/a&gt;&lt;/span&gt;  attr_accessor &lt;span style=&quot;color:#A60&quot;&gt;:a_secret&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n12&quot; name=&quot;n12&quot;&gt;12&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;receive_data&lt;/span&gt;(data)
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n13&quot; name=&quot;n13&quot;&gt;13&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;case&lt;/span&gt; data
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n14&quot; name=&quot;n14&quot;&gt;14&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;when&lt;/span&gt; &lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#404&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color:#808&quot;&gt;stop&lt;/span&gt;&lt;span style=&quot;color:#404&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color:#C2C&quot;&gt;i&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n15&quot; name=&quot;n15&quot;&gt;15&lt;/a&gt;&lt;/span&gt;      send_data &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;O.K.&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n16&quot; name=&quot;n16&quot;&gt;16&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;EM&lt;/span&gt;.stop
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n17&quot; name=&quot;n17&quot;&gt;17&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;when&lt;/span&gt; &lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#404&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color:#808&quot;&gt;check&lt;/span&gt;&lt;span style=&quot;color:#404&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color:#C2C&quot;&gt;i&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n18&quot; name=&quot;n18&quot;&gt;18&lt;/a&gt;&lt;/span&gt;      send_data &lt;span style=&quot;color:#33B&quot;&gt;@track&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n19&quot; name=&quot;n19&quot;&gt;19&lt;/a&gt;&lt;/span&gt;    省略
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n20&quot; name=&quot;n20&quot;&gt;20&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;      :
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n21&quot; name=&quot;n21&quot;&gt;21&lt;/a&gt;&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n22&quot; name=&quot;n22&quot;&gt;22&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;tracking&lt;/span&gt;(track, c_key, c_secret, a_key, a_secret, uid)
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n23&quot; name=&quot;n23&quot;&gt;23&lt;/a&gt;&lt;/span&gt;    stream = &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Twitter&lt;/span&gt;::&lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;JSONStream&lt;/span&gt;.connect(
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n24&quot; name=&quot;n24&quot;&gt;24&lt;/a&gt;&lt;/span&gt;  省略
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n25&quot; name=&quot;n25&quot;&gt;25&lt;/a&gt;&lt;/span&gt;    :
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n26&quot; name=&quot;n26&quot;&gt;26&lt;/a&gt;&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n27&quot; name=&quot;n27&quot;&gt;27&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;EM&lt;/span&gt;.run &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;do&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n28&quot; name=&quot;n28&quot;&gt;28&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;EM&lt;/span&gt;.start_server(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;127.0.0.1&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;color:#00D&quot;&gt;10000&lt;/span&gt; + params[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;p&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;].to_i, &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Serv&lt;/span&gt;) &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;do&lt;/span&gt; |conn|
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n29&quot; name=&quot;n29&quot;&gt;29&lt;/a&gt;&lt;/span&gt;    conn.track = params[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;t&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;]
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n30&quot; name=&quot;n30&quot;&gt;30&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;    conn.uid = params[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;p&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;].to_i
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n31&quot; name=&quot;n31&quot;&gt;31&lt;/a&gt;&lt;/span&gt;    conn.c_key = params[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;c&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;]
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n32&quot; name=&quot;n32&quot;&gt;32&lt;/a&gt;&lt;/span&gt;    conn.c_secret = params[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;k&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;]
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n33&quot; name=&quot;n33&quot;&gt;33&lt;/a&gt;&lt;/span&gt;    conn.a_key = params[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;s&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;]
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n34&quot; name=&quot;n34&quot;&gt;34&lt;/a&gt;&lt;/span&gt;    conn.a_secret = params[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;a&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;]
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n35&quot; name=&quot;n35&quot;&gt;35&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n36&quot; name=&quot;n36&quot;&gt;36&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
->>>>>>> origin/master
 
 &lt;h3 id=&quot;section-1&quot;&gt;参考サイト&lt;/h3&gt;
 
@@ -735,35 +514,6 @@ end
         </item>
 
         <item>
-<<<<<<< HEAD
-=======
-                <title>モウセンゴケ買ってみた</title>
-                <description>&lt;h3 id=&quot;kobaehoihoi&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/gp/product/B002DOEJ1W/ref=pd_lpo_sbs_dp_ss_3?pf_rd_p=466449256&amp;amp;pf_rd_s=lpo-top-stripe&amp;amp;pf_rd_t=201&amp;amp;pf_rd_i=B0029PVS32&amp;amp;pf_rd_m=AN1VRQENFRJN5&amp;amp;pf_rd_r=1PA8NW26VM11682HVNSS&quot;&gt;「コバエがホイホイ」&lt;/a&gt;の代わりになるかも&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;http://o.x0.com/m/35898&quot;&gt;トコトン掘り下げ隊！生き物にサンキュー！！【★巨大食虫植物ＳＰ】&lt;/a&gt;というテレビ番組で食虫植物が虫を捕えているのを見ながら、そう言えば毎年暑くなってくると&lt;a href=&quot;http://www.amazon.co.jp/gp/product/B002DOEJ1W/ref=pd_lpo_sbs_dp_ss_3?pf_rd_p=466449256&amp;amp;pf_rd_s=lpo-top-stripe&amp;amp;pf_rd_t=201&amp;amp;pf_rd_i=B0029PVS32&amp;amp;pf_rd_m=AN1VRQENFRJN5&amp;amp;pf_rd_r=1PA8NW26VM11682HVNSS&quot;&gt;コバエがホイホイ&lt;/a&gt;を２回ほど購入していることを思いだし、こいつらを飼っていれば金使わなくて済むじゃんと考えモウセンゴケを買うことにしました。&lt;br /&gt;
-　コバエ退治が目的なのでハエトリソウだとスカスカで逃げられると思ったのでモウセンゴケに決めたんだけど、室内で飼うことを考えたら、サイズ的にも見てくれから判断してもモウセンゴケが一番良さそうです。Amazonで調べると実に種類が豊富。一番定番そうなドロセラ・カペンシスを購入したのですが、シャモジ型の葉のドロセラ・アングリカも欲しくなって、オマケにテレビで紹介されていなかったムシトリスミレと立て続けに購入してしまいました。
-全然知らない世界でしたが、値段が結構お手頃なのも趣味にするには良さそうですね、今はセファロタス（和名：フクロユキノシタ）が欲しくなってきてます。すでに食虫植物に嵌ってるかも。&lt;br /&gt;
-　今後ちゃんと飼育できるかどうかまだ分からないし、もし熱が冷めなければ、カテゴリ作って定期的に記事を書いていこうかなと思ってます。  &lt;/p&gt;
-
-&lt;h3 id=&quot;section&quot;&gt;飼育環境&lt;/h3&gt;
-&lt;p&gt;　購入時に入っていたプラケースのまま様子を見てもよかったのかもしれませんが、既に購入した植物たちに愛着が湧いているので、プラケースじゃ可哀想、せめて素焼きの鉢に入れてあげようと思い早速植え替えることにしました。植物にとって入れ物がプラスチックから素焼きに変わったことでどれ程うれしいことなのか分かりませんが、少なくとも悪いことでは無いでしょう。鉢のまわりを水で浸す「&lt;ruby&gt;&lt;rb&gt;腰水&lt;/rb&gt;&lt;rp&gt;（&lt;/rp&gt;&lt;rt&gt;こしみず&lt;/rt&gt;&lt;rp&gt;）&lt;/rp&gt;&lt;/ruby&gt;」という方法がいいらしいので写真のようにしました。意外に根が長かったのでこれぐらい細長い鉢のほうがよさそうです。&lt;br /&gt;
-&lt;img src=&quot;/images/drosera_garbini.png&quot; alt=&quot;カペンシス&quot; /&gt;    &lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.amazon.co.jp/umbra-%E3%82%A2%E3%83%B3%E3%83%96%E3%83%A9-%E3%80%90Umbra%E3%80%91%E3%82%AC%E3%83%AB%E3%83%93%E3%83%8B%E3%82%AB%E3%83%B3-GARBINI-%E3%83%A1%E3%82%BF%E3%83%AA%E3%83%83%E3%82%AF%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88/dp/B003JMQ0GO&quot;&gt;【Umbra】ガルビニカン GARBINI CAN　 メタリックホワイト&lt;/a&gt;  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.amazon.co.jp/%E5%9B%BD%E5%86%85%E4%B8%89%E6%B2%B3%E9%89%A2-%E3%83%8F%E3%83%BC%E3%83%A2%E3%83%8B%E3%83%BC-%E7%B4%A0%E7%84%BC-%EF%BC%93%E5%8F%B7-%EF%BC%8F%E6%A4%8D%E6%9C%A8%E9%89%A2/dp/B007QJCLWI/ref=sr_1_1?s=diy&amp;amp;ie=UTF8&amp;amp;qid=1401491200&amp;amp;sr=1-1&amp;amp;keywords=%E3%83%8F%E3%83%BC%E3%83%A2%E3%83%8B%E3%83%BC+%E7%B4%A0%E7%84%BC+%EF%BC%93%E5%8F%B7&quot;&gt;素焼 ３号 ／植木鉢&lt;/a&gt;  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;　モウセンゴケは酸性土を好むらしいので土は&lt;a href=&quot;http://www.amazon.co.jp/%E8%8A%B1%E3%81%94%E3%81%93%E3%82%8D-%E3%83%96%E3%83%AB%E3%83%BC%E3%83%99%E3%83%AA%E3%83%BC%E3%81%AE%E5%9C%9F-5l/dp/B000IA88KG&quot;&gt;これ&lt;/a&gt;にしました。ホームセンターに置いてある物は一番少ないものでも５リットル入りで、そんなに要らないと思ったのですが、玄関脇に放ったらかしで植えてある&lt;ruby&gt;&lt;rb&gt;山茶花&lt;/rb&gt;&lt;rp&gt;（&lt;/rp&gt;&lt;rt&gt;サザンカ&lt;/rt&gt;&lt;rp&gt;）&lt;/rp&gt;&lt;/ruby&gt;も調べてみると酸性土を好むらしいので、余ったらそちらに使えばいいと思い決めました。&lt;br /&gt;
-　今の心配は設置場所。&lt;ruby&gt;&lt;rb&gt;西陽&lt;/rb&gt;&lt;rp&gt;（&lt;/rp&gt;&lt;rt&gt;にしび&lt;/rt&gt;&lt;rp&gt;）&lt;/rp&gt;&lt;/ruby&gt;しかあたらない場所なので、調子悪いようであれば室内で飼うことは諦めるかもしれません。&lt;/p&gt;
-
-</description>
-                <link>http://happyclam.github.io/miscellaneous/2014-05-31/drosera</link>
-                <guid>http://happyclam.github.io/miscellaneous/2014-05-31/drosera</guid>
-                <pubDate>2014-05-31T00:00:00+09:00</pubDate>
-        </item>
-
-        <item>
->>>>>>> origin/master
                 <title>ツイートを監視して集計する</title>
                 <description>&lt;p&gt;Project: 「tweetwatch」: &lt;a href=&quot;https://github.com/happyclam/tweetwatch&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
 
@@ -851,7 +601,6 @@ x_1 = \frac{y_1}{a}\\
 getter(日付型のデータを、年/月のフォーマットの文字列に変換してして返す)&lt;/li&gt;
 &lt;/ul&gt;
 
-<<<<<<< HEAD
 &lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;  def ym_expiration
     return self.expiration.strftime(&quot;%Y/%m&quot;) if self.expiration
   end
@@ -869,50 +618,14 @@ getter(日付型のデータを、年/月のフォーマットの文字列に変
     :
   end
 &lt;/code&gt;&lt;/pre&gt;
-=======
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
-  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;ym_expiration&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color:#069&quot;&gt;self&lt;/span&gt;.expiration.strftime(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;%Y/%m&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;) &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; &lt;span style=&quot;color:#069&quot;&gt;self&lt;/span&gt;.expiration
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;setter(年/月の文字列データを日付01を付加して日付型に変換して格納)&lt;/p&gt;
-
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
-  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;ym_expiration=&lt;/span&gt;(ym_expiration)
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#069&quot;&gt;self&lt;/span&gt;.expiration = &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Date&lt;/span&gt;.strptime(ym_expiration + &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;/01&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;%Y/%m/%d&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;)
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Viewから呼ばれる、年/月の文字列データを返すメソッド&lt;/p&gt;
-
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
-  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;get_expiration_list&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#A60&quot;&gt;:省略&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;    :
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
->>>>>>> origin/master
 
 &lt;ul&gt;
   &lt;li&gt;View(_edit_position.html.erb)&lt;br /&gt;
 Viewでは入出力用に追加したym_expirationプロパティだけを使うようにすれば、あたかもDBに対応するカラムのように扱えます。&lt;/li&gt;
 &lt;/ul&gt;
 
-<<<<<<< HEAD
 &lt;pre&gt;&lt;code class=&quot;language-ERB&quot;&gt;&amp;lt;td align=&quot;center&quot;&amp;gt;&amp;lt;%= f.select(&quot;ym_expiration&quot;, position.get_expiration_list, {:include_blank =&amp;gt; false}, {:class =&amp;gt; &quot;span6&quot;, :style =&amp;gt; &quot;width:90px;&quot;}) %&amp;gt;&amp;lt;/td&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-=======
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
-  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#070;font-weight:bold&quot;&gt;&amp;lt;td&lt;/span&gt; &lt;span style=&quot;color:#b48&quot;&gt;align&lt;/span&gt;=&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;center&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;color:#070;font-weight:bold&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,0%,0%,0.07);color:black&quot;&gt;&lt;span style=&quot;font-weight:bold;color:#666&quot;&gt;&amp;lt;%=&lt;/span&gt; f.select(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;ym_expiration&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;, position.get_expiration_list, {&lt;span style=&quot;color:#A60&quot;&gt;:include_blank&lt;/span&gt; =&amp;gt; &lt;span style=&quot;color:#069&quot;&gt;false&lt;/span&gt;}, {&lt;span style=&quot;color:#A60&quot;&gt;:class&lt;/span&gt; =&amp;gt; &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;span6&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;color:#A60&quot;&gt;:style&lt;/span&gt; =&amp;gt; &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;width:90px;&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;}) &lt;span style=&quot;font-weight:bold;color:#666&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;color:#070;font-weight:bold&quot;&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
->>>>>>> origin/master
 &lt;p&gt;CakephpやPHP5以上ならたぶん同じことが出来ると思いますが、もうPHPに戻りたくないし調べる気にもなりません&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -1105,7 +818,6 @@ Viewでは入出力用に追加したym_expirationプロパティだけを使う
                 <title>rspecに納得できない</title>
                 <description>&lt;p&gt;先日衝動買いした&lt;a href=&quot;http://www.amazon.co.jp/Instant-RSpec-Test-Driven-Development-How-ebook/dp/B00DMYO1QK&quot;&gt;Instant RSpec Test-Driven Development How-to [Kindle版]&lt;/a&gt;の最初に出てくるサンプルコード&lt;/p&gt;
 
-<<<<<<< HEAD
 &lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;#location_spec.rb
 describe Location do
   describe &quot;#initialize&quot; do
@@ -1118,29 +830,11 @@ describe Location do
   end
 end
 &lt;/code&gt;&lt;/pre&gt;
-=======
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
-  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#location_spec.rb&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;describe &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Location&lt;/span&gt; &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;do&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;  describe &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;#initialize&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;do&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;    it &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;sets the latitude and longitude&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;do&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;      loc = &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Location&lt;/span&gt;.new(&lt;span style=&quot;color:#A60&quot;&gt;:latitude&lt;/span&gt; =&amp;gt; &lt;span style=&quot;color:#60E&quot;&gt;38.911268&lt;/span&gt;,
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;                         &lt;span style=&quot;color:#A60&quot;&gt;:longitude&lt;/span&gt; =&amp;gt; &lt;span style=&quot;color:#60E&quot;&gt;-77.444243&lt;/span&gt;)
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;      loc.latitude.should == &lt;span style=&quot;color:#60E&quot;&gt;38.911268&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;      loc.longitude.should == &lt;span style=&quot;color:#60E&quot;&gt;-77.444243&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n10&quot; name=&quot;n10&quot;&gt;10&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n11&quot; name=&quot;n11&quot;&gt;11&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
->>>>>>> origin/master
 &lt;hr /&gt;
 &lt;ol&gt;
   &lt;li&gt;上記テストを通過させるために「自分が書いたコード」が以下のもの&lt;code&gt;rspec failed&lt;/code&gt;  &lt;/li&gt;
 &lt;/ol&gt;
 
-<<<<<<< HEAD
 &lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;   #my_answer.rb  
    class  Location  
        attr_accessor :latitude  
@@ -1151,26 +845,10 @@ end
        end  
    end  
 &lt;/code&gt;&lt;/pre&gt;
-=======
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
-  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;   &lt;span style=&quot;color:#777&quot;&gt;#my_answer.rb  &lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;   &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;class&lt;/span&gt;  &lt;span style=&quot;color:#B06;font-weight:bold&quot;&gt;Location&lt;/span&gt;  
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;       attr_accessor &lt;span style=&quot;color:#A60&quot;&gt;:latitude&lt;/span&gt;  
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;       attr_accessor &lt;span style=&quot;color:#A60&quot;&gt;:longitude&lt;/span&gt;  
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;       &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;initialize&lt;/span&gt;(lati=&lt;span style=&quot;color:#069&quot;&gt;nil&lt;/span&gt;, long=&lt;span style=&quot;color:#069&quot;&gt;nil&lt;/span&gt;)  
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;           &lt;span style=&quot;color:#33B&quot;&gt;@latitude&lt;/span&gt; = lati  
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;           &lt;span style=&quot;color:#33B&quot;&gt;@longitude&lt;/span&gt; = long  
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;       &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;  
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;   &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;  
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
->>>>>>> origin/master
 &lt;ol&gt;
   &lt;li&gt;「リファクタリング前のコード」として本で紹介されているコード&lt;code&gt;rspec passed&lt;/code&gt;  &lt;/li&gt;
 &lt;/ol&gt;
 
-<<<<<<< HEAD
 &lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;   #bad_answer.rb
    class  Location
        def initialize(args = {});end
@@ -1182,27 +860,10 @@ end
        end
    end
 &lt;/code&gt;&lt;/pre&gt;
-=======
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
-  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;   &lt;span style=&quot;color:#777&quot;&gt;#bad_answer.rb&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;   &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;class&lt;/span&gt;  &lt;span style=&quot;color:#B06;font-weight:bold&quot;&gt;Location&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;       &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;initialize&lt;/span&gt;(args = {});&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;       &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;latitude&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;           &lt;span style=&quot;color:#60E&quot;&gt;38.911268&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;       &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;       &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;longitude&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;           &lt;span style=&quot;color:#60E&quot;&gt;-77.444243&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;       &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n10&quot; name=&quot;n10&quot;&gt;10&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;   &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
->>>>>>> origin/master
 &lt;ol&gt;
   &lt;li&gt;「リファクタリング後のコード」として本で紹介されているコード&lt;code&gt;rspec passed&lt;/code&gt;  &lt;/li&gt;
 &lt;/ol&gt;
 
-<<<<<<< HEAD
 &lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;   #model_answer.rb
    class Location
        attr_accessor :latitude, :longitude
@@ -1212,20 +873,6 @@ end
        end
    end
 &lt;/code&gt;&lt;/pre&gt;
-=======
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
-  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;   &lt;span style=&quot;color:#777&quot;&gt;#model_answer.rb&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;   &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;class&lt;/span&gt; &lt;span style=&quot;color:#B06;font-weight:bold&quot;&gt;Location&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;       attr_accessor &lt;span style=&quot;color:#A60&quot;&gt;:latitude&lt;/span&gt;, &lt;span style=&quot;color:#A60&quot;&gt;:longitude&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;       &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;initialize&lt;/span&gt;(args = {})
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;           &lt;span style=&quot;color:#069&quot;&gt;self&lt;/span&gt;.latitude = args[&lt;span style=&quot;color:#A60&quot;&gt;:latitude&lt;/span&gt;]
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;           &lt;span style=&quot;color:#069&quot;&gt;self&lt;/span&gt;.longitude = args[&lt;span style=&quot;color:#A60&quot;&gt;:longitude&lt;/span&gt;]
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;       &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;   &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
->>>>>>> origin/master
 
 &lt;p&gt;テストを通過させるためだけに書かれたような「リファクタリング前のコード」がエラーにならないのに、上記「自分のコード」がエラーになるのは納得がいかない。&lt;br /&gt;
 自分のコードに何かエラーにしなければならない理由があるのか？自分にはわからないので誰か教えてください。&lt;/p&gt;
