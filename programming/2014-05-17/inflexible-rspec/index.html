@@ -9,8 +9,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>rspecに納得できない</title>
-    <meta name="Keywords" content="自己満足プログラミング" lang="ja">
-    <meta name="description" content="Ruby on rails, programming for my enjoyment">
+    <meta name="Keywords" content="車輪の再開発がしたい" lang="ja">
+    <meta name="description" content="I want to reinvent the wheel">
 	<meta name="author" content="happyclam">
 	<link href='/assets/themes/the-minimum/css/style.css' rel="stylesheet" media="all">
     <link rel="stylesheet" href="/assets/themes/the-minimum/css/syntax.css" type="text/css">
@@ -33,7 +33,7 @@
 	<header class="the-header">
 		<div class="unit-head">
 			<div class="unit-inner unit-head-inner">
-				<p class="logo"><a href="/">自己満足プログラミング</a></p>
+				<p class="logo"><a href="/">車輪の再開発がしたい</a></p>
 				<nav class="nav-global">
 					<ul>
 						<li class="archive"><a href="/archive.html">archive</a></li>
@@ -67,7 +67,7 @@
 				<div class="entry-content">
 					<p>先日衝動買いした<a href="http://www.amazon.co.jp/Instant-RSpec-Test-Driven-Development-How-ebook/dp/B00DMYO1QK">Instant RSpec Test-Driven Development How-to [Kindle版]</a>の最初に出てくるサンプルコード</p>
 
-<pre><code class="Ruby">#location_spec.rb
+<pre><code class="language-Ruby">#location_spec.rb
 describe Location do
   describe "#initialize" do
     it "sets the latitude and longitude" do
@@ -79,15 +79,12 @@ describe Location do
   end
 end
 </code></pre>
-
 <hr />
-
 <ol>
-<li>上記テストを通過させるために「自分が書いたコード」が以下のもの<code>rspec failed</code></li>
+  <li>上記テストを通過させるために「自分が書いたコード」が以下のもの<code>rspec failed</code>  </li>
 </ol>
 
-
-<pre><code class="Ruby">   #my_answer.rb  
+<pre><code class="language-Ruby">   #my_answer.rb  
    class  Location  
        attr_accessor :latitude  
        attr_accessor :longitude  
@@ -97,13 +94,11 @@ end
        end  
    end  
 </code></pre>
-
 <ol>
-<li>「リファクタリング前のコード」として本で紹介されているコード<code>rspec passed</code></li>
+  <li>「リファクタリング前のコード」として本で紹介されているコード<code>rspec passed</code>  </li>
 </ol>
 
-
-<pre><code class="Ruby">   #bad_answer.rb
+<pre><code class="language-Ruby">   #bad_answer.rb
    class  Location
        def initialize(args = {});end
        def latitude
@@ -114,13 +109,11 @@ end
        end
    end
 </code></pre>
-
 <ol>
-<li>「リファクタリング後のコード」として本で紹介されているコード<code>rspec passed</code></li>
+  <li>「リファクタリング後のコード」として本で紹介されているコード<code>rspec passed</code>  </li>
 </ol>
 
-
-<pre><code class="Ruby">   #model_answer.rb
+<pre><code class="language-Ruby">   #model_answer.rb
    class Location
        attr_accessor :latitude, :longitude
        def initialize(args = {})
@@ -130,8 +123,9 @@ end
    end
 </code></pre>
 
-<p>テストを通過させるためだけに書かれたような「リファクタリング前のコード」がエラーにならないのに、上記「自分のコード」がエラーになるのは納得がいかない。<br/>
+<p>テストを通過させるためだけに書かれたような「リファクタリング前のコード」がエラーにならないのに、上記「自分のコード」がエラーになるのは納得がいかない。<br />
 自分のコードに何かエラーにしなければならない理由があるのか？自分にはわからないので誰か教えてください。</p>
+
 
 					<div class="meta">
 						<p class="date-publish">
@@ -166,7 +160,7 @@ end
 
   
      
-    	<li><a href="/tags.html#ruby-ref">ruby <span>4</span></a></li>
+    	<li><a href="/tags.html#ruby-ref">ruby <span>5</span></a></li>
      
     	<li><a href="/tags.html#rspec-ref">rspec <span>1</span></a></li>
     

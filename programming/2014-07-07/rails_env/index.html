@@ -9,8 +9,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>production環境でjQueryが発動しない</title>
-    <meta name="Keywords" content="自己満足プログラミング" lang="ja">
-    <meta name="description" content="Ruby on rails, programming for my enjoyment">
+    <meta name="Keywords" content="車輪の再開発がしたい" lang="ja">
+    <meta name="description" content="I want to reinvent the wheel">
 	<meta name="author" content="happyclam">
 	<link href='/assets/themes/the-minimum/css/style.css' rel="stylesheet" media="all">
     <link rel="stylesheet" href="/assets/themes/the-minimum/css/syntax.css" type="text/css">
@@ -33,7 +33,7 @@
 	<header class="the-header">
 		<div class="unit-head">
 			<div class="unit-inner unit-head-inner">
-				<p class="logo"><a href="/">自己満足プログラミング</a></p>
+				<p class="logo"><a href="/">車輪の再開発がしたい</a></p>
 				<nav class="nav-global">
 					<ul>
 						<li class="archive"><a href="/archive.html">archive</a></li>
@@ -65,12 +65,11 @@
 
 			<div class="bd">
 				<div class="entry-content">
-					<h3>自宅サーバーにdeployment</h3>
-
-<p><a href="/project/2014-05-30/tweetwatch">TweetWatch</a>がとりあえず完成したので、自鯖（Apatch）で動かしてみたらjQueryの一部（画面描画時<code>$(document).ready()</code>の処理だけ）が上手く動かなかったので動くようになったまでの顛末を書きます（Rails 4.0.2, ruby 2.0.0p353）。<br/>
+					<h3 id="deployment">自宅サーバーにdeployment</h3>
+<p><a href="/project/2014-05-30/tweetwatch">TweetWatch</a>がとりあえず完成したので、自鯖（Apatch）で動かしてみたらjQueryの一部（画面描画時<code>$(document).ready()</code>の処理だけ）が上手く動かなかったので動くようになったまでの顛末を書きます（Rails 4.0.2, ruby 2.0.0p353）。<br />
 コードは以下の通りです</p>
 
-<pre><code class="Ruby">#app/assets/javascripts/users.js
+<pre><code>#app/assets/javascripts/users.js
 $(document).ready(function(){
     $.ajax({
         url: '/tweets/check', 
@@ -82,9 +81,7 @@ $(document).ready(function(){
     });
 });
 </code></pre>
-
-<p>処理の内容はあまり関係ないと思いますが、jqueryからcontrollerのメソッドを呼び出し、サーバースクリプトが動いているかどうかをチェックして画面にstatusを表示する処理をしています。このusers.jsがdevelopment環境では動くのにproduction環境では動かないという現象に悩まされました。動くようになるまでに辿った作業を順に箇条書きにしてみると以下のようになります。</p>
-
+<p>処理の内容はあまり関係ないと思いますが、jqueryからcontrollerのメソッドを呼び出し、サーバースクリプトが動いているかどうかをチェックして画面にstatusを表示する処理をしています。このusers.jsがdevelopment環境では動くのにproduction環境では動かないという現象に悩まされました。動くようになるまでに辿った作業を順に箇条書きにしてみると以下のようになります。  </p>
 <dl>
 <dt><p>1. Apache+Passenger環境でうまく動かないので、以下の設定でwebrickでproduction環境を試す。特にwebrick用の設定とも言える<code>serve_static_assets = true</code>がdevelopment環境との大きな違い</p></dt>
 <dd>
@@ -103,7 +100,7 @@ $(document).ready(function(){
 <dd>
 <pre><code>
     #Gemfile
-    gem 'jquery-turbolinks'  <- 追加
+    gem 'jquery-turbolinks'  &lt;- 追加
 </code></pre>
 <p><code>bundle install</code></p>
 <pre><code>
@@ -113,7 +110,7 @@ $(document).ready(function(){
 //= require bootstrap
 //= require users.js
 //= require turbolinks
-//= require jquery.turbolinks     <- 追加
+//= require jquery.turbolinks     &lt;- 追加
 //= require highcharts/highcharts
 //= require highcharts/highcharts-more
 //= require highcharts/highstock
@@ -122,15 +119,15 @@ $(document).ready(function(){
 <p><code>rake assets:precompile RAILS_ENV=production</code><br />
 <code>rails s -e production</code>
 </p>
-※<a href=https://github.com/kossnocorp/jquery.turbolinks/blob/master/README.md>jquery-turbolinksのドキュメント</a>
+※&lt;a href=https://github.com/kossnocorp/jquery.turbolinks/blob/master/README.md&gt;jquery-turbolinksのドキュメント
 </dd>
 <br />
 <dt><p>3. jquery-turbolinks gemを追加してもダメだったので、今度は逆にturbolinksを無効にしてみる</p></dt>
 <dd>
 <pre><code>
     #Gemfile
-#    gem 'turbolinks'         <- コメント化
-#    gem 'jquery-turbolinks'  <- コメント化
+#    gem 'turbolinks'         &lt;- コメント化
+#    gem 'jquery-turbolinks'  &lt;- コメント化
 </code></pre>
 <pre><code>
     #app/assets/javascripts/application.js
@@ -138,8 +135,8 @@ $(document).ready(function(){
 //= require jquery_ujs
 //= require bootstrap
 //= require users.js
-//= require turbolinks            <- この行を削除
-//= require jquery.turbolinks     <- この行を削除
+//= require turbolinks            &lt;- この行を削除
+//= require jquery.turbolinks     &lt;- この行を削除
 //= require highcharts/highcharts
 //= require highcharts/highcharts-more
 //= require highcharts/highstock
@@ -149,11 +146,11 @@ $(document).ready(function(){
 <pre><code>
     #app/views/layouts/application.html.erb
     #変更前
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  &lt;%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" =&gt; true %&gt;
+  &lt;%= javascript_include_tag "application", "data-turbolinks-track" =&gt; true %&gt;
     #変更後
-  <%= stylesheet_link_tag    "application", media: "all" %>
-  <%= javascript_include_tag "application" %>
+  &lt;%= stylesheet_link_tag    "application", media: "all" %&gt;
+  &lt;%= javascript_include_tag "application" %&gt;
 </code></pre>
 <p><code>rake assets:precompile RAILS_ENV=production</code><br />
 <code>rails s -e production</code></p>
@@ -163,7 +160,7 @@ $(document).ready(function(){
 <span>jqueryとturbolinks両イベント対応の書き方</span>
 <pre><code>
 #app/assets/javascripts/user.js.coffee
-$(document).on 'ready page:load', ->
+$(document).on 'ready page:load', -&gt;
   url = '/tweets/check'
   dfd = $.ajax
     url: url
@@ -171,16 +168,16 @@ $(document).on 'ready page:load', ->
     data: {}
     method: 'get'
   promise = dfd.promise()
-  promise.done((data, status, xhr) ->
+  promise.done((data, status, xhr) -&gt;
   )
-  promise.fail((xhr, status, error) ->
+  promise.fail((xhr, status, error) -&gt;
     alert(error)
   )
 </code></pre>
 <span>jqueryイベントとturbolinksイベントを分けた書き方</span>
 <pre><code>
 #app/assets/javascripts/user.js.coffee
-ready = ->
+ready = -&gt;
   url = '/tweets/check'
   dfd = $.ajax
     url: url
@@ -188,9 +185,9 @@ ready = ->
     data: {}
     method: 'get'
   promise = dfd.promise()
-  promise.done((data, status, xhr) ->
+  promise.done((data, status, xhr) -&gt;
   )
-  promise.fail((xhr, status, error) ->
+  promise.fail((xhr, status, error) -&gt;
     alert(error)
   )
 
@@ -217,7 +214,7 @@ $(document).on('page:load', ready)
 <dd>
 <pre><code>
 #app/views/users/show.html.erb
-<%= javascript_tag do %>
+&lt;%= javascript_tag do %&gt;
 $(document).ready(function(){
     $.ajax({
         url: '/tweets/check', 
@@ -228,7 +225,7 @@ $(document).ready(function(){
         alert('Error Occured(' + error + ')');
     });
 });
-<% end %>
+&lt;% end %&gt;
 </code></pre>
 <p>これでdevelopment環境でもproduction環境でもページ読み込み時のjqueryが正常に動作しました。<br />
 config.assets.compile = falseでdevelopment,production両方の環境で動きます。いろいろ環境を弄りましたが元の環境からjqueryをテンプレートに直書きするように変えるだけで他は変更しなくてよかったみたいです。turbolinksが有効でも無効でも大丈夫です
@@ -237,10 +234,10 @@ config.assets.compile = falseでdevelopment,production両方の環境で動き�
 
 </dl>
 
-
-<p><em>結論</em><br/>
-「$document.readyイベントを使うjqueryが動作しない時は、テンプレートに直書きしてみる。」<br/>
+<p><em>結論</em><br />
+「$document.readyイベントを使うjqueryが動作しない時は、テンプレートに直書きしてみる。」<br />
 ※ネットの情報を漁っていると、jquery-turbolinks gemを使えば解決するというものが多いのですが、$document.readyイベントに関してはそういうわけにはいかないようです。</p>
+
 
 					<div class="meta">
 						<p class="date-publish">

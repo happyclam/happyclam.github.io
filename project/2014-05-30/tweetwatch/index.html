@@ -9,8 +9,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>ツイートを監視して集計する</title>
-    <meta name="Keywords" content="自己満足プログラミング" lang="ja">
-    <meta name="description" content="Ruby on rails, programming for my enjoyment">
+    <meta name="Keywords" content="車輪の再開発がしたい" lang="ja">
+    <meta name="description" content="I want to reinvent the wheel">
 	<meta name="author" content="happyclam">
 	<link href='/assets/themes/the-minimum/css/style.css' rel="stylesheet" media="all">
     <link rel="stylesheet" href="/assets/themes/the-minimum/css/syntax.css" type="text/css">
@@ -33,7 +33,7 @@
 	<header class="the-header">
 		<div class="unit-head">
 			<div class="unit-inner unit-head-inner">
-				<p class="logo"><a href="/">自己満足プログラミング</a></p>
+				<p class="logo"><a href="/">車輪の再開発がしたい</a></p>
 				<nav class="nav-global">
 					<ul>
 						<li class="archive"><a href="/archive.html">archive</a></li>
@@ -67,36 +67,31 @@
 				<div class="entry-content">
 					<p>Project: 「tweetwatch」: <a href="https://github.com/happyclam/tweetwatch">GitHub</a></p>
 
-<h3>開発の動機</h3>
+<h3 id="section">開発の動機</h3>
+<p>　今年の都知事選の頃、多くのフォロワーを抱えている人（以下a氏と表記）が
+&gt;Twitterで<strong>#都知事選</strong>というタグをつけて自分が投票した候補者の名前を呟けば、それを集計してくれるアプリ作れないかな～</p>
 
-<p>　今年の都知事選の頃、多くのフォロワーを抱えている人（以下a氏と表記）が</p>
-
-<blockquote><p>Twitterで<strong>#都知事選</strong>というタグをつけて自分が投票した候補者の名前を呟けば、それを集計してくれるアプリ作れないかな～</p></blockquote>
-
-<p>と物欲しそうに呟いていたのが目に止まりました。<br/>
+<p>と物欲しそうに呟いていたのが目に止まりました。<br />
 Yahooのアンケートのように、誰がどれぐらい票を獲得しているかtwitterで独自に確認しようという意図のようです。
-　プログラマたるもの、そこで「すぐ出来ますよ」とリプライするような軽率な行動をとってはいけません。職業プログラマなら尚更です。誰かが手を挙げるかもと思いながらしばらく様子を見ていましたが、その呟きに対して反応する人はいなかったようです。こういう場合、相手がどれほどのものを要求しているかわからないので迂闊に出来ますなんて言えませんが、StreamingAPI使えばとりあえず使える程度のものであれば、すぐ出来るんじゃないかと思い調べてみました。</p>
+　プログラマたるもの、そこで「すぐ出来ますよ」とリプライするような軽率な行動をとってはいけません。職業プログラマなら尚更です。誰かが手を挙げるかもと思いながらしばらく様子を見ていましたが、その呟きに対して反応する人はいなかったようです。こういう場合、相手がどれほどのものを要求しているかわからないので迂闊に出来ますなんて言えませんが、StreamingAPI使えばとりあえず使える程度のものであれば、すぐ出来るんじゃないかと思い調べてみました。  </p>
 
-<h3>とりあえずローカル環境で動くもの</h3>
-
-<p>　「StreamingAPI」で検索すると役に立ちそうなサイトはすぐに見つかりました→<a href="http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/">「Herokuの無料枠でTwitter Stream APIを常時監視 => DBに保存するRubyコード」</a><br/>
+<h3 id="section-1">とりあえずローカル環境で動くもの</h3>
+<p>　「StreamingAPI」で検索すると役に立ちそうなサイトはすぐに見つかりました→<a href="http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/">「Herokuの無料枠でTwitter Stream APIを常時監視 =&gt; DBに保存するRubyコード」</a><br />
 このmorizyunって人のサイトは調べ物をしている際にはよくお世話になっていますが、今回見つけた記事も自分の要望その物です。私はherokuは使いませんでしたがほぼこの記事のコードそのままがローカル環境で動作しました。ツイートの集計がしたいのであればDBに溜まったデータに対してSQLを打ち込めば好きな結果が得られます。a氏に教えてあげようかとも思いましたが、おそらくプログラミングやSQLも知らないa氏が実際に自分のPCで動かすためにはそうとうな時間をかけてサポートしてあげないと無理だろうと思って止めておきました。自分が良かれと思って教えても、逆に恨まれることになり兼ねません。そうなんです、自分でニタニタ楽しむためのソフトを作れたとしても、それをひと様に使ってもらおうとするとまた一段とハードルが高くなるんですねぇ（今回は自分で楽しむものさえパクリですが）。</p>
 
-<h3>ひと様が使えるようにするために</h3>
-
-<p>　最初はDBにデータを格納するだけのシェルスクリプトを起動しながら、ユーザー向けのwebインターフェースを提供してあげればいいだけだからそれほど手間はかからないと思いましたが、そうすると２プロセス動かすことになり、herokuの無料枠では済まなくなります。それに運用環境を何とか用意したとしても、自分のtwitterアカウントの認証キーをそのサービスで利用するとなると、一人しか利用できないwebサービスになってしまいます。twitter社にAPI利用料を支払えば解決ですが、そこまでする気もないので開発に取りかかるのは躊躇してました。<br/>
-で結局、</p>
+<h3 id="section-2">ひと様が使えるようにするために</h3>
+<p>　最初はDBにデータを格納するだけのシェルスクリプトを起動しながら、ユーザー向けのwebインターフェースを提供してあげればいいだけだからそれほど手間はかからないと思いましたが、そうすると２プロセス動かすことになり、herokuの無料枠では済まなくなります。それに運用環境を何とか用意したとしても、自分のtwitterアカウントの認証キーをそのサービスで利用するとなると、一人しか利用できないwebサービスになってしまいます。twitter社にAPI利用料を支払えば解決ですが、そこまでする気もないので開発に取りかかるのは躊躇してました。<br />
+で結局、  </p>
 
 <ul>
-<li>運用環境に関してはとりあえず自宅サーバで動くようにしてから考える</li>
-<li>twitterのAPIキーをユーザ自身が登録して、そのキーを利用しながらDB格納プロセスを起動するようにする</li>
+  <li>運用環境に関してはとりあえず自宅サーバで動くようにしてから考える  </li>
+  <li>twitterのAPIキーをユーザ自身が登録して、そのキーを利用しながらDB格納プロセスを起動するようにする  </li>
 </ul>
 
-
 <p>という方針で作りました。
-<img src="/images/tweetwatch_screen.png" alt="集計画面" />  <br/>
-DBにデータを格納するシェルスクリプトは、<a href="http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/">morizyun氏のコード</a>を叩き台にしてWebサイトから制御するためのプロセス間通信用インターフェースを追加し、そのサーバーとなるシェルスクリプトに接続するクライアントアプリとなるユーザ向けのwebサイトを作る。そのwebサイトは<a href="http://railstutorial.jp/">Ruby on Rails チュートリアル</a>でRSpecの勉強（写経）をしながら作ったものがあったのでそれを流用しています。<br/>
-以降、DBにデータを格納する<em>サーバースクリプト（server側）</em>とRails製<em>Webサイト（client側）</em>に分けて紹介します。</p>
+<img src="/images/tweetwatch_screen.png" alt="集計画面" />  <br />
+DBにデータを格納するシェルスクリプトは、<a href="http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/">morizyun氏のコード</a>を叩き台にしてWebサイトから制御するためのプロセス間通信用インターフェースを追加し、そのサーバーとなるシェルスクリプトに接続するクライアントアプリとなるユーザ向けのwebサイトを作る。そのwebサイトは<a href="http://railstutorial.jp/">Ruby on Rails チュートリアル</a>でRSpecの勉強（写経）をしながら作ったものがあったのでそれを流用しています。<br />
+以降、DBにデータを格納する<a href="/project/2014-06-06/tweetwatch_server/"><em>サーバースクリプト（server側）</em></a>とRails製<a href="/project/2014-06-07/tweetwatch_client/"><em>Webサイト（client側）</em></a>に分けて紹介します。</p>
 
 <hr />
 
@@ -118,7 +113,7 @@ DBにデータを格納するシェルスクリプトは、<a href="http://moriz
   
      
     	<li><a href="/categories.html#project-ref">
-    		project <span>4</span>
+    		project <span>5</span>
     	</a></li>
     
   
@@ -135,7 +130,7 @@ DBにデータを格納するシェルスクリプトは、<a href="http://moriz
      
     	<li><a href="/tags.html#rails-ref">rails <span>7</span></a></li>
      
-    	<li><a href="/tags.html#ruby-ref">ruby <span>4</span></a></li>
+    	<li><a href="/tags.html#ruby-ref">ruby <span>5</span></a></li>
      
     	<li><a href="/tags.html#tweetwatch-ref">tweetwatch <span>4</span></a></li>
     
@@ -189,7 +184,7 @@ DBにデータを格納するシェルスクリプトは、<a href="http://moriz
 							<li class="pipe"> | </li>
 							
 							
-							<li class="next"><a class="internal" rel="next"  href="/miscellaneous/2014-05-31/drosera" title="View モウセンゴケ買ってみた">モウセンゴケ買ってみた &raquo;</a></li>
+							<li class="next"><a class="internal" rel="next"  href="/project/2014-06-06/tweetwatch_server" title="View ツイートを監視して集計する（server側）">ツイートを監視して集計する（server側） &raquo;</a></li>
 							
 						</ul>
 					</nav>

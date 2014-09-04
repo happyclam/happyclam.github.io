@@ -8,11 +8,11 @@ http://happyclam.github.io/rss.xml
 http://happyclam.github.io/sitemap.txt
 http://happyclam.github.io/tags.html
 
+http://happyclam.github.io/project/2014-08-05/tictactoe
 http://happyclam.github.io/hardware/2014-07-12/bt_mouse
 http://happyclam.github.io/programming/2014-07-07/rails_env
 http://happyclam.github.io/project/2014-06-07/tweetwatch_client
 http://happyclam.github.io/project/2014-06-06/tweetwatch_server
-http://happyclam.github.io/miscellaneous/2014-05-31/drosera
 http://happyclam.github.io/project/2014-05-30/tweetwatch
 http://happyclam.github.io/miscellaneous/2014-05-27/my-posi_vola
 http://happyclam.github.io/programming/2014-05-26/my-posi_tip1
