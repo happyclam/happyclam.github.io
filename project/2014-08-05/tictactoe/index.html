@@ -9,8 +9,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>三目並べ（tictactoe）</title>
+<<<<<<< HEAD
     <meta name="Keywords" content="車輪の再開発がしたい" lang="ja">
     <meta name="description" content="I want to reinvent the wheel">
+=======
+    <meta name="Keywords" content="自己満足プログラミング" lang="ja">
+    <meta name="description" content="Ruby on rails, programming for my enjoyment">
+>>>>>>> origin/master
 	<meta name="author" content="happyclam">
 	<link href='/assets/themes/the-minimum/css/style.css' rel="stylesheet" media="all">
     <link rel="stylesheet" href="/assets/themes/the-minimum/css/syntax.css" type="text/css">
@@ -33,7 +38,11 @@
 	<header class="the-header">
 		<div class="unit-head">
 			<div class="unit-inner unit-head-inner">
+<<<<<<< HEAD
 				<p class="logo"><a href="/">車輪の再開発がしたい</a></p>
+=======
+				<p class="logo"><a href="/">自己満足プログラミング</a></p>
+>>>>>>> origin/master
 				<nav class="nav-global">
 					<ul>
 						<li class="archive"><a href="/archive.html">archive</a></li>
@@ -73,6 +82,7 @@
 
 <h3 id="min-max">min-max法</h3>
 
+<<<<<<< HEAD
 <pre><code class="language-Ruby">  #先手×は最大値、後手○は最小値を選択するように再帰しながら局面を先読み
   def lookahead(board, turn, cnt)
     if turn == CROSS
@@ -101,6 +111,39 @@
     return value, locate
   end
 </code></pre>
+=======
+<div><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span>  <span style="color:#777">#先手×は最大値、後手○は最小値を選択するように再帰しながら局面を先読み</span>
+<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">lookahead</span>(board, turn, cnt)
+<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>    <span style="color:#080;font-weight:bold">if</span> turn == <span style="color:#036;font-weight:bold">CROSS</span>
+<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>      value = <span style="color:#036;font-weight:bold">MIN_VALUE</span>
+<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>    <span style="color:#080;font-weight:bold">else</span>
+<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>      value = <span style="color:#036;font-weight:bold">MAX_VALUE</span>
+<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>    <span style="color:#080;font-weight:bold">end</span>
+<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>    locate = <span style="color:#069">nil</span>
+<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>    board.each_with_index {|b, i|
+<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>      <span style="color:#080;font-weight:bold">next</span> <span style="color:#080;font-weight:bold">if</span> b
+<span class="line-numbers"><a href="#n11" name="n11">11</a></span>      board[i] = turn
+<span class="line-numbers"><a href="#n12" name="n12">12</a></span>      temp_v = evaluation(board)
+<span class="line-numbers"><a href="#n13" name="n13">13</a></span>      teban = (turn == <span style="color:#036;font-weight:bold">CROSS</span>) ? <span style="color:#036;font-weight:bold">NOUGHT</span> : <span style="color:#036;font-weight:bold">CROSS</span>
+<span class="line-numbers"><a href="#n14" name="n14">14</a></span>      <span style="color:#080;font-weight:bold">if</span> (temp_v != <span style="color:#036;font-weight:bold">MAX_VALUE</span> &amp;&amp; temp_v != <span style="color:#036;font-weight:bold">MIN_VALUE</span> &amp;&amp; cnt &lt; <span style="color:#036;font-weight:bold">SIZE</span> - <span style="color:#00D">1</span>)
+<span class="line-numbers"><a href="#n15" name="n15">15</a></span>        <span style="color:#777">#指定した深さまで再帰呼出し</span>
+<span class="line-numbers"><a href="#n16" name="n16">16</a></span>        temp_v, temp_locate = lookahead(board, teban, cnt + <span style="color:#00D">1</span>)
+<span class="line-numbers"><a href="#n17" name="n17">17</a></span>      <span style="color:#080;font-weight:bold">end</span>
+<span class="line-numbers"><a href="#n18" name="n18">18</a></span>      board[i] = <span style="color:#069">nil</span>
+<span class="line-numbers"><a href="#n19" name="n19">19</a></span>      <span style="color:#777">#先手×の番と後手○の番で、同じ深さでの最小、最大の評価値をvalueに保存</span>
+<span class="line-numbers"><strong><a href="#n20" name="n20">20</a></strong></span>      <span style="color:#080;font-weight:bold">if</span> (temp_v &gt; value &amp;&amp; turn == <span style="color:#036;font-weight:bold">CROSS</span>) || (temp_v &lt; value &amp;&amp; turn == <span style="color:#036;font-weight:bold">NOUGHT</span>)
+<span class="line-numbers"><a href="#n21" name="n21">21</a></span>        value = temp_v 
+<span class="line-numbers"><a href="#n22" name="n22">22</a></span>        locate = i
+<span class="line-numbers"><a href="#n23" name="n23">23</a></span>      <span style="color:#080;font-weight:bold">end</span>
+<span class="line-numbers"><a href="#n24" name="n24">24</a></span>    }
+<span class="line-numbers"><a href="#n25" name="n25">25</a></span>    <span style="color:#777">#同じ深さでの最小、最大の評価値を返す</span>
+<span class="line-numbers"><a href="#n26" name="n26">26</a></span>    <span style="color:#080;font-weight:bold">return</span> value, locate
+<span class="line-numbers"><a href="#n27" name="n27">27</a></span>  <span style="color:#080;font-weight:bold">end</span>
+</pre></div>
+</div>
+</div>
+>>>>>>> origin/master
 
 <h3 id="section-1">αβ法</h3>
 <ol>
@@ -108,6 +151,7 @@
   <li>引数で渡された親局面の評価値と現局面を比較して、現局面が選択されることがないことがわかったら、先読みを中断してreturnする（αカットとβカット）</li>
 </ol>
 
+<<<<<<< HEAD
 <pre><code class="language-Ruby">  #現局面の評価値を子局面に渡しながら再帰関数で局面を先読み
   def lookahead(board, turn, cnt, threshold)
     if turn == CROSS
@@ -146,6 +190,49 @@
 end
 
 </code></pre>
+=======
+<div><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span>  <span style="color:#777">#現局面の評価値を子局面に渡しながら再帰関数で局面を先読み</span>
+<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">lookahead</span>(board, turn, cnt, threshold)
+<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>    <span style="color:#080;font-weight:bold">if</span> turn == <span style="color:#036;font-weight:bold">CROSS</span>
+<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>      value = <span style="color:#036;font-weight:bold">MIN_VALUE</span>
+<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>    <span style="color:#080;font-weight:bold">else</span>
+<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>      value = <span style="color:#036;font-weight:bold">MAX_VALUE</span>
+<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>    <span style="color:#080;font-weight:bold">end</span>
+<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>    locate = <span style="color:#069">nil</span>
+<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>    board.each_with_index {|b, i|
+<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>      <span style="color:#080;font-weight:bold">next</span> <span style="color:#080;font-weight:bold">if</span> b
+<span class="line-numbers"><a href="#n11" name="n11">11</a></span>      board[i] = turn
+<span class="line-numbers"><a href="#n12" name="n12">12</a></span>      temp_v = evaluation(board)
+<span class="line-numbers"><a href="#n13" name="n13">13</a></span>      teban = (turn == <span style="color:#036;font-weight:bold">CROSS</span>) ? <span style="color:#036;font-weight:bold">NOUGHT</span> : <span style="color:#036;font-weight:bold">CROSS</span>
+<span class="line-numbers"><a href="#n14" name="n14">14</a></span>      <span style="color:#080;font-weight:bold">if</span> (temp_v != <span style="color:#036;font-weight:bold">MAX_VALUE</span> &amp;&amp; temp_v != <span style="color:#036;font-weight:bold">MIN_VALUE</span> &amp;&amp; cnt &lt; <span style="color:#036;font-weight:bold">SIZE</span> - <span style="color:#00D">1</span>)
+<span class="line-numbers"><a href="#n15" name="n15">15</a></span>        temp_v, temp_locate = lookahead(board, teban, cnt + <span style="color:#00D">1</span>, temp_v)
+<span class="line-numbers"><a href="#n16" name="n16">16</a></span>      <span style="color:#080;font-weight:bold">end</span>
+<span class="line-numbers"><a href="#n17" name="n17">17</a></span>      board[i] = <span style="color:#069">nil</span>
+<span class="line-numbers"><a href="#n18" name="n18">18</a></span>      <span style="color:#777">#先手×の番</span>
+<span class="line-numbers"><a href="#n19" name="n19">19</a></span>      <span style="color:#080;font-weight:bold">if</span> (temp_v &gt; value &amp;&amp; turn == <span style="color:#036;font-weight:bold">CROSS</span>) 
+<span class="line-numbers"><strong><a href="#n20" name="n20">20</a></strong></span>        value = temp_v 
+<span class="line-numbers"><a href="#n21" name="n21">21</a></span>        locate = i
+<span class="line-numbers"><a href="#n22" name="n22">22</a></span>        <span style="color:#777">#上限値を上回ったら先読み中止（βカット）</span>
+<span class="line-numbers"><a href="#n23" name="n23">23</a></span>        <span style="color:#080;font-weight:bold">return</span> value, locate <span style="color:#080;font-weight:bold">if</span> threshold &lt; temp_v
+<span class="line-numbers"><a href="#n24" name="n24">24</a></span>      <span style="color:#777">#後手○の番</span>
+<span class="line-numbers"><a href="#n25" name="n25">25</a></span>      <span style="color:#080;font-weight:bold">elsif</span> (temp_v &lt; value &amp;&amp; turn == <span style="color:#036;font-weight:bold">NOUGHT</span>)
+<span class="line-numbers"><a href="#n26" name="n26">26</a></span>        value = temp_v 
+<span class="line-numbers"><a href="#n27" name="n27">27</a></span>        locate = i
+<span class="line-numbers"><a href="#n28" name="n28">28</a></span>        <span style="color:#777">#下限値を下回ったら先読み中止（αカット）</span>
+<span class="line-numbers"><a href="#n29" name="n29">29</a></span>        <span style="color:#080;font-weight:bold">return</span> value, locate <span style="color:#080;font-weight:bold">if</span> threshold &gt; temp_v
+<span class="line-numbers"><strong><a href="#n30" name="n30">30</a></strong></span>      <span style="color:#080;font-weight:bold">end</span>
+<span class="line-numbers"><a href="#n31" name="n31">31</a></span>    }
+<span class="line-numbers"><a href="#n32" name="n32">32</a></span>    <span style="color:#777">#同じ深さでの最小、最大の評価値を返す</span>
+<span class="line-numbers"><a href="#n33" name="n33">33</a></span>    <span style="color:#080;font-weight:bold">return</span> value, locate
+<span class="line-numbers"><a href="#n34" name="n34">34</a></span>  <span style="color:#080;font-weight:bold">end</span>
+<span class="line-numbers"><a href="#n35" name="n35">35</a></span>
+<span class="line-numbers"><a href="#n36" name="n36">36</a></span><span style="color:#080;font-weight:bold">end</span>
+<span class="line-numbers"><a href="#n37" name="n37">37</a></span>
+</pre></div>
+</div>
+</div>
+>>>>>>> origin/master
 
 <p>※min-max法に僅かなコードを追加しただけで素晴らしい効果が得られました。<a href="http://www.vaio.sony.co.jp/Products/P1/spec_vom1.html">vaio type p (VGN-P90S)</a>という非力なPCで比較したところ、単なるmin-max法で完全読み切りに３０秒ほどかかったのに、αβ法なら５秒で完了しました。評価関数が、勝ち、負け、引き分けの３値しかない単純なものだったせいもありますがすごいです。</p>
 
