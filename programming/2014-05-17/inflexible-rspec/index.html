@@ -33,7 +33,7 @@
 	<header class="the-header">
 		<div class="unit-head">
 			<div class="unit-inner unit-head-inner">
-				<p class="logo"><a href="/">車輪の再開発がしたい</a></p>
+				<p class="logo"><a href="/">自己満足プログラミング</a></p>
 				<nav class="nav-global">
 					<ul>
 						<li class="archive"><a href="/archive.html">archive</a></li>
@@ -67,61 +67,73 @@
 				<div class="entry-content">
 					<p>先日衝動買いした<a href="http://www.amazon.co.jp/Instant-RSpec-Test-Driven-Development-How-ebook/dp/B00DMYO1QK">Instant RSpec Test-Driven Development How-to [Kindle版]</a>の最初に出てくるサンプルコード</p>
 
-<pre><code class="language-Ruby">#location_spec.rb
-describe Location do
-  describe "#initialize" do
-    it "sets the latitude and longitude" do
-      loc = Location.new(:latitude =&gt; 38.911268,
-                         :longitude =&gt; -77.444243)
-      loc.latitude.should == 38.911268
-      loc.longitude.should == -77.444243
-    end
-  end
-end
-</code></pre>
+<div><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#777">#location_spec.rb</span>
+<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>describe <span style="color:#036;font-weight:bold">Location</span> <span style="color:#080;font-weight:bold">do</span>
+<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>  describe <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">#initialize</span><span style="color:#710">&quot;</span></span> <span style="color:#080;font-weight:bold">do</span>
+<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>    it <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">sets the latitude and longitude</span><span style="color:#710">&quot;</span></span> <span style="color:#080;font-weight:bold">do</span>
+<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>      loc = <span style="color:#036;font-weight:bold">Location</span>.new(<span style="color:#A60">:latitude</span> =&gt; <span style="color:#60E">38.911268</span>,
+<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>                         <span style="color:#A60">:longitude</span> =&gt; <span style="color:#60E">-77.444243</span>)
+<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>      loc.latitude.should == <span style="color:#60E">38.911268</span>
+<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>      loc.longitude.should == <span style="color:#60E">-77.444243</span>
+<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>    <span style="color:#080;font-weight:bold">end</span>
+<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>  <span style="color:#080;font-weight:bold">end</span>
+<span class="line-numbers"><a href="#n11" name="n11">11</a></span><span style="color:#080;font-weight:bold">end</span>
+</pre></div>
+</div>
+</div>
 <hr />
 <ol>
   <li>上記テストを通過させるために「自分が書いたコード」が以下のもの<code>rspec failed</code>  </li>
 </ol>
 
-<pre><code class="language-Ruby">   #my_answer.rb  
-   class  Location  
-       attr_accessor :latitude  
-       attr_accessor :longitude  
-       def initialize(lati=nil, long=nil)  
-           @latitude = lati  
-           @longitude = long  
-       end  
-   end  
-</code></pre>
+<div><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span>   <span style="color:#777">#my_answer.rb  </span>
+<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>   <span style="color:#080;font-weight:bold">class</span>  <span style="color:#B06;font-weight:bold">Location</span>  
+<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>       attr_accessor <span style="color:#A60">:latitude</span>  
+<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>       attr_accessor <span style="color:#A60">:longitude</span>  
+<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>       <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">initialize</span>(lati=<span style="color:#069">nil</span>, long=<span style="color:#069">nil</span>)  
+<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>           <span style="color:#33B">@latitude</span> = lati  
+<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>           <span style="color:#33B">@longitude</span> = long  
+<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>       <span style="color:#080;font-weight:bold">end</span>  
+<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>   <span style="color:#080;font-weight:bold">end</span>  
+</pre></div>
+</div>
+</div>
 <ol>
   <li>「リファクタリング前のコード」として本で紹介されているコード<code>rspec passed</code>  </li>
 </ol>
 
-<pre><code class="language-Ruby">   #bad_answer.rb
-   class  Location
-       def initialize(args = {});end
-       def latitude
-           38.911268
-       end
-       def longitude
-           -77.444243
-       end
-   end
-</code></pre>
+<div><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span>   <span style="color:#777">#bad_answer.rb</span>
+<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>   <span style="color:#080;font-weight:bold">class</span>  <span style="color:#B06;font-weight:bold">Location</span>
+<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>       <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">initialize</span>(args = {});<span style="color:#080;font-weight:bold">end</span>
+<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>       <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">latitude</span>
+<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>           <span style="color:#60E">38.911268</span>
+<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>       <span style="color:#080;font-weight:bold">end</span>
+<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>       <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">longitude</span>
+<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>           <span style="color:#60E">-77.444243</span>
+<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>       <span style="color:#080;font-weight:bold">end</span>
+<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>   <span style="color:#080;font-weight:bold">end</span>
+</pre></div>
+</div>
+</div>
 <ol>
   <li>「リファクタリング後のコード」として本で紹介されているコード<code>rspec passed</code>  </li>
 </ol>
 
-<pre><code class="language-Ruby">   #model_answer.rb
-   class Location
-       attr_accessor :latitude, :longitude
-       def initialize(args = {})
-           self.latitude = args[:latitude]
-           self.longitude = args[:longitude]
-       end
-   end
-</code></pre>
+<div><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>   <span style="color:#777">#model_answer.rb</span>
+<span class="line-numbers"><a href="#n2" name="n2">2</a></span>   <span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Location</span>
+<span class="line-numbers"><a href="#n3" name="n3">3</a></span>       attr_accessor <span style="color:#A60">:latitude</span>, <span style="color:#A60">:longitude</span>
+<span class="line-numbers"><a href="#n4" name="n4">4</a></span>       <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">initialize</span>(args = {})
+<span class="line-numbers"><a href="#n5" name="n5">5</a></span>           <span style="color:#069">self</span>.latitude = args[<span style="color:#A60">:latitude</span>]
+<span class="line-numbers"><a href="#n6" name="n6">6</a></span>           <span style="color:#069">self</span>.longitude = args[<span style="color:#A60">:longitude</span>]
+<span class="line-numbers"><a href="#n7" name="n7">7</a></span>       <span style="color:#080;font-weight:bold">end</span>
+<span class="line-numbers"><a href="#n8" name="n8">8</a></span>   <span style="color:#080;font-weight:bold">end</span>
+</pre></div>
+</div>
+</div>
 
 <p>テストを通過させるためだけに書かれたような「リファクタリング前のコード」がエラーにならないのに、上記「自分のコード」がエラーになるのは納得がいかない。<br />
 自分のコードに何かエラーにしなければならない理由があるのか？自分にはわからないので誰か教えてください。</p>
