@@ -8,6 +8,7 @@ http://happyclam.github.io/rss.xml
 http://happyclam.github.io/sitemap.txt
 http://happyclam.github.io/tags.html
 
+http://happyclam.github.io/software/2014-09-23/tictactoe_arrange
 http://happyclam.github.io/software/2014-09-16/ab_method
 http://happyclam.github.io/software/2014-09-09/pre_shogi
 http://happyclam.github.io/project/2014-08-05/tictactoe

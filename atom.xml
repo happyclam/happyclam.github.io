@@ -4,13 +4,214 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2014-09-16T11:50:27+09:00</updated>
+ <updated>2014-09-23T22:36:16+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>三目並べ（tic tac toe）で遊んでみた</title>
+   <link href="http://happyclam.github.io/software/2014-09-23/tictactoe_arrange"/>
+   <updated>2014-09-23T00:00:00+09:00</updated>
+   <id>http://happyclam.github.io/software/2014-09-23/tictactoe_arrange</id>
+   <content type="html">&lt;h3 id=&quot;section&quot;&gt;いろんなテストケース&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/project/2014-08-05/tictactoe/&quot;&gt;以前作った三目並べのプログラム&lt;/a&gt;でいろいろ遊んでみました。&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;githubに公開&lt;/a&gt;しているので暇な人はソースをいじって試すこともできます。但し、短いソースとはいえ自分でコードを読んで編集する必要があります。もともとは対戦用プログラムとして作ったものですが、テスト用に9ヶ所の升目を順に取っていってその時の評価値を表示するように作った関数を使って、いろんなケースでプログラムの検証をしてみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;NOUGHT = -1
+CROSS = 1
+DRAW = 0
+MAX_VALUE = 9
+MIN_VALUE = -9
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;　上記のように定数を定義しています。CROSSは×（バツ）NOUGHTは◯（マル）でCROSSが先手です。評価関数は先手勝ち（MAX_VALUE）、後手勝ち（MIN_VALUE）、引き分け（DRAW）の3値の内どれかを返すようになっています。&lt;br /&gt;
+　テスト用の関数は先手から交互に1～9の升目を取っていって、その時に先読み関数から返ってくる評価値を順に画面に表示していくようになってます。三目並べはパスが無いので奇数手目は先手×で偶数手目は後手◯になります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;foo@bar:~$ ruby play.rb 
+
+ |1|2|3|
+ |4|5|6|
+ |7|8|9|
+1手目: 1 評価値: 0
+1手目: 2 評価値: 0
+1手目: 3 評価値: 0
+1手目: 4 評価値: 0
+1手目: 5 評価値: 0
+1手目: 6 評価値: 0
+1手目: 7 評価値: 0
+1手目: 8 評価値: 0
+1手目: 9 評価値: 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　1手目に1の場所（先手は×）を取れば0の評価値が返ってきたという意味ですが、どこの場所を取っても評価値0が返ってきてます。どこの場所を取っても引き分けになると言うことを示していますが、これではプログラムがうまく動いているかどうかわかりません。初手に先手が5を取った局面から先読み開始してみましょう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; |1|2|3|
+ |4|X|6|
+ |7|8|9|
+2手目: 1 評価値: 0
+2手目: 2 評価値: 9
+2手目: 3 評価値: 0
+2手目: 4 評価値: 9
+2手目: 6 評価値: 9
+2手目: 7 評価値: 0
+2手目: 8 評価値: 9
+2手目: 9 評価値: 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　2手目に後手◯が奇数の場所1、3、7、9（隅）を取った場合の評価値はすべて0になっています。お互いに最善手を選択すれば引き分けになるということです。2手目に後手○が2、4、6、8の辺部分を取るとすべて最大値（9）の評価が返ってきています、その後双方が最善を尽くせば先手が勝つということです。最小値（-9）が返ってくれば後手が勝つという意味です。&lt;br /&gt;
+　そういえば三目並べでは初手で真ん中を取って、相手が2手目で隅（角）以外の部分を取ると先手が勝つことを思い出しました。念のため確認してみましょう。&lt;br /&gt;
+　初手で真ん中を取り、2手目で辺を取った場合と隅を取った場合を順に確認します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;1手目5、2手目に辺（8）の場合：
+       
+ |1|2|3|
+ |4|X|6|
+ |7|O|9|
+3手目: 1 評価値: 9
+3手目: 2 評価値: 0
+3手目: 3 評価値: 9
+3手目: 4 評価値: 9
+3手目: 6 評価値: 9
+3手目: 7 評価値: 9
+3手目: 9 評価値: 9
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　3手目に先手が2の場所を取った場合以外は先手が勝つ（評価値が9）となります。MIN-MAX法（αβ法）は互いに最善手を打つことが前提となっていますので、2手目で後手◯が辺を取った後、先手が最善手を打てば勝つことが出来るのですが、間違えて2の場所を取ると勝てないことを示しています。  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;　ちなみに2手目に辺を取るとなぜ後手◯が負けるのかというと、先手が3手目に隅を取れば下図のように２ヶ所同時に、あと一つで揃う局面に出来るからです。後手は２ヶ所同時に防ぐことが出来ません。
+
+|X| |O|
+| |X| |
+|X|O| |
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;1手目5、2手目に隅（3）の場合：
+
+ |1|2|O|
+ |4|X|6|
+ |7|8|9|
+3手目: 1 評価値: 0
+3手目: 2 評価値: 0
+3手目: 4 評価値: 0
+3手目: 6 評価値: 0
+3手目: 7 評価値: 0
+3手目: 8 評価値: 0
+3手目: 9 評価値: 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　すべてのケースで引き分けになることを示していて、最初のテスト結果と符合しますので、一応プログラムは正常に動作しているようです。&lt;br /&gt;
+　あと、&lt;a href=&quot;/software/2014-09-16/ab_method/&quot;&gt;前回の記事&lt;/a&gt;にも書きましたが、αβ法がうまく機能していれば最終的な評価値の結果がMIN-MAX法と一致するはずです。  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;      if (temp_v &amp;gt;= value &amp;amp;&amp;amp; turn == CROSS) 
+        value = temp_v 
+        locate = i
+#        break if threshold &amp;lt; temp_v
+      elsif (temp_v &amp;lt;= value &amp;amp;&amp;amp; turn == NOUGHT)
+        value = temp_v 
+        locate = i
+#        break if threshold &amp;gt; temp_v
+      end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;　上記のようにプログラム中の枝刈り部分のコード２行をコメントにして、上記のテスト結果と同じ結果が得られましたので枝刈りも正常に機能しているようです。ちなみに評価関数が呼び出される回数を数えて見たところ、すべての手を読み切るまでにMIN-MAX法では255,168回、αβ法では100,645回でした。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;ちょっと変わった三目並べ&lt;/h3&gt;
+&lt;p&gt;　Twitter使っていると&lt;a href=&quot;https://androider.jp/official/app/4f0d853da0473562/&quot;&gt;「ちょっと変わった三目並べ Arrange Line」&lt;/a&gt;というアプリを見かけたのでルールを確認してみると、なんと今弄っている三目並べをほとんどそのまま流用出来そうじゃないですか？なんか神様から使命を授かったような気になったので作って見ました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#Board.initializeに追加
+    @c_q = Array.new
+    @c_bk = Array.new
+    @n_q = Array.new
+    @n_bk = Array.new
+#Board.initに追加    
+    @c_q.clear
+    @c_bk.clear
+    @n_q.clear
+    @n_bk.clear
+#Boardクラスに追加
+  def set(i, v)
+    if self[i]
+      raise &quot;Error!&quot;
+    else
+      self[i] = v
+    end
+    if v == CROSS
+      @c_q &amp;lt;&amp;lt; i
+      if @c_q.size &amp;gt; 3
+        idx = @c_q.shift
+        @c_bk.push([idx, self[idx]])
+        self[idx] = nil
+      end
+    elsif v == NOUGHT
+      @n_q &amp;lt;&amp;lt; i
+      if @n_q.size &amp;gt; 3
+        idx = @n_q.shift
+        @n_bk.push([idx, self[idx]])
+        self[idx] = nil
+      end
+    end
+  end
+
+  def unset(v)
+    if v == CROSS
+      if @c_bk.size &amp;gt; 0
+        h = Hash[*(@c_bk.pop)]
+        temp = h.each{|k, v| self[k] = v}
+        @c_q.unshift(temp.keys[0])
+      end
+      idx = @c_q.pop
+    elsif v == NOUGHT
+      if @n_bk.size &amp;gt; 0
+        h = Hash[*(@n_bk.pop)]
+        temp = h.each{|k, v| self[k] = v}
+        @n_q.unshift(temp.keys[0])
+      end
+      idx = @n_q.pop
+    end
+    self[idx] = nil
+  end
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;　評価関数や画面出力部分はまったく変更する必要は無く、Boardクラスに指し手を記憶するための配列を追加し、setメソッドとunsetメソッドを追加して、今まで&lt;code&gt;board[n] = CROSS&lt;/code&gt;等、配列に値を代入していたところを&lt;code&gt;board.set(n, CROSS)&lt;/code&gt;のように変更し、&lt;code&gt;board[n] = nil&lt;/code&gt;としていたところを&lt;code&gt;board.unset(CROSS)&lt;/code&gt;に変えるだけです。&lt;br /&gt;
+　で、初手から読み切りさせて見たところ、敢えなくスタックオーバーフロー。でもこれは将棋でいうところの千日手になるケースがあるのだろうと思ったので、先読み手数を制限して9手読み、10手読みと試していきました。すると、10手読みのところまでは三目並べと同じように全部0の評価だったのですが、11手読みまで増やすと以下のような結果が出ました。  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; |1|2|3|
+ |4|5|6|
+ |7|8|9|
+1手目 1: 評価値: 0
+1手目 2: 評価値: 9
+1手目 3: 評価値: 0
+1手目 4: 評価値: 9
+1手目 5: 評価値: 0
+1手目 6: 評価値: 9
+1手目 7: 評価値: 0
+1手目 8: 評価値: 9
+1手目 9: 評価値: 0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;　初手に偶数の場所つまり辺の部分に先手が着手すれば先手が勝つことが出来ると言ってます。普通の三目並べと違って真ん中を取るのはよくないようです。&lt;br /&gt;
+　あと、10手読みまでは三目並べと同じように評価0ばかりだったと言っても、三目並べの場合は完全に読み切った上で引き分けになることを示しているのですが、この新しいルールの三目並べは先読み手数を制限しているので、制限手数内で先読みした限りでは勝負がつかないということを示しているだけです。&lt;br /&gt;
+　次に辺の部分に初手を打てば勝てるということなのでその局面から先読み開始してみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; |1|2|3|
+ |4|5|6|
+ |7|X|9|
+2手目 1: 評価値: 9
+2手目 2: 評価値: 9
+2手目 3: 評価値: 9
+2手目 4: 評価値: 9
+2手目 5: 評価値: 9
+2手目 6: 評価値: 9
+2手目 7: 評価値: 9
+2手目 9: 評価値: 9
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;　全部先手勝ちとなりました。これで「ちょっと変わった三目並べ（Arrage Line）」というゲームは先手必勝のゲームであることが確認出来たと早合点して&lt;a href=&quot;https://twitter.com/SappierBoy/status/512377344582225920&quot;&gt;Twitterにも呟いてしまった&lt;/a&gt;んですが、千日手（同じ手の繰り返しで局面が進まない状態）に対応していないのでなんとも言えません。どうもこのゲームは互いに最善手を打ちつづけると千日手になるような気もしますが、それを証明するのは結構難しそうです。&lt;br /&gt;
+　本来のの三目並べやオセロゲームは指し手が盤上を埋めていき、選択肢がだんだん減っていくので読みやすくなっていきますが、このArrangeLineや将棋は盤上のスペースを埋めていくわけでは無いので、先読みプログラムを作る方は大変です。結局、前回の記事同様先読みプログラム作りの大変さを再認識する結果になってしまいました。おもしろい題材なのでArrangeLineについてはまた何か発見があれば記事を書いてみようと思います。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>MIN-MAX法とαβ法</title>
