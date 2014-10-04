@@ -5,10 +5,113 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2014-09-23T22:36:16+09:00</lastBuildDate>
-        <pubDate>2014-09-23T22:36:16+09:00</pubDate>
+        <lastBuildDate>2014-10-04T23:22:28+09:00</lastBuildDate>
+        <pubDate>2014-10-04T23:22:28+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>三目並べ（tic tac toe）で遊んでみた（続き）</title>
+                <description>&lt;h3 id=&quot;section&quot;&gt;先読み手数を制限しても必勝の結論は出ないはず&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/software/2014-09-23/tictactoe_arrange/&quot;&gt;前回の記事&lt;/a&gt;で自分が作ったプログラムは千日手対応をしていないから先手必勝の結論が出ても信用できないって書きましたが、よく考えてみたら千日手対応していなくても先手必勝の評価が出てくるってことは、ArrangeLineってゲームが先手必勝であるか検証に使った自分のプログラムがバグっているかのどちらかであると気づきました。評価関数が返す値は一つの局面に関して勝ちか負けか引き分けかの三種類にしか分けていないので、千日手の局面は引き分けの一局面として評価しているはずで、引き分けに成り得るなら後手は引き分けになる手を選択し先手勝ちの評価にはならない。スタンダードの三目並べを調べた場合と違って、11手読みという手数を限定して先読みをしているわけだからそんなこともあるかと流してしまったけど、読み切っていないから勝ちか負けか決められない（引き分けになる）という評価が返ってくることはあっても、引き分けがあり得るのに必勝・必敗の評価を返してくるというのはバグっている可能性が高いのではないか。でも一応スタンダードな三目並べでは問題なさそうだし、バグの見当が付かなかったのでまずは先に千日手対応をしてみることにしました。&lt;br /&gt;
+　その前にArrangeLineをダウンロードして自分のプログラムと対戦させて確認したのですが、ArrangeLineのLevel2で自分のプログラムが先手なのに千日手になり決着が付かないケースがありました。実際に千日手になることを確認していたためArrangeLineは双方最善手を打てば千日手になるゲームだと思ってしまったのですが、繰返しますが千日手になるのであればやっぱり先手必勝の結論が出るのはおかしい。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;千日手対応&lt;/h3&gt;
+&lt;p&gt;　先読みの最中に過去に現れた局面が一定周期で続いて現れるかどうかを判定するってプログラムが重くなりそうだし、難しそうな気がして対応する気がしなかったのですが、よく考えてみると先読みの最中である必要は無く、実際に打った一手だけを局面毎に保存しておいて、先読みを開始する一手目の時だけ過去に同一局面があったかどうかを調べるだけで済みそうです。これなら重くなることもありません。&lt;br /&gt;
+　※&lt;a href=&quot;/software/2014-09-23/tictactoe_arrange/&quot;&gt;前回の記事&lt;/a&gt;で必ず千日手になることを証明するのは難しいと書いたのは、完全読み切りが出来ない場合（将棋もその一つ）はたしかにその通りですが、先手必勝あるいは後手必勝という結論を返してくるということは完全読み切りが出来ているということなので、その時点で千日手は結論に関係無かったと言うことです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  #過去に同一局面があったかどうか判定
+  def check_dup(sengo)
+    temp = self.dup
+    temp.unshift(sengo)
+    return @duplication.has_key?(temp.hash)
+  end
+  #局面データのハッシュ値だけ保存
+  def set_dup(sengo)
+    temp = self.dup
+    temp.unshift(sengo)
+    @duplication[(temp).hash] = temp
+  end
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;　局面データと手番データからハッシュ値を生成して保存するメソッドと、そのハッシュ値を検索するメソッドを追加。&lt;br /&gt;
+　過去に評価した局面を再現したりその時の評価値を再利用したりするわけでは無く、過去に同一局面があったかどうかを判断するだけなので保存するのはハッシュ値だけでもいいのですが、一応局面と手番のデータを保存しています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;        if board.check_dup(turn)
+          temp_v = 0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;　そして局面を評価した後に過去に現れた局面なら強制的に評価値を引き分け（DRAW=0）にする処理を追加しただけです。引き分けでなく同じ局面を再現させたら負けとすることも考えられますが、それだとArrangeLineと対戦させたときにこのソフト側だけが不利なルールで戦うことになるのでよくありません。その他にも評価値を少し下げるとかいろいろ奥が深そうですが、将棋のように何らかの千日手に関するルールが無い限りは引き分けの評価（0）でよさそうです。&lt;br /&gt;
+　ということで、同一局面を出現させたら引き分けという評価を返す状態で、前回の記事同様に一手打った状態から検証プログラムを動かしてみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; |1|2|3|
+ |4|5|6|
+ |7|X|9|
+2手目 1: 評価値: 9
+2手目 2: 評価値: 9
+2手目 3: 評価値: 9
+2手目 4: 評価値: 9
+2手目 5: 評価値: 9
+2手目 6: 評価値: 9
+2手目 7: 評価値: 9
+2手目 9: 評価値: 9
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;　前回と同じく初手に辺の部分に打てばやっぱり先手必勝になるという結果になります。そして実際のandroidアプリと対戦させて見たところ、以前は先手なのに必ず千日手になっていたケースでも千日手を避けるようになり、先手の場合に限っては必ず勝利することが出来るようです。なのでArrangeLineは先手必勝のゲームと言っていいでしょう。もし何か間違いに気づいた人がいれば連絡して下さい。景品を差し上げます…ウソです。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;em&gt;自作プログラムの対戦状況&lt;/em&gt;  &lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th style=&quot;text-align: left&quot;&gt;先手・後手\ArrangeLineのLevel&lt;/th&gt;
+          &lt;th style=&quot;text-align: left&quot;&gt; &lt;/th&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;Level 1&lt;/th&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;Level 2&lt;/th&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;Level 3&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;自作プログラムが先手&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;勝ち&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;勝ち&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;勝ち&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;自作プログラムが後手&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;初手が辺&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;勝ち&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;勝ち&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;負け&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;^&lt;/td&gt;
+          &lt;td style=&quot;text-align: left&quot;&gt;初手が辺以外&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;勝ち&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;勝ち&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;千日手&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;　ArrangeLineは乱数を使っているようなのでこの表の結果はいつも同じではないはずですが、自作プログラムが先手の場合はいつも勝ちます。それと千日手対応したのに千日手になることがあるのは自作のプログラムが後手で、負けるはずなのにArrangeLine側が勝ってくれないために起きる現象です。自作ソフト側としては後手なので勝てないから千日手に持っていくしか無い状況ってことだと思います。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;先手・後手が決まった段階で勝負は既に決まっている&lt;/h3&gt;
+&lt;p&gt;　androidアプリのArrangeLine側は乱数を使っているようなので必ず再現するわけではないのですが、私のプログラムが先手の場合は必ず勝つのですが、後手の場合は最短の5手で負ける場合があります。
+&lt;img src=&quot;/images/arrangeline.png&quot; alt=&quot;負け画像&quot; /&gt;
+先手がリーチ（あと一手でラインが揃う）状態になっても揃うことを防ごうとしないことがあるのです。最初はバグか？と思いましたが、これもよく考えてみると私のソフト側は後手で尚且つ初手で辺の部分を取られていると、どう足掻いても負けることがわかっているので勝つことを諦めているわけです。&lt;a href=&quot;/project/2014-08-05/tictactoe/&quot;&gt;以前の記事&lt;/a&gt;に通常ルールの三目並べソフトが初手に有利なはずの真ん中を取らないことを書きましたが、初手にどこを取っても引き分けになることを読み切っている（初手にどこを選んでも引き分けの評価値が返ってくる）ので、1（左上隅）の場所から順に読み始めて最後に評価した9の場所（右下隅）を取る現象と同じです。ArrangeLineでも初手に辺の部分を取られているとその後どういう変化をしようが負けることがわかっている（先手勝ちの評価値MAX_VALUE=9が返ってくる）ため、相手がリーチをかけていようがいまいが関係なくたまたま最後に評価した場所を選んでしまいます。一回リーチを防いでも負けることが分かってるのですから…。&lt;br /&gt;
+　この現象を防ぐにはどうすればいいのか、前にも書きましたが将棋にしろオセロにしろ局面の形勢判断用の評価関数と読み切り用（将棋で言えば詰将棋用）の評価関数を分けて使用するか、リーチを優先的に防ぐ処理（将棋で言えば王手放置を避ける）を用意すればいいのでしょうが、相手が間違えない限り手数を伸ばすだけで、勝敗は既に決まっています。将棋と違って完全読切りが完了しているゲームでこの処理を入れるのは虚しいだけでしょう。ただ、このArrangeLineに関して言えばandroid端末用のゲームなので完全読切りするにはマシンパワーの制限で難しいからそれなりに形勢判断用の評価関数を工夫する意味はあると思います。自分はあまり興味湧きませんが…&lt;br /&gt;
+　今回の記事の中で「よく考えてみると」と何度も書いてますが、この手のソフトは自分の意図通りに動いているのかうまくいっていないのか結構悩まされます。最後の例でもそうですが、考えて納得して改良したあとにいきなり5手で負けたりするとさっぱり意味が分からなくなりました。でも、特別なアルゴリズムを使わなくても完全読み切りが出来るわけですから、将棋なんかに較べたら作り易いゲームではあると思います。今回、千日手回避のために他にもいろいろ試行錯誤したのでそれらの手法を使って将棋作りに活かしてみようと思っています。&lt;/p&gt;
+
+</description>
+                <link>http://happyclam.github.io/software/2014-10-04/arrange_line</link>
+                <guid>http://happyclam.github.io/software/2014-10-04/arrange_line</guid>
+                <pubDate>2014-10-04T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>三目並べ（tic tac toe）で遊んでみた</title>
@@ -201,7 +304,7 @@ MIN_VALUE = -9
 2手目 9: 評価値: 9
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;　全部先手勝ちとなりました。これで「ちょっと変わった三目並べ（Arrage Line）」というゲームは先手必勝のゲームであることが確認出来たと早合点して&lt;a href=&quot;https://twitter.com/SappierBoy/status/512377344582225920&quot;&gt;Twitterにも呟いてしまった&lt;/a&gt;んですが、千日手（同じ手の繰り返しで局面が進まない状態）に対応していないのでなんとも言えません。どうもこのゲームは互いに最善手を打ちつづけると千日手になるような気もしますが、それを証明するのは結構難しそうです。&lt;br /&gt;
-　本来のの三目並べやオセロゲームは指し手が盤上を埋めていき、選択肢がだんだん減っていくので読みやすくなっていきますが、このArrangeLineや将棋は盤上のスペースを埋めていくわけでは無いので、先読みプログラムを作る方は大変です。結局、前回の記事同様先読みプログラム作りの大変さを再認識する結果になってしまいました。おもしろい題材なのでArrangeLineについてはまた何か発見があれば記事を書いてみようと思います。&lt;/p&gt;
+　本来の三目並べやオセロゲームは指し手が盤上を埋めていき、選択肢がだんだん減っていくので読みやすくなっていきますが、このArrangeLineや将棋は盤上のスペースを埋めていくわけでは無いので、先読みプログラムを作る方は大変です。結局、前回の記事同様先読みプログラム作りの大変さを再認識する結果になってしまいました。おもしろい題材なのでArrangeLineについてはまた何か発見があれば記事を書いてみようと思います。&lt;/p&gt;
 
 &lt;hr /&gt;
 
