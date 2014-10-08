@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2014-10-08T13:42:33+09:00</lastBuildDate>
-        <pubDate>2014-10-08T13:42:33+09:00</pubDate>
+        <lastBuildDate>2014-10-08T16:15:29+09:00</lastBuildDate>
+        <pubDate>2014-10-08T16:15:29+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -115,9 +115,9 @@
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&quot;section-2&quot;&gt;先手・後手が決まった段階で勝負は既に決まっている&lt;/h3&gt;
-&lt;p&gt;　androidアプリのArrangeLine側は乱数を使っているようなので必ず再現するわけではないのですが、私のプログラムが先手の場合は必ず勝つのですが、後手の場合は最短の5手で負ける場合があります。
-&lt;img src=&quot;/images/arrangeline.png&quot; alt=&quot;負け画像&quot; /&gt;
-先手がリーチ（あと一手でラインが揃う）状態になっても揃うことを防ごうとしないことがあるのです。最初はバグか？と思いましたが、これもよく考えてみると私のソフト側は後手で尚且つ初手で辺の部分を取られていると、どう足掻いても負けることがわかっているので勝つことを諦めているわけです。&lt;a href=&quot;/project/2014-08-05/tictactoe/&quot;&gt;以前の記事&lt;/a&gt;に通常ルールの三目並べソフトが初手に有利なはずの真ん中を取らないことを書きましたが、初手にどこを取っても引き分けになることを読み切っている（初手にどこを選んでも引き分けの評価値が返ってくる）ので、1（左上隅）の場所から順に読み始めて最後に評価した9の場所（右下隅）を取る現象と同じです。ArrangeLineでも初手に辺の部分を取られているとその後どういう変化をしようが負けることがわかっている（先手勝ちの評価値MAX_VALUE=9が返ってくる）ため、相手がリーチをかけていようがいまいが関係なくたまたま最後に評価した場所を選んでしまいます。一回リーチを防いでも負けることが分かってるのですから…。&lt;br /&gt;
+&lt;p&gt;　androidアプリのArrangeLine側は乱数を使っているようなので必ず再現するわけではないのですが、私のプログラムが先手の場合は必ず勝つのですが、後手の場合は最短の5手で負ける場合があります。&lt;br /&gt;
+&lt;img src=&quot;/images/arrangeline.png&quot; alt=&quot;負け画像&quot; /&gt;&lt;br /&gt;
+　先手がリーチ（あと一手でラインが揃う）状態になっても揃うことを防ごうとしないことがあるのです。最初はバグか？と思いましたが、これもよく考えてみると私のソフト側は後手で尚且つ初手で辺の部分を取られていると、どう足掻いても負けることがわかっているので勝つことを諦めているわけです。&lt;a href=&quot;/project/2014-08-05/tictactoe/&quot;&gt;以前の記事&lt;/a&gt;に通常ルールの三目並べソフトが初手に有利なはずの真ん中を取らないことを書きましたが、初手にどこを取っても引き分けになることを読み切っている（初手にどこを選んでも引き分けの評価値が返ってくる）ので、1（左上隅）の場所から順に読み始めて最後に評価した9の場所（右下隅）を取る現象と同じです。ArrangeLineでも初手に辺の部分を取られているとその後どういう変化をしようが負けることがわかっている（先手勝ちの評価値MAX_VALUE=9が返ってくる）ため、相手がリーチをかけていようがいまいが関係なくたまたま最後に評価した場所を選んでしまいます。一回リーチを防いでも負けることが分かってるのですから…。&lt;br /&gt;
 　この現象を防ぐにはどうすればいいのか、前にも書きましたが将棋にしろオセロにしろ局面の形勢判断用の評価関数と読み切り用（将棋で言えば詰将棋用）の評価関数を分けて使用するか、リーチを優先的に防ぐ処理（将棋で言えば王手放置を避ける）を用意すればいいのでしょうが、相手が間違えない限り手数を伸ばすだけで、勝敗は既に決まっています。将棋と違って完全読切りが完了しているゲームでこの処理を入れるのは虚しいだけでしょう。ただ、このArrangeLineに関して言えばandroid端末用のゲームなので完全読切りするにはマシンパワーの制限で難しいからそれなりに形勢判断用の評価関数を工夫する意味はあると思います。自分はあまり興味湧きませんが…&lt;br /&gt;
 　今回の記事の中で「よく考えてみると」と何度も書いてますが、この手のソフトは自分の意図通りに動いているのかうまくいっていないのか結構悩まされます。最後の例でもそうですが、考えて納得して改良したあとにいきなり5手で負けたりするとさっぱり意味が分からなくなりました。でも、特別なアルゴリズムを使わなくても完全読み切りが出来るわけですから、将棋なんかに較べたら作り易いゲームではあると思います。今回、千日手回避のために他にもいろいろ試行錯誤したのでそれらの手法を使って将棋作りに活かしてみようと思っています。&lt;/p&gt;
 
@@ -371,24 +371,24 @@ MIN_VALUE = -9
 &lt;ul&gt;
   &lt;li&gt;
     &lt;p&gt;ケース１&lt;br /&gt;
-&lt;img src=&quot;/images/scr1-1.png&quot; alt=&quot;局面1-1&quot; /&gt;
+&lt;img src=&quot;/images/scr1-1.png&quot; alt=&quot;局面1-1&quot; /&gt;&lt;br /&gt;
 　先手＝ソフト、後手＝人間で上の図の初期配置から先読みをせずに、というか１手先を読む設定でソフトに初手を指させると「１二飛」と指します&lt;br /&gt;
-&lt;img src=&quot;/images/scr1-2.png&quot; alt=&quot;局面1-2&quot; /&gt;
+&lt;img src=&quot;/images/scr1-2.png&quot; alt=&quot;局面1-2&quot; /&gt;&lt;br /&gt;
 　ソフトは自分が一手指した局面で評価（自分の駒の重みの合計点ー相手の駒の重みの合計点）を計算しますので、この局面では歩を一枚得をした状態なので自分が有利と判断します。次の一手で後手に飛車を取り返されて大損するにもかかわらずです。&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;ケース２&lt;br /&gt;
 局面２ー１:&lt;br /&gt;
-&lt;img src=&quot;/images/scr2-1.png&quot; alt=&quot;局面2-1&quot; /&gt;
+&lt;img src=&quot;/images/scr2-1.png&quot; alt=&quot;局面2-1&quot; /&gt;&lt;br /&gt;
 　先手＝ソフト、後手＝人間で、既に後手有利な局面ですが、ここで５一の飛車を使うために４三角と指します。&lt;br /&gt;
 局面２ー２:&lt;br /&gt;
-&lt;img src=&quot;/images/scr2-2.png&quot; alt=&quot;局面2-2&quot; /&gt;
+&lt;img src=&quot;/images/scr2-2.png&quot; alt=&quot;局面2-2&quot; /&gt;&lt;br /&gt;
 　もし、ソフトが角を取れば４五飛車の一手詰という仕掛けです。3手先を読む設定にしたソフトで、この局面で指させると下図のように堂々と４三金と角を取ってしまいます。&lt;br /&gt;
 局面２ー３:
-&lt;img src=&quot;/images/scr2-3.png&quot; alt=&quot;局面2-3&quot; /&gt;
+&lt;img src=&quot;/images/scr2-3.png&quot; alt=&quot;局面2-3&quot; /&gt;&lt;br /&gt;
 　ソフトからすると４三金（1手目）、４五飛（2手目）と進んでも４五同玉（3手目）とすれば自分が有利と計算することになるからです。&lt;br /&gt;
 局面２ー４:
-&lt;img src=&quot;/images/scr2-4.png&quot; alt=&quot;局面2-4&quot; /&gt;
+&lt;img src=&quot;/images/scr2-4.png&quot; alt=&quot;局面2-4&quot; /&gt;&lt;br /&gt;
 　４五同玉と取った時点の駒の重みの合計点は飛車の分が加算されて先手のソフト側の点数がかなり高くなります。この飛車を取ることが出来るというところまで読んで「局面２ー２」の時点で４三金と角を取る手を選んでしまうわけです。その次の一手で後手に４五同馬と玉を取られるにもかかわらずです。ソフトを4手先を読む設定にすれば、その先で自玉が取られて合計点が大幅に減ることが分かるので「局面２ー２」で４三金とは指しません。&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
@@ -516,7 +516,7 @@ MIN_VALUE = -9
                 <title>BlueToothマウス</title>
                 <description>&lt;h3 id=&quot;section&quot;&gt;携帯する気は無いが、マウスのケーブルは細い方がいい&lt;/h3&gt;
 &lt;p&gt;　まだ一年程しか使っていなかったマウスが壊れました。ケーブルが平べったいタイプでUSB端子をマウスの中に収納できるタイプのもの。ケーブルが巻き取れるタイプのものは携帯用の小さなマウスばかりですが、USB端子も本体に収納出来るようになっているため比較的マウス本体も大きめの作りでまぁまぁ気に入っていたのに短い命でした。このタイプのマウスでもう一つお気に入りのマウスを持っているのですが、それはビックカメラ製の今はもう製造していないであろう珍しいもの（だと思います）。10年以上前に新横浜のビックカメラで買ったものですが、ELECOM等のOEM製品だと思いますが、どういう経緯で自社ブランドで販売したのか知りませんが、確かにビックカメラ製と銘打っていたと記憶しています。あの時まとめて買いだめしておけばよかったと思います。&lt;br /&gt;
-&lt;img src=&quot;/images/biccamera_mouse.png&quot; alt=&quot;ビックカメラ製マウス&quot; /&gt;
+&lt;img src=&quot;/images/biccamera_mouse.png&quot; alt=&quot;ビックカメラ製マウス&quot; style=&quot;float: left;&quot; /&gt;
 　大きいマウスの方が使いやすいのですが、ケーブルが太いと、わずかではあるけどケーブルに操作を持っていかれる時があるので好きではありません。だからと言ってケーブルの無い無線方式だと何となく信頼できないというか、安心できないというかイザというとき困るんじゃないかとか、CPU切替器も使っているのでちゃんと動くかどうかわからないという不安が先走って、未だに無線方式のものは使わずにいます。マウスに関してはキーボードほど使い勝手にこだわりは無いのでそろそろ無線を試してもいいかもと思いながらも、あくまで細いケーブルの大きなマウスを求めていろんな店舗を見て回ることにしました。  &lt;/p&gt;
 
 &lt;h3 id=&quot;section-1&quot;&gt;予定していた行動とまったく違うことすることってありますよね&lt;/h3&gt;
@@ -524,7 +524,7 @@ MIN_VALUE = -9
 
 &lt;h3 id=&quot;ubuntu1204&quot;&gt;Ubuntu12.04では使えない？&lt;/h3&gt;
 &lt;p&gt;　家では主にUbuntu12.04を使っているのですが、そのままでは認識すらしてくれませんでした。Windows7のノートPCでは２つのドングル（&lt;a href=&quot;http://www.planex.co.jp/product/bluetooth/bt-microedr2x/&quot;&gt;BT-MicroEDR2X&lt;/a&gt;、&lt;a href=&quot;http://www.planex.co.jp/product/bluetooth/bt-01ude.shtml&quot;&gt;BT-01UDE&lt;/a&gt;）で確認したので故障ではありません。dbusを最新のものに入れ替えたらデバイス検索でBSMBB17を検出してはくれたものの動作しませんでした。そこで以前から更新しようと思っていながら放ったらかしにしていたUbuntu14.04へのアップグレード（do-release-upgradeコマンド一発）をやってみたらすぐに認識することが出来、使えました。メデタシメデタシ。って結局マウスが壊れたおかげで以前から懸案だったUbuntuアップグレード作業をすることが出来たことが収穫って感じです。マウスが壊れたところから神様のお導きだったのかもしれません。&lt;br /&gt;
-&lt;a href=&quot;http://buffalo.jp/product/input/mouse/bsmbb17/&quot;&gt;&lt;img src=&quot;/images/bsmbb17_mouse.png&quot; alt=&quot;BSMBB17&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;http://buffalo.jp/product/input/mouse/bsmbb17/&quot;&gt;&lt;img src=&quot;/images/bsmbb17_mouse.png&quot; alt=&quot;BSMBB17&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
 　で、肝心のBlueToothマウスの使い勝手ですが、頻繁に動作が引っかかる感じでとても使い続ける気にはなりませんでした。自分的にはBlueToothマウスはまだまだ実用には堪えられないって感じです。あくまでlinuxで使う場合の話ですが…。結局マウスはしばらく買わずに、とっておきのビックカメラ製のものを使うことにします。チャンチャン。&lt;/p&gt;
 
 </description>
@@ -981,9 +981,11 @@ DBにデータを格納するシェルスクリプトは、&lt;a href=&quot;http
 &lt;h3 id=&quot;section-1&quot;&gt;違いが分かる説明の仕方&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;http://ja.wikipedia.org/wiki/%E3%83%9C%E3%83%A9%E3%83%86%E3%82%A3%E3%83%AA%E3%83%86%E3%82%A3&quot;&gt;wikipediaによるボラティリティの説明&lt;/a&gt;は学問的で、これはこれでいいのかもしれません。それに「インプライド・ボラティリティとは&lt;strong&gt;現実のオプション市場でついたオプション価格から逆算されたボラティリティ&lt;/strong&gt;のことである」とこれ以上望めない簡潔な言葉で言い表されています。&lt;br /&gt;
 しかし、これ&lt;br /&gt;
-&lt;img src=&quot;http://upload.wikimedia.org/math/c/8/9/c89911f0951782890cbb855572aa9de7.png&quot; alt=&quot;wikipediaのHVの数式&quot; /&gt;とか、&lt;br /&gt;
+&lt;img src=&quot;http://upload.wikimedia.org/math/c/8/9/c89911f0951782890cbb855572aa9de7.png&quot; alt=&quot;wikipediaのHVの数式&quot; /&gt;&lt;br /&gt;
+とか、&lt;br /&gt;
 こういう&lt;br /&gt;
-&lt;img src=&quot;http://upload.wikimedia.org/math/1/9/b/19beb2fcdc78f6d56e3e16ad3f04c624.png&quot; alt=&quot;wikipediaのIVの数式&quot; /&gt;難しい数式が出てくるので、「要するにどちらも値動きの荒さ、変動率のことだろ？」と言う感じで思考を中断してしまいがちだと思うのです。オプションという商品を理解しているつもりだった自分も、&lt;a href=&quot;http://my-posi.herokuapp.com&quot;&gt;先物・オプション売買損益シミュレーションサイト&lt;/a&gt;を自分で作ってみるまではIVとHVの違いを明確に区別出来ていなくて、よく似たような物ぐらいに考えていました。２つの間には相関関係が非常に薄いにも関わらずです。&lt;br /&gt;
+&lt;img src=&quot;http://upload.wikimedia.org/math/1/9/b/19beb2fcdc78f6d56e3e16ad3f04c624.png&quot; alt=&quot;wikipediaのIVの数式&quot; /&gt;&lt;br /&gt;
+難しい数式が出てくるので、「要するにどちらも値動きの荒さ、変動率のことだろ？」と言う感じで思考を中断してしまいがちだと思うのです。オプションという商品を理解しているつもりだった自分も、&lt;a href=&quot;http://my-posi.herokuapp.com&quot;&gt;先物・オプション売買損益シミュレーションサイト&lt;/a&gt;を自分で作ってみるまではIVとHVの違いを明確に区別出来ていなくて、よく似たような物ぐらいに考えていました。２つの間には相関関係が非常に薄いにも関わらずです。&lt;br /&gt;
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;
 ヒストリカル・ボラティリティxとオプション理論価格yは以下のように表すことが出来て、  \\
 y = ax\\
@@ -1002,9 +1004,7 @@ x_1 = \frac{y_1}{a}\\
                 <title>DBのカラムに対応しないプロパティ</title>
                 <description>&lt;h3 id=&quot;section&quot;&gt;日付型のカラムのデータを年月だけの文字列にしてコンボボックスに表示したい&lt;/h3&gt;
 &lt;p&gt;先物やオプションの建玉を入力する時には限月を選ぶ必要がありますが、必要なのは年と月(“2014/06”等の文字列)だけです。でもDBに”年/月”のフォーマットで文字列として格納するのはあまりにも汚い。DBのカラム属性は日付型にしておいた方が何かと便利、というかしておくべきでしょう（日数や時間の差を計算する時に困ります）。&lt;br /&gt;
-&lt;em&gt;**
-&lt;img src=&quot;/images/dropdown_exp.png&quot; alt=&quot;限月の選択&quot; title=&quot;限月の選択&quot; /&gt;
-**&lt;/em&gt;
+&lt;img src=&quot;/images/dropdown_exp.png&quot; alt=&quot;限月の選択&quot; title=&quot;限月の選択&quot; /&gt;&lt;br /&gt;
 こういう場合、昔PHPで仕事していた時には、文字列型と日付型を相互にフォーマット変換するコードをView上のあちこちに散りばめながら実現していた記憶があります。&lt;/p&gt;
 
 &lt;h3 id=&quot;section-1&quot;&gt;シンプルな実現方法&lt;/h3&gt;

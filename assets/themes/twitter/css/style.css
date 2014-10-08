@@ -1,3 +1,20 @@
+/* Code blocks */
+code, pre {
+  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+  font-size:14px;
+  line-height: 14px;
+}
+
+body {
+  font-size: 1em;
+/*  line-height: 1.625em; */
+  line-height: normal;
+}
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { border: solid 1px #003333; }
+th { border: solid 2px #003333; }
+
 /* Custom container */
 .container-narrow {
   margin: 0 auto;
