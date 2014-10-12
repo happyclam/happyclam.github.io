@@ -31,7 +31,14 @@
     <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
     <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
 <!-- mathjax config similar to math.stackexchange -->
-
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-1752720-7', 'happyclam.github.io');
+      ga('send', 'pageview');
+    </script>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   jax: ["input/TeX", "output/HTML-CSS"],
@@ -300,8 +307,9 @@ config.assets.compile = falseでdevelopment,production両方の環境で動き�
 </dl>
 
 <p><em>結論</em><br />
-「$document.readyイベントを使うjqueryが動作しない時は、テンプレートに直書きしてみる。」<br />
-※ネットの情報を漁っていると、jquery-turbolinks gemを使えば解決するというものが多いのですが、$document.readyイベントに関してはそういうわけにはいかないようです。</p>
+「$document.readyイベントを使うjqueryが動作しない時は、テンプレートに直書きしてみる。」</p>
+
+<p>　※ネットの情報を漁っていると、jquery-turbolinks gemを使えば解決するというものが多いのですが、$document.readyイベントに関してはそういうわけにはいかないようです。</p>
 
 
     </div>

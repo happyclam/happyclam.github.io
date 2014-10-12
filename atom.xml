@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2014-10-08T16:15:29+09:00</updated>
+ <updated>2014-10-12T22:50:39+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -710,8 +710,9 @@ config.assets.compile = falseでdevelopment,production両方の環境で動き�
 &lt;/dl&gt;
 
 &lt;p&gt;&lt;em&gt;結論&lt;/em&gt;&lt;br /&gt;
-「$document.readyイベントを使うjqueryが動作しない時は、テンプレートに直書きしてみる。」&lt;br /&gt;
-※ネットの情報を漁っていると、jquery-turbolinks gemを使えば解決するというものが多いのですが、$document.readyイベントに関してはそういうわけにはいかないようです。&lt;/p&gt;
+「$document.readyイベントを使うjqueryが動作しない時は、テンプレートに直書きしてみる。」&lt;/p&gt;
+
+&lt;p&gt;　※ネットの情報を漁っていると、jquery-turbolinks gemを使えば解決するというものが多いのですが、$document.readyイベントに関してはそういうわけにはいかないようです。&lt;/p&gt;
 
 </content>
  </entry>

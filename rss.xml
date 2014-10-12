@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2014-10-08T16:15:29+09:00</lastBuildDate>
-        <pubDate>2014-10-08T16:15:29+09:00</pubDate>
+        <lastBuildDate>2014-10-12T22:50:39+09:00</lastBuildDate>
+        <pubDate>2014-10-12T22:50:39+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -705,8 +705,9 @@ config.assets.compile = falseでdevelopment,production両方の環境で動き�
 &lt;/dl&gt;
 
 &lt;p&gt;&lt;em&gt;結論&lt;/em&gt;&lt;br /&gt;
-「$document.readyイベントを使うjqueryが動作しない時は、テンプレートに直書きしてみる。」&lt;br /&gt;
-※ネットの情報を漁っていると、jquery-turbolinks gemを使えば解決するというものが多いのですが、$document.readyイベントに関してはそういうわけにはいかないようです。&lt;/p&gt;
+「$document.readyイベントを使うjqueryが動作しない時は、テンプレートに直書きしてみる。」&lt;/p&gt;
+
+&lt;p&gt;　※ネットの情報を漁っていると、jquery-turbolinks gemを使えば解決するというものが多いのですが、$document.readyイベントに関してはそういうわけにはいかないようです。&lt;/p&gt;
 
 </description>
                 <link>http://happyclam.github.io/programming/2014-07-07/rails_env</link>
