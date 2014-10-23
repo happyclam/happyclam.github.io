@@ -205,13 +205,13 @@ MathJax.Hub.Config({
 <span class="line-numbers"><a href="#n19" name="n19">19</a></span>      <span style="color:#080;font-weight:bold">if</span> (temp_v &gt; value &amp;&amp; turn == <span style="color:#036;font-weight:bold">CROSS</span>) 
 <span class="line-numbers"><strong><a href="#n20" name="n20">20</a></strong></span>        value = temp_v 
 <span class="line-numbers"><a href="#n21" name="n21">21</a></span>        locate = i
-<span class="line-numbers"><a href="#n22" name="n22">22</a></span>        <span style="color:#777">#上限値を上回ったら先読み中止（βカット）</span>
+<span class="line-numbers"><a href="#n22" name="n22">22</a></span>        <span style="color:#777">#上限値を上回ったら先読み中止</span>
 <span class="line-numbers"><a href="#n23" name="n23">23</a></span>        <span style="color:#080;font-weight:bold">return</span> value, locate <span style="color:#080;font-weight:bold">if</span> threshold &lt; temp_v
 <span class="line-numbers"><a href="#n24" name="n24">24</a></span>      <span style="color:#777">#後手○の番</span>
 <span class="line-numbers"><a href="#n25" name="n25">25</a></span>      <span style="color:#080;font-weight:bold">elsif</span> (temp_v &lt; value &amp;&amp; turn == <span style="color:#036;font-weight:bold">NOUGHT</span>)
 <span class="line-numbers"><a href="#n26" name="n26">26</a></span>        value = temp_v 
 <span class="line-numbers"><a href="#n27" name="n27">27</a></span>        locate = i
-<span class="line-numbers"><a href="#n28" name="n28">28</a></span>        <span style="color:#777">#下限値を下回ったら先読み中止（αカット）</span>
+<span class="line-numbers"><a href="#n28" name="n28">28</a></span>        <span style="color:#777">#下限値を下回ったら先読み中止</span>
 <span class="line-numbers"><a href="#n29" name="n29">29</a></span>        <span style="color:#080;font-weight:bold">return</span> value, locate <span style="color:#080;font-weight:bold">if</span> threshold &gt; temp_v
 <span class="line-numbers"><strong><a href="#n30" name="n30">30</a></strong></span>      <span style="color:#080;font-weight:bold">end</span>
 <span class="line-numbers"><a href="#n31" name="n31">31</a></span>    }
