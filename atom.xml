@@ -4,13 +4,106 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2014-10-23T14:01:05+09:00</updated>
+ <updated>2014-10-27T23:02:30+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>gruffからlazy_high_chartへ</title>
+   <link href="http://happyclam.github.io/programming/2014-10-27/my-posi-chart"/>
+   <updated>2014-10-27T00:00:00+09:00</updated>
+   <id>http://happyclam.github.io/programming/2014-10-27/my-posi-chart</id>
+   <content type="html">&lt;h3 id=&quot;rails3rails4&quot;&gt;Rails3からRails4への移行&lt;/h3&gt;
+&lt;p&gt;　一応&lt;a href=&quot;http://my-posi.herokuapp.com/&quot;&gt;herokuで公開&lt;/a&gt;してますがほとんど誰も使っていないようだし(^^)自分が使うときはローカル環境で動かすだけなのでRails4に移行する必要も無いのですが、&lt;a href=&quot;/project/2014-05-30/tweetwatch/&quot;&gt;TweetWatch&lt;/a&gt;を作ったときにLazyHighChartが気に入ったのでグラフ描画機能を変更する目的でついでにRailsもバージョンアップしました。Rails3からRails4への以降に関しては特に大きな変更は必要なかったのでgruffからlazy_high_chartへの移行に関して書きます。&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;使い方&lt;/h3&gt;
+&lt;p&gt;　その前に&lt;a href=&quot;https://www.ruby-toolbox.com/categories/graphing&quot;&gt;ここのサイト&lt;/a&gt;でいろんなグラフ描画ツールが紹介されています。以前googlechartsは試したことがあるのですが、何か気に入らないことがあってgruffに戻しました。でも、その理由が何であったのか忘れてしまいました(^^)  &lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Gemfileに追記
+　&lt;code&gt;gem &#39;lazy_high_charts&#39;&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code&gt;bundle install&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Contorollerでインスタンス変数にデータをセット&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;      @graphs = LazyHighCharts::HighChart.new(&quot;graph&quot;) do |f|
+        f.chart(:type =&amp;gt; &quot;line&quot;)
+        f.title(:text =&amp;gt; strategy.name)
+        f.tooltip(:pointFormat =&amp;gt; &#39;{series.name}: {point.y}&amp;lt;br /&amp;gt;&#39;,
+                  :shared =&amp;gt; true,
+                  :useHTML =&amp;gt; true,
+                  :style =&amp;gt; {margin: 0}
+                  )
+        f.xAxis(:title =&amp;gt; {:text =&amp;gt; &quot;先物価格&quot;}, :categories =&amp;gt; labels)
+        f.yAxis(:title =&amp;gt; {:text =&amp;gt; &quot;収益&quot;})
+        f.series(:name =&amp;gt; &quot;満期時計&quot;, :data =&amp;gt; total_data)
+        f.series(:name =&amp;gt; &quot;理論値計&quot;, :data =&amp;gt; bm_data)
+        distinct.each do |d|
+          f.series(:name =&amp;gt; d.keys[0], :data =&amp;gt; d.values[0])
+        end
+      end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+  &lt;li&gt;Viewに出力&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div id=&quot;chart&quot; style=&quot;width:640px; height:480px; margin:0 auto;&quot;&amp;gt;
+&amp;lt;%= high_chart(&quot;graph&quot;, @graphs) %&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　gruffを使っていた時のコードをほぼそのまま流用できましたが一点だけ引っかかったのが一つのキャンバスに複数の折れ線グラフを描画する方法。&lt;br /&gt;
+　&lt;a href=&quot;http://www.highcharts.com/docs/getting-started/your-first-chart&quot;&gt;本家サイトのサンプル&lt;/a&gt;を見てHashの配列を渡すのかと思いきや上のコードのようにseriesメソッドを複数回呼ぶようにしないとグラフを描画してくれませんでした。本家のサンプルはもちろんそのまま動きましたので、これはlazy_high_chart gemの仕様ということでしょう。普通の人は引っかからないのかぁ？たぶん普通はgemのヘルプの方を見るんですね。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;グラフ描画ツールを変えたことによる影響&lt;/h3&gt;
+&lt;dl&gt;
+  &lt;dt&gt;画像（ドット絵）からベクターデータへ&lt;/dt&gt;
+  &lt;dd&gt;gruffを使っていた以前のバージョンはpng画像を動的に生成していたのですが、lazy_high_chartではcanvasオブジェクトへの描画になるので、高速に描画出来るようになりました。以前は画像生成という重たい処理だったのでherokuの無料枠で運用していると処理が重すぎて画像生成に失敗してグラフ画像が表示されないことがありましたが、そういうことがなくなりそうです。それとクライアント側でJavaScriptで描画されたベクターデータなので、ブラウザを拡大・縮小するとそれに伴って画質を落とすこと無くグラフを拡大・縮小させることも出来るようになりました。まぁこのサイトの場合、画像を拡大・縮小しても縮尺を変えない限りあまり意味は無い（縮尺を変える機能はすでにある）ので、とりあえず今まで通りVGAサイズ（640×480）にしていますが、サイズ変更するとしてもCSSで変更出来るから楽です。ただ、古いブラウザ（HTML5に対応していない）だとグラフが描画出来ないことがあるかもしれません。&lt;/dd&gt;
+  &lt;dt&gt;損益分岐線を描画する必要が無くなった&lt;/dt&gt;
+  &lt;dd&gt;gruffの現状はよく知らないのですがgruffを使って開発した当初はメンテが行き届いていないようで縦軸のメモリを調整するのが簡単には出来なかったので、損益分岐線（0の値）のグラフをわざわざ自前で描画していたのですが、その必要がなくなりグラフがすっきりしました。  &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;gruff&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;lazy_high_chart&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/my_posi_ex1.png&quot; alt=&quot;gruffの画像1&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/my_posi_chart1.png&quot; alt=&quot;lazy_high_chartの画像1&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/my_posi_ex2.png&quot; alt=&quot;gruffの画像2&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/my_posi_chart2.png&quot; alt=&quot;lazy_high_chartの画像2&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　それとグラフ上にマウスを持ってくるとグラフの数値をポップアップで表示してくれるのもいいですね。  &lt;/p&gt;
+
+&lt;div style=&quot;width:320px; height:240px; margin:0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;img src=&quot;/images/my_posi_chart3.png&quot; alt=&quot;マウスオーバーによるポップアップの画像&quot; /&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　また、ググればいろいろ出て来ますが、gruffをruby1.9.3で使用するためとかLineメソッドを使うためにパッチを当てたりしなければいけませんでしたが、そういう無駄な作業からも開放されました。まあRubyだからモンキーパッチで簡単に出来る作業ではありましたが。&lt;/p&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>三目並べ（tic tac toe）で遊んでみた（続き）</title>
