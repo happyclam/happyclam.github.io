@@ -4,13 +4,143 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2014-10-27T23:02:30+09:00</updated>
+ <updated>2014-11-05T22:44:33+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>自動でコードレビュー</title>
+   <link href="http://happyclam.github.io/programming/2014-11-05/sideci_review"/>
+   <updated>2014-11-05T00:00:00+09:00</updated>
+   <id>http://happyclam.github.io/programming/2014-11-05/sideci_review</id>
+   <content type="html">&lt;h3 id=&quot;section&quot;&gt;当面は無料で提供されるらしいのでやってみて損はないかな？&lt;/h3&gt;
+&lt;p&gt;　セキュリティホールをふせぐという謳い文句に惹かれて&lt;a href=&quot;http://jp.techcrunch.com/2014/04/30/%E3%82%A2%E3%82%AF%E3%83%88%E3%82%AD%E3%83%A3%E3%83%83%E3%83%88%E3%81%AE%E3%80%8Csideci%E3%80%8D%E3%81%AF%E3%80%81%E3%82%B3%E3%83%BC%E3%83%89%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E3%82%92%E8%87%AA/&quot;&gt;「SideCI」&lt;/a&gt;使ってみました。レビューの対象に使ったプロジェクトは&lt;a href=&quot;/programming/2014-10-27/my-posi-chart/&quot;&gt;前回の記事&lt;/a&gt;でRails4にバージョンアップしたばかりの&lt;a href=&quot;https://github.com/happyclam/my-posi&quot;&gt;これ&lt;/a&gt;です。&lt;br /&gt;
+　使っている人の感想とか探せばもっと見つかると思いますが自分が参考にしたのは&lt;a href=&quot;http://blog.mah-lab.com/2014/05/14/rails-side-ci/&quot;&gt;ここ&lt;/a&gt;です。中身は&lt;a href=&quot;http://brakemanscanner.org/&quot;&gt;Brakeman&lt;/a&gt;や&lt;a href=&quot;https://github.com/railsbp/rails_best_practices&quot;&gt;Rails Best Practice&lt;/a&gt;などのツールを組み合わせたものらしいけど、統合メニューで操作できるのは確かに有難いかも。色々メニュー項目がありますが自分が使ってみたものについて感想と、指摘された改善点についてざっと書きます。&lt;br /&gt;
+　自分が書いたプログラムにどのような難癖を付けられるのか気になる人もいると思いますので参考にしてください(^^)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;ニュースフィード&lt;/strong&gt;&lt;br /&gt;
+　Test&amp;amp;Deployの機能や通知機能を使う気がない自分にとってはあまり必要がないメニューかも&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Dashboard&lt;/strong&gt;  &lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div style=&quot;width:320px; height:240px; float: left;&quot;&gt;
+
+  &lt;p&gt;&lt;img src=&quot;/images/dashboard_org_my-posi.png&quot; alt=&quot;ダッシュボード画面初期状態&quot; title=&quot;初レビュー時のダッシュボード画面&quot; /&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;div style=&quot;width:320px; height:240px; float: left;&quot;&gt;
+
+  &lt;p&gt;&lt;img src=&quot;/images/dashboard_new_my-posi.png&quot; alt=&quot;ダッシュボード画面コード改修後&quot; title=&quot;コード改修後のダッシュボード画面&quot; /&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;div style=&quot;width:320px; height:280px; margin: 0 auto;&quot;&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;セキュリティ&lt;/strong&gt;&lt;br /&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://brakemanscanner.org/docs/warning_types/link_to_href/&quot;&gt;Cross Site Scripting: Link to HREF&lt;/a&gt;&lt;br /&gt;
+twitterで呟くための文字列をAPIに渡す以下のコードでセキュリティ警告が出ました。&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;pre&gt;&lt;code&gt;&amp;lt;%= link_to(&quot;結果をTwitterでつぶやく&quot;, &quot;https://twitter.com/intent/tweet?text=#{u(@strategy.get_message_str)}&amp;amp;url=&quot; + request.url) %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;　たしかRails3以降は自動で文字列をエスケープしてくれるはずと思って検索したら&lt;a href=&quot;http://www.rubylife.jp/rails/template/index7.html&quot;&gt;ここ&lt;/a&gt;にもそう書いてあります。それなのに警告が出るのはおそらくSideCI上の&lt;a href=&quot;https://github.com/railsbp/rails_best_practices&quot;&gt;Rails Best Practice&lt;/a&gt;のオプション設定の問題だと思います。もしそうだとしたらGemfileに使用しているRailsのバージョンが書いてあるのだからオプション設定もそれに合わせてほしいところですが、一応以下のように修正して警告を出さないようにすることは出来ました。&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;&amp;lt;%= link_to(&quot;結果をTwitterでつぶやく&quot;, &quot;https://twitter.com/intent/tweet?text=#{h(@strategy.get_message_str)}&amp;amp;url=#{h(request.url)}&quot;) %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;念のためhtmlタグやシングルクォートを出力して確認しましたがh()で囲まなくてもちゃんとエスケープされていました。無駄な時間を取られましたが、まぁ確認する機会を得られたと前向きに考えるべきなのでしょうかヽ(~〜~　)ノ\ ハテ?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;コード品質&lt;/strong&gt;&lt;br /&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;a href=&quot;http://rails-bestpractices.com/posts/148-protect-mass-assignment&quot;&gt;Protect mass assignment&lt;/a&gt;&lt;br /&gt;
+このサイト（&lt;a href=&quot;http://qiita.com/aquamikan/items/57c6c95b39f961a18453&quot;&gt;Rails4はattr_accessibleが使えない&lt;/a&gt;）に書いてある通り、Rails4だとエラーになるからRailsをバージョンアップした時に削除したのに、そこが悪いと指摘されました。これはどういうことでしょう？これもセキュリティの警告と同じで&lt;a href=&quot;https://github.com/railsbp/rails_best_practices&quot;&gt;Rails Best Practice&lt;/a&gt;がRails4に対応していないものを使っているのか、オプション設定が厳しめになっているのかそんなところでしょう。よく分からないけど無視することにしました。こうなってくるとコードレビューしたことが混乱を引き起こすという本末転倒になってる気もしますが^^;本気でこのツールを使う気があるなら運営元に質問すればおそらく解決するでしょう。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;a href=&quot;http://rails-bestpractices.com/posts/7-move-model-logic-into-the-model&quot;&gt;Move Model Logic into the Model&lt;/a&gt;&lt;br /&gt;
+自分が納得したとこだけ修正しました。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;a href=&quot;http://rails-bestpractices.com/posts/72-remove-empty-helpers&quot;&gt;Remove empty helpers&lt;/a&gt;&lt;br /&gt;
+中身が空のヘルパーファイルがありますよ。自動生成したくなかったら&lt;code&gt;config.generators.helper = false&lt;/code&gt;しておけということですね。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;a href=&quot;http://rails-bestpractices.com/posts/27-replace-instance-variable-with-local-variable&quot;&gt;Replace instance variable with local variable&lt;/a&gt;&lt;br /&gt;
+納得。Rails2の頃からのソースで、よく理解していないまま書いていたコードがそのままでした。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;a href=&quot;http://rails-bestpractices.com/posts/86-restrict-auto-generated-routes&quot;&gt;restrict auto-generated&lt;/a&gt; routes strategies (except: [:new])&lt;br /&gt;
+以下のように定義していたルートに対して、&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;pre&gt;&lt;code&gt;resources :strategies do
+  collection do
+    get :children
+  end
+  member do
+    get :paint
+    post :copy
+  end
+  resources :positions, :only =&amp;gt; [&quot;destroy&quot;, &quot;update&quot;, &quot;create&quot;, &quot;edit&quot;]
+end
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;　「newが使われていませんよ」と指摘してくれたわけです。これはいいかも。以下のように修正しました。&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;resources :strategies, :except =&amp;gt; [&quot;new&quot;] do
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://rails-bestpractices.com/posts/62-simplify-render-in-controllers&quot;&gt;Simplify render in controllers&lt;/a&gt;&lt;br /&gt;
+このプロジェクトはModel用のテストスクリプト（Model用のspecファイル）しか書いていなくて、Railsのバージョンアップをした時に以下のようなRailsが出力する雛形のコードに対するテストが不十分でしたが、バグ出しツールとして役に立ちました。saveに失敗したら’new’テンプレートをrenderするとコードでは書いていますが、newテンプレートは存在していませんでした。但しファイルが存在しないことを指摘してくれたわけではありません。&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;pre&gt;&lt;code&gt;  respond_to do |format|
+    if @user.save
+      format.html { redirect_to @user, notice: &#39;User was successfully created.&#39; }
+      format.json { render action: &#39;show&#39;, status: :created, location: @user }
+    else
+      format.html { render action: &#39;new&#39; }
+      format.json { render json: @user.errors, status: :unprocessable_entity }
+    end
+  end
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;a href=&quot;http://rails-bestpractices.com/posts/61-simplify-render-in-views&quot;&gt;Simplify render in views&lt;/a&gt;&lt;br /&gt;
+部分テンプレートを使うとき&lt;code&gt;:partial&lt;/code&gt;というオプションを使わなければならない機会っていうのは無いってことなのか？と、新たな疑問が湧きましたが、リンク先に書いてある通りに修正しました。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;a href=&quot;http://rails-bestpractices.com/posts/60-remove-trailing-whitespace&quot;&gt;remove trailing whitespace&lt;/a&gt;&lt;br /&gt;
+行末のスペースを削除しろってことだけど、これは細かい！まぁチームで開発するときには一応統一しておいたほうがいいでしょうね。&lt;br /&gt;
+あと、一つのファイルで最初に見つかった行だけを指摘するみたいなので、他の場所にも存在しないかよく確認してからcommitしましょう。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;remove unused methods&lt;br /&gt;
+また使うかもしれないから残しておこうなんて思ったコードが結構残っていました。自分一人のプロジェクトなので他人を混乱させる心配はないのですが、せっかくgitでバージョン管理しているのだからバッサリ削除すべきですね。&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;テスト &amp;amp; デプロイ設定&lt;/strong&gt;&lt;br /&gt;
+　自分が使用しているtwitterAPI用の環境変数とかSSH Keyを登録するのが不安なので使用するのは止めておきました。まぁherokuではなんの警戒もせずtwitterの認証コードを環境変数にセットして使っているのに、なんで使わないのかと問われれば返答に困りますが、仕事で使う機会があれば使ってみたいと思います。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>gruffからlazy_high_chartへ</title>
