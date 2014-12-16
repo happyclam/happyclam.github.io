@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2014-12-08T11:11:19+09:00</updated>
+ <updated>2014-12-16T10:02:00+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -162,7 +162,7 @@ end
     &lt;p&gt;&lt;code&gt;bundle install&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Contorollerでインスタンス変数にデータをセット&lt;/p&gt;
+    &lt;p&gt;Controllerでインスタンス変数にデータをセット&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -198,7 +198,7 @@ end
 &lt;h3 id=&quot;section-1&quot;&gt;グラフ描画ツールを変えたことによる影響&lt;/h3&gt;
 &lt;dl&gt;
   &lt;dt&gt;画像（ドット絵）からベクターデータへ&lt;/dt&gt;
-  &lt;dd&gt;gruffを使っていた以前のバージョンはpng画像を動的に生成していたのですが、lazy_high_chartではcanvasオブジェクトへの描画になるので、高速に描画出来るようになりました。以前は画像生成という重たい処理だったのでherokuの無料枠で運用していると処理が重すぎて画像生成に失敗してグラフ画像が表示されないことがありましたが、そういうことがなくなりそうです。それとクライアント側でJavaScriptで描画されたベクターデータなので、ブラウザを拡大・縮小するとそれに伴って画質を落とすこと無くグラフを拡大・縮小させることも出来るようになりました。まぁこのサイトの場合、画像を拡大・縮小しても縮尺を変えない限りあまり意味は無い（縮尺を変える機能はすでにある）ので、とりあえず今まで通りVGAサイズ（640×480）にしていますが、サイズ変更するとしてもCSSで変更出来るから楽です。ただ、古いブラウザ（HTML5に対応していない）だとグラフが描画出来ないことがあるかもしれません。&lt;/dd&gt;
+  &lt;dd&gt;gruffを使っていた以前のバージョンはpng画像を動的に生成していたのですが、lazy_high_chartではcanvasオブジェクトへの描画になるので、高速に描画出来るようになりました。以前は画像生成という重たい処理だったのでherokuの無料枠で運用していると処理が重すぎて画像生成に失敗してグラフ画像が表示されないことがありましたが、そういうことがなくなりそうです。それとクライアント側でJavaScriptで描画されたベクターデータなので、ブラウザを拡大・縮小するとそれに伴って画質を落とすこと無くグラフを拡大・縮小させることも出来るようになりました。まぁこのサイトの場合、画像を拡大・縮小しても縮尺を変えない限りあまり意味は無い（縮尺を変える機能はすでにある）ので、とりあえず今まで通りVGAサイズ（640×480）にしていますが、&lt;s&gt;サイズ変更するとしてもCSSで変更出来るから楽です。&lt;/s&gt;&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;ただ、古いブラウザ（HTML5に対応していない）だとグラフが描画出来ないことがあるかもしれません。&lt;/dd&gt;
   &lt;dt&gt;損益分岐線を描画する必要が無くなった&lt;/dt&gt;
   &lt;dd&gt;gruffの現状はよく知らないのですがgruffを使って開発した当初はメンテが行き届いていないようで縦軸のメモリを調整するのが簡単には出来なかったので、損益分岐線（0の値）のグラフをわざわざ自前で描画していたのですが、その必要がなくなりグラフがすっきりしました。  &lt;/dd&gt;
 &lt;/dl&gt;
@@ -232,6 +232,15 @@ end
 
 &lt;p&gt;　また、ググればいろいろ出て来ますが、gruffをruby1.9.3で使用するためとかLineメソッドを使うためにパッチを当てたりしなければいけませんでしたが、そういう無駄な作業からも開放されました。まあRubyだからモンキーパッチで簡単に出来る作業ではありましたが。&lt;/p&gt;
 
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;cssでwidthが変化するのでてっきり反映出来ているものと思っていましたが、&lt;a href=&quot;http://api.highcharts.com/highstock#chart.height&quot;&gt;highchartsのドキュメント&lt;/a&gt;に書いてある通りデフォルトの高さに関しては400pxのようです。ソースコードは修正済みです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
 </content>
  </entry>
  
