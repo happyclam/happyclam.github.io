@@ -4,13 +4,281 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2014-12-16T10:02:00+09:00</updated>
+ <updated>2014-12-26T14:32:14+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>checkboxでAjaxで更新（PATCH）処理</title>
+   <link href="http://happyclam.github.io/programming/2014-12-26/csrf"/>
+   <updated>2014-12-26T00:00:00+09:00</updated>
+   <id>http://happyclam.github.io/programming/2014-12-26/csrf</id>
+   <content type="html">&lt;h3 id=&quot;jqueryajaxcoffeescript&quot;&gt;jQuery,Ajax,CoffeeScript覚えること多過ぎ&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;http://my-posi.herokuapp.com/&quot;&gt;先物・オプションのシミュレーションサイト&lt;/a&gt;のポジション編集画面で、チェックボックスをクリックすることでグラフのタイプを切り替える処理（データ更新後リダイレクトしている）をしているのですが、これをAjaxで実現しようとしたところ思わぬエラーに遭遇したので、新規サンプルプロジェクトを作って改めて動作を確認することにしました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rails _4.1.6_ new chkbox                ←バージョンを指定して新規プロジェクト作成
+cd chkbox
+rails g scaffold memo body:string chk:boolean
+bundle install
+rake db:migrate
+rails s
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/scaffold_edit.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/scaffold_edit.png&quot; alt=&quot;scaffold 編集画面&quot; title=&quot;scaffold 編集画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　あと、turbolinksを有効にしているとAjaxの動作状況が分かりにくいので&lt;a href=&quot;http://qiita.com/kazz187/items/12737363d62b9c91993c&quot;&gt;このサイト&lt;/a&gt;を参考にしてturbolinksを無効にしました。&lt;/p&gt;
+
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#app/views/memos/_form.html.erb&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt; &amp;lt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;%=&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt; form_for(@memo, remote: true) do |f| %&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;   &amp;lt;div class&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;=&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;field&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&amp;gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;     &amp;lt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;%=&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt; f.label :body %&amp;gt;&amp;lt;br&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;     &amp;lt;%&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;=&lt;/span&gt;&lt;/span&gt; f.text_field &lt;span style=&quot;color:#A60&quot;&gt;:body&lt;/span&gt; %&amp;gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;   &amp;lt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#404&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color:#808&quot;&gt;div&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#808&quot;&gt;   &amp;lt;div class=&amp;quot;field&amp;quot;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#808&quot;&gt;     &amp;lt;%= f.label :chk %&amp;gt;&amp;lt;br&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#808&quot;&gt;     &amp;lt;%= f.check_box :chk %&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n10&quot; name=&quot;n10&quot;&gt;10&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#808&quot;&gt;   &amp;lt;&lt;/span&gt;&lt;span style=&quot;color:#404&quot;&gt;/&lt;/span&gt;&lt;/span&gt;div&amp;gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n11&quot; name=&quot;n11&quot;&gt;11&lt;/a&gt;&lt;/span&gt;   &amp;lt;div &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;class&lt;/span&gt;=&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;actions&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&amp;gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n12&quot; name=&quot;n12&quot;&gt;12&lt;/a&gt;&lt;/span&gt;     &amp;lt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;%=&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt; f.submit %&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n13&quot; name=&quot;n13&quot;&gt;13&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;   &amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n14&quot; name=&quot;n14&quot;&gt;14&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;   &amp;lt;div id&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;=&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;status&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&amp;gt;&amp;lt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#404&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color:#808&quot;&gt;div&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n15&quot; name=&quot;n15&quot;&gt;15&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#808&quot;&gt; &amp;lt;% end %&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n16&quot; name=&quot;n16&quot;&gt;16&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#808&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#app/controllers/memos_controller.rb&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;update&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; &lt;span style=&quot;color:#33B&quot;&gt;@memo&lt;/span&gt;.update(memo_params)
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#33B&quot;&gt;@status&lt;/span&gt; = &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;O.K.&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;else&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#33B&quot;&gt;@status&lt;/span&gt; = &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;N.G.&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;    render
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#app/views/memos/update.js.erb&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#F00;background-color:#FAA&quot;&gt;$&lt;/span&gt;(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;#status&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;).html(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;&amp;lt;%= j(@status) %&amp;gt;&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;);
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　scaffoldで生成された状態からformに&lt;code&gt;remote: true&lt;/code&gt;を追加してcontrollerをすこし弄ってupdate.js.erbを新規作成しただけですが、フォームのボタンをクリックするとAjax通信でデータの更新処理が完了し、コントローラから渡された文字列をビューに表示出来ます。フレームワークが用意してくれた仕組みを素直に使えば非常に簡単にAjax更新処理が実現できました。&lt;br /&gt;
+　そこで今度はフォームのsubmitボタンではなく、チェックボックスをクリックすることで同じことをやろうとしてフォームのcheck_boxの行を&lt;code&gt;&amp;lt;%= f.check_box(:chk, {:onchange =&amp;gt; &quot;this.form.submit();&quot;}, &quot;t&quot;, &quot;f&quot;) %&amp;gt;&lt;/code&gt;と書き換えて、チェックボックスをクリックするとInvalidAuthenticityTokenエラーが出ました。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/invalidauthenticitytoken.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/invalidauthenticitytoken.png&quot; alt=&quot;InvalidAuthenticityTokenエラー画面&quot; title=&quot;InvalidAuthenticityTokenエラー画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　javascriptでsubmitしてしまうとcsrf-tokenが送られないということでしょう。ユーザ認証（ログイン処理）していなくてもPOST（この場合PATCH）リクエストを送る場合は必要なのか？と思いながらフォーム内に&lt;code&gt; &amp;lt;%= hidden_field_tag(:authenticity_token, form_authenticity_token) %&amp;gt;&lt;/code&gt;を記述して再度チェックボックスをクリックすると今度はTemplate is missingエラー。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/templatemissing.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/templatemissing.png&quot; alt=&quot;Template Missing エラー画面&quot; title=&quot;Template Missing エラー画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　フォームのPATH指定時にformatを指定してこのように&lt;code&gt;&amp;lt;%= form_for(@memo, url: memo_path(@memo, format: :js), remote: true) do |f| %&amp;gt;&lt;/code&gt;書き換えて、再度チェックボックスをクリックすると、ブラウザにupdate.js.erbファイルの中身が文字として表示されました。  &lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/browser_disp.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/browser_disp.png&quot; alt=&quot;Text Response 画面&quot; title=&quot;Text Response 画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　ここまで来てもすぐには自分の間違いに気が付きませんでした。上でも自分で書いているけど、javascriptで普通にsubmitしているのだからAjax通信出来ていないようです。remote: true を書くことでフォームがAjax用になっているからform.submit()でAjax通信が出来るような錯覚をしていました。冒頭で思わぬエラーに遭遇したと書いたのはこのことです^^;&lt;br /&gt;
+　HTMLのソースを見てみるとフォームには&lt;code&gt;data-remote=&quot;true&quot;&lt;/code&gt;の属性が付加されていたので、onchangeでthis.form.submit()するのではなくjavascriptの関数を作ってその中で&lt;code&gt;form.setAttribute(&#39;data-remote&#39;, true);&lt;/code&gt;とやってcheckboxに無理やり&lt;code&gt;data-remote=&quot;true&quot;&lt;/code&gt;の属性を付加してみましたが効果ありませんでした^^; Railsがどういう仕組みでAjaxを実現しているのかよくわかってませんが、Railsで予定していない使い方であることは確かなようです。 &lt;br /&gt;
+　で、form.submit()ではダメだとわかったので次のようにcheckboxのonchange=のイベントを削除して、jQueryでイベントを登録してそのイベント内でAjax通信するようにしました。Ajax送信後のCallback処理もそこに記述したのでjs.erbは使いません。&lt;code&gt;render :text =&amp;gt; @status&lt;/code&gt;とすれば.doneイベント（コールバック関数）のdata引数に@statusの内容が入って来るので。&lt;code&gt;$(&#39;#status&#39;).html(data);&lt;/code&gt;として画面に表示します。これで一応UnobtrusiveなJavascriptというかHTMLとスクリプトの分離が出来たのは目出度いことです。&lt;br /&gt;
+　それと、先ほどエラー回避のためにフォーム内のPATHを変更しましたが、_form.html.erbはupdateのときだけでなくcreateのときも使用しているので元に戻しておきます。そうすればチェックボックスでの更新処理はあくまで追加の機能として作成できます。&lt;/p&gt;
+
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#app/views/memos/_form.html.erb&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;&amp;lt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;%=&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt; javascript_tag do %&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;jQuery(function ($){&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;    $(&amp;quot;#memo_chk&amp;quot;).on(&#39;change&#39;, function(){&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;        body &lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;=&lt;/span&gt;&lt;/span&gt; &lt;span style=&quot;color:#F00;background-color:#FAA&quot;&gt;$&lt;/span&gt;(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;#memo_body&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;).val();
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;        authenticity_token = &lt;span style=&quot;color:#F00;background-color:#FAA&quot;&gt;$&lt;/span&gt;(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;#authenticity_token&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;).val();
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;        &lt;span style=&quot;color:#d70&quot;&gt;$.&lt;/span&gt;ajax({
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;            &lt;span style=&quot;color:#606&quot;&gt;url&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;&amp;lt;%= memo_path(id: @memo.id, format: :js) %&amp;gt;&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;,
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;            &lt;span style=&quot;color:#606&quot;&gt;type&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;PATCH&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;,
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n10&quot; name=&quot;n10&quot;&gt;10&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;            &lt;span style=&quot;color:#606&quot;&gt;dataType&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;html&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;,
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n11&quot; name=&quot;n11&quot;&gt;11&lt;/a&gt;&lt;/span&gt;            &lt;span style=&quot;color:#606&quot;&gt;data&lt;/span&gt;: {
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n12&quot; name=&quot;n12&quot;&gt;12&lt;/a&gt;&lt;/span&gt;                &lt;span style=&quot;color:#606&quot;&gt;id&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;&amp;lt;%= @memo.id %&amp;gt;&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;,
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n13&quot; name=&quot;n13&quot;&gt;13&lt;/a&gt;&lt;/span&gt;                &lt;span style=&quot;color:#606&quot;&gt;authenticity_token&lt;/span&gt;: authenticity_token,
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n14&quot; name=&quot;n14&quot;&gt;14&lt;/a&gt;&lt;/span&gt;                &lt;span style=&quot;color:#606&quot;&gt;memo&lt;/span&gt;: {
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n15&quot; name=&quot;n15&quot;&gt;15&lt;/a&gt;&lt;/span&gt;                    &lt;span style=&quot;color:#606&quot;&gt;body&lt;/span&gt;: body,
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n16&quot; name=&quot;n16&quot;&gt;16&lt;/a&gt;&lt;/span&gt;                    &lt;span style=&quot;color:#606&quot;&gt;chk&lt;/span&gt;: (this.checked) ? &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;t&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt; : &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;f&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n17&quot; name=&quot;n17&quot;&gt;17&lt;/a&gt;&lt;/span&gt;                    }
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n18&quot; name=&quot;n18&quot;&gt;18&lt;/a&gt;&lt;/span&gt;            }
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n19&quot; name=&quot;n19&quot;&gt;19&lt;/a&gt;&lt;/span&gt;        }).done(function(data, status, xhr) {
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n20&quot; name=&quot;n20&quot;&gt;20&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;            &lt;span style=&quot;color:#F00;background-color:#FAA&quot;&gt;$&lt;/span&gt;(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;#status&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;).html(data);
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n21&quot; name=&quot;n21&quot;&gt;21&lt;/a&gt;&lt;/span&gt;        }).fail(function(xhr, status, error) {
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n22&quot; name=&quot;n22&quot;&gt;22&lt;/a&gt;&lt;/span&gt;            alert(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;Error Occured(&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt; + error + &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;)&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;);
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n23&quot; name=&quot;n23&quot;&gt;23&lt;/a&gt;&lt;/span&gt;        });
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n24&quot; name=&quot;n24&quot;&gt;24&lt;/a&gt;&lt;/span&gt;     });
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n25&quot; name=&quot;n25&quot;&gt;25&lt;/a&gt;&lt;/span&gt;});
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n26&quot; name=&quot;n26&quot;&gt;26&lt;/a&gt;&lt;/span&gt;&amp;lt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;% &lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;end&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt; &lt;/span&gt;&lt;/span&gt;%&amp;gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n27&quot; name=&quot;n27&quot;&gt;27&lt;/a&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n28&quot; name=&quot;n28&quot;&gt;28&lt;/a&gt;&lt;/span&gt;&amp;lt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;%=&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt; form_for(@memo, remote: true, html:{name: &amp;quot;frm_chkbox&amp;quot;}) do |f| %&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n29&quot; name=&quot;n29&quot;&gt;29&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;  &amp;lt;%&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;=&lt;/span&gt;&lt;/span&gt; hidden_field_tag(&lt;span style=&quot;color:#A60&quot;&gt;:authenticity_token&lt;/span&gt;, form_authenticity_token) %&amp;gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n30&quot; name=&quot;n30&quot;&gt;30&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;  &amp;lt;div &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;class&lt;/span&gt;=&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;field&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&amp;gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n31&quot; name=&quot;n31&quot;&gt;31&lt;/a&gt;&lt;/span&gt;    &amp;lt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;%=&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt; f.label :body %&amp;gt;&amp;lt;br&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n32&quot; name=&quot;n32&quot;&gt;32&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;    &amp;lt;%&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;=&lt;/span&gt;&lt;/span&gt; f.text_field &lt;span style=&quot;color:#A60&quot;&gt;:body&lt;/span&gt; %&amp;gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n33&quot; name=&quot;n33&quot;&gt;33&lt;/a&gt;&lt;/span&gt;  &amp;lt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#404&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color:#808&quot;&gt;div&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n34&quot; name=&quot;n34&quot;&gt;34&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#808&quot;&gt;  &amp;lt;div class=&amp;quot;field&amp;quot;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n35&quot; name=&quot;n35&quot;&gt;35&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#808&quot;&gt;    &amp;lt;%= f.label :chk %&amp;gt;&amp;lt;br&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n36&quot; name=&quot;n36&quot;&gt;36&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#808&quot;&gt;    &amp;lt;%= f.check_box(:chk) %&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n37&quot; name=&quot;n37&quot;&gt;37&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#808&quot;&gt;  &amp;lt;&lt;/span&gt;&lt;span style=&quot;color:#404&quot;&gt;/&lt;/span&gt;&lt;/span&gt;div&amp;gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n38&quot; name=&quot;n38&quot;&gt;38&lt;/a&gt;&lt;/span&gt;  &amp;lt;div &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;class&lt;/span&gt;=&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;actions&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&amp;gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n39&quot; name=&quot;n39&quot;&gt;39&lt;/a&gt;&lt;/span&gt;    &amp;lt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;%=&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt; f.submit %&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n40&quot; name=&quot;n40&quot;&gt;40&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;  &amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n41&quot; name=&quot;n41&quot;&gt;41&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n42&quot; name=&quot;n42&quot;&gt;42&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;  &amp;lt;div id&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;=&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;status&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&amp;gt;&amp;lt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#404&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color:#808&quot;&gt;div&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n43&quot; name=&quot;n43&quot;&gt;43&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#808&quot;&gt;&amp;lt;% end %&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n44&quot; name=&quot;n44&quot;&gt;44&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#808&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#app/controllers/memos_controller.rb&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;  render &lt;span style=&quot;color:#A60&quot;&gt;:text&lt;/span&gt; =&amp;gt; &lt;span style=&quot;color:#33B&quot;&gt;@status&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　これで一応checkboxのクリック時は動くのですが、render部分を変更したために更新ボタンをクリックした場合に何も表示されません。はじめはcheckboxイベント用の別メソッドをコントローラに追加したのですが、更新処理自体は同じものなので既存のupdateメソッドをそのまま使って表示の際に分岐するようにします。&lt;br /&gt;
+　それからテンプレートとjavascriptは分けておこうと思ってjavascript部分をapp/asset/javascript/ディレクトリに別ファイル（chkbox.js）として移動したのですが、ajax呼び出し時のurl:パラメータが上手く展開されませんでした。拡張子に「erb」を追加すればRailsがちゃんと展開してくれるとどこかに書かれていたので.jsからerb.jsに拡張子を変えてみましたが上手くいきませんでした。&lt;br /&gt;
+　それとRails4から新規プロジェクトを作成すると勝手にコントローラ毎のjs.coffeeファイルが作られるので、どうせならそちらに移動しようと思いcoffeescriptに書き換えて&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;最終的には以下のようにしました。  &lt;/p&gt;
+
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;#app/assets/javascripts/memos.js.coffee
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;jQuery ($) -&amp;gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;    $(&amp;quot;#memo_chk&amp;quot;).on &amp;quot;change&amp;quot;, -&amp;gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;        id = $(&amp;quot;#memo_id&amp;quot;).val()
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;        body = $(&amp;quot;#memo_body&amp;quot;).val()
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;        chk = $(this).is(&amp;quot;:checked&amp;quot;) ? &amp;quot;t&amp;quot; : &amp;quot;f&amp;quot;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;        authenticity_token = $(&amp;quot;#authenticity_token&amp;quot;).val()
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;        $.ajax(
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;            url: &amp;quot;/memos/&amp;quot; + id + &amp;quot;.js&amp;quot;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n10&quot; name=&quot;n10&quot;&gt;10&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;            type: &amp;quot;PATCH&amp;quot;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n11&quot; name=&quot;n11&quot;&gt;11&lt;/a&gt;&lt;/span&gt;            dataType: &amp;quot;text&amp;quot;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n12&quot; name=&quot;n12&quot;&gt;12&lt;/a&gt;&lt;/span&gt;            data:
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n13&quot; name=&quot;n13&quot;&gt;13&lt;/a&gt;&lt;/span&gt;                id: id
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n14&quot; name=&quot;n14&quot;&gt;14&lt;/a&gt;&lt;/span&gt;                authenticity_token: authenticity_token
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n15&quot; name=&quot;n15&quot;&gt;15&lt;/a&gt;&lt;/span&gt;                memo:
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n16&quot; name=&quot;n16&quot;&gt;16&lt;/a&gt;&lt;/span&gt;                    body: body
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n17&quot; name=&quot;n17&quot;&gt;17&lt;/a&gt;&lt;/span&gt;                    chk: (if chk then &amp;quot;t&amp;quot; else &amp;quot;f&amp;quot;)
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n18&quot; name=&quot;n18&quot;&gt;18&lt;/a&gt;&lt;/span&gt;        ).done((data, status, xhr) -&amp;gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n19&quot; name=&quot;n19&quot;&gt;19&lt;/a&gt;&lt;/span&gt;            $(&amp;quot;#status&amp;quot;).html data
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n20&quot; name=&quot;n20&quot;&gt;20&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;            return
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n21&quot; name=&quot;n21&quot;&gt;21&lt;/a&gt;&lt;/span&gt;        ).fail (xhr, status, error) -&amp;gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n22&quot; name=&quot;n22&quot;&gt;22&lt;/a&gt;&lt;/span&gt;            alert &amp;quot;Error Occured(&amp;quot; + error + &amp;quot;)&amp;quot;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n23&quot; name=&quot;n23&quot;&gt;23&lt;/a&gt;&lt;/span&gt;            return
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n24&quot; name=&quot;n24&quot;&gt;24&lt;/a&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n25&quot; name=&quot;n25&quot;&gt;25&lt;/a&gt;&lt;/span&gt;        return
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n26&quot; name=&quot;n26&quot;&gt;26&lt;/a&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n27&quot; name=&quot;n27&quot;&gt;27&lt;/a&gt;&lt;/span&gt;    return
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#app/views/memos/_form.html.erb&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;&amp;lt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;%=&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt; form_for(@memo, remote: true, html:{name: &amp;quot;frm_memo&amp;quot;}) do |f| %&amp;gt;↓&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;  &amp;lt;%&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;=&lt;/span&gt;&lt;/span&gt; hidden_field_tag(&lt;span style=&quot;color:#A60&quot;&gt;:memo_id&lt;/span&gt;, &lt;span style=&quot;color:#33B&quot;&gt;@memo&lt;/span&gt;.id) %&amp;gt;↓
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;  &amp;lt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;%=&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt; hidden_field_tag(:authenticity_token, form_authenticity_token) %&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;  &amp;lt;div class&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;=&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;field&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&amp;gt;↓
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;    &amp;lt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;%=&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt; f.label :body %&amp;gt;&amp;lt;br&amp;gt;↓&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;    &amp;lt;%&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;=&lt;/span&gt;&lt;/span&gt; f.text_field &lt;span style=&quot;color:#A60&quot;&gt;:body&lt;/span&gt; %↓
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;  &amp;lt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#404&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color:#808&quot;&gt;div&amp;gt;↓&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#808&quot;&gt;  &amp;lt;div class=&amp;quot;field&amp;quot;&amp;gt;↓&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n10&quot; name=&quot;n10&quot;&gt;10&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#808&quot;&gt;    &amp;lt;%= f.label :chk %&amp;gt;&amp;lt;br&amp;gt;↓&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n11&quot; name=&quot;n11&quot;&gt;11&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#808&quot;&gt;    &amp;lt;%= f.check_box(:chk) %&amp;gt;↓&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n12&quot; name=&quot;n12&quot;&gt;12&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#808&quot;&gt;  &amp;lt;&lt;/span&gt;&lt;span style=&quot;color:#404&quot;&gt;/&lt;/span&gt;&lt;/span&gt;div&amp;gt;↓
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n13&quot; name=&quot;n13&quot;&gt;13&lt;/a&gt;&lt;/span&gt;  &amp;lt;div &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;class&lt;/span&gt;=&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;actions&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&amp;gt;↓
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n14&quot; name=&quot;n14&quot;&gt;14&lt;/a&gt;&lt;/span&gt;    &amp;lt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;%=&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt; f.submit %&amp;gt;↓&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n15&quot; name=&quot;n15&quot;&gt;15&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;  &amp;lt;/div&amp;gt;↓&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n16&quot; name=&quot;n16&quot;&gt;16&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;  &amp;lt;div id&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;=&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;status&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&amp;gt;&amp;lt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#404&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color:#808&quot;&gt;div&amp;gt;↓&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n17&quot; name=&quot;n17&quot;&gt;17&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#808&quot;&gt;&amp;lt;% end %&amp;gt;↓&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n18&quot; name=&quot;n18&quot;&gt;18&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(300,100%,50%,0.06)&quot;&gt;&lt;span style=&quot;color:#808&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#app/controllers/memos_controller.rb&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;update&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; &lt;span style=&quot;color:#33B&quot;&gt;@memo&lt;/span&gt;.update(memo_params)
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#33B&quot;&gt;@status&lt;/span&gt; = &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;O.K.&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;else&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;      &lt;span style=&quot;color:#33B&quot;&gt;@status&lt;/span&gt; = &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;N.G.&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; request.method == &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;PATCH&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;      render &lt;span style=&quot;color:#A60&quot;&gt;:text&lt;/span&gt; =&amp;gt; &lt;span style=&quot;color:#33B&quot;&gt;@status&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n10&quot; name=&quot;n10&quot;&gt;10&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;else&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n11&quot; name=&quot;n11&quot;&gt;11&lt;/a&gt;&lt;/span&gt;      render &lt;span style=&quot;color:#606&quot;&gt;template&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;memos/update.js.erb&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n12&quot; name=&quot;n12&quot;&gt;12&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n13&quot; name=&quot;n13&quot;&gt;13&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;urlパラメータはRailsの_PATH表記から文字列に変更&lt;/li&gt;
+  &lt;li&gt;memo.idをview内のhiddenフィールドに保存して、jQueryでその値を取得するように変更&lt;/li&gt;
+  &lt;li&gt;Railsのフォームから呼ばれた場合とjQueryから呼ばれた場合でrenderするものを変更する&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;　これで一応checkboxでの更新＆表示処理が完成しましたが、Railsで生成したフォームからupdateメソッドを呼び出す場合とjQueryからupdateメソッドを呼び出す場合で、画面出力処理が２種類（js.erbと.doneイベント）に分かれています。このサンプルの場合@status変数に格納した文字列を画面に表示するだけの処理ですが、それでも同じ処理をするコードが２ヶ所に存在しているのはよくないでしょう。Javascript側からAjax通信を開始（request.send、$.ajax）するときにコールバック関数としてjs.erbを指定することが出来たり（もしかして出来る？）、RailsのフォームからAjax通信するときにcoffeescript（Javascript、jQuery）のコールバック関数を指定出来たりしたら出力関数を統一出来そうですがそれはそれでややこしそうです。&lt;br /&gt;
+　あと、request.methodで分岐していますが、これでいいのかどうか分かりませんしこういうコードは見かけたことが無いような気がします。&lt;br /&gt;
+　ということで結局実際に使用するアプリではformから更新ボタンを無くしてjs.erbは使わないやり方に統一することにしました。こんなことになるなら最初からjs.erbは使わずにjQueryとCoffeeScriptで作ることに決めておけばよかったような気がします。&lt;br /&gt;
+　それと実際に使用するサイトでやりたかったことはlazy_high_chartsを使ったグラフ表示なのでdataTypeはtextでなくjsonでやりとりしています。とてつもなく&lt;a href=&quot;https://github.com/happyclam/my-posi&quot;&gt;汚いソース&lt;/a&gt;ですが興味のある方はそちらで確認出来ます。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;修正前（左）と修正後（右）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div style=&quot;width:320px; height:240px; float: left;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/my-posi-update-old.png&quot; alt=&quot;修正前グラフ編集画面&quot; title=&quot;修正前グラフ編集画面&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div style=&quot;width:20px; height:240px; float: left;&quot;&gt;&lt;/div&gt;
+
+&lt;div style=&quot;width:320px; height:240px; float: left;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/my-posi-update-new.png&quot; alt=&quot;修正後グラフ編集画面&quot; title=&quot;修正後グラフ編集画面&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div style=&quot;width:320px; height:280px; margin: 0 auto;&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;　注意点としてこのアプリの場合、編集画面と新規登録画面が別々なのでよかったのですが、説明に使用したサンプルプロジェクトでは編集画面と新規登録画面で同じフォームを利用しているので新規登録画面でcheckboxをクリックしたときはjQueryイベントが発動しないようにするかフォームを分ける必要があると思います。&lt;br /&gt;
+　そもそもcheckboxクリックで更新処理というのが特殊なUIなのかもしれませんが…。  &lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;javascriptをcoffeescriptに書き換えるのは&lt;a href=&quot;http://js2coffee.org/&quot;&gt;こちらのサイト&lt;/a&gt;を利用しました &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>自動でコードレビュー</title>
