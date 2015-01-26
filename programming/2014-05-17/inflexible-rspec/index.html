@@ -139,7 +139,7 @@ MathJax.Hub.Config({
     <div class="content">
       <p>先日衝動買いした<a href="http://www.amazon.co.jp/Instant-RSpec-Test-Driven-Development-How-ebook/dp/B00DMYO1QK">Instant RSpec Test-Driven Development How-to [Kindle版]</a>の最初に出てくるサンプルコード</p>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#777">#location_spec.rb</span>
 <span class="line-numbers"> <a href="#n2" name="n2">2</a></span>describe <span style="color:#036;font-weight:bold">Location</span> <span style="color:#080;font-weight:bold">do</span>
 <span class="line-numbers"> <a href="#n3" name="n3">3</a></span>  describe <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">#initialize</span><span style="color:#710">&quot;</span></span> <span style="color:#080;font-weight:bold">do</span>
@@ -159,7 +159,7 @@ MathJax.Hub.Config({
   <li>上記テストを通過させるために「自分が書いたコード」が以下のもの<code>rspec failed</code>  </li>
 </ol>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span>   <span style="color:#777">#my_answer.rb  </span>
 <span class="line-numbers"> <a href="#n2" name="n2">2</a></span>   <span style="color:#080;font-weight:bold">class</span>  <span style="color:#B06;font-weight:bold">Location</span>  
 <span class="line-numbers"> <a href="#n3" name="n3">3</a></span>       attr_accessor <span style="color:#A60">:latitude</span>  
@@ -176,7 +176,7 @@ MathJax.Hub.Config({
   <li>「リファクタリング前のコード」として本で紹介されているコード<code>rspec passed</code>  </li>
 </ol>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span>   <span style="color:#777">#bad_answer.rb</span>
 <span class="line-numbers"> <a href="#n2" name="n2">2</a></span>   <span style="color:#080;font-weight:bold">class</span>  <span style="color:#B06;font-weight:bold">Location</span>
 <span class="line-numbers"> <a href="#n3" name="n3">3</a></span>       <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">initialize</span>(args = {});<span style="color:#080;font-weight:bold">end</span>
@@ -194,7 +194,7 @@ MathJax.Hub.Config({
   <li>「リファクタリング後のコード」として本で紹介されているコード<code>rspec passed</code>  </li>
 </ol>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>   <span style="color:#777">#model_answer.rb</span>
 <span class="line-numbers"><a href="#n2" name="n2">2</a></span>   <span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Location</span>
 <span class="line-numbers"><a href="#n3" name="n3">3</a></span>       attr_accessor <span style="color:#A60">:latitude</span>, <span style="color:#A60">:longitude</span>
@@ -223,7 +223,7 @@ MathJax.Hub.Config({
   
      
     	<li><a href="/categories.html#programming-ref">
-    		programming <span>6</span>
+    		programming <span>7</span>
     	</a></li>
     
   
@@ -241,7 +241,7 @@ MathJax.Hub.Config({
 
   
      
-    	<li><a href="/tags.html#ruby-ref">ruby <span>9</span></a></li>
+    	<li><a href="/tags.html#ruby-ref">ruby <span>10</span></a></li>
      
     	<li><a href="/tags.html#rspec-ref">rspec <span>1</span></a></li>
     
@@ -293,7 +293,7 @@ MathJax.Hub.Config({
       </div>
       <hr>
       <footer>
-        <p>&copy; 2014 happyclam
+        <p>&copy; 2015 happyclam
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>

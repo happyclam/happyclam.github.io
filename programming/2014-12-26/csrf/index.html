@@ -156,7 +156,7 @@ rails s
 
 <p>　あと、turbolinksを有効にしているとAjaxの動作状況が分かりにくいので<a href="http://qiita.com/kazz187/items/12737363d62b9c91993c">このサイト</a>を参考にしてturbolinksを無効にしました。</p>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#777">#app/views/memos/_form.html.erb</span>
 <span class="line-numbers"> <a href="#n2" name="n2">2</a></span> &lt;<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%=</span><span style="color:#D20"> form_for(@memo, remote: true) do |f| %&gt;</span></span>
 <span class="line-numbers"> <a href="#n3" name="n3">3</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">   &lt;div class</span><span style="color:#710">=</span></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">field</span><span style="color:#710">&quot;</span></span>&gt;
@@ -176,7 +176,7 @@ rails s
 </div>
 </div>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#777">#app/controllers/memos_controller.rb</span>
 <span class="line-numbers"> <a href="#n2" name="n2">2</a></span>  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">update</span>
 <span class="line-numbers"> <a href="#n3" name="n3">3</a></span>    <span style="color:#080;font-weight:bold">if</span> <span style="color:#33B">@memo</span>.update(memo_params)
@@ -190,7 +190,7 @@ rails s
 </div>
 </div>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span><span style="color:#777">#app/views/memos/update.js.erb</span>
 <span class="line-numbers"><a href="#n2" name="n2">2</a></span><span style="color:#F00;background-color:#FAA">$</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">#status</span><span style="color:#710">'</span></span>).html(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">&lt;%= j(@status) %&gt;</span><span style="color:#710">&quot;</span></span>);
 </pre></div>
@@ -227,7 +227,7 @@ rails s
 　で、form.submit()ではダメだとわかったので次のようにcheckboxのonchange=のイベントを削除して、jQueryでイベントを登録してそのイベント内でAjax通信するようにしました。Ajax送信後のCallback処理もそこに記述したのでjs.erbは使いません。<code>render :text =&gt; @status</code>とすれば.doneイベント（コールバック関数）のdata引数に@statusの内容が入って来るので。<code>$('#status').html(data);</code>として画面に表示します。これで一応UnobtrusiveなJavascriptというかHTMLとスクリプトの分離が出来たのは目出度いことです。<br />
 　それと、先ほどエラー回避のためにフォーム内のPATHを変更しましたが、_form.html.erbはupdateのときだけでなくcreateのときも使用しているので元に戻しておきます。そうすればチェックボックスでの更新処理はあくまで追加の機能として作成できます。</p>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#777">#app/views/memos/_form.html.erb</span>
 <span class="line-numbers"> <a href="#n2" name="n2">2</a></span>&lt;<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%=</span><span style="color:#D20"> javascript_tag do %&gt;</span></span>
 <span class="line-numbers"> <a href="#n3" name="n3">3</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">jQuery(function ($){</span></span>
@@ -275,7 +275,7 @@ rails s
 </div>
 </div>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span><span style="color:#777">#app/controllers/memos_controller.rb</span>
 <span class="line-numbers"><a href="#n2" name="n2">2</a></span>  render <span style="color:#A60">:text</span> =&gt; <span style="color:#33B">@status</span>
 </pre></div>
@@ -286,7 +286,7 @@ rails s
 　それからテンプレートとjavascriptは分けておこうと思ってjavascript部分をapp/asset/javascript/ディレクトリに別ファイル（chkbox.js）として移動したのですが、ajax呼び出し時のurl:パラメータが上手く展開されませんでした。拡張子に「erb」を追加すればRailsがちゃんと展開してくれるとどこかに書かれていたので.jsからerb.jsに拡張子を変えてみましたが上手くいきませんでした。<br />
 　それとRails4から新規プロジェクトを作成すると勝手にコントローラ毎のjs.coffeeファイルが作られるので、どうせならそちらに移動しようと思いcoffeescriptに書き換えて<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>最終的には以下のようにしました。  </p>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span>#app/assets/javascripts/memos.js.coffee
 <span class="line-numbers"> <a href="#n2" name="n2">2</a></span>jQuery ($) -&gt;
 <span class="line-numbers"> <a href="#n3" name="n3">3</a></span>    $(&quot;#memo_chk&quot;).on &quot;change&quot;, -&gt;
@@ -318,7 +318,7 @@ rails s
 </div>
 </div>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#777">#app/views/memos/_form.html.erb</span>
 <span class="line-numbers"> <a href="#n2" name="n2">2</a></span>&lt;<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%=</span><span style="color:#D20"> form_for(@memo, remote: true, html:{name: &quot;frm_memo&quot;}) do |f| %&gt;↓</span></span>
 <span class="line-numbers"> <a href="#n3" name="n3">3</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">  &lt;%</span><span style="color:#710">=</span></span> hidden_field_tag(<span style="color:#A60">:memo_id</span>, <span style="color:#33B">@memo</span>.id) %&gt;↓
@@ -340,7 +340,7 @@ rails s
 </div>
 </div>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#777">#app/controllers/memos_controller.rb</span>
 <span class="line-numbers"> <a href="#n2" name="n2">2</a></span>  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">update</span>
 <span class="line-numbers"> <a href="#n3" name="n3">3</a></span>    <span style="color:#080;font-weight:bold">if</span> <span style="color:#33B">@memo</span>.update(memo_params)
@@ -410,7 +410,7 @@ rails s
   
      
     	<li><a href="/categories.html#programming-ref">
-    		programming <span>6</span>
+    		programming <span>7</span>
     	</a></li>
     
   
@@ -434,7 +434,7 @@ rails s
      
     	<li><a href="/tags.html#jquery-ref">jquery <span>2</span></a></li>
      
-    	<li><a href="/tags.html#coffeescript-ref">coffeescript <span>2</span></a></li>
+    	<li><a href="/tags.html#coffeescript-ref">coffeescript <span>3</span></a></li>
     
   
 
@@ -451,7 +451,7 @@ rails s
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next disabled"><a>Next &rarr;</a>
+        <li class="next"><a href="/programming/2015-01-25/ruby_to_js" title="Ruby製プログラムをCoffeeScript（JavaScript）に書き換える">Next &rarr;</a></li>
       
       </ul>
     </div>
@@ -484,7 +484,7 @@ rails s
       </div>
       <hr>
       <footer>
-        <p>&copy; 2014 happyclam
+        <p>&copy; 2015 happyclam
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>

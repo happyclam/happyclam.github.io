@@ -5,10 +5,131 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2014-12-26T19:22:36+09:00</lastBuildDate>
-        <pubDate>2014-12-26T19:22:36+09:00</pubDate>
+        <lastBuildDate>2015-01-26T15:03:16+09:00</lastBuildDate>
+        <pubDate>2015-01-26T15:03:16+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Ruby製プログラムをCoffeeScript（JavaScript）に書き換える</title>
+                <description>&lt;h3 id=&quot;javascript&quot;&gt;クライアントサイドの入力チェック用だったJavaScriptが今は主役&lt;/h3&gt;
+&lt;p&gt;　以前Titaniumを弄ったときはどうしてもJavaScriptに積極的に取り組む気にはなれなかったのですが、cordova（PhoneGap）の存在を知り&lt;a href=&quot;http://www.amazon.co.jp/Android%E5%AF%BE%E5%BF%9C-HTML5-%E3%83%8F%E3%82%A4%E3%83%96%E3%83%AA%E3%83%83%E3%83%89%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA-Software-Design/dp/4774162116/ref=tmm_pap_title_0?ie=UTF8&amp;amp;qid=1421726606&amp;amp;sr=1-1&quot;&gt;[iOS/Android対応] HTML5 ハイブリッドアプリ開発[実践]入門&lt;/a&gt;という本を読んで、またJavaScriptを使ったandroidアプリ開発への興味が戻って来ました。Titaniumを弄ったときと違って自分にとってはCoffeeScriptの存在が大きい、JavaScriptは嫌いだけどCoffeeScriptならやる気が湧きます。なので試しに以前記事を書いたRuby製の三目並べのプログラムをCoffeeScript（最終的にはJavaScriptを使ったandroidアプリ）に移植して見ようと思い取り組み始めたらいきなり問題に遭遇したのでTips的に記事を書いてみます。&lt;br /&gt;
+　それにしても昔のWebシステムはブラウザのJavaScript機能がOffでも使えることを要求されたものなのに、リッチなUIを要求するユーザーの声がどんどん大きくなり、最近ではJavaScript（jQuery,Ajax）無しは考えられない感じですね。そしてどうせJavaScriptを避けることが出来ないのなら、どうにかしてJavaScriptを楽に生成しようという流れが続いてます。&lt;/p&gt;
+
+&lt;h3 id=&quot;arrayrubyjavascript&quot;&gt;Arrayクラスを継承したRubyのクラスをJavaScriptに&lt;/h3&gt;
+&lt;p&gt;　三目並べの盤を表現するArrayクラスを継承した以下のコードを&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#tictactoe.rb&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;class&lt;/span&gt; &lt;span style=&quot;color:#B06;font-weight:bold&quot;&gt;Board&lt;/span&gt; &amp;lt; &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Array&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;initialize&lt;/span&gt;(*args, &amp;amp;block)
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;super&lt;/span&gt;(*args, &amp;amp;block)
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;b = &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Board&lt;/span&gt;.new([&lt;span style=&quot;color:#00D&quot;&gt;1&lt;/span&gt;, &lt;span style=&quot;color:#00D&quot;&gt;2&lt;/span&gt;, &lt;span style=&quot;color:#00D&quot;&gt;3&lt;/span&gt;, &lt;span style=&quot;color:#00D&quot;&gt;4&lt;/span&gt;, &lt;span style=&quot;color:#00D&quot;&gt;5&lt;/span&gt;, &lt;span style=&quot;color:#00D&quot;&gt;6&lt;/span&gt;, &lt;span style=&quot;color:#00D&quot;&gt;7&lt;/span&gt;, &lt;span style=&quot;color:#00D&quot;&gt;8&lt;/span&gt;, &lt;span style=&quot;color:#00D&quot;&gt;9&lt;/span&gt;])
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;p b[&lt;span style=&quot;color:#00D&quot;&gt;3&lt;/span&gt;]
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;以下のようにCoffeeScriptに書き換えて実行したところ&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;#tictactoe.coffee
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;class Board extends Array
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;    constructor: (args) -&amp;gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;        super(args)
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;b = new Board([1, 2, 3, 4, 5, 6, 7, 8, 9])
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;console.log b[3]
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;画面には&lt;code&gt;undefined&lt;/code&gt;と表示されました。エラーにもなりません。コンストラクタに渡されたargsパラメータはどこに行ったのでしょうか？&lt;code&gt;super(args)&lt;/code&gt;の行を&lt;code&gt;@ = args&lt;/code&gt;とやったらエラーになります&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;br /&gt;
+　以下のようにパラメータを可変個引数にして、配列要素をバラバラのパラメータにして渡しても同じです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#tictactoe.coffee
+class Board extends Array
+    constructor: (args...) -&amp;gt;
+        super(args...)
+
+b = new Board(1, 2, 3, 4, 5, 6, 7, 8, 9)
+console.log b[3]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　試しにArrayクラスに新しいプロパティを追加してあげるとそちらの方はちゃんと代入出来ました。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;#tictactoe.coffee
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;Array::data = []
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;class Board extends Array
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;    constructor: (args) -&amp;gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;        super(args)
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;        @.data = args
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n8&quot; name=&quot;n8&quot;&gt;8&lt;/a&gt;&lt;/span&gt;b = new Board([1, 2, 3, 4, 5, 6, 7, 8, 9])
+&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n9&quot; name=&quot;n9&quot;&gt;9&lt;/a&gt;&lt;/span&gt;console.log b[3]
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#n10&quot; name=&quot;n10&quot;&gt;10&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;console.log b.data[3]
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;まず、JavaScriptでもクラスの拡張（オープンクラス？）が簡単に出来ることに驚きました。Rubyと同様にオブジェクト指向出来るんですね。でもこのCoffeeScriptをJavaScriptに変換した中身を見てみると&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$coffee -c tictactoe.coffee
+$cat tictactoe.js
+// Generated by CoffeeScript 1.6.3
+(function() {
+  var Board, b,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  Array.prototype.data = [];
+  Board = (function(_super) {
+    __extends(Board, _super);
+    function Board(args) {
+      Board.__super__.constructor.call(this, args);
+      this.data = args;
+    }
+    return Board;
+  })(Array);
+  b = new Board([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+  console.log(b.data[3]);
+  console.log(b[3]);
+}).call(this);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;なんじゃこりゃ〜。CoffeeScriptを介さずに元のRubyのコードからこのJavaScriptのコードを書ける気がしない。慣れの問題もあるでしょうが、CoffeeScriptが見事に抽象化してくれているのがわかります。&lt;br /&gt;
+　で、問題のコンストラクタに渡された引数の部分ですが、&lt;code&gt;Board.__super__.constructor.call(this, args);&lt;/code&gt;こうなっていて値を置き換えてくれても良さそうですが入りません。追加したdataプロパティの方は&lt;code&gt;Array.prototype.data = [];&lt;/code&gt;と定義されていて、JavaScriptではprototypeプロパティを介してデータを参照しているようです。なので&lt;code&gt;@.prototype = args&lt;/code&gt;とやったりしましたが値はセットされませんしエラーにもなりません。&lt;code&gt;@ = args&lt;/code&gt;はエラーになりますがpushメソッドは呼べるので、結局コンストラクタで&lt;code&gt;@.push(args[i]) for i in [0...args.length]&lt;/code&gt;とすることでRubyからCoffeeScriptを介してJavaScriptに移植することが出来ました。  &lt;/p&gt;
+
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;#tictactoe.coffee
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;class Board extends Array
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;    constructor: (args) -&amp;gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n4&quot; name=&quot;n4&quot;&gt;4&lt;/a&gt;&lt;/span&gt;        @.push(args[i]) for i in [0...args.length]
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n5&quot; name=&quot;n5&quot;&gt;5&lt;/a&gt;&lt;/span&gt;
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n6&quot; name=&quot;n6&quot;&gt;6&lt;/a&gt;&lt;/span&gt;b = new Board([1, 2, 3, 4, 5, 6, 7, 8, 9])
+&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n7&quot; name=&quot;n7&quot;&gt;7&lt;/a&gt;&lt;/span&gt;console.log b[3]
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　配列の大括弧（[]、bracket）さえもメソッドとして実装しているRubyとの違いかもしれませんが、とりあえず移植できてなによりです。今までJavaScriptに関して真剣に取り組んだことが無かったのですが、&lt;a href=&quot;http://www.amazon.co.jp/%E9%96%8B%E7%9C%BC-JavaScript-%E2%80%95%E8%A8%80%E8%AA%9E%E4%BB%95%E6%A7%98%E3%81%8B%E3%82%89%E5%AD%A6%E3%81%B6JavaScript%E3%81%AE%E6%9C%AC%E8%B3%AA-Cody-Lindley/dp/487311621X/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1421851059&amp;amp;sr=1-1&amp;amp;keywords=%E9%96%8B%E7%9C%BC%EF%BC%81javascript&quot;&gt;買ってきた本&lt;/a&gt;を見ながら移植を進めて、また何か問題が発生すれば記事を書いてみます。&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;CoffeeScriptでは@はthisの別名、::はprototypeの別名）。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+                <link>http://happyclam.github.io/programming/2015-01-25/ruby_to_js</link>
+                <guid>http://happyclam.github.io/programming/2015-01-25/ruby_to_js</guid>
+                <pubDate>2015-01-25T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>checkboxでAjaxで更新（PATCH）処理</title>
@@ -31,7 +152,7 @@ rails s
 
 &lt;p&gt;　あと、turbolinksを有効にしているとAjaxの動作状況が分かりにくいので&lt;a href=&quot;http://qiita.com/kazz187/items/12737363d62b9c91993c&quot;&gt;このサイト&lt;/a&gt;を参考にしてturbolinksを無効にしました。&lt;/p&gt;
 
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#app/views/memos/_form.html.erb&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt; &amp;lt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;%=&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt; form_for(@memo, remote: true) do |f| %&amp;gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;   &amp;lt;div class&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;=&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;field&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&amp;gt;
@@ -51,7 +172,7 @@ rails s
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#app/controllers/memos_controller.rb&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;update&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; &lt;span style=&quot;color:#33B&quot;&gt;@memo&lt;/span&gt;.update(memo_params)
@@ -65,7 +186,7 @@ rails s
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#app/views/memos/update.js.erb&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#F00;background-color:#FAA&quot;&gt;$&lt;/span&gt;(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;#status&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;).html(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;&amp;lt;%= j(@status) %&amp;gt;&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;);
 &lt;/pre&gt;&lt;/div&gt;
@@ -102,7 +223,7 @@ rails s
 　で、form.submit()ではダメだとわかったので次のようにcheckboxのonchange=のイベントを削除して、jQueryでイベントを登録してそのイベント内でAjax通信するようにしました。Ajax送信後のCallback処理もそこに記述したのでjs.erbは使いません。&lt;code&gt;render :text =&amp;gt; @status&lt;/code&gt;とすれば.doneイベント（コールバック関数）のdata引数に@statusの内容が入って来るので。&lt;code&gt;$(&#39;#status&#39;).html(data);&lt;/code&gt;として画面に表示します。これで一応UnobtrusiveなJavascriptというかHTMLとスクリプトの分離が出来たのは目出度いことです。&lt;br /&gt;
 　それと、先ほどエラー回避のためにフォーム内のPATHを変更しましたが、_form.html.erbはupdateのときだけでなくcreateのときも使用しているので元に戻しておきます。そうすればチェックボックスでの更新処理はあくまで追加の機能として作成できます。&lt;/p&gt;
 
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#app/views/memos/_form.html.erb&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;&amp;lt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;%=&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt; javascript_tag do %&amp;gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;jQuery(function ($){&lt;/span&gt;&lt;/span&gt;
@@ -150,7 +271,7 @@ rails s
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#app/controllers/memos_controller.rb&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;  render &lt;span style=&quot;color:#A60&quot;&gt;:text&lt;/span&gt; =&amp;gt; &lt;span style=&quot;color:#33B&quot;&gt;@status&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -161,7 +282,7 @@ rails s
 　それからテンプレートとjavascriptは分けておこうと思ってjavascript部分をapp/asset/javascript/ディレクトリに別ファイル（chkbox.js）として移動したのですが、ajax呼び出し時のurl:パラメータが上手く展開されませんでした。拡張子に「erb」を追加すればRailsがちゃんと展開してくれるとどこかに書かれていたので.jsからerb.jsに拡張子を変えてみましたが上手くいきませんでした。&lt;br /&gt;
 　それとRails4から新規プロジェクトを作成すると勝手にコントローラ毎のjs.coffeeファイルが作られるので、どうせならそちらに移動しようと思いcoffeescriptに書き換えて&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;最終的には以下のようにしました。  &lt;/p&gt;
 
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;#app/assets/javascripts/memos.js.coffee
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;jQuery ($) -&amp;gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;    $(&amp;quot;#memo_chk&amp;quot;).on &amp;quot;change&amp;quot;, -&amp;gt;
@@ -193,7 +314,7 @@ rails s
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#app/views/memos/_form.html.erb&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;&amp;lt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;%=&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt; form_for(@memo, remote: true, html:{name: &amp;quot;frm_memo&amp;quot;}) do |f| %&amp;gt;↓&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;  &amp;lt;%&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;=&lt;/span&gt;&lt;/span&gt; hidden_field_tag(&lt;span style=&quot;color:#A60&quot;&gt;:memo_id&lt;/span&gt;, &lt;span style=&quot;color:#33B&quot;&gt;@memo&lt;/span&gt;.id) %&amp;gt;↓
@@ -215,7 +336,7 @@ rails s
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#app/controllers/memos_controller.rb&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;update&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; &lt;span style=&quot;color:#33B&quot;&gt;@memo&lt;/span&gt;.update(memo_params)
@@ -924,7 +1045,7 @@ MIN_VALUE = -9
 
 &lt;h3 id=&quot;min-max&quot;&gt;min-max法&lt;/h3&gt;
 
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#777&quot;&gt;#先手×は最大値、後手○は最小値を選択するように再帰しながら局面を先読み&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;lookahead&lt;/span&gt;(board, turn, cnt)
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; turn == &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;CROSS&lt;/span&gt;
@@ -962,7 +1083,7 @@ MIN_VALUE = -9
   &lt;li&gt;引数で渡された親局面の評価値と現局面を比較して、現局面が選択されることがないことがわかったら、先読みを中断してreturnする（αカットとβカット）&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#777&quot;&gt;#現局面の評価値を子局面に渡しながら再帰関数で局面を先読み&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;lookahead&lt;/span&gt;(board, turn, cnt, threshold)
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; turn == &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;CROSS&lt;/span&gt;
@@ -1308,7 +1429,7 @@ state_machine gemを利用してサーバースクリプトの状態を管理し
                 <description>&lt;h3 id=&quot;eventmachine&quot;&gt;EventMachineで簡単インターフェース&lt;/h3&gt;
 &lt;p&gt;　初めて&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;morizyun氏のこの記事&lt;/a&gt;を読んだときはEventMachineとかforemanとかって何をするものか知らなかったのですが、EventMachineというのは「&lt;a href=&quot;https://morizyun.github.io/blog/reactor-pattern-ruby/&quot;&gt;[Ruby] Reactorパターンについて&lt;/a&gt;」にも書いてある通り、ソケットの受信待機をして貰って簡単にReactorパターンを実現することが出来るツールってことのようです。だからわざわざ自分でプロセス間通信の手続きを書く必要がなくアプリケーションレベルのコマンドを用意してあげるだけで済むのではないか？と思いながら作ったら思惑通りにうまく動いたって感じです。実際に組み込む前には、以下のような単純なサンプルで確認しました。  &lt;/p&gt;
 
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#server側サンプル  &lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;require &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;eventmachine&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;
@@ -1346,7 +1467,7 @@ state_machine gemを利用してサーバースクリプトの状態を管理し
 &lt;p&gt;&lt;code&gt;ruby myserv.rb O.K.&lt;/code&gt;&lt;br /&gt;
 クライアント接続時にServクラスのプロパティに保持されていることを確認する。&lt;/p&gt;
 
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#client側サンプル&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;require &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;net/telnet&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;
@@ -1380,7 +1501,7 @@ state_machine gemを利用してサーバースクリプトの状態を管理し
 　twitterのStreamingAPIを使用する部分は&lt;a href=&quot;/project/2014-05-30/tweetwatch&quot;&gt;以前書いた記事&lt;/a&gt;で紹介したmorizyun氏のコードをServ.trackingメソッドに閉じ込めてほぼそのまま動かしています。twitter側でエラーが発生した場合このままでいいのかよく分かりませんが、エラーになればWebサイト側からサーバースクリプトを再起動してもらえばいいという考え方で作ってます。&lt;br /&gt;
 　client側からserver側スクリプトに受け渡すパラメータはTwitterAPIを利用するために必要な認証key文字列（４種類）とユーザIDとTwitterのfilterAPIに渡す検索文字列（検索タグ）です。&lt;/p&gt;
 
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#実際のソースの一部&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;require &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;eventmachine&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;require &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;optparse&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
@@ -1522,7 +1643,7 @@ x_1 = \frac{y_1}{a}\\
 getter(日付型のデータを、年/月のフォーマットの文字列に変換してして返す)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;ym_expiration&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color:#069&quot;&gt;self&lt;/span&gt;.expiration.strftime(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;%Y/%m&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;) &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; &lt;span style=&quot;color:#069&quot;&gt;self&lt;/span&gt;.expiration
 &lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
@@ -1531,7 +1652,7 @@ getter(日付型のデータを、年/月のフォーマットの文字列に変
 &lt;/div&gt;
 &lt;p&gt;setter(年/月の文字列データを日付01を付加して日付型に変換して格納)&lt;/p&gt;
 
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;ym_expiration=&lt;/span&gt;(ym_expiration)
 &lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#069&quot;&gt;self&lt;/span&gt;.expiration = &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Date&lt;/span&gt;.strptime(ym_expiration + &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;/01&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;%Y/%m/%d&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;)
 &lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
@@ -1540,7 +1661,7 @@ getter(日付型のデータを、年/月のフォーマットの文字列に変
 &lt;/div&gt;
 &lt;p&gt;Viewから呼ばれる、年/月の文字列データを返すメソッド&lt;/p&gt;
 
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;get_expiration_list&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;    &lt;span style=&quot;color:#A60&quot;&gt;:省略&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;    :
@@ -1554,7 +1675,7 @@ getter(日付型のデータを、年/月のフォーマットの文字列に変
 Viewでは入出力用に追加したym_expirationプロパティだけを使うようにすれば、あたかもDBに対応するカラムのように扱えます。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#070;font-weight:bold&quot;&gt;&amp;lt;td&lt;/span&gt; &lt;span style=&quot;color:#b48&quot;&gt;align&lt;/span&gt;=&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;center&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;color:#070;font-weight:bold&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,0%,0%,0.07);color:black&quot;&gt;&lt;span style=&quot;font-weight:bold;color:#666&quot;&gt;&amp;lt;%=&lt;/span&gt; f.select(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;ym_expiration&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;, position.get_expiration_list, {&lt;span style=&quot;color:#A60&quot;&gt;:include_blank&lt;/span&gt; =&amp;gt; &lt;span style=&quot;color:#069&quot;&gt;false&lt;/span&gt;}, {&lt;span style=&quot;color:#A60&quot;&gt;:class&lt;/span&gt; =&amp;gt; &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;span6&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;color:#A60&quot;&gt;:style&lt;/span&gt; =&amp;gt; &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;width:90px;&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;}) &lt;span style=&quot;font-weight:bold;color:#666&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;color:#070;font-weight:bold&quot;&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -1751,7 +1872,7 @@ Viewでは入出力用に追加したym_expirationプロパティだけを使う
                 <title>rspecに納得できない</title>
                 <description>&lt;p&gt;先日衝動買いした&lt;a href=&quot;http://www.amazon.co.jp/Instant-RSpec-Test-Driven-Development-How-ebook/dp/B00DMYO1QK&quot;&gt;Instant RSpec Test-Driven Development How-to [Kindle版]&lt;/a&gt;の最初に出てくるサンプルコード&lt;/p&gt;
 
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style=&quot;color:#777&quot;&gt;#location_spec.rb&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;describe &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Location&lt;/span&gt; &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;do&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;  describe &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;#initialize&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;do&lt;/span&gt;
@@ -1771,7 +1892,7 @@ Viewでは入出力用に追加したym_expirationプロパティだけを使う
   &lt;li&gt;上記テストを通過させるために「自分が書いたコード」が以下のもの&lt;code&gt;rspec failed&lt;/code&gt;  &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;   &lt;span style=&quot;color:#777&quot;&gt;#my_answer.rb  &lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;   &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;class&lt;/span&gt;  &lt;span style=&quot;color:#B06;font-weight:bold&quot;&gt;Location&lt;/span&gt;  
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;       attr_accessor &lt;span style=&quot;color:#A60&quot;&gt;:latitude&lt;/span&gt;  
@@ -1788,7 +1909,7 @@ Viewでは入出力用に追加したym_expirationプロパティだけを使う
   &lt;li&gt;「リファクタリング前のコード」として本で紹介されているコード&lt;code&gt;rspec passed&lt;/code&gt;  &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;   &lt;span style=&quot;color:#777&quot;&gt;#bad_answer.rb&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;   &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;class&lt;/span&gt;  &lt;span style=&quot;color:#B06;font-weight:bold&quot;&gt;Location&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt; &lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;       &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#06B;font-weight:bold&quot;&gt;initialize&lt;/span&gt;(args = {});&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
@@ -1806,7 +1927,7 @@ Viewでは入出力用に追加したym_expirationプロパティだけを使う
   &lt;li&gt;「リファクタリング後のコード」として本で紹介されているコード&lt;code&gt;rspec passed&lt;/code&gt;  &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n1&quot; name=&quot;n1&quot;&gt;1&lt;/a&gt;&lt;/span&gt;   &lt;span style=&quot;color:#777&quot;&gt;#model_answer.rb&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n2&quot; name=&quot;n2&quot;&gt;2&lt;/a&gt;&lt;/span&gt;   &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;class&lt;/span&gt; &lt;span style=&quot;color:#B06;font-weight:bold&quot;&gt;Location&lt;/span&gt;
 &lt;span class=&quot;line-numbers&quot;&gt;&lt;a href=&quot;#n3&quot; name=&quot;n3&quot;&gt;3&lt;/a&gt;&lt;/span&gt;       attr_accessor &lt;span style=&quot;color:#A60&quot;&gt;:latitude&lt;/span&gt;, &lt;span style=&quot;color:#A60&quot;&gt;:longitude&lt;/span&gt;

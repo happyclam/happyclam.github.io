@@ -145,7 +145,7 @@ MathJax.Hub.Config({
 
 <h3 id="min-max">min-max法</h3>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span>  <span style="color:#777">#先手×は最大値、後手○は最小値を選択するように再帰しながら局面を先読み</span>
 <span class="line-numbers"> <a href="#n2" name="n2">2</a></span>  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">lookahead</span>(board, turn, cnt)
 <span class="line-numbers"> <a href="#n3" name="n3">3</a></span>    <span style="color:#080;font-weight:bold">if</span> turn == <span style="color:#036;font-weight:bold">CROSS</span>
@@ -183,7 +183,7 @@ MathJax.Hub.Config({
   <li>引数で渡された親局面の評価値と現局面を比較して、現局面が選択されることがないことがわかったら、先読みを中断してreturnする（αカットとβカット）</li>
 </ol>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span>  <span style="color:#777">#現局面の評価値を子局面に渡しながら再帰関数で局面を先読み</span>
 <span class="line-numbers"> <a href="#n2" name="n2">2</a></span>  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">lookahead</span>(board, turn, cnt, threshold)
 <span class="line-numbers"> <a href="#n3" name="n3">3</a></span>    <span style="color:#080;font-weight:bold">if</span> turn == <span style="color:#036;font-weight:bold">CROSS</span>
@@ -264,7 +264,7 @@ MathJax.Hub.Config({
 
   
      
-    	<li><a href="/tags.html#ruby-ref">ruby <span>9</span></a></li>
+    	<li><a href="/tags.html#ruby-ref">ruby <span>10</span></a></li>
      
     	<li><a href="/tags.html#programming-ref">programming <span>4</span></a></li>
      
@@ -318,7 +318,7 @@ MathJax.Hub.Config({
       </div>
       <hr>
       <footer>
-        <p>&copy; 2014 happyclam
+        <p>&copy; 2015 happyclam
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>
