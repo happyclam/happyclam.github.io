@@ -5,10 +5,97 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2015-01-26T15:03:16+09:00</lastBuildDate>
-        <pubDate>2015-01-26T15:03:16+09:00</pubDate>
+        <lastBuildDate>2015-02-01T09:49:07+09:00</lastBuildDate>
+        <pubDate>2015-02-01T09:49:07+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>iOS/Androidハイブリッドアプリ開発</title>
+                <description>&lt;p&gt;Project: 「&lt;a href=&quot;http://tictactoe-cf.herokuapp.com&quot;&gt;&lt;strong&gt;CoffeeScript版三目並べ&lt;/strong&gt;&lt;/a&gt;」: &lt;a href=&quot;https://github.com/happyclam/tictactoe-cf&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;web&quot;&gt;まずは通常のWebサイトを作成&lt;/h3&gt;
+&lt;p&gt;　ハイブリッド開発と言っても私は現時点ではiPhoneを持っていないのでAndroidでしか確認できませんが、HTML5とJavaScript（CoffeeScript）でPC上で開発しそれをAndroidとiPhoneで利用出来るなんて虫のいい話があるのなら是非やってみたくなります。HTML5のローカルストレージなんかもいろいろ可能性が広がる気がしますがとりあえず以前作ったRuby製コンソールアプリを使ってHTML5のCanvas機能を試してみたいと思います。&lt;br /&gt;
+　まずは&lt;a href=&quot;/project/2014-08-05/tictactoe/&quot;&gt;以前の記事&lt;/a&gt;で作成した&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;Ruby製のコンソールプログラム&lt;/a&gt;をCoffeeScriptに書き換えていきます。&lt;a href=&quot;/programming/2015-01-28/ruby_to_js2/&quot;&gt;前回の記事&lt;/a&gt;以降特に苦労は無かったのですがRubyからCoffeeScriptへのコンバート作業に関しては触れずに、今回はAndroidアプリ化に関して書きます。&lt;/p&gt;
+
+&lt;h3 id=&quot;cordovaphonegap&quot;&gt;cordova（PhoneGap）プロジェクトの作成&lt;/h3&gt;
+&lt;p&gt;　作成したCoffeeScriptをコンパイル（&lt;code&gt;coffee -c tictactoe.coffee&lt;/code&gt;）したjsファイルとindex.htmlだけのサイトですが、Androidアプリ化するためにした作業は以下の通りです。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;通常のWebサイトとして動作確認&lt;/li&gt;
+  &lt;li&gt;cordovaコマンドを使ってプロジェクト作成&lt;/li&gt;
+  &lt;li&gt;作成したプロジェクトのwwwディレクトリ内のindex.htmlファイル内のbodyタグの中身をPCサイトのindex.htmlの内容に置き換える＆作成したJavaScriptファイルを読み込むscriptタグを追記。&lt;/li&gt;
+  &lt;li&gt;エミュレータ上で動作確認&lt;/li&gt;
+  &lt;li&gt;実機で動作確認&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;tree
+.
+├── index.html
+├── js
+│   └── jquery-1.11.1.min.js
+├── tictactoe.coffee
+└── tictactoe.js
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;cordova create Tictactoe com.herokuapp.tictactoe Tictactoe -d
+cd Tictactoe
+cordova platform add android
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;　cordovaコマンドで生成したindex.htmlの雛形にPCサイト用のindex.htmlの中身をコピペ&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#index.html
+#header部は省略
+    &amp;lt;body&amp;gt;
+      &amp;lt;p id=&quot;title&quot;&amp;gt;三目並べ（TicTacToe）&amp;lt;/p&amp;gt;
+      &amp;lt;p&amp;gt;
+        &amp;lt;canvas id=&quot;canvasMain&quot;&amp;gt;&amp;lt;/canvas&amp;gt;
+      &amp;lt;/p&amp;gt;
+      &amp;lt;p&amp;gt;
+        &amp;lt;div id=&quot;orders&quot;&amp;gt;
+          &amp;lt;input type=&quot;radio&quot; name=&quot;optOrders&quot; id=&quot;optOrder1&quot; value=&quot;-1&quot; checked=&quot;checked&quot;&amp;gt;First
+          &amp;lt;input type=&quot;radio&quot; name=&quot;optOrders&quot; id=&quot;optOrder2&quot; value=&quot;1&quot;&amp;gt;Second
+        &amp;lt;/div&amp;gt;
+      &amp;lt;/p&amp;gt;
+      &amp;lt;p&amp;gt;
+        &amp;lt;input id=&quot;btnStart&quot; type=&quot;button&quot; value=&quot;Start!&quot;&amp;gt;
+        &amp;lt;span id=&quot;spanStatus&quot;&amp;gt;&amp;lt;/span&amp;gt;
+      &amp;lt;/p&amp;gt;
+      &amp;lt;script type=&quot;text/javascript&quot; src=&quot;cordova.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+      &amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/index.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+      &amp;lt;script src=&quot;js/jquery-1.11.1.min.js&quot;&amp;gt; &amp;lt;/script&amp;gt;
+      &amp;lt;script type=&quot;text/javascript&quot; src=&quot;tictactoe.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;/body&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;cordova emulate android -d
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/tictactoe_emulator.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/tictactoe_emulator.png&quot; alt=&quot;エミュレータ画面&quot; title=&quot;エミュレータで動作確認&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;pre&gt;&lt;code&gt;cordova run android
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/tictactoe_gl07s.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/tictactoe_gl07s.png&quot; alt=&quot;実機画面&quot; title=&quot;実機（gl07s）で動作確認&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　cordovaプロジェクト下のwww内のファイルを修正してcordovaコマンドを実行すると、platforms/android/以下にAndroid用のファイルが出力されるようです。ビルドしてエミュレータや実機にインストールして実行するまで一気に行うので上記のようにあっという間に完成しました。このビルド作業を行う環境構築の方が時間がかかるかもしれません。環境構築については&lt;a href=&quot;http://www.amazon.co.jp/Android%E5%AF%BE%E5%BF%9C-HTML5-%E3%83%8F%E3%82%A4%E3%83%96%E3%83%AA%E3%83%83%E3%83%89%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA-Software-Design/dp/4774162116/ref=tmm_pap_title_0?ie=UTF8&amp;amp;qid=1421726606&amp;amp;sr=1-1&quot;&gt;この本&lt;/a&gt;を参考にしましたが、個人的にはRubyの開発環境と同じく、ユーザ領域に構築（sudoを使わない）する方がいいのではないかと思ってます。&lt;br /&gt;
+　それにしても以前droidgapコマンド（cordovaの前身？）の時はeclipseを使わなければいけなかったり、いろいろトラブルに見舞われた記憶があるのですが、思った以上に簡単でした。でも、このままだと見た目もUIも貧弱過ぎるのでjquery mobileを使って追加・修正していくことになると思いますが、そうするとPCサイト用とは別物になっていくのでしょう。そのあたりも今後確認していこうと思います。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+</description>
+                <link>http://happyclam.github.io/project/2015-02-01/first_cordova</link>
+                <guid>http://happyclam.github.io/project/2015-02-01/first_cordova</guid>
+                <pubDate>2015-02-01T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>Ruby製プログラムをCoffeeScript（JavaScript）に書き換える</title>
