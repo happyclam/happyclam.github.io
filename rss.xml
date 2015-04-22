@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2015-04-14T17:42:22+09:00</lastBuildDate>
-        <pubDate>2015-04-14T17:42:22+09:00</pubDate>
+        <lastBuildDate>2015-04-22T12:44:41+09:00</lastBuildDate>
+        <pubDate>2015-04-22T12:44:41+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -17,13 +17,13 @@
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/macbook_samp0.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/macbook_samp0.png&quot; alt=&quot;MacBook 12-inch Space Gray 512GB&quot; title=&quot;MacBook&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/macbook_samp0.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/macbook_samp0.png&quot; alt=&quot;MacBook 12-inch Space Gray 512GB&quot; title=&quot;MacBook 12-inch Space Gray 512GB&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/macbook_samp1.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/macbook_samp1.png&quot; alt=&quot;MacBook 12-inch Space Gray 512GB&quot; title=&quot;MacBook&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/macbook_samp1.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/macbook_samp1.png&quot; alt=&quot;MacBook 12-inch Space Gray 512GB&quot; title=&quot;MacBook 12-inch Space Gray 512GB&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -57,6 +57,10 @@
       &lt;td style=&quot;text-align: center&quot;&gt;◎&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ポインティングデバイス&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;○&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;重さ&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;×&lt;/td&gt;
     &lt;/tr&gt;
@@ -79,6 +83,12 @@
 
 &lt;p&gt;USB機器やアクセサリー類は今後時間とともに解決していくことでしょう。まずはVaioPで使っていたような&lt;a href=&quot;http://www.sony.jp/vaio/products/VGP-CKP1/&quot;&gt;革製のケース&lt;/a&gt;が欲しいです。&lt;/p&gt;
 
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/comp_vaio.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/comp_vaio.png&quot; alt=&quot;MacBook 12-inch and Vaio P&quot; title=&quot;VaioPとの比較&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
 &lt;h3 id=&quot;macbook&quot;&gt;新MacBookの使用感&lt;/h3&gt;
 &lt;dl&gt;
   &lt;dt&gt;解像度&lt;/dt&gt;
@@ -90,11 +100,22 @@
   &lt;dt&gt;バッテリー&lt;/dt&gt;
   &lt;dd&gt;今までは電源を確保するために仕方なくスタバを選択することも多かったので今回の買い替えでようやく電源の確保から解放されると思っていますがいつまで持つか不安です。今のところまだ出先での通常の使い方をしていないのでチェックしきれてませんが、新品の今でも動画を見るとすごい勢いでバッテリーが減っていきますので1年後には出先で電源を気にしなくていけなくなるような気がします。&lt;br /&gt;
 　発熱に関してはもっとCPUを酷使してもいいのではないかと思うほどPC底面の温度は低いです。VaioPと比べても断然低くてまったく熱くなりません。冷たいといってもいいぐらいです。&lt;/dd&gt;
+  &lt;dt&gt;トラックパッド&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/dt&gt;
+  &lt;dd&gt;今までタッチパッドと言われる入力デバイス付きのノートPCを所有していた時期もありますが、ほとんどパッドを使ったことはなくマウスを外付して使っていました。モバイルPCを買うときにThinkPad,Libretto,C1R,VaioPと選択してきたのもトラックポイント（メーカーによって呼び名が違うようですが）が使えることが大きな要因でもありました。トラックポイントのほうが使いやすい面もありますがMacのトラックパッドは機能が豊富でこれなら外付けマウスを付けなくてもよさそうです。&lt;/dd&gt;
 &lt;/dl&gt;
 
 &lt;h3 id=&quot;section-1&quot;&gt;まとめ&lt;/h3&gt;
 &lt;p&gt;　レビューというより日記なので皆さんの役には立たなかったかもしれませんが、今のところVaioP以上に使い続けたくなるモバイルPCになるような気がしています。&lt;/p&gt;
 
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;トラックパッドについてとVaioPとの比較写真を追加しました &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
 </description>
                 <link>http://happyclam.github.io/hardware/2015-04-14/macbook</link>
                 <guid>http://happyclam.github.io/hardware/2015-04-14/macbook</guid>
