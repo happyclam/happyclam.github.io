@@ -5,10 +5,116 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2015-04-22T12:44:41+09:00</lastBuildDate>
-        <pubDate>2015-04-22T12:44:41+09:00</pubDate>
+        <lastBuildDate>2015-04-25T22:22:17+09:00</lastBuildDate>
+        <pubDate>2015-04-25T22:22:17+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>HerokuでNodeとMongoDBを使う</title>
+                <description>&lt;h3 id=&quot;section&quot;&gt;スマホアプリからサーバに接続してデータ取得&lt;/h3&gt;
+&lt;p&gt;　以前から記事に書いている三目並べプログラムをとりあえず&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf&quot;&gt;androidアプリ&lt;/a&gt;にしてみたのですが、単なる三目並べだとつまらないので一手の時間制限を設けて連続無敗記録を保存するように変更しました。そして今度はその記録をユーザ間で競ってもらおうと思い、サーバーを用意してスマホ上でランキング表示する機能をつけることにしました。&lt;br /&gt;
+　ユーザ認証などの機能をつけると利用者側にとって敷居が高くなるので、適当なハンドルネームを登録してランキング表示するだけの機能です。単純な機能（スマホからハンドルネームを登録し、JSONPでランキングデータを取得する）なのでどうせなら今までやったことない方法でと思いNode.jsとMongoDBを使うことにしました。いろいろ印象に残ったことを書いてみます。&lt;/p&gt;
+
+&lt;h3 id=&quot;upsert&quot;&gt;今までにもあっても良さそうなのに無かったupsert&lt;/h3&gt;
+&lt;p&gt;　いや、昔からどこかで使われていた機能かもしれませんが私は知りませんでした。InsertとUpdateを合わせてUpsert。document（recordとは言わないらしい）が存在していれば更新し、なければ新規登録する機能です。私の経験ではOracleにもSybaseにもSQL Serverにもなかったはずです。さすがNoSQLです。&lt;br /&gt;
+　で、使ってみると新規にInsertした場合のid値をどうやって取得するのか悩みましたが、先にid値を生成してからUpsertを呼び出すようです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;      //uidで検索する例
+      //新規とわかっている場合はuidにnullを入れてid生成
+      var doc = {uid:null, name:username, score:unbeaten, date: null};
+      var collection = db.collection(&quot;tictactoe&quot;);
+      temp_id = new ObjectID(uid);
+      collection.update({_id: temp_id}, {name:username, score:unbeaten, date: new Date()}, {upsert:true, w: 1}, function(err, result) {
+        if (err) { throw err; }
+        collection.findOne({_id: temp_id}, function(err, item) {
+          if (err) { throw err; }
+          if (item) {
+            doc._id = item._id;
+            doc.date = item.date;
+          }
+        });
+      });
+         
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;出来るだけ新しいバージョンで開発環境を作る&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;http://www.oreilly.co.jp/books/9784873116068/&quot;&gt;Nodeクックブック&lt;/a&gt;という本を参考にしていたのですが、ネット上に転がっていた古いコードから書き始めたのが間違いの元で、本のサンプルコードが動かない環境で一通り作った後に何度も同じ箇所を書き換えなければいけない羽目に陥りました。古いバージョンのままでも動けばいいのですが、何かトラブルに見舞われた時に「もしかしてバージョンが古いせいか？新しくしてみよう」となって直接トラブルとは関係ないのに書き直す羽目に陥ったということです。皆さんも気をつけて下さい。特にExpressはバージョンによって書式（構文）の変化が激しくて、バージョンが変わるともうそれは必要がなくなったというコードが多かったです。依存関係で深刻なものは無かったのですが、自分が使っているパッケージのバージョンは把握しておいた方が右往左往しなくて済みそうです。以下が現時点で使っているパッケージ（package.json）ファイルの一部です。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  , &quot;dependencies&quot;: {
+      &quot;express&quot;: &quot;4.12.1&quot;
+    , &quot;jade&quot;: &quot;&amp;gt;= 0.0.1&quot;
+    , &quot;mongodb&quot;: &quot;2.0.27&quot;
+  },
+  &quot;engines&quot;: {
+    &quot;node&quot;: &quot;0.10.20&quot;,
+    &quot;npm&quot;: &quot;2.8.3&quot;
+  },
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　Expressで悩まされた一例として、本に記載されている通り以下のようにlessファイルを指定したのですが&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//app.js
+app.use(require(&#39;less-middleware&#39;)({
+   src: __dirname + &#39;/views&#39;,
+   dest: __dirname + &#39;/public&#39;,
+   compress: true
+}));
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　上手くいかなくて、&lt;a href=&quot;http://stackoverflow.com/questions/22274832/public-static-directory-typeerror-arguments-to-path-join-must-be-strings&quot;&gt;ここ&lt;/a&gt;に書いてある通り以下のように修正すれば動きました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//app.js
+app.use(require(&#39;less-middleware&#39;)(__dirname + &#39;/public&#39;));
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　src:とdest:を分けて指定するのではなく、一つ（/public）だけ指定すればそこにあるlessファイルを読み込んで同じディレクトリにcssファイルを出力するという形で上手く機能しています。よく調べればオプションがあるのかも知れません。&lt;br /&gt;
+　あと、Rubyのrvm環境同様にNodeも最初からnvmを使って複数のバージョンを切り替えられるようにしておいたほうがよさそうです。&lt;/p&gt;
+
+&lt;h3 id=&quot;heroku&quot;&gt;ローカルで動くのにHeroku上で動かない&lt;/h3&gt;
+&lt;p&gt;　herokuで動かないのはMongoDBへの接続が出来ていないようだということはすぐわかったのですが、&lt;a href=&quot;http://d.hatena.ne.jp/koda_hd28v/20120512/1336799056&quot;&gt;この記事&lt;/a&gt;を見つけるまで理由がわかりませんでした。ローカルではDBオブジェクトをnewしてServer.open、herokuではconnectを使うということのようです。ローカル環境にデータベースが存在しているわけじゃないんだからopen出来ると考える方がおかしいと言われそうですが、herokuもMongoDBもどこまで私の面倒を見てくれるのかわからないんだから、ローカルで動くんだからそのまま動くと考えてしまっても仕方がないと思います。&lt;br /&gt;
+　で、記事の中で説明してくれているように、以下のようにDB接続モジュールだけ分割して&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// lib/MongoBuilder.js
+var mongo = require(&#39;mongodb&#39;);
+
+module.exports.ready = function(db_name, callback){
+  if ( process.env.MONGOLAB_URI ){
+    mongo.connect(process.env.MONGOLAB_URI, {}, function(err, db){
+      callback(db);
+    });
+  }else{
+    new mongo.Db(&#39;tictactoe&#39;, new mongo.Server(&#39;localhost&#39;, 27017), {safe: false}).open(function(err,db){
+      callback(db);
+    });
+  }
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　以下のように使用すれば、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// routes/index.js
+var MB = require(&quot;../lib/MongoBuilder&quot;);
+var users = new Array();
+exports.mypage = function(req, res){
+  MB.ready(&#39;tictactoe&#39;, function(db){
+    var collection = db.collection(&quot;tictactoe&quot;);
+    collection.find().sort({score: -1}).limit(100).toArray(function(err, users){
+      res.render(&#39;index&#39;, {title: &#39;Tictactoe Unbeaten&#39;, users: users});
+    });
+  });
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　ローカル環境でもheroku環境でも動くように出来ました。&lt;/p&gt;
+
+&lt;hr /&gt;
+</description>
+                <link>http://happyclam.github.io/programming/2015-04-25/mongo_upsert</link>
+                <guid>http://happyclam.github.io/programming/2015-04-25/mongo_upsert</guid>
+                <pubDate>2015-04-25T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>新Macbook購入</title>
