@@ -123,6 +123,9 @@ MathJax.Hub.Config({
       </div>
     </div>
 
+    <div align="right">
+      <iframe frameborder="0" allowtransparency="true" height="60" width="468" marginheight="0" scrolling="no" src="http://ad.jp.ap.valuecommerce.com/servlet/htmlbanner?sid=3216166&pid=883489430" marginwidth="0"><script language="javascript" src="http://ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3216166&pid=883489430"></script><noscript><a href="http://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3216166&pid=883489430" target="_blank" ><img src="http://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3216166&pid=883489430" height="60" width="468" border="0"></a></noscript></iframe>
+    </div>
     <div class="container-narrow">
 
       <div class="content">
@@ -156,46 +159,37 @@ rails s
 
 <p>　あと、turbolinksを有効にしているとAjaxの動作状況が分かりにくいので<a href="http://qiita.com/kazz187/items/12737363d62b9c91993c">このサイト</a>を参考にしてturbolinksを無効にしました。</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#777">#app/views/memos/_form.html.erb</span>
-<span class="line-numbers"> <a href="#n2" name="n2">2</a></span> &lt;<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%=</span><span style="color:#D20"> form_for(@memo, remote: true) do |f| %&gt;</span></span>
-<span class="line-numbers"> <a href="#n3" name="n3">3</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">   &lt;div class</span><span style="color:#710">=</span></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">field</span><span style="color:#710">&quot;</span></span>&gt;
-<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>     &lt;<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%=</span><span style="color:#D20"> f.label :body %&gt;&lt;br&gt;</span></span>
-<span class="line-numbers"> <a href="#n5" name="n5">5</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">     &lt;%</span><span style="color:#710">=</span></span> f.text_field <span style="color:#A60">:body</span> %&gt;
-<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>   &lt;<span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">div&gt;</span></span>
-<span class="line-numbers"> <a href="#n7" name="n7">7</a></span><span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#808">   &lt;div class=&quot;field&quot;&gt;</span></span>
-<span class="line-numbers"> <a href="#n8" name="n8">8</a></span><span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#808">     &lt;%= f.label :chk %&gt;&lt;br&gt;</span></span>
-<span class="line-numbers"> <a href="#n9" name="n9">9</a></span><span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#808">     &lt;%= f.check_box :chk %&gt;</span></span>
-<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span><span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#808">   &lt;</span><span style="color:#404">/</span></span>div&gt;
-<span class="line-numbers"><a href="#n11" name="n11">11</a></span>   &lt;div <span style="color:#080;font-weight:bold">class</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">actions</span><span style="color:#710">&quot;</span></span>&gt;
-<span class="line-numbers"><a href="#n12" name="n12">12</a></span>     &lt;<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%=</span><span style="color:#D20"> f.submit %&gt;</span></span>
-<span class="line-numbers"><a href="#n13" name="n13">13</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">   &lt;/div&gt;</span></span>
-<span class="line-numbers"><a href="#n14" name="n14">14</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">   &lt;div id</span><span style="color:#710">=</span></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">status</span><span style="color:#710">&quot;</span></span>&gt;&lt;<span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">div&gt;</span></span>
-<span class="line-numbers"><a href="#n15" name="n15">15</a></span><span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#808"> &lt;% end %&gt;</span></span>
-<span class="line-numbers"><a href="#n16" name="n16">16</a></span><span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#808"></span></span></pre></div>
-</div>
-</div>
+<pre><code class="language-Ruby">#app/views/memos/_form.html.erb
+ &lt;%= form_for(@memo, remote: true) do |f| %&gt;
+   &lt;div class="field"&gt;
+     &lt;%= f.label :body %&gt;&lt;br&gt;
+     &lt;%= f.text_field :body %&gt;
+   &lt;/div&gt;
+   &lt;div class="field"&gt;
+     &lt;%= f.label :chk %&gt;&lt;br&gt;
+     &lt;%= f.check_box :chk %&gt;
+   &lt;/div&gt;
+   &lt;div class="actions"&gt;
+     &lt;%= f.submit %&gt;
+   &lt;/div&gt;
+   &lt;div id="status"&gt;&lt;/div&gt;
+ &lt;% end %&gt;
+</code></pre>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#777">#app/controllers/memos_controller.rb</span>
-<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">update</span>
-<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>    <span style="color:#080;font-weight:bold">if</span> <span style="color:#33B">@memo</span>.update(memo_params)
-<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>      <span style="color:#33B">@status</span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">O.K.</span><span style="color:#710">&quot;</span></span>
-<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>    <span style="color:#080;font-weight:bold">else</span>
-<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>      <span style="color:#33B">@status</span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">N.G.</span><span style="color:#710">&quot;</span></span>
-<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>    <span style="color:#080;font-weight:bold">end</span>
-<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>    render
-<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>  <span style="color:#080;font-weight:bold">end</span>
-</pre></div>
-</div>
-</div>
+<pre><code class="language-Ruby">#app/controllers/memos_controller.rb
+  def update
+    if @memo.update(memo_params)
+      @status = "O.K."
+    else
+      @status = "N.G."
+    end
+    render
+  end
+</code></pre>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span><span style="color:#777">#app/views/memos/update.js.erb</span>
-<span class="line-numbers"><a href="#n2" name="n2">2</a></span><span style="color:#F00;background-color:#FAA">$</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">#status</span><span style="color:#710">'</span></span>).html(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">&lt;%= j(@status) %&gt;</span><span style="color:#710">&quot;</span></span>);
-</pre></div>
-</div>
-</div>
+<pre><code class="language-Ruby">#app/views/memos/update.js.erb
+$('#status').html("&lt;%= j(@status) %&gt;");
+</code></pre>
 
 <p>　scaffoldで生成された状態からformに<code>remote: true</code>を追加してcontrollerをすこし弄ってupdate.js.erbを新規作成しただけですが、フォームのボタンをクリックするとAjax通信でデータの更新処理が完了し、コントローラから渡された文字列をビューに表示出来ます。フレームワークが用意してくれた仕組みを素直に使えば非常に簡単にAjax更新処理が実現できました。<br />
 　そこで今度はフォームのsubmitボタンではなく、チェックボックスをクリックすることで同じことをやろうとしてフォームのcheck_boxの行を<code>&lt;%= f.check_box(:chk, {:onchange =&gt; "this.form.submit();"}, "t", "f") %&gt;</code>と書き換えて、チェックボックスをクリックするとInvalidAuthenticityTokenエラーが出ました。</p>
@@ -227,136 +221,121 @@ rails s
 　で、form.submit()ではダメだとわかったので次のようにcheckboxのonchange=のイベントを削除して、jQueryでイベントを登録してそのイベント内でAjax通信するようにしました。Ajax送信後のCallback処理もそこに記述したのでjs.erbは使いません。<code>render :text =&gt; @status</code>とすれば.doneイベント（コールバック関数）のdata引数に@statusの内容が入って来るので。<code>$('#status').html(data);</code>として画面に表示します。これで一応UnobtrusiveなJavascriptというかHTMLとスクリプトの分離が出来たのは目出度いことです。<br />
 　それと、先ほどエラー回避のためにフォーム内のPATHを変更しましたが、_form.html.erbはupdateのときだけでなくcreateのときも使用しているので元に戻しておきます。そうすればチェックボックスでの更新処理はあくまで追加の機能として作成できます。</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#777">#app/views/memos/_form.html.erb</span>
-<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>&lt;<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%=</span><span style="color:#D20"> javascript_tag do %&gt;</span></span>
-<span class="line-numbers"> <a href="#n3" name="n3">3</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">jQuery(function ($){</span></span>
-<span class="line-numbers"> <a href="#n4" name="n4">4</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">    $(&quot;#memo_chk&quot;).on('change', function(){</span></span>
-<span class="line-numbers"> <a href="#n5" name="n5">5</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">        body </span><span style="color:#710">=</span></span> <span style="color:#F00;background-color:#FAA">$</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">#memo_body</span><span style="color:#710">&quot;</span></span>).val();
-<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>        authenticity_token = <span style="color:#F00;background-color:#FAA">$</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">#authenticity_token</span><span style="color:#710">&quot;</span></span>).val();
-<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>        <span style="color:#d70">$.</span>ajax({
-<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>            <span style="color:#606">url</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">&lt;%= memo_path(id: @memo.id, format: :js) %&gt;</span><span style="color:#710">'</span></span>,
-<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>            <span style="color:#606">type</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">PATCH</span><span style="color:#710">'</span></span>,
-<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>            <span style="color:#606">dataType</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">html</span><span style="color:#710">'</span></span>,
-<span class="line-numbers"><a href="#n11" name="n11">11</a></span>            <span style="color:#606">data</span>: {
-<span class="line-numbers"><a href="#n12" name="n12">12</a></span>                <span style="color:#606">id</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">&lt;%= @memo.id %&gt;</span><span style="color:#710">'</span></span>,
-<span class="line-numbers"><a href="#n13" name="n13">13</a></span>                <span style="color:#606">authenticity_token</span>: authenticity_token,
-<span class="line-numbers"><a href="#n14" name="n14">14</a></span>                <span style="color:#606">memo</span>: {
-<span class="line-numbers"><a href="#n15" name="n15">15</a></span>                    <span style="color:#606">body</span>: body,
-<span class="line-numbers"><a href="#n16" name="n16">16</a></span>                    <span style="color:#606">chk</span>: (this.checked) ? <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">t</span><span style="color:#710">'</span></span> : <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">f</span><span style="color:#710">'</span></span>
-<span class="line-numbers"><a href="#n17" name="n17">17</a></span>                    }
-<span class="line-numbers"><a href="#n18" name="n18">18</a></span>            }
-<span class="line-numbers"><a href="#n19" name="n19">19</a></span>        }).done(function(data, status, xhr) {
-<span class="line-numbers"><strong><a href="#n20" name="n20">20</a></strong></span>            <span style="color:#F00;background-color:#FAA">$</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">#status</span><span style="color:#710">'</span></span>).html(data);
-<span class="line-numbers"><a href="#n21" name="n21">21</a></span>        }).fail(function(xhr, status, error) {
-<span class="line-numbers"><a href="#n22" name="n22">22</a></span>            alert(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Error Occured(</span><span style="color:#710">'</span></span> + error + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">)</span><span style="color:#710">'</span></span>);
-<span class="line-numbers"><a href="#n23" name="n23">23</a></span>        });
-<span class="line-numbers"><a href="#n24" name="n24">24</a></span>     });
-<span class="line-numbers"><a href="#n25" name="n25">25</a></span>});
-<span class="line-numbers"><a href="#n26" name="n26">26</a></span>&lt;<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">% </span><span style="color:#D20">end</span><span style="color:#710"> </span></span>%&gt;
-<span class="line-numbers"><a href="#n27" name="n27">27</a></span>
-<span class="line-numbers"><a href="#n28" name="n28">28</a></span>&lt;<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%=</span><span style="color:#D20"> form_for(@memo, remote: true, html:{name: &quot;frm_chkbox&quot;}) do |f| %&gt;</span></span>
-<span class="line-numbers"><a href="#n29" name="n29">29</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">  &lt;%</span><span style="color:#710">=</span></span> hidden_field_tag(<span style="color:#A60">:authenticity_token</span>, form_authenticity_token) %&gt;
-<span class="line-numbers"><strong><a href="#n30" name="n30">30</a></strong></span>  &lt;div <span style="color:#080;font-weight:bold">class</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">field</span><span style="color:#710">&quot;</span></span>&gt;
-<span class="line-numbers"><a href="#n31" name="n31">31</a></span>    &lt;<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%=</span><span style="color:#D20"> f.label :body %&gt;&lt;br&gt;</span></span>
-<span class="line-numbers"><a href="#n32" name="n32">32</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">    &lt;%</span><span style="color:#710">=</span></span> f.text_field <span style="color:#A60">:body</span> %&gt;
-<span class="line-numbers"><a href="#n33" name="n33">33</a></span>  &lt;<span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">div&gt;</span></span>
-<span class="line-numbers"><a href="#n34" name="n34">34</a></span><span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#808">  &lt;div class=&quot;field&quot;&gt;</span></span>
-<span class="line-numbers"><a href="#n35" name="n35">35</a></span><span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#808">    &lt;%= f.label :chk %&gt;&lt;br&gt;</span></span>
-<span class="line-numbers"><a href="#n36" name="n36">36</a></span><span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#808">    &lt;%= f.check_box(:chk) %&gt;</span></span>
-<span class="line-numbers"><a href="#n37" name="n37">37</a></span><span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#808">  &lt;</span><span style="color:#404">/</span></span>div&gt;
-<span class="line-numbers"><a href="#n38" name="n38">38</a></span>  &lt;div <span style="color:#080;font-weight:bold">class</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">actions</span><span style="color:#710">&quot;</span></span>&gt;
-<span class="line-numbers"><a href="#n39" name="n39">39</a></span>    &lt;<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%=</span><span style="color:#D20"> f.submit %&gt;</span></span>
-<span class="line-numbers"><strong><a href="#n40" name="n40">40</a></strong></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">  &lt;/div&gt;</span></span>
-<span class="line-numbers"><a href="#n41" name="n41">41</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span></span>
-<span class="line-numbers"><a href="#n42" name="n42">42</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">  &lt;div id</span><span style="color:#710">=</span></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">status</span><span style="color:#710">&quot;</span></span>&gt;&lt;<span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">div&gt;</span></span>
-<span class="line-numbers"><a href="#n43" name="n43">43</a></span><span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#808">&lt;% end %&gt;</span></span>
-<span class="line-numbers"><a href="#n44" name="n44">44</a></span><span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#808"></span></span></pre></div>
-</div>
-</div>
+<pre><code class="language-Ruby">#app/views/memos/_form.html.erb
+&lt;%= javascript_tag do %&gt;
+jQuery(function ($){
+    $("#memo_chk").on('change', function(){
+        body = $("#memo_body").val();
+        authenticity_token = $("#authenticity_token").val();
+        $.ajax({
+            url: '&lt;%= memo_path(id: @memo.id, format: :js) %&gt;',
+            type: 'PATCH',
+            dataType: 'html',
+            data: {
+                id: '&lt;%= @memo.id %&gt;',
+                authenticity_token: authenticity_token,
+                memo: {
+                    body: body,
+                    chk: (this.checked) ? 't' : 'f'
+                    }
+            }
+        }).done(function(data, status, xhr) {
+            $('#status').html(data);
+        }).fail(function(xhr, status, error) {
+            alert('Error Occured(' + error + ')');
+        });
+     });
+});
+&lt;% end %&gt;
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span><span style="color:#777">#app/controllers/memos_controller.rb</span>
-<span class="line-numbers"><a href="#n2" name="n2">2</a></span>  render <span style="color:#A60">:text</span> =&gt; <span style="color:#33B">@status</span>
-</pre></div>
-</div>
-</div>
+&lt;%= form_for(@memo, remote: true, html:{name: "frm_chkbox"}) do |f| %&gt;
+  &lt;%= hidden_field_tag(:authenticity_token, form_authenticity_token) %&gt;
+  &lt;div class="field"&gt;
+    &lt;%= f.label :body %&gt;&lt;br&gt;
+    &lt;%= f.text_field :body %&gt;
+  &lt;/div&gt;
+  &lt;div class="field"&gt;
+    &lt;%= f.label :chk %&gt;&lt;br&gt;
+    &lt;%= f.check_box(:chk) %&gt;
+  &lt;/div&gt;
+  &lt;div class="actions"&gt;
+    &lt;%= f.submit %&gt;
+  &lt;/div&gt;
+
+  &lt;div id="status"&gt;&lt;/div&gt;
+&lt;% end %&gt;
+</code></pre>
+
+<pre><code class="language-Ruby">#app/controllers/memos_controller.rb
+  render :text =&gt; @status
+</code></pre>
 
 <p>　これで一応checkboxのクリック時は動くのですが、render部分を変更したために更新ボタンをクリックした場合に何も表示されません。はじめはcheckboxイベント用の別メソッドをコントローラに追加したのですが、更新処理自体は同じものなので既存のupdateメソッドをそのまま使って表示の際に分岐するようにします。<br />
 　それからテンプレートとjavascriptは分けておこうと思ってjavascript部分をapp/asset/javascript/ディレクトリに別ファイル（chkbox.js）として移動したのですが、ajax呼び出し時のurl:パラメータが上手く展開されませんでした。拡張子に「erb」を追加すればRailsがちゃんと展開してくれるとどこかに書かれていたので.jsからerb.jsに拡張子を変えてみましたが上手くいきませんでした。<br />
 　それとRails4から新規プロジェクトを作成すると勝手にコントローラ毎のjs.coffeeファイルが作られるので、どうせならそちらに移動しようと思いcoffeescriptに書き換えて<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>最終的には以下のようにしました。  </p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span>#app/assets/javascripts/memos.js.coffee
-<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>jQuery ($) -&gt;
-<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>    $(&quot;#memo_chk&quot;).on &quot;change&quot;, -&gt;
-<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>        id = $(&quot;#memo_id&quot;).val()
-<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>        body = $(&quot;#memo_body&quot;).val()
-<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>        chk = $(this).is(&quot;:checked&quot;) ? &quot;t&quot; : &quot;f&quot;
-<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>        authenticity_token = $(&quot;#authenticity_token&quot;).val()
-<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>        $.ajax(
-<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>            url: &quot;/memos/&quot; + id + &quot;.js&quot;
-<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>            type: &quot;PATCH&quot;
-<span class="line-numbers"><a href="#n11" name="n11">11</a></span>            dataType: &quot;text&quot;
-<span class="line-numbers"><a href="#n12" name="n12">12</a></span>            data:
-<span class="line-numbers"><a href="#n13" name="n13">13</a></span>                id: id
-<span class="line-numbers"><a href="#n14" name="n14">14</a></span>                authenticity_token: authenticity_token
-<span class="line-numbers"><a href="#n15" name="n15">15</a></span>                memo:
-<span class="line-numbers"><a href="#n16" name="n16">16</a></span>                    body: body
-<span class="line-numbers"><a href="#n17" name="n17">17</a></span>                    chk: (if chk then &quot;t&quot; else &quot;f&quot;)
-<span class="line-numbers"><a href="#n18" name="n18">18</a></span>        ).done((data, status, xhr) -&gt;
-<span class="line-numbers"><a href="#n19" name="n19">19</a></span>            $(&quot;#status&quot;).html data
-<span class="line-numbers"><strong><a href="#n20" name="n20">20</a></strong></span>            return
-<span class="line-numbers"><a href="#n21" name="n21">21</a></span>        ).fail (xhr, status, error) -&gt;
-<span class="line-numbers"><a href="#n22" name="n22">22</a></span>            alert &quot;Error Occured(&quot; + error + &quot;)&quot;
-<span class="line-numbers"><a href="#n23" name="n23">23</a></span>            return
-<span class="line-numbers"><a href="#n24" name="n24">24</a></span>
-<span class="line-numbers"><a href="#n25" name="n25">25</a></span>        return
-<span class="line-numbers"><a href="#n26" name="n26">26</a></span>
-<span class="line-numbers"><a href="#n27" name="n27">27</a></span>    return
-</pre></div>
-</div>
-</div>
+<pre><code class="language-coffeescript">#app/assets/javascripts/memos.js.coffee
+jQuery ($) -&gt;
+    $("#memo_chk").on "change", -&gt;
+        id = $("#memo_id").val()
+        body = $("#memo_body").val()
+        chk = $(this).is(":checked") ? "t" : "f"
+        authenticity_token = $("#authenticity_token").val()
+        $.ajax(
+            url: "/memos/" + id + ".js"
+            type: "PATCH"
+            dataType: "text"
+            data:
+                id: id
+                authenticity_token: authenticity_token
+                memo:
+                    body: body
+                    chk: (if chk then "t" else "f")
+        ).done((data, status, xhr) -&gt;
+            $("#status").html data
+            return
+        ).fail (xhr, status, error) -&gt;
+            alert "Error Occured(" + error + ")"
+            return
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#777">#app/views/memos/_form.html.erb</span>
-<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>&lt;<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%=</span><span style="color:#D20"> form_for(@memo, remote: true, html:{name: &quot;frm_memo&quot;}) do |f| %&gt;↓</span></span>
-<span class="line-numbers"> <a href="#n3" name="n3">3</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">  &lt;%</span><span style="color:#710">=</span></span> hidden_field_tag(<span style="color:#A60">:memo_id</span>, <span style="color:#33B">@memo</span>.id) %&gt;↓
-<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>  &lt;<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%=</span><span style="color:#D20"> hidden_field_tag(:authenticity_token, form_authenticity_token) %&gt;</span></span>
-<span class="line-numbers"> <a href="#n5" name="n5">5</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">  &lt;div class</span><span style="color:#710">=</span></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">field</span><span style="color:#710">&quot;</span></span>&gt;↓
-<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>    &lt;<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%=</span><span style="color:#D20"> f.label :body %&gt;&lt;br&gt;↓</span></span>
-<span class="line-numbers"> <a href="#n7" name="n7">7</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">    &lt;%</span><span style="color:#710">=</span></span> f.text_field <span style="color:#A60">:body</span> %↓
-<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>  &lt;<span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">div&gt;↓</span></span>
-<span class="line-numbers"> <a href="#n9" name="n9">9</a></span><span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#808">  &lt;div class=&quot;field&quot;&gt;↓</span></span>
-<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span><span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#808">    &lt;%= f.label :chk %&gt;&lt;br&gt;↓</span></span>
-<span class="line-numbers"><a href="#n11" name="n11">11</a></span><span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#808">    &lt;%= f.check_box(:chk) %&gt;↓</span></span>
-<span class="line-numbers"><a href="#n12" name="n12">12</a></span><span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#808">  &lt;</span><span style="color:#404">/</span></span>div&gt;↓
-<span class="line-numbers"><a href="#n13" name="n13">13</a></span>  &lt;div <span style="color:#080;font-weight:bold">class</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">actions</span><span style="color:#710">&quot;</span></span>&gt;↓
-<span class="line-numbers"><a href="#n14" name="n14">14</a></span>    &lt;<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%=</span><span style="color:#D20"> f.submit %&gt;↓</span></span>
-<span class="line-numbers"><a href="#n15" name="n15">15</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">  &lt;/div&gt;↓</span></span>
-<span class="line-numbers"><a href="#n16" name="n16">16</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">  &lt;div id</span><span style="color:#710">=</span></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">status</span><span style="color:#710">&quot;</span></span>&gt;&lt;<span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">div&gt;↓</span></span>
-<span class="line-numbers"><a href="#n17" name="n17">17</a></span><span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#808">&lt;% end %&gt;↓</span></span>
-<span class="line-numbers"><a href="#n18" name="n18">18</a></span><span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#808"></span></span></pre></div>
-</div>
-</div>
+        return
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#777">#app/controllers/memos_controller.rb</span>
-<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">update</span>
-<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>    <span style="color:#080;font-weight:bold">if</span> <span style="color:#33B">@memo</span>.update(memo_params)
-<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>      <span style="color:#33B">@status</span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">O.K.</span><span style="color:#710">&quot;</span></span>
-<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>    <span style="color:#080;font-weight:bold">else</span>
-<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>      <span style="color:#33B">@status</span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">N.G.</span><span style="color:#710">&quot;</span></span>
-<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>    <span style="color:#080;font-weight:bold">end</span>
-<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>    <span style="color:#080;font-weight:bold">if</span> request.method == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">PATCH</span><span style="color:#710">&quot;</span></span>
-<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>      render <span style="color:#A60">:text</span> =&gt; <span style="color:#33B">@status</span>
-<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>    <span style="color:#080;font-weight:bold">else</span>
-<span class="line-numbers"><a href="#n11" name="n11">11</a></span>      render <span style="color:#606">template</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">memos/update.js.erb</span><span style="color:#710">&quot;</span></span>
-<span class="line-numbers"><a href="#n12" name="n12">12</a></span>    <span style="color:#080;font-weight:bold">end</span>
-<span class="line-numbers"><a href="#n13" name="n13">13</a></span>  <span style="color:#080;font-weight:bold">end</span>
-</pre></div>
-</div>
-</div>
+    return
+</code></pre>
+
+<pre><code class="language-Ruby">#app/views/memos/_form.html.erb
+&lt;%= form_for(@memo, remote: true, html:{name: "frm_memo"}) do |f| %&gt;↓
+  &lt;%= hidden_field_tag(:memo_id, @memo.id) %&gt;↓
+  &lt;%= hidden_field_tag(:authenticity_token, form_authenticity_token) %&gt;
+  &lt;div class="field"&gt;↓
+    &lt;%= f.label :body %&gt;&lt;br&gt;↓
+    &lt;%= f.text_field :body %↓
+  &lt;/div&gt;↓
+  &lt;div class="field"&gt;↓
+    &lt;%= f.label :chk %&gt;&lt;br&gt;↓
+    &lt;%= f.check_box(:chk) %&gt;↓
+  &lt;/div&gt;↓
+  &lt;div class="actions"&gt;↓
+    &lt;%= f.submit %&gt;↓
+  &lt;/div&gt;↓
+  &lt;div id="status"&gt;&lt;/div&gt;↓
+&lt;% end %&gt;↓
+</code></pre>
+
+<pre><code class="language-Ruby">#app/controllers/memos_controller.rb
+  def update
+    if @memo.update(memo_params)
+      @status = "O.K."
+    else
+      @status = "N.G."
+    end
+    if request.method == "PATCH"
+      render :text =&gt; @status
+    else
+      render template: "memos/update.js.erb"
+    end
+  end
+</code></pre>
 
 <ul>
   <li>urlパラメータはRailsの_PATH表記から文字列に変更</li>

@@ -123,6 +123,9 @@ MathJax.Hub.Config({
       </div>
     </div>
 
+    <div align="right">
+      <iframe frameborder="0" allowtransparency="true" height="60" width="468" marginheight="0" scrolling="no" src="http://ad.jp.ap.valuecommerce.com/servlet/htmlbanner?sid=3216166&pid=883489430" marginwidth="0"><script language="javascript" src="http://ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3216166&pid=883489430"></script><noscript><a href="http://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3216166&pid=883489430" target="_blank" ><img src="http://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3216166&pid=883489430" height="60" width="468" border="0"></a></noscript></iframe>
+    </div>
     <div class="container-narrow">
 
       <div class="content">
@@ -144,112 +147,106 @@ MathJax.Hub.Config({
 <p>　要するにRequestAnimationFrameというAPIを使えばいいという話なのですがネットでandroidの対応状況は4.1以上でも全滅という書き込みをちらほら見かけます。でも、実際にやってみると以下のCoffeeScriptをコンパイルしたanimation.jsとanimation.htmlをandroid端末（GL07s）にコピーしてURL指定すれば標準ブラウザでふつうに動作しました。ネットではjQueryといっしょに使用することで問題が出るという書き込みも見かけましたが無視することにしました。知らないうちに解決されたのでしょう<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>(^^)<br />
 　実際にアニメーションを駆使するスマホアプリを作るときは、既存のいろんなライブラリを使うことが多いのかもしれませんがHTML5だけで出来るほうがシンプルでいいですね。</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span>#animation.coffee
-<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>$ -&gt;
-<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>
-<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>    return new Animation()
-<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>    
-<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>class Animation
-<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>    constructor: -&gt;
-<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>        @canvas = document.getElementById(&quot;canvasMain&quot;)
-<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>        @areaStartX = document.getElementById(&quot;spanStartX&quot;)
-<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>        @areaStartY = document.getElementById(&quot;spanStartY&quot;)
-<span class="line-numbers"><a href="#n11" name="n11">11</a></span>        @areaEndX = document.getElementById(&quot;spanEndX&quot;)
-<span class="line-numbers"><a href="#n12" name="n12">12</a></span>        @areaEndY = document.getElementById(&quot;spanEndY&quot;)
-<span class="line-numbers"><a href="#n13" name="n13">13</a></span>        @start = {x:0, y:0}
-<span class="line-numbers"><a href="#n14" name="n14">14</a></span>        @end = {x:100, y:100}
-<span class="line-numbers"><a href="#n15" name="n15">15</a></span>        @request = null
-<span class="line-numbers"><a href="#n16" name="n16">16</a></span>        @amount = 0
-<span class="line-numbers"><a href="#n17" name="n17">17</a></span>        @startflg = true
-<span class="line-numbers"><a href="#n18" name="n18">18</a></span>        @setEventListener()
-<span class="line-numbers"><a href="#n19" name="n19">19</a></span>        @touch(@start.x, @start.y)
-<span class="line-numbers"><strong><a href="#n20" name="n20">20</a></strong></span>        @touch(@end.x, @end.y)
-<span class="line-numbers"><a href="#n21" name="n21">21</a></span>
-<span class="line-numbers"><a href="#n22" name="n22">22</a></span>    touch: (clientX, clientY) =&gt;
-<span class="line-numbers"><a href="#n23" name="n23">23</a></span>        if @startflg
-<span class="line-numbers"><a href="#n24" name="n24">24</a></span>            @startflg = false
-<span class="line-numbers"><a href="#n25" name="n25">25</a></span>            @start.x = clientX; @areaStartX.innerHTML = clientX
-<span class="line-numbers"><a href="#n26" name="n26">26</a></span>            @start.y = clientY; @areaStartY.innerHTML = clientY
-<span class="line-numbers"><a href="#n27" name="n27">27</a></span>        else
-<span class="line-numbers"><a href="#n28" name="n28">28</a></span>            @startflg = true
-<span class="line-numbers"><a href="#n29" name="n29">29</a></span>            @end.x = clientX; @areaEndX.innerHTML = clientX
-<span class="line-numbers"><strong><a href="#n30" name="n30">30</a></strong></span>            @end.y = clientY; @areaEndY.innerHTML = clientY
-<span class="line-numbers"><a href="#n31" name="n31">31</a></span>        
-<span class="line-numbers"><a href="#n32" name="n32">32</a></span>    setEventListener: =&gt;
-<span class="line-numbers"><a href="#n33" name="n33">33</a></span>        $('#canvasMain').on 'click', (e) =&gt;
-<span class="line-numbers"><a href="#n34" name="n34">34</a></span>            @touch(e.clientX, e.clientY)
-<span class="line-numbers"><a href="#n35" name="n35">35</a></span>
-<span class="line-numbers"><a href="#n36" name="n36">36</a></span>        $('#btnStart').on 'click', (e) =&gt;
-<span class="line-numbers"><a href="#n37" name="n37">37</a></span>            @animate()
-<span class="line-numbers"><a href="#n38" name="n38">38</a></span>        
-<span class="line-numbers"><a href="#n39" name="n39">39</a></span>    animate: =&gt;
-<span class="line-numbers"><strong><a href="#n40" name="n40">40</a></strong></span>        @request = requestAnimFrame(@animate, @canvas)
-<span class="line-numbers"><a href="#n41" name="n41">41</a></span>        @drawanimation()
-<span class="line-numbers"><a href="#n42" name="n42">42</a></span>
-<span class="line-numbers"><a href="#n43" name="n43">43</a></span>    drawanimation: =&gt;
-<span class="line-numbers"><a href="#n44" name="n44">44</a></span>        @context = @canvas.getContext('2d')
-<span class="line-numbers"><a href="#n45" name="n45">45</a></span>        @context.clearRect(0, 0, @canvas.width, @canvas.height)
-<span class="line-numbers"><a href="#n46" name="n46">46</a></span>        @amount += 0.02
-<span class="line-numbers"><a href="#n47" name="n47">47</a></span>        @amount = 1 if @amount &gt; 1
-<span class="line-numbers"><a href="#n48" name="n48">48</a></span>        @context.beginPath()
-<span class="line-numbers"><a href="#n49" name="n49">49</a></span>        @context.moveTo @start.x, @start.y
-<span class="line-numbers"><strong><a href="#n50" name="n50">50</a></strong></span>        @context.strokeStyle = 'rgba(255, 105, 180, 0.7)'
-<span class="line-numbers"><a href="#n51" name="n51">51</a></span>        @context.lineWidth = 12
-<span class="line-numbers"><a href="#n52" name="n52">52</a></span>        newX = @start.x + (@end.x - @start.x) * @amount
-<span class="line-numbers"><a href="#n53" name="n53">53</a></span>        newY = @start.y + (@end.y - @start.y) * @amount
-<span class="line-numbers"><a href="#n54" name="n54">54</a></span>        @context.lineTo newX, newY
-<span class="line-numbers"><a href="#n55" name="n55">55</a></span>        @context.stroke()
-<span class="line-numbers"><a href="#n56" name="n56">56</a></span>        if newX is @end.x and newY is @end.y
-<span class="line-numbers"><a href="#n57" name="n57">57</a></span>            cancelRequestAnimFrame @request
-<span class="line-numbers"><a href="#n58" name="n58">58</a></span>            @request = null
-<span class="line-numbers"><a href="#n59" name="n59">59</a></span>            @amount = 0
-<span class="line-numbers"><strong><a href="#n60" name="n60">60</a></strong></span>
-<span class="line-numbers"><a href="#n61" name="n61">61</a></span>window.Animation = window.Animation || Animation
-<span class="line-numbers"><a href="#n62" name="n62">62</a></span>
-<span class="line-numbers"><a href="#n63" name="n63">63</a></span>window.requestAnimFrame = (-&gt;
-<span class="line-numbers"><a href="#n64" name="n64">64</a></span>  window.requestAnimationFrame or window.webkitRequestAnimationFrame or window.mozRequestAnimationFrame or window.oRequestAnimationFrame or window.msRequestAnimationFrame or (callback, element) -&gt;
-<span class="line-numbers"><a href="#n65" name="n65">65</a></span>    window.setTimeout callback, 1000 / 60
-<span class="line-numbers"><a href="#n66" name="n66">66</a></span>)()
-<span class="line-numbers"><a href="#n67" name="n67">67</a></span>window.cancelRequestAnimFrame = (-&gt;
-<span class="line-numbers"><a href="#n68" name="n68">68</a></span>  window.cancelAnimationFrame or window.webkitCancelRequestAnimationFrame or window.mozCancelRequestAnimationFrame or window.oCancelRequestAnimationFrame or window.msCancelRequestAnimationFrame or clearTimeout
-<span class="line-numbers"><a href="#n69" name="n69">69</a></span>)()
-</pre></div>
-</div>
-</div>
+<pre><code class="language-CoffeeScript">#animation.coffee
+$ -&gt;
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#777">&lt;!-- animation.html --&gt;</span>
-<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>
-<span class="line-numbers"> <a href="#n3" name="n3">3</a></span><span style="color:#34b">&lt;!DOCTYPE HTML&gt;</span>
-<span class="line-numbers"> <a href="#n4" name="n4">4</a></span><span style="color:#070;font-weight:bold">&lt;html&gt;</span>
-<span class="line-numbers"> <a href="#n5" name="n5">5</a></span><span style="color:#070;font-weight:bold">&lt;head&gt;</span>
-<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>    <span style="color:#070;font-weight:bold">&lt;meta</span> <span style="color:#b48">charset</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">utf-8</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
-<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>    <span style="color:#070;font-weight:bold">&lt;script</span> <span style="color:#b48">type</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">text/javascript</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">src</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">js/jquery-1.11.2.min.js</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"> </span><span style="color:#070;font-weight:bold">&lt;/script&gt;</span>
-<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>    <span style="color:#070;font-weight:bold">&lt;script</span> <span style="color:#b48">type</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">text/javascript</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">src</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">animation.js</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"> </span><span style="color:#070;font-weight:bold">&lt;/script&gt;</span>
-<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>    <span style="color:#070;font-weight:bold">&lt;title&gt;</span>アニメーションのテスト<span style="color:#070;font-weight:bold">&lt;/title&gt;</span>
-<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span><span style="color:#070;font-weight:bold">&lt;/head&gt;</span>
-<span class="line-numbers"><a href="#n11" name="n11">11</a></span><span style="color:#070;font-weight:bold">&lt;body&gt;</span>
-<span class="line-numbers"><a href="#n12" name="n12">12</a></span><span style="color:#070;font-weight:bold">&lt;div&gt;</span>
-<span class="line-numbers"><a href="#n13" name="n13">13</a></span>    <span style="color:#070;font-weight:bold">&lt;canvas</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">canvasMain</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">width</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">400</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">height</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">400</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">style</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#606">background-color</span>: <span style="color:#0A0">#2f4f4f</span>;<span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span><span style="color:#070;font-weight:bold">&lt;/canvas&gt;</span>
-<span class="line-numbers"><a href="#n14" name="n14">14</a></span>    <span style="color:#070;font-weight:bold">&lt;form&gt;</span>
-<span class="line-numbers"><a href="#n15" name="n15">15</a></span>      <span style="color:#070;font-weight:bold">&lt;p&gt;</span>
-<span class="line-numbers"><a href="#n16" name="n16">16</a></span>      開始点　X=<span style="color:#070;font-weight:bold">&lt;span</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">spanStartX</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span><span style="color:#070;font-weight:bold">&lt;/span&gt;</span>:
-<span class="line-numbers"><a href="#n17" name="n17">17</a></span>      Y=<span style="color:#070;font-weight:bold">&lt;span</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">spanStartY</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span><span style="color:#070;font-weight:bold">&lt;/span&gt;</span><span style="color:#070;font-weight:bold">&lt;br</span> <span style="color:#070;font-weight:bold">/&gt;</span>
-<span class="line-numbers"><a href="#n18" name="n18">18</a></span>      終了点　X=<span style="color:#070;font-weight:bold">&lt;span</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">spanEndX</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span><span style="color:#070;font-weight:bold">&lt;/span&gt;</span>:
-<span class="line-numbers"><a href="#n19" name="n19">19</a></span>      Y=<span style="color:#070;font-weight:bold">&lt;span</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">spanEndY</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span><span style="color:#070;font-weight:bold">&lt;/span&gt;</span>
-<span class="line-numbers"><strong><a href="#n20" name="n20">20</a></strong></span>      <span style="color:#070;font-weight:bold">&lt;/p&gt;</span>
-<span class="line-numbers"><a href="#n21" name="n21">21</a></span>      <span style="color:#070;font-weight:bold">&lt;p&gt;</span>
-<span class="line-numbers"><a href="#n22" name="n22">22</a></span>        <span style="color:#070;font-weight:bold">&lt;input</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">btnStart</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">type</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">button</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">value</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">描画</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
-<span class="line-numbers"><a href="#n23" name="n23">23</a></span>      <span style="color:#070;font-weight:bold">&lt;/p&gt;</span>
-<span class="line-numbers"><a href="#n24" name="n24">24</a></span>    <span style="color:#070;font-weight:bold">&lt;/form&gt;</span>
-<span class="line-numbers"><a href="#n25" name="n25">25</a></span><span style="color:#070;font-weight:bold">&lt;/div&gt;</span>
-<span class="line-numbers"><a href="#n26" name="n26">26</a></span>
-<span class="line-numbers"><a href="#n27" name="n27">27</a></span><span style="color:#070;font-weight:bold">&lt;/body&gt;</span>
-<span class="line-numbers"><a href="#n28" name="n28">28</a></span><span style="color:#070;font-weight:bold">&lt;/html&gt;</span>
-</pre></div>
-</div>
-</div>
+    return new Animation()
+    
+class Animation
+    constructor: -&gt;
+        @canvas = document.getElementById("canvasMain")
+        @areaStartX = document.getElementById("spanStartX")
+        @areaStartY = document.getElementById("spanStartY")
+        @areaEndX = document.getElementById("spanEndX")
+        @areaEndY = document.getElementById("spanEndY")
+        @start = {x:0, y:0}
+        @end = {x:100, y:100}
+        @request = null
+        @amount = 0
+        @startflg = true
+        @setEventListener()
+        @touch(@start.x, @start.y)
+        @touch(@end.x, @end.y)
+
+    touch: (clientX, clientY) =&gt;
+        if @startflg
+            @startflg = false
+            @start.x = clientX; @areaStartX.innerHTML = clientX
+            @start.y = clientY; @areaStartY.innerHTML = clientY
+        else
+            @startflg = true
+            @end.x = clientX; @areaEndX.innerHTML = clientX
+            @end.y = clientY; @areaEndY.innerHTML = clientY
+        
+    setEventListener: =&gt;
+        $('#canvasMain').on 'click', (e) =&gt;
+            @touch(e.clientX, e.clientY)
+
+        $('#btnStart').on 'click', (e) =&gt;
+            @animate()
+        
+    animate: =&gt;
+        @request = requestAnimFrame(@animate, @canvas)
+        @drawanimation()
+
+    drawanimation: =&gt;
+        @context = @canvas.getContext('2d')
+        @context.clearRect(0, 0, @canvas.width, @canvas.height)
+        @amount += 0.02
+        @amount = 1 if @amount &gt; 1
+        @context.beginPath()
+        @context.moveTo @start.x, @start.y
+        @context.strokeStyle = 'rgba(255, 105, 180, 0.7)'
+        @context.lineWidth = 12
+        newX = @start.x + (@end.x - @start.x) * @amount
+        newY = @start.y + (@end.y - @start.y) * @amount
+        @context.lineTo newX, newY
+        @context.stroke()
+        if newX is @end.x and newY is @end.y
+            cancelRequestAnimFrame @request
+            @request = null
+            @amount = 0
+
+window.Animation = window.Animation || Animation
+
+window.requestAnimFrame = (-&gt;
+  window.requestAnimationFrame or window.webkitRequestAnimationFrame or window.mozRequestAnimationFrame or window.oRequestAnimationFrame or window.msRequestAnimationFrame or (callback, element) -&gt;
+    window.setTimeout callback, 1000 / 60
+)()
+window.cancelRequestAnimFrame = (-&gt;
+  window.cancelAnimationFrame or window.webkitCancelRequestAnimationFrame or window.mozCancelRequestAnimationFrame or window.oCancelRequestAnimationFrame or window.msCancelRequestAnimationFrame or clearTimeout
+)()
+</code></pre>
+
+<pre><code class="language-HTML">&lt;!-- animation.html --&gt;
+
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;script type="text/javascript" src="js/jquery-1.11.2.min.js"&gt; &lt;/script&gt;
+    &lt;script type="text/javascript" src="animation.js"&gt; &lt;/script&gt;
+    &lt;title&gt;アニメーションのテスト&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div&gt;
+    &lt;canvas id="canvasMain" width="400" height="400" style="background-color: #2f4f4f;"&gt;&lt;/canvas&gt;
+    &lt;form&gt;
+      &lt;p&gt;
+      開始点　X=&lt;span id="spanStartX"&gt;&lt;/span&gt;:
+      Y=&lt;span id="spanStartY"&gt;&lt;/span&gt;&lt;br /&gt;
+      終了点　X=&lt;span id="spanEndX"&gt;&lt;/span&gt;:
+      Y=&lt;span id="spanEndY"&gt;&lt;/span&gt;
+      &lt;/p&gt;
+      &lt;p&gt;
+        &lt;input id="btnStart" type="button" value="描画"&gt;
+      &lt;/p&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
 
 <ul>
   <li>黒板に赤チョークのイメージです（赤チョークって確かこういうピンクっぽい色だった記憶があります）</li>

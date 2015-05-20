@@ -123,6 +123,9 @@ MathJax.Hub.Config({
       </div>
     </div>
 
+    <div align="right">
+      <iframe frameborder="0" allowtransparency="true" height="60" width="468" marginheight="0" scrolling="no" src="http://ad.jp.ap.valuecommerce.com/servlet/htmlbanner?sid=3216166&pid=883489430" marginwidth="0"><script language="javascript" src="http://ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3216166&pid=883489430"></script><noscript><a href="http://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3216166&pid=883489430" target="_blank" ><img src="http://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3216166&pid=883489430" height="60" width="468" border="0"></a></noscript></iframe>
+    </div>
     <div class="container-narrow">
 
       <div class="content">
@@ -150,43 +153,31 @@ MathJax.Hub.Config({
 getter(日付型のデータを、年/月のフォーマットの文字列に変換してして返す)</li>
 </ul>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">ym_expiration</span>
-<span class="line-numbers"><a href="#n2" name="n2">2</a></span>    <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">self</span>.expiration.strftime(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">%Y/%m</span><span style="color:#710">&quot;</span></span>) <span style="color:#080;font-weight:bold">if</span> <span style="color:#069">self</span>.expiration
-<span class="line-numbers"><a href="#n3" name="n3">3</a></span>  <span style="color:#080;font-weight:bold">end</span>
-</pre></div>
-</div>
-</div>
+<pre><code class="language-Ruby">  def ym_expiration
+    return self.expiration.strftime("%Y/%m") if self.expiration
+  end
+</code></pre>
 <p>setter(年/月の文字列データを日付01を付加して日付型に変換して格納)</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">ym_expiration=</span>(ym_expiration)
-<span class="line-numbers"><a href="#n2" name="n2">2</a></span>    <span style="color:#069">self</span>.expiration = <span style="color:#036;font-weight:bold">Date</span>.strptime(ym_expiration + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">/01</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">%Y/%m/%d</span><span style="color:#710">&quot;</span></span>)
-<span class="line-numbers"><a href="#n3" name="n3">3</a></span>  <span style="color:#080;font-weight:bold">end</span>
-</pre></div>
-</div>
-</div>
+<pre><code class="language-Ruby">  def ym_expiration=(ym_expiration)
+    self.expiration = Date.strptime(ym_expiration + "/01", "%Y/%m/%d")
+  end
+</code></pre>
 <p>Viewから呼ばれる、年/月の文字列データを返すメソッド</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">get_expiration_list</span>
-<span class="line-numbers"><a href="#n2" name="n2">2</a></span>    <span style="color:#A60">:省略</span>
-<span class="line-numbers"><a href="#n3" name="n3">3</a></span>    :
-<span class="line-numbers"><a href="#n4" name="n4">4</a></span>  <span style="color:#080;font-weight:bold">end</span>
-</pre></div>
-</div>
-</div>
+<pre><code class="language-Ruby">  def get_expiration_list
+    :省略
+    :
+  end
+</code></pre>
 
 <ul>
   <li>View(_edit_position.html.erb)<br />
 Viewでは入出力用に追加したym_expirationプロパティだけを使うようにすれば、あたかもDBに対応するカラムのように扱えます。</li>
 </ul>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span><span style="color:#070;font-weight:bold">&lt;td</span> <span style="color:#b48">align</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">center</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">&lt;%=</span> f.select(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">ym_expiration</span><span style="color:#710">&quot;</span></span>, position.get_expiration_list, {<span style="color:#A60">:include_blank</span> =&gt; <span style="color:#069">false</span>}, {<span style="color:#A60">:class</span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">span6</span><span style="color:#710">&quot;</span></span>, <span style="color:#A60">:style</span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">width:90px;</span><span style="color:#710">&quot;</span></span>}) <span style="font-weight:bold;color:#666">%&gt;</span></span><span style="color:#070;font-weight:bold">&lt;/td&gt;</span>
-</pre></div>
-</div>
-</div>
+<pre><code class="language-ERB">&lt;td align="center"&gt;&lt;%= f.select("ym_expiration", position.get_expiration_list, {:include_blank =&gt; false}, {:class =&gt; "span6", :style =&gt; "width:90px;"}) %&gt;&lt;/td&gt;
+</code></pre>
 <p>CakephpやPHP5以上ならたぶん同じことが出来ると思いますが、もうPHPに戻りたくないし調べる気にもなりません</p>
 
 <hr />

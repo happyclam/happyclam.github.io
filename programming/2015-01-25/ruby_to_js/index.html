@@ -123,6 +123,9 @@ MathJax.Hub.Config({
       </div>
     </div>
 
+    <div align="right">
+      <iframe frameborder="0" allowtransparency="true" height="60" width="468" marginheight="0" scrolling="no" src="http://ad.jp.ap.valuecommerce.com/servlet/htmlbanner?sid=3216166&pid=883489430" marginwidth="0"><script language="javascript" src="http://ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3216166&pid=883489430"></script><noscript><a href="http://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3216166&pid=883489430" target="_blank" ><img src="http://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3216166&pid=883489430" height="60" width="468" border="0"></a></noscript></iframe>
+    </div>
     <div class="container-narrow">
 
       <div class="content">
@@ -144,33 +147,27 @@ MathJax.Hub.Config({
 <h3 id="arrayrubyjavascript">Arrayクラスを継承したRubyのクラスをJavaScriptに</h3>
 <p>　三目並べの盤を表現するArrayクラスを継承した以下のコードを</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#777">#tictactoe.rb</span>
-<span class="line-numbers"> <a href="#n2" name="n2">2</a></span><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Board</span> &lt; <span style="color:#036;font-weight:bold">Array</span>
-<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">initialize</span>(*args, &amp;block)
-<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>    <span style="color:#080;font-weight:bold">super</span>(*args, &amp;block)
-<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>  <span style="color:#080;font-weight:bold">end</span>
-<span class="line-numbers"> <a href="#n6" name="n6">6</a></span><span style="color:#080;font-weight:bold">end</span>
-<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>
-<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>b = <span style="color:#036;font-weight:bold">Board</span>.new([<span style="color:#00D">1</span>, <span style="color:#00D">2</span>, <span style="color:#00D">3</span>, <span style="color:#00D">4</span>, <span style="color:#00D">5</span>, <span style="color:#00D">6</span>, <span style="color:#00D">7</span>, <span style="color:#00D">8</span>, <span style="color:#00D">9</span>])
-<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>p b[<span style="color:#00D">3</span>]
-</pre></div>
-</div>
-</div>
+<pre><code class="language-Ruby">#tictactoe.rb
+class Board &lt; Array
+  def initialize(*args, &amp;block)
+    super(*args, &amp;block)
+  end
+end
+
+b = Board.new([1, 2, 3, 4, 5, 6, 7, 8, 9])
+p b[3]
+</code></pre>
 
 <p>以下のようにCoffeeScriptに書き換えて実行したところ</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>#tictactoe.coffee
-<span class="line-numbers"><a href="#n2" name="n2">2</a></span>class Board extends Array
-<span class="line-numbers"><a href="#n3" name="n3">3</a></span>    constructor: (args) -&gt;
-<span class="line-numbers"><a href="#n4" name="n4">4</a></span>        super(args)
-<span class="line-numbers"><a href="#n5" name="n5">5</a></span>
-<span class="line-numbers"><a href="#n6" name="n6">6</a></span>b = new Board([1, 2, 3, 4, 5, 6, 7, 8, 9])
-<span class="line-numbers"><a href="#n7" name="n7">7</a></span>console.log b[3]
-</pre></div>
-</div>
-</div>
+<pre><code class="language-coffeescript">#tictactoe.coffee
+class Board extends Array
+    constructor: (args) -&gt;
+        super(args)
+
+b = new Board([1, 2, 3, 4, 5, 6, 7, 8, 9])
+console.log b[3]
+</code></pre>
 
 <p>画面には<code>undefined</code>と表示されました。エラーにもなりません。コンストラクタに渡されたargsパラメータはどこに行ったのでしょうか？<code>super(args)</code>の行を<code>@ = args</code>とやったらエラーになります<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup><br />
 　以下のようにパラメータを可変個引数にして、配列要素をバラバラのパラメータにして渡しても同じです。</p>
@@ -186,20 +183,17 @@ console.log b[3]
 
 <p>　試しにArrayクラスに新しいプロパティを追加してあげるとそちらの方はちゃんと代入出来ました。</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span>#tictactoe.coffee
-<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>Array::data = []
-<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>class Board extends Array
-<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>    constructor: (args) -&gt;
-<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>        super(args)
-<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>        @.data = args
-<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>
-<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>b = new Board([1, 2, 3, 4, 5, 6, 7, 8, 9])
-<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>console.log b[3]
-<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>console.log b.data[3]
-</pre></div>
-</div>
-</div>
+<pre><code class="language-coffeescript">#tictactoe.coffee
+Array::data = []
+class Board extends Array
+    constructor: (args) -&gt;
+        super(args)
+        @.data = args
+
+b = new Board([1, 2, 3, 4, 5, 6, 7, 8, 9])
+console.log b[3]
+console.log b.data[3]
+</code></pre>
 <p>まず、JavaScriptでもクラスの拡張（オープンクラス？）が簡単に出来ることに驚きました。Rubyと同様にオブジェクト指向出来るんですね。でもこのCoffeeScriptをJavaScriptに変換した中身を見てみると</p>
 
 <pre><code>$coffee -c tictactoe.coffee
@@ -228,17 +222,14 @@ $cat tictactoe.js
 <p>なんじゃこりゃ〜。CoffeeScriptを介さずに元のRubyのコードからこのJavaScriptのコードを書ける気がしない。慣れの問題もあるでしょうが、CoffeeScriptが見事に抽象化してくれているのがわかります。<br />
 　で、問題のコンストラクタに渡された引数の部分ですが、<code>Board.__super__.constructor.call(this, args);</code>こうなっていて値を置き換えてくれても良さそうですが入りません。追加したdataプロパティの方は<code>Array.prototype.data = [];</code>と定義されていて、JavaScriptではprototypeプロパティを介してデータを参照しているようです。なので<code>@.prototype = args</code>とやったりしましたが値はセットされませんしエラーにもなりません。<code>@ = args</code>はエラーになりますがpushメソッドは呼べるので、結局コンストラクタで<code>@.push(args[i]) for i in [0...args.length]</code>とすることでRubyからCoffeeScriptを介してJavaScriptに移植することが出来ました。  </p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>#tictactoe.coffee
-<span class="line-numbers"><a href="#n2" name="n2">2</a></span>class Board extends Array
-<span class="line-numbers"><a href="#n3" name="n3">3</a></span>    constructor: (args) -&gt;
-<span class="line-numbers"><a href="#n4" name="n4">4</a></span>        @.push(args[i]) for i in [0...args.length]
-<span class="line-numbers"><a href="#n5" name="n5">5</a></span>
-<span class="line-numbers"><a href="#n6" name="n6">6</a></span>b = new Board([1, 2, 3, 4, 5, 6, 7, 8, 9])
-<span class="line-numbers"><a href="#n7" name="n7">7</a></span>console.log b[3]
-</pre></div>
-</div>
-</div>
+<pre><code class="language-coffeescript">#tictactoe.coffee
+class Board extends Array
+    constructor: (args) -&gt;
+        @.push(args[i]) for i in [0...args.length]
+
+b = new Board([1, 2, 3, 4, 5, 6, 7, 8, 9])
+console.log b[3]
+</code></pre>
 
 <p>　配列の大括弧（[]、bracket）さえもメソッドとして実装しているRubyとの違いかもしれませんが、とりあえず移植できてなによりです。今までJavaScriptに関して真剣に取り組んだことが無かったのですが、<a href="http://www.amazon.co.jp/%E9%96%8B%E7%9C%BC-JavaScript-%E2%80%95%E8%A8%80%E8%AA%9E%E4%BB%95%E6%A7%98%E3%81%8B%E3%82%89%E5%AD%A6%E3%81%B6JavaScript%E3%81%AE%E6%9C%AC%E8%B3%AA-Cody-Lindley/dp/487311621X/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1421851059&amp;sr=1-1&amp;keywords=%E9%96%8B%E7%9C%BC%EF%BC%81javascript">買ってきた本</a>を見ながら移植を進めて、また何か問題が発生すれば記事を書いてみます。</p>
 
