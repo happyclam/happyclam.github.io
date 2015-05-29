@@ -5,10 +5,74 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2015-05-22T10:15:53+09:00</lastBuildDate>
-        <pubDate>2015-05-22T10:15:53+09:00</pubDate>
+        <lastBuildDate>2015-05-29T21:10:01+09:00</lastBuildDate>
+        <pubDate>2015-05-29T21:10:01+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>ハイブリッド開発（HTML5 + JavaScript）でハマったこと</title>
+                <description>&lt;h3 id=&quot;section&quot;&gt;やはりそんなにうまい話はなかった&lt;/h3&gt;
+&lt;p&gt;　ObjectiveC++も使わずJavaのコードも一切書かずにiOSとandroidのアプリが一つのソースコードで作成できるというハイブリッドアプリ開発ですが、&lt;a href=&quot;/programming/2015-04-25/mongo_upsert/&quot;&gt;前回の記事&lt;/a&gt;で書いた通りとりあえず&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf&quot;&gt;androidアプリ&lt;/a&gt;をリリースしたのはいいけど、いろいろなトラブルに遭遇しました。そこでcordovaを使ったandroidアプリ開発に関してネット上に出回っている一般的なトラブルは除いて、特に自分だけかもしれない嵌り方をした点について書いてみようと思います。  &lt;/p&gt;
+
+&lt;p&gt;　開発環境：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;jquery-1.11.2&lt;/li&gt;
+  &lt;li&gt;jquery.mobile-1.4.5&lt;/li&gt;
+  &lt;li&gt;cordova 5.0.0&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;android23ginger-breadclick&quot;&gt;android2.3(ginger bread)でclickイベントが発火しない&lt;/h3&gt;
+&lt;p&gt;　これは定番のトラブルであんただけではなくネット上によく出回ってる話じゃないかと思われた方も多いと思います、そしてclickイベントは使わないってのが基本だと仰る方も多いでしょうが、clickイベントに関するネット上で見かけるトラブルはその動作が重いから避けろというものだと思います。私は先人の教えの通りfastclick.jsを最初から使用していたので特に重いと感じることもなく普通に動いているから問題無いと思っていたのですが、エミュレータも含めてandroid4.1だと問題なくclickイベントが発生するけど、android2.3（おそらくそれ以前も）だとclickイベントが発生しないというトラブルに出くわしました。&lt;br /&gt;
+　&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf&quot;&gt;私のアプリ&lt;/a&gt;はダイアログを表示する箇所が２箇所あるのですが、cordovaのプラグインを使っている方は問題ないのですが、もう一方の自前のwindow（SinglePageApplicationなのでdata-role=”page”を付加したページ）を呼ぶ出す部分のclickイベントが発火しないという現象でした。エミュレータ上でマウスでクリックしようが、実機にインストールして指でタップしようがうんともすんともいいません。なんでこんなことが起こるのか分からなかったのですが、JQueryMobile(JQM)を使用しているのが原因（jQueryは問題ない）のようで、試しにJQMの読み込みをコメントにするとレイアウトは崩れますが正常に動きました。でも、JQMを使わずにレイアウトを定義し直すのは面倒だし、JQMの中まで追って行って原因を追究するのも大変そうなのでネットで検索しながらいろいろ試してみた（vclickイベント、touchイベント等に置き換える）のですが効果はなく、tappable.jsというものを見つけてそれを使ってclickイベントをtappable.jsで置き換えてみてエミュレータで動いた時は喜んだのですが、エミュレータと同じandroid-10（ginger bread）の実機（IS05）で試すと相変わらずイベントが発生しないというおかしな状況になりました。どうも複数の原因が関わっているようでエミュレータで動いたのは偶々だったようです。イベントの発生順序にも関係してそうだったのでclickイベント（というかtapイベント）のcallback設定をいろんな場所（deviceready, DOMContentLoaded, load, pageinit, $document.ready）に書いて確認したのですが動いたり動かなかったりという泥沼に陥りました。しつこいようですがandroid2.3の場合だけです。&lt;br /&gt;
+　いくつか&lt;a href=&quot;https://forum.jquery.com/topic/javascript-function-not-called-on-button-click-event-android-app-using-jquery-mobile&quot;&gt;ヒントになるサイト&lt;/a&gt;はあったのですがJQMがやっている処理をandroidのバージョンによって切り分ける作業が必要そうで、それは大変なので結局ダイアログの表示内容を簡素化してpluginのダイアログ（navigator.notification）を使うことで回避しました。&lt;br /&gt;
+　ネットや本ではjQueryMobileは重いのでzepto.jsを使いましょう、という助言はよく見かけていたのですが、PCサイトから作り始めた私は特に問題なく動いているしパフォーマンスを気にするようなものでもなく試しに作ってみたようなシンプルなテーブルゲームアプリなのでそのままJQMを使っていたのですが、古いandroid機でも動作させるつもりなら今でもzeptoを使ったほうがいいのかもしれません。私の場合はginger breadのシェアも落ちてきているのでJQMのままで良しとしました。&lt;/p&gt;
+
+&lt;h3 id=&quot;android41jellybeanadmob&quot;&gt;android4.1(JellyBean)でadmobを使うと広告表示のタイミングで落ちる&lt;/h3&gt;
+&lt;p&gt;　エミュレータを作成して試している限りでは正常に広告が表示されるのですが、実機で試すと広告が表示されるタイミングでアプリが落ちるという現象に悩まされました。android4.1.xだけで発生するバグのよう（私の持っている実機が4.1.2です!?）で、onAdFailedToLoadイベント等でも拾うことも出来ずにいきなりアプリ毎終了します。&lt;a href=&quot;https://github.com/floatinghotpot/cordova-plugin-admob/issues/92&quot;&gt;admobのオプションでoverlap:trueにするとこのバグを回避できる&lt;/a&gt;ようなのでとりあえずそうしましたが時間を取られました。リンク先にも書かれているようにandroidのバージョンによって処理を分けるのが良さそうです。&lt;/p&gt;
+
+&lt;h3 id=&quot;android23ginger-breadjsonp&quot;&gt;android2.3(ginger bread)だとJSONPでデータが取得できない？？？&lt;/h3&gt;
+&lt;p&gt;　これもまた古いandroidの場合だけでしたが、ランキング表示ダイアログを別のhtmlファイルで作成していたものをSPA(SinglePageApplication)にするために、同じhtmlファイル内にJQMのページ（data-role=”page”）に変更したら、ダイアログ表示時にサーバーにアクセスに行かないようになってしまいました。別ファイルを読み込んだ時にscriptタグ内のJavaScriptでサーバーからデータを取得するようにしていた処理を、JQMの場合はpageinitかpageshowイベントでやるように変更しなければいけないのかと思ってpageshowイベント内に書いてみてもpageshowイベントが発生しません。android4.1の場合は何も書き換えなくてもデータ取得できるにも拘らずです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-JavaScript&quot;&gt;        function cb(u){
+            //省略
+        }
+        function ranking_regist(username){
+            location.href = &quot;#win_show_ranking&quot;;
+
+            //以下JSONPデータ取得処理
+            var s = document.createElement(&#39;script&#39;);
+            s.src = URL;  // http://hogehoge?callback=cb&amp;amp;…省略
+            document.getElementsByTagName(&quot;head&quot;)[0].appendChild(s);
+        }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;　
+　上記コードで&lt;code&gt;location.href = &quot;#win_show_ranking&quot;&lt;/code&gt;とやっているところは非同期で実行され、ページ遷移の完了を待たずにその後のコードが実行されるわけですが、その後のコードが実行される間にページ遷移の処理が何処かでキャンセルされてしまってページが表示されずサーバーへのアクセス自体も発生しなくなりました。JSONPレスポンスを受け取るのにandroidのバージョンが関係あるわけないと思いながらも、古いandroidだと何か理由があるのか？と思い、データ取得の部分をajaxに書き換えてpageshowイベントに書いて試したりしましたが、android2.3では相変わらず動きませんでした。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-JavaScript&quot;&gt;            $.ajax({
+                type: &#39;GET&#39;,
+                url: URL,
+                dataType: &quot;jsonp&quot;,
+                jsonpCallback: &quot;callback&quot;,
+                async : true,
+                success: function(u) {
+                    cb(u);
+                }
+            });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　android4.1では動くというのが混乱の元のような気がしますが、問題は&lt;code&gt;location.href = &quot;#win_show_ranking&quot;&lt;/code&gt;の部分でした。&lt;a href=&quot;http://www.buildinsider.net/web/jquerymobileref/34&quot;&gt;このサイト&lt;/a&gt;に書いてあるようにjavascriptを使って画面遷移するのではなく、JQMのchangeメソッドを使って画面遷移しなければいけないようです。&lt;code&gt;location.href = &quot;#win_show_ranking&quot;&lt;/code&gt;と書いている部分を&lt;code&gt;pagecontainer(&#39;change&#39;, &#39;#win_show_ranking&#39;, {allowSamePageTransition: false});&lt;/code&gt;と書き換えれば問題なく動作しました。&lt;br /&gt;
+　逆に何で新しいandroidだと動くのかについてはよくわかりませんが、JQMはajaxを無効にして使うことも出来るようなので、古いandroidについては面倒を見るのを止めてサポートを切り捨てたけど、新し目のバージョンに関してはどちらでも動くようになっているということでしょうか？それとも偶々動いただけかもしれません。&lt;br /&gt;
+　JQMのことをよく調べずに使い始めたのがよくなかったみたいです。それに現在はJQMを使っているといってもほとんど画面レイアウトにしか使っていない状態なのでJQMの機能をもう少し取り込んで行こうと思っているのですが、そうするとまた新たな問題が出て来るのでしょう。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+</description>
+                <link>http://happyclam.github.io/programming/2015-05-29/android_app1</link>
+                <guid>http://happyclam.github.io/programming/2015-05-29/android_app1</guid>
+                <pubDate>2015-05-29T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>HerokuでNodeとMongoDBを使う</title>

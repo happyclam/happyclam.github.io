@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ハイブリッド開発（HTML5 + JavaScript）でハマったこと</title>
+    
+    <meta name="author" content="happyclam">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+<!-- mathjax config similar to math.stackexchange -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-1752720-7', 'happyclam.github.io');
+      ga('send', 'pageview');
+    </script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">自己満足プログラミング</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div align="right">
+      <iframe frameborder="0" allowtransparency="true" height="60" width="120" marginheight="0" scrolling="no" src="http://ad.jp.ap.valuecommerce.com/servlet/htmlbanner?sid=3216166&pid=883495828" marginwidth="0"><script language="javascript" src="http://ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3216166&pid=883495828"></script><noscript><a href="http://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3216166&pid=883495828" target="_blank" ><img src="http://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3216166&pid=883495828" height="60" width="120" border="0"></a></noscript></iframe>
+      <iframe frameborder="0" allowtransparency="true" height="60" width="234" marginheight="0" scrolling="no" src="http://ad.jp.ap.valuecommerce.com/servlet/htmlbanner?sid=3216166&pid=883495282" marginwidth="0"><script language="javascript" src="http://ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3216166&pid=883495282"></script><noscript><a href="http://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3216166&pid=883495282" target="_blank" ><img src="http://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3216166&pid=883495282" height="60" width="234" border="0"></a></noscript></iframe>
+      <iframe frameborder="0" allowtransparency="true" height="60" width="468" marginheight="0" scrolling="no" src="http://ad.jp.ap.valuecommerce.com/servlet/htmlbanner?sid=3216166&pid=883489430" marginwidth="0"><script language="javascript" src="http://ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3216166&pid=883489430"></script><noscript><a href="http://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3216166&pid=883489430" target="_blank" ><img src="http://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3216166&pid=883489430" height="60" width="468" border="0"></a></noscript></iframe>
+    </div>
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>ハイブリッド開発（HTML5 + JavaScript）でハマったこと </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>29 May 2015</span>
+    </div>
+    <div class="content">
+      <h3 id="section">やはりそんなにうまい話はなかった</h3>
+<p>　ObjectiveC++も使わずJavaのコードも一切書かずにiOSとandroidのアプリが一つのソースコードで作成できるというハイブリッドアプリ開発ですが、<a href="/programming/2015-04-25/mongo_upsert/">前回の記事</a>で書いた通りとりあえず<a href="https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf">androidアプリ</a>をリリースしたのはいいけど、いろいろなトラブルに遭遇しました。そこでcordovaを使ったandroidアプリ開発に関してネット上に出回っている一般的なトラブルは除いて、特に自分だけかもしれない嵌り方をした点について書いてみようと思います。  </p>
+
+<p>　開発環境：</p>
+
+<ul>
+  <li>jquery-1.11.2</li>
+  <li>jquery.mobile-1.4.5</li>
+  <li>cordova 5.0.0</li>
+</ul>
+
+<h3 id="android23ginger-breadclick">android2.3(ginger bread)でclickイベントが発火しない</h3>
+<p>　これは定番のトラブルであんただけではなくネット上によく出回ってる話じゃないかと思われた方も多いと思います、そしてclickイベントは使わないってのが基本だと仰る方も多いでしょうが、clickイベントに関するネット上で見かけるトラブルはその動作が重いから避けろというものだと思います。私は先人の教えの通りfastclick.jsを最初から使用していたので特に重いと感じることもなく普通に動いているから問題無いと思っていたのですが、エミュレータも含めてandroid4.1だと問題なくclickイベントが発生するけど、android2.3（おそらくそれ以前も）だとclickイベントが発生しないというトラブルに出くわしました。<br />
+　<a href="https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf">私のアプリ</a>はダイアログを表示する箇所が２箇所あるのですが、cordovaのプラグインを使っている方は問題ないのですが、もう一方の自前のwindow（SinglePageApplicationなのでdata-role=”page”を付加したページ）を呼ぶ出す部分のclickイベントが発火しないという現象でした。エミュレータ上でマウスでクリックしようが、実機にインストールして指でタップしようがうんともすんともいいません。なんでこんなことが起こるのか分からなかったのですが、JQueryMobile(JQM)を使用しているのが原因（jQueryは問題ない）のようで、試しにJQMの読み込みをコメントにするとレイアウトは崩れますが正常に動きました。でも、JQMを使わずにレイアウトを定義し直すのは面倒だし、JQMの中まで追って行って原因を追究するのも大変そうなのでネットで検索しながらいろいろ試してみた（vclickイベント、touchイベント等に置き換える）のですが効果はなく、tappable.jsというものを見つけてそれを使ってclickイベントをtappable.jsで置き換えてみてエミュレータで動いた時は喜んだのですが、エミュレータと同じandroid-10（ginger bread）の実機（IS05）で試すと相変わらずイベントが発生しないというおかしな状況になりました。どうも複数の原因が関わっているようでエミュレータで動いたのは偶々だったようです。イベントの発生順序にも関係してそうだったのでclickイベント（というかtapイベント）のcallback設定をいろんな場所（deviceready, DOMContentLoaded, load, pageinit, $document.ready）に書いて確認したのですが動いたり動かなかったりという泥沼に陥りました。しつこいようですがandroid2.3の場合だけです。<br />
+　いくつか<a href="https://forum.jquery.com/topic/javascript-function-not-called-on-button-click-event-android-app-using-jquery-mobile">ヒントになるサイト</a>はあったのですがJQMがやっている処理をandroidのバージョンによって切り分ける作業が必要そうで、それは大変なので結局ダイアログの表示内容を簡素化してpluginのダイアログ（navigator.notification）を使うことで回避しました。<br />
+　ネットや本ではjQueryMobileは重いのでzepto.jsを使いましょう、という助言はよく見かけていたのですが、PCサイトから作り始めた私は特に問題なく動いているしパフォーマンスを気にするようなものでもなく試しに作ってみたようなシンプルなテーブルゲームアプリなのでそのままJQMを使っていたのですが、古いandroid機でも動作させるつもりなら今でもzeptoを使ったほうがいいのかもしれません。私の場合はginger breadのシェアも落ちてきているのでJQMのままで良しとしました。</p>
+
+<h3 id="android41jellybeanadmob">android4.1(JellyBean)でadmobを使うと広告表示のタイミングで落ちる</h3>
+<p>　エミュレータを作成して試している限りでは正常に広告が表示されるのですが、実機で試すと広告が表示されるタイミングでアプリが落ちるという現象に悩まされました。android4.1.xだけで発生するバグのよう（私の持っている実機が4.1.2です!?）で、onAdFailedToLoadイベント等でも拾うことも出来ずにいきなりアプリ毎終了します。<a href="https://github.com/floatinghotpot/cordova-plugin-admob/issues/92">admobのオプションでoverlap:trueにするとこのバグを回避できる</a>ようなのでとりあえずそうしましたが時間を取られました。リンク先にも書かれているようにandroidのバージョンによって処理を分けるのが良さそうです。</p>
+
+<h3 id="android23ginger-breadjsonp">android2.3(ginger bread)だとJSONPでデータが取得できない？？？</h3>
+<p>　これもまた古いandroidの場合だけでしたが、ランキング表示ダイアログを別のhtmlファイルで作成していたものをSPA(SinglePageApplication)にするために、同じhtmlファイル内にJQMのページ（data-role=”page”）に変更したら、ダイアログ表示時にサーバーにアクセスに行かないようになってしまいました。別ファイルを読み込んだ時にscriptタグ内のJavaScriptでサーバーからデータを取得するようにしていた処理を、JQMの場合はpageinitかpageshowイベントでやるように変更しなければいけないのかと思ってpageshowイベント内に書いてみてもpageshowイベントが発生しません。android4.1の場合は何も書き換えなくてもデータ取得できるにも拘らずです。</p>
+
+<pre><code class="language-JavaScript">        function cb(u){
+            //省略
+        }
+        function ranking_regist(username){
+            location.href = "#win_show_ranking";
+
+            //以下JSONPデータ取得処理
+            var s = document.createElement('script');
+            s.src = URL;  // http://hogehoge?callback=cb&amp;…省略
+            document.getElementsByTagName("head")[0].appendChild(s);
+        }
+</code></pre>
+<p>　
+　上記コードで<code>location.href = "#win_show_ranking"</code>とやっているところは非同期で実行され、ページ遷移の完了を待たずにその後のコードが実行されるわけですが、その後のコードが実行される間にページ遷移の処理が何処かでキャンセルされてしまってページが表示されずサーバーへのアクセス自体も発生しなくなりました。JSONPレスポンスを受け取るのにandroidのバージョンが関係あるわけないと思いながらも、古いandroidだと何か理由があるのか？と思い、データ取得の部分をajaxに書き換えてpageshowイベントに書いて試したりしましたが、android2.3では相変わらず動きませんでした。</p>
+
+<pre><code class="language-JavaScript">            $.ajax({
+                type: 'GET',
+                url: URL,
+                dataType: "jsonp",
+                jsonpCallback: "callback",
+                async : true,
+                success: function(u) {
+                    cb(u);
+                }
+            });
+</code></pre>
+
+<p>　android4.1では動くというのが混乱の元のような気がしますが、問題は<code>location.href = "#win_show_ranking"</code>の部分でした。<a href="http://www.buildinsider.net/web/jquerymobileref/34">このサイト</a>に書いてあるようにjavascriptを使って画面遷移するのではなく、JQMのchangeメソッドを使って画面遷移しなければいけないようです。<code>location.href = "#win_show_ranking"</code>と書いている部分を<code>pagecontainer('change', '#win_show_ranking', {allowSamePageTransition: false});</code>と書き換えれば問題なく動作しました。<br />
+　逆に何で新しいandroidだと動くのかについてはよくわかりませんが、JQMはajaxを無効にして使うことも出来るようなので、古いandroidについては面倒を見るのを止めてサポートを切り捨てたけど、新し目のバージョンに関してはどちらでも動くようになっているということでしょうか？それとも偶々動いただけかもしれません。<br />
+　JQMのことをよく調べずに使い始めたのがよくなかったみたいです。それに現在はJQMを使っているといってもほとんど画面レイアウトにしか使っていない状態なのでJQMの機能をもう少し取り込んで行こうと思っているのですが、そうするとまた新たな問題が出て来るのでしょう。</p>
+
+<hr />
+
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#programming-ref">
+    		programming <span>10</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>4</span></a></li>
+     
+    	<li><a href="/tags.html#android-ref">android <span>5</span></a></li>
+     
+    	<li><a href="/tags.html#cordova-ref">cordova <span>4</span></a></li>
+     
+    	<li><a href="/tags.html#tictactoe-ref">tictactoe <span>8</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/programming/2015-04-25/mongo_upsert" title="HerokuでNodeとMongoDBを使う">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled"><a>Next &rarr;</a>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'happyclam'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2015 happyclam
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
