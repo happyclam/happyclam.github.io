@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2015-06-09T08:39:44+09:00</updated>
+ <updated>2015-06-09T08:49:09+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>markdownファイルを元に電子出版</title>
-   <link href="http://happyclam.github.io/miscellaneous/2015-06-09/pancod_epub"/>
+   <link href="http://happyclam.github.io/miscellaneous/2015-06-09/pandoc_epub"/>
    <updated>2015-06-09T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/miscellaneous/2015-06-09/pancod_epub</id>
+   <id>http://happyclam.github.io/miscellaneous/2015-06-09/pandoc_epub</id>
    <content type="html">&lt;h3 id=&quot;section&quot;&gt;無料で出版してもダウンロードさえして貰えないと聞くけど&lt;/h3&gt;
 &lt;p&gt;　最近自分が購入する本に占める電子書籍の割合が高くなってきました。単に購入する電子書籍の数が増えてきているだけでなく、昔は購入する電子書籍といえばマンガや雑誌のようなどうでもいいと思える本が多かったのに、最近は何度も読み返すようなお気に入りの技術系の本の中に電子書籍が混じっています。そして、電子書籍に触れる機会が増えてきたのと出版へのハードルが下がってきたこともあって、電子書籍を作るほう（出版）にも興味が湧いてきました。でも、原稿用紙に鉛筆で文章を書いて出版したいわけじゃなく、今このブログを書いているスタイル（markdownで書く）のまま書いたものを流用したいという拘りがあります。&lt;br /&gt;
 　だから、書きたいことはあるけど、わざわざMacのpagesを使ったりWindowsの一太郎を使ったりネット上のサービス&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;を利用してepubファイルを作成して出版したいわけじゃないってことです。こういう方法論に拘るタイプは作家としては大成できないことは分かっていますが、あくまでmarkdownファイルを元にして電子書籍出版するにはどうすればいいのか、最近試行錯誤したことを書いてみたいと思います。&lt;/p&gt;
