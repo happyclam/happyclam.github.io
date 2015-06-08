@@ -5,10 +5,153 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2015-05-29T21:10:01+09:00</lastBuildDate>
-        <pubDate>2015-05-29T21:10:01+09:00</pubDate>
+        <lastBuildDate>2015-06-09T08:39:44+09:00</lastBuildDate>
+        <pubDate>2015-06-09T08:39:44+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>markdownファイルを元に電子出版</title>
+                <description>&lt;h3 id=&quot;section&quot;&gt;無料で出版してもダウンロードさえして貰えないと聞くけど&lt;/h3&gt;
+&lt;p&gt;　最近自分が購入する本に占める電子書籍の割合が高くなってきました。単に購入する電子書籍の数が増えてきているだけでなく、昔は購入する電子書籍といえばマンガや雑誌のようなどうでもいいと思える本が多かったのに、最近は何度も読み返すようなお気に入りの技術系の本の中に電子書籍が混じっています。そして、電子書籍に触れる機会が増えてきたのと出版へのハードルが下がってきたこともあって、電子書籍を作るほう（出版）にも興味が湧いてきました。でも、原稿用紙に鉛筆で文章を書いて出版したいわけじゃなく、今このブログを書いているスタイル（markdownで書く）のまま書いたものを流用したいという拘りがあります。&lt;br /&gt;
+　だから、書きたいことはあるけど、わざわざMacのpagesを使ったりWindowsの一太郎を使ったりネット上のサービス&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;を利用してepubファイルを作成して出版したいわけじゃないってことです。こういう方法論に拘るタイプは作家としては大成できないことは分かっていますが、あくまでmarkdownファイルを元にして電子書籍出版するにはどうすればいいのか、最近試行錯誤したことを書いてみたいと思います。&lt;/p&gt;
+
+&lt;h3 id=&quot;markdown&quot;&gt;markdownから電子書籍ファイルに変換する色々な方法&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;markdown-pdfコマンドで変換しPDF出力&lt;br /&gt;
+markdown-pdfコマンドを使用してPDFファイルに変換します。CSSも使えるし改ページ処理も可能です、リンクが有効に出来ないようなので目次が使えません。でも、左サイドにサムネイル表示すれば不要な気もするので、PCで読むことだけを考えるのならこれでいいような気もします。&lt;br /&gt;
+例.&lt;br /&gt;
+&lt;code&gt;npm install -g markdown-pdf&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;markdown-pdf -f &#39;A4&#39; -s github.css hoge.md -o hoge.pdf&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;pandocで変換、PDF出力&lt;br /&gt;
+ややこしいLaTeXのclsファイルを弄りながらpandocでPDFを出力してみましたが、文字化けしたりよくわからないトラブルに見舞われましたので自分としてはお勧めしません。&lt;br /&gt;
+例1.&lt;br /&gt;
+&lt;code&gt;pandoc hoge.md -o hoge.pdf -V documentclass=myltjsarticle --latex-engine=lualatex&lt;/code&gt;&lt;br /&gt;
+例2（一度TeXに変換してからPDFに変換）&lt;br /&gt;
+&lt;code&gt;pandoc hoge.md -f markdown_github -o hoge.tex&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;pandoc hoge.tex -o hoge.pdf -V documentclass=myltjsarticle --latex-engine=lualatex&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;pandocで変換、epub出力&lt;br /&gt;
+ほぼ満足のいく出来でしたが強制改ページの方法がわからないのと、epubcheckでエラーが出て原因がわからないので使うのを止めました。&lt;br /&gt;
+例1.&lt;br /&gt;
+&lt;code&gt;pandoc -t epub3 -o hoge.epub title.txt hoge.md -s --mathjax --epub-cover-image=images/title.png --epub-stylesheet=github.css --epub-metadata=metadata.xml&lt;/code&gt;&lt;br /&gt;
+例2.（一度TeXに変換してからPDFに変換）&lt;br /&gt;
+&lt;code&gt;pandoc hoge.md -f markdown_github -o hoge.tex&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;pandoc -s hoge.tex -o hoge.epub&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;epubの仕様に沿って定義ファイルを自前で用意してコンパイル（zip化）してepub出力。&lt;br /&gt;
+他の変換ツールを使った方法と違って、変換ツールの制限を受けないので調べながらやれば出来上がりに不満が出ることは無いと思うのですが手間がかかります。&lt;br /&gt;
+例.&lt;br /&gt;
+&lt;code&gt;zip -q0X hoge.zip mimetype&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;zip -qXr9D hoge.zip *&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;cp hoge.zip hoge.epub&lt;/code&gt;&lt;br /&gt;
+用意するディレクトリとファイルの例&lt;br /&gt;
+&lt;a href=&quot;https://epubcafe.googlecode.com/svn/trunk/tutorial/OEBPS/Text/Chapter020201.xhtml&quot;&gt;参考サイト&lt;/a&gt;  &lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;Packeage/
+├── META-INF
+│   └── container.xml
+├── mimetype
+├── hoge
+│   ├── cover.xhtml
+│   ├── css
+│   │   └── stylesheet.css
+│   ├── images
+│   │   └── title.png
+│   ├── main01.xhtml
+│   ├── main02.xhtml
+│   ├── main03.xhtml
+│   ├── nav.ncx
+│   ├── nav.xhtml
+│   └── hoge.opf
+├── hoge.epub
+└── hoge.zip
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;pdfepub&quot;&gt;PDFかepubか&lt;/h3&gt;
+&lt;p&gt;　出版するための形態をどちらにするか一般的にはepubの方が正式な出版物という扱いだと思いますが、自分としては最初&lt;a href=&quot;https://gumroad.com&quot;&gt;Gumroad&lt;/a&gt;にPDFで公開するのが一番簡単そうだったのでそうしようと思っていたのです。でもpandocを使ってmarkdownからPDFに出力すると色々と不満が出てきたのでepubにも手を出してみたという経緯があります。pandocを使えばPDFにもepubにも出力出来るはずですが、一部の文字が化けたり、細かなトラブルに見舞われたのでPDF出力するならmarkdown-pdfを使った方が良さそうだとか、epub出力するならこのオプションが良さそうだとかいうノウハウが色々試行錯誤しているうちにわかってきました。そして、最終的には1.markdown-pdfを使ってPDF出力する、2.pandocを使ってepub出力する、3.epubの仕様に沿って自前で定義ファイルを書きepubを作成する、の３つの方法に絞りました。以下にそれぞれのメリットデメリットを書きます（不満点に書いている内容は、あくまで自分がうまく出来なかっただけで、よく理解している人がやれば可能なのかもしれません）。  &lt;/p&gt;
+
+&lt;table rules=&quot;groups&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt; &lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt; &lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;メリット&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;不満点&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;markdown-pdf&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;簡単。PCで読むことだけを考えればこれで十分かも&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;・脚注が使えない&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;・数式が出せない？&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;・リンクが効かない？&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;pandoc&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;多くの電子書籍リーダーで利用できるepub形式&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;・epubcheck（後述）エラーの検証で手も足も出せなくなる&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;自力epub&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;変換ツールの仕様やバグの制限を受けない&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;・markdownから直接ではなく、一度HTMLに変換する必要がある&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　上記のようなファイル出力が思うように出来るか出来ないかという観点とは別に、PDFならDRMとしての簡易透かし機能が使えるとか、epubだとISBNのような識別IDをどうするのかとか手続き面のメリット・デメリット、epubだと大きな市場に投入出来るけどPDFだと電子書籍市場で不利だとかビジネス面でのメリット・デメリットもあると思います。&lt;/p&gt;
+
+&lt;h3 id=&quot;epubcheck&quot;&gt;epubcheckとは&lt;/h3&gt;
+&lt;p&gt;　実はpandocで自分にとってはほぼ満足いくepub形式のファイルに変換できてcalibre等で動作確認も出来たのですが、AppleのiBooksだと&lt;a href=&quot;https://github.com/idpf/epubcheck&quot;&gt;epubcheck&lt;/a&gt;というepub検証ツールを通過しないと出版できないという話を聞いたので試したところ原因不明のエラーが出ました。そしてエラーメッセージだけからでは原因がわからず、いろいろ推測しながら編集してエラーの原因を探ることに疲れたので、一から自前で定義ファイルを書く（自力epub）ことにしたのです。その結果epubcheckでエラーも出ないし自分で満足のいくepubファイルが作れることはわかったのですが、markdownファイルから直接epubファイルに変換しているわけではないので不満もあります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;java -jar ~/Downloads/epubcheck-4.0.0-alpha11/epubcheck.jar ./hoge.epub
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;まとめ&lt;/h3&gt;
+&lt;p&gt;　結局現時点での自分なりの結論はpandocに頼らずepubの仕様に沿って自前で定義ファイルを書いてコンパイルする（自力epub）のが一番良さそうだと思います。でもこの方法はmarkdownファイルから直接変換しているわけではなく、jekyll等でmarkdownからHTMLを生成し、それを定義にあわせて編集しているので一手間かかるのでまだ不満が残ります。ただこのやり方はepubで出力することを考慮しながらmarkdownの書き方を工夫するという余地もあるので、まだまだ試行錯誤が続きそうです。&lt;br /&gt;
+　こんなことに時間を費やしているより出版したい文章を仕上げることを優先すべきなのですが、pandocの機能アップに期待しながら出版するのはもう少し先になりそうです。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;markdownに拘らなければAmazonやAppleや楽天ブックス以外にも&lt;a href=&quot;http://bccks.jp&quot;&gt;個人出版を助けるネットサービス&lt;/a&gt;があるようですし、&lt;a href=&quot;http://www7b.biglobe.ne.jp/~yama88/make.html&quot;&gt;変換ツール&lt;/a&gt;も色々あります。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+                <link>http://happyclam.github.io/miscellaneous/2015-06-09/pancod_epub</link>
+                <guid>http://happyclam.github.io/miscellaneous/2015-06-09/pancod_epub</guid>
+                <pubDate>2015-06-09T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>ハイブリッド開発（HTML5 + JavaScript）でハマったこと</title>
