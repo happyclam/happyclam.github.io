@@ -5,15 +5,85 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-<<<<<<< HEAD
-        <lastBuildDate>2015-06-09T08:49:09+09:00</lastBuildDate>
-        <pubDate>2015-06-09T08:49:09+09:00</pubDate>
-=======
-        <lastBuildDate>2015-06-09T08:54:02+09:00</lastBuildDate>
-        <pubDate>2015-06-09T08:54:02+09:00</pubDate>
->>>>>>> temp
+        <lastBuildDate>2015-06-12T14:08:06+09:00</lastBuildDate>
+        <pubDate>2015-06-12T14:08:06+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>kobo aura購入</title>
+                <description>&lt;h3 id=&quot;kobo&quot;&gt;今更だけどkobo購入&lt;/h3&gt;
+&lt;p&gt;　前々から試してみたかった E-Ink端末を買ってみました。Kindleではなく&lt;a href=&quot;http://books.rakuten.co.jp/event/e-book/ereaders/koboaura/&quot;&gt;Kobo&lt;/a&gt;を買ったのは、日用品や書籍の購入は昔からAmazonばかり利用しているので少しAmazonに偏りすぎている気がしていたのと、koboはKindleと違ってSDカードが使えることや個人出版する場合Amazonのkindle direct publishing（KDP）から出版するより&lt;a href=&quot;http://books.rakuten.co.jp/e-book/rakutenkwl/&quot;&gt;koboライティングライフ(KWL)&lt;/a&gt;から出版した方が&lt;a href=&quot;http://internet.watch.impress.co.jp/docs/news/20150430_700205.html&quot;&gt;ロイヤルティが高い&lt;/a&gt;と聞いたので、楽天のことも少しは使って知っておこうと思ったのが動機です。まぁ電子出版に関して今後どうするか決めていませんが、とりあえずkobo auraを使ってみた感想を書いてみたいと思います。&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;セットアップ&lt;/h3&gt;
+&lt;p&gt;　本体を取り出してWi-Fiでセットアップしようと思いましたが、自宅のフレッツ光のルーターはMACアドレスフィルタリングを設定しているので、まずはkoboのMACアドレスを知りたいのですが取説にシールが貼ってある気配もないし、外箱にもそれらしい値は書いてありません。セットアップの途中でキャンセルして設定を見ることが出来るかもと思いながらメニューを進めたり戻ったりしましたがどうもセットアップを完了するまで何も操作できないようになっているようで、MACアドレスを確認することはできませんでした。仕方がないのでUSBで接続してセットアップを完了させましたが、先々月購入したMacBookは外箱にちゃんとMACアドレスが記載されていたことを思うと、さすがAppleは抜かりないなって感じです。&lt;br /&gt;
+　ちなみにUSB接続してセットアップ完了後は、koboの設定メニューからMACアドレスを確認することは出来たので問題なくWi-Fi接続も出来ました。&lt;/p&gt;
+
+&lt;h3 id=&quot;epubkobo&quot;&gt;自分で作成したepubファイルをkoboで読んでみる&lt;/h3&gt;
+&lt;p&gt;　DVDや音楽データと違ってAmazonで購入した電子書籍のDRMを解除してkoboで読むことに現時点では法的な問題はないもののAmazonとの契約上は問題があるようです&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
+　ということで、まず自分で作成したepubファイルをkoboにコピーして動作確認してみました。USBで接続したらkoboがストレージとして認識されるので、そこに自作のepubファイルをコピーするだけでkoboで読むことができました。コピー後初めて開いた時は日本語が文字化けしていたのですが&lt;a href=&quot;http://iphone.f-tools.net/Book-Reader/EPUB-MojiBake.html&quot;&gt;このサイト&lt;/a&gt;に書いてある通り「ドキュメントデフォルト」となっているフォントを別のものに指定し直せば問題なく表示されました。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;table rules=&quot;groups&quot;&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&quot;/images/defaultfont_img.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/defaultfont_img.png&quot; alt=&quot;ドキュメントデフォルト&quot; title=&quot;ドキュメントデフォルトの文字化け状態&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&quot;/images/fixedfont_img.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/fixedfont_img.png&quot; alt=&quot;モリサワゴシック&quot; title=&quot;モリサワゴシックフォント選択後&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　epub上のリンクをクリックするとブラウザが起動してWebサイトも見れるようですし、思ったより動作も速いし、E-Ink端末初体験の自分にとってはこんなものかと納得していましたが、ネットで検索してみると他のE-Ink端末の方がいいという意見もいろいろあるようで、特に文字の表示が薄い&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;という指摘は確かにその通りだと思うし残念です。&lt;br /&gt;
+　一つ気になったのが、自作のepub内でWikipediaへのリンクを記述している部分があるのですが、タップすると「指定されたページ名が無効な文字を含んでいます」とエラーページに飛ばされました。PC上でこのepubファイルを開いてクリックすれば正常に表示されるのにkoboで操作するとダメです。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/encoding_error.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/encoding_error.png&quot; alt=&quot;Wikipediaのエラーページ&quot; title=&quot;koboで表示されたWikipediaのエラーページ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　メッセージに「無効な文字”%E4”を含んでいます」と書かれています。&lt;br /&gt;
+　元のリンクのソースは&lt;code&gt;&amp;lt;a href=&quot;http://ja.wikipedia.org/wiki/二人零和有限確定完全情報ゲーム&quot;&amp;gt;Wikipedia&amp;lt;/a&amp;gt;&lt;/code&gt;なのですが、”%E4”ってのはこれをURLエスケープ（&lt;a href=&quot;http://ja.wikipedia.org/wiki/パーセントエンコーディング&quot;&gt;パーセントエンコーディング&lt;/a&gt;、URLエンコード）した後の日本語部分の最初の文字です。ブラウザを起動する前の、koboでリンクをタップした時に出るダイアログは以下のように既にエスケープされています。  &lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/browser_launch.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/browser_launch.png&quot; alt=&quot;リンクをタップした時のダイアログ&quot; title=&quot;koboでリンクをタップした時のダイアログ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　つまりkoboのepubリーダーでURLエスケープした後、koboのブラウザでもさらに二重にエスケープしてWikipediaにリクエストしたものだから、Wikipediaサーバー側でunescapeしても”%”が入ってきちゃってるよ、オイオイってことです。&lt;br /&gt;
+　ちなみに元のURL文字列を手動で二重にエスケープしてPCで試してみたところ、koboと同じ画面をPCでも出すことが出来ました。&lt;br /&gt;
+&lt;a href=&quot;http://ja.wikipedia.org/wiki/%25E4%25BA%258C%25E4%25BA%25BA%25E9%259B%25B6%25E5%2592%258C%25E6%259C%2589%25E9%2599%2590%25E7%25A2%25BA%25E5%25AE%259A%25E5%25AE%258C%25E5%2585%25A8%25E6%2583%2585%25E5%25A0%25B1%25E3%2582%25B2%25E3%2583%25BC%25E3%2583%25A0&quot; target=&quot;_blank&quot;&gt;このリンク&lt;/a&gt;です。&lt;br /&gt;
+　これって問題になっていないのでしょうか？URLに２バイト文字を使っているところは少ないかもしれませんが、Wikipediaを参照するepub本って結構あると思うのですがそうでも無いのでしょうか？&lt;br /&gt;
+　ちなみにもともとエンコードしてaタグに書いていたのものをエラーになったから日本語直書きで試したわけですが、FirefoxでもiBooksでもフリーのandroidアプリ数種類でも、そしてaタグは日本語直書きでもエンコード済みでも正常にリンク出来ました。おまけに楽天koboのandroidアプリでも問題なくリンクが動作しました。koboのepubリーダーソフトの方はブラウザを起動する際に表示するダイアログを見る限り二重にエンコードするわけでは無いようなので、koboのブラウザがエンコード済みかどうかに関わらずURLエンコードしてサーバーにリクエストするようになっているのが問題のようです。&lt;br /&gt;
+　う〜む、発売から一年以上経っているのでこのバグが知られていないとは思えないのですが、ネットで検索してもそれらしい書き込みは見当たりませんでした。不具合を指摘しているこちらが不安になるぐらいです。とりあえず自作のepub本以外で日本語URLを参照しているepub本を見つけたらkoboで動作確認をしてみようと思います。たとえ自作epub本じゃなくても、kobo側が対応してくれないとどうしようも無いと思うので、私のepubの作成の仕方が悪いってことでは無いと思いますが、電子書籍の世界は思っていたより奥が深そうなので私が知らない仕掛け（ルール）があるのかも知れません。あっ一応epubcheckでもエラーは出ていません。&lt;br /&gt;
+　それとフリーのepubリーダーを何種類か試した時、リーダーソフトによってこれほど本の表示のされ方が違うのかって驚いてその混沌とした世界を垣間見た気がしたので、もしかしたらepubリーダーの世界ではこれぐらいの不具合は小さなことって感じかも知れません。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;まとめ&lt;/h3&gt;
+&lt;p&gt;　購入後ちょっと弄っただけで複数のブログネタを提供してくれるあたりポテンシャルを感じます(^^)ネットでkoboの情報を漁っているとユーザの不満の声をあちこちで見かけるので、Amazonに偏り過ぎているなんて考えずに今後も楽天とは関わらない方が幸せになれるのかもとか考えてしまいました。&lt;br /&gt;
+　それと、技術書のリファレンスとしても使おうとか思っていましたが、検索等の操作は遅いし調べ物はやっぱりPCの大画面で参照する方が効率的だし、本のサンプルコードを見ながらプログラミングとかするときもPCの大画面の方が便利で、やっぱり読書専用というかじっくり集中して本を読むための道具かなって感じです。本当は目に優しいE-Ink端末でいろんなことをしたいのですが、動作が遅いので用途が限られます（これでも速くなったそうなので、発売当時に手を出さなくてよかったと思います）。&lt;br /&gt;
+　購入前は専門書はkoboのSDにまとめていこうかとか考えていましたが、新書や小説や、専門書でもプログラムコードが載っていない本の読書専用端末になりそうです。というか私が遅れて体験しただけで、世間ではすでにそういう評価になっているのかも知れませんが。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;http://herooftheday.net/backup-and-epub-converting-on-kindle-for-mac&quot;&gt;「Kindle for Mac日本語版が出たのでePub変換とかバックアップとかイロイロ試してみた」&lt;/a&gt;に詳しく書かれています。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;http://blog.livedoor.jp/harpsichord1980/archives/51900585.html&quot;&gt;Kobo AuraのWebブラウザを触ってきたよ！&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+                <link>http://happyclam.github.io/hardware/2015-06-12/kobo_aura</link>
+                <guid>http://happyclam.github.io/hardware/2015-06-12/kobo_aura</guid>
+                <pubDate>2015-06-12T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>markdownファイルを元に電子出版</title>
