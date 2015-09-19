@@ -5,10 +5,87 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2015-08-16T14:06:27+09:00</lastBuildDate>
-        <pubDate>2015-08-16T14:06:27+09:00</pubDate>
+        <lastBuildDate>2015-09-19T14:48:20+09:00</lastBuildDate>
+        <pubDate>2015-09-19T14:48:20+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>WithingsのAPIで遊ぶ</title>
+                <description>&lt;p&gt;Project: 「&lt;a href=&quot;http://nocturia.herokuapp.com&quot;&gt;&lt;strong&gt;夜間頻尿診断&lt;/strong&gt;&lt;/a&gt;」: &lt;a href=&quot;https://github.com/happyclam/nocturia&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;何か作ってみたい&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/hardware/2015-08-16/withings/&quot;&gt;前回の記事&lt;/a&gt;の続きでWithingsのAPIを使って何か作るものはないかと無理やり考えてみた結果、&lt;a href=&quot;http://nocturia.herokuapp.com&quot;&gt;夜間頻尿判定サイト&lt;/a&gt;を作ってみました。睡眠中の「目覚め」回数をトイレに起きた回数と考えて、夜間頻尿状態かどうかを判断するサイトです。Withingsのサイトで表示される睡眠トラッキングのグラフには「目覚め」回数は数字で表示されていますが、グラフ化されていないので睡眠トラッキングと同じグラフ上に描画しようという魂胆です。Withingsの週単位のグラフは、縦軸に時間、横軸に曜日（日付）となっていますが、睡眠時間を小数表示にして「目覚め」の回数を同じグラフ上にプロットしています。無理やりなんて書きましたが、Withingsのグラフは週単位でしか表示できなくて、もっと長い期間のグラフをまとめて表示したいという不満があったので、その不満を解消する目的もあります。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Withingsのグラフ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/withings_screenshot.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/withings_screenshot.png&quot; alt=&quot;Withingsのグラフ&quot; title=&quot;Withingsのグラフ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;今回作成したグラフ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/nocturia_screenshot.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/nocturia_screenshot.png&quot; alt=&quot;夜間頻尿診断グラフ&quot; title=&quot;夜間頻尿診断グラフ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;開発時に気になったこと&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;アクセストークン／シークレットの保存先&lt;br /&gt;
+　昔からbot作ったりしてTwitterでOAuth認証（認証ではない？）やRails2時代にgoogleのOpenIDによる認証を使ったりしたことはありますが、そういう認証方式を取るのは、ユーザー登録という手間を省きたい、ユーザー情報を管理したくない、使いたい人は自己責任で勝手に使ってください、個人情報を入力させたりして余計な責任負いたくないという理由があるわけですが、今回のアプリの場合扱うデータが結構秘匿性が高いというか、人によっては知られたくないデータだと思うのでちょっといろいろ考えさせられました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。というのも&lt;a href=&quot;/hardware/2015-08-16/withings/&quot;&gt;前回の記事&lt;/a&gt;でoauth_signatureを作成する方法をネットで調べていた際に、一度取得したアクセストークン／シークレットはDBに保存すればいいという書き込みをよく見かけたからです。でも、自社サーバーでコストかけて運用している企業ならいざ知らず、そんなことをして何かの原因で全ユーザーのIDとセットで漏洩したらマズイと思ったので、DBには保存せずセッションに保存することにしました。「クライアントにデータが渡る方が危険」、「盗聴されたら同じ」、「セッションが残ったままになる可能性が有る」とかいろいろ意見はありそうですが、無料枠のherokuで適当に運用する以上DBに保存するよりセッション（cookieに保存）の方が安全だと思いました。WithingsのUserIDはDB内で管理し、クライアントに渡るのはRailsが付加するUserIDとアクセストークン（暗号化済み）という感じで、Withings社のUserIDとアクセストークン／シークレットが別々に格納されているほうが安全でしょう。&lt;br /&gt;
+　結局、DBに保存するかセッションに保存するかはサイトのポリシー次第と言えると思いますが、私の場合ソースも公開するから心配ならローカルで動かして使ってくださいっていうポリシーでいきます。&lt;br /&gt;
+　と、長々と書きましたが実際には利用する人なんてほとんどいないと思われるので、心配する必要もないのですが苦労性な性格なんです。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;ユーザー情報が入っていない&lt;br /&gt;
+　Twitterの場合認証を済ませてアクセストークンを取得する時にユーザー名などのユーザー情報（infoデータ）を返してくれます（Facebookもそのようです）が、Withings社のAPIの場合ユーザー情報が何も返ってきません。そのためユーザー認証を済ませた直後にいきなりユーザー情報を取得するためのAPIを発行するという重たい処理をしてWelcome表示しています。&lt;a href=&quot;/hardware/2015-08-16/withings/&quot;&gt;前回の記事&lt;/a&gt;でも愚痴っぽいことを書きましたが、ネットを検索している最中にもWithings社のAPIの仕様に文句を言っている海外の書き込みを見かけました。自社のWebAPIを公開する企業の姿勢というのは開発者としてもユーザーとしても応援したいのですが、そのことで企業のイメージを悪くするのであれば状況が変わってくる可能性もありそうです。日本でも自社サービスのAPIを公開している企業があると思いますが、どうなのでしょう、あまり利用されてないのかもしれませんが。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;withings-activit&quot;&gt;その他、Withings Activitéを使ってみて気づいたこと&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;毎日スマホと同期しないとデータが抜け落ちる&lt;br /&gt;
+　時計本体に保存しておけるのは1日分のデータだけのようです。言われてみれば活動量計の針も深夜０時になると０（ゼロ）の位置にリセットされるので当然かもしれませんが、Withingsのグラフでデータが抜けている日を見つけてはじめて気がつきました。CSVファイルでアップロードすることは可能なようですが試していません。&lt;/li&gt;
+  &lt;li&gt;睡眠中の一時的な「目覚め」か、もう起きたのか？&lt;br /&gt;
+　基本的には「目覚め」回数とは睡眠中に一時的に起きた回数で、本当に起きた回数は数えないようです&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;が、朝起きて布団の中でウダウダしていると「目覚め」回数に数えられるようです。朝起きてすぐに活動を開始した日は「目覚め」回数は０になるようですが、私の場合サイレントアラームで目覚めてももう一つの時計のアラームが鳴るまで起きないためか、夜中にトイレに起きたわけでも無いのにほとんどの日が「目覚め」回数が１回以上になっています。&lt;/li&gt;
+  &lt;li&gt;サイレントアラームの止め方&lt;br /&gt;
+　ネットの情報によるとWithings Activitéのサイレントアラームは「１２回の振動が終わるまで待たないといけない&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;」とか「There’s no way of stopping the ‘silent alarm’ which is a series of 12 vibrations.&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;」なんて書いてあるのですが、ダブルタップ（アラーム時刻の設定確認をする時と同様のはず）で私は振動を止めることが出来ています。製造時期によるのでしょうか？ネットでそれらしき書き込みを見かけないので私が持っているものが壊れている可能性もありますね^^;でもその止め方のコツはなかなか掴めず、うまくいけば１、２回振動させたところで止められるのですが、未だにポンポン叩いて結局１２回振動させる日があります。確かに時計自身が起こす振動とタップによる振動を区別するのは仕様に無理があるのかも。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;http://www.sakimura.org/2011/05/1087/&quot; title=&quot;非技術者のためのOAuth認証(?)とOpenIDの違い入門&quot;&gt;非技術者のためのOAuth認証(?)とOpenIDの違い入門&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;立位・伏臥状態等の姿勢を判定しているのか、仕様がどうなっているのかわかりませんが、技術的には可能なようです→&lt;a href=&quot;http://www.dreamnews.jp/press/0000096134/&quot; title=&quot;睡眠を測る！スリープモニターFS-760販売開始&quot;&gt;睡眠を測る！スリープモニターFS-760販売開始&lt;/a&gt;、&lt;a href=&quot;http://www.kicnet.co.jp/medical/biosignal/posturevisualizer/spec.html&quot; title=&quot;姿勢判定プログラム：PostureVisualizer&quot;&gt;姿勢判定プログラム：PostureVisualizer&lt;/a&gt;、&lt;a href=&quot;http://sakidori.co/article/11599&quot; title=&quot;オムロン？それともタニタ？おすすめの睡眠計7選！リストバンドタイプから目覚まし機能付きまで睡眠計測器特集&quot;&gt;オムロン？それともタニタ？おすすめの睡眠計7選！リストバンドタイプから目覚まし機能付きまで睡眠計測器特集&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;http://www.leesfitness.com/jp/withings-activite-pop-review.html&quot; title=&quot;フランスメーカーWithingsのお洒落な活動量Activité Popのレビュー&quot;&gt;フランスメーカーWithingsのお洒落な活動量Activité Popのレビュー&lt;/a&gt; &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;http://www.pcadvisor.co.uk/review/activity-trackers/withings-activite-watch-review-uk-3596819/&quot; title=&quot;Withings Activité watch review&quot;&gt;Withings Activité watch review&lt;/a&gt; &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+                <link>http://happyclam.github.io/project/2015-09-19/activite</link>
+                <guid>http://happyclam.github.io/project/2015-09-19/activite</guid>
+                <pubDate>2015-09-19T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>Withings Activité購入</title>

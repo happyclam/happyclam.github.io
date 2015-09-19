@@ -8,6 +8,7 @@ http://happyclam.github.io/rss.xml
 http://happyclam.github.io/sitemap.txt
 http://happyclam.github.io/tags.html
 
+http://happyclam.github.io/project/2015-09-19/activite
 http://happyclam.github.io/hardware/2015-08-16/withings
 http://happyclam.github.io/hardware/2015-06-12/kobo_aura
 http://happyclam.github.io/miscellaneous/2015-06-09/pandoc_epub
