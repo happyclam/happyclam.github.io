@@ -187,7 +187,7 @@ MathJax.Hub.Config({
 
 <h3 id="section-1">αβ法</h3>
 <ol>
-  <li>min-max法に、親局面の評価値を子局面に伝えるための引数（α値＝下限値、β値＝上限値）を追加</li>
+  <li>min-max法に、親局面の評価値を子局面に伝えるための引数を追加</li>
   <li>引数で渡された親局面の評価値と現局面を比較して、現局面が選択されることがないことがわかったら、先読みを中断してreturnする（αカットとβカット）</li>
 </ol>
 
@@ -212,13 +212,13 @@ MathJax.Hub.Config({
       if (temp_v &gt; value &amp;&amp; turn == CROSS) 
         value = temp_v 
         locate = i
-        #上限値を上回ったら先読み中止
+        #閾値を上回ったら先読み中止
         return value, locate if threshold &lt; temp_v
       #後手○の番
       elsif (temp_v &lt; value &amp;&amp; turn == NOUGHT)
         value = temp_v 
         locate = i
-        #下限値を下回ったら先読み中止
+        #閾値を下回ったら先読み中止
         return value, locate if threshold &gt; temp_v
       end
     }
@@ -269,11 +269,11 @@ end
 
   
      
-    	<li><a href="/tags.html#ruby-ref">ruby <span>14</span></a></li>
+    	<li><a href="/tags.html#ruby-ref">ruby <span>15</span></a></li>
      
     	<li><a href="/tags.html#programming-ref">programming <span>4</span></a></li>
      
-    	<li><a href="/tags.html#tictactoe-ref">tictactoe <span>10</span></a></li>
+    	<li><a href="/tags.html#tictactoe-ref">tictactoe <span>11</span></a></li>
     
   
 

@@ -8,6 +8,7 @@ http://happyclam.github.io/rss.xml
 http://happyclam.github.io/sitemap.txt
 http://happyclam.github.io/tags.html
 
+http://happyclam.github.io/software/2015-10-25/machine_learning
 http://happyclam.github.io/software/2015-10-19/multi_branched_tree
 http://happyclam.github.io/project/2015-10-10/tictactoe_bfs
 http://happyclam.github.io/project/2015-09-19/activite

@@ -4,13 +4,309 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2015-10-20T08:12:37+09:00</updated>
+ <updated>2015-10-23T10:17:06+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>算数で作る機械学習プログラム</title>
+   <link href="http://happyclam.github.io/software/2015-10-25/machine_learning"/>
+   <updated>2015-10-25T00:00:00+09:00</updated>
+   <id>http://happyclam.github.io/software/2015-10-25/machine_learning</id>
+   <content type="html">&lt;h3 id=&quot;section&quot;&gt;新たに必要になった機能&lt;/h3&gt;
+&lt;p&gt;　前回の続きです。&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;の内容に沿って機械学習機能を付加した三目並べプログラムを作成したのですが、元々あった三目並べ対戦プログラムに対してどんな作業が必要だったのか、新たに付加した機能を列挙してみます。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;多分木データ&lt;/strong&gt;（Player.trees）&lt;br /&gt;
+　&lt;a href=&quot;/software/2015-10-19/multi_branched_tree/&quot;&gt;前回の記事&lt;/a&gt;で用意した全局面分のデータです。学習データを利用して手を決めることになるので評価関数は不要になりました。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;学習機能&lt;/strong&gt;（Player.learning）&lt;br /&gt;
+　勝った時は報酬を与えて（石の数を増やす）負けたら罰を与える（石の数を減らす）ことで学習効果を上げていくわけですが、&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;には勝ちと引き分けに差をつけて、勝ちは＋３、引き分けは＋１がいいと書いてありますのでその通りにしています。そして、そこには負けた場合どうすればいいのか書いてありませんが、負けたら石を海に投げ込むという描写もあるので−１でいいだろうと思い負けは−１にしています。もしかしたら±０でいいのかもしれませんし、逆に負けを−３にする方法もありそうですがこの辺りは評価関数の調整と同じでキリがないのでとりあえずの値です。&lt;br /&gt;
+　それと、実際に着手した局面の一手前の石の数（score配列）を操作するということに注意が必要です。&lt;br /&gt;
+&lt;img src=&quot;/images/battle_ex1.png&quot; alt=&quot;例１&quot; /&gt;&lt;br /&gt;
+　各局面が持っている石の数（score配列）はその局面で打てる場所に存在し次の手を決めるためにあるので、ソフト側が先手（X）で上記のような経過を辿って負けた場合、５手目の局面でOが揃うのを防がなかったのが悪かったということで、一つ前の４手目の局面の石（score配列）を−１します。４手目の局面で先手（X）が”2”（配列の添え字は1）を選ばずに”6”を選んだことが負けの原因なので”6”の位置のscore配列の値を−１します。score配列の初期値は[10,10,10,10,10,10,10,10,10]なので、４手目の局面のscore配列を[10,10,10,10,10,9,10,10,10]にするということです。同様に２手目で”7”を選んだことが悪かった、０手目（初期盤面）で”5”を選んだことが悪かったと評価して２手目のscore配列を[10,10,10,10,10,10,9,10,10]、０手目のscore配列を[10,10,10,10,9,10,10,10,10]にして次回からその局面でその手が選ばれにくくなるようにします。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;ファイル入出力機能&lt;/strong&gt;（Player.prepare、Tree::read、Tree::save）&lt;br /&gt;
+　&lt;a href=&quot;/software/2015-10-19/multi_branched_tree/&quot;&gt;前回の記事&lt;/a&gt;のスクリプトの例でinitメソッドとしていましたが、他でも使用しているのでprepareメソッドに名前を変えました。起動時にTreeオブジェクトのシリアライズデータ（trees.dump）がカレントディレクトリにあればそれを読み込み、無ければBFS探索で重複局面を省いた三目並べの全局面のツリーデータを生成します。オブジェクト指向言語には必ず用意されているシリアライズ機能はオブジェクトを丸ごと保存できるので便利です。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;指し手選択機能&lt;/strong&gt;（Tree.apply）&lt;br /&gt;
+　指定された局面を探し出して、その局面で選択可能な手毎に用意されている石ころの数（score配列の値）によって指し手を選ぶわけですが、いつも一番石ころが多い手を選ぶわけではありません。&lt;br /&gt;
+　「その箇所にある石の数（score配列の値）／その局面の石の総数（score配列の合計値）」&lt;br /&gt;
+の頻度で指し手が選ばれるようにします。石ころの数が増えればその手が選ばれる頻度が上がる仕掛けです。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;指し手の履歴&lt;/strong&gt;（Game.history）&lt;br /&gt;
+　ゲーム終了後に指し手の評価をするために必要になりました。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;直近の指し手&lt;/strong&gt;（Board.move）&lt;br /&gt;
+　これもゲーム終了後に指し手の評価をするために必要になりました。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;指し手選択機能について&lt;/h3&gt;
+&lt;p&gt;　指し手の選択機能は、指し手を無作為に選択するわけですが、石ころの報酬を受け取る（score配列の値が増加）ことによって学習し、徐々に良い手（score配列の数値が大きい手）を選択する確率を上げていくという仕様です。石ころの総数から乱数を生成して、その値から指し手（９箇所のマス目）の配列の添え字をダイレクトに導くデータ構造はどうすればいいのか、そして選んだ添え字の場所が打てる場所なのかどうかも判断しなければなりません。  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  def idx(score)
+    ret = nil
+    index = rand(score.inject{|sum, n| sum + n})
+    start = 0
+    score.each_with_index{|v, i|
+      start += v
+      if start &amp;gt; index
+        ret = i
+        break
+      end
+    }
+    return ret
+  end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　最初は９箇所にそれぞれ石を持っているのだから２次元配列を使うのかとかMatrixを使えば変換できるかとか難しく考えたのですが、一番シンプルな一次元配列のまま、コンストラクタで打てる場所かどうか（打てない場所は０をセットしておく）を判断し、指し手選択時にscore配列分の９回ループするだけで添え字を求められることに気がついてこれはいい！と思いました。９箇所のマス目の内、打てない場所（既に駒がある場所）のscore配列の値を０にしておくことで、インクリメントに影響を与えないのがミソです。だから石の数（score配列）がマイナスになると動きがおかしくなります。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;学習効果&lt;/h3&gt;
+&lt;p&gt;　以前RubyとShoesでGUIの将棋ソフトを作った時は&lt;a href=&quot;http://morizyun.github.io/blog/ruby-design-pattern-03-Observer/&quot;&gt;Observerパターン&lt;/a&gt;を使ってソフト同士の対戦を眺めて楽しめるように作った&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;のですが、三目並べは一瞬で勝負がつくし見学しても楽しくないのでCUIでループで回してソフト同士対戦させて学習効果がどの程度出るのか確認してみました。&lt;br /&gt;
+　乱数で手を選択する弱いプログラムと、これまでに&lt;a href=&quot;/project/2014-08-05/tictactoe/&quot;&gt;記事で紹介していたDFS探索アルゴリズム（αβ法）を使った最強プログラム&lt;/a&gt;（絶対負けることがない）との対戦結果です。１００回の対戦を１回として１０回戦までの結果が以下の通りです。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;回 \ 対戦相手&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;　最強プログラム　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;　乱数プログラム　　&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;１回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝91敗 9分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;42勝44敗14分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;２回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝88敗12分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;51勝35敗14分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;３回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝83敗17分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;41勝42敗17分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;４回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝74敗26分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;41勝49敗10分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;５回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝62敗38分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;44勝49敗 7分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;６回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝60敗40分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;51勝41敗 8分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;７回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ー&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;36勝53敗11分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;８回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ー&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;44勝42敗14分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;９回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ー&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;42勝40敗18分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;１０回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ー&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;48勝43敗 9分&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　まず表の右側の乱数プログラムとの対戦結果を見ると、それほど勝率は上がってなさそうですが、上記１０００回の対戦後に初期盤面のscore配列の値を確認すると&lt;/p&gt;
+
+&lt;div style=&quot;text-align: center;&quot;&gt;
+ [94, 32, 137, 98, 160, 95, 98, 84, 97] 
+&lt;/div&gt;
+
+&lt;p&gt;になっていました。９箇所のマス目の真ん中の値が160と最大になっていて、初期盤面で真ん中を選べば有利なことを学習しているように見えます。それでも勝率が伸びていないのは弱い相手と戦ってもあまり学習効果が得られないということでしょうか？&lt;br /&gt;
+　それに対して左側の最強プログラムとの対戦ではどんどん負け数が減って強くなっている（三目並べはお互いに最善手を差し続ければ引き分けになるゲームなので、最強プログラムに対して０勝なのは仕方ありません）のがわかります。でも６回戦の途中から出現頻度の高い局面の石の数（score配列の値）が足りなくなっていたようで、動きがおかしくなったので中断しました。&lt;br /&gt;
+　石の初期値が１０個で足りなくなるのなら増やせばいいじゃないかという話ですが、石の数を増やすと分母が大きくなるわけですから学習効果が薄くなります。初期値を１０個にしていたからこそ早く学習効果が出たとも言えるわけなので、この辺りはどうするのが一番いいのかわからなかったのですが、これについては後で書きます。&lt;br /&gt;
+　ちなみに石の数（score配列）のどれかが０になるのがよくないわけではありません。[0,0,200,0,0,0,0,0,0]のような一箇所に石が集中した状態でも、その局面で唯一絶対の手だと学習したということなので問題ありません。極端な話、一箇所だけに一個しか石がない状態[0,0,1,0,0,0,0,0,0]でもそれが学習した結果であればいいのですが、すべてが0だと手の選びようがなくなるのでよくありません。&lt;br /&gt;
+　とりあえずTreeクラスのコンストラクタに石の個数の引数を加えて、出現頻度が高い局面（初期盤面と一手目の局面）だけは石の初期値を５０にして、石が足りなくならないようにして、学習データを削除（trees.dumpファイルを削除）してからあらためて今度は２０００回対戦させてみました。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;回 \ 対戦相手&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　最強プログラム　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　乱数プログラム　　&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;１回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝88敗12分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;41勝50敗9分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;２回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝86敗14分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;44勝44敗12分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;３回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝90敗10分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;42勝40敗18分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;４回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝83敗17分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;40勝38敗22分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;５回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝87敗13分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;42勝43敗15分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;６回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝89敗11分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;47勝41敗12分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;７回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝81敗19分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;47勝46敗7分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;８回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝79敗21分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;45勝42敗13分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;９回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝88敗17分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;45勝45敗10分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;１０回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝75敗25分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;45勝44敗11分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;１１回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝68敗32分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;42勝45敗13分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;１２回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝64敗36分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;41勝45敗14分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;１３回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝70敗30分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;51勝37敗12分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;１４回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝64敗36分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;49勝45敗6分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;１５回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝68敗32分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;51勝30敗19分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;１６回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝70敗30分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;41勝50敗9分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;１７回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝54敗46分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;42勝41敗17分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;１８回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝63敗37分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;53勝41敗6分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;１９回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝57敗43分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;41勝44敗15分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;２０回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝55敗45分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;50勝34敗16分&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　最強プログラムとの対戦ではやはり良好な学習効果が得られているように見えます。&lt;br /&gt;
+ちなみにこの２０００回対戦後の初期盤面の石の数（score配列の値）は、乱数プログラムの方は  &lt;/p&gt;
+
+&lt;div style=&quot;text-align: center;&quot;&gt;
+[282, 135, 219, 252, 357, 132, 270, 96, 277]  
+&lt;/div&gt;
+&lt;p&gt;で、やはり真ん中が最大値になっていました。&lt;br /&gt;
+　最強プログラムの方は  &lt;/p&gt;
+
+&lt;div style=&quot;text-align: center;&quot;&gt;
+[14, 165, 8, 22, 81, 20, 5, 92, 1]  
+&lt;/div&gt;
+&lt;p&gt;で真ん中は３番目で、なぜか上辺（２の位置）が一番大きな値になっていたのですが、理由はよくわかりません。  &lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;最後に&lt;/h3&gt;
+&lt;p&gt;　石が無くならないようにするために、出現頻度の高い初期盤面（１局面）と一手目の局面（９局面）の石の数を５０にしたわけですが、５０という値には根拠がないですし、なんとなくすっきりしないので、負けたら−１という仕様を変更して、&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;本&lt;/a&gt;の主張とは少し違ってきますが、負けても罰しない仕様（勝ちは＋３、引き分けは＋１、負けたら±０）で試してみました。これなら石が無くなる心配もないしマジックナンバーが減ります。初期値は一応１０で試しましたが、石が無くなる心配がないので１以上ならなんでもいいと思います。デスクトップPCで一晩かけて１０万回対戦させてみました（もちろんtrees.dumpファイルを削除してから開始しています）。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;項目 \ 対戦相手&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;　最強プログラム　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;　乱数プログラム　　&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;対戦成績　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝18,234敗81,766分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;58,971勝30,103敗10,926分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;初期盤面の石の数&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;[537, 27512, 55, 4045, 9444, 297, 50, 3927, 37]&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;[10779, 2666, 16245, 11403, 22578, 7644, 25519, 6646, 5529]&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　最強プログラムとの対戦成績は８割以上引き分けるようになりました。負けを−１しなくても学習効果は今までのプログラムと同様の効果が出ているように見えます。乱数プログラムとの対戦成績も６割近くに伸びているのでもっと回数を増やせばいいのかもしれません。&lt;br /&gt;
+　学習機能の説明のところで勝負に負けたからといって一律に全ての局面から減点（石を減らす）していくという仕様に違和感を感じた人もいると思いますが、私も&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;本&lt;/a&gt;に書いていたから最初はそうしてみたけど勝負に負けたからといって初手にどれほどの影響力があるのか疑問です。その意味でも負けた時は±０というのは理にかなっていると思います。但し、直接負けに繋がった一手は罰するべきかもしれません。&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;本&lt;/a&gt;にも序盤より終盤の手を重視する方法が紹介されています。まだまだ学習効果を上げる方法も学習機能の仕様を変える余地も大きく、検証方法もいろいろ考えられるので、また何かアイデアを思いつけばこのプログラムを使って記事を書くかもしれません。&lt;br /&gt;
+　今回のソースは別ブランチ（machinelearning）を作りました。以下のコマンドでブランチ指定してソースを取得することが出来ます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone -b machinelearning https://github.com/happyclam/tictactoe_ruby
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;本来の使い方とは違うかもしれませんが、一方が一手指したらその通知を受け取ってもう一方が一手指すというような作りにしていました。またもう一箇所、双方が手を指した通知を受け取って棋譜を更新する部分もObserverを使用していました、これは本来の使い方と言えるでしょう。一つのプログラムで２種類のオブザーバーが問題なく動きました。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>対戦型ソフトでの幅優先探索（BFS）の使い途</title>
@@ -2300,7 +2596,7 @@ MIN_VALUE = -9
 
 &lt;h3 id=&quot;section-1&quot;&gt;αβ法&lt;/h3&gt;
 &lt;ol&gt;
-  &lt;li&gt;min-max法に、親局面の評価値を子局面に伝えるための引数（α値＝下限値、β値＝上限値）を追加&lt;/li&gt;
+  &lt;li&gt;min-max法に、親局面の評価値を子局面に伝えるための引数を追加&lt;/li&gt;
   &lt;li&gt;引数で渡された親局面の評価値と現局面を比較して、現局面が選択されることがないことがわかったら、先読みを中断してreturnする（αカットとβカット）&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -2325,13 +2621,13 @@ MIN_VALUE = -9
       if (temp_v &amp;gt; value &amp;amp;&amp;amp; turn == CROSS) 
         value = temp_v 
         locate = i
-        #上限値を上回ったら先読み中止
+        #閾値を上回ったら先読み中止
         return value, locate if threshold &amp;lt; temp_v
       #後手○の番
       elsif (temp_v &amp;lt; value &amp;amp;&amp;amp; turn == NOUGHT)
         value = temp_v 
         locate = i
-        #下限値を下回ったら先読み中止
+        #閾値を下回ったら先読み中止
         return value, locate if threshold &amp;gt; temp_v
       end
     }
