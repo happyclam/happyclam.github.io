@@ -1,0 +1,3130 @@
+"No.1 layer=1"
+       
+ |X|2|3|
+ |4|5|6|
+ |7|8|9|
+"No.2 layer=1"
+       
+ |1|X|3|
+ |4|5|6|
+ |7|8|9|
+"No.3 layer=1"
+       
+ |1|2|3|
+ |4|X|6|
+ |7|8|9|
+"No.4 layer=2"
+       
+ |X|O|3|
+ |4|5|6|
+ |7|8|9|
+"No.5 layer=2"
+       
+ |X|2|O|
+ |4|5|6|
+ |7|8|9|
+"No.6 layer=2"
+       
+ |X|2|3|
+ |4|O|6|
+ |7|8|9|
+"No.7 layer=2"
+       
+ |X|2|3|
+ |4|5|O|
+ |7|8|9|
+"No.8 layer=2"
+       
+ |X|2|3|
+ |4|5|6|
+ |7|8|O|
+"No.9 layer=2"
+       
+ |O|X|3|
+ |4|5|6|
+ |7|8|9|
+"No.10 layer=2"
+       
+ |1|X|3|
+ |O|5|6|
+ |7|8|9|
+"No.11 layer=2"
+       
+ |1|X|3|
+ |4|O|6|
+ |7|8|9|
+"No.12 layer=2"
+       
+ |1|X|3|
+ |4|5|6|
+ |O|8|9|
+"No.13 layer=2"
+       
+ |1|X|3|
+ |4|5|6|
+ |7|O|9|
+"No.14 layer=2"
+       
+ |O|2|3|
+ |4|X|6|
+ |7|8|9|
+"No.15 layer=2"
+       
+ |1|O|3|
+ |4|X|6|
+ |7|8|9|
+"No.16 layer=3"
+       
+ |X|O|X|
+ |4|5|6|
+ |7|8|9|
+"No.17 layer=3"
+       
+ |X|O|3|
+ |X|5|6|
+ |7|8|9|
+"No.18 layer=3"
+       
+ |X|O|3|
+ |4|X|6|
+ |7|8|9|
+"No.19 layer=3"
+       
+ |X|O|3|
+ |4|5|X|
+ |7|8|9|
+"No.20 layer=3"
+       
+ |X|O|3|
+ |4|5|6|
+ |X|8|9|
+"No.21 layer=3"
+       
+ |X|O|3|
+ |4|5|6|
+ |7|X|9|
+"No.22 layer=3"
+       
+ |X|O|3|
+ |4|5|6|
+ |7|8|X|
+"No.23 layer=3"
+       
+ |X|X|O|
+ |4|5|6|
+ |7|8|9|
+"No.24 layer=3"
+       
+ |X|2|O|
+ |X|5|6|
+ |7|8|9|
+"No.25 layer=3"
+       
+ |X|2|O|
+ |4|X|6|
+ |7|8|9|
+"No.26 layer=3"
+       
+ |X|2|O|
+ |4|5|X|
+ |7|8|9|
+"No.27 layer=3"
+       
+ |X|2|O|
+ |4|5|6|
+ |X|8|9|
+"No.28 layer=3"
+       
+ |X|2|O|
+ |4|5|6|
+ |7|X|9|
+"No.29 layer=3"
+       
+ |X|2|O|
+ |4|5|6|
+ |7|8|X|
+"No.30 layer=3"
+       
+ |X|X|3|
+ |4|O|6|
+ |7|8|9|
+"No.31 layer=3"
+       
+ |X|2|X|
+ |4|O|6|
+ |7|8|9|
+"No.32 layer=3"
+       
+ |X|2|3|
+ |4|O|X|
+ |7|8|9|
+"No.33 layer=3"
+       
+ |X|2|3|
+ |4|O|6|
+ |7|8|X|
+"No.34 layer=3"
+       
+ |X|X|3|
+ |4|5|O|
+ |7|8|9|
+"No.35 layer=3"
+       
+ |X|2|3|
+ |X|5|O|
+ |7|8|9|
+"No.36 layer=3"
+       
+ |X|2|3|
+ |4|X|O|
+ |7|8|9|
+"No.37 layer=3"
+       
+ |X|2|3|
+ |4|5|O|
+ |X|8|9|
+"No.38 layer=3"
+       
+ |X|2|3|
+ |4|5|O|
+ |7|X|9|
+"No.39 layer=3"
+       
+ |X|X|3|
+ |4|5|6|
+ |7|8|O|
+"No.40 layer=3"
+       
+ |X|2|3|
+ |4|X|6|
+ |7|8|O|
+"No.41 layer=3"
+       
+ |X|2|3|
+ |4|5|X|
+ |7|8|O|
+"No.42 layer=3"
+       
+ |O|X|3|
+ |X|5|6|
+ |7|8|9|
+"No.43 layer=3"
+       
+ |O|X|3|
+ |4|X|6|
+ |7|8|9|
+"No.44 layer=3"
+       
+ |O|X|3|
+ |4|5|X|
+ |7|8|9|
+"No.45 layer=3"
+       
+ |O|X|3|
+ |4|5|6|
+ |7|X|9|
+"No.46 layer=3"
+       
+ |1|X|3|
+ |O|X|6|
+ |7|8|9|
+"No.47 layer=3"
+       
+ |1|X|3|
+ |O|5|X|
+ |7|8|9|
+"No.48 layer=3"
+       
+ |1|X|3|
+ |O|5|6|
+ |7|X|9|
+"No.49 layer=3"
+       
+ |1|X|3|
+ |X|O|6|
+ |7|8|9|
+"No.50 layer=3"
+       
+ |1|X|3|
+ |4|O|6|
+ |7|X|9|
+"No.51 layer=3"
+       
+ |1|X|3|
+ |4|X|6|
+ |O|8|9|
+"No.52 layer=3"
+       
+ |1|X|3|
+ |4|5|X|
+ |O|8|9|
+"No.53 layer=3"
+       
+ |1|X|3|
+ |4|X|6|
+ |7|O|9|
+"No.54 layer=4"
+       
+ |X|O|X|
+ |O|5|6|
+ |7|8|9|
+"No.55 layer=4"
+       
+ |X|O|X|
+ |4|O|6|
+ |7|8|9|
+"No.56 layer=4"
+       
+ |X|O|X|
+ |4|5|6|
+ |O|8|9|
+"No.57 layer=4"
+       
+ |X|O|X|
+ |4|5|6|
+ |7|O|9|
+"No.58 layer=4"
+       
+ |X|O|O|
+ |X|5|6|
+ |7|8|9|
+"No.59 layer=4"
+       
+ |X|O|3|
+ |X|O|6|
+ |7|8|9|
+"No.60 layer=4"
+       
+ |X|O|3|
+ |X|5|O|
+ |7|8|9|
+"No.61 layer=4"
+       
+ |X|O|3|
+ |X|5|6|
+ |O|8|9|
+"No.62 layer=4"
+       
+ |X|O|3|
+ |X|5|6|
+ |7|O|9|
+"No.63 layer=4"
+       
+ |X|O|3|
+ |X|5|6|
+ |7|8|O|
+"No.64 layer=4"
+       
+ |X|O|O|
+ |4|X|6|
+ |7|8|9|
+"No.65 layer=4"
+       
+ |X|O|3|
+ |O|X|6|
+ |7|8|9|
+"No.66 layer=4"
+       
+ |X|O|3|
+ |4|X|O|
+ |7|8|9|
+"No.67 layer=4"
+       
+ |X|O|3|
+ |4|X|6|
+ |O|8|9|
+"No.68 layer=4"
+       
+ |X|O|3|
+ |4|X|6|
+ |7|O|9|
+"No.69 layer=4"
+       
+ |X|O|3|
+ |4|X|6|
+ |7|8|O|
+"No.70 layer=4"
+       
+ |X|O|O|
+ |4|5|X|
+ |7|8|9|
+"No.71 layer=4"
+       
+ |X|O|3|
+ |O|5|X|
+ |7|8|9|
+"No.72 layer=4"
+       
+ |X|O|3|
+ |4|O|X|
+ |7|8|9|
+"No.73 layer=4"
+       
+ |X|O|3|
+ |4|5|X|
+ |O|8|9|
+"No.74 layer=4"
+       
+ |X|O|3|
+ |4|5|X|
+ |7|O|9|
+"No.75 layer=4"
+       
+ |X|O|3|
+ |4|5|X|
+ |7|8|O|
+"No.76 layer=4"
+       
+ |X|O|O|
+ |4|5|6|
+ |X|8|9|
+"No.77 layer=4"
+       
+ |X|O|3|
+ |4|O|6|
+ |X|8|9|
+"No.78 layer=4"
+       
+ |X|O|3|
+ |4|5|O|
+ |X|8|9|
+"No.79 layer=4"
+       
+ |X|O|3|
+ |4|5|6|
+ |X|O|9|
+"No.80 layer=4"
+       
+ |X|O|3|
+ |4|5|6|
+ |X|8|O|
+"No.81 layer=4"
+       
+ |X|O|O|
+ |4|5|6|
+ |7|X|9|
+"No.82 layer=4"
+       
+ |X|O|3|
+ |4|O|6|
+ |7|X|9|
+"No.83 layer=4"
+       
+ |X|O|3|
+ |4|5|O|
+ |7|X|9|
+"No.84 layer=4"
+       
+ |X|O|3|
+ |4|5|6|
+ |O|X|9|
+"No.85 layer=4"
+       
+ |X|O|3|
+ |4|5|6|
+ |7|X|O|
+"No.86 layer=4"
+       
+ |X|O|O|
+ |4|5|6|
+ |7|8|X|
+"No.87 layer=4"
+       
+ |X|O|3|
+ |O|5|6|
+ |7|8|X|
+"No.88 layer=4"
+       
+ |X|O|3|
+ |4|O|6|
+ |7|8|X|
+"No.89 layer=4"
+       
+ |X|O|3|
+ |4|5|O|
+ |7|8|X|
+"No.90 layer=4"
+       
+ |X|O|3|
+ |4|5|6|
+ |O|8|X|
+"No.91 layer=4"
+       
+ |X|O|3|
+ |4|5|6|
+ |7|O|X|
+"No.92 layer=4"
+       
+ |X|X|O|
+ |4|O|6|
+ |7|8|9|
+"No.93 layer=4"
+       
+ |X|X|O|
+ |4|5|O|
+ |7|8|9|
+"No.94 layer=4"
+       
+ |X|X|O|
+ |4|5|6|
+ |O|8|9|
+"No.95 layer=4"
+       
+ |X|X|O|
+ |4|5|6|
+ |7|O|9|
+"No.96 layer=4"
+       
+ |X|X|O|
+ |4|5|6|
+ |7|8|O|
+"No.97 layer=4"
+       
+ |X|2|O|
+ |X|O|6|
+ |7|8|9|
+"No.98 layer=4"
+       
+ |X|2|O|
+ |X|5|O|
+ |7|8|9|
+"No.99 layer=4"
+       
+ |X|2|O|
+ |X|5|6|
+ |7|O|9|
+"No.100 layer=4"
+       
+ |X|2|O|
+ |X|5|6|
+ |7|8|O|
+"No.101 layer=4"
+       
+ |X|2|O|
+ |4|X|O|
+ |7|8|9|
+"No.102 layer=4"
+       
+ |X|2|O|
+ |4|X|6|
+ |O|8|9|
+"No.103 layer=4"
+       
+ |X|2|O|
+ |4|X|6|
+ |7|O|9|
+"No.104 layer=4"
+       
+ |X|2|O|
+ |4|X|6|
+ |7|8|O|
+"No.105 layer=4"
+       
+ |X|2|O|
+ |4|O|X|
+ |7|8|9|
+"No.106 layer=4"
+       
+ |X|2|O|
+ |4|5|X|
+ |O|8|9|
+"No.107 layer=4"
+       
+ |X|2|O|
+ |4|5|X|
+ |7|O|9|
+"No.108 layer=4"
+       
+ |X|2|O|
+ |4|5|X|
+ |7|8|O|
+"No.109 layer=4"
+       
+ |X|2|O|
+ |4|O|6|
+ |X|8|9|
+"No.110 layer=4"
+       
+ |X|2|O|
+ |4|5|O|
+ |X|8|9|
+"No.111 layer=4"
+       
+ |X|2|O|
+ |4|5|6|
+ |X|8|O|
+"No.112 layer=4"
+       
+ |X|2|O|
+ |4|O|6|
+ |7|X|9|
+"No.113 layer=4"
+       
+ |X|2|O|
+ |4|5|O|
+ |7|X|9|
+"No.114 layer=4"
+       
+ |X|2|O|
+ |4|5|6|
+ |7|X|O|
+"No.115 layer=4"
+       
+ |X|2|O|
+ |4|O|6|
+ |7|8|X|
+"No.116 layer=4"
+       
+ |X|2|O|
+ |4|5|6|
+ |O|8|X|
+"No.117 layer=4"
+       
+ |X|X|3|
+ |4|O|O|
+ |7|8|9|
+"No.118 layer=4"
+       
+ |X|X|3|
+ |4|O|6|
+ |7|O|9|
+"No.119 layer=4"
+       
+ |X|X|3|
+ |4|O|6|
+ |7|8|O|
+"No.120 layer=4"
+       
+ |X|2|X|
+ |4|O|6|
+ |7|O|9|
+"No.121 layer=4"
+       
+ |X|2|3|
+ |4|O|X|
+ |7|O|9|
+"No.122 layer=4"
+       
+ |X|2|3|
+ |4|O|X|
+ |7|8|O|
+"No.123 layer=4"
+       
+ |X|X|3|
+ |4|5|O|
+ |7|O|9|
+"No.124 layer=4"
+       
+ |X|X|3|
+ |4|5|O|
+ |7|8|O|
+"No.125 layer=4"
+       
+ |X|2|3|
+ |X|5|O|
+ |7|8|O|
+"No.126 layer=4"
+       
+ |X|2|3|
+ |4|X|O|
+ |7|O|9|
+"No.127 layer=4"
+       
+ |X|2|3|
+ |4|X|O|
+ |7|8|O|
+"No.128 layer=4"
+       
+ |X|2|3|
+ |4|5|O|
+ |7|X|O|
+"No.129 layer=4"
+       
+ |O|X|O|
+ |X|5|6|
+ |7|8|9|
+"No.130 layer=4"
+       
+ |O|X|3|
+ |X|O|6|
+ |7|8|9|
+"No.131 layer=4"
+       
+ |O|X|3|
+ |X|5|O|
+ |7|8|9|
+"No.132 layer=4"
+       
+ |O|X|3|
+ |X|5|6|
+ |7|8|O|
+"No.133 layer=4"
+       
+ |O|X|O|
+ |4|X|6|
+ |7|8|9|
+"No.134 layer=4"
+       
+ |O|X|3|
+ |O|X|6|
+ |7|8|9|
+"No.135 layer=4"
+       
+ |O|X|3|
+ |4|X|O|
+ |7|8|9|
+"No.136 layer=4"
+       
+ |O|X|3|
+ |4|X|6|
+ |O|8|9|
+"No.137 layer=4"
+       
+ |O|X|3|
+ |4|X|6|
+ |7|O|9|
+"No.138 layer=4"
+       
+ |O|X|3|
+ |4|X|6|
+ |7|8|O|
+"No.139 layer=4"
+       
+ |O|X|3|
+ |O|5|X|
+ |7|8|9|
+"No.140 layer=4"
+       
+ |O|X|3|
+ |4|O|X|
+ |7|8|9|
+"No.141 layer=4"
+       
+ |O|X|3|
+ |4|5|X|
+ |O|8|9|
+"No.142 layer=4"
+       
+ |O|X|3|
+ |4|5|X|
+ |7|O|9|
+"No.143 layer=4"
+       
+ |O|X|3|
+ |4|5|X|
+ |7|8|O|
+"No.144 layer=4"
+       
+ |O|X|O|
+ |4|5|6|
+ |7|X|9|
+"No.145 layer=4"
+       
+ |O|X|3|
+ |O|5|6|
+ |7|X|9|
+"No.146 layer=4"
+       
+ |O|X|3|
+ |4|O|6|
+ |7|X|9|
+"No.147 layer=4"
+       
+ |O|X|3|
+ |4|5|O|
+ |7|X|9|
+"No.148 layer=4"
+       
+ |O|X|3|
+ |4|5|6|
+ |O|X|9|
+"No.149 layer=4"
+       
+ |O|X|3|
+ |4|5|6|
+ |7|X|O|
+"No.150 layer=4"
+       
+ |1|X|3|
+ |O|X|O|
+ |7|8|9|
+"No.151 layer=4"
+       
+ |1|X|3|
+ |O|X|6|
+ |O|8|9|
+"No.152 layer=4"
+       
+ |1|X|3|
+ |O|X|6|
+ |7|O|9|
+"No.153 layer=4"
+       
+ |1|X|3|
+ |O|X|6|
+ |7|8|O|
+"No.154 layer=4"
+       
+ |1|X|3|
+ |O|O|X|
+ |7|8|9|
+"No.155 layer=4"
+       
+ |1|X|3|
+ |O|5|X|
+ |O|8|9|
+"No.156 layer=4"
+       
+ |1|X|3|
+ |O|5|X|
+ |7|O|9|
+"No.157 layer=4"
+       
+ |1|X|3|
+ |O|O|6|
+ |7|X|9|
+"No.158 layer=4"
+       
+ |1|X|3|
+ |O|5|O|
+ |7|X|9|
+"No.159 layer=4"
+       
+ |1|X|3|
+ |X|O|6|
+ |7|8|O|
+"No.160 layer=4"
+       
+ |1|X|3|
+ |4|X|6|
+ |O|O|9|
+"No.161 layer=4"
+       
+ |1|X|3|
+ |4|X|6|
+ |O|8|O|
+"No.162 layer=5"
+       
+ |X|O|X|
+ |O|X|6|
+ |7|8|9|
+"No.163 layer=5"
+       
+ |X|O|X|
+ |O|5|X|
+ |7|8|9|
+"No.164 layer=5"
+       
+ |X|O|X|
+ |O|5|6|
+ |X|8|9|
+"No.165 layer=5"
+       
+ |X|O|X|
+ |O|5|6|
+ |7|X|9|
+"No.166 layer=5"
+       
+ |X|O|X|
+ |O|5|6|
+ |7|8|X|
+"No.167 layer=5"
+       
+ |X|O|X|
+ |X|O|6|
+ |7|8|9|
+"No.168 layer=5"
+       
+ |X|O|X|
+ |4|O|6|
+ |X|8|9|
+"No.169 layer=5"
+       
+ |X|O|X|
+ |4|O|6|
+ |7|X|9|
+"No.170 layer=5"
+       
+ |X|O|X|
+ |X|5|6|
+ |O|8|9|
+"No.171 layer=5"
+       
+ |X|O|X|
+ |4|X|6|
+ |O|8|9|
+"No.172 layer=5"
+       
+ |X|O|X|
+ |4|5|X|
+ |O|8|9|
+"No.173 layer=5"
+       
+ |X|O|X|
+ |4|5|6|
+ |O|X|9|
+"No.174 layer=5"
+       
+ |X|O|X|
+ |4|5|6|
+ |O|8|X|
+"No.175 layer=5"
+       
+ |X|O|X|
+ |X|5|6|
+ |7|O|9|
+"No.176 layer=5"
+       
+ |X|O|X|
+ |4|X|6|
+ |7|O|9|
+"No.177 layer=5"
+       
+ |X|O|X|
+ |4|5|6|
+ |X|O|9|
+"No.178 layer=5"
+       
+ |X|O|O|
+ |X|X|6|
+ |7|8|9|
+"No.179 layer=5"
+       
+ |X|O|O|
+ |X|5|X|
+ |7|8|9|
+"No.180 layer=5"
+       
+ |X|O|O|
+ |X|5|6|
+ |7|X|9|
+"No.181 layer=5"
+       
+ |X|O|O|
+ |X|5|6|
+ |7|8|X|
+"No.182 layer=5"
+       
+ |X|O|3|
+ |X|O|X|
+ |7|8|9|
+"No.183 layer=5"
+       
+ |X|O|3|
+ |X|O|6|
+ |7|X|9|
+"No.184 layer=5"
+       
+ |X|O|3|
+ |X|O|6|
+ |7|8|X|
+"No.185 layer=5"
+       
+ |X|O|3|
+ |X|X|O|
+ |7|8|9|
+"No.186 layer=5"
+       
+ |X|O|3|
+ |X|5|O|
+ |7|X|9|
+"No.187 layer=5"
+       
+ |X|O|3|
+ |X|5|O|
+ |7|8|X|
+"No.188 layer=5"
+       
+ |X|O|3|
+ |X|X|6|
+ |O|8|9|
+"No.189 layer=5"
+       
+ |X|O|3|
+ |X|5|X|
+ |O|8|9|
+"No.190 layer=5"
+       
+ |X|O|3|
+ |X|5|6|
+ |O|X|9|
+"No.191 layer=5"
+       
+ |X|O|3|
+ |X|5|6|
+ |O|8|X|
+"No.192 layer=5"
+       
+ |X|O|3|
+ |X|X|6|
+ |7|O|9|
+"No.193 layer=5"
+       
+ |X|O|3|
+ |X|5|X|
+ |7|O|9|
+"No.194 layer=5"
+       
+ |X|O|3|
+ |X|5|6|
+ |7|O|X|
+"No.195 layer=5"
+       
+ |X|O|3|
+ |X|X|6|
+ |7|8|O|
+"No.196 layer=5"
+       
+ |X|O|3|
+ |X|5|X|
+ |7|8|O|
+"No.197 layer=5"
+       
+ |X|O|3|
+ |X|5|6|
+ |7|X|O|
+"No.198 layer=5"
+       
+ |X|O|O|
+ |4|X|X|
+ |7|8|9|
+"No.199 layer=5"
+       
+ |X|O|O|
+ |4|X|6|
+ |X|8|9|
+"No.200 layer=5"
+       
+ |X|O|O|
+ |4|X|6|
+ |7|X|9|
+"No.201 layer=5"
+       
+ |X|O|3|
+ |O|X|X|
+ |7|8|9|
+"No.202 layer=5"
+       
+ |X|O|3|
+ |4|X|O|
+ |X|8|9|
+"No.203 layer=5"
+       
+ |X|O|3|
+ |4|X|O|
+ |7|X|9|
+"No.204 layer=5"
+       
+ |X|O|3|
+ |4|X|X|
+ |O|8|9|
+"No.205 layer=5"
+       
+ |X|O|3|
+ |4|X|6|
+ |O|X|9|
+"No.206 layer=5"
+       
+ |X|O|3|
+ |4|X|X|
+ |7|O|9|
+"No.207 layer=5"
+       
+ |X|O|3|
+ |4|X|6|
+ |X|O|9|
+"No.208 layer=5"
+       
+ |X|O|3|
+ |4|X|X|
+ |7|8|O|
+"No.209 layer=5"
+       
+ |X|O|3|
+ |4|X|6|
+ |X|8|O|
+"No.210 layer=5"
+       
+ |X|O|3|
+ |4|X|6|
+ |7|X|O|
+"No.211 layer=5"
+       
+ |X|O|O|
+ |4|5|X|
+ |X|8|9|
+"No.212 layer=5"
+       
+ |X|O|O|
+ |4|5|X|
+ |7|X|9|
+"No.213 layer=5"
+       
+ |X|O|O|
+ |4|5|X|
+ |7|8|X|
+"No.214 layer=5"
+       
+ |X|O|3|
+ |O|5|X|
+ |7|X|9|
+"No.215 layer=5"
+       
+ |X|O|3|
+ |O|5|X|
+ |7|8|X|
+"No.216 layer=5"
+       
+ |X|O|3|
+ |4|O|X|
+ |X|8|9|
+"No.217 layer=5"
+       
+ |X|O|3|
+ |4|O|X|
+ |7|X|9|
+"No.218 layer=5"
+       
+ |X|O|3|
+ |4|O|X|
+ |7|8|X|
+"No.219 layer=5"
+       
+ |X|O|3|
+ |4|5|X|
+ |O|X|9|
+"No.220 layer=5"
+       
+ |X|O|3|
+ |4|5|X|
+ |O|8|X|
+"No.221 layer=5"
+       
+ |X|O|3|
+ |4|5|X|
+ |X|O|9|
+"No.222 layer=5"
+       
+ |X|O|3|
+ |4|5|X|
+ |X|8|O|
+"No.223 layer=5"
+       
+ |X|O|3|
+ |4|5|X|
+ |7|X|O|
+"No.224 layer=5"
+       
+ |X|O|O|
+ |4|5|6|
+ |X|X|9|
+"No.225 layer=5"
+       
+ |X|O|O|
+ |4|5|6|
+ |X|8|X|
+"No.226 layer=5"
+       
+ |X|O|3|
+ |4|O|6|
+ |X|X|9|
+"No.227 layer=5"
+       
+ |X|O|3|
+ |4|O|6|
+ |X|8|X|
+"No.228 layer=5"
+       
+ |X|O|3|
+ |4|5|O|
+ |X|X|9|
+"No.229 layer=5"
+       
+ |X|O|3|
+ |4|5|O|
+ |X|8|X|
+"No.230 layer=5"
+       
+ |X|O|3|
+ |4|5|6|
+ |X|X|O|
+"No.231 layer=5"
+       
+ |X|O|O|
+ |4|5|6|
+ |7|X|X|
+"No.232 layer=5"
+       
+ |X|O|3|
+ |4|O|6|
+ |7|X|X|
+"No.233 layer=5"
+       
+ |X|O|3|
+ |4|5|6|
+ |O|X|X|
+"No.234 layer=5"
+       
+ |X|X|O|
+ |X|O|6|
+ |7|8|9|
+"No.235 layer=5"
+       
+ |X|X|O|
+ |4|O|X|
+ |7|8|9|
+"No.236 layer=5"
+       
+ |X|X|O|
+ |4|O|6|
+ |X|8|9|
+"No.237 layer=5"
+       
+ |X|X|O|
+ |4|O|6|
+ |7|X|9|
+"No.238 layer=5"
+       
+ |X|X|O|
+ |4|O|6|
+ |7|8|X|
+"No.239 layer=5"
+       
+ |X|X|O|
+ |X|5|O|
+ |7|8|9|
+"No.240 layer=5"
+       
+ |X|X|O|
+ |4|X|O|
+ |7|8|9|
+"No.241 layer=5"
+       
+ |X|X|O|
+ |4|5|O|
+ |X|8|9|
+"No.242 layer=5"
+       
+ |X|X|O|
+ |4|5|O|
+ |7|X|9|
+"No.243 layer=5"
+       
+ |X|X|O|
+ |X|5|6|
+ |O|8|9|
+"No.244 layer=5"
+       
+ |X|X|O|
+ |4|X|6|
+ |O|8|9|
+"No.245 layer=5"
+       
+ |X|X|O|
+ |4|5|X|
+ |O|8|9|
+"No.246 layer=5"
+       
+ |X|X|O|
+ |4|5|6|
+ |O|X|9|
+"No.247 layer=5"
+       
+ |X|X|O|
+ |4|5|6|
+ |O|8|X|
+"No.248 layer=5"
+       
+ |X|X|O|
+ |X|5|6|
+ |7|O|9|
+"No.249 layer=5"
+       
+ |X|X|O|
+ |4|X|6|
+ |7|O|9|
+"No.250 layer=5"
+       
+ |X|X|O|
+ |4|5|X|
+ |7|O|9|
+"No.251 layer=5"
+       
+ |X|X|O|
+ |X|5|6|
+ |7|8|O|
+"No.252 layer=5"
+       
+ |X|X|O|
+ |4|X|6|
+ |7|8|O|
+"No.253 layer=5"
+       
+ |X|X|O|
+ |4|5|X|
+ |7|8|O|
+"No.254 layer=5"
+       
+ |X|X|O|
+ |4|5|6|
+ |X|8|O|
+"No.255 layer=5"
+       
+ |X|X|O|
+ |4|5|6|
+ |7|X|O|
+"No.256 layer=5"
+       
+ |X|2|O|
+ |X|O|X|
+ |7|8|9|
+"No.257 layer=5"
+       
+ |X|2|O|
+ |X|O|6|
+ |7|X|9|
+"No.258 layer=5"
+       
+ |X|2|O|
+ |X|O|6|
+ |7|8|X|
+"No.259 layer=5"
+       
+ |X|2|O|
+ |X|X|O|
+ |7|8|9|
+"No.260 layer=5"
+       
+ |X|2|O|
+ |X|5|O|
+ |7|X|9|
+"No.261 layer=5"
+       
+ |X|2|O|
+ |X|X|6|
+ |7|O|9|
+"No.262 layer=5"
+       
+ |X|2|O|
+ |X|5|X|
+ |7|O|9|
+"No.263 layer=5"
+       
+ |X|2|O|
+ |X|X|6|
+ |7|8|O|
+"No.264 layer=5"
+       
+ |X|2|O|
+ |X|5|X|
+ |7|8|O|
+"No.265 layer=5"
+       
+ |X|2|O|
+ |X|5|6|
+ |7|X|O|
+"No.266 layer=5"
+       
+ |X|2|O|
+ |4|X|O|
+ |X|8|9|
+"No.267 layer=5"
+       
+ |X|2|O|
+ |4|X|O|
+ |7|X|9|
+"No.268 layer=5"
+       
+ |X|2|O|
+ |4|X|X|
+ |O|8|9|
+"No.269 layer=5"
+       
+ |X|2|O|
+ |4|X|X|
+ |7|O|9|
+"No.270 layer=5"
+       
+ |X|2|O|
+ |4|X|X|
+ |7|8|O|
+"No.271 layer=5"
+       
+ |X|2|O|
+ |4|X|6|
+ |X|8|O|
+"No.272 layer=5"
+       
+ |X|2|O|
+ |4|X|6|
+ |7|X|O|
+"No.273 layer=5"
+       
+ |X|2|O|
+ |4|O|X|
+ |X|8|9|
+"No.274 layer=5"
+       
+ |X|2|O|
+ |4|O|X|
+ |7|X|9|
+"No.275 layer=5"
+       
+ |X|2|O|
+ |4|5|X|
+ |O|X|9|
+"No.276 layer=5"
+       
+ |X|2|O|
+ |4|5|X|
+ |X|8|O|
+"No.277 layer=5"
+       
+ |X|2|O|
+ |4|5|X|
+ |7|X|O|
+"No.278 layer=5"
+       
+ |X|2|O|
+ |4|O|6|
+ |X|X|9|
+"No.279 layer=5"
+       
+ |X|2|O|
+ |4|O|6|
+ |X|8|X|
+"No.280 layer=5"
+       
+ |X|2|O|
+ |4|5|O|
+ |X|X|9|
+"No.281 layer=5"
+       
+ |X|X|3|
+ |X|O|O|
+ |7|8|9|
+"No.282 layer=5"
+       
+ |X|X|3|
+ |4|O|O|
+ |X|8|9|
+"No.283 layer=5"
+       
+ |X|X|3|
+ |4|O|O|
+ |7|X|9|
+"No.284 layer=5"
+       
+ |X|X|3|
+ |4|O|X|
+ |7|O|9|
+"No.285 layer=5"
+       
+ |X|X|3|
+ |X|O|6|
+ |7|8|O|
+"No.286 layer=5"
+       
+ |X|X|3|
+ |4|O|X|
+ |7|8|O|
+"No.287 layer=5"
+       
+ |X|X|3|
+ |4|O|6|
+ |7|X|O|
+"No.288 layer=5"
+       
+ |X|2|3|
+ |4|O|X|
+ |7|X|O|
+"No.289 layer=5"
+       
+ |X|X|3|
+ |X|5|O|
+ |7|O|9|
+"No.290 layer=5"
+       
+ |X|X|3|
+ |4|X|O|
+ |7|O|9|
+"No.291 layer=5"
+       
+ |X|X|3|
+ |X|5|O|
+ |7|8|O|
+"No.292 layer=5"
+       
+ |X|X|3|
+ |4|X|O|
+ |7|8|O|
+"No.293 layer=5"
+       
+ |X|X|3|
+ |4|5|O|
+ |7|X|O|
+"No.294 layer=5"
+       
+ |X|2|3|
+ |X|X|O|
+ |7|8|O|
+"No.295 layer=5"
+       
+ |X|2|3|
+ |X|5|O|
+ |7|X|O|
+"No.296 layer=5"
+       
+ |X|2|3|
+ |4|X|O|
+ |7|X|O|
+"No.297 layer=5"
+       
+ |O|X|O|
+ |X|X|6|
+ |7|8|9|
+"No.298 layer=5"
+       
+ |O|X|O|
+ |X|5|X|
+ |7|8|9|
+"No.299 layer=5"
+       
+ |O|X|O|
+ |X|5|6|
+ |7|X|9|
+"No.300 layer=5"
+       
+ |O|X|3|
+ |X|O|X|
+ |7|8|9|
+"No.301 layer=5"
+       
+ |O|X|3|
+ |X|X|O|
+ |7|8|9|
+"No.302 layer=5"
+       
+ |O|X|3|
+ |X|5|O|
+ |7|X|9|
+"No.303 layer=5"
+       
+ |O|X|3|
+ |X|X|6|
+ |7|8|O|
+"No.304 layer=5"
+       
+ |O|X|3|
+ |X|5|X|
+ |7|8|O|
+"No.305 layer=5"
+       
+ |O|X|3|
+ |O|X|X|
+ |7|8|9|
+"No.306 layer=5"
+       
+ |O|X|3|
+ |4|X|X|
+ |O|8|9|
+"No.307 layer=5"
+       
+ |O|X|3|
+ |4|X|X|
+ |7|O|9|
+"No.308 layer=5"
+       
+ |O|X|3|
+ |4|X|X|
+ |7|8|O|
+"No.309 layer=5"
+       
+ |O|X|3|
+ |O|5|X|
+ |7|X|9|
+"No.310 layer=5"
+       
+ |O|X|3|
+ |4|O|X|
+ |7|X|9|
+"No.311 layer=5"
+       
+ |O|X|3|
+ |4|5|X|
+ |O|X|9|
+"No.312 layer=5"
+       
+ |1|X|3|
+ |O|X|X|
+ |O|8|9|
+"No.313 layer=5"
+       
+ |1|X|3|
+ |O|X|X|
+ |7|O|9|
+"No.314 layer=5"
+       
+ |1|X|3|
+ |O|O|X|
+ |7|X|9|
+"No.315 layer=6"
+       
+ |X|O|X|
+ |O|X|O|
+ |7|8|9|
+"No.316 layer=6"
+       
+ |X|O|X|
+ |O|X|6|
+ |O|8|9|
+"No.317 layer=6"
+       
+ |X|O|X|
+ |O|X|6|
+ |7|O|9|
+"No.318 layer=6"
+       
+ |X|O|X|
+ |O|X|6|
+ |7|8|O|
+"No.319 layer=6"
+       
+ |X|O|X|
+ |O|O|X|
+ |7|8|9|
+"No.320 layer=6"
+       
+ |X|O|X|
+ |O|5|X|
+ |O|8|9|
+"No.321 layer=6"
+       
+ |X|O|X|
+ |O|5|X|
+ |7|O|9|
+"No.322 layer=6"
+       
+ |X|O|X|
+ |O|5|X|
+ |7|8|O|
+"No.323 layer=6"
+       
+ |X|O|X|
+ |O|O|6|
+ |X|8|9|
+"No.324 layer=6"
+       
+ |X|O|X|
+ |O|5|O|
+ |X|8|9|
+"No.325 layer=6"
+       
+ |X|O|X|
+ |O|5|6|
+ |X|8|O|
+"No.326 layer=6"
+       
+ |X|O|X|
+ |O|O|6|
+ |7|X|9|
+"No.327 layer=6"
+       
+ |X|O|X|
+ |O|5|O|
+ |7|X|9|
+"No.328 layer=6"
+       
+ |X|O|X|
+ |O|5|6|
+ |O|X|9|
+"No.329 layer=6"
+       
+ |X|O|X|
+ |O|5|6|
+ |7|X|O|
+"No.330 layer=6"
+       
+ |X|O|X|
+ |O|O|6|
+ |7|8|X|
+"No.331 layer=6"
+       
+ |X|O|X|
+ |O|5|6|
+ |O|8|X|
+"No.332 layer=6"
+       
+ |X|O|X|
+ |O|5|6|
+ |7|O|X|
+"No.333 layer=6"
+       
+ |X|O|X|
+ |X|O|6|
+ |O|8|9|
+"No.334 layer=6"
+       
+ |X|O|X|
+ |X|O|6|
+ |7|8|O|
+"No.335 layer=6"
+       
+ |X|O|X|
+ |4|O|6|
+ |X|8|O|
+"No.336 layer=6"
+       
+ |X|O|X|
+ |4|O|6|
+ |O|X|9|
+"No.337 layer=6"
+       
+ |X|O|X|
+ |X|5|6|
+ |O|O|9|
+"No.338 layer=6"
+       
+ |X|O|X|
+ |X|5|6|
+ |O|8|O|
+"No.339 layer=6"
+       
+ |X|O|X|
+ |4|X|6|
+ |O|O|9|
+"No.340 layer=6"
+       
+ |X|O|X|
+ |4|X|6|
+ |O|8|O|
+"No.341 layer=6"
+       
+ |X|O|X|
+ |4|5|X|
+ |O|O|9|
+"No.342 layer=6"
+       
+ |X|O|X|
+ |4|5|6|
+ |O|X|O|
+"No.343 layer=6"
+       
+ |X|O|X|
+ |4|5|6|
+ |O|O|X|
+"No.344 layer=6"
+       
+ |X|O|O|
+ |X|X|O|
+ |7|8|9|
+"No.345 layer=6"
+       
+ |X|O|O|
+ |X|X|6|
+ |O|8|9|
+"No.346 layer=6"
+       
+ |X|O|O|
+ |X|X|6|
+ |7|O|9|
+"No.347 layer=6"
+       
+ |X|O|O|
+ |X|X|6|
+ |7|8|O|
+"No.348 layer=6"
+       
+ |X|O|O|
+ |X|O|X|
+ |7|8|9|
+"No.349 layer=6"
+       
+ |X|O|O|
+ |X|5|X|
+ |O|8|9|
+"No.350 layer=6"
+       
+ |X|O|O|
+ |X|5|X|
+ |7|O|9|
+"No.351 layer=6"
+       
+ |X|O|O|
+ |X|5|X|
+ |7|8|O|
+"No.352 layer=6"
+       
+ |X|O|O|
+ |X|O|6|
+ |7|X|9|
+"No.353 layer=6"
+       
+ |X|O|O|
+ |X|5|O|
+ |7|X|9|
+"No.354 layer=6"
+       
+ |X|O|O|
+ |X|5|6|
+ |O|X|9|
+"No.355 layer=6"
+       
+ |X|O|O|
+ |X|5|6|
+ |7|X|O|
+"No.356 layer=6"
+       
+ |X|O|O|
+ |X|O|6|
+ |7|8|X|
+"No.357 layer=6"
+       
+ |X|O|O|
+ |X|5|O|
+ |7|8|X|
+"No.358 layer=6"
+       
+ |X|O|O|
+ |X|5|6|
+ |O|8|X|
+"No.359 layer=6"
+       
+ |X|O|O|
+ |X|5|6|
+ |7|O|X|
+"No.360 layer=6"
+       
+ |X|O|3|
+ |X|O|X|
+ |O|8|9|
+"No.361 layer=6"
+       
+ |X|O|3|
+ |X|O|X|
+ |7|8|O|
+"No.362 layer=6"
+       
+ |X|O|3|
+ |X|O|O|
+ |7|X|9|
+"No.363 layer=6"
+       
+ |X|O|3|
+ |X|O|6|
+ |O|X|9|
+"No.364 layer=6"
+       
+ |X|O|3|
+ |X|O|6|
+ |7|X|O|
+"No.365 layer=6"
+       
+ |X|O|3|
+ |X|O|O|
+ |7|8|X|
+"No.366 layer=6"
+       
+ |X|O|3|
+ |X|O|6|
+ |O|8|X|
+"No.367 layer=6"
+       
+ |X|O|3|
+ |X|X|O|
+ |O|8|9|
+"No.368 layer=6"
+       
+ |X|O|3|
+ |X|X|O|
+ |7|O|9|
+"No.369 layer=6"
+       
+ |X|O|3|
+ |X|X|O|
+ |7|8|O|
+"No.370 layer=6"
+       
+ |X|O|3|
+ |X|5|O|
+ |O|X|9|
+"No.371 layer=6"
+       
+ |X|O|3|
+ |X|5|O|
+ |7|X|O|
+"No.372 layer=6"
+       
+ |X|O|3|
+ |X|5|O|
+ |O|8|X|
+"No.373 layer=6"
+       
+ |X|O|3|
+ |X|5|O|
+ |7|O|X|
+"No.374 layer=6"
+       
+ |X|O|3|
+ |X|X|6|
+ |O|O|9|
+"No.375 layer=6"
+       
+ |X|O|3|
+ |X|X|6|
+ |O|8|O|
+"No.376 layer=6"
+       
+ |X|O|3|
+ |X|5|X|
+ |O|O|9|
+"No.377 layer=6"
+       
+ |X|O|3|
+ |X|5|X|
+ |O|8|O|
+"No.378 layer=6"
+       
+ |X|O|3|
+ |X|5|6|
+ |O|X|O|
+"No.379 layer=6"
+       
+ |X|O|3|
+ |X|5|6|
+ |O|O|X|
+"No.380 layer=6"
+       
+ |X|O|3|
+ |X|X|6|
+ |7|O|O|
+"No.381 layer=6"
+       
+ |X|O|3|
+ |X|5|X|
+ |7|O|O|
+"No.382 layer=6"
+       
+ |X|O|O|
+ |O|X|X|
+ |7|8|9|
+"No.383 layer=6"
+       
+ |X|O|O|
+ |4|X|X|
+ |O|8|9|
+"No.384 layer=6"
+       
+ |X|O|O|
+ |4|X|X|
+ |7|O|9|
+"No.385 layer=6"
+       
+ |X|O|O|
+ |4|X|X|
+ |7|8|O|
+"No.386 layer=6"
+       
+ |X|O|O|
+ |4|X|O|
+ |X|8|9|
+"No.387 layer=6"
+       
+ |X|O|O|
+ |4|X|6|
+ |X|O|9|
+"No.388 layer=6"
+       
+ |X|O|O|
+ |4|X|6|
+ |X|8|O|
+"No.389 layer=6"
+       
+ |X|O|O|
+ |O|X|6|
+ |7|X|9|
+"No.390 layer=6"
+       
+ |X|O|O|
+ |4|X|O|
+ |7|X|9|
+"No.391 layer=6"
+       
+ |X|O|O|
+ |4|X|6|
+ |O|X|9|
+"No.392 layer=6"
+       
+ |X|O|O|
+ |4|X|6|
+ |7|X|O|
+"No.393 layer=6"
+       
+ |X|O|3|
+ |O|X|X|
+ |7|O|9|
+"No.394 layer=6"
+       
+ |X|O|3|
+ |O|X|X|
+ |7|8|O|
+"No.395 layer=6"
+       
+ |X|O|3|
+ |4|X|O|
+ |X|O|9|
+"No.396 layer=6"
+       
+ |X|O|3|
+ |4|X|O|
+ |X|8|O|
+"No.397 layer=6"
+       
+ |X|O|3|
+ |4|X|O|
+ |O|X|9|
+"No.398 layer=6"
+       
+ |X|O|3|
+ |4|X|O|
+ |7|X|O|
+"No.399 layer=6"
+       
+ |X|O|3|
+ |4|X|X|
+ |O|O|9|
+"No.400 layer=6"
+       
+ |X|O|3|
+ |4|X|X|
+ |O|8|O|
+"No.401 layer=6"
+       
+ |X|O|3|
+ |4|X|6|
+ |O|X|O|
+"No.402 layer=6"
+       
+ |X|O|3|
+ |4|X|X|
+ |7|O|O|
+"No.403 layer=6"
+       
+ |X|O|O|
+ |4|O|X|
+ |X|8|9|
+"No.404 layer=6"
+       
+ |X|O|O|
+ |4|5|X|
+ |X|O|9|
+"No.405 layer=6"
+       
+ |X|O|O|
+ |4|5|X|
+ |X|8|O|
+"No.406 layer=6"
+       
+ |X|O|O|
+ |O|5|X|
+ |7|X|9|
+"No.407 layer=6"
+       
+ |X|O|O|
+ |4|O|X|
+ |7|X|9|
+"No.408 layer=6"
+       
+ |X|O|O|
+ |4|5|X|
+ |O|X|9|
+"No.409 layer=6"
+       
+ |X|O|O|
+ |4|5|X|
+ |7|X|O|
+"No.410 layer=6"
+       
+ |X|O|O|
+ |O|5|X|
+ |7|8|X|
+"No.411 layer=6"
+       
+ |X|O|O|
+ |4|O|X|
+ |7|8|X|
+"No.412 layer=6"
+       
+ |X|O|O|
+ |4|5|X|
+ |O|8|X|
+"No.413 layer=6"
+       
+ |X|O|3|
+ |O|O|X|
+ |7|X|9|
+"No.414 layer=6"
+       
+ |X|O|3|
+ |O|5|X|
+ |7|X|O|
+"No.415 layer=6"
+       
+ |X|O|3|
+ |O|O|X|
+ |7|8|X|
+"No.416 layer=6"
+       
+ |X|O|3|
+ |O|5|X|
+ |O|8|X|
+"No.417 layer=6"
+       
+ |X|O|3|
+ |4|O|X|
+ |X|8|O|
+"No.418 layer=6"
+       
+ |X|O|3|
+ |4|O|X|
+ |O|X|9|
+"No.419 layer=6"
+       
+ |X|O|3|
+ |4|O|X|
+ |7|X|O|
+"No.420 layer=6"
+       
+ |X|O|3|
+ |4|O|X|
+ |O|8|X|
+"No.421 layer=6"
+       
+ |X|O|3|
+ |4|5|X|
+ |O|X|O|
+"No.422 layer=6"
+       
+ |X|O|O|
+ |4|O|6|
+ |X|X|9|
+"No.423 layer=6"
+       
+ |X|O|O|
+ |4|5|O|
+ |X|X|9|
+"No.424 layer=6"
+       
+ |X|O|O|
+ |4|5|6|
+ |X|X|O|
+"No.425 layer=6"
+       
+ |X|O|O|
+ |4|O|6|
+ |X|8|X|
+"No.426 layer=6"
+       
+ |X|O|O|
+ |4|5|O|
+ |X|8|X|
+"No.427 layer=6"
+       
+ |X|O|3|
+ |4|O|O|
+ |X|X|9|
+"No.428 layer=6"
+       
+ |X|O|3|
+ |4|O|6|
+ |X|X|O|
+"No.429 layer=6"
+       
+ |X|O|3|
+ |4|O|O|
+ |X|8|X|
+"No.430 layer=6"
+       
+ |X|O|3|
+ |4|5|O|
+ |X|X|O|
+"No.431 layer=6"
+       
+ |X|O|O|
+ |4|O|6|
+ |7|X|X|
+"No.432 layer=6"
+       
+ |X|O|O|
+ |4|5|6|
+ |O|X|X|
+"No.433 layer=6"
+       
+ |X|O|3|
+ |4|O|6|
+ |O|X|X|
+"No.434 layer=6"
+       
+ |X|X|O|
+ |X|O|O|
+ |7|8|9|
+"No.435 layer=6"
+       
+ |X|X|O|
+ |X|O|6|
+ |7|O|9|
+"No.436 layer=6"
+       
+ |X|X|O|
+ |X|O|6|
+ |7|8|O|
+"No.437 layer=6"
+       
+ |X|X|O|
+ |4|O|X|
+ |7|O|9|
+"No.438 layer=6"
+       
+ |X|X|O|
+ |4|O|X|
+ |7|8|O|
+"No.439 layer=6"
+       
+ |X|X|O|
+ |4|O|O|
+ |X|8|9|
+"No.440 layer=6"
+       
+ |X|X|O|
+ |4|O|6|
+ |X|8|O|
+"No.441 layer=6"
+       
+ |X|X|O|
+ |4|O|O|
+ |7|X|9|
+"No.442 layer=6"
+       
+ |X|X|O|
+ |4|O|6|
+ |7|X|O|
+"No.443 layer=6"
+       
+ |X|X|O|
+ |X|5|O|
+ |O|8|9|
+"No.444 layer=6"
+       
+ |X|X|O|
+ |X|5|O|
+ |7|O|9|
+"No.445 layer=6"
+       
+ |X|X|O|
+ |4|X|O|
+ |O|8|9|
+"No.446 layer=6"
+       
+ |X|X|O|
+ |4|X|O|
+ |7|O|9|
+"No.447 layer=6"
+       
+ |X|X|O|
+ |4|5|O|
+ |O|X|9|
+"No.448 layer=6"
+       
+ |X|X|O|
+ |X|5|6|
+ |O|8|O|
+"No.449 layer=6"
+       
+ |X|X|O|
+ |4|X|6|
+ |O|O|9|
+"No.450 layer=6"
+       
+ |X|X|O|
+ |4|X|6|
+ |O|8|O|
+"No.451 layer=6"
+       
+ |X|X|O|
+ |4|5|X|
+ |O|O|9|
+"No.452 layer=6"
+       
+ |X|X|O|
+ |4|5|X|
+ |O|8|O|
+"No.453 layer=6"
+       
+ |X|X|O|
+ |4|5|6|
+ |O|X|O|
+"No.454 layer=6"
+       
+ |X|X|O|
+ |X|5|6|
+ |7|O|O|
+"No.455 layer=6"
+       
+ |X|X|O|
+ |4|X|6|
+ |7|O|O|
+"No.456 layer=6"
+       
+ |X|X|O|
+ |4|5|X|
+ |7|O|O|
+"No.457 layer=6"
+       
+ |X|2|O|
+ |X|O|X|
+ |7|O|9|
+"No.458 layer=6"
+       
+ |X|2|O|
+ |X|O|X|
+ |7|8|O|
+"No.459 layer=6"
+       
+ |X|2|O|
+ |X|O|O|
+ |7|X|9|
+"No.460 layer=6"
+       
+ |X|2|O|
+ |X|O|6|
+ |7|X|O|
+"No.461 layer=6"
+       
+ |X|2|O|
+ |X|X|O|
+ |7|O|9|
+"No.462 layer=6"
+       
+ |X|2|O|
+ |X|X|6|
+ |7|O|O|
+"No.463 layer=6"
+       
+ |X|2|O|
+ |X|5|X|
+ |7|O|O|
+"No.464 layer=6"
+       
+ |X|2|O|
+ |4|X|O|
+ |O|X|9|
+"No.465 layer=6"
+       
+ |X|2|O|
+ |4|X|X|
+ |O|8|O|
+"No.466 layer=6"
+       
+ |X|2|O|
+ |4|X|X|
+ |7|O|O|
+"No.467 layer=6"
+       
+ |X|2|O|
+ |4|O|X|
+ |X|8|O|
+"No.468 layer=6"
+       
+ |X|2|O|
+ |4|O|X|
+ |7|X|O|
+"No.469 layer=6"
+       
+ |X|2|O|
+ |4|5|X|
+ |O|X|O|
+"No.470 layer=6"
+       
+ |X|2|O|
+ |4|O|O|
+ |X|X|9|
+"No.471 layer=6"
+       
+ |X|X|3|
+ |X|O|O|
+ |7|O|9|
+"No.472 layer=6"
+       
+ |X|X|3|
+ |X|O|O|
+ |7|8|O|
+"No.473 layer=6"
+       
+ |X|X|3|
+ |4|O|O|
+ |7|X|O|
+"No.474 layer=6"
+       
+ |X|X|3|
+ |4|O|X|
+ |7|O|O|
+"No.475 layer=6"
+       
+ |X|X|3|
+ |X|5|O|
+ |7|O|O|
+"No.476 layer=6"
+       
+ |X|X|3|
+ |4|X|O|
+ |7|O|O|
+"No.477 layer=6"
+       
+ |O|X|O|
+ |X|X|O|
+ |7|8|9|
+"No.478 layer=6"
+       
+ |O|X|O|
+ |X|X|6|
+ |O|8|9|
+"No.479 layer=6"
+       
+ |O|X|O|
+ |X|X|6|
+ |7|O|9|
+"No.480 layer=6"
+       
+ |O|X|O|
+ |X|X|6|
+ |7|8|O|
+"No.481 layer=6"
+       
+ |O|X|O|
+ |X|O|X|
+ |7|8|9|
+"No.482 layer=6"
+       
+ |O|X|O|
+ |X|5|X|
+ |O|8|9|
+"No.483 layer=6"
+       
+ |O|X|O|
+ |X|5|X|
+ |7|O|9|
+"No.484 layer=6"
+       
+ |O|X|O|
+ |X|O|6|
+ |7|X|9|
+"No.485 layer=6"
+       
+ |O|X|O|
+ |X|5|O|
+ |7|X|9|
+"No.486 layer=6"
+       
+ |O|X|O|
+ |X|5|6|
+ |7|X|O|
+"No.487 layer=6"
+       
+ |O|X|3|
+ |X|O|X|
+ |7|O|9|
+"No.488 layer=6"
+       
+ |O|X|3|
+ |X|X|O|
+ |7|O|9|
+"No.489 layer=6"
+       
+ |O|X|3|
+ |X|X|O|
+ |7|8|O|
+"No.490 layer=6"
+       
+ |O|X|3|
+ |X|5|O|
+ |7|X|O|
+"No.491 layer=6"
+       
+ |O|X|3|
+ |O|X|X|
+ |7|O|9|
+"No.492 layer=6"
+       
+ |O|X|3|
+ |O|X|X|
+ |7|8|O|
+"No.493 layer=6"
+       
+ |O|X|3|
+ |4|X|X|
+ |O|O|9|
+"No.494 layer=6"
+       
+ |O|X|3|
+ |4|X|X|
+ |O|8|O|
+"No.495 layer=6"
+       
+ |O|X|3|
+ |O|O|X|
+ |7|X|9|
+"No.496 layer=6"
+       
+ |O|X|3|
+ |4|O|X|
+ |O|X|9|
+"No.497 layer=6"
+       
+ |1|X|3|
+ |O|X|X|
+ |O|O|9|
+"No.498 layer=7"
+       
+ |X|O|X|
+ |O|X|O|
+ |7|X|9|
+"No.499 layer=7"
+       
+ |X|O|X|
+ |O|X|X|
+ |O|8|9|
+"No.500 layer=7"
+       
+ |X|O|X|
+ |O|X|6|
+ |O|X|9|
+"No.501 layer=7"
+       
+ |X|O|X|
+ |O|X|X|
+ |7|O|9|
+"No.502 layer=7"
+       
+ |X|O|X|
+ |O|X|X|
+ |7|8|O|
+"No.503 layer=7"
+       
+ |X|O|X|
+ |O|X|6|
+ |7|X|O|
+"No.504 layer=7"
+       
+ |X|O|X|
+ |O|O|X|
+ |X|8|9|
+"No.505 layer=7"
+       
+ |X|O|X|
+ |O|O|X|
+ |7|X|9|
+"No.506 layer=7"
+       
+ |X|O|X|
+ |O|5|X|
+ |O|X|9|
+"No.507 layer=7"
+       
+ |X|O|X|
+ |O|5|X|
+ |X|O|9|
+"No.508 layer=7"
+       
+ |X|O|X|
+ |O|5|X|
+ |X|8|O|
+"No.509 layer=7"
+       
+ |X|O|X|
+ |O|5|X|
+ |7|X|O|
+"No.510 layer=7"
+       
+ |X|O|X|
+ |O|O|6|
+ |X|8|X|
+"No.511 layer=7"
+       
+ |X|O|X|
+ |O|5|O|
+ |X|8|X|
+"No.512 layer=7"
+       
+ |X|O|X|
+ |O|O|6|
+ |7|X|X|
+"No.513 layer=7"
+       
+ |X|O|X|
+ |O|5|6|
+ |O|X|X|
+"No.514 layer=7"
+       
+ |X|O|X|
+ |X|O|X|
+ |O|8|9|
+"No.515 layer=7"
+       
+ |X|O|X|
+ |X|O|6|
+ |O|X|9|
+"No.516 layer=7"
+       
+ |X|O|X|
+ |X|O|6|
+ |O|8|X|
+"No.517 layer=7"
+       
+ |X|O|X|
+ |X|O|6|
+ |7|X|O|
+"No.518 layer=7"
+       
+ |X|O|X|
+ |4|O|6|
+ |X|X|O|
+"No.519 layer=7"
+       
+ |X|O|X|
+ |X|X|6|
+ |O|O|9|
+"No.520 layer=7"
+       
+ |X|O|X|
+ |X|5|X|
+ |O|O|9|
+"No.521 layer=7"
+       
+ |X|O|X|
+ |X|5|6|
+ |O|O|X|
+"No.522 layer=7"
+       
+ |X|O|X|
+ |X|X|6|
+ |O|8|O|
+"No.523 layer=7"
+       
+ |X|O|X|
+ |X|5|X|
+ |O|8|O|
+"No.524 layer=7"
+       
+ |X|O|X|
+ |X|5|6|
+ |O|X|O|
+"No.525 layer=7"
+       
+ |X|O|X|
+ |4|X|X|
+ |O|O|9|
+"No.526 layer=7"
+       
+ |X|O|X|
+ |4|X|6|
+ |O|X|O|
+"No.527 layer=7"
+       
+ |X|O|O|
+ |X|X|O|
+ |7|X|9|
+"No.528 layer=7"
+       
+ |X|O|O|
+ |X|X|6|
+ |O|X|9|
+"No.529 layer=7"
+       
+ |X|O|O|
+ |X|X|6|
+ |7|X|O|
+"No.530 layer=7"
+       
+ |X|O|O|
+ |X|O|X|
+ |7|X|9|
+"No.531 layer=7"
+       
+ |X|O|O|
+ |X|O|X|
+ |7|8|X|
+"No.532 layer=7"
+       
+ |X|O|O|
+ |X|5|X|
+ |O|X|9|
+"No.533 layer=7"
+       
+ |X|O|O|
+ |X|5|X|
+ |O|8|X|
+"No.534 layer=7"
+       
+ |X|O|O|
+ |X|5|X|
+ |7|O|X|
+"No.535 layer=7"
+       
+ |X|O|O|
+ |X|5|X|
+ |7|X|O|
+"No.536 layer=7"
+       
+ |X|O|O|
+ |X|O|6|
+ |7|X|X|
+"No.537 layer=7"
+       
+ |X|O|O|
+ |X|5|O|
+ |7|X|X|
+"No.538 layer=7"
+       
+ |X|O|O|
+ |X|5|6|
+ |O|X|X|
+"No.539 layer=7"
+       
+ |X|O|3|
+ |X|O|X|
+ |O|X|9|
+"No.540 layer=7"
+       
+ |X|O|3|
+ |X|O|X|
+ |O|8|X|
+"No.541 layer=7"
+       
+ |X|O|3|
+ |X|O|X|
+ |7|X|O|
+"No.542 layer=7"
+       
+ |X|O|3|
+ |X|O|O|
+ |7|X|X|
+"No.543 layer=7"
+       
+ |X|O|3|
+ |X|O|6|
+ |O|X|X|
+"No.544 layer=7"
+       
+ |X|O|3|
+ |X|X|O|
+ |O|X|9|
+"No.545 layer=7"
+       
+ |X|O|3|
+ |X|X|O|
+ |7|X|O|
+"No.546 layer=7"
+       
+ |X|O|3|
+ |X|5|O|
+ |O|X|X|
+"No.547 layer=7"
+       
+ |X|O|3|
+ |X|X|6|
+ |O|X|O|
+"No.548 layer=7"
+       
+ |X|O|3|
+ |X|5|X|
+ |O|X|O|
+"No.549 layer=7"
+       
+ |X|O|O|
+ |O|X|X|
+ |7|X|9|
+"No.550 layer=7"
+       
+ |X|O|O|
+ |4|X|X|
+ |O|X|9|
+"No.551 layer=7"
+       
+ |X|O|O|
+ |4|X|X|
+ |X|O|9|
+"No.552 layer=7"
+       
+ |X|O|O|
+ |4|X|X|
+ |X|8|O|
+"No.553 layer=7"
+       
+ |X|O|O|
+ |4|X|X|
+ |7|X|O|
+"No.554 layer=7"
+       
+ |X|O|O|
+ |4|X|O|
+ |X|X|9|
+"No.555 layer=7"
+       
+ |X|O|O|
+ |4|X|6|
+ |X|X|O|
+"No.556 layer=7"
+       
+ |X|O|3|
+ |O|X|X|
+ |7|X|O|
+"No.557 layer=7"
+       
+ |X|O|3|
+ |4|X|O|
+ |X|X|O|
+"No.558 layer=7"
+       
+ |X|O|3|
+ |4|X|X|
+ |O|X|O|
+"No.559 layer=7"
+       
+ |X|O|O|
+ |4|O|X|
+ |X|X|9|
+"No.560 layer=7"
+       
+ |X|O|O|
+ |4|O|X|
+ |X|8|X|
+"No.561 layer=7"
+       
+ |X|O|O|
+ |4|5|X|
+ |X|X|O|
+"No.562 layer=7"
+       
+ |X|O|O|
+ |O|5|X|
+ |7|X|X|
+"No.563 layer=7"
+       
+ |X|O|O|
+ |4|O|X|
+ |7|X|X|
+"No.564 layer=7"
+       
+ |X|O|O|
+ |4|5|X|
+ |O|X|X|
+"No.565 layer=7"
+       
+ |X|O|3|
+ |O|O|X|
+ |7|X|X|
+"No.566 layer=7"
+       
+ |X|O|3|
+ |4|O|X|
+ |X|X|O|
+"No.567 layer=7"
+       
+ |X|O|3|
+ |4|O|X|
+ |O|X|X|
+"No.568 layer=7"
+       
+ |X|X|O|
+ |X|O|O|
+ |7|X|9|
+"No.569 layer=7"
+       
+ |X|X|O|
+ |X|O|X|
+ |7|O|9|
+"No.570 layer=7"
+       
+ |X|X|O|
+ |X|O|X|
+ |7|8|O|
+"No.571 layer=7"
+       
+ |X|X|O|
+ |X|O|6|
+ |7|X|O|
+"No.572 layer=7"
+       
+ |X|X|O|
+ |4|O|X|
+ |X|8|O|
+"No.573 layer=7"
+       
+ |X|X|O|
+ |4|O|X|
+ |7|X|O|
+"No.574 layer=7"
+       
+ |X|X|O|
+ |4|O|O|
+ |X|X|9|
+"No.575 layer=7"
+       
+ |X|X|O|
+ |4|O|6|
+ |X|X|O|
+"No.576 layer=7"
+       
+ |X|X|O|
+ |X|X|O|
+ |O|8|9|
+"No.577 layer=7"
+       
+ |X|X|O|
+ |X|5|O|
+ |O|X|9|
+"No.578 layer=7"
+       
+ |X|X|O|
+ |X|X|O|
+ |7|O|9|
+"No.579 layer=7"
+       
+ |X|X|O|
+ |X|X|6|
+ |O|8|O|
+"No.580 layer=7"
+       
+ |X|X|O|
+ |X|5|X|
+ |O|8|O|
+"No.581 layer=7"
+       
+ |X|X|O|
+ |4|X|X|
+ |O|O|9|
+"No.582 layer=7"
+       
+ |X|X|O|
+ |4|X|X|
+ |O|8|O|
+"No.583 layer=7"
+       
+ |X|X|O|
+ |4|5|X|
+ |O|X|O|
+"No.584 layer=7"
+       
+ |X|X|O|
+ |X|X|6|
+ |7|O|O|
+"No.585 layer=7"
+       
+ |X|X|O|
+ |X|5|X|
+ |7|O|O|
+"No.586 layer=7"
+       
+ |X|X|O|
+ |4|X|X|
+ |7|O|O|
+"No.587 layer=7"
+       
+ |X|2|O|
+ |X|O|X|
+ |7|X|O|
+"No.588 layer=7"
+       
+ |X|2|O|
+ |4|X|X|
+ |O|X|O|
+"No.589 layer=7"
+       
+ |X|X|3|
+ |X|O|O|
+ |7|X|O|
+"No.590 layer=7"
+       
+ |X|X|3|
+ |X|X|O|
+ |7|O|O|
+"No.591 layer=7"
+       
+ |O|X|O|
+ |X|O|X|
+ |7|X|9|
+"No.592 layer=7"
+       
+ |O|X|O|
+ |X|5|X|
+ |O|X|9|
+"No.593 layer=8"
+       
+ |X|O|X|
+ |O|X|O|
+ |O|X|9|
+"No.594 layer=8"
+       
+ |X|O|X|
+ |O|X|X|
+ |O|O|9|
+"No.595 layer=8"
+       
+ |X|O|X|
+ |O|X|X|
+ |O|8|O|
+"No.596 layer=8"
+       
+ |X|O|X|
+ |O|X|6|
+ |O|X|O|
+"No.597 layer=8"
+       
+ |X|O|X|
+ |O|X|X|
+ |7|O|O|
+"No.598 layer=8"
+       
+ |X|O|X|
+ |O|O|X|
+ |X|8|O|
+"No.599 layer=8"
+       
+ |X|O|X|
+ |O|O|X|
+ |O|X|9|
+"No.600 layer=8"
+       
+ |X|O|X|
+ |O|O|X|
+ |7|X|O|
+"No.601 layer=8"
+       
+ |X|O|X|
+ |O|5|X|
+ |O|X|O|
+"No.602 layer=8"
+       
+ |X|O|X|
+ |O|5|X|
+ |X|O|O|
+"No.603 layer=8"
+       
+ |X|O|X|
+ |O|5|O|
+ |X|O|X|
+"No.604 layer=8"
+       
+ |X|O|X|
+ |O|O|6|
+ |O|X|X|
+"No.605 layer=8"
+       
+ |X|O|X|
+ |X|O|X|
+ |O|8|O|
+"No.606 layer=8"
+       
+ |X|O|X|
+ |X|O|6|
+ |O|X|O|
+"No.607 layer=8"
+       
+ |X|O|O|
+ |X|X|O|
+ |O|X|9|
+"No.608 layer=8"
+       
+ |X|O|O|
+ |X|X|6|
+ |O|X|O|
+"No.609 layer=8"
+       
+ |X|O|O|
+ |X|O|X|
+ |7|X|O|
+"No.610 layer=8"
+       
+ |X|O|O|
+ |X|5|X|
+ |O|X|O|
+"No.611 layer=8"
+       
+ |X|O|O|
+ |X|5|X|
+ |O|O|X|
+"No.612 layer=8"
+       
+ |X|O|O|
+ |X|O|O|
+ |7|X|X|
+"No.613 layer=8"
+       
+ |X|O|O|
+ |X|5|O|
+ |O|X|X|
+"No.614 layer=8"
+       
+ |X|O|3|
+ |X|O|X|
+ |O|X|O|
+"No.615 layer=8"
+       
+ |X|O|3|
+ |X|O|O|
+ |O|X|X|
+"No.616 layer=8"
+       
+ |X|O|3|
+ |X|X|O|
+ |O|X|O|
+"No.617 layer=8"
+       
+ |X|O|O|
+ |O|X|X|
+ |O|X|9|
+"No.618 layer=8"
+       
+ |X|O|O|
+ |O|X|X|
+ |7|X|O|
+"No.619 layer=8"
+       
+ |X|O|O|
+ |4|X|X|
+ |O|X|O|
+"No.620 layer=8"
+       
+ |X|O|O|
+ |4|X|X|
+ |X|O|O|
+"No.621 layer=8"
+       
+ |X|O|O|
+ |4|O|X|
+ |X|X|O|
+"No.622 layer=8"
+       
+ |X|O|O|
+ |O|O|X|
+ |7|X|X|
+"No.623 layer=8"
+       
+ |X|O|O|
+ |O|5|X|
+ |O|X|X|
+"No.624 layer=8"
+       
+ |X|X|O|
+ |X|O|X|
+ |7|O|O|
+"No.625 layer=8"
+       
+ |X|X|O|
+ |X|X|O|
+ |O|O|9|
+"No.626 layer=8"
+       
+ |O|X|O|
+ |X|5|X|
+ |O|X|O|
