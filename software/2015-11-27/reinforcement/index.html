@@ -153,10 +153,6 @@ MathJax.Hub.Config({
 　各マッチ箱には、小さい引き出しがあり、開けることができる。Michieは、各マッチ箱にラベルを貼った。このラベルには、３目並べで考えられる２８７の異なる盤面が描かれている。実際はもっと多くのパターンがあることになるが、３行×３列構成の標準的な３目並べのレイアウトは上下左右を入れ替えても同じ内容なので、４つの異なるパターンを１つに集約できる。</p>
 </blockquote>
 
-<div align="center">
-<a rel="nofollow" href="http://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tf_il?ie=UTF8&amp;camp=247&amp;creative=1211&amp;creativeASIN=4873113350&amp;linkCode=as2&amp;tag=islpjp-22"><img border="0" src="http://ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=4873113350&amp;Format=_SL110_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=islpjp-22" /></a><img src="http://ir-jp.amazon-adsystem.com/e/ir?t=islpjp-22&amp;l=as2&amp;o=9&amp;a=4873113350" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
-</div>
-
 <p>　<a href="http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1444873224&amp;sr=1-1&amp;keywords=statistics+hacks">「STATISTICS HACKS」</a>には上記のように書かれているので多分木データとして保持する必要がある局面の数は回転・対称形をとことん省いていけば6,046から287に絞れるのかと思って縦・横・斜めの対称形とそれぞれの局面を90度ずつ回転させた局面を省いてみても626局面までにしか絞れませんでした。どうすればいいのか見当がつかなかったのでネットで検索してみたところ<a href="http://www.gensu.co.jp/saito/puzzle/a15hissho1.html">「数学パズルにトドメをさす？！」</a>と称するサイトを見つけました。そのサイトからダウンロードできる「三目並べの局面一覧」というファイルを確認してみると、すべての局面の数は447になるとのことです。私が計算した数とどこで食い違うのかを確認してみたのですが、どうやらこのデータはお互いに最善手を打つことを前提にしているようです。このサイトの注意書きに「自分や相手のリーチを見逃さない」と書いてありますが、局面を数えるときに先手・後手のお互いが最善手を選択することを前提にして（おそらく<a href="/software/2014-09-16/ab_method/">MIN−MAX法</a>を使った深さ優先探索を使って）数えているのでしょう。</p>
 
 <pre><code> |X|O|3|
