@@ -26,7 +26,7 @@ th { border: solid 2px #003333; }
   width:50%;
   max-width:800px;
   height:60px;
-  margin:40px auto 0;
+  margin:40px auto 40px;
   text-align: center;
   font-size: 1.5em;
 }
