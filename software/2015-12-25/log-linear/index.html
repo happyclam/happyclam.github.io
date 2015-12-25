@@ -1,0 +1,675 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>曲線回帰で強化を試みる</title>
+    
+    <meta name="author" content="happyclam">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script language="JavaScript">
+$(document).ready( function () {
+   $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-1752720-7', 'happyclam.github.io');
+      ga('send', 'pageview');
+    </script>
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div style="text-align: center;">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- トップバナー -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-1238485061299241"
+     data-ad-slot="7366457015"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    </div>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">自己満足プログラミング</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/profile.html">About</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="right-ad">Test</div> -->
+    <div class="container-narrow">
+<a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      <div class="content">
+        
+<div class="page-header">
+  <h1>曲線回帰で強化を試みる </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>25 December 2015</span>
+    </div>
+    <div class="content">
+      <h3 id="section">闇雲ってこういうことかも</h3>
+<p>　次に記事を書く時は別の話題にしようと思っていたのですが、三目並べの強化学習に関して試さずにはいられなかったので、闇雲と言われようが思いつくままにやってみたことを書いておきます。<br />
+　以前、<a href="http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1444873224&amp;sr=1-1&amp;keywords=statistics+hacks">「STATISTICS HACKS」</a>の中で序盤より終盤の手を重視する方法について記述されていることに触れました、そして今まで試した方法は報酬を与えるにしても罰するにしても選択した全ての局面で同じ値を加算したり減算したりしていましたが、今回は手数毎に違う値を加減算する方法を試してみました。</p>
+
+<h3 id="part-1">終盤の手ほど重要視すべき？Part 1</h3>
+<p>　<a href="http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1444873224&amp;sr=1-1&amp;keywords=statistics+hacks">「STATISTICS HACKS」</a>には以下のように書かれています。</p>
+
+<blockquote>
+  <p>　動物が学習する手法をまねたい場合、ゲーム終盤近くの手が、ゲーム序盤よりも重大であるようなシステムに調整してもよい。これは行動が適切な時期に近いほど、その行動を強化する効果が最大になるという観察結果を反映することを意図したものだ。</p>
+</blockquote>
+
+<p>　現時点の機械学習プログラムは、勝負がついた時点で局面を初期盤面まで遡りながら局面に配置されている小石（score配列）の数を増減させて学習効果を反映させる仕様です。勝った場合は、一つ手前の局面の９個ある配列データ（score配列）の内、選択した手の場所の値を増やして（報酬を与えて）次からもその局面では再度その手を選ぶ確率を上げるようにするわけです。そしてその前の局面、その前の局面と遡りながら同じように数値を加減算していきます。でも、<a href="/software/2015-10-25/machine_learning/">以前の記事</a>にも書きましたが、辿った全ての局面のデータを一律に同じ数だけ増やして（あるいは減らして）いくというのは確かに少し疑問を感じます。例えば相手の石が揃うのを防がなかったような場合、その手は大悪手であるにも関わらず、序盤の一手と同様の罰しか受けないわけで、感覚的にはそれでいいの？って感じです。だから、ここに書かれているように、報酬も罰も終盤ほど大きな値になるように調整してみました。<br />
+　まず、最終手が１になるように１を手数で割った値を係数にして、勝ちなら３負けなら−１を掛けた値を反映させるようにしてみました。x 手目の局面の報酬を決めるための係数を y で表します。  </p>
+
+<div style="width:320px; margin: 0 auto;">
+  <p><script type="math/tex"> y = \frac{1}{総手数} x \hspace{3.5em}\tag{方程式 1}</script>  </p>
+</div>
+
+<p>　最短手数６（初期盤面を含む）で勝負がついたとすると、最終手番の局面は x = 6 で y = 1 となり、勝った場合は<script type="math/tex"> y\times3=3</script>、負けた場合は<script type="math/tex"> y\times-1=-1</script>の値を各局面のデータ（score配列）に加算します。その一つ前の手番のデータはx = 4, y = <script type="math/tex">\frac{4}{6}</script>となり、勝ちなら<script type="math/tex"> y \times3=2</script>、負けなら<script type="math/tex"> y \times -1=-0.6666</script>が加算されます。<br />
+　例えば１０手（初期盤面を含む）で学習ソフトが勝ったとすると、最終盤面から初期盤面まで順番にソフトの手番の局面データに <script type="math/tex">3, 2.4, 1.8, 1.2, 0.6</script>の値が加算され、終盤の局面ほど大きな報酬が与えられるわけです。<br />
+　総手数６手で終了した場合の係数（求める値 y は、あくまで３や−１に掛ける係数です）は以下の方程式で表され</p>
+
+<div style="width:320px; margin: 0 auto;">
+  <script type="math/tex; mode=display"> y = \frac{1}{6}x \hspace{3.5em}\tag{方程式 1.1}</script>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align: right">x</th>
+        <th style="text-align: right">y</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: right">1</td>
+        <td style="text-align: right">0.167</td>
+      </tr>
+      <tr>
+        <td style="text-align: right">2</td>
+        <td style="text-align: right">0.333</td>
+      </tr>
+      <tr>
+        <td style="text-align: right">3</td>
+        <td style="text-align: right">0.500</td>
+      </tr>
+      <tr>
+        <td style="text-align: right">4</td>
+        <td style="text-align: right">0.667</td>
+      </tr>
+      <tr>
+        <td style="text-align: right">5</td>
+        <td style="text-align: right">0.833</td>
+      </tr>
+      <tr>
+        <td style="text-align: right">6</td>
+        <td style="text-align: right">1.000</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<p>　グラフにすると下のようになります。</p>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/linear.png" target="_blank"><img src="/images/linear.png" alt="回帰直線" title="回帰直線" /></a></p>
+
+</div>
+
+<p>　この状態での対戦結果は以下のようになりました。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">項目 \ 対戦相手</th>
+      <th style="text-align: right">　最強プログラム　　</th>
+      <th style="text-align: right">　乱数プログラム　　</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">従来の強化学習</td>
+      <td style="text-align: right">0勝10,572敗89,428分</td>
+      <td style="text-align: right">66,942勝21,791敗11,267分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">終盤の手ほど重要視（線形関数）</td>
+      <td style="text-align: right">0勝8,334敗91,666分</td>
+      <td style="text-align: right">61,383勝26,053敗12,564分</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>　若干ですが最強プログラムとの対戦成績は向上したようですが、乱数プログラムとの対戦成績（＝学習効果）は悪化しました。</p>
+
+<h3 id="part-2">終盤の手ほど重要視すべき？Part 2</h3>
+<p>　１０万回の対戦の途中経過を観察していないのではっきりとは言えませんが、終盤の手ほど重要視するようにはしてみたけど劇的に学習効果が上がるってわけでもなさそうです。でも、終盤を重要視すると言ってもPart 1 のように等間隔の増分でいいのでしょうか？１手目、２手目、３手目と等間隔で手の重要度が変化するとはとても思えません。相手のラインが揃うのを防がない手を選択して負けるケースなんかを考えると最終手は段違いに重要な気がします。<br />
+　ということで、指数関数的に指し手の重要度が増すと仮定して方程式を改造しました。総手数６手（初期盤面を含む）でゲームが終了したとするとPart 1 の方程式の値は以下のように等間隔で推移（ y の値）しますが、  </p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">x</th>
+      <th style="text-align: right">y (Part1)</th>
+      <th style="text-align: right">y′</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">1</td>
+      <td style="text-align: right">0.167</td>
+      <td style="text-align: right">0.050</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">2</td>
+      <td style="text-align: right">0.333</td>
+      <td style="text-align: right">0.100</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">3</td>
+      <td style="text-align: right">0.500</td>
+      <td style="text-align: right">0.200</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">4</td>
+      <td style="text-align: right">0.667</td>
+      <td style="text-align: right">0.400</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">5</td>
+      <td style="text-align: right">0.833</td>
+      <td style="text-align: right">0.800</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">6</td>
+      <td style="text-align: right">1.000</td>
+      <td style="text-align: right">1.050</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>　その横に y′ としてこんな感じになるんじゃないかという値を捏造して、その値をLibreOffice（Excelでも可）を使って回帰して得られた方程式が以下のものです<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。  </p>
+
+<div style="width:320px; margin: 0 auto;">
+  <p>　<script type="math/tex"> y = 0.029 \times 1.882^x \hspace{3.5em}\tag{方程式 2}</script>  </p>
+</div>
+
+<p>　グラフは以下の青のラインです  </p>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/log-linear1.png" target="_blank"><img src="/images/log-linear1.png" alt="曲線回帰、小" title="曲線回帰、小" /></a></p>
+
+</div>
+
+<p>　対戦結果は以下です。  </p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">項目 \ 対戦相手</th>
+      <th style="text-align: right">　最強プログラム　　</th>
+      <th style="text-align: right">　乱数プログラム　　</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">従来の強化学習</td>
+      <td style="text-align: right">0勝10,572敗89,428分</td>
+      <td style="text-align: right">66,942勝21,791敗11,267分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">終盤の手ほど重要視（線形関数）</td>
+      <td style="text-align: right">0勝8,334敗91,666分</td>
+      <td style="text-align: right">61,383勝26,053敗12,564分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">終盤の手ほど重要視（指数関数、小）</td>
+      <td style="text-align: right">0勝8,863敗91,137分</td>
+      <td style="text-align: right">59,992勝25,810敗14,198分</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>　報酬や罰が等間隔で配分される線形関数の時より、対最強プログラムも対乱数プログラムも勝率が落ちてしまいました。でも最強プログラムとの対戦成績に関しては「従来の強化学習」よりいい成績なので、この時点では一応効果はあると思っていました。</p>
+
+<h3 id="part-3">終盤の手ほど重要視すべき？Part 3</h3>
+<p>　指数曲線にした方が勝率（というか引き分け率）が落ちてしまったのは回帰曲線が線形関数を下回っているのがよくないのかと思って、もう一度値を弄って重みを掛ける係数の値が線形関数の上にくるようにしてみました。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">x</th>
+      <th style="text-align: right">y (Part1)</th>
+      <th style="text-align: right">y′(Part2)</th>
+      <th style="text-align: right">y′′</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">1</td>
+      <td style="text-align: right">0.167</td>
+      <td style="text-align: right">0.050</td>
+      <td style="text-align: right">0.300</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">2</td>
+      <td style="text-align: right">0.333</td>
+      <td style="text-align: right">0.100</td>
+      <td style="text-align: right">0.480</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">3</td>
+      <td style="text-align: right">0.500</td>
+      <td style="text-align: right">0.200</td>
+      <td style="text-align: right">0.750</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">4</td>
+      <td style="text-align: right">0.667</td>
+      <td style="text-align: right">0.400</td>
+      <td style="text-align: right">1.200</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">5</td>
+      <td style="text-align: right">0.833</td>
+      <td style="text-align: right">0.800</td>
+      <td style="text-align: right">1.920</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">6</td>
+      <td style="text-align: right">1.000</td>
+      <td style="text-align: right">1.050</td>
+      <td style="text-align: right">3.030</td>
+    </tr>
+  </tbody>
+</table>
+
+<div style="width:320px; margin: 0 auto;">
+  <p>　<script type="math/tex"> y = 0.188 \times 1.588^x \hspace{3.5em}\tag{方程式 3}</script>  </p>
+</div>
+
+<p>　グラフは以下です</p>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/log-linear2.png" target="_blank"><img src="/images/log-linear2.png" alt="曲線回帰、大" title="曲線回帰、大" /></a></p>
+
+</div>
+
+<p>　対戦結果。  </p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">項目 \ 対戦相手</th>
+      <th style="text-align: right">　最強プログラム　　</th>
+      <th style="text-align: right">　乱数プログラム　　</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">従来の強化学習</td>
+      <td style="text-align: right">0勝10,572敗89,428分</td>
+      <td style="text-align: right">66,942勝21,791敗11,267分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">終盤の手ほど重要視（線形関数）</td>
+      <td style="text-align: right">0勝8,334敗91,666分</td>
+      <td style="text-align: right">61,383勝26,053敗12,564分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">終盤の手ほど重要視（指数関数、小）</td>
+      <td style="text-align: right">0勝8,863敗91,137分</td>
+      <td style="text-align: right">59,992勝25,810敗14,198分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">終盤の手ほど重要視（指数関数、大）</td>
+      <td style="text-align: right">0勝11,075敗88,925分</td>
+      <td style="text-align: right">64,216勝23,404敗12,380分</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>　さらに悪化してしまいました(/_;)　でも対乱数プログラムでは改善しています。対乱数プログラムで勝率がアップしたのは係数を大きな値にしたことが素直に反映されたのだと思います。<br />
+　しかし、対最強プログラムの場合では相手は絶対負けないので勝ち点３を得る機会がないので指数関数で係数を大きくしてもあまり恩恵を受けなかったということでしょう。しかも、係数を大きな値にしたために小石（score配列）を補充する際のデフォルト値を１０から２０に増やす必要があったのです（小石の数がマイナスにならないよう）が、それがよくなかったのだと思います。<a href="/software/2015-10-25/machine_learning/">以前の記事</a>にも書いたように小石の総数を増やすと学習効果が上がらなくなるのです。<br />
+　もう一つ問題があります。ここでは総手数が６手で終了する場合のデータをもとに作成した回帰方程式を、全ての対戦に使用しています。本来なら総手数毎に動的に計算（LibreOfficeやExcelのgrowth関数のようなものを自作する必要あり？）しなければいけないところを取り敢えず６手の場合で作った方程式を流用して手抜きしているのでよくありません。いい結果に繋がりそうなら追求してみようかと思ってましたが、やってみる価値は無さそうです。</p>
+
+<h3 id="part-4">終盤の手ほど重要視すべき？Part 4</h3>
+<p>　終盤ほど報酬を多くして報酬の総数はなるべく増やさずに曲線で回帰するにはどうすればいいのか考えた結果、対数グラフにしてみました。</p>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/logarithm.png" target="_blank"><img src="/images/logarithm.png" alt="対数方程式" title="対数方程式" /></a></p>
+
+</div>
+
+<p>　「一手の重要度が等間隔で変化するはずがない」から「曲線で推移するはずだ」けど「報酬が増え過ぎると学習効果が薄れる」から「対数関数にしてみよう」という、形から入っただけというかなんとも根拠が薄い感じがしますが、もしかしたらいい結果が出るかもしれないと期待しました。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">x</th>
+      <th style="text-align: right">y (Part1)</th>
+      <th style="text-align: right">y′(Part2)</th>
+      <th style="text-align: right">y′′(Part3)</th>
+      <th style="text-align: right">y′′′</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">1</td>
+      <td style="text-align: right">0.167</td>
+      <td style="text-align: right">0.050</td>
+      <td style="text-align: right">0.300</td>
+      <td style="text-align: right">0.167</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">2</td>
+      <td style="text-align: right">0.333</td>
+      <td style="text-align: right">0.100</td>
+      <td style="text-align: right">0.480</td>
+      <td style="text-align: right">0.553</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">3</td>
+      <td style="text-align: right">0.500</td>
+      <td style="text-align: right">0.200</td>
+      <td style="text-align: right">0.750</td>
+      <td style="text-align: right">0.780</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">4</td>
+      <td style="text-align: right">0.667</td>
+      <td style="text-align: right">0.400</td>
+      <td style="text-align: right">1.200</td>
+      <td style="text-align: right">0.940</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">5</td>
+      <td style="text-align: right">0.833</td>
+      <td style="text-align: right">0.800</td>
+      <td style="text-align: right">1.920</td>
+      <td style="text-align: right">1.065</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">6</td>
+      <td style="text-align: right">1.000</td>
+      <td style="text-align: right">1.050</td>
+      <td style="text-align: right">3.030</td>
+      <td style="text-align: right">1.167</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>　それに方程式 2 や方程式 3 の指数関数と違ってこの方程式のいいところは、根拠のない数値から回帰したものではないところです。線形関数の方程式 1 と同様に、総手数と何手目かという変数 x だけで値が決まります。</p>
+
+<div style="width:320px; margin: 0 auto;">
+  <p>　<script type="math/tex"> y = \frac{1}{総手数} + \log{x} 総手数 \hspace{3.5em}\tag{方程式 4}</script>  </p>
+</div>
+
+<p>　根拠がある、無いの話をしだすと、勝ちの時は３を掛けて引き分けは１を掛けるというのはどういう根拠なの？となりますが、これは<a href="http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1444873224&amp;sr=1-1&amp;keywords=statistics+hacks">「STATISTICS HACKS」</a>に書いていたのと、Jリーグなどの多くのスポーツで勝てば勝ち点３、引き分けで勝ち点１となっているので何か（経験則的な？）根拠があるのだろうと思います。<br />
+　で、対戦結果は以下のようになりました。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">項目 \ 対戦相手</th>
+      <th style="text-align: right">　最強プログラム　　</th>
+      <th style="text-align: right">　乱数プログラム　　</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">従来の強化学習</td>
+      <td style="text-align: right">0勝10,572敗89,428分</td>
+      <td style="text-align: right">66,942勝21,791敗11,267分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">終盤の手ほど重要視（線形関数）</td>
+      <td style="text-align: right">0勝8,334敗91,666分</td>
+      <td style="text-align: right">61,383勝26,053敗12,564分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">終盤の手ほど重要視（指数関数、小）</td>
+      <td style="text-align: right">0勝8,863敗91,137分</td>
+      <td style="text-align: right">59,992勝25,810敗14,198分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">終盤の手ほど重要視（指数関数、大）</td>
+      <td style="text-align: right">0勝11,075敗88,925分</td>
+      <td style="text-align: right">64,216勝23,404敗12,380分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">終盤の手ほど重要視（対数関数）</td>
+      <td style="text-align: right">0勝10,799敗89,221分</td>
+      <td style="text-align: right">66,706勝22,489敗10,805分</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>　なぜか乱数プログラムに対する勝率はさらに向上しましたが、最強プログラムとの対戦成績は直前の指数関数よりはちょっとましになっただけで、全体として「従来の強化学習」と似たような結果に終わっているので期待はずれでした。この「従来の強化学習」をあらためて説明すると、勝ちは＋３、引き分けは＋１、負けは−１の値を序盤、終盤関係なく全ての辿った局面データに一律に加減算する強化方法です。いろいろ弄ってみて結局「元の木阿弥」という感じですが、最強プログラムとの対戦成績に関しては終盤に重きを置くことの意味はありそうです。でも、なんで報酬を等間隔に配分した線形方程式（直線）の方が良い成績になるのかは未だに疑問です。<br />
+　つづく</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>intercept関数とslope関数を使って x と y の表の範囲を指定すれば係数と切片（定数項）が得られます。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#software-ref">
+    		software <span>8</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#software-ref">software <span>7</span></a></li>
+     
+    	<li><a href="/tags.html#tictactoe-ref">tictactoe <span>13</span></a></li>
+     
+    	<li><a href="/tags.html#ruby-ref">ruby <span>17</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/software/2015-11-27/reinforcement" title="強化学習の修正">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled"><a>Next &rarr;</a>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'happyclam'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2015 happyclam
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

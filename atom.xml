@@ -4,13 +4,435 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2015-12-01T15:04:20+09:00</updated>
+ <updated>2015-12-25T21:31:34+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>曲線回帰で強化を試みる</title>
+   <link href="http://happyclam.github.io/software/2015-12-25/log-linear"/>
+   <updated>2015-12-25T00:00:00+09:00</updated>
+   <id>http://happyclam.github.io/software/2015-12-25/log-linear</id>
+   <content type="html">&lt;h3 id=&quot;section&quot;&gt;闇雲ってこういうことかも&lt;/h3&gt;
+&lt;p&gt;　次に記事を書く時は別の話題にしようと思っていたのですが、三目並べの強化学習に関して試さずにはいられなかったので、闇雲と言われようが思いつくままにやってみたことを書いておきます。&lt;br /&gt;
+　以前、&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;の中で序盤より終盤の手を重視する方法について記述されていることに触れました、そして今まで試した方法は報酬を与えるにしても罰するにしても選択した全ての局面で同じ値を加算したり減算したりしていましたが、今回は手数毎に違う値を加減算する方法を試してみました。&lt;/p&gt;
+
+&lt;h3 id=&quot;part-1&quot;&gt;終盤の手ほど重要視すべき？Part 1&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;には以下のように書かれています。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;　動物が学習する手法をまねたい場合、ゲーム終盤近くの手が、ゲーム序盤よりも重大であるようなシステムに調整してもよい。これは行動が適切な時期に近いほど、その行動を強化する効果が最大になるという観察結果を反映することを意図したものだ。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;　現時点の機械学習プログラムは、勝負がついた時点で局面を初期盤面まで遡りながら局面に配置されている小石（score配列）の数を増減させて学習効果を反映させる仕様です。勝った場合は、一つ手前の局面の９個ある配列データ（score配列）の内、選択した手の場所の値を増やして（報酬を与えて）次からもその局面では再度その手を選ぶ確率を上げるようにするわけです。そしてその前の局面、その前の局面と遡りながら同じように数値を加減算していきます。でも、&lt;a href=&quot;/software/2015-10-25/machine_learning/&quot;&gt;以前の記事&lt;/a&gt;にも書きましたが、辿った全ての局面のデータを一律に同じ数だけ増やして（あるいは減らして）いくというのは確かに少し疑問を感じます。例えば相手の石が揃うのを防がなかったような場合、その手は大悪手であるにも関わらず、序盤の一手と同様の罰しか受けないわけで、感覚的にはそれでいいの？って感じです。だから、ここに書かれているように、報酬も罰も終盤ほど大きな値になるように調整してみました。&lt;br /&gt;
+　まず、最終手が１になるように１を手数で割った値を係数にして、勝ちなら３負けなら−１を掛けた値を反映させるようにしてみました。x 手目の局面の報酬を決めるための係数を y で表します。  &lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt; y = \frac{1}{総手数} x \hspace{3.5em}\tag{方程式 1}&lt;/script&gt;  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　最短手数６（初期盤面を含む）で勝負がついたとすると、最終手番の局面は x = 6 で y = 1 となり、勝った場合は&lt;script type=&quot;math/tex&quot;&gt; y\times3=3&lt;/script&gt;、負けた場合は&lt;script type=&quot;math/tex&quot;&gt; y\times-1=-1&lt;/script&gt;の値を各局面のデータ（score配列）に加算します。その一つ前の手番のデータはx = 4, y = &lt;script type=&quot;math/tex&quot;&gt;\frac{4}{6}&lt;/script&gt;となり、勝ちなら&lt;script type=&quot;math/tex&quot;&gt; y \times3=2&lt;/script&gt;、負けなら&lt;script type=&quot;math/tex&quot;&gt; y \times -1=-0.6666&lt;/script&gt;が加算されます。&lt;br /&gt;
+　例えば１０手（初期盤面を含む）で学習ソフトが勝ったとすると、最終盤面から初期盤面まで順番にソフトの手番の局面データに &lt;script type=&quot;math/tex&quot;&gt;3, 2.4, 1.8, 1.2, 0.6&lt;/script&gt;の値が加算され、終盤の局面ほど大きな報酬が与えられるわけです。&lt;br /&gt;
+　総手数６手で終了した場合の係数（求める値 y は、あくまで３や−１に掛ける係数です）は以下の方程式で表され&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;script type=&quot;math/tex; mode=display&quot;&gt; y = \frac{1}{6}x \hspace{3.5em}\tag{方程式 1.1}&lt;/script&gt;
+
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th style=&quot;text-align: right&quot;&gt;x&lt;/th&gt;
+        &lt;th style=&quot;text-align: right&quot;&gt;y&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
+        &lt;td style=&quot;text-align: right&quot;&gt;0.167&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td style=&quot;text-align: right&quot;&gt;2&lt;/td&gt;
+        &lt;td style=&quot;text-align: right&quot;&gt;0.333&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td style=&quot;text-align: right&quot;&gt;3&lt;/td&gt;
+        &lt;td style=&quot;text-align: right&quot;&gt;0.500&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td style=&quot;text-align: right&quot;&gt;4&lt;/td&gt;
+        &lt;td style=&quot;text-align: right&quot;&gt;0.667&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td style=&quot;text-align: right&quot;&gt;5&lt;/td&gt;
+        &lt;td style=&quot;text-align: right&quot;&gt;0.833&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td style=&quot;text-align: right&quot;&gt;6&lt;/td&gt;
+        &lt;td style=&quot;text-align: right&quot;&gt;1.000&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　グラフにすると下のようになります。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/linear.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/linear.png&quot; alt=&quot;回帰直線&quot; title=&quot;回帰直線&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　この状態での対戦結果は以下のようになりました。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;項目 \ 対戦相手&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　最強プログラム　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　乱数プログラム　　&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;従来の強化学習&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝10,572敗89,428分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;66,942勝21,791敗11,267分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;終盤の手ほど重要視（線形関数）&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝8,334敗91,666分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;61,383勝26,053敗12,564分&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　若干ですが最強プログラムとの対戦成績は向上したようですが、乱数プログラムとの対戦成績（＝学習効果）は悪化しました。&lt;/p&gt;
+
+&lt;h3 id=&quot;part-2&quot;&gt;終盤の手ほど重要視すべき？Part 2&lt;/h3&gt;
+&lt;p&gt;　１０万回の対戦の途中経過を観察していないのではっきりとは言えませんが、終盤の手ほど重要視するようにはしてみたけど劇的に学習効果が上がるってわけでもなさそうです。でも、終盤を重要視すると言ってもPart 1 のように等間隔の増分でいいのでしょうか？１手目、２手目、３手目と等間隔で手の重要度が変化するとはとても思えません。相手のラインが揃うのを防がない手を選択して負けるケースなんかを考えると最終手は段違いに重要な気がします。&lt;br /&gt;
+　ということで、指数関数的に指し手の重要度が増すと仮定して方程式を改造しました。総手数６手（初期盤面を含む）でゲームが終了したとするとPart 1 の方程式の値は以下のように等間隔で推移（ y の値）しますが、  &lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;x&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;y (Part1)&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;y′&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.167&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.050&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.333&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.500&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.200&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;4&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.667&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.400&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.833&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.800&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;6&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.000&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.050&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　その横に y′ としてこんな感じになるんじゃないかという値を捏造して、その値をLibreOffice（Excelでも可）を使って回帰して得られた方程式が以下のものです&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。  &lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;　&lt;script type=&quot;math/tex&quot;&gt; y = 0.029 \times 1.882^x \hspace{3.5em}\tag{方程式 2}&lt;/script&gt;  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　グラフは以下の青のラインです  &lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/log-linear1.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/log-linear1.png&quot; alt=&quot;曲線回帰、小&quot; title=&quot;曲線回帰、小&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　対戦結果は以下です。  &lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;項目 \ 対戦相手&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　最強プログラム　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　乱数プログラム　　&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;従来の強化学習&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝10,572敗89,428分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;66,942勝21,791敗11,267分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;終盤の手ほど重要視（線形関数）&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝8,334敗91,666分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;61,383勝26,053敗12,564分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;終盤の手ほど重要視（指数関数、小）&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝8,863敗91,137分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;59,992勝25,810敗14,198分&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　報酬や罰が等間隔で配分される線形関数の時より、対最強プログラムも対乱数プログラムも勝率が落ちてしまいました。でも最強プログラムとの対戦成績に関しては「従来の強化学習」よりいい成績なので、この時点では一応効果はあると思っていました。&lt;/p&gt;
+
+&lt;h3 id=&quot;part-3&quot;&gt;終盤の手ほど重要視すべき？Part 3&lt;/h3&gt;
+&lt;p&gt;　指数曲線にした方が勝率（というか引き分け率）が落ちてしまったのは回帰曲線が線形関数を下回っているのがよくないのかと思って、もう一度値を弄って重みを掛ける係数の値が線形関数の上にくるようにしてみました。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;x&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;y (Part1)&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;y′(Part2)&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;y′′&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.167&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.050&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.300&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.333&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.100&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.480&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.500&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.200&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.750&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;4&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.667&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.400&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.200&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.833&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.800&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.920&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;6&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.000&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.050&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3.030&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;　&lt;script type=&quot;math/tex&quot;&gt; y = 0.188 \times 1.588^x \hspace{3.5em}\tag{方程式 3}&lt;/script&gt;  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　グラフは以下です&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/log-linear2.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/log-linear2.png&quot; alt=&quot;曲線回帰、大&quot; title=&quot;曲線回帰、大&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　対戦結果。  &lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;項目 \ 対戦相手&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　最強プログラム　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　乱数プログラム　　&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;従来の強化学習&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝10,572敗89,428分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;66,942勝21,791敗11,267分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;終盤の手ほど重要視（線形関数）&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝8,334敗91,666分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;61,383勝26,053敗12,564分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;終盤の手ほど重要視（指数関数、小）&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝8,863敗91,137分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;59,992勝25,810敗14,198分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;終盤の手ほど重要視（指数関数、大）&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝11,075敗88,925分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;64,216勝23,404敗12,380分&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　さらに悪化してしまいました(/_;)　でも対乱数プログラムでは改善しています。対乱数プログラムで勝率がアップしたのは係数を大きな値にしたことが素直に反映されたのだと思います。&lt;br /&gt;
+　しかし、対最強プログラムの場合では相手は絶対負けないので勝ち点３を得る機会がないので指数関数で係数を大きくしてもあまり恩恵を受けなかったということでしょう。しかも、係数を大きな値にしたために小石（score配列）を補充する際のデフォルト値を１０から２０に増やす必要があったのです（小石の数がマイナスにならないよう）が、それがよくなかったのだと思います。&lt;a href=&quot;/software/2015-10-25/machine_learning/&quot;&gt;以前の記事&lt;/a&gt;にも書いたように小石の総数を増やすと学習効果が上がらなくなるのです。&lt;br /&gt;
+　もう一つ問題があります。ここでは総手数が６手で終了する場合のデータをもとに作成した回帰方程式を、全ての対戦に使用しています。本来なら総手数毎に動的に計算（LibreOfficeやExcelのgrowth関数のようなものを自作する必要あり？）しなければいけないところを取り敢えず６手の場合で作った方程式を流用して手抜きしているのでよくありません。いい結果に繋がりそうなら追求してみようかと思ってましたが、やってみる価値は無さそうです。&lt;/p&gt;
+
+&lt;h3 id=&quot;part-4&quot;&gt;終盤の手ほど重要視すべき？Part 4&lt;/h3&gt;
+&lt;p&gt;　終盤ほど報酬を多くして報酬の総数はなるべく増やさずに曲線で回帰するにはどうすればいいのか考えた結果、対数グラフにしてみました。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/logarithm.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/logarithm.png&quot; alt=&quot;対数方程式&quot; title=&quot;対数方程式&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　「一手の重要度が等間隔で変化するはずがない」から「曲線で推移するはずだ」けど「報酬が増え過ぎると学習効果が薄れる」から「対数関数にしてみよう」という、形から入っただけというかなんとも根拠が薄い感じがしますが、もしかしたらいい結果が出るかもしれないと期待しました。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;x&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;y (Part1)&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;y′(Part2)&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;y′′(Part3)&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;y′′′&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.167&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.050&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.300&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.167&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.333&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.100&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.480&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.553&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.500&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.200&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.750&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.780&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;4&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.667&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.400&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.200&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.940&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.833&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.800&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.920&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.065&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;6&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.000&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.050&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3.030&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.167&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　それに方程式 2 や方程式 3 の指数関数と違ってこの方程式のいいところは、根拠のない数値から回帰したものではないところです。線形関数の方程式 1 と同様に、総手数と何手目かという変数 x だけで値が決まります。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;　&lt;script type=&quot;math/tex&quot;&gt; y = \frac{1}{総手数} + \log{x} 総手数 \hspace{3.5em}\tag{方程式 4}&lt;/script&gt;  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　根拠がある、無いの話をしだすと、勝ちの時は３を掛けて引き分けは１を掛けるというのはどういう根拠なの？となりますが、これは&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;に書いていたのと、Jリーグなどの多くのスポーツで勝てば勝ち点３、引き分けで勝ち点１となっているので何か（経験則的な？）根拠があるのだろうと思います。&lt;br /&gt;
+　で、対戦結果は以下のようになりました。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;項目 \ 対戦相手&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　最強プログラム　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　乱数プログラム　　&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;従来の強化学習&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝10,572敗89,428分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;66,942勝21,791敗11,267分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;終盤の手ほど重要視（線形関数）&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝8,334敗91,666分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;61,383勝26,053敗12,564分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;終盤の手ほど重要視（指数関数、小）&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝8,863敗91,137分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;59,992勝25,810敗14,198分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;終盤の手ほど重要視（指数関数、大）&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝11,075敗88,925分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;64,216勝23,404敗12,380分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;終盤の手ほど重要視（対数関数）&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝10,799敗89,221分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;66,706勝22,489敗10,805分&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　なぜか乱数プログラムに対する勝率はさらに向上しましたが、最強プログラムとの対戦成績は直前の指数関数よりはちょっとましになっただけで、全体として「従来の強化学習」と似たような結果に終わっているので期待はずれでした。この「従来の強化学習」をあらためて説明すると、勝ちは＋３、引き分けは＋１、負けは−１の値を序盤、終盤関係なく全ての辿った局面データに一律に加減算する強化方法です。いろいろ弄ってみて結局「元の木阿弥」という感じですが、最強プログラムとの対戦成績に関しては終盤に重きを置くことの意味はありそうです。でも、なんで報酬を等間隔に配分した線形方程式（直線）の方が良い成績になるのかは未だに疑問です。&lt;br /&gt;
+　つづく&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;intercept関数とslope関数を使って x と y の表の範囲を指定すれば係数と切片（定数項）が得られます。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>強化学習の修正</title>
