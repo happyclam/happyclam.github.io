@@ -4,13 +4,333 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2015-12-25T21:31:34+09:00</updated>
+ <updated>2016-01-06T21:18:01+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>三目並べプログラムの強化学習効率を上げる</title>
+   <link href="http://happyclam.github.io/software/2016-01-07/correlation"/>
+   <updated>2016-01-07T00:00:00+09:00</updated>
+   <id>http://happyclam.github.io/software/2016-01-07/correlation</id>
+   <content type="html">&lt;h3 id=&quot;section&quot;&gt;気になることがまだ残っている&lt;/h3&gt;
+&lt;p&gt;　前回の続きです。手数毎に報酬や罰の値を変更する方法をいろいろ試しましたが、大した成果が上がらなかったので、もとに戻して（全ての局面データに一律に報酬や罰を与える方法、前々回までの状態に戻して）他の切り口から気になっていたことを試してみたいと思います。&lt;br /&gt;
+　もしかしたら三目並べに最善の強化方法というものが既に確立されているのかもしれませんが、自分で試してみたいので続けます。  &lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;強い人ほど短手数で勝つはず？&lt;/h3&gt;
+&lt;p&gt;　以前から気になっていたのですが、完全読み切りプログラムでは、先手（ X ）の時に以下のような経過を辿って勝つ時があります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    初期盤面      １手目      ２手目       ３手目       ４手目       ５手目
+    |1|2|3|    |1|2|3|     |1|O|3|     |X|O|3|     |X|O|O|    |X|O|O|
+    |4|5|6| -&amp;gt; |4|X|6|  -&amp;gt; |4|X|6|  -&amp;gt; |4|X|6|  -&amp;gt; |4|X|6| -&amp;gt; |4|X|6|
+    |7|8|9|    |7|8|9|     |7|8|9|     |7|8|9|     |7|8|9|    |X|8|9|
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　４手目で”9”の場所を選べば勝ちなのにそこを選ばずに”7”の場所を選んでダブルリーチをかける時があるのです。完全に読み切っているために”7”の場所も”9”の場所も同じ評価値（どちらを選んでも勝ちであることを読み切っている）なのでこういうことが起きるわけです。事前に勝ちがあるかどうかを判断して、勝ちがある時はその手を優先して選択するように変更するのは容易ですが、機械学習プログラムの場合は先読みするわけでは無いので、こういうケースに対処するために「なるべく短手数で勝負を終える方がいい」と学習させる必要があるのではないかと思ったわけです。機械学習プログラムの場合は先読み関数を使用せず、過去の経験から学習して手を選択するだけなので、勝負が長引けば間違える（悪い手を選択する）可能性も高くなります。短手数で決着したゲームの方が長手数の時より報酬を多めに与えるべきか、本当は手数と強さの相関関係を調べた方がいいのかもしれませんが、実際に試した方が早そうです。将棋などでも必ずしも強い人の総手数が短いとは言えないと思いますが、詰みがある時は逃さないという意味では「強い人は短手数で勝つ」ということが言えるような気もします。&lt;br /&gt;
+　ということで、いたずらに勝負を長引かせないために、なるべく短手数で勝った時の方が報酬を多く与えるように学習機能（「強化」の方法）を変更して効果を確認してみました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;#変更前
+inc = (@sengo == CROSS) ? 3 : -1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　↑こんな感じになっていたコードを以下のように変えただけです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;#変更後
+base = SHORTEST / history.size
+inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;　SHORTEST定数は最短で勝負がついた場合の手数６（初期盤面を含む）です。総手数を分母にしているので、最短手数の６手で勝った時だけ報酬が＋３されますが、手数が伸びるほどそれ未満の報酬しか受け取れなくなります。また、短手数で負けた時ほど罰が厳しくなります。最短手数で負けた場合は辿ったすべての局面データから、選択した場所の小石（score配列）が−１されていきますが、最長手数１０手（初期盤面を含む）で負けた時は0.6 (&lt;script type=&quot;math/tex&quot;&gt;-1\times\frac{6}{10}&lt;/script&gt; ) ずつしか引かれません&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
+　これは手数によって（何手目かによって）報酬や罰を変化させるわけではないので、&lt;a href=&quot;/software/2015-12-25/log-linear/&quot;&gt;前回の記事&lt;/a&gt;の方法と似ていますが違います。何手でゲームが終了したかによって y の値が変わる横一直線のグラフになり、前回同様６手で終了した場合を敢えてグラフ化すると、以下のようになります。  &lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/shortest.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/shortest.png&quot; alt=&quot;短手数ほど報酬＆罰を増やす&quot; title=&quot;短手数ほど報酬＆罰を増やす&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　対戦結果は以下です。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;項目 \ 対戦相手&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　最強プログラム　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　乱数プログラム　　&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;従来の強化学習&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝10,572敗89,428分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;66,942勝21,791敗11,267分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;短手数の報酬を多くした強化学習&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝8,807敗91,193分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;64,978勝23,394敗11,628分&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　負け数が減って学習効果が上がったようですが、乱数プログラムとの対戦成績は若干勝率が悪くなっています。  &lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;終盤の一手の価値を上げる？&lt;/h3&gt;
+&lt;p&gt;　前回の記事で終盤の手ほど重要視して報酬や罰を増やす方法を試しましたが、今回は報酬や罰は変えずに終盤ほど小石（score配列）の総数を減らすという方法を試してみます。&lt;br /&gt;
+　&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;には以下のように書かれています。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;３目並べのケースでは、すぐに負けにつながるミスを効率的に処分し、罰するべきだ。ゲーム終盤の手で使うビーズの総量が少なければ、より短期間で学習されていくはずだ。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;　強化学習の際に初期盤面や一手目の局面は頻繁に現れますが、組み合わせの数が多い中盤・終盤の局面は出現頻度が低いのでなかなか学習が進まないので学習効果を上げるためにその局面に配置されている小石（score配列）の総数を少なくすればいいというわけです。&lt;br /&gt;
+　全局面の多分木データを生成する際（Player.bfsメソッド）に小石の初期値を何手目の局面かによって変えるようにしました。初期盤面は１０個、１手目の局面は９個というように手数の深さによって減らしていきます。それと小石が不足した際に補充する時（Player.learningメソッド）も局面の深さによって補充する小石の数を初期化時と同様に変える（減らす）ようにしました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;#Player.bfs
+#変更前
+          @trees.add(buf, Tree.new(temp, PEBBLES))
+
+#変更後
+          @trees.add(buf, Tree.new(temp, PEBBLES - layer + 1))
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;#Player.learning
+#変更前
+    while board
+        #石が０個になっていたら置ける箇所全てに追加
+        if buf.score[pre_index] &amp;lt;= 0
+          buf.score.map!{|v|
+            v += PEBBLES if v
+          }
+        }
+
+#変更後
+    pebbles = history.size
+    while board
+        #石が０個になっていたら置ける箇所全てに追加
+        if buf.score[pre_index] &amp;lt;= 0
+          buf.score.map!{|v|
+            v += pebbles if v
+          }
+        }
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　報酬や罰に関しては、勝ちは＋３、負けは−１、引き分けは＋１という「従来の強化学習」と全く同じだということです。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;項目 \ 対戦相手&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　最強プログラム　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　乱数プログラム　　&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;従来の強化学習&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝10,572敗89,428分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;66,942勝21,791敗11,267分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;短手数の報酬を多くした強化学習&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝8,807敗91,193分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;64,978勝23,394敗11,628分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;手数によって小石の数を減らした強化学習&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝7,977敗92,023分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;67,356勝21,444敗11,200分&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　&lt;a href=&quot;/software/2015-12-25/log-linear/&quot;&gt;前回の記事&lt;/a&gt;を含めて、今までで一番効果が出ました。どうやら報酬や罰の与え方を変えるより、小石の総数を減らすことの方が効果があるようです。&lt;br /&gt;
+　ところで「初期状態や補充分の小石の数を手数によって変化させて、報酬や罰は一定量にする」ことと「初期状態や補充分の小石の数は一定にして、報酬や罰を手数に応じて増減させる」のとどう違うのか、&lt;a href=&quot;/software/2015-12-25/log-linear/&quot;&gt;前回&lt;/a&gt;のようにグラフの傾きで考えてみると、総手数が６手（初期盤面含む）で終了した場合、小石の総数は初期盤面では９箇所×小石１０個、１手目の局面では８箇所×小石９個、２手目の局面では７箇所×小石８個、となるので数の推移は以下の表の y′ のようになり&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;x&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;y&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;y′&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.167(1/6)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.111(10/90)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.333(2/6)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.125(9/72)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.500(3/6)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.143(8/56)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;4&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.667(4/6)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.167(7/42)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.833(5/6)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.200(6/30)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;6&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.000(6/6)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.25(5/20)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　グラフにすれば以下のようななだらかな曲線になりますが、  &lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/log-linear3.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/log-linear3.png&quot; alt=&quot;曲線回帰、初期値のみ&quot; title=&quot;曲線回帰、初期値のみ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　これには途中の補充分が考慮されていないのであまり意味がありません。一応前回のように回帰方程式を使って対戦させてみましたが全然ダメでした。ゲームが終了する度に評価を実施（Player.learningメソッド）し報酬や罰を加算するわけですが、小石が補充される機会というのは毎回ではありません。でも、補充される度に今までより小石の総数が抑えられるのでかなり影響しているはずでが、計算がややこしそうだったので比較は諦めました。&lt;br /&gt;
+　とにかく、前回の記事からいろいろと報酬や罰の与え方（グラフの傾き）を弄っていましたが、大事なのはそんなことではなく、如何にして小石の総数を減らすかだということがわかったということです。&lt;br /&gt;
+　確認のため、終盤を重視したり短手数の時に報酬を増やしたり余計なことはせず「従来の強化方法」（手数に関係なく一律に全局面の小石の数を増減させる方法）で、小石の初期値と補充分の定数を１０から１にだけ変更して試したところ、以下の表のように断トツで今までで一番良い結果が出ました。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;項目 \ 対戦相手&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　最強プログラム　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　乱数プログラム　　&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;従来の強化学習&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝10,572敗89,428分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;66,942勝21,791敗11,267分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;短手数の報酬を多くした強化学習&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝8,807敗91,193分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;64,978勝23,394敗11,628分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;手数によって小石の数を減らした強化学習&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝7,977敗92,023分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;67,356勝21,444敗11,200分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;小石の初期値と補充分を１０から１に修正&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝3,526敗96,474分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;77,058勝12,829敗10,113分&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　勝ちは＋３、負けは−１、引き分けは＋１という報酬や罰の与え方（グラフの傾き）を変えることで学習効果に多少の改善があったとしても、そんなものは小石の総数を減らすことに比べたらわずかな効果しかないということでしょう。&lt;br /&gt;
+　今から思えば小石が不足した時に補充するやり方に修正した時点（&lt;a href=&quot;/software/2015-11-27/reinforcement/&quot;&gt;前々回の記事&lt;/a&gt;）で、初期値を１０から１にすればよかったです。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;終盤の手ほど重要視する方法は効果がない？&lt;/h3&gt;
+&lt;p&gt;　小石の総数を減らすことが強化学習の効果を上げるのに有効なことはわかりましたが、前回の記事で試していた終盤の手ほど重要視する（終盤ほど報酬や罰を増やす）方法が否定されたわけではありません。それを確認するために、小石の初期値や補充分を１０個から１個に修正した上で、尚且つ前回の方程式１（&lt;script type=&quot;math/tex&quot;&gt; y = \frac{1}{総手数} x &lt;/script&gt;）を適用して確認してみました。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;項目 \ 対戦相手&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　最強プログラム　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　乱数プログラム　　&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;従来の強化学習&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝10,572敗89,428分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;66,942勝21,791敗11,267分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;小石の初期値と補充分を１０から１に修正&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝3,526敗96,474分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;77,058勝12,829敗10,113分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;終盤の手ほど重要視（線形関数）Part 2&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝2,068敗97,932分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;80,512勝11,417敗8,071分&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　予想通り対最強プログラムでは負け数が減り、対乱数プログラムでも勝率が上がっていますので、全部は試しませんが前回の記事で使用した他の方程式を適用しても前回同様の傾向が出るのだと思います。&lt;br /&gt;
+　次に、今回の記事で最初に試した「短手数のゲームほど報酬や罰を増やす」方法も試してみました。  &lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;項目 \ 対戦相手&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　最強プログラム　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　乱数プログラム　　&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;従来の強化学習&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝10,572敗89,428分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;66,942勝21,791敗11,267分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;小石の初期値と補充分を１０から１に修正&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝3,526敗96,474分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;77,058勝12,829敗10,113分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;終盤の手ほど重要視（線形関数）Part 2&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝2,068敗97,932分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;80,512勝11,417敗8,071分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;短手数の報酬を多くした強化学習 Part 2&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0勝2,433敗97,567分&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;78,953勝11,249敗9,798分&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　やはり、単に小石の総数を減らしただけより、対最強プログラムでは負け数が減り、対乱数プログラムでも勝率が上がっているので、効果が出ています。&lt;br /&gt;
+　小石を浮動小数点数で扱うように変更した甲斐がありました&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;人間並みに強くするにはどれぐらい学習が必要か？&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;の仕様に沿いながらこの三目並べ機械学習プログラムを&lt;a href=&quot;/software/2015-10-25/machine_learning/&quot;&gt;初めて作った時点&lt;/a&gt;では、完全読み切りの最強プログラムとの対戦成績は８割の引き分け率でしたが、いろいろ弄って９割７分まで上げることが出来ました。三目並べを人間同士で対戦すればほぼ１００％引き分けになると思いますが、うっかりミスもあるので、９割７分の引き分け率というのはほぼ人間並みになったと言えるのではないでしょうか？&lt;br /&gt;
+　でも、三目並べで１０万回も対戦（学習）させてようやく９割７分になる&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;というのは、機械学習プログラムの出来としてどれほどのものなのかわかりません。学習効率を数値化して競う大会なんかがあっても面白いかなと思いました。ただ、麻雀ソフトなんかでもそうですが、三目並べだとズルをすれば簡単に強く出来るのでチェックが大変かもしれません。&lt;br /&gt;
+　結局、ソフトウェアとしての出来の良さを競うのであれば、将棋や囲碁のように完全読み切りが不可能なゲーム（ズルが出来ないゲーム）を題材にして、強さを競うという形が分かり易く現実的なのかもしれません。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;前回の記事やこのテストではscore配列は小数に変更したので、小石という表現が当てはまらなくなっています。無理矢理石に例えるなら、小石を砕いて増やしたり減らしたりしているイメージでしょうか？ &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;乱数を使って指し手を選択させる機能（Tree.apply）を浮動小数点数（小数）に対応させるには少し工夫が必要でした。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;１０万回の対戦と言ってもその大部分は学習が進んでいない、初期の９割以上負けていた分の成績を取り戻すために費やされていて、細かく分けて対戦成績を確認すれば、もっと早い段階で９割７分の引き分け率に到達しているはずです。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>曲線回帰で強化を試みる</title>
