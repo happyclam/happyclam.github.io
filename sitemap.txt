@@ -9,6 +9,7 @@ http://happyclam.github.io/rss.xml
 http://happyclam.github.io/sitemap.txt
 http://happyclam.github.io/tags.html
 
+http://happyclam.github.io/software/2016-01-16/flotr2
 http://happyclam.github.io/software/2016-01-07/correlation
 http://happyclam.github.io/software/2015-12-25/log-linear
 http://happyclam.github.io/software/2015-11-27/reinforcement
