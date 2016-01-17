@@ -5,10 +5,151 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2016-01-16T13:24:18+09:00</lastBuildDate>
-        <pubDate>2016-01-16T13:24:18+09:00</pubDate>
+        <lastBuildDate>2016-01-17T09:08:25+09:00</lastBuildDate>
+        <pubDate>2016-01-17T09:08:25+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Flotライブラリで拡大表示可能なグラフ作成</title>
+                <description>&lt;h3 id=&quot;github-pagesgithub-pagesurlflotflot-jqueryurl&quot;&gt;ブログ（&lt;a href=&quot;http://jekyllrb-ja.github.io/docs/github-pages/&quot;&gt;Github Pages&lt;/a&gt;）でグラフ描画（&lt;a href=&quot;http://www.flotcharts.org&quot;&gt;Flot&lt;/a&gt;）&lt;/h3&gt;
+&lt;p&gt;　以前&lt;a href=&quot;/programming/2014-10-27/my-posi-chart/&quot;&gt;lazy-high-chartの記事&lt;/a&gt;を書いたことがありましたが、RailsのようなWebアプリではなくこのブログ（Jekyllで生成）のような静的サイトでグラフを描画する必要性を感じた経験はなかったのですが、&lt;a href=&quot;/software/2016-01-16/flotr2/&quot;&gt;前回の記事&lt;/a&gt;のようなグラフばかりのページを作る時は便利だと実感しました。LibreやExcelにデータを貼り付けてグラフ化してそれを画像ファイルに変換してページに貼り付けるより手間が省けます。それだけじゃなくインタラクティブなグラフにすることでより情報を伝えやすくなるというのが今回のお話です。&lt;br /&gt;
+　前回は&lt;a href=&quot;http://www.amazon.co.jp/本-JavaScriptによるデータビジュアライゼーション入門-Stephen-Thomas/dp/4873117461/ref=sr_1_1?ie=UTF8&amp;amp;qid=1452166533&amp;amp;sr=8-1&amp;amp;keywords=javascript+ビジュアライゼーション&quot;&gt;「JavaScriptによるデータビジュアライゼーション入門」&lt;/a&gt;に紹介されていた&lt;a href=&quot;http://www.humblesoftware.com/flotr2&quot;&gt;Flotr2&lt;/a&gt;を使ってグラフを描画していたのですが、インタラクティブなグラフにする際には同じ本に紹介されているjQuery版の&lt;a href=&quot;http://www.flotcharts.org&quot;&gt;Flotライブラリ&lt;/a&gt;を使いました。同じものだと思っていたのですが、結構違いがあるようです。&lt;br /&gt;
+　&lt;a href=&quot;/software/2016-01-16/flotr2/#dfs-regression&quot;&gt;前回の記事の最後に描画したグラフ&lt;/a&gt;と同じパラメータを渡して描画したものが以下のグラフです。マウスでドラッグした範囲を拡大表示することが出来ます。&lt;/p&gt;
+
+&lt;div id=&quot;dfs-regression&quot; style=&quot;width:600px;height:300px;&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;button id=&quot;unzoom&quot;&gt;元に戻す&lt;/button&gt;&lt;/p&gt;
+
+&lt;p&gt;　&lt;a href=&quot;http://www.humblesoftware.com/flotr2&quot;&gt;Flotr2&lt;/a&gt;の時と同じパラメータを指定して描画しているにも関わらず、&lt;a href=&quot;/software/2016-01-16/flotr2/#dfs-regression&quot;&gt;前回の記事&lt;/a&gt;と比較すればグラフの見た目に結構違いがあることがわかると思います。グラフの色の違いは色指定していないためデフォルトの色が違うだけなのですが、グリッドの線が表示されていたりグラフの凡例が表示されていなかったり、いくつかのパラメータが無視されています。JavaScript製なので「ページのソースの表示」でコードそのものを見ることも出来ます。&lt;/p&gt;
+
+&lt;h3 id=&quot;flot&quot;&gt;Flotライブラリを使うために必要だった作業&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;http://jekyllrb-ja.github.io/docs/github-pages/&quot;&gt;Github Pages&lt;/a&gt;の使い方もいろいろあると思いますが、私の場合自宅でgitサーバを運用して、Jekyllで静的ファイルを出力しgithubに保存しています。だからローカル環境で完結させたいので、&lt;a href=&quot;http://www.flotcharts.org&quot;&gt;Flotライブラリ&lt;/a&gt;をダウンロードして使用しています。&lt;a href=&quot;http://www.amazon.co.jp/本-JavaScriptによるデータビジュアライゼーション入門-Stephen-Thomas/dp/4873117461/ref=sr_1_1?ie=UTF8&amp;amp;qid=1452166533&amp;amp;sr=8-1&amp;amp;keywords=javascript+ビジュアライゼーション&quot;&gt;「JavaScriptによるデータビジュアライゼーション入門」&lt;/a&gt;の中で紹介されているCDN(Contents Delivery Network)を使用した方法でも動きましたが、以下の２つのファイルをJekyll環境にコピーすれば上記のグラフは動作しました。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;jquery.min.js&lt;/li&gt;
+  &lt;li&gt;jquery.flot.min.js&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;　既にgoogleAPI用のjqueryを使用していたのですが、それだと動かなかったのでFlotライブラリに同梱されていたものを読み込んでいます。以下のコードは有効に働いているoptionだけ記述しています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    var $el = $(&quot;#dfs-regression&quot;),
+        data = [
+            {data: equation1, label: &quot;方程式１&quot;},
+            {data: equation2, label: &quot;方程式２&quot;},
+            {data: equation3, label: &quot;方程式３&quot;},
+            {data: equation4, label: &quot;方程式４&quot;}
+            ],
+        options = {
+            legend: {position: &quot;se&quot;},
+            selection: {mode: &quot;x&quot;, color: &quot;#eeeeee&quot;},
+            lines:{show: true, horizontal:false},
+            xaxis:{
+                max: 110
+            },
+            yaxis:{
+                max: 1000
+            },
+            grid: {
+                verticalLines: true,
+                horizontalLines: true,
+                outline: &quot;ws&quot;
+            }
+        }, plotObj;
+
+    $el.on(&quot;plotselected&quot;, function(ev, ranges) {
+        plotObj = $.plot($el, data,
+                         $.extend(true, {}, options, {
+                             xaxis: {min: ranges.xaxis.from, max: ranges.xaxis.to},
+                             yaxis: {min: ranges.yaxis.from, max: ranges.yaxis.to}
+                         })
+                        );
+    });
+    plotObj = $.plot($el, data, options);
+    $(&quot;#unzoom&quot;).click(function() {
+        plotObj = $.plot($el, data, options);
+    });
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;データ値の追跡&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;http://www.humblesoftware.com/flotr2&quot;&gt;Flotr2&lt;/a&gt;では&lt;code&gt; options{ mouse: { track:true }}&lt;/code&gt;とするだけで、マウスでグラフ上を通過した時に、値を表示してくれたのですが、&lt;a href=&quot;http://www.flotcharts.org&quot;&gt;Flot&lt;/a&gt;には無い？ようです。&lt;a href=&quot;http://www.flotcharts.org&quot;&gt;Flotのサイト&lt;/a&gt;の例を見ても、グラフ上の値を追跡表示するには自前でイベントを追加して結構面倒なことをしなければいけないようです。以前使った&lt;a href=&quot;/programming/2014-10-27/my-posi-chart/&quot;&gt;lazy-high-chart&lt;/a&gt;だとグラフの凡例と値をToolTipで表示することが、オプションで簡単に出来た記憶があるのに、そんなもんでしょうか？う〜ん、バージョンアップに期待することにして、今回はこれ以上弄らないことにします。&lt;/p&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+jQuery(function ($){
+
+linegraph = function() {
+    var equation1 = [[1 ,414],[2 ,638],[3 ,779],[4 ,864],[5 ,930],[6 ,952],[7 ,946],[8 ,964],[9 ,972],[10 ,980],[11 ,980],[12 ,981],[13 ,980],[14 ,984],[15 ,982],[16 ,986],[17 ,993],[18 ,980],[19 ,985],[20 ,993],[21 ,990],[22 ,991],[23 ,987],[24 ,991],[25 ,989],[26 ,992],[27 ,998],[28 ,994],[29 ,995],[30 ,994],[31 ,994],[32 ,995],[33 ,995],[34 ,993],[35 ,998],[36 ,993],[37 ,992],[38 ,995],[39 ,995],[40 ,993],[41 ,991],[42 ,997],[43 ,997],[44 ,995],[45 ,994],[46 ,996],[47 ,996],[48 ,995],[49 ,997],[50 ,996],[51 ,991],[52 ,995],[53 ,999],[54 ,994],[55 ,991],[56 ,996],[57 ,994],[58 ,993],[59 ,997],[60 ,997],[61 ,998],[62 ,997],[63 ,995],[64 ,1000],[65 ,998],[66 ,999],[67 ,999],[68 ,1000],[69 ,999],[70 ,996],[71 ,999],[72 ,996],[73 ,996],[74 ,997],[75 ,999],[76 ,998],[77 ,998],[78 ,995],[79 ,998],[80 ,997],[81 ,998],[82 ,999],[83 ,998],[84 ,998],[85 ,997],[86 ,999],[87 ,997],[88 ,998],[89 ,999],[90 ,1000],[91 ,996],[92 ,998],[93 ,997],[94 ,996],[95 ,1000],[96 ,998],[97 ,998],[98 ,998],[99 ,999],[100 ,997]];
+    var equation2 = [[1 ,460],[2 ,688],[3 ,775],[4 ,850],[5 ,897],[6 ,950],[7 ,945],[8 ,962],[9 ,968],[10 ,975],[11 ,981],[12 ,981],[13 ,981],[14 ,986],[15 ,986],[16 ,986],[17 ,991],[18 ,985],[19 ,983],[20 ,985],[21 ,985],[22 ,985],[23 ,986],[24 ,991],[25 ,992],[26 ,990],[27 ,992],[28 ,996],[29 ,989],[30 ,991],[31 ,991],[32 ,989],[33 ,993],[34 ,992],[35 ,992],[36 ,995],[37 ,994],[38 ,991],[39 ,997],[40 ,996],[41 ,994],[42 ,994],[43 ,994],[44 ,996],[45 ,996],[46 ,995],[47 ,996],[48 ,994],[49 ,997],[50 ,996],[51 ,993],[52 ,997],[53 ,994],[54 ,993],[55 ,997],[56 ,996],[57 ,998],[58 ,996],[59 ,994],[60 ,998],[61 ,997],[62 ,997],[63 ,996],[64 ,998],[65 ,997],[66 ,999],[67 ,997],[68 ,997],[69 ,995],[70 ,995],[71 ,997],[72 ,998],[73 ,996],[74 ,996],[75 ,999],[76 ,997],[77 ,996],[78 ,996],[79 ,1000],[80 ,998],[81 ,995],[82 ,998],[83 ,997],[84 ,998],[85 ,997],[86 ,998],[87 ,999],[88 ,998],[89 ,998],[90 ,994],[91 ,999],[92 ,1000],[93 ,997],[94 ,995],[95 ,999],[96 ,997],[97 ,999],[98 ,999],[99 ,997],[100 ,997]];
+    var equation3 = [[1 ,458],[2 ,564],[3 ,671],[4 ,768],[5 ,828],[6 ,877],[7 ,921],[8 ,935],[9 ,957],[10 ,961],[11 ,965],[12 ,974],[13 ,977],[14 ,976],[15 ,972],[16 ,979],[17 ,979],[18 ,978],[19 ,980],[20 ,978],[21 ,981],[22 ,983],[23 ,982],[24 ,984],[25 ,986],[26 ,979],[27 ,989],[28 ,992],[29 ,992],[30 ,993],[31 ,990],[32 ,991],[33 ,992],[34 ,992],[35 ,989],[36 ,993],[37 ,985],[38 ,991],[39 ,995],[40 ,992],[41 ,991],[42 ,992],[43 ,993],[44 ,988],[45 ,991],[46 ,988],[47 ,994],[48 ,994],[49 ,996],[50 ,996],[51 ,998],[52 ,996],[53 ,993],[54 ,996],[55 ,994],[56 ,998],[57 ,998],[58 ,996],[59 ,996],[60 ,993],[61 ,997],[62 ,998],[63 ,993],[64 ,992],[65 ,996],[66 ,998],[67 ,997],[68 ,996],[69 ,994],[70 ,998],[71 ,993],[72 ,995],[73 ,992],[74 ,997],[75 ,995],[76 ,996],[77 ,996],[78 ,993],[79 ,994],[80 ,998],[81 ,998],[82 ,998],[83 ,999],[84 ,996],[85 ,998],[86 ,997],[87 ,998],[88 ,998],[89 ,998],[90 ,998],[91 ,994],[92 ,999],[93 ,996],[94 ,997],[95 ,997],[96 ,997],[97 ,993],[98 ,995],[99 ,996],[100 ,998]];
+    var equation4 = [[1 ,472],[2 ,571],[3 ,683],[4 ,754],[5 ,843],[6 ,897],[7 ,932],[8 ,943],[9 ,955],[10 ,969],[11 ,971],[12 ,979],[13 ,982],[14 ,983],[15 ,982],[16 ,977],[17 ,982],[18 ,988],[19 ,986],[20 ,990],[21 ,986],[22 ,982],[23 ,990],[24 ,988],[25 ,992],[26 ,993],[27 ,988],[28 ,993],[29 ,986],[30 ,994],[31 ,995],[32 ,992],[33 ,994],[34 ,993],[35 ,996],[36 ,993],[37 ,993],[38 ,988],[39 ,997],[40 ,996],[41 ,997],[42 ,993],[43 ,993],[44 ,996],[45 ,989],[46 ,996],[47 ,994],[48 ,994],[49 ,998],[50 ,995],[51 ,996],[52 ,997],[53 ,996],[54 ,995],[55 ,994],[56 ,999],[57 ,998],[58 ,998],[59 ,996],[60 ,997],[61 ,997],[62 ,995],[63 ,997],[64 ,993],[65 ,994],[66 ,997],[67 ,998],[68 ,997],[69 ,997],[70 ,996],[71 ,996],[72 ,996],[73 ,994],[74 ,995],[75 ,997],[76 ,997],[77 ,995],[78 ,998],[79 ,998],[80 ,997],[81 ,999],[82 ,998],[83 ,1000],[84 ,998],[85 ,998],[86 ,996],[87 ,998],[88 ,999],[89 ,999],[90 ,998],[91 ,999],[92 ,997],[93 ,999],[94 ,997],[95 ,996],[96 ,999],[97 ,999],[98 ,997],[99 ,997],[100 ,998]];
+
+    var $el = $(&quot;#dfs-regression&quot;),
+        data = [
+            {data: equation1, label: &quot;方程式１&quot;},
+            {data: equation2, label: &quot;方程式２&quot;},
+            {data: equation3, label: &quot;方程式３&quot;},
+            {data: equation4, label: &quot;方程式４&quot;}
+            ],
+        options = {
+            legend: {position: &quot;se&quot;},
+            selection: {mode: &quot;x&quot;, color: &quot;#eeeeee&quot;},
+            title: &quot;小石の初期値と補充分を１０から１に修正&quot;,
+            subtitle: &quot;対最強プログラム&quot;,
+            HtmlText: false,
+            lines:{show: true, horizontal:false},
+            xaxis:{
+                title: &quot;対戦回数（×１０００）&quot;,
+                max: 110,
+                noTicks: 10
+            },
+            yaxis:{
+                title: &quot;対戦結果（勝ち／負け／引き分け）&quot;,
+                titleAngle: 90,
+                max: 1000,
+                noTicks: 10
+            },
+            grid: {
+                verticalLines: true,
+                horizontalLines: true,
+                outline: &quot;ws&quot;
+            },
+            mouse: {
+                track:true,
+                trackDecimals: 0
+            }
+        }, plotObj;
+
+    $el.on(&quot;plotselected&quot;, function(ev, ranges) {
+        plotObj = $.plot($el, data,
+                         $.extend(true, {}, options, {
+                             xaxis: {min: ranges.xaxis.from, max: ranges.xaxis.to},
+                             yaxis: {min: ranges.yaxis.from, max: ranges.yaxis.to}
+                         })
+                        );
+    });
+    plotObj = $.plot($el, data, options);
+    $(&quot;#unzoom&quot;).click(function() {
+        plotObj = $.plot($el, data, options);
+    });
+};
+       
+if (typeof contentLoaded != &quot;undefined&quot;) {
+    contentLoaded.done(linegraph);
+} else {
+    window.addEventListener(&#39;load&#39;, linegraph);
+}
+
+});
+
+&lt;/script&gt;
+
+&lt;hr /&gt;
+</description>
+                <link>http://happyclam.github.io/software/2016-01-17/flot_library</link>
+                <guid>http://happyclam.github.io/software/2016-01-17/flot_library</guid>
+                <pubDate>2016-01-17T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>学習効果をグラフ化してみる</title>
