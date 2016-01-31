@@ -5,10 +5,132 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2016-01-17T09:08:25+09:00</lastBuildDate>
-        <pubDate>2016-01-17T09:08:25+09:00</pubDate>
+        <lastBuildDate>2016-01-31T21:03:25+09:00</lastBuildDate>
+        <pubDate>2016-01-31T21:03:25+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>herokuのNode.jsプロジェクトでエラー</title>
+                <description>&lt;h3 id=&quot;heroku&quot;&gt;久々にプロジェクトに変更を加えてherokuにアップしたらエラーに見舞われた&lt;/h3&gt;
+&lt;p&gt;　以前&lt;a href=&quot;/programming/2015-04-25/mongo_upsert/&quot;&gt;記事&lt;/a&gt;にも書きましたが、公開した&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf&quot;&gt;androidアプリ&lt;/a&gt;の&lt;a href=&quot;http://tictactoe-cf.herokuapp.com/&quot;&gt;ランキング表示用のサイト&lt;/a&gt;で使用しているGoogle AnalyticsのトラッキングIDが間違えていたので&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;、トラッキングID（UA-XXXXXXXX-X）だけ書き換えて heroku にアップロードしたらエラーが出てランキング表示機能が使えなくなりました。全然プログラムコードと関係ない文字列を書き換えただけなのにです。&lt;br /&gt;
+　Node.jsは最近はほとんど触ってなかったので何をどうすればいいのかすっかり忘れていたため復旧に手間取ったので顛末を記事にしておきます。本来はプロジェクト全体を網羅したドキュメントを残すべきでしょうけど…。&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;原因不明？&lt;/h3&gt;
+&lt;p&gt;　herokuのログには&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Error: Most middleware (like errorHandler) is no longer bundled with Express and must be installed separately. Please see https://github.com/senchalabs/connect#middleware.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と出ていました。この時点ではよくわからなかったのですが、どうやらheroku上で実行モジュールをビルドする際に、何か仕様が変更されたパッケージを組み込んだためにエラーが発生したようです。とりあえずメッセージに沿って作業しました。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;エラーの対処&lt;/h3&gt;
+
+&lt;p&gt;指定されたリンク先に書いてある通りapp.jsを書き換えます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//app.js変更前
+if (&#39;production&#39; == app.get(&#39;env&#39;)) {
+    app.use(express.errorHandler());
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;//app.js変更後
+var errorhandler = require(&#39;errorhandler&#39;);
+
+if (&#39;production&#39; == app.get(&#39;env&#39;)) {
+    app.use(errorhandler());
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　herokuにpushした後、自分のスマホからアクセスしてみるとまだランキングが表示されません。herokuのログは以下です。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Error: Cannot find module &#39;errorhandler&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　そこで、まずローカル環境で動作させようとして&lt;code&gt;node app.js&lt;/code&gt;とコマンドを打つと今度は以下のエラー&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Error: Cannot find module &#39;express&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　よくあることですが、どんどん解決すべき問題がスタックに積み上げられて増えていきます。&lt;br /&gt;
+Googleで検索したところ、上記エラーは&lt;code&gt;npm link express&lt;/code&gt;と打つことで解決しました。&lt;br /&gt;
+　で、再度&lt;code&gt;node app.js&lt;/code&gt;と打つと&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Error: Cannot find module &#39;errorhandler&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　目出度くherokuと同じエラーがローカル環境で再現しました。そして&lt;code&gt;npm install errorhandler&lt;/code&gt;を実行した後、再度&lt;code&gt;node app&lt;/code&gt;を実行すると無事にNodeが起動しました。でもこれをheroku上で実現するのはどうするのか？と一瞬考えた後、package.jsonというファイルで管理していたことを思い出し、以下のように一行書き加えました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+//変更前
+  , &quot;dependencies&quot;: {
+      &quot;express&quot;: &quot;4.12.1&quot;
+    , &quot;jade&quot;: &quot;&amp;gt;= 0.0.1&quot;
+    , &quot;less-middleware&quot;: &quot;*&quot;
+    , &quot;mongodb&quot;: &quot;2.0.27&quot;
+  },
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+//変更後
+  , &quot;dependencies&quot;: {
+      &quot;express&quot;: &quot;4.12.1&quot;
+    , &quot;jade&quot;: &quot;&amp;gt;= 0.0.1&quot;
+    , &quot;less-middleware&quot;: &quot;*&quot;
+    , &quot;mongodb&quot;: &quot;2.0.27&quot;
+    , &quot;errorhandler&quot;: &quot;&amp;gt;=1.4.3&quot;
+  },
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　これをherokuにpushしたところ無事にランキング表示機能が動作しました。  &lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/screenshot_unbeaten.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/screenshot_unbeaten.png&quot; alt=&quot;ランキング表示画面&quot; title=&quot;三目並べ「無敗」ランキング表示画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;エラーの原因&lt;/h3&gt;
+&lt;p&gt;　それにしてもソースファイルの文字列リテラルを書き換えただけでなぜ動かなくなったのか？使用するパッケージのバージョンは〜以上と指定していることが多いので、それが影響したのかと思っていたのですが、Expressのバージョンは&lt;code&gt;&quot;express&quot;: &quot;4.12.1&quot;&lt;/code&gt;となっており、リビジョン番号まで指定されています。&lt;br /&gt;
+　どうやら.gitignoreファイルが以下のようになっていて&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#.gitignore変更前
+*.log
+node_modules
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　node_modulesディレクトリ以下のファイルがgitの管理下に入っていたのがよくなかったようです。’node_module’行の最後にスラッシュが無いので、gitにディレクトリと判断されずnode_modulesディレクトリ以下のファイルがいつの間にか勝手に差し替えられてしまったようです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#.gitignore変更後
+*.log
+node_modules/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　以下のようにnode_modules以下のファイルをインデックスから削除してようやく作業完了です。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git rm -r --cached node_modules
+git commit -av
+git push origin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;androidアプリのAdMobとGoogle Adsenseを別々のgmailアドレスで利用しようとしたらエラーに見舞われて、それ以来ずっと放ったらかしにしていたのでした。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+                <link>http://happyclam.github.io/programming/2016-02-01/node_express</link>
+                <guid>http://happyclam.github.io/programming/2016-02-01/node_express</guid>
+                <pubDate>2016-02-01T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>Flotライブラリで拡大表示可能なグラフ作成</title>
