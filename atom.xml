@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2016-01-31T21:03:25+09:00</updated>
+ <updated>2016-02-08T08:19:40+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -2488,7 +2488,7 @@ pp result
 　それとフリーのepubリーダーを何種類か試した時、リーダーソフトによってこれほど本の表示のされ方が違うのかって驚いてその混沌とした世界を垣間見た気がしたので、もしかしたらepubリーダーの世界ではこれぐらいの不具合は小さなことって感じかも知れません。&lt;/p&gt;
 
 &lt;h3 id=&quot;section-1&quot;&gt;まとめ&lt;/h3&gt;
-&lt;p&gt;　購入後ちょっと弄っただけで複数のブログネタを提供してくれるあたりポテンシャルを感じます(^^)ネットでkoboの情報を漁っているとユーザの不満の声をあちこちで見かけるので、Amazonに偏り過ぎているなんて考えずに今後も楽天とは関わらない方が幸せになれるのかもとか考えてしまいました。&lt;br /&gt;
+&lt;p&gt;　購入後ちょっと弄っただけで複数のブログネタを提供してくれるあたりポテンシャルを感じます&lt;img class=&quot;emoji&quot; title=&quot;grin&quot; alt=&quot;grin&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/grin.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;ネットでkoboの情報を漁っているとユーザの不満の声をあちこちで見かけるので、Amazonに偏り過ぎているなんて考えずに今後も楽天とは関わらない方が幸せになれるのかもとか考えてしまいました。&lt;br /&gt;
 　それと、技術書のリファレンスとしても使おうとか思っていましたが、検索等の操作は遅いし調べ物はやっぱりPCの大画面で参照する方が効率的だし、本のサンプルコードを見ながらプログラミングとかするときもPCの大画面の方が便利で、やっぱり読書専用というかじっくり集中して本を読むための道具かなって感じです。本当は目に優しいE-Ink端末でいろんなことをしたいのですが、動作が遅いので用途が限られます（これでも速くなったそうなので、発売当時に手を出さなくてよかったと思います）。&lt;br /&gt;
 　購入前は専門書はkoboのSDにまとめていこうかとか考えていましたが、新書や小説や、専門書でもプログラムコードが載っていない本の読書専用端末になりそうです。というか私が遅れて体験しただけで、世間ではすでにそういう評価になっているのかも知れませんが。&lt;/p&gt;
 
@@ -2941,7 +2941,7 @@ exports.mypage = function(req, res){
 &lt;p&gt;　HTML5でアニメーションを実現する方法を調べてみたら、タイマーを使う必要が無くなったらしい（タイマー間隔をブラウザ任せに出来る）のでやってみました。それぞれのブラウザ用にAPIが分かれているようで今後どうなるかわかりません（HTML5自体がまだまだ流動的だと思いますが）が、結構以前（HTML5リリース当初）からこのやり方は定着しているらしいです。手元のAndroid4.1.2の端末（GL07S）でも問題なく動きました。IEでHTML5を利用するにはIE9以上が必要です。&lt;/p&gt;
 
 &lt;h3 id=&quot;section-1&quot;&gt;二点の座標をクリックして直線を引くサンプル&lt;/h3&gt;
-&lt;p&gt;　要するにRequestAnimationFrameというAPIを使えばいいという話なのですがネットでandroidの対応状況は4.1以上でも全滅という書き込みをちらほら見かけます。でも、実際にやってみると以下のCoffeeScriptをコンパイルしたanimation.jsとanimation.htmlをandroid端末（GL07s）にコピーしてURL指定すれば標準ブラウザでふつうに動作しました。ネットではjQueryといっしょに使用することで問題が出るという書き込みも見かけましたが無視することにしました。知らないうちに解決されたのでしょう&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;(^^)&lt;br /&gt;
+&lt;p&gt;　要するにRequestAnimationFrameというAPIを使えばいいという話なのですがネットでandroidの対応状況は4.1以上でも全滅という書き込みをちらほら見かけます。でも、実際にやってみると以下のCoffeeScriptをコンパイルしたanimation.jsとanimation.htmlをandroid端末（GL07s）にコピーしてURL指定すれば標準ブラウザでふつうに動作しました。ネットではjQueryといっしょに使用することで問題が出るという書き込みも見かけましたが無視することにしました。知らないうちに解決されたのでしょう&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;img class=&quot;emoji&quot; title=&quot;grin&quot; alt=&quot;grin&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/grin.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
 　実際にアニメーションを駆使するスマホアプリを作るときは、既存のいろんなライブラリを使うことが多いのかもしれませんがHTML5だけで出来るほうがシンプルでいいですね。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-CoffeeScript&quot;&gt;#animation.coffee
@@ -3525,7 +3525,7 @@ jQuery ($) -&amp;gt;
    <content type="html">&lt;h3 id=&quot;section&quot;&gt;当面は無料で提供されるらしいのでやってみて損はないかな？&lt;/h3&gt;
 &lt;p&gt;　セキュリティホールをふせぐという謳い文句に惹かれて&lt;a href=&quot;http://jp.techcrunch.com/2014/04/30/%E3%82%A2%E3%82%AF%E3%83%88%E3%82%AD%E3%83%A3%E3%83%83%E3%83%88%E3%81%AE%E3%80%8Csideci%E3%80%8D%E3%81%AF%E3%80%81%E3%82%B3%E3%83%BC%E3%83%89%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E3%82%92%E8%87%AA/&quot;&gt;「SideCI」&lt;/a&gt;使ってみました。レビューの対象に使ったプロジェクトは&lt;a href=&quot;/programming/2014-10-27/my-posi-chart/&quot;&gt;前回の記事&lt;/a&gt;でRails4にバージョンアップしたばかりの&lt;a href=&quot;https://github.com/happyclam/my-posi&quot;&gt;これ&lt;/a&gt;です。&lt;br /&gt;
 　使っている人の感想とか探せばもっと見つかると思いますが自分が参考にしたのは&lt;a href=&quot;http://blog.mah-lab.com/2014/05/14/rails-side-ci/&quot;&gt;ここ&lt;/a&gt;です。中身は&lt;a href=&quot;http://brakemanscanner.org/&quot;&gt;Brakeman&lt;/a&gt;や&lt;a href=&quot;https://github.com/railsbp/rails_best_practices&quot;&gt;Rails Best Practice&lt;/a&gt;などのツールを組み合わせたものらしいけど、統合メニューで操作できるのは確かに有難いかも。色々メニュー項目がありますが自分が使ってみたものについて感想と、指摘された改善点についてざっと書きます。&lt;br /&gt;
-　自分が書いたプログラムにどのような難癖を付けられるのか気になる人もいると思いますので参考にしてください(^^)&lt;/p&gt;
+　自分が書いたプログラムにどのような難癖を付けられるのか気になる人もいると思いますので参考にしてください&lt;img class=&quot;emoji&quot; title=&quot;grin&quot; alt=&quot;grin&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/grin.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -3653,10 +3653,10 @@ end
    <updated>2014-10-27T00:00:00+09:00</updated>
    <id>http://happyclam.github.io/programming/2014-10-27/my-posi-chart</id>
    <content type="html">&lt;h3 id=&quot;rails3rails4&quot;&gt;Rails3からRails4への移行&lt;/h3&gt;
-&lt;p&gt;　一応&lt;a href=&quot;http://my-posi.herokuapp.com/&quot;&gt;herokuで公開&lt;/a&gt;してますがほとんど誰も使っていないようだし(^^)自分が使うときはローカル環境で動かすだけなのでRails4に移行する必要も無いのですが、&lt;a href=&quot;/project/2014-05-30/tweetwatch/&quot;&gt;TweetWatch&lt;/a&gt;を作ったときにLazyHighChartが気に入ったのでグラフ描画機能を変更する目的でついでにRailsもバージョンアップしました。Rails3からRails4への以降に関しては特に大きな変更は必要なかったのでgruffからlazy_high_chartへの移行に関して書きます。&lt;/p&gt;
+&lt;p&gt;　一応&lt;a href=&quot;http://my-posi.herokuapp.com/&quot;&gt;herokuで公開&lt;/a&gt;してますがほとんど誰も使っていないようだし&lt;img class=&quot;emoji&quot; title=&quot;grin&quot; alt=&quot;grin&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/grin.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;自分が使うときはローカル環境で動かすだけなのでRails4に移行する必要も無いのですが、&lt;a href=&quot;/project/2014-05-30/tweetwatch/&quot;&gt;TweetWatch&lt;/a&gt;を作ったときにLazyHighChartが気に入ったのでグラフ描画機能を変更する目的でついでにRailsもバージョンアップしました。Rails3からRails4への以降に関しては特に大きな変更は必要なかったのでgruffからlazy_high_chartへの移行に関して書きます。&lt;/p&gt;
 
 &lt;h3 id=&quot;section&quot;&gt;使い方&lt;/h3&gt;
-&lt;p&gt;　その前に&lt;a href=&quot;https://www.ruby-toolbox.com/categories/graphing&quot;&gt;ここのサイト&lt;/a&gt;でいろんなグラフ描画ツールが紹介されています。以前googlechartsは試したことがあるのですが、何か気に入らないことがあってgruffに戻しました。でも、その理由が何であったのか忘れてしまいました(^^)  &lt;/p&gt;
+&lt;p&gt;　その前に&lt;a href=&quot;https://www.ruby-toolbox.com/categories/graphing&quot;&gt;ここのサイト&lt;/a&gt;でいろんなグラフ描画ツールが紹介されています。以前googlechartsは試したことがあるのですが、何か気に入らないことがあってgruffに戻しました。でも、その理由が何であったのか忘れてしまいました&lt;img class=&quot;emoji&quot; title=&quot;grin&quot; alt=&quot;grin&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/grin.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;  &lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;

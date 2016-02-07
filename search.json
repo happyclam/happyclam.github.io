@@ -1,0 +1,291 @@
+[
+  
+    {
+      "title"    : "herokuのNode.jsプロジェクトでエラー",
+      "category" : "programming",
+      "tags"     : "programming, node, javascript, tictactoe, cordova",
+      "url"      : "http://happyclam.github.io/programming/2016-02-01/node_express",
+      "date"     : "2016-02-01 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "Flotライブラリで拡大表示可能なグラフ作成",
+      "category" : "software",
+      "tags"     : "software, javascript, jekyll",
+      "url"      : "http://happyclam.github.io/software/2016-01-17/flot_library",
+      "date"     : "2016-01-17 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "学習効果をグラフ化してみる",
+      "category" : "software",
+      "tags"     : "software, tictactoe, javascript, ruby",
+      "url"      : "http://happyclam.github.io/software/2016-01-16/flotr2",
+      "date"     : "2016-01-16 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "三目並べプログラムの強化学習効率を上げる",
+      "category" : "software",
+      "tags"     : "software, tictactoe, ruby",
+      "url"      : "http://happyclam.github.io/software/2016-01-07/correlation",
+      "date"     : "2016-01-07 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "曲線回帰で強化を試みる",
+      "category" : "software",
+      "tags"     : "software, tictactoe, ruby",
+      "url"      : "http://happyclam.github.io/software/2015-12-25/log-linear",
+      "date"     : "2015-12-25 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "強化学習の修正",
+      "category" : "software",
+      "tags"     : "software, tictactoe, ruby",
+      "url"      : "http://happyclam.github.io/software/2015-11-27/reinforcement",
+      "date"     : "2015-11-27 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "算数で作る機械学習プログラム",
+      "category" : "software",
+      "tags"     : "software, tictactoe, ruby",
+      "url"      : "http://happyclam.github.io/software/2015-10-25/machine_learning",
+      "date"     : "2015-10-25 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "対戦型ソフトでの幅優先探索（BFS）の使い途",
+      "category" : "software",
+      "tags"     : "software, tictactoe, ruby",
+      "url"      : "http://happyclam.github.io/software/2015-10-19/multi_branched_tree",
+      "date"     : "2015-10-19 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "幅優先探索(BFS)で対戦型ソフトを強くできるのか？",
+      "category" : "project",
+      "tags"     : "software, tictactoe, ruby",
+      "url"      : "http://happyclam.github.io/project/2015-10-10/tictactoe_bfs",
+      "date"     : "2015-10-10 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "WithingsのAPIで遊ぶ",
+      "category" : "project",
+      "tags"     : "rails, software, ruby",
+      "url"      : "http://happyclam.github.io/project/2015-09-19/activite",
+      "date"     : "2015-09-19 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "Withings Activité購入",
+      "category" : "hardware",
+      "tags"     : "android, iphone, hardware, software",
+      "url"      : "http://happyclam.github.io/hardware/2015-08-16/withings",
+      "date"     : "2015-08-16 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "kobo aura購入",
+      "category" : "hardware",
+      "tags"     : "epub, jekyll",
+      "url"      : "http://happyclam.github.io/hardware/2015-06-12/kobo_aura",
+      "date"     : "2015-06-12 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "markdownファイルを元に電子出版",
+      "category" : "miscellaneous",
+      "tags"     : "epub, jekyll",
+      "url"      : "http://happyclam.github.io/miscellaneous/2015-06-09/pandoc_epub",
+      "date"     : "2015-06-09 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "ハイブリッド開発（HTML5 + JavaScript）でハマったこと",
+      "category" : "programming",
+      "tags"     : "javascript, android, cordova, tictactoe",
+      "url"      : "http://happyclam.github.io/programming/2015-05-29/android_app1",
+      "date"     : "2015-05-29 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "HerokuでNodeとMongoDBを使う",
+      "category" : "programming",
+      "tags"     : "javascript, android, cordova, tictactoe, node, mongo",
+      "url"      : "http://happyclam.github.io/programming/2015-04-25/mongo_upsert",
+      "date"     : "2015-04-25 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "新Macbook購入",
+      "category" : "hardware",
+      "tags"     : "macbook, cordova",
+      "url"      : "http://happyclam.github.io/hardware/2015-04-14/macbook",
+      "date"     : "2015-04-14 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "HTML5でアニメーション",
+      "category" : "programming",
+      "tags"     : "coffeescript, javascript, android, HTML5, tictactoe",
+      "url"      : "http://happyclam.github.io/programming/2015-03-26/html5_anim",
+      "date"     : "2015-03-26 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "iOS/Androidハイブリッドアプリ開発",
+      "category" : "project",
+      "tags"     : "ruby, coffeescript, javascript, android, cordova, tictactoe",
+      "url"      : "http://happyclam.github.io/project/2015-02-01/first_cordova",
+      "date"     : "2015-02-01 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "Ruby製プログラムをCoffeeScript（JavaScript）に書き換える",
+      "category" : "programming",
+      "tags"     : "ruby, coffeescript, android",
+      "url"      : "http://happyclam.github.io/programming/2015-01-25/ruby_to_js",
+      "date"     : "2015-01-25 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "checkboxでAjaxで更新（PATCH）処理",
+      "category" : "programming",
+      "tags"     : "rails, my-posi, jquery, coffeescript",
+      "url"      : "http://happyclam.github.io/programming/2014-12-26/csrf",
+      "date"     : "2014-12-26 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "自動でコードレビュー",
+      "category" : "programming",
+      "tags"     : "rails, my-posi",
+      "url"      : "http://happyclam.github.io/programming/2014-11-05/sideci_review",
+      "date"     : "2014-11-05 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "gruffからlazy_high_chartへ",
+      "category" : "programming",
+      "tags"     : "rails, my-posi",
+      "url"      : "http://happyclam.github.io/programming/2014-10-27/my-posi-chart",
+      "date"     : "2014-10-27 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "三目並べ（tic tac toe）で遊んでみた（続き）",
+      "category" : "software",
+      "tags"     : "ruby, programming, tictactoe",
+      "url"      : "http://happyclam.github.io/software/2014-10-04/arrange_line",
+      "date"     : "2014-10-04 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "三目並べ（tic tac toe）で遊んでみた",
+      "category" : "software",
+      "tags"     : "ruby, programming, tictactoe",
+      "url"      : "http://happyclam.github.io/software/2014-09-23/tictactoe_arrange",
+      "date"     : "2014-09-23 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "MIN-MAX法とαβ法",
+      "category" : "software",
+      "tags"     : "ruby, programming",
+      "url"      : "http://happyclam.github.io/software/2014-09-16/ab_method",
+      "date"     : "2014-09-16 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "将棋はやっぱり深く読まなくてはダメ",
+      "category" : "software",
+      "tags"     : "ruby, tictactoe, shogi",
+      "url"      : "http://happyclam.github.io/software/2014-09-09/pre_shogi",
+      "date"     : "2014-09-09 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "三目並べ（tictactoe）",
+      "category" : "project",
+      "tags"     : "ruby, programming, tictactoe",
+      "url"      : "http://happyclam.github.io/project/2014-08-05/tictactoe",
+      "date"     : "2014-08-05 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "BlueToothマウス",
+      "category" : "hardware",
+      "tags"     : "miscellaneous",
+      "url"      : "http://happyclam.github.io/hardware/2014-07-12/bt_mouse",
+      "date"     : "2014-07-12 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "production環境でjQueryが発動しない",
+      "category" : "programming",
+      "tags"     : "rails, tweetwatch, jquery, coffeescript",
+      "url"      : "http://happyclam.github.io/programming/2014-07-07/rails_env",
+      "date"     : "2014-07-07 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "ツイートを監視して集計する（client側）",
+      "category" : "project",
+      "tags"     : "rails, ruby, tweetwatch",
+      "url"      : "http://happyclam.github.io/project/2014-06-07/tweetwatch_client",
+      "date"     : "2014-06-07 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "ツイートを監視して集計する（server側）",
+      "category" : "project",
+      "tags"     : "rails, ruby, tweetwatch",
+      "url"      : "http://happyclam.github.io/project/2014-06-06/tweetwatch_server",
+      "date"     : "2014-06-06 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "ツイートを監視して集計する",
+      "category" : "project",
+      "tags"     : "rails, ruby, tweetwatch",
+      "url"      : "http://happyclam.github.io/project/2014-05-30/tweetwatch",
+      "date"     : "2014-05-30 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "ボラティリティについて",
+      "category" : "miscellaneous",
+      "tags"     : "rails, my-posi",
+      "url"      : "http://happyclam.github.io/miscellaneous/2014-05-27/my-posi_vola",
+      "date"     : "2014-05-27 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "DBのカラムに対応しないプロパティ",
+      "category" : "programming",
+      "tags"     : "rails, my-posi",
+      "url"      : "http://happyclam.github.io/programming/2014-05-26/my-posi_tip1",
+      "date"     : "2014-05-26 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "先物・オプションのシミュレーションサイト",
+      "category" : "project",
+      "tags"     : "rails, my-posi",
+      "url"      : "http://happyclam.github.io/project/2014-05-24/my-posi",
+      "date"     : "2014-05-24 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "rspecに納得できない",
+      "category" : "programming",
+      "tags"     : "ruby, rspec",
+      "url"      : "http://happyclam.github.io/programming/2014-05-17/inflexible-rspec",
+      "date"     : "2014-05-17 00:00:00 +0900"
+    } 
+  
+]

@@ -34,13 +34,13 @@
   <meta name="twitter:title" content="HTML5でアニメーション">
   
   
-  <meta name="twitter:url" content="/programming/2015-03-26/html5_anim">
+  <meta name="twitter:url" content="http://happyclam.github.io/programming/2015-03-26/html5_anim">
   
   
   <meta name="twitter:description" content="programming for enjoyment.">
   
   
-  <meta name="twitter:image:src" content="/images/favicon.png">
+  <meta name="twitter:image:src" content="http://happyclam.github.io/images/favicon.png">
   
 
     <!-- atom & rss feed -->
@@ -49,13 +49,14 @@
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script language="JavaScript">
 $(document).ready( function () {
-   $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
 })
 </script>
 <script src="/assets/themes/twitter/js/jquery.min.js"></script>
 <script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
 <script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></
+<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
+<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -125,6 +126,8 @@ MathJax.Hub.Config({
     
   
     
+  
+    
       
     
   
@@ -149,6 +152,8 @@ MathJax.Hub.Config({
     
   
     
+  
+    
       
     
   
@@ -169,8 +174,31 @@ MathJax.Hub.Config({
     </div>
 
     <div class="container-narrow">
-      <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a> 
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      <div class="row-fluid">
+        <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+        <div class="span9"
+             <!-- Html Elements for Search -->
+             <div id="search-container" align="right">
+               <input type="text" id="search-input" placeholder="search...">
+               <ul id="results-container"></ul>
+             </div>
+             <div class="results"></div>
+        </div>
+      </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
       <div class="content">
         
 <div class="page-header">
@@ -187,7 +215,7 @@ MathJax.Hub.Config({
 <p>　HTML5でアニメーションを実現する方法を調べてみたら、タイマーを使う必要が無くなったらしい（タイマー間隔をブラウザ任せに出来る）のでやってみました。それぞれのブラウザ用にAPIが分かれているようで今後どうなるかわかりません（HTML5自体がまだまだ流動的だと思いますが）が、結構以前（HTML5リリース当初）からこのやり方は定着しているらしいです。手元のAndroid4.1.2の端末（GL07S）でも問題なく動きました。IEでHTML5を利用するにはIE9以上が必要です。</p>
 
 <h3 id="section-1">二点の座標をクリックして直線を引くサンプル</h3>
-<p>　要するにRequestAnimationFrameというAPIを使えばいいという話なのですがネットでandroidの対応状況は4.1以上でも全滅という書き込みをちらほら見かけます。でも、実際にやってみると以下のCoffeeScriptをコンパイルしたanimation.jsとanimation.htmlをandroid端末（GL07s）にコピーしてURL指定すれば標準ブラウザでふつうに動作しました。ネットではjQueryといっしょに使用することで問題が出るという書き込みも見かけましたが無視することにしました。知らないうちに解決されたのでしょう<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>(^^)<br />
+<p>　要するにRequestAnimationFrameというAPIを使えばいいという話なのですがネットでandroidの対応状況は4.1以上でも全滅という書き込みをちらほら見かけます。でも、実際にやってみると以下のCoffeeScriptをコンパイルしたanimation.jsとanimation.htmlをandroid端末（GL07s）にコピーしてURL指定すれば標準ブラウザでふつうに動作しました。ネットではjQueryといっしょに使用することで問題が出るという書き込みも見かけましたが無視することにしました。知らないうちに解決されたのでしょう<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup><img class="emoji" title="grin" alt="grin" src="https://github.global.ssl.fastly.net/images/icons/emoji/grin.png" height="20" width="20" align="absmiddle" /><br />
 　実際にアニメーションを駆使するスマホアプリを作るときは、既存のいろんなライブラリを使うことが多いのかもしれませんがHTML5だけで出来るほうがシンプルでいいですね。</p>
 
 <pre><code class="language-CoffeeScript">#animation.coffee

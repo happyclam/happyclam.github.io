@@ -34,13 +34,13 @@
   <meta name="twitter:title" content="自動でコードレビュー">
   
   
-  <meta name="twitter:url" content="/programming/2014-11-05/sideci_review">
+  <meta name="twitter:url" content="http://happyclam.github.io/programming/2014-11-05/sideci_review">
   
   
   <meta name="twitter:description" content="programming for enjoyment.">
   
   
-  <meta name="twitter:image:src" content="/images/favicon.png">
+  <meta name="twitter:image:src" content="http://happyclam.github.io/images/favicon.png">
   
 
     <!-- atom & rss feed -->
@@ -49,13 +49,14 @@
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script language="JavaScript">
 $(document).ready( function () {
-   $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
 })
 </script>
 <script src="/assets/themes/twitter/js/jquery.min.js"></script>
 <script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
 <script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></
+<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
+<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -125,6 +126,8 @@ MathJax.Hub.Config({
     
   
     
+  
+    
       
     
   
@@ -149,6 +152,8 @@ MathJax.Hub.Config({
     
   
     
+  
+    
       
     
   
@@ -169,8 +174,31 @@ MathJax.Hub.Config({
     </div>
 
     <div class="container-narrow">
-      <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a> 
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      <div class="row-fluid">
+        <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+        <div class="span9"
+             <!-- Html Elements for Search -->
+             <div id="search-container" align="right">
+               <input type="text" id="search-input" placeholder="search...">
+               <ul id="results-container"></ul>
+             </div>
+             <div class="results"></div>
+        </div>
+      </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
       <div class="content">
         
 <div class="page-header">
@@ -186,7 +214,7 @@ MathJax.Hub.Config({
       <h3 id="section">当面は無料で提供されるらしいのでやってみて損はないかな？</h3>
 <p>　セキュリティホールをふせぐという謳い文句に惹かれて<a href="http://jp.techcrunch.com/2014/04/30/%E3%82%A2%E3%82%AF%E3%83%88%E3%82%AD%E3%83%A3%E3%83%83%E3%83%88%E3%81%AE%E3%80%8Csideci%E3%80%8D%E3%81%AF%E3%80%81%E3%82%B3%E3%83%BC%E3%83%89%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E3%82%92%E8%87%AA/">「SideCI」</a>使ってみました。レビューの対象に使ったプロジェクトは<a href="/programming/2014-10-27/my-posi-chart/">前回の記事</a>でRails4にバージョンアップしたばかりの<a href="https://github.com/happyclam/my-posi">これ</a>です。<br />
 　使っている人の感想とか探せばもっと見つかると思いますが自分が参考にしたのは<a href="http://blog.mah-lab.com/2014/05/14/rails-side-ci/">ここ</a>です。中身は<a href="http://brakemanscanner.org/">Brakeman</a>や<a href="https://github.com/railsbp/rails_best_practices">Rails Best Practice</a>などのツールを組み合わせたものらしいけど、統合メニューで操作できるのは確かに有難いかも。色々メニュー項目がありますが自分が使ってみたものについて感想と、指摘された改善点についてざっと書きます。<br />
-　自分が書いたプログラムにどのような難癖を付けられるのか気になる人もいると思いますので参考にしてください(^^)</p>
+　自分が書いたプログラムにどのような難癖を付けられるのか気になる人もいると思いますので参考にしてください<img class="emoji" title="grin" alt="grin" src="https://github.global.ssl.fastly.net/images/icons/emoji/grin.png" height="20" width="20" align="absmiddle" /></p>
 
 <ul>
   <li>
