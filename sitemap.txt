@@ -2,7 +2,6 @@
 http://happyclam.github.io/archive.html
 http://happyclam.github.io/atom.xml
 http://happyclam.github.io/categories.html
-http://happyclam.github.io/fulltext.json
 http://happyclam.github.io/index.html
 http://happyclam.github.io/pages.html
 http://happyclam.github.io/profile.html
