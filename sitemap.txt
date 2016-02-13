@@ -10,6 +10,7 @@ http://happyclam.github.io/search.json
 http://happyclam.github.io/sitemap.txt
 http://happyclam.github.io/tags.html
 
+http://happyclam.github.io/programming/2016-02-14/cordova_update
 http://happyclam.github.io/programming/2016-02-01/node_express
 http://happyclam.github.io/software/2016-01-17/flot_library
 http://happyclam.github.io/software/2016-01-16/flotr2

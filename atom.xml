@@ -4,13 +4,125 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2016-02-08T09:37:25+09:00</updated>
+ <updated>2016-02-14T07:45:51+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Apache Cordova のアップデート</title>
+   <link href="http://happyclam.github.io/programming/2016-02-14/cordova_update"/>
+   <updated>2016-02-14T00:00:00+09:00</updated>
+   <id>http://happyclam.github.io/programming/2016-02-14/cordova_update</id>
+   <content type="html">&lt;h3 id=&quot;google-play-&quot;&gt;Google Play からのお達し&lt;/h3&gt;
+&lt;p&gt;　２／９に「Google Play warning: You are using a vulnerable version of Apache Cordova」というタイトルでGoogleからメールが来ました。バージョン4.1.1以前のApacheCordovaにセキュリティ上の脆弱性が見つかったので、公開している&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf&quot;&gt;Cordova製のアプリ&lt;/a&gt;を更新しろという内容です。&lt;br /&gt;
+&lt;strong&gt;Please migrate your app(s) to Apache Cordova v.4.1.1 or higher as soon as possible and increment the version number of the upgraded APK.&lt;/strong&gt;&lt;br /&gt;
+と書いてあり、更新しなければ2016年5月9日以降は公開を停止するとも書いてありました。備忘録のつもりで作業内容を記事に残しておきます。&lt;br /&gt;
+　それにしても、メールのタイトルをGoogleやTwitterで検索してもほとんどヒットしなかったのでCordova(PhoneGap)製のアプリって少ないんでしょうねぇ。それとも皆さんマメに更新しているからこんなメール来ないってことでしょうか？&lt;/p&gt;
+
+&lt;h3 id=&quot;cordova&quot;&gt;Cordova開発環境の更新&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cordova platform ls
+Installed platforms: android 3.7.1, ios 3.8.0
+Available platforms: amazon-fireos, blackberry10, browser, firefoxos, osx, webos
+$ cordova -v
+6.0.0
+
+$ cordova platform update android
+Updating android project...
+Android project updated with cordova-android@5.1.0
+$ cordova platform ls
+Installed platforms: android 5.1.0, ios 3.8.0
+Available platforms: amazon-fireos, blackberry10, browser, firefoxos, osx, webos
+$ cordova platform update ios
+Updating ios project...
+iOS project updated with cordova-ios@4.0.1
+$ cordova platform ls
+Installed platforms: android 5.1.0, ios 4.0.1
+Available platforms: amazon-fireos, blackberry10, browser, firefoxos, osx, webos
+$ cordova -v
+6.0.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　android 3.7.1から5.1.0に無事更新されました。配布するビルドパッケージを作成する前に、cordovaが生成するファイルもいろいろ変わっているだろうと思ってプロジェクトを新規に作ることにしました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#使用しているプラグイン一覧をconfig.xmlに出力
+$cordova plugin save
+$cordova plugin list
+android.support.v4 1.0.0 &quot;Android Support v4&quot;
+com.admob.google 2.0.14 &quot;AdMob Google Ads + Tappx&quot;
+com.connectivity.monitor 1.1.0 &quot;Connectivity Monitoring&quot;
+com.google.play.services 22.0.0 &quot;Google Play Services for Android&quot;
+com.ios.libgoogleadmobads 1.1.1 &quot;iOS Google AdMob Ads library&quot;
+org.apache.cordova.device 0.3.0 &quot;Device&quot;
+org.apache.cordova.dialogs 0.3.0 &quot;Notification&quot;
+
+#プロジェクトの新規作成
+$cordova create Tictactoe com.herokuapp.tictactoe_cf Tictactoe -d
+$cd Tictactoe
+$cordova platform add android
+$cordova platform add ios
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　予めファイルに出力したプラグインを&lt;code&gt;cordova plugin add&lt;/code&gt;コマンドで順番にインストール。プラグインの名前は&lt;code&gt;cordova plugin search&lt;/code&gt;で確認出来る。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$cordova plugin list
+cordova-android-support-v4 4.0.0 &quot;Android Support v4&quot;
+cordova-admob 4.1.6 &quot;AdMob Google Ads + Tappx&quot;
+cordova-connectivity-monitor 1.2.2 &quot;Connectivity Monitoring&quot;
+cordova-google-play-services 25.0.0 &quot;Google Play Services for Android&quot;
+cordova-libgoogleadmobads 7.3.1 &quot;iOS Google AdMob Ads library&quot;
+cordova-plugin-device 1.1.1 &quot;Device&quot;
+cordova-plugin-dialogs 1.2.0 &quot;Notification&quot;
+cordova-plugin-whitelist 1.2.1 &quot;Whitelist&quot;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　cordova-plugin-whitelistプラグインが勝手に追加されていました、デフォルトで組み込まれる？ようです。こういう知らないうちに変わっていることがあるので、新規プロジェクトで作り直す方がいいと思います。&lt;/p&gt;
+
+&lt;h3 id=&quot;apk&quot;&gt;パッケージファイル（APK）を更新&lt;/h3&gt;
+&lt;p&gt;　開発環境の更新はできたのであとはビルドするだけですが、その前にAndroidManifest.xml内のバージョンNo.（android:versionCodeとandroid:versionName）をインクリメントしました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$cd platforms/android/
+$ant release
+Buildfile: build.xml does not exist!
+Build failed
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　今まで&lt;code&gt;ant release&lt;/code&gt;コマンドでビルドしていたのですが、バージョンアップで変更になったのか、エラーになりました。&lt;br /&gt;
+　エラーメッセージはbuild.xmlが無いと言ってるだけなので、旧プロジェクトからbuild.xmlを持って来れば出来そうですが、新しいやり方に従って以下のようにビルド&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cordova build android --release
+Built the following apk(s): 
+	/Users/naga/workspace/Tictactoe45/platforms/android/build/outputs/apk/android-release-unsigned.apk
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　私はその気はありませんが、GUI環境に移行すればもっと分かりやすいメニューがあるのかもしれません。&lt;br /&gt;
+　その後、私有鍵は以前作成したものを使い、デジタル署名も以前のバージョンと同様に出来ました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore ~/mine/myAndroidKey.keystore ./platforms/android/build/outputs/apk/android-release-unsigned.apk myAndroidKeyAlias
+$mkdir -p Release/android
+$~/Library/Android/sdk/build-tools/23.0.1/zipalign -v 4 ./platforms/android/build/outputs/apk/android-release-unsigned.apk ./Release/android/Tictactoe-release1-3-2.apk
+$adb install -r ./Release/android/Tictactoe-release1-3-2.apk
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　実機での動作確認が済めば、&lt;a href=&quot;https://play.google.com/apps/publish/?hl=JA&quot;&gt;Google Play Developer Console&lt;/a&gt;からアップロードして完了です。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/screenshot_googleplay.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/screenshot_googleplay.png&quot; alt=&quot;GooglePlayAPK画面&quot; title=&quot;Google Play APK画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　↑バージョン（android:versionCode）が６桁の数字（103028）になってしまっていますが、なぜか私の環境からGooglePlayのサイトにパッケージファイルをアップロードするとAndroidManifest.xmlに記載した数値（10302）に一桁追加されてしまうのです。以前のものより数値が小さいとアップロード出来ないらしいので、１桁でいいはずの数字なのに今は６桁になってしまっています。う〜ん不思議だ&lt;img class=&quot;emoji&quot; title=&quot;confused&quot; alt=&quot;confused&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/confused.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>herokuのNode.jsプロジェクトでエラー</title>
