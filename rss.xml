@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2016-02-14T07:45:51+09:00</lastBuildDate>
-        <pubDate>2016-02-14T07:45:51+09:00</pubDate>
+        <lastBuildDate>2016-02-18T20:06:39+09:00</lastBuildDate>
+        <pubDate>2016-02-18T20:06:39+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -92,7 +92,7 @@ Build failed
 
 &lt;pre&gt;&lt;code&gt;$ cordova build android --release
 Built the following apk(s): 
-	/Users/naga/workspace/Tictactoe45/platforms/android/build/outputs/apk/android-release-unsigned.apk
+	/Users/xxxx/workspace/Tictactoe45/platforms/android/build/outputs/apk/android-release-unsigned.apk
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;　私はその気はありませんが、GUI環境に移行すればもっと分かりやすいメニューがあるのかもしれません。&lt;br /&gt;
