@@ -5,10 +5,55 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2016-02-18T20:06:39+09:00</lastBuildDate>
-        <pubDate>2016-02-18T20:06:39+09:00</pubDate>
+        <lastBuildDate>2016-03-20T14:17:12+09:00</lastBuildDate>
+        <pubDate>2016-03-20T14:17:12+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>モバイルプリンター PX-S05B</title>
+                <description>&lt;h3 id=&quot;section&quot;&gt;またプリンターを買ってしまった&lt;/h3&gt;
+&lt;p&gt;　去年プリンターを処分してから、もうプリンターはコンビニで済まして自分で持たないつもりだったけど、確定申告にも使うし出力結果をすぐに確認したい時が多いのでやっぱり持つことにしました。でも狭い家の床をプリンターに占有されるのは嫌だったので、買ったのはエプソンのモバイルプリンター &lt;a href=&quot;http://ink-revolution.com/contentsplus/epson-px-s05w-px-s05b-mobile-purinter/&quot;&gt;PX-S05B&lt;/a&gt;です。外で印刷する予定はないし、事前に機種等を調べずに半ば衝動買いに近い感じで買ったのですが、本棚に収納出来るので気に入りました。&lt;/p&gt;
+
+&lt;h3 id=&quot;mac&quot;&gt;MACアドレス&lt;/h3&gt;
+&lt;p&gt;　自宅ルーターのMACアドレスフィルタリング設定をするためにプリンターのMACアドレスはどうやれば知ることが出来るんだ？とプリンターのメニューを弄っているうちにネットワーク接続エラーで「エラー情報を印刷しますか？」みたいな表示が出てOKを選択したら以下のように欲しかった情報が印刷されました。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/epson_setting.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/epson_setting.png&quot; alt=&quot;ネットワーク診断レポート&quot; title=&quot;ネットワーク診断レポート&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　エプソンの製品を使ったことがなかったので「またMACアドレスの記載が無いのかよ」と勝手に決めつけて&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;作業していたのですが、後から気づいたのですが外箱にちゃんとMACアドレスが記載されていました&lt;img class=&quot;emoji&quot; title=&quot;cold_sweat&quot; alt=&quot;cold_sweat&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/cold_sweat.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
+　さすがエプソンさんは物を売ってるだけの業者じゃなくてメーカーだから、抜かりは無いですね&lt;img class=&quot;emoji&quot; title=&quot;smile&quot; alt=&quot;smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;廃インク吸収体&lt;/h3&gt;
+&lt;p&gt;　このプリンターの売りの一つがエプソンがメンテナンスボックスと呼んでる廃インク吸収体という消耗品を自分で交換できる点だそうです。今まで廃インク吸収体がいっぱいになるとメーカーに送る必要があったのに、この機種は自分で交換可能だということです。この廃インク吸収体というのはインクジェットプリンターには必ずあるらしいのですが、私は長年インクジェットプリンターを使ってきたのにその存在を知りませんでしたし、メーカーに送った経験もありません。それは今までプライベートではブラザー製のインクジェットしか購入したことがなく、それらしきエラーに見舞われたことはあったのですが、ブラザーの場合ネットで検索すれば今でも見つかりますが、廃インク吸収体の交換時期を示すカウンターを自分でリセットする方法があって、リセットしながらそのまま使い続けることが出来たからです。私がプリンターを使う頻度がそれほど多くなかったのでこのやり方でやっていけたのだと思いますが、こんな私にとって廃インク吸収体を自分で交換出来るなんて言われても全然メリットに感じません。ヨドバシの定員に廃インク吸収体の説明を受けながら、あの時のプリンターのエラーはそういうことだったのかと昔の経験を思い出しながら、ブラザーってオープンというか緩いというか改めてブラザーという会社が好きになったのでした。それとともにブラザー製のインクジェットが全てそうなのかどうか知りませんが、自分以外の普通の人は廃インク吸収体がいっぱいになる度にメーカーに送ってお金も取られる使い方をしていたのかと思うとなんか得した気分になりました。それにカウンターをリセットするだけで特に不都合なく使用できるのならそもそも廃インク吸収体の交換自体が必須というわけでもなさそうですが、プリンター業界の闇に関しては詳しく知らないのでこれ以上は言及しないことにします。&lt;br /&gt;
+　ヨドバシの定員に廃インク吸収体の話を聞いてから、ブラザー製で似たような機種があるならそっちの方がいいなと思いながらも、無いようだったのでこの機種を買って帰ったのですが、後からこの機種に関して&lt;a href=&quot;http://www.amazon.co.jp/gp/customer-reviews/R15E5KAC5D77GH/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&amp;amp;ASIN=B00L9X1T02&quot;&gt;Amazonのレビュー&lt;/a&gt;を読んでみると「廃インク吸収体を自分で交換出来る」という謳い文句自体も鵜呑みにしてはいけないようです。&lt;a href=&quot;http://www.amazon.co.jp/gp/customer-reviews/R15E5KAC5D77GH/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&amp;amp;ASIN=B00L9X1T02&quot;&gt;このレビュー&lt;/a&gt;の真偽はわかりませんが、とりあえず偶にしか使用しない自分の使い方なら大きな不満が出ることは無いかなという感じです。&lt;/p&gt;
+
+&lt;h3 id=&quot;wi-fi-direct&quot;&gt;Wi-Fi Direct&lt;/h3&gt;
+&lt;p&gt;　「ノートPCとモバイルプリンターをWi-Fi環境で使用していて、スマートデバイスからプリントしたい時に、同じネットワークに入れずにWi-Fi Directでプリントできます。」ということです。スマホで撮った写真をWi-Fi Directで印刷してみましたが、自宅無線LAN環境からWi-Fi Directにプリンタ側で切り替えて簡単に印刷出来ました。これは便利なので、必要なくても出先で使ってみたくなります。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/epson_direct.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/epson_direct.png&quot; alt=&quot;Wi-Fi Direct&quot; title=&quot;Wi-Fi Direct&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;/hardware/2015-06-12/kobo_aura/&quot;&gt;楽天kobo auraを購入&lt;/a&gt;した時は記載がなくて困りました。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+                <link>http://happyclam.github.io/hardware/2016-03-21/pr_epson</link>
+                <guid>http://happyclam.github.io/hardware/2016-03-21/pr_epson</guid>
+                <pubDate>2016-03-21T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>Apache Cordova のアップデート</title>
