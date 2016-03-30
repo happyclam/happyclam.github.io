@@ -5,10 +5,64 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2016-03-20T14:17:12+09:00</lastBuildDate>
-        <pubDate>2016-03-20T14:17:12+09:00</pubDate>
+        <lastBuildDate>2016-03-30T10:52:23+09:00</lastBuildDate>
+        <pubDate>2016-03-30T10:52:23+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>楽天Kobo電子書籍検索API使ってみた</title>
+                <description>&lt;p&gt;Project: 「&lt;a href=&quot;https://kwl-books.herokuapp.com&quot;&gt;&lt;strong&gt;楽天Kobo電子書籍新着チェッカー&lt;/strong&gt;&lt;/a&gt;」: &lt;a href=&quot;https://github.com/happyclam/kwl-books&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;自分の本が検索されない&lt;/h3&gt;
+&lt;p&gt;　以前からやってみたかった電子書籍出版やってみました（&lt;a href=&quot;http://www.amazon.co.jp/dp/B01D1IJ0S0&quot;&gt;Amazon KDP&lt;/a&gt;、&lt;a href=&quot;http://books.rakuten.co.jp/rk/8353a2085f33386d8fe9102c7b8eb4c3&quot;&gt;楽天Kobo&lt;/a&gt;）。その顛末については別の記事を書こうと思っていますが、先に「楽天Kobo電子書籍新着チェッカー」を作ってみたのでそれについて書きます。&lt;br /&gt;
+　楽天Koboの電子書籍出版サービス（KWL、Kobo Writing Life）に自分の本を登録して、リリースまで時間が掛かると書いてあったから&lt;a href=&quot;http://wakufactory.jp/kobo/kwlnew.html&quot;&gt;「KoboWritingLife新着チェッカー」&lt;/a&gt;というサイトを見つけて、自分の本が出版されたかどうかチェックしていました。丸一日ぐらい経った後、まだ自分の本が表示されていなかったので、試しに楽天のサイトから検索してみたら、自分の本がヒットするではないですか、「なんで自分の本は出てこないの？」って感じです。この&lt;a href=&quot;http://wakufactory.jp/kobo/kwlnew.html&quot;&gt;新着チェッカー&lt;/a&gt;がどれほど利用されているのかわかりませんが、「自分の本を表示してくれないサイトが新着チェッカーとしてメジャーになってもらっては困る」、「なんとか自分で世間の人に使って貰えるこれ以上の新着チェッカーを作らなければならない」という使命感に駆られて（嘘です）作ってみることにしました。&lt;br /&gt;
+　自分で楽天APIを弄ってみてから想像するとおそらく自分の本が表示されないのは、自分の本を登録している「PC・システム開発」というジャンルが検索対象になっていないからだと思いますが、真相はわかりません。自分の本だけ意地悪されているわけでないことは確かでしょう。&lt;br /&gt;
+　ということでジャンル別に検索する形で作りました。自己責任でご利用ください（免責条項）。&lt;a href=&quot;https://webservice.rakuten.co.jp/guide/&quot;&gt;楽天のサイト&lt;/a&gt;でも簡単にAPIを試してみることも出来ます。試すだけなら開発者用のIDをわざわざ取得しなくても利用できます。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;やっていること（仕様）&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;使用するのは楽天Kobo系APIだけ（「楽天ブックス系API」と「楽天Kobo系API」に分かれているようです）&lt;br /&gt;
+※深くは追求してませんが、&lt;a href=&quot;http://wakufactory.jp/kobo/kwlnew.html&quot;&gt;件のサイト&lt;/a&gt;で自分の本が検索出来なかったのはこのAPIの違いによるものかもしれません。APIを分けている理由も知りませんが、Kobo系は簡易版みたいな感じかもしれません。&lt;/li&gt;
+  &lt;li&gt;予約販売分は検索対象外（予約販売分を含めると未来の発売日分のデータばかりになるため）&lt;/li&gt;
+  &lt;li&gt;サイトにアクセスがあると、その都度最新のジャンルデータを取得して表示し差分を保存する&lt;/li&gt;
+  &lt;li&gt;ジャンルがクリックされると、一度のAPIで取得出来る最大３０件の最新出版データを保存して日付の新しい順に過去に取得した分を含めて最大５０件表示&lt;br /&gt;
+※最初は先頭３桁が”123”のもの（KWLの分だけ）に限定しようと思ったのですがデータが少なくてあまりにも寂しい検索結果になるので他のものも表示することにしました。&lt;/li&gt;
+  &lt;li&gt;発売日から３０日経過を目処に古い新着データは削除していく（ジャンルデータ取得時に日付をチェックして削除）。&lt;br /&gt;
+※herokuの無料枠で運用しているのでデータが大量に溜まると困ると思ってこうしています。更新頻度が高いジャンルは３０日経過していなくても表示されなくなります。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;api&quot;&gt;使用しているAPI&lt;/h3&gt;
+&lt;p&gt;　発行しているAPIは以下の二種類だけです。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;楽天Koboジャンル検索APIで電子書籍のジャンル一覧を取得&lt;br /&gt;
+　例、koboGenreId=101、101は電子書籍&lt;br /&gt;
+HTTPS https://app.rakuten.co.jp/services/api/Kobo/GenreSearch/20131010?applicationId=XXXXXXXXXXXXXXXXXXX&amp;amp;format=json&amp;amp;koboGenreId=101&lt;/li&gt;
+  &lt;li&gt;楽天Kobo電子書籍検索APIでジャンル別の新着データを取得&lt;br /&gt;
+　例、salesType=0は予約販売でない、koboGenreId=101912は「PC・システム開発」&lt;br /&gt;
+HTTPS https://app.rakuten.co.jp/services/api/Kobo/EbookSearch/20140811?applicationId=XXXXXXXXXXXXXXXXXXX&amp;amp;format=json&amp;amp;koboGenreId=101912&amp;amp;salesType=0&amp;amp;sort=-releaseDate&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/kwlchecker.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/kwlchecker.png&quot; alt=&quot;kwl-checker&quot; title=&quot;KWL新着チェッカー&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h3 id=&quot;er&quot;&gt;ER図&lt;/h3&gt;
+&lt;object data=&quot;/pdf/koboapi.pdf&quot; width=&quot;760&quot; height=&quot;900&quot;&gt;
+&lt;p&gt;ご覧の環境では、object要素がサポートされていないようです。&lt;a href=&quot;/pdf/koboapi.pdf&quot;&gt;PDFファイルをダウンロードしてください&lt;/a&gt;&lt;/p&gt;
+&lt;/object&gt;
+
+&lt;hr /&gt;
+
+</description>
+                <link>http://happyclam.github.io/project/2016-03-30/koboAPI</link>
+                <guid>http://happyclam.github.io/project/2016-03-30/koboAPI</guid>
+                <pubDate>2016-03-30T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>モバイルプリンター PX-S05B</title>

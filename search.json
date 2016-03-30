@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "楽天Kobo電子書籍検索API使ってみた",
+      "category" : "project",
+      "tags"     : "rails, software, ruby, coffeescript",
+      "url"      : "http://happyclam.github.io/project/2016-03-30/koboAPI",
+      "date"     : "2016-03-30 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "モバイルプリンター PX-S05B",
       "category" : "hardware",
       "tags"     : "hardware, macbook, miscellaneous",
