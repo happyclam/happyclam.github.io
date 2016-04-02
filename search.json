@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "電子書籍出版して２週間経ちました",
+      "category" : "miscellaneous",
+      "tags"     : "epub, coffeescript",
+      "url"      : "http://happyclam.github.io/miscellaneous/2016-04-02/self-publishing",
+      "date"     : "2016-04-02 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "楽天Kobo電子書籍検索API使ってみた",
       "category" : "project",
       "tags"     : "rails, software, ruby, coffeescript",
