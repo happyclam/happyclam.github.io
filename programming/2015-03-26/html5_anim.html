@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>HTML5でアニメーション</title>
+
+    <meta name="author" content="happyclam">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="HTML5でアニメーション">
+  
+  
+  <meta name="twitter:url" content="http://happyclam.github.io/programming/2015-03-26/html5_anim">
+  
+  
+  <meta name="twitter:description" content="programming for enjoyment.">
+  
+  
+  <meta name="twitter:image:src" content="http://happyclam.github.io/images/favicon.png">
+  
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script language="JavaScript">
+$(document).ready( function () {
+    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
+<script src="/assets/themes/twitter/js/jquery.min.js"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
+<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
+<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-1752720-7', 'happyclam.github.io');
+      ga('send', 'pageview');
+    </script>
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div style="text-align: center;">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- トップバナー -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-1238485061299241"
+     data-ad-slot="7366457015"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    </div>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">自己満足プログラミング</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/profile">About</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="row-fluid">
+        <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+        <div class="span9"
+             <!-- Html Elements for Search -->
+             <div id="search-container" align="right">
+               <input type="text" id="search-input" placeholder="search...">
+               <ul id="results-container"></ul>
+             </div>
+             <div class="results"></div>
+        </div>
+      </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+      <div class="content">
+        
+<div class="page-header">
+  <h1>HTML5でアニメーション </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>26 March 2015</span>
+    </div>
+    <div class="content">
+      <h3 id="section">タイマーを使わない</h3>
+<p>　HTML5でアニメーションを実現する方法を調べてみたら、タイマーを使う必要が無くなったらしい（タイマー間隔をブラウザ任せに出来る）のでやってみました。それぞれのブラウザ用にAPIが分かれているようで今後どうなるかわかりません（HTML5自体がまだまだ流動的だと思いますが）が、結構以前（HTML5リリース当初）からこのやり方は定着しているらしいです。手元のAndroid4.1.2の端末（GL07S）でも問題なく動きました。IEでHTML5を利用するにはIE9以上が必要です。</p>
+
+<h3 id="section-1">二点の座標をクリックして直線を引くサンプル</h3>
+<p>　要するにRequestAnimationFrameというAPIを使えばいいという話なのですがネットでandroidの対応状況は4.1以上でも全滅という書き込みをちらほら見かけます。でも、実際にやってみると以下のCoffeeScriptをコンパイルしたanimation.jsとanimation.htmlをandroid端末（GL07s）にコピーしてURL指定すれば標準ブラウザでふつうに動作しました。ネットではjQueryといっしょに使用することで問題が出るという書き込みも見かけましたが無視することにしました。知らないうちに解決されたのでしょう<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup><img class="emoji" title="grin" alt="grin" src="https://github.global.ssl.fastly.net/images/icons/emoji/grin.png" height="20" width="20" align="absmiddle" /><br />
+　実際にアニメーションを駆使するスマホアプリを作るときは、既存のいろんなライブラリを使うことが多いのかもしれませんがHTML5だけで出来るほうがシンプルでいいですね。</p>
+
+<pre><code class="language-CoffeeScript">#animation.coffee
+$ -&gt;
+
+    return new Animation()
+    
+class Animation
+    constructor: -&gt;
+        @canvas = document.getElementById("canvasMain")
+        @areaStartX = document.getElementById("spanStartX")
+        @areaStartY = document.getElementById("spanStartY")
+        @areaEndX = document.getElementById("spanEndX")
+        @areaEndY = document.getElementById("spanEndY")
+        @start = {x:0, y:0}
+        @end = {x:100, y:100}
+        @request = null
+        @amount = 0
+        @startflg = true
+        @setEventListener()
+        @touch(@start.x, @start.y)
+        @touch(@end.x, @end.y)
+
+    touch: (clientX, clientY) =&gt;
+        if @startflg
+            @startflg = false
+            @start.x = clientX; @areaStartX.innerHTML = clientX
+            @start.y = clientY; @areaStartY.innerHTML = clientY
+        else
+            @startflg = true
+            @end.x = clientX; @areaEndX.innerHTML = clientX
+            @end.y = clientY; @areaEndY.innerHTML = clientY
+        
+    setEventListener: =&gt;
+        $('#canvasMain').on 'click', (e) =&gt;
+            @touch(e.clientX, e.clientY)
+
+        $('#btnStart').on 'click', (e) =&gt;
+            @animate()
+        
+    animate: =&gt;
+        @request = requestAnimFrame(@animate, @canvas)
+        @drawanimation()
+
+    drawanimation: =&gt;
+        @context = @canvas.getContext('2d')
+        @context.clearRect(0, 0, @canvas.width, @canvas.height)
+        @amount += 0.02
+        @amount = 1 if @amount &gt; 1
+        @context.beginPath()
+        @context.moveTo @start.x, @start.y
+        @context.strokeStyle = 'rgba(255, 105, 180, 0.7)'
+        @context.lineWidth = 12
+        newX = @start.x + (@end.x - @start.x) * @amount
+        newY = @start.y + (@end.y - @start.y) * @amount
+        @context.lineTo newX, newY
+        @context.stroke()
+        if newX is @end.x and newY is @end.y
+            cancelRequestAnimFrame @request
+            @request = null
+            @amount = 0
+
+window.Animation = window.Animation || Animation
+
+window.requestAnimFrame = (-&gt;
+  window.requestAnimationFrame or window.webkitRequestAnimationFrame or window.mozRequestAnimationFrame or window.oRequestAnimationFrame or window.msRequestAnimationFrame or (callback, element) -&gt;
+    window.setTimeout callback, 1000 / 60
+)()
+window.cancelRequestAnimFrame = (-&gt;
+  window.cancelAnimationFrame or window.webkitCancelRequestAnimationFrame or window.mozCancelRequestAnimationFrame or window.oCancelRequestAnimationFrame or window.msCancelRequestAnimationFrame or clearTimeout
+)()
+</code></pre>
+
+<pre><code class="language-HTML">&lt;!-- animation.html --&gt;
+
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;script type="text/javascript" src="js/jquery-1.11.2.min.js"&gt; &lt;/script&gt;
+    &lt;script type="text/javascript" src="animation.js"&gt; &lt;/script&gt;
+    &lt;title&gt;アニメーションのテスト&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div&gt;
+    &lt;canvas id="canvasMain" width="400" height="400" style="background-color: #2f4f4f;"&gt;&lt;/canvas&gt;
+    &lt;form&gt;
+      &lt;p&gt;
+      開始点　X=&lt;span id="spanStartX"&gt;&lt;/span&gt;:
+      Y=&lt;span id="spanStartY"&gt;&lt;/span&gt;&lt;br /&gt;
+      終了点　X=&lt;span id="spanEndX"&gt;&lt;/span&gt;:
+      Y=&lt;span id="spanEndY"&gt;&lt;/span&gt;
+      &lt;/p&gt;
+      &lt;p&gt;
+        &lt;input id="btnStart" type="button" value="描画"&gt;
+      &lt;/p&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<ul>
+  <li>黒板に赤チョークのイメージです（赤チョークって確かこういうピンクっぽい色だった記憶があります）</li>
+</ul>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/animation.png" target="_blank"><img src="/images/animation.png" alt="実機画面" title="実機（gl07s）で動作確認" /></a></p>
+
+</div>
+
+<ul>
+  <li><a href="/project/2015-02-01/first_cordova/">前回記事</a>で作成した<a href="http://tictactoe-cf.herokuapp.com">サイト</a>にも適用。白線もチョークっぽく掠れた感じにしようかと思いましたが暗くなるので止めました</li>
+</ul>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/3mokunarabe.png" target="_blank"><img src="/images/3mokunarabe.png" alt="三目並べアプリ画面" title="実機（gl07s）で三目並べアプリ" /></a></p>
+
+</div>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>RequestAnimationFrame APIの対応状況は<a href="http://caniuse.com/#feat=requestanimationframe">ここ</a>です。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#programming-ref">
+    		programming <span>12</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#coffeescript-ref">coffeescript <span>7</span></a></li>
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>8</span></a></li>
+     
+    	<li><a href="/tags.html#android-ref">android <span>6</span></a></li>
+     
+    	<li><a href="/tags.html#HTML5-ref">HTML5 <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#tictactoe-ref">tictactoe <span>17</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/project/2015-02-01/first_cordova" title="iOS/Androidハイブリッドアプリ開発">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/hardware/2015-04-14/macbook" title="新Macbook購入">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'happyclam'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2016 happyclam
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

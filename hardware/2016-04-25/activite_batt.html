@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Withings Activitéの電池のもち</title>
+
+    <meta name="author" content="happyclam">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="Withings Activitéの電池のもち">
+  
+  
+  <meta name="twitter:url" content="http://happyclam.github.io/hardware/2016-04-25/activite_batt">
+  
+  
+  <meta name="twitter:description" content="Withings Activitéのサイレントアラームを止めるコツ">
+  
+  
+  <meta name="twitter:image:src" content="http://happyclam.github.io/images/activite_band.png">
+  
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script language="JavaScript">
+$(document).ready( function () {
+    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
+<script src="/assets/themes/twitter/js/jquery.min.js"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
+<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
+<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-1752720-7', 'happyclam.github.io');
+      ga('send', 'pageview');
+    </script>
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div style="text-align: center;">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- トップバナー -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-1238485061299241"
+     data-ad-slot="7366457015"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    </div>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">自己満足プログラミング</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/profile">About</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="row-fluid">
+        <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+        <div class="span9"
+             <!-- Html Elements for Search -->
+             <div id="search-container" align="right">
+               <input type="text" id="search-input" placeholder="search...">
+               <ul id="results-container"></ul>
+             </div>
+             <div class="results"></div>
+        </div>
+      </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Withings Activitéの電池のもち </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>25 April 2016</span>
+    </div>
+    <div class="content">
+      <h3 id="withings-">検索ワードトップに withings が</h3>
+<p>　Google Analyticsを見ていると最近このサイトに辿り着く検索ワードに「withings」が目立つようになってきました。以前は「αβ法」や「rails」等のプログラミング関連のキーワードでこのサイトに訪れる人が多かったのですが、やはりプログラミングする人よりしない人の方が圧倒的に多いのだから一見さんは特にそうなるのでしょう。もともと訪問者が少ない弱小零細ブログですが、そういえばMacbookが発売された時にその記事を書いたら一時的に訪問者が増えたことからも、プログラミングの話題なんかより、関わる人の絶対数が多い言葉の方が人が集まり易いのは当然でしょう。Withingsの製品が別段ブームになっているとは思えませんが、情報を求めている人もいるみたいなので気づいたことを記事にしておきます。</p>
+
+<h3 id="section">電池自体は７ヶ月もった</h3>
+<p>　去年の８月から使い始めて約５ヶ月後の今年の１月ぐらいにサイレントアラームが動かなくなりました。特にサイレントアラームが絶対必要というわけではなかったのでそのまま使用し続けて様子を見ていたのですが、先日ようやく電池が切れました。電池残量が少ないとサイレントアラームが機能しないようになっているのでしょう。多分そうだろうと思いながらも一度電池がなくなるまで使い続けてみようと思いながら使っていたのですが、アラームが動かなくなってからは時間も遅れ気味になって２、３日に一回ぐらいのペースで時刻合わせする羽目になっていたので、今度からはアラームが動かなくなるタイミングで電池交換しようと思っています。<br />
+　今まで、電池が少ないからアラームが動かないのか、壊れたから動かなくなったのか、はっきりしない状態でドキドキ感を多少楽しみながら放置していたわけですが、壊れてなくてよかったです<img class="emoji" title="grin" alt="grin" src="https://github.global.ssl.fastly.net/images/icons/emoji/grin.png" height="20" width="20" align="absmiddle" /></p>
+
+<h3 id="section-1">サイレントアラームの止め方</h3>
+<p>　これは<a href="/project/2015-09-19/activite#notice">以前の記事</a>にも書いたのですが、未だに気づいていない人が多いと思います。いろんなサイトに出来ないと書いてあるので試してみようと思わない人も多いと思います。以前記事を書いた時と違って今はサイレントアラームを止めるコツを掴みました。ブルブルが止まった瞬間に<strong>「カッカッカッ」という感じで本体右上辺りをつめ先で３回叩く</strong>というものです。多分２回でもいいと思う（実際２回で止まることもあります）のですが本体のアラームが稼働している時（ブルブルしている時）はタップされたことが認識できないと思うので、念のために１回余計にタップしています。タイミングが大事なので失敗することもあるのですが、昔と違って今はだいたい３回目ぐらいのブルブルが来るまでには止めることが出来るようになりました。でもサイレントアラームは止めることが出来ないと書いてあるブログは見つけることはあるのですが、未だに止めることが出来ると書いてあるブログ等を見かけないので、<a href="/project/2015-09-19/activite#notice">以前の記事</a>に書いたように私の持っている個体が特別（故障している）なのかもしれません<img class="emoji" title="question" alt="question" src="https://github.global.ssl.fastly.net/images/icons/emoji/question.png" height="20" width="20" align="absmiddle" /></p>
+
+<h3 id="section-2">浸水防止の輪ゴム</h3>
+<p>　電池交換しようと思い裏蓋を開けたらポロッと輪ゴムが落ちました。</p>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/activite_band.png" target="_blank"><img src="/images/activite_band.png" alt="Withings Activitéの輪ゴム" title="Withings Activité内部の輪ゴム" /></a></p>
+
+</div>
+
+<p>　浸水防止用の輪ゴムのようですが、ゴムが伸びきってしまってヨレヨレになって落ちたようです。せっかく蓋を開けたのだから、ゴムを新しいのに替えたかったのですが、非常に細いので普通の輪ゴムでは代用が効かないようです。試しにもっと小さな輪ゴムを引き伸ばして枠に嵌めてみたのですが、いくら引き伸ばしたといっても体積が大きいので蓋を閉めようとするとゴムがハミ出すような感じになって蓋を閉めることが出来ませんでした。</p>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/activite_mini.png" target="_blank"><img src="/images/activite_mini.png" alt="Withings Activitéの輪ゴムの代用品？" title="Withings Activitéの輪ゴムの代用品？" /></a></p>
+
+</div>
+
+<p>　聞くところによるとビーズ用のゴムなら細いのが色々あるらしいのですが、輪ゴム上にはなっていない（ビーズを通すから当たり前）ので諦めました（ビーズ用のゴムの両端を縛って輪ゴムにして使ってみようかとも思いましたが、出っ張りが出来てかえって浸水し易くなるような気がします）。仕方なくヨレヨレのゴムをそのまま使って蓋を閉めましたが、代用になる輪ゴムはどこかで手に入らないものでしょうかねぇ<img class="emoji" title="persevere" alt="persevere" src="https://github.global.ssl.fastly.net/images/icons/emoji/persevere.png" height="20" width="20" align="absmiddle" /></p>
+
+<hr />
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#hardware-ref">
+    		hardware <span>6</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#hardware-ref">hardware <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#software-ref">software <span>12</span></a></li>
+     
+    	<li><a href="/tags.html#withings-ref">withings <span>3</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/miscellaneous/2016-04-02/self-publishing" title="電子書籍出版して２週間経ちました">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled"><a>Next &rarr;</a>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'happyclam'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2016 happyclam
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

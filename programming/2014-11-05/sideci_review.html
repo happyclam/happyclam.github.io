@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>自動でコードレビュー</title>
+
+    <meta name="author" content="happyclam">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="自動でコードレビュー">
+  
+  
+  <meta name="twitter:url" content="http://happyclam.github.io/programming/2014-11-05/sideci_review">
+  
+  
+  <meta name="twitter:description" content="programming for enjoyment.">
+  
+  
+  <meta name="twitter:image:src" content="http://happyclam.github.io/images/favicon.png">
+  
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script language="JavaScript">
+$(document).ready( function () {
+    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
+<script src="/assets/themes/twitter/js/jquery.min.js"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
+<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
+<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-1752720-7', 'happyclam.github.io');
+      ga('send', 'pageview');
+    </script>
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div style="text-align: center;">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- トップバナー -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-1238485061299241"
+     data-ad-slot="7366457015"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    </div>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">自己満足プログラミング</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/profile">About</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="row-fluid">
+        <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+        <div class="span9"
+             <!-- Html Elements for Search -->
+             <div id="search-container" align="right">
+               <input type="text" id="search-input" placeholder="search...">
+               <ul id="results-container"></ul>
+             </div>
+             <div class="results"></div>
+        </div>
+      </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+      <div class="content">
+        
+<div class="page-header">
+  <h1>自動でコードレビュー </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>05 November 2014</span>
+    </div>
+    <div class="content">
+      <h3 id="section">当面は無料で提供されるらしいのでやってみて損はないかな？</h3>
+<p>　セキュリティホールをふせぐという謳い文句に惹かれて<a href="http://jp.techcrunch.com/2014/04/30/%E3%82%A2%E3%82%AF%E3%83%88%E3%82%AD%E3%83%A3%E3%83%83%E3%83%88%E3%81%AE%E3%80%8Csideci%E3%80%8D%E3%81%AF%E3%80%81%E3%82%B3%E3%83%BC%E3%83%89%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E3%82%92%E8%87%AA/">「SideCI」</a>使ってみました。レビューの対象に使ったプロジェクトは<a href="/programming/2014-10-27/my-posi-chart/">前回の記事</a>でRails4にバージョンアップしたばかりの<a href="https://github.com/happyclam/my-posi">これ</a>です。<br />
+　使っている人の感想とか探せばもっと見つかると思いますが自分が参考にしたのは<a href="http://blog.mah-lab.com/2014/05/14/rails-side-ci/">ここ</a>です。中身は<a href="http://brakemanscanner.org/">Brakeman</a>や<a href="https://github.com/railsbp/rails_best_practices">Rails Best Practice</a>などのツールを組み合わせたものらしいけど、統合メニューで操作できるのは確かに有難いかも。色々メニュー項目がありますが自分が使ってみたものについて感想と、指摘された改善点についてざっと書きます。<br />
+　自分が書いたプログラムにどのような難癖を付けられるのか気になる人もいると思いますので参考にしてください<img class="emoji" title="grin" alt="grin" src="https://github.global.ssl.fastly.net/images/icons/emoji/grin.png" height="20" width="20" align="absmiddle" /></p>
+
+<ul>
+  <li>
+    <p><strong>ニュースフィード</strong><br />
+　Test&amp;Deployの機能や通知機能を使う気がない自分にとってはあまり必要がないメニューかも</p>
+  </li>
+  <li>
+    <p><strong>Dashboard</strong></p>
+  </li>
+</ul>
+
+<div style="width:320px; height:240px; float: left;">
+
+  <p><img src="/images/dashboard_org_my-posi.png" alt="ダッシュボード画面初期状態" title="初レビュー時のダッシュボード画面" /></p>
+
+</div>
+
+<div style="width:320px; height:240px; float: left;">
+
+  <p><img src="/images/dashboard_new_my-posi.png" alt="ダッシュボード画面コード改修後" title="コード改修後のダッシュボード画面" /></p>
+
+</div>
+
+<div style="width:320px; height:280px; margin: 0 auto;"></div>
+
+<ul>
+  <li><strong>セキュリティ</strong>
+    <ul>
+      <li><a href="http://brakemanscanner.org/docs/warning_types/link_to_href/">Cross Site Scripting: Link to HREF</a><br />
+twitterで呟くための文字列をAPIに渡す以下のコードでセキュリティ警告が出ました。</li>
+    </ul>
+
+    <pre><code>&lt;%= link_to("結果をTwitterでつぶやく", "https://twitter.com/intent/tweet?text=#{u(@strategy.get_message_str)}&amp;url=" + request.url) %&gt;
+</code></pre>
+    <p>　たしかRails3以降は自動で文字列をエスケープしてくれるはずと思って検索したら<a href="http://www.rubylife.jp/rails/template/index7.html">ここ</a>にもそう書いてあります。それなのに警告が出るのはおそらくSideCI上の<a href="https://github.com/railsbp/rails_best_practices">Rails Best Practice</a>のオプション設定の問題だと思います。もしそうだとしたらGemfileに使用しているRailsのバージョンが書いてあるのだからオプション設定もそれに合わせてほしいところですが、一応以下のように修正して警告を出さないようにすることは出来ました。</p>
+
+    <pre><code>&lt;%= link_to("結果をTwitterでつぶやく", "https://twitter.com/intent/tweet?text=#{h(@strategy.get_message_str)}&amp;url=#{h(request.url)}") %&gt;
+</code></pre>
+    <p>念のためhtmlタグやシングルクォートを出力して確認しましたがh()で囲まなくてもちゃんとエスケープされていました。無駄な時間を取られましたが、まぁ確認する機会を得られたと前向きに考えるべきなのでしょうかヽ(~〜~　)ノ\ ハテ?</p>
+  </li>
+  <li><strong>コード品質</strong>
+    <ul>
+      <li>
+        <p><a href="http://rails-bestpractices.com/posts/148-protect-mass-assignment">Protect mass assignment</a><br />
+このサイト（<a href="http://qiita.com/aquamikan/items/57c6c95b39f961a18453">Rails4はattr_accessibleが使えない</a>）に書いてある通り、Rails4だとエラーになるからRailsをバージョンアップした時に削除したのに、そこが悪いと指摘されました。これはどういうことでしょう？これもセキュリティの警告と同じで<a href="https://github.com/railsbp/rails_best_practices">Rails Best Practice</a>がRails4に対応していないものを使っているのか、オプション設定が厳しめになっているのかそんなところでしょう。よく分からないけど無視することにしました。こうなってくるとコードレビューしたことが混乱を引き起こすという本末転倒になってる気もしますが^^;本気でこのツールを使う気があるなら運営元に質問すればおそらく解決するでしょう。</p>
+      </li>
+      <li>
+        <p><a href="http://rails-bestpractices.com/posts/7-move-model-logic-into-the-model">Move Model Logic into the Model</a><br />
+自分が納得したとこだけ修正しました。</p>
+      </li>
+      <li>
+        <p><a href="http://rails-bestpractices.com/posts/72-remove-empty-helpers">Remove empty helpers</a><br />
+中身が空のヘルパーファイルがありますよ。自動生成したくなかったら<code>config.generators.helper = false</code>しておけということですね。</p>
+      </li>
+      <li>
+        <p><a href="http://rails-bestpractices.com/posts/27-replace-instance-variable-with-local-variable">Replace instance variable with local variable</a><br />
+納得。Rails2の頃からのソースで、よく理解していないまま書いていたコードがそのままでした。</p>
+      </li>
+      <li>
+        <p><a href="http://rails-bestpractices.com/posts/86-restrict-auto-generated-routes">restrict auto-generated</a> routes strategies (except: [:new])<br />
+以下のように定義していたルートに対して、</p>
+      </li>
+    </ul>
+
+    <pre><code>resources :strategies do
+  collection do
+    get :children
+  end
+  member do
+    get :paint
+    post :copy
+  end
+  resources :positions, :only =&gt; ["destroy", "update", "create", "edit"]
+end
+</code></pre>
+    <p>　「newが使われていませんよ」と指摘してくれたわけです。これはいいかも。以下のように修正しました。</p>
+
+    <pre><code>resources :strategies, :except =&gt; ["new"] do
+</code></pre>
+
+    <ul>
+      <li><a href="http://rails-bestpractices.com/posts/62-simplify-render-in-controllers">Simplify render in controllers</a><br />
+このプロジェクトはModel用のテストスクリプト（Model用のspecファイル）しか書いていなくて、Railsのバージョンアップをした時に以下のようなRailsが出力する雛形のコードに対するテストが不十分でしたが、バグ出しツールとして役に立ちました。saveに失敗したら’new’テンプレートをrenderするとコードでは書いていますが、newテンプレートは存在していませんでした。但しファイルが存在しないことを指摘してくれたわけではありません。</li>
+    </ul>
+
+    <pre><code>  respond_to do |format|
+    if @user.save
+      format.html { redirect_to @user, notice: 'User was successfully created.' }
+      format.json { render action: 'show', status: :created, location: @user }
+    else
+      format.html { render action: 'new' }
+      format.json { render json: @user.errors, status: :unprocessable_entity }
+    end
+  end
+</code></pre>
+
+    <ul>
+      <li>
+        <p><a href="http://rails-bestpractices.com/posts/61-simplify-render-in-views">Simplify render in views</a><br />
+部分テンプレートを使うとき<code>:partial</code>というオプションを使わなければならない機会っていうのは無いってことなのか？と、新たな疑問が湧きましたが、リンク先に書いてある通りに修正しました。</p>
+      </li>
+      <li>
+        <p><a href="http://rails-bestpractices.com/posts/60-remove-trailing-whitespace">remove trailing whitespace</a><br />
+行末のスペースを削除しろってことだけど、これは細かい！まぁチームで開発するときには一応統一しておいたほうがいいでしょうね。<br />
+あと、一つのファイルで最初に見つかった行だけを指摘するみたいなので、他の場所にも存在しないかよく確認してからcommitしましょう。</p>
+      </li>
+      <li>
+        <p>remove unused methods<br />
+また使うかもしれないから残しておこうなんて思ったコードが結構残っていました。自分一人のプロジェクトなので他人を混乱させる心配はないのですが、せっかくgitでバージョン管理しているのだからバッサリ削除すべきですね。</p>
+      </li>
+    </ul>
+  </li>
+  <li><strong>テスト &amp; デプロイ設定</strong><br />
+　自分が使用しているtwitterAPI用の環境変数とかSSH Keyを登録するのが不安なので使用するのは止めておきました。まぁherokuではなんの警戒もせずtwitterの認証コードを環境変数にセットして使っているのに、なんで使わないのかと問われれば返答に困りますが、仕事で使う機会があれば使ってみたいと思います。</li>
+</ul>
+
+<hr />
+
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#programming-ref">
+    		programming <span>12</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#rails-ref">rails <span>12</span></a></li>
+     
+    	<li><a href="/tags.html#my-posi-ref">my-posi <span>6</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/programming/2014-10-27/my-posi-chart" title="gruffからlazy_high_chartへ">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/programming/2014-12-26/csrf" title="checkboxでAjaxで更新（PATCH）処理">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'happyclam'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2016 happyclam
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

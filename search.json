@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Withings Activitéの電池のもち",
+      "category" : "hardware",
+      "tags"     : "hardware, software, withings",
+      "url"      : "http://happyclam.github.io/hardware/2016-04-25/activite_batt",
+      "date"     : "2016-04-25 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "電子書籍出版して２週間経ちました",
       "category" : "miscellaneous",
       "tags"     : "epub, coffeescript",
@@ -107,7 +115,7 @@
     {
       "title"    : "WithingsのAPIで遊ぶ",
       "category" : "project",
-      "tags"     : "rails, software, ruby",
+      "tags"     : "rails, software, ruby, withings",
       "url"      : "http://happyclam.github.io/project/2015-09-19/activite",
       "date"     : "2015-09-19 00:00:00 +0900"
     } ,
@@ -115,7 +123,7 @@
     {
       "title"    : "Withings Activité購入",
       "category" : "hardware",
-      "tags"     : "android, iphone, hardware, software",
+      "tags"     : "android, iphone, hardware, software, withings",
       "url"      : "http://happyclam.github.io/hardware/2015-08-16/withings",
       "date"     : "2015-08-16 00:00:00 +0900"
     } ,

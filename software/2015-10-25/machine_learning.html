@@ -1,0 +1,596 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>算数で作る機械学習プログラム</title>
+
+    <meta name="author" content="happyclam">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="算数で作る機械学習プログラム">
+  
+  
+  <meta name="twitter:url" content="http://happyclam.github.io/software/2015-10-25/machine_learning">
+  
+  
+  <meta name="twitter:description" content="programming for enjoyment.">
+  
+  
+  <meta name="twitter:image:src" content="http://happyclam.github.io/images/favicon.png">
+  
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script language="JavaScript">
+$(document).ready( function () {
+    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
+<script src="/assets/themes/twitter/js/jquery.min.js"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
+<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
+<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-1752720-7', 'happyclam.github.io');
+      ga('send', 'pageview');
+    </script>
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div style="text-align: center;">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- トップバナー -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-1238485061299241"
+     data-ad-slot="7366457015"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    </div>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">自己満足プログラミング</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/profile">About</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="row-fluid">
+        <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+        <div class="span9"
+             <!-- Html Elements for Search -->
+             <div id="search-container" align="right">
+               <input type="text" id="search-input" placeholder="search...">
+               <ul id="results-container"></ul>
+             </div>
+             <div class="results"></div>
+        </div>
+      </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+      <div class="content">
+        
+<div class="page-header">
+  <h1>算数で作る機械学習プログラム </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>25 October 2015</span>
+    </div>
+    <div class="content">
+      <h3 id="section">新たに必要になった機能</h3>
+<p>　前回の続きです。<a href="http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1444873224&amp;sr=1-1&amp;keywords=statistics+hacks">「STATISTICS HACKS」</a>の内容に沿って機械学習機能を付加した三目並べプログラムを作成したのですが、元々あった三目並べ対戦プログラムに対してどんな作業が必要だったのか、新たに付加した機能を列挙してみます。</p>
+
+<ul>
+  <li><strong>多分木データ</strong>（Player.trees）<br />
+　<a href="/software/2015-10-19/multi_branched_tree/">前回の記事</a>で用意した全局面分のデータです。学習データを利用して手を決めることになるので評価関数は不要になりました。</li>
+  <li><strong>学習機能</strong>（Player.learning）<br />
+　勝った時は報酬を与えて（石の数を増やす）負けたら罰を与える（石の数を減らす）ことで学習効果を上げていくわけですが、<a href="http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1444873224&amp;sr=1-1&amp;keywords=statistics+hacks">「STATISTICS HACKS」</a>には勝ちと引き分けに差をつけて、勝ちは＋３、引き分けは＋１がいいと書いてありますのでその通りにしています。そして、そこには負けた場合どうすればいいのか書いてありませんが、負けたら石を海に投げ込むという描写もあるので−１でいいだろうと思い負けは−１にしています。もしかしたら±０でいいのかもしれませんし、逆に負けを−３にする方法もありそうですがこの辺りは評価関数の調整と同じでキリがないのでとりあえずの値です。<br />
+　それと、実際に着手した局面の一手前の石の数（score配列）を操作するということに注意が必要です。<br />
+<img src="/images/battle_ex1.png" alt="例１" /><br />
+　各局面が持っている石の数（score配列）はその局面で打てる場所に存在し次の手を決めるためにあるので、ソフト側が先手（X）で上記のような経過を辿って負けた場合、５手目の局面でOが揃うのを防がなかったのが悪かったということで、一つ前の４手目の局面の石（score配列）を−１します。４手目の局面で先手（X）が”2”（配列の添え字は1）を選ばずに”6”を選んだことが負けの原因なので”6”の位置のscore配列の値を−１します。score配列の初期値は[10,10,10,10,10,10,10,10,10]なので、４手目の局面のscore配列を[10,10,10,10,10,9,10,10,10]にするということです。同様に２手目で”7”を選んだことが悪かった、０手目（初期盤面）で”5”を選んだことが悪かったと評価して２手目のscore配列を[10,10,10,10,10,10,9,10,10]、０手目のscore配列を[10,10,10,10,9,10,10,10,10]にして次回からその局面でその手が選ばれにくくなるようにします。</li>
+  <li><strong>ファイル入出力機能</strong>（Player.prepare、Tree::read、Tree::save）<br />
+　<a href="/software/2015-10-19/multi_branched_tree/">前回の記事</a>のスクリプトの例でinitメソッドとしていましたが、他でも使用しているのでprepareメソッドに名前を変えました。起動時にTreeオブジェクトのシリアライズデータ（trees.dump）がカレントディレクトリにあればそれを読み込み、無ければBFS探索で重複局面を省いた三目並べの全局面のツリーデータを生成します。オブジェクト指向言語には必ず用意されているシリアライズ機能はオブジェクトを丸ごと保存できるので便利です。</li>
+  <li><strong>指し手選択機能</strong>（Tree.apply）<br />
+　指定された局面を探し出して、その局面で選択可能な手毎に用意されている石ころの数（score配列の値）によって指し手を選ぶわけですが、いつも一番石ころが多い手を選ぶわけではありません。<br />
+　「その箇所にある石の数（score配列の値）／その局面の石の総数（score配列の合計値）」<br />
+の頻度で指し手が選ばれるようにします。石ころの数が増えればその手が選ばれる頻度が上がる仕掛けです。</li>
+  <li><strong>指し手の履歴</strong>（Game.history）<br />
+　ゲーム終了後に指し手の評価をするために必要になりました。</li>
+  <li><strong>直近の指し手</strong>（Board.move）<br />
+　これもゲーム終了後に指し手の評価をするために必要になりました。</li>
+</ul>
+
+<h3 id="section-1">指し手選択機能について</h3>
+<p>　指し手の選択機能は、指し手を無作為に選択するわけですが、石ころの報酬を受け取る（score配列の値が増加）ことによって学習し、徐々に良い手（score配列の数値が大きい手）を選択する確率を上げていくという仕様です。石ころの総数から乱数を生成して、その値から指し手（９箇所のマス目）の配列の添え字をダイレクトに導くデータ構造はどうすればいいのか、そして選んだ添え字の場所が打てる場所なのかどうかも判断しなければなりません。</p>
+
+<pre><code>  def idx(score)
+    ret = nil
+    index = rand(score.inject{|sum, n| sum + n})
+    start = 0
+    score.each_with_index{|v, i|
+      start += v
+      if start &gt; index
+        ret = i
+        break
+      end
+    }
+    return ret
+  end
+</code></pre>
+
+<p>　最初は９箇所にそれぞれ石を持っているのだから２次元配列を使うのかとかMatrixを使えば変換できるかとか難しく考えたのですが、一番シンプルな一次元配列のまま、コンストラクタで打てる場所かどうか（打てない場所は０をセットしておく）を判断し、指し手選択時にscore配列分の９回ループするだけで添え字を求められることに気がついてこれはいい！と思いました。９箇所のマス目の内、打てない場所（既に駒がある場所）のscore配列の値を０にしておくことで、インクリメントに影響を与えないのがミソです。だから石の数（score配列）がマイナスになると動きがおかしくなります。</p>
+
+<h3 id="section-2">学習効果</h3>
+<p>　以前RubyとShoesでGUIの将棋ソフトを作った時は<a href="http://morizyun.github.io/blog/ruby-design-pattern-03-Observer/">Observerパターン</a>を使ってソフト同士の対戦を眺めて楽しめるように作った<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>のですが、三目並べは一瞬で勝負がつくし見学しても楽しくないのでCUIでループで回してソフト同士対戦させて学習効果がどの程度出るのか確認してみました。<br />
+　乱数で手を選択する弱いプログラムと、これまでに<a href="/project/2014-08-05/tictactoe/">記事で紹介していたDFS探索アルゴリズム（αβ法）を使った最強プログラム</a>（絶対負けることがない）との対戦結果です。１００回の対戦を１回として１０回戦までの結果が以下の通りです。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">回 \ 対戦相手</th>
+      <th style="text-align: center">　最強プログラム　　</th>
+      <th style="text-align: center">　乱数プログラム　　</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">１回戦　</td>
+      <td style="text-align: center">0勝91敗 9分</td>
+      <td style="text-align: center">42勝44敗14分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">２回戦　</td>
+      <td style="text-align: center">0勝88敗12分</td>
+      <td style="text-align: center">51勝35敗14分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">３回戦　</td>
+      <td style="text-align: center">0勝83敗17分</td>
+      <td style="text-align: center">41勝42敗17分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">４回戦　</td>
+      <td style="text-align: center">0勝74敗26分</td>
+      <td style="text-align: center">41勝49敗10分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">５回戦　</td>
+      <td style="text-align: center">0勝62敗38分</td>
+      <td style="text-align: center">44勝49敗 7分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">６回戦　</td>
+      <td style="text-align: center">0勝60敗40分</td>
+      <td style="text-align: center">51勝41敗 8分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">７回戦　</td>
+      <td style="text-align: center">ー</td>
+      <td style="text-align: center">36勝53敗11分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">８回戦　</td>
+      <td style="text-align: center">ー</td>
+      <td style="text-align: center">44勝42敗14分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">９回戦　</td>
+      <td style="text-align: center">ー</td>
+      <td style="text-align: center">42勝40敗18分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">１０回戦　</td>
+      <td style="text-align: center">ー</td>
+      <td style="text-align: center">48勝43敗 9分</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>　まず表の右側の乱数プログラムとの対戦結果を見ると、それほど勝率は上がってなさそうですが、上記１０００回の対戦後に初期盤面のscore配列の値を確認すると</p>
+
+<div style="text-align: center;">
+ [94, 32, 137, 98, 160, 95, 98, 84, 97] 
+</div>
+
+<p>になっていました。９箇所のマス目の真ん中の値が160と最大になっていて、初期盤面で真ん中を選べば有利なことを学習しているように見えます。それでも勝率が伸びていないのは弱い相手と戦ってもあまり学習効果が得られないということでしょうか？<br />
+　それに対して左側の最強プログラムとの対戦ではどんどん負け数が減って強くなっている（三目並べはお互いに最善手を差し続ければ引き分けになるゲームなので、最強プログラムに対して０勝なのは仕方ありません）のがわかります。でも６回戦の途中から出現頻度の高い局面の石の数（score配列の値）が足りなくなっていたようで、動きがおかしくなったので中断しました。<br />
+　石の初期値が１０個で足りなくなるのなら増やせばいいじゃないかという話ですが、石の数を増やすと分母が大きくなるわけですから学習効果が薄くなります。初期値を１０個にしていたからこそ早く学習効果が出たとも言えるわけなので、この辺りはどうするのが一番いいのかわからなかったのですが、これについては後で書きます。<br />
+　ちなみに石の数（score配列）のどれかが０になるのがよくないわけではありません。[0,0,200,0,0,0,0,0,0]のような一箇所に石が集中した状態でも、その局面で唯一絶対の手だと学習したということなので問題ありません。極端な話、一箇所だけに一個しか石がない状態[0,0,1,0,0,0,0,0,0]でもそれが学習した結果であればいいのですが、すべてが0だと手の選びようがなくなるのでよくありません。<br />
+　とりあえずTreeクラスのコンストラクタに石の個数の引数を加えて、出現頻度が高い局面（初期盤面と一手目の局面）だけは石の初期値を５０にして、石が足りなくならないようにして、学習データを削除（trees.dumpファイルを削除）してからあらためて今度は２０００回対戦させてみました。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">回 \ 対戦相手</th>
+      <th style="text-align: right">　最強プログラム　　</th>
+      <th style="text-align: right">　乱数プログラム　　</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">１回戦　</td>
+      <td style="text-align: right">0勝88敗12分</td>
+      <td style="text-align: right">41勝50敗9分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">２回戦　</td>
+      <td style="text-align: right">0勝86敗14分</td>
+      <td style="text-align: right">44勝44敗12分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">３回戦　</td>
+      <td style="text-align: right">0勝90敗10分</td>
+      <td style="text-align: right">42勝40敗18分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">４回戦　</td>
+      <td style="text-align: right">0勝83敗17分</td>
+      <td style="text-align: right">40勝38敗22分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">５回戦　</td>
+      <td style="text-align: right">0勝87敗13分</td>
+      <td style="text-align: right">42勝43敗15分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">６回戦　</td>
+      <td style="text-align: right">0勝89敗11分</td>
+      <td style="text-align: right">47勝41敗12分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">７回戦　</td>
+      <td style="text-align: right">0勝81敗19分</td>
+      <td style="text-align: right">47勝46敗7分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">８回戦　</td>
+      <td style="text-align: right">0勝79敗21分</td>
+      <td style="text-align: right">45勝42敗13分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">９回戦　</td>
+      <td style="text-align: right">0勝88敗17分</td>
+      <td style="text-align: right">45勝45敗10分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">１０回戦　</td>
+      <td style="text-align: right">0勝75敗25分</td>
+      <td style="text-align: right">45勝44敗11分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">１１回戦　</td>
+      <td style="text-align: right">0勝68敗32分</td>
+      <td style="text-align: right">42勝45敗13分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">１２回戦　</td>
+      <td style="text-align: right">0勝64敗36分</td>
+      <td style="text-align: right">41勝45敗14分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">１３回戦　</td>
+      <td style="text-align: right">0勝70敗30分</td>
+      <td style="text-align: right">51勝37敗12分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">１４回戦　</td>
+      <td style="text-align: right">0勝64敗36分</td>
+      <td style="text-align: right">49勝45敗6分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">１５回戦　</td>
+      <td style="text-align: right">0勝68敗32分</td>
+      <td style="text-align: right">51勝30敗19分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">１６回戦　</td>
+      <td style="text-align: right">0勝70敗30分</td>
+      <td style="text-align: right">41勝50敗9分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">１７回戦　</td>
+      <td style="text-align: right">0勝54敗46分</td>
+      <td style="text-align: right">42勝41敗17分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">１８回戦　</td>
+      <td style="text-align: right">0勝63敗37分</td>
+      <td style="text-align: right">53勝41敗6分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">１９回戦　</td>
+      <td style="text-align: right">0勝57敗43分</td>
+      <td style="text-align: right">41勝44敗15分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">２０回戦　</td>
+      <td style="text-align: right">0勝55敗45分</td>
+      <td style="text-align: right">50勝34敗16分</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>　最強プログラムとの対戦ではやはり良好な学習効果が得られているように見えます。<br />
+ちなみにこの２０００回対戦後の初期盤面の石の数（score配列の値）は、乱数プログラムの方は</p>
+
+<div style="text-align: center;">
+[282, 135, 219, 252, 357, 132, 270, 96, 277]  
+</div>
+<p>で、やはり真ん中が最大値になっていました。<br />
+　最強プログラムの方は</p>
+
+<div style="text-align: center;">
+[14, 165, 8, 22, 81, 20, 5, 92, 1]  
+</div>
+<p>で真ん中は３番目で、なぜか上辺（２の位置）が一番大きな値になっていたのですが、理由はよくわかりません。</p>
+
+<h3 id="section-3">最後に</h3>
+<p>　石が無くならないようにするために、出現頻度の高い初期盤面（１局面）と一手目の局面（９局面）の石の数を５０にしたわけですが、５０という値には根拠がないですし、なんとなくすっきりしないので、負けたら−１という仕様を変更して、<a href="http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1444873224&amp;sr=1-1&amp;keywords=statistics+hacks">本</a>の主張とは少し違ってきますが、負けても罰しない仕様（勝ちは＋３、引き分けは＋１、負けたら±０）で試してみました。これなら石が無くなる心配もないしマジックナンバーが減ります。初期値は一応１０で試しましたが、石が無くなる心配がないので１以上ならなんでもいいと思います。デスクトップPCで一晩かけて１０万回対戦させてみました（もちろんtrees.dumpファイルを削除してから開始しています）。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">項目 \ 対戦相手</th>
+      <th style="text-align: center">　最強プログラム　　</th>
+      <th style="text-align: center">　乱数プログラム　　</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">対戦成績　</td>
+      <td style="text-align: center">0勝18,234敗81,766分</td>
+      <td style="text-align: center">58,971勝30,103敗10,926分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">初期盤面の石の数</td>
+      <td style="text-align: center">[537, 27512, 55, 4045, 9444, 297, 50, 3927, 37]</td>
+      <td style="text-align: center">[10779, 2666, 16245, 11403, 22578, 7644, 25519, 6646, 5529]</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>　最強プログラムとの対戦成績は８割以上引き分けるようになりました。負けを−１しなくても学習効果は今までのプログラムと同様の効果が出ているように見えます。乱数プログラムとの対戦成績も６割近くに伸びているのでもっと回数を増やせばいいのかもしれません。<br />
+　学習機能の説明のところで勝負に負けたからといって一律に全ての局面から減点（石を減らす）していくという仕様に違和感を感じた人もいると思いますが、私も<a href="http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1444873224&amp;sr=1-1&amp;keywords=statistics+hacks">本</a>に書いていたから最初はそうしてみたけど勝負に負けたからといって初手にどれほどの影響力があるのか疑問です。その意味でも負けた時は±０というのは理にかなっていると思います。但し、直接負けに繋がった一手は罰するべきかもしれません。<a href="http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1444873224&amp;sr=1-1&amp;keywords=statistics+hacks">本</a>にも序盤より終盤の手を重視する方法が紹介されています。まだまだ学習効果を上げる方法も学習機能の仕様を変える余地も大きく、検証方法もいろいろ考えられるので、また何かアイデアを思いつけばこのプログラムを使って記事を書くかもしれません。<br />
+　今回のソースは別ブランチ（machinelearning）を作りました。以下のコマンドでブランチ指定してソースを取得することが出来ます。</p>
+
+<pre><code>git clone -b machinelearning https://github.com/happyclam/tictactoe_ruby
+</code></pre>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>本来の使い方とは違うかもしれませんが、一方が一手指したらその通知を受け取ってもう一方が一手指すというような作りにしていました。またもう一箇所、双方が手を指した通知を受け取って棋譜を更新する部分もObserverを使用していました、これは本来の使い方と言えるでしょう。一つのプログラムで２種類のオブザーバーが問題なく動きました。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#software-ref">
+    		software <span>11</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#software-ref">software <span>12</span></a></li>
+     
+    	<li><a href="/tags.html#tictactoe-ref">tictactoe <span>17</span></a></li>
+     
+    	<li><a href="/tags.html#ruby-ref">ruby <span>20</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/software/2015-10-19/multi_branched_tree" title="対戦型ソフトでの幅優先探索（BFS）の使い途">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/software/2015-11-27/reinforcement" title="強化学習の修正">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'happyclam'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2016 happyclam
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

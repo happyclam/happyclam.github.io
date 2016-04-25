@@ -1,15 +1,16 @@
 
-http://happyclam.github.io/archive.html
+http://happyclam.github.io/archive
 http://happyclam.github.io/atom.xml
-http://happyclam.github.io/categories.html
-http://happyclam.github.io/index.html
-http://happyclam.github.io/pages.html
-http://happyclam.github.io/profile.html
+http://happyclam.github.io/categories
+http://happyclam.github.io/
+http://happyclam.github.io/pages
+http://happyclam.github.io/profile
 http://happyclam.github.io/rss.xml
 http://happyclam.github.io/search.json
 http://happyclam.github.io/sitemap.txt
-http://happyclam.github.io/tags.html
+http://happyclam.github.io/tags
 
+http://happyclam.github.io/hardware/2016-04-25/activite_batt
 http://happyclam.github.io/miscellaneous/2016-04-02/self-publishing
 http://happyclam.github.io/project/2016-03-30/koboAPI
 http://happyclam.github.io/hardware/2016-03-21/pr_epson
