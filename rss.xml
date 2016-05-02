@@ -5,10 +5,106 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2016-04-25T15:29:05+09:00</lastBuildDate>
-        <pubDate>2016-04-25T15:29:05+09:00</pubDate>
+        <lastBuildDate>2016-05-02T14:07:56+09:00</lastBuildDate>
+        <pubDate>2016-05-02T14:07:56+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>CoffeeScriptでシリアライズ</title>
+                <description>&lt;h3 id=&quot;section&quot;&gt;オブジェクトのシリアライズ機能ってデータだけでいいのか？&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/programming/2015-01-25/ruby_to_js/&quot;&gt;以前の記事&lt;/a&gt;でJavaScriptは嫌いだけど、CoffeeScriptは好き（Rubyも好きです）と書きましたが、またJavaScriptが嫌になる出来事に遭遇しました。なんとJavaScriptにはオブジェクトをシリアライズする機能が標準では無いようです。データ交換のためJSONは今までから使っていましたが、JSON形式だとメソッドを復元することが出来ません。自分が知らないだけで探せば何か方法があるのだろうと思っていたのですが、外部のライブラリを使わない限りシリアライズは無理なようです。昔からRubyでもDelphiでもVC++でも使ってたしPHPでも使った記憶があるシリアライズ機能が無いなんて、JavaScriptはオブジェクト指向言語って言えるのか？って感じがしますが、&lt;code&gt;JSON.stringify&lt;/code&gt;でデータのみを文字列化出来るからそれこそがシリアライズ機能であって、なんでメソッドを含めないといけないのだ？という意見もあるようです。確かにメソッドをシリアライズの対象に含めると複数の同じオブジェクトをシリアライズした場合に重複して無駄だという考え方もあるようです。それにJavaScriptの場合はブラウザ上で動作させるので、セキュリティ上の配慮から敢えて標準装備していないのかもしれません。自分としては学術的な議論は置いといて、他の言語で出来るのだから同じようにやらせて欲しいってだけなのですが…。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;結局データだけ保存して、インスタンス生成し直すしかない？&lt;/h3&gt;
+&lt;p&gt;　以前から記事に書いていたRubyで作った三目並べプログラムをCoffeeScript(JavaScript)に移植しようと思ってシリアライズの必要に駆られたのですが、強化学習後の三目並べの全局面分の多分木データをシリアライズしてファイルに保存し、次回再開するときはその学習結果が反映されているファイルを読み込みデシリアライズして対戦を開始できるようにしたいわけです。Rubyなら以下のコードで簡単に実現出来たことです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;class Tree
+  def self.read(path)
+    begin
+      Pathname.new(path).open(&quot;rb&quot;) do |f|
+        trees = Marshal.load(f)
+      end
+    rescue
+      p $!
+    end
+  end
+
+  def self.save(path, obj)
+    begin
+      Pathname.new(path).open(&quot;wb&quot;) do |f|
+        Marshal.dump(obj, f)
+      end
+    rescue
+      p $!
+    end
+  end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　学習データを保持したオブジェクトを&lt;code&gt;Marshal.dump&lt;/code&gt;でファイルに保存し、それを&lt;code&gt;Marshal.load&lt;/code&gt;するだけで、復元できます。ファイルから読み込まれたオブジェクトはnewしてインスタンスを生成したオブジェクトと変わりなく機能し、Treeクラスに用意してあるメソッドも呼び出せます。呼び出し側のコードは以下のたった２行です。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;#保存するとき
+Tree::save(&quot;./trees.dump&quot;, @trees)
+
+#読み込むとき
+@trees = Tree::read(&quot;./trees.dump&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　でもJavaScriptだと&lt;code&gt;JSON.stringify&lt;/code&gt;でデータを保存することは出来てもメソッドの情報が保存されないので、復元するときには、オブジェクトが保持していたデータを使ってあらためてインスタンスを生成する必要があります。Treeクラスはコンポジットパターンになっていて、一つの局面を保持するTreeオブジェクトが入れ子状になって、枝分かれする局面を保持する形になっているのですが、オブジェクトが内包しているオブジェクトも同様にあらためて生成しなければならないので、全局面分の盤面オブジェクト（Boardオブジェクト）を全部 new していく必要があります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-coffeescript&quot;&gt;class Tree
+    @deserialize: (src) -&amp;gt;
+        buf = new Tree(new Board())
+        @build(buf, src)
+        return buf
+    #ファイルから読み取ったデータで初期化しながら、再帰関数を使って多分木データを再形成していく
+    @build: (root, src) -&amp;gt;
+        for c in src.child
+            newroot = new Tree(new Board(c.value), c.score)
+            root.child.push(newroot)
+            @build(newroot, c)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　保存するときは&lt;code&gt;JSON.stringify&lt;/code&gt;でデータだけを文字列化するだけですが、復元するときに面倒な作業が必要になります。Rubyの場合はどんなオブジェクトであろうと&lt;code&gt;Marshal.dump&lt;/code&gt;と&lt;code&gt;Marshal.load&lt;/code&gt;を呼び出せば済むのですが、JavaScriptの場合はオブジェクトの中身によって（クラス定義によって）やることが違ってきて、オブジェクトの中に多くのオブジェクトを抱えているとそれらをすべて文字列データを元に生成し直さないといけないので、Rubyのコードと比較してとても面倒です。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-coffeescript&quot;&gt;#保存するとき
+localStorage.setItem(&quot;SerializedData&quot;, JSON.stringify(@trees))
+
+#読み込むとき
+data = localStorage.getItem(&quot;SerializedData&quot;)
+try
+    src = JSON.parse(data)
+catch e
+    console.log e
+@trees = Tree.deserialize(src)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;deserializeunserialize&quot;&gt;問題は復元（deserialize,unserialize）する時&lt;/h3&gt;
+&lt;p&gt;　初期盤面の局面から多岐にわたる局面を探索アルゴリズムを使って樹状に形成し、そのオブジェクトを一気にファイルに出力したり読み込んだりネットワークに送ったりするためにあるのがシリアライズ（連続化？）なのに、ファイルから読み込んだデータを元にしてあらためて新規ノードを追加しているのでは、手間が掛かり過ぎて（どちらの手番かとか、駒が置けるかどうかなどのロジックは考慮せずに単純にnewしていけばいいだけの単純作業ではありますが…）、全然”serial”じゃありません。だからシリアライズ機能を実現したとは言えないのですが、&lt;br /&gt;
+とりあえずこの方法&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;シリアライズ時はJSON.stringifyで文字列化&lt;/li&gt;
+  &lt;li&gt;デシリアライズ時は文字列データを元に内包しているオブジェクトも含めてをあらためて生成し直す&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;　で、RubyのコードをCoffeeScript（JavaScript）に移植することが出来ました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
+　それと、この方法でオブジェクトを復元する時は、コンストラクタでやっている初期化処理を出来るだけ軽くするために、ファイルから読み込んだデータで一気に初期化出来るような作りになるよう気をつける必要があるでしょう。今回そのためにRuby製とは違ったconstructorの作りに変更する必要が生じました。まぁこれはやっておいて損のない作業ではありますが、それもこれもJavaScriptにシリアライズ機能がないために生じた作業です。&lt;br /&gt;
+　RubyのプログラムをJavaScriptに移植する作業はCoffeeScriptがその違いを吸収してくれるのでほとんど一対一でコードを置き換えるだけで済むのですが、言語の違いよりもPC上で動いているソフトをブラウザ上で動かすソフトに置き換えるという違いの影響が大きいので制約がいろいろ出てきます。今回のこともブラウザのセキュリティ上の配慮が影響しているのであれば、言語仕様の違いというより、そちらに含めるべきものかもしれません。他にも面倒な違いがあるので、また近いうちに記事を書こうと思います。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;他にもブラウザ上のデータベース（IndexedDB）を使ってデータを格納する方法も試したのですが、全然速くならなかったので止めました。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+                <link>http://happyclam.github.io/programming/2016-05-02/coffee_serialize</link>
+                <guid>http://happyclam.github.io/programming/2016-05-02/coffee_serialize</guid>
+                <pubDate>2016-05-02T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>Withings Activitéの電池のもち</title>

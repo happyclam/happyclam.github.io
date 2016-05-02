@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "CoffeeScriptでシリアライズ",
+      "category" : "programming",
+      "tags"     : "programming, javascript, ruby, coffeescript, android",
+      "url"      : "http://happyclam.github.io/programming/2016-05-02/coffee_serialize",
+      "date"     : "2016-05-02 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "Withings Activitéの電池のもち",
       "category" : "hardware",
       "tags"     : "hardware, software, withings",
