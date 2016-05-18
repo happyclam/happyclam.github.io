@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "CoffeeScriptで割り込み処理",
+      "category" : "programming",
+      "tags"     : "programming, javascript, ruby, coffeescript, android",
+      "url"      : "http://happyclam.github.io/programming/2016-05-18/coffee_settimeout",
+      "date"     : "2016-05-18 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "CoffeeScriptでシリアライズ",
       "category" : "programming",
       "tags"     : "programming, javascript, ruby, coffeescript, android",

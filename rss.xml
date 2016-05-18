@@ -5,10 +5,187 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2016-05-02T14:07:56+09:00</lastBuildDate>
-        <pubDate>2016-05-02T14:07:56+09:00</pubDate>
+        <lastBuildDate>2016-05-18T14:29:42+09:00</lastBuildDate>
+        <pubDate>2016-05-18T14:29:42+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>CoffeeScriptで割り込み処理</title>
+                <description>&lt;h3 id=&quot;section&quot;&gt;重たい処理をしている最中に再描画する方法&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/programming/2016-05-02/coffee_serialize/&quot;&gt;前回&lt;/a&gt;同様Ruby製プログラムをCoffeeScript（JavaScript）に移植する際の話ですが、PC上で動くプログラムでもそうですが、重たい処理をしている最中に画面の更新をしたい時があると思います。三目並べの全局面データを作成する処理がRuby製プログラムで４、５秒かかるのですが、この処理をブラウザ上で動かすCoffeeScript（JavaScript）製のプログラムにした時の顛末を書きます。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;スレッドが使えない&lt;/h3&gt;
+&lt;p&gt;　今回の三目並べプログラムは&lt;a href=&quot;/project/2015-10-10/tictactoe_bfs/&quot;&gt;BFS（Breadth First Search）アルゴリズム&lt;/a&gt;や&lt;a href=&quot;/software/2015-10-25/machine_learning/&quot;&gt;機械学習プログラム&lt;/a&gt;の動作確認用のサンプルとして作ったものですから、レスポンスが遅くても問題なかったのですが、以前Rubyと&lt;a href=&quot;http://shoesrb.com&quot;&gt;Shoes&lt;/a&gt;でGUIの将棋プログラムを作った時は、先読みさせる時に別スレッドを起動して画面を更新しました。人間とソフトの対戦中のループ処理内に&lt;code&gt;Thread.new&lt;/code&gt;で囲んだブロックを以下のように入れておくだけで、ソフトが思考中でもユーザーの操作を妨げることなく画面の再描画やメニュー操作をすることが出来ました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@thinking = Thread.new do
+    #思考ルーチンを呼び出す処理　
+    @game_end = true unless @game.command(@board, player)
+    #画面再描画処理
+    draw_board
+end
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　非GUIのソフトならsleep関数を呼び出すだけで済む場合もあると思いますし、Windowsのソフト（GUIソフト）でも簡単な仕組みが用意してあって、何らかのループ処理中に&lt;code&gt;PM_REMOVE&lt;/code&gt;フラグを付けて&lt;code&gt;PeekMessage&lt;/code&gt;というWindowsAPIを呼び出すだけで画面を再描画させることが出来ます。VisualBasicなら&lt;code&gt;DoEvents&lt;/code&gt;コマンドを呼び出すだけ、Delphiなら&lt;code&gt;Application.ProcessMessages&lt;/code&gt;を呼び出すだけで画面を再描画（Windowsシステムの待ち行列に溜まっているWindowsメッセージを処理）してくれます。非常に重たい処理を行う関数があったとして、その中で画面の再描画をしたい場合を疑似コードで書いてみると以下のようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#重たい処理を行う関数
+function heavy()
+    #重たいループ処理（while文）
+    while 何らかの条件
+        #重複しない局面を保存する処理
+        Pickup()
+        #画面描画関数呼び出し
+        Draw()
+        #OSに制御を返す（＝再描画される）
+        PeekMessage || DoEvents || Application.ProcessMessages || etc...
+    end
+end
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;やりたい処理を行う&lt;/li&gt;
+  &lt;li&gt;画面描画処理を行う&lt;/li&gt;
+  &lt;li&gt;OSに制御を返す&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;　1.2.に加えて3.の処理を追加するだけでループ中に画面の再描画をさせることが出来ます。&lt;br /&gt;
+　でもJavaScriptはブラウザのプロセス内で動くプログラムなのでシングルスレッドでしか動かせないので、ループ処理の中に１行追加するだけでいいというわけにはいかないようです。タイマーを使った割り込み処理と言っていいと思うのですが、重たい処理をぶつ切りに区切って一定時間毎に実行するイメージに書き換える必要があります。上記のように一行書き加えるだけで済むようなものではなく、処理の流れを考慮してコードを書き換えないといけないので結構面倒です。大昔&lt;code&gt;MS−DOS&lt;/code&gt;の割り込み処理を書いた時を思い出しました。その時とはコードスタイルが違いますが…。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;配列を使ったサンプル&lt;/h3&gt;
+&lt;p&gt;　実際にはBFSで三目並べの全局面（986,410）を検索して、重複のない局面６０４６個のオブジェクトを多分木データオブジェクトに追加していく処理（２分ほどかかる）だったのですが、分かりやすいように単純な配列を使ったサンプルコードに書き換えてみました。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;処理中に再描画しないサンプル&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-coffeescript&quot;&gt;$ -&amp;gt;
+    new Sample
+
+class Sample
+    constructor: -&amp;gt;
+        @status = null
+        @trees = null
+        @progressBar = document.getElementById(&quot;progressbar&quot;)
+        @startbtn = document.getElementById(&quot;btnStart&quot;)
+        @spanCount = document.getElementById(&quot;spanCount&quot;)
+        @statusarea = document.getElementById(&quot;spanStatus&quot;)
+        @labelprogress = document.getElementById(&quot;trees&quot;)
+        $(&#39;#btnStart&#39;).on &#39;click&#39;, (e) =&amp;gt;
+            target = $(e.currentTarget)
+            @btnstart(target)
+
+    btnstart: (target) -&amp;gt;
+        @trees = new Array()
+        @heavy()
+        @statusarea.innerHTML = @trees.length.toString()
+
+    heavy: -&amp;gt;
+        seq = 0
+        while seq &amp;lt; 6046
+            seq += 1
+            @trees.push(seq)
+            bar = (seq / 6046) * 100
+            console.log(@trees.length.toString())
+            @spanCount.innerHTML = Math.floor(bar) if bar?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;進捗状況をプログレスバーに表示しながら処理するサンプル&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-coffeescript&quot;&gt;$ -&amp;gt;
+    new Sample
+
+class Sample
+    constructor: -&amp;gt;
+        @status = null
+        @trees = null
+        @progressBar = document.getElementById(&quot;progressbar&quot;)
+        @startbtn = document.getElementById(&quot;btnStart&quot;)
+        @spanCount = document.getElementById(&quot;spanCount&quot;)
+        @statusarea = document.getElementById(&quot;spanStatus&quot;)
+        @labelprogress = document.getElementById(&quot;trees&quot;)
+        $(&#39;#btnStart&#39;).on &#39;click&#39;, (e) =&amp;gt;
+            target = $(e.currentTarget)
+            @btnstart(target)
+
+    btnstart: (target) -&amp;gt;
+        @labelprogress.style.display = &quot;block&quot;
+        @heavy(0)
+
+    heavy: (seq) -&amp;gt;
+        if seq == 0
+            @trees = new Array()
+        if seq &amp;lt; 6046
+            seq += 1
+            @trees.push(seq)
+            bar = (seq / 6046) * 100
+            setTimeout (=&amp;gt;
+                @heavy(seq)
+            ), 0
+        else
+            bar = 100
+            @labelprogress.style.display = &quot;none&quot;
+        console.log(@trees.length.toString())
+        @statusarea.innerHTML = @trees.length.toString()
+        @progressBar.value = Math.floor(bar) if bar?
+        @spanCount.innerHTML = Math.floor(bar) if bar?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;共通で使用するHTML&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&quot;ja&quot;&amp;gt;
+&amp;lt;head&amp;gt;  
+  &amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;
+  &amp;lt;title&amp;gt;SetTimeout サンプル&amp;lt;/title&amp;gt;
+  &amp;lt;script src=&quot;js/jquery-1.11.2.min.js&quot;&amp;gt; &amp;lt;/script&amp;gt;
+  &amp;lt;script src=&quot;sample.js&quot; defer&amp;gt; &amp;lt;/script&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;p id=&quot;title&quot;&amp;gt;SetTimeout サンプル&amp;lt;/p&amp;gt;
+&amp;lt;label id=&quot;trees&quot; style=&quot;display: none;&quot;&amp;gt;&amp;lt;progress id=&quot;progressbar&quot; value=&quot;0&quot; max=&quot;100&quot;&amp;gt;&amp;lt;/progress&amp;gt;&amp;lt;span id=&quot;spanCount&quot;&amp;gt;&amp;lt;/span&amp;gt;%&amp;lt;/label&amp;gt;
+&amp;lt;p&amp;gt;
+&amp;lt;input id=&quot;btnStart&quot; type=&quot;button&quot; value=&quot;Start!&quot;&amp;gt;
+&amp;lt;span id=&quot;spanStatus&quot; style=&quot;color: red;&quot;&amp;gt;&amp;lt;/span&amp;gt;
+&amp;lt;/p&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;coffee -c&lt;/code&gt;でCoffeeScriptファイルをコンパイル後（sample.js）ブラウザで実行&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/settimeout.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/settimeout.png&quot; alt=&quot;setTimeoutを使ったサンプル&quot; title=&quot;SetTimeoutを使ったサンプル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h3 id=&quot;settimeout&quot;&gt;setTimeoutを使った割り込み処理に書き換えるコツ&lt;/h3&gt;
+&lt;p&gt;　配列を使ったサンプルだとそれほどでもないですが、処理内容によってはタイマーを使った（setTimeoutを使った）割り込み処理に書き換える際に、どこから手をつけていいか悩むことがあるかもしれません。コツとしては重たいループ処理をまずはカウンターを使った処理に書き換えることです。今回BFSで局面を辿っていく際に新規局面を生成してキュー（queue）に追加し、&lt;strong&gt;「キューが空になるまで繰り返す」&lt;/strong&gt;というループだったのですが、&lt;strong&gt;「カウンターの数値が何回になるまで繰り返す」&lt;/strong&gt;というようにシーケンシャルな数値の条件に書き換えて、そのトータルの回数（今回は6046）を終了条件とした再帰関数を作るってことです。&lt;br /&gt;
+　あと気をつけないといけないのは、setTimeoutで呼び出した関数は非同期で実行されるということです。スタートボタンを押した時のイベントに、以下のように重たい関数の実行が終わったら配列の総数を表示するコードを書いていますが、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    btnstart: (target) -&amp;gt;
+        @trees = new Array()
+        @heavy()
+        @statusarea.innerHTML = @trees.length.toString()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　setTimeoutを使ったサンプルをこれと同じように書いてもheavy関数の実行終了を待たずに実行されるので意味がありません。setTimeoutを使ったサンプルで、初期化処理（&lt;code&gt;@trees = new Array()&lt;/code&gt;）と終了時の処理（&lt;code&gt;@statusarea.innerHTML = @trees.length.toString()&lt;/code&gt;）をheavy関数内に移動しているのはそのためです。&lt;br /&gt;
+　それから、&lt;a href=&quot;http://azu.github.io/promises-book/&quot;&gt;Promise&lt;/a&gt;を使えば敢えて同期をとって実行させることも出来るらしいと聞いたので、何か得るものがあるかと思い少し弄ってみたのですが、setTimeoutを使わずに同様のことが出来るようになるわけでもなさそうだったので使うのをやめました、用途が違うようです。どんなツールを使ってもブラウザ上で動作するシングルスレッド環境には変わりないので、前述のWindowsソフトのような書き方は出来なくて、タイマーによる割り込み処理を避けることはたぶん無理なのでしょう。&lt;/p&gt;
+
+&lt;hr /&gt;
+</description>
+                <link>http://happyclam.github.io/programming/2016-05-18/coffee_settimeout</link>
+                <guid>http://happyclam.github.io/programming/2016-05-18/coffee_settimeout</guid>
+                <pubDate>2016-05-18T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>CoffeeScriptでシリアライズ</title>
