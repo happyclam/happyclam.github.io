@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2016-05-18T14:29:42+09:00</updated>
+ <updated>2016-05-18T14:54:56+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -18,10 +18,10 @@
    <updated>2016-05-18T00:00:00+09:00</updated>
    <id>http://happyclam.github.io/programming/2016-05-18/coffee_settimeout</id>
    <content type="html">&lt;h3 id=&quot;section&quot;&gt;重たい処理をしている最中に再描画する方法&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/programming/2016-05-02/coffee_serialize/&quot;&gt;前回&lt;/a&gt;同様Ruby製プログラムをCoffeeScript（JavaScript）に移植する際の話ですが、PC上で動くプログラムでもそうですが、重たい処理をしている最中に画面の更新をしたい時があると思います。三目並べの全局面データを作成する処理がRuby製プログラムで４、５秒かかるのですが、この処理をブラウザ上で動かすCoffeeScript（JavaScript）製のプログラムにした時の顛末を書きます。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;/programming/2016-05-02/coffee_serialize&quot;&gt;前回&lt;/a&gt;同様Ruby製プログラムをCoffeeScript（JavaScript）に移植する際の話ですが、PC上で動くプログラムでもそうですが、重たい処理をしている最中に画面の更新をしたい時があると思います。三目並べの全局面データを作成する処理がRuby製プログラムで４、５秒かかるのですが、この処理をブラウザ上で動かすCoffeeScript（JavaScript）製のプログラムにした時の顛末を書きます。&lt;/p&gt;
 
 &lt;h3 id=&quot;section-1&quot;&gt;スレッドが使えない&lt;/h3&gt;
-&lt;p&gt;　今回の三目並べプログラムは&lt;a href=&quot;/project/2015-10-10/tictactoe_bfs/&quot;&gt;BFS（Breadth First Search）アルゴリズム&lt;/a&gt;や&lt;a href=&quot;/software/2015-10-25/machine_learning/&quot;&gt;機械学習プログラム&lt;/a&gt;の動作確認用のサンプルとして作ったものですから、レスポンスが遅くても問題なかったのですが、以前Rubyと&lt;a href=&quot;http://shoesrb.com&quot;&gt;Shoes&lt;/a&gt;でGUIの将棋プログラムを作った時は、先読みさせる時に別スレッドを起動して画面を更新しました。人間とソフトの対戦中のループ処理内に&lt;code&gt;Thread.new&lt;/code&gt;で囲んだブロックを以下のように入れておくだけで、ソフトが思考中でもユーザーの操作を妨げることなく画面の再描画やメニュー操作をすることが出来ました。&lt;/p&gt;
+&lt;p&gt;　今回の三目並べプログラムは&lt;a href=&quot;/project/2015-10-10/tictactoe_bfs&quot;&gt;BFS（Breadth First Search）アルゴリズム&lt;/a&gt;や&lt;a href=&quot;/software/2015-10-25/machine_learning&quot;&gt;機械学習プログラム&lt;/a&gt;の動作確認用のサンプルとして作ったものですから、レスポンスが遅くても問題なかったのですが、以前Rubyと&lt;a href=&quot;http://shoesrb.com&quot;&gt;Shoes&lt;/a&gt;でGUIの将棋プログラムを作った時は、先読みさせる時に別スレッドを起動して画面を更新しました。人間とソフトの対戦中のループ処理内に&lt;code&gt;Thread.new&lt;/code&gt;で囲んだブロックを以下のように入れておくだけで、ソフトが思考中でもユーザーの操作を妨げることなく画面の再描画やメニュー操作をすることが出来ました。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;@thinking = Thread.new do
     #思考ルーチンを呼び出す処理　

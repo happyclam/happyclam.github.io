@@ -210,10 +210,10 @@ MathJax.Hub.Config({
     </div>
     <div class="content">
       <h3 id="section">重たい処理をしている最中に再描画する方法</h3>
-<p>　<a href="/programming/2016-05-02/coffee_serialize/">前回</a>同様Ruby製プログラムをCoffeeScript（JavaScript）に移植する際の話ですが、PC上で動くプログラムでもそうですが、重たい処理をしている最中に画面の更新をしたい時があると思います。三目並べの全局面データを作成する処理がRuby製プログラムで４、５秒かかるのですが、この処理をブラウザ上で動かすCoffeeScript（JavaScript）製のプログラムにした時の顛末を書きます。</p>
+<p>　<a href="/programming/2016-05-02/coffee_serialize">前回</a>同様Ruby製プログラムをCoffeeScript（JavaScript）に移植する際の話ですが、PC上で動くプログラムでもそうですが、重たい処理をしている最中に画面の更新をしたい時があると思います。三目並べの全局面データを作成する処理がRuby製プログラムで４、５秒かかるのですが、この処理をブラウザ上で動かすCoffeeScript（JavaScript）製のプログラムにした時の顛末を書きます。</p>
 
 <h3 id="section-1">スレッドが使えない</h3>
-<p>　今回の三目並べプログラムは<a href="/project/2015-10-10/tictactoe_bfs/">BFS（Breadth First Search）アルゴリズム</a>や<a href="/software/2015-10-25/machine_learning/">機械学習プログラム</a>の動作確認用のサンプルとして作ったものですから、レスポンスが遅くても問題なかったのですが、以前Rubyと<a href="http://shoesrb.com">Shoes</a>でGUIの将棋プログラムを作った時は、先読みさせる時に別スレッドを起動して画面を更新しました。人間とソフトの対戦中のループ処理内に<code>Thread.new</code>で囲んだブロックを以下のように入れておくだけで、ソフトが思考中でもユーザーの操作を妨げることなく画面の再描画やメニュー操作をすることが出来ました。</p>
+<p>　今回の三目並べプログラムは<a href="/project/2015-10-10/tictactoe_bfs">BFS（Breadth First Search）アルゴリズム</a>や<a href="/software/2015-10-25/machine_learning">機械学習プログラム</a>の動作確認用のサンプルとして作ったものですから、レスポンスが遅くても問題なかったのですが、以前Rubyと<a href="http://shoesrb.com">Shoes</a>でGUIの将棋プログラムを作った時は、先読みさせる時に別スレッドを起動して画面を更新しました。人間とソフトの対戦中のループ処理内に<code>Thread.new</code>で囲んだブロックを以下のように入れておくだけで、ソフトが思考中でもユーザーの操作を妨げることなく画面の再描画やメニュー操作をすることが出来ました。</p>
 
 <pre><code>@thinking = Thread.new do
     #思考ルーチンを呼び出す処理　
