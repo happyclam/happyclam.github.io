@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "９マス将棋（３×３将棋）と三目並べの変化形",
+      "category" : "programming",
+      "tags"     : "programming, ruby, android, tictactoe",
+      "url"      : "http://happyclam.github.io/programming/2016-07-23/33shogi",
+      "date"     : "2016-07-23 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "CoffeeScriptで割り込み処理",
       "category" : "programming",
       "tags"     : "programming, javascript, ruby, coffeescript, android",

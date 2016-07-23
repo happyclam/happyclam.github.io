@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>９マス将棋（３×３将棋）と三目並べの変化形</title>
+
+    <meta name="author" content="happyclam">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="９マス将棋（３×３将棋）と三目並べの変化形">
+  
+  
+  <meta name="twitter:url" content="http://happyclam.github.io/programming/2016-07-23/33shogi">
+  
+  
+  <meta name="twitter:description" content="必勝法は存在するのか？とりあえず無限三目並べに関しては先手必勝で間違い無さそうだ。">
+  
+  
+  <meta name="twitter:image:src" content="http://happyclam.github.io/images/33shogi_screen_19_mini.png">
+  
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script language="JavaScript">
+$(document).ready( function () {
+    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
+<script src="/assets/themes/twitter/js/jquery.min.js"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
+<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
+<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-1752720-7', 'happyclam.github.io');
+      ga('send', 'pageview');
+    </script>
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div style="text-align: center;">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- トップバナー -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-1238485061299241"
+     data-ad-slot="7366457015"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    </div>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">自己満足プログラミング</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/profile">About</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="row-fluid">
+        <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+        <div class="span9"
+             <!-- Html Elements for Search -->
+             <div id="search-container" align="right">
+               <input type="text" id="search-input" placeholder="search...">
+               <ul id="results-container"></ul>
+             </div>
+             <div class="results"></div>
+        </div>
+      </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+      <div class="content">
+        
+<div class="page-header">
+  <h1>９マス将棋（３×３将棋）と三目並べの変化形 </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>23 July 2016</span>
+    </div>
+    <div class="content">
+      <h3 id="section">たかが３×３の狭い空間でも完全読み切りは大変だ</h3>
+<p>　Twitterで<a href="http://mainichi.jp/articles/20160612/k00/00e/040/105000c">９マス将棋発売</a>というニュースが流れていたので、検索してみると同じ９マス（３×３）と言えどもいろいろなパターンがあるようです<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。Androidアプリで見つけた<a href="https://play.google.com/store/apps/details?id=org.dyndns.vivi.SkskShogi33">「３×３将棋」</a>というのをやってみると玉頭戦を戦っている気分になれて、想像していた以上に楽しめました。他にも一番シンプルなものでは盤上には玉だけを配置して、持ち駒に銀と歩を持ったところからゲームを開始する<a href="http://www.nakajim.net/?3三将棋">「３三将棋」</a>というルールもあるようです。</p>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><span>３三将棋の初期盤面</span>
+<a href="/images/33shogi_screen_00.png" target="_blank"><img src="/images/33shogi_screen_00.png" alt="３三将棋の初期盤面" title="３三将棋の初期盤面" /></a></p>
+
+</div>
+
+<p>　<a href="/software/2014-09-09/pre_shogi/">以前の記事</a>でShoesとRubyで作成した将棋プログラムの記事を書きましたが、この３三将棋のルールなら先手必勝あるいは後手必勝の手順が見つけられるかもと思い、ちょっとだけ試してみました。<br />
+　やり方は以前<a href="/software/2014-09-23/tictactoe_arrange">ちょっと変わった三目並べの記事</a>で書いた方法と同じで、先読みの制限手数を指定して徐々にその先読み手数を伸ばしていくというやり方です。先読み手数を制限せずに勝負がつくまでという条件で先読みを続けたいところ（通常の三目並べならそれが可能）ですが、おそらく何年経ってもプログラムが終了しない状況になってしまうでしょう。MIN-MAX法（＋αβ法）で先読み手数を指定して、その手数に達するまでに先手勝ち（あるいは後手勝ち）の評価値を返してくれば、必勝手順があるという確認方法です。現れ得るすべての局面を読む（手数を制限せずに先読みする完全読み切り）ことをしなくていいので、必勝手順があるかどうかの結論を得るにはこの方法が一番簡単です。この時先読みに使用する評価関数は先手勝ち（最大値）、後手勝ち（最小値）、それ以外（０）の３値だけを返す評価関数を使います。局面が有利か不利かは関係ないので玉の硬さがどうとか「と金」の評価値がどうとかは計算する必要はありません。また、初型からの詰将棋を解くのとも少し違います、王手を続けなければいけないわけではありませんし、自玉が詰まされなくても指す手が無くて負けることもあるからです。どうやら３三将棋は王手が掛かってなくても指す手が無くなって負けるパターンが多いようです。<br />
+　で、結論から先に言うと、先手必勝なのか後手必勝なのか千日手になるのか結局はっきりした結論は得られませんでした。たかだか十数手の先読みしか試せなかったのでその手数内では必勝手順はないということです（詰み手順もありません）。たかが３×３の盤上の変化と言えども、将棋はオセロや囲碁と違って一手毎にマス目が埋まり徐々に終局が近づいていくゲームと違うのでマス目が少ないからと言ってもなかなか結論を出すのは難しそうです（オセロや囲碁なら簡単と言ってるわけではありません）。<br />
+　対戦の手順の一例を示すと以下の様な感じです。</p>
+
+<script>
+    var i;
+    var n = 0;
+    var pngs = new Array(20);
+    for (i=0; i<20; i++) {
+        pngs[i] = new Image(640,480);
+    };
+    pngs[0].src　="/images/33shogi_screen_01.png";
+    pngs[1].src　="/images/33shogi_screen_02.png";
+    pngs[2].src　="/images/33shogi_screen_03.png";
+    pngs[3].src　="/images/33shogi_screen_04.png";
+    pngs[4].src　="/images/33shogi_screen_05.png";
+    pngs[5].src　="/images/33shogi_screen_06.png";
+    pngs[6].src　="/images/33shogi_screen_07.png";
+    pngs[7].src　="/images/33shogi_screen_08.png";
+    pngs[8].src　="/images/33shogi_screen_09.png";
+    pngs[9].src　="/images/33shogi_screen_10.png";
+    pngs[10].src　="/images/33shogi_screen_11.png";
+    pngs[11].src　="/images/33shogi_screen_12.png";
+    pngs[12].src　="/images/33shogi_screen_13.png";
+    pngs[13].src　="/images/33shogi_screen_14.png";
+    pngs[14].src　="/images/33shogi_screen_15.png";
+    pngs[15].src　="/images/33shogi_screen_16.png";
+    pngs[16].src　="/images/33shogi_screen_17.png";
+    pngs[17].src　="/images/33shogi_screen_18.png";
+    pngs[18].src　="/images/33shogi_screen_19.png";
+    pngs[19].src　="/images/33shogi_screen_20.png";
+    function first_png(object, img) {
+        n = 0;
+        object.src = img[0].src;
+    };
+    function last_png(object, img) {
+        n = 19
+        object.src = img[19].src;
+    };
+    function next_png(object, img) {
+        console.log(n);
+        if (n < 19) {
+            n += 1;
+            object.src = img[n].src;
+        }
+    };
+    function prev_png(object, img) {
+        console.log(n);
+        if (n > 0) {
+            n -= 1;
+            object.src = img[n].src;
+        }
+    };
+</script>
+
+<form id="frmboard" name="board">
+    <input type="button" value="&lt;&lt;" onclick="first_png(document.board.pngscreen, pngs);" />
+    <input type="button" value="&lt;" onclick="prev_png(document.board.pngscreen, pngs);" />
+    <input type="button" value="&gt;" onclick="next_png(document.board.pngscreen, pngs);" />
+    <input type="button" value="&gt;&gt;" onclick="last_png(document.board.pngscreen, pngs);" /><br />    
+　　<img id="pngscreen" name="screen" src="/images/33shogi_screen_01.png" width="640" height="480" vspace="10" />
+</form>
+
+<p>　最終局面は後手の指す手が無くなって、先手勝ちになってます。この例のように自分が試した多くの結果が先手か後手か一方が指す手が無くなって負けるパターンでした。一度形勢を損ねたら指す手が悪手しかなくなり更に形勢を悪くしていく感じです。<br />
+　また、自分が試したプログラムは千日手対応をしていないのですが、指定した先読み手数内に必勝手順があるなら千日手を避けてその手順を選ぶはずなので関係ありません。もっと深く読めば「先手必勝」あるいは「後手必勝」の結論が出る可能性がありますが、逆に「先手勝ち」あるいは「後手勝ち」の評価が得られたけど、実はもっと深く読めば「千日手」の結論に変わるということはあり得ないということです。この辺りの事情は<a href="/software/2014-10-04/arrange_line">以前の記事</a>にも書いた通りですが、「お互いに最善手を選ぶと千日手になる」という結論を出すには、完全読み切りするしかないのかもしれません。自分としては<a href="/software/2014-10-04/arrange_line">以前の記事</a>の時と同様に、試しにやってみて結論が出れば面白いなと思ってやってみただけなのでこれで良しとします。</p>
+
+<h3 id="section-1">思わぬ収穫が</h3>
+<p>　３三将棋の結論が出なかったのでわざわざこの記事を書く気はなかったのですが、いろいろプログラムを弄っている最中に以前書いた<a href="/software/2014-10-04/arrange_line">変則三目並べの記事</a><sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>の「<strong>先手必勝</strong>」の結論が追認されるような発見があったので書いておこうという気になりました。どちらかというと自分にとってはこちらの話の方が本題です。「無限三目並べは先手必勝」というお話です。９マス将棋のタイトルに惹かれて訪問された方、すいません。<br />
+　<a href="/software/2014-10-04/arrange_line">この記事</a>を書いた時は<a href="https://play.google.com/store/apps/details?id=com.bbside.arrangeline">「ArrangeLine」</a>というアプリを使っていたのですが、同様のアプリで<a href="https://play.google.com/store/apps/details?id=com.nekobukiya.tictactoe&amp;hl=ja">「無限○×」</a>、<a href="https://play.google.com/store/apps/details?id=com.devhydrangea.Sanmokunarabe&amp;hl=ja">「無限三目並べ」</a>というものがあることを知り、それぞれダウンロードして試してみました。やはり自分のソフトと対戦させてみるとアプリの設定を最強にしていても先手では自分のソフトが必ず勝ちますし、やはりこのゲーム（無限三目並べ）は先手必勝のゲームなんだなと思って遊んでいると、<a href="https://play.google.com/store/apps/details?id=com.devhydrangea.Sanmokunarabe&amp;hl=ja">「無限三目並べ」</a>というアプリではなんと以下のように先手の場合は初手に辺の位置（<a href="/software/2014-09-23/tictactoe_arrange">以前の記事</a>の2,4,6,8の位置）を選択できないようになっていたのです。</p>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/mugen_sanmoku.png" target="_blank"><img src="/images/mugen_sanmoku.png" alt="無限三目並べの実行画面" title="無限三目並べの実行画面" /></a></p>
+
+</div>
+
+<p>　やはりこのゲーム（三手前に打った駒が消えるルールの三目並べ、無限三目並べ）は辺の位置に初手を打てば先手必勝ということでしょう。私は記事に書いたとおり、自作プログラムを弄っていてたまたま無限三目並べというゲームが先手必勝なのではないかという結論を得たのですが、どうやらテーブルゲーム業界（実際にあるかどうか知りません）では公然の秘密（ネタバレ防止目的？）として知られていたことなのかもしれません。私はこのゲームの作者を知りませんし、この分野の研究者（そんな人がいる？）の知り合いもいませんのでわかりませんが、既に誰かが結論を出してどこかに論文でも存在するのかもしれません。<br />
+　とにかく自分で行き着いた結論が間違ってなかったようなので嬉しくなってこの記事を書くことにしました。</p>
+
+<h3 id="section-2">思うこと</h3>
+<p>　自作の将棋プログラムはRuby製（動的型付け）なので速度的に限界があるので、C++で一から３×３の将棋プログラム（いずれはスマホアプリ）を作ってみようかなどと考えます<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>。でも将棋はルールを反映させるだけでも一苦労なんですよねぇ。オセロなら一から作りなおしても大した手間は掛からないのですが…。</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>ニュースで流れていた９マス将棋のルールについては<a href="http://rosetrend1.com/2016/06/18/9マス将棋ルールまとめ！無料フラッシュやアプリ/">ここ</a>が詳しかったです。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>決まった名称が無いようなのですが、３手前に打った駒が消えるルールの三目並べを「無限三目並べ」と呼ぶことが多いようです。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>単純にC++に置き換えただけでは大した効果はなく先読みの深さが数手伸びるだけだと思います。詳しく知りませんが、どうぶつしょうぎの完全読み切りをしたプログラムは速度アップのためのデータ構造もかなり工夫しているようです。局面データを単なる配列データで保持している自分のやり方では完全読み切りは無理そうです。 <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#programming-ref">
+    		programming <span>15</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#programming-ref">programming <span>8</span></a></li>
+     
+    	<li><a href="/tags.html#ruby-ref">ruby <span>23</span></a></li>
+     
+    	<li><a href="/tags.html#android-ref">android <span>9</span></a></li>
+     
+    	<li><a href="/tags.html#tictactoe-ref">tictactoe <span>18</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/programming/2016-05-18/coffee_settimeout" title="CoffeeScriptで割り込み処理">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled"><a>Next &rarr;</a>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'happyclam'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2016 happyclam
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

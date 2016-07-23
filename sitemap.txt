@@ -10,6 +10,7 @@ http://happyclam.github.io/search.json
 http://happyclam.github.io/sitemap.txt
 http://happyclam.github.io/tags
 
+http://happyclam.github.io/programming/2016-07-23/33shogi
 http://happyclam.github.io/programming/2016-05-18/coffee_settimeout
 http://happyclam.github.io/programming/2016-05-02/coffee_serialize
 http://happyclam.github.io/hardware/2016-04-25/activite_batt
