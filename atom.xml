@@ -4,13 +4,391 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2016-08-25T23:23:10+09:00</updated>
+ <updated>2016-09-19T08:38:58+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Tic-tac-toe Evoリリースしました</title>
+   <link href="http://happyclam.github.io/project/2016-09-19/tictactoe_evo"/>
+   <updated>2016-09-19T00:00:00+09:00</updated>
+   <id>http://happyclam.github.io/project/2016-09-19/tictactoe_evo</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;進化する三目並べ&quot; title=&quot;進化する三目並べ&quot; width=&quot;240&quot; height=&quot;93&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/machinelearning&quot;&gt;Ruby版のソース&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;tic-tac-toe-evo&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」について&lt;/h3&gt;
+&lt;p&gt;　巷によくある三目並べアプリとの違いがわかりにくいと思うので、リリースしたアプリの仕様について補足しておきたいと思います。アプリにもこの記事のリンクを追加してサポートページのような扱いにするつもりです。&lt;br /&gt;
+　そもそも&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「Tic-tac-toe Evo」&lt;/a&gt;は、以前書いた&lt;a href=&quot;http://happyclam.github.io/software/2015-10-25/machine_learning/&quot;&gt;「算数で作る機械学習プログラム」&lt;/a&gt;というタイトルの記事で紹介している自作のRubyのプログラム（&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;github&lt;/a&gt;に公開している）をCoffeeScript（JavaScript）に書き換えてCordovaを使ってAndroidアプリに作り変えたものです。ですからやっている内容は&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;github&lt;/a&gt;のソースの内容と大きな違いはなく、詳しくは記事とソースコードを見ていただきたいと思いますが、スマホアプリにするに当たって手を加えた部分について説明しておこうと思います。&lt;br /&gt;
+　&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;github上のソース&lt;/a&gt;と違う点は以下になります。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;アプリの学習効率&lt;/li&gt;
+  &lt;li&gt;学習度合い（進化の度合い）を表す指標の追加&lt;/li&gt;
+  &lt;li&gt;全局面のツリー構造生成の仕方&lt;/li&gt;
+  &lt;li&gt;データの読込・保存&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;１．アプリの学習効率について&lt;/h3&gt;
+&lt;p&gt;　このアプリの「進化」とは、学習の進捗度合いのことです。学習レベルを表すのに人類の進化に例えれば面白いかなと考えて「進化する三目並べ」としたしだいです。&lt;br /&gt;
+　今まで数回に渡って&lt;a href=&quot;http://happyclam.github.io/software/2015-12-25/log-linear/&quot;&gt;強化学習について&lt;/a&gt;や&lt;a href=&quot;http://happyclam.github.io/software/2016-01-16/flotr2/&quot;&gt;学習効果のグラフ&lt;/a&gt;の記事を書きましたが、&lt;a href=&quot;http://happyclam.github.io/software/2016-01-07/correlation/&quot;&gt;この記事&lt;/a&gt;で紹介した「線形関数を使って、終盤の手ほど重要視する」やり方をアプリに採用しています。リリース直前に行った最強プログラムと乱数を使ったプログラムとの対戦テストの結果は以下です（1,000回の対戦を1回として100回の対戦、合計100,000回）。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;回 \ 対戦相手&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;　最強プログラム　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;　乱数プログラム　　&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　　１回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝540敗460分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;481勝383敗136分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　　２回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝424敗576分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;518勝352敗130分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　　３回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝318敗682分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;567勝315敗118分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　　４回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝270敗730分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;574勝310敗116分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　　５回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝191敗809分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;618勝261敗121分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　　６回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝136敗864分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;617勝271敗112分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　　７回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝120敗880分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;637勝242敗121分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　　８回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝118敗882分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;677勝217敗106分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　　９回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝 99敗901分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;663勝219敗118分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　１０回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝 74敗926分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;664勝240敗96分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　１１回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝 60敗940分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;708勝181敗111分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　１２回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝 40敗960分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;693勝209敗98分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　１３回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝 33敗967分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;685勝209敗106分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　１４回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝 34敗966分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;685勝200敗115分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　１５回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝 24敗976分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;717勝190敗93分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　１６回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝 21敗979分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;697勝182敗121分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　１７回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝 20敗980分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;731勝164敗105分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　１８回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝 13敗987分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;750勝159敗91分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　１９回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝 14敗986分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;732勝163敗105分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　２０回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝 15敗985分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;747勝144敗109分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　２１回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝 15敗985分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;725勝178敗97分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　２２回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝 11敗989分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;732勝177敗91分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　２３回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝 17敗983分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;734勝168敗98分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　２４回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  7敗993分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;766勝148敗86分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　２５回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  9敗991分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;751勝150敗99分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　２６回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝 15敗985分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;761勝149敗90分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　２７回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝 12敗988分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;740勝158敗102分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　２８回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  8敗992分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;763勝143敗94分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　２９回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝 11敗989分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;743勝153敗104分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　３０回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝 13敗987分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;767勝142敗91分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　３１回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  8敗992分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;748勝149敗103分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　３２回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  5敗995分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;762勝136敗102分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　３３回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝 23敗977分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;775勝137敗88分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　３４回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  4敗996分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;760勝146敗94分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　３５回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝 13敗987分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;753勝141敗106分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　３６回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  7敗993分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;803勝116敗81分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　３７回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  7敗993分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;768勝124敗108分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　３８回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  6敗994分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;771勝147敗82分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　３９回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  3敗997分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;789勝114敗97分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　４０回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  6敗994分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;792勝127敗81分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　４１回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  4敗996分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;768勝132敗100分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　４２回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  8敗992分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;785勝119敗96分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　４３回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  4敗996分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;790勝118敗92分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　４４回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝 13敗987分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;794勝121敗85分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　４５回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  2敗998分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;792勝116敗92分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　４６回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  5敗995分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;791勝127敗82分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　４７回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  6敗994分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;777勝124敗99分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　４８回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  2敗998分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;801勝112敗87分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　４９回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  6敗994分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;805勝105敗90分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　５０回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  6敗984分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;766勝153敗81分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　　　:　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;:&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;:&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　９１回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  4敗996分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;831勝98敗71分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　９２回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  4敗996分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;821勝82敗97分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　９３回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  3敗997分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;838勝86敗76分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　９４回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  5敗995分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;821勝106敗73分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　９５回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  1敗999分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;824勝96敗80分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　９６回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  2敗998分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;820勝107敗73分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　９７回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  0敗1000分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;818勝88敗94分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　９８回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  2敗998分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;832勝94敗74分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;　９９回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  4敗996分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;832勝99敗69分&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;１００回戦　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0勝  1敗999分&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;797勝102敗101分&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　最強プログラム（バックトラック法でゲーム終了まで読み切るので負けることがない）と対戦させたほうが学習効率がいいのは一目瞭然（「強い人と対戦するほど進化が速い」とgoogle playのアプリ紹介欄に書いているのはこのことです）ですが、大まかに言って９０％負けない（＝１００敗を切る）ようになるまでに9,000回、９９％負けない（負け数が一桁になる）ようになるまでに24,000回程度の対戦が必要になることが上のテスト結果からわかります。ただ、テストで使用した最強プログラムは常に最善手を選ぶ（最短手数で勝つ）わけではないですし、内部で乱数を使用していないのでいつも同じ手しか選ばないので、人間が対戦すると実際にはもう少し速く学習が進む余地はあると思っています。だから正直なところ実際にどれ位の速度で学習（進化）するのか自分でもわかっていません。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;２．アプリの「進化の度合い」の数値（％）について&lt;/h3&gt;
+&lt;p&gt;　Androidアプリにするに当たって学習効果をどのようにユーザーに伝えようかと考えたのですが、今までブログでやっていたグラフ表示だけでは面白くない。また、上記のような対戦成績はどの程度学習が進んだかの指標には使えません。人間がわざと負けてアプリの勝率が上がれば「進化した」なんて言えるわけありませんし、対戦する人間が強くても、乱数プログラムのように弱くても、対戦回数を重ねるだけで学習が進むからこそ人工知能（AI）と言えるわけですから。&lt;br /&gt;
+　そこで最初は現時点で保持しているすべての局面データからすべてのリーチ&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;が掛かっている局面を検索して「どれぐらいの確率で勝ちを逃さないか」を計算したのですが、それよりも「どれぐらいの確率で相手が揃うのを防ぐか」を計算した値のほうが上記の対戦成績と似た推移を示したのでその値を「進化の度合い」としてアプリに表示しています。これは人間同士の対局でも同じで、まずは相手が三目揃うのを防ぐ手を優先すると思うので学習度合い（進化度合い）を示す指標としては割りと妥当じゃないかと思ってます。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/screen_degree.png&quot;&gt;&lt;img src=&quot;/images/screen_degree.png&quot; alt=&quot;進化度合い&quot; title=&quot;進化度合い&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;３．局面のツリーデータ生成について&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/machinelearning&quot;&gt;githubのRubyのソース&lt;/a&gt;では起動時にすべての局面のデータ（多分木データ）を生成しますが、Cordovaアプリ（ハイブリッドアプリ）ではブラウザ（WebViewというブラウザーコンポーネント）上で動くのでネイティブアプリに比べて動作が遅いので、起動時にすべての局面を生成すると２分ぐらい掛かってしまいます。だから初めての起動時は初期画面のみ生成し、未知の局面が現れる度にそのノードに紐づく子ノードを動的に生成するようにしています。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;４．データの読込・保存・初期化&lt;/h3&gt;
+&lt;p&gt;　ツリーデータの保存・読込はlocalStorage.setItemとlocalStorage.getItemを使っています。データベースは使っていません。&lt;br /&gt;
+　アイコンを長押しして表示される「アプリ情報」メニューから「データを消去」を選べば、Androidの機能を使って対戦成績と学習データの初期化が出来ます。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/screen_initialize.png&quot;&gt;&lt;img src=&quot;/images/screen_initialize.png&quot; alt=&quot;データの初期化&quot; title=&quot;データの初期化画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;あと一手で勝ちになる局面 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>TexturePackerのフリーライセンス</title>

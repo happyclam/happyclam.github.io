@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Tic-tac-toe Evoリリースしました",
+      "category" : "project",
+      "tags"     : "ruby, coffeescript, javascript, android, cordova, tictactoe",
+      "url"      : "http://happyclam.github.io/project/2016-09-19/tictactoe_evo",
+      "date"     : "2016-09-19 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "TexturePackerのフリーライセンス",
       "category" : "programming",
       "tags"     : "programming, cocos, coffeescript, android",
