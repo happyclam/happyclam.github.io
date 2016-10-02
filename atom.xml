@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2016-10-02T21:22:46+09:00</updated>
+ <updated>2016-10-03T08:10:00+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -379,7 +379,7 @@
 
 &lt;/div&gt;
 
-&lt;p&gt;　あと、もともとRubyのコンソールアプリを元にしているため画面出力に関わるメソッドが[github][tictactoe-machinelearning-githubのソース]とは違います。&lt;/p&gt;
+&lt;p&gt;　あと、もともとRubyのコンソールアプリを元にしているため画面出力に関わるメソッドが&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/machinelearning&quot;&gt;githubのソース&lt;/a&gt;とは別物になってます。&lt;/p&gt;
 
 &lt;h3 id=&quot;ver118&quot;&gt;イラストのアニメーション機能追加（ver1.1.8）&lt;/h3&gt;
 &lt;p&gt;　TexturePackerを使用して画像をスプライトシート化しました。この件に関してはどんな作業が必要だったか近々別の記事を書くつもりです。絵心があればもう少し凝ったアニメーションを付加したかったのですが、今後収益化出来そうならどなたか絵師さんに発注するかもしれません。&lt;/p&gt;
