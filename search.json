@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "JavaScriptでスプライトシートを使う",
+      "category" : "programming",
+      "tags"     : "programming, cordova, HTML5, android",
+      "url"      : "http://happyclam.github.io/programming/2016-10-04/spritesheet",
+      "date"     : "2016-10-04 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "Tic-tac-toe Evoリリースしました",
       "category" : "project",
       "tags"     : "ruby, coffeescript, javascript, android, cordova, tictactoe",

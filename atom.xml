@@ -4,13 +4,246 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2016-10-03T08:10:00+09:00</updated>
+ <updated>2016-10-04T21:54:30+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>JavaScriptでスプライトシートを使う</title>
+   <link href="http://happyclam.github.io/programming/2016-10-04/spritesheet"/>
+   <updated>2016-10-04T00:00:00+09:00</updated>
+   <id>http://happyclam.github.io/programming/2016-10-04/spritesheet</id>
+   <content type="html">&lt;h3 id=&quot;texturepacker&quot;&gt;せっかくTexturePackerのブロガーライセンスを取得したのでアプリに使ってみました&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/programming/2016-08-25/texturepacker&quot;&gt;以前の記事&lt;/a&gt;に書いたように、CEO直々にブロガーライセンスを認めてもらったので義理を果たすためにも記事を書いておくことにしました&lt;img class=&quot;emoji&quot; title=&quot;smile&quot; alt=&quot;smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;ただ単に画像ファイルをパックするだけでは意味が無いので簡単なアニメーションを表示しています。&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;androidアプリ&lt;/a&gt;で使用するので、ネットワークに繋がっていなくても使用できるようにCDNは使わずに&lt;a href=&quot;https://github.com/CreateJS/&quot;&gt;ここ&lt;/a&gt;から必要なファイルをダウンロードして使用します。&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;スプライトシートの作成&lt;/h3&gt;
+&lt;p&gt;　まずはスプライトシートの作成ですが、右側のメニューから[Data] -&amp;gt; [Data Format] -&amp;gt; [EaselJS / CreateJS]を選んで、画像を画面中央にドラッグ＆ドロップするだけです。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/texturepacker1.png&quot;&gt;&lt;img src=&quot;/images/texturepacker1.png&quot; alt=&quot;TexturePacker起動画面&quot; title=&quot;Texture Packer 起動画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　その後、上部のメニューから[File] -&amp;gt; [Publish sprite sheet]でファイル出力します。&lt;br /&gt;
+　画像が一枚のシートに収まらない時はエラーになるので、[Layout] -&amp;gt; [Multipack]をチェックしてやり直します。[Layout] -&amp;gt; [Max Size]でシートのサイズを変更することも出来ます。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/texturepacker2.png&quot;&gt;&lt;img src=&quot;/images/texturepacker2.png&quot; alt=&quot;ドラッグ＆ドロップ後画面&quot; title=&quot;ドラッグ＆ドロップ後画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h3 id=&quot;javascript&quot;&gt;JavaScriptからスプライトを生成してアニメーション&lt;/h3&gt;
+&lt;p&gt;　TexturePackerで作成したスプライトシート（pngファイル）とjsonファイルを使用して作ったサンプルが以下のコードです。スプライトシート内の大きさが異なる画像を、Canvasのサイズに合わせて徐々に拡大表示するものです。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;使用したHTMLファイル&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-HTML&quot;&gt;&amp;lt;!DOCTYPE HTML&amp;gt;
+&amp;lt;html lang=&quot;ja&quot;&amp;gt;
+&amp;lt;head&amp;gt;
+    &amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;
+    &amp;lt;script src=&quot;js/easeljs-0.8.2.min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script src=&quot;js/tweenjs-0.6.2.min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script&amp;gt;
+      //ここに以下のJavaScriptをコピペ
+    &amp;lt;/script&amp;gt;
+    &amp;lt;title&amp;gt;スプライトシートテスト（Tictactoe Evo）&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+    &amp;lt;a href=&quot;javascript:init();&quot;&amp;gt;&amp;lt;button type=&quot;button&quot;&amp;gt;アニメーション&amp;lt;/button&amp;gt;&amp;lt;/a&amp;gt;
+    &amp;lt;div&amp;gt;
+        &amp;lt;canvas id=&quot;canvasImage&quot; width=&quot;400&quot; height=&quot;400&quot; style=&quot;display:block; margin:0 auto;&quot;&amp;gt;&amp;lt;/canvas&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;使用したスクリプト&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-JavaScript&quot;&gt;    &amp;lt;script&amp;gt;
+    var stage, imgData, frame, filename;
+    function setImageData(idx) {
+        switch (idx) {
+        case 0:
+            frame = [1, 1, 767, 714];
+            filename = &quot;./images/test.png&quot;;
+            break;
+        case 1:
+            frame = [1, 717, 382, 336];
+            filename = &quot;./images/test.png&quot;;
+            break;
+        default:
+            frame = [1, 1, 767, 714];
+            filename = &quot;./images/test.png&quot;;
+            break;
+        }
+    };
+    function handleImageLoad() {
+        var data = {
+            images: [imgData],
+            frames: [
+	            frame
+            ]
+        }
+        var orgX = document.getElementById(&quot;canvasImage&quot;).clientWidth;
+        var orgY = document.getElementById(&quot;canvasImage&quot;).clientHeight;
+        var limitX = orgX / frame[2];
+        var limitY = orgY / frame[3];
+        var spriteSheet = new createjs.SpriteSheet(data);
+
+        var sprite = new createjs.Sprite(spriteSheet, 0);
+        sprite.x = 0;  sprite.y = 0; sprite.scaleX = 0; sprite.scaleY = 0;
+        stage.addChild(sprite);
+
+        createjs.Ticker.setFPS(60);
+        createjs.Ticker.addEventListener(&#39;tick&#39;, tickHandler);
+
+        createjs.Tween.get(sprite).to({alpha: 1, scaleX: limitX, scaleY: limitY}, 2000);
+    };
+
+    function tickHandler(event) {
+        stage.update();
+    };
+
+    function init() {
+        var imgIndex = Math.floor(Math.random() * 2) + 1;
+        stage = new createjs.Stage(&#39;canvasImage&#39;);
+        stage.clear();
+        imgData = new Image();
+        imgData.onload = handleImageLoad;
+        setImageData(imgIndex);
+        imgData.src = filename;
+    };
+
+    &amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;TexturePackerで作成したスプライトシート（png）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/test.png&quot;&gt;&lt;img src=&quot;/images/test.png&quot; alt=&quot;サンプルで使用したスプライトシート&quot; title=&quot;サンプルで使用したスプライトシート&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;実際に動くサンプル&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+&lt;script src=&quot;https://code.createjs.com/easeljs-0.8.2.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;https://code.createjs.com/tweenjs-0.6.2.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+    var stage, imgData, frame, filename;
+    function setImageData(idx) {
+        switch (idx) {
+        case 0:
+            frame = [1, 1, 767, 714];
+            filename = &quot;/images/test.png&quot;;
+            break;
+        case 1:
+            frame = [1, 717, 382, 336];
+            filename = &quot;/images/test.png&quot;;
+            break;
+        default:
+            frame = [1, 1, 767, 714];
+            filename = &quot;/images/test.png&quot;;
+            break;
+        }
+    };
+    function handleImageLoad() {
+        var data = {
+            images: [imgData],
+            frames: [
+	            frame
+            ]
+        }
+        var orgX = document.getElementById(&quot;canvasImage&quot;).clientWidth;
+        var orgY = document.getElementById(&quot;canvasImage&quot;).clientHeight;
+        var limitX = orgX / frame[2];
+        var limitY = orgY / frame[3];
+        var spriteSheet = new createjs.SpriteSheet(data);
+
+        var sprite = new createjs.Sprite(spriteSheet, 0);
+        sprite.x = 0;  sprite.y = 0; sprite.scaleX = 0; sprite.scaleY = 0;
+        stage.addChild(sprite);
+
+        createjs.Ticker.setFPS(60);
+        createjs.Ticker.addEventListener(&#39;tick&#39;, tickHandler);
+
+        createjs.Tween.get(sprite).to({alpha: 1, scaleX: limitX, scaleY: limitY}, 2000);
+    };
+
+    function tickHandler(event) {
+        stage.update();
+    };
+
+    function init() {
+        var imgIndex = Math.floor(Math.random() * 2) + 1;
+        stage = new createjs.Stage(&#39;canvasImage&#39;);
+        stage.clear();
+        imgData = new Image();
+        imgData.onload = handleImageLoad;
+        setImageData(imgIndex);
+        imgData.src = filename;
+    };
+
+&lt;/script&gt;
+
+&lt;p&gt;&lt;a href=&quot;javascript:init();&quot;&gt;&lt;button type=&quot;button&quot;&gt;アニメーション&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div&gt;&lt;canvas id=&quot;canvasImage&quot; width=&quot;400&quot; height=&quot;400&quot; style=&quot;display:block; margin:0 auto;&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;TexturePackerから出力されたJSONファイル&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+
+&quot;images&quot;: [
+    &quot;test.png&quot;
+],
+
+&quot;frames&quot;: [
+    [1, 1, 767, 714, 0, -18, -19],
+    [1, 717, 382, 336, 0, -7, -11]
+],
+
+&quot;animations&quot;: {
+    &quot;pirorikin&quot;: { &quot;frames&quot;: [0] },
+    &quot;kabi&quot;: { &quot;frames&quot;: [1] }
+},
+
+&quot;texturepacker&quot;: [
+        &quot;SmartUpdateHash: $TexturePacker:SmartUpdate:ce59b366b5148ae3ce22fac87822487c:5be175c4ace8ca5d076f4d54ec83fb03:02ab132358d6d8b512e80119463a8329$&quot;,
+        &quot;Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS&quot;
+]
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　TexturePackerから出力されたJSONファイルのフォーマットをそのまま利用する方法があると思うのですが、とりあえずJSONファイル内の画像の座標のみ抜き出してJavaScriptで使用しています。&lt;/p&gt;
+
+&lt;p&gt;　※イラスト画像は&lt;a href=&quot;http://www.irasutoya.com&quot;&gt;「いらすとや」様&lt;/a&gt;のものを利用させていただきました。&lt;/p&gt;
+
+&lt;hr /&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Tic-tac-toe Evoリリースしました</title>
