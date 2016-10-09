@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2016-10-04T21:54:30+09:00</updated>
+ <updated>2016-10-10T08:13:07+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -254,7 +254,7 @@
 &lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/machinelearning&quot;&gt;Ruby版のソース&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;tic-tac-toe-evo&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」について&lt;/h3&gt;
-&lt;p&gt;　巷によくある三目並べアプリとの違いがわかりにくいと思うので、リリースしたアプリの仕様について補足しておきたいと思います。アプリにもこの記事のリンクを追加してサポートページのような扱いにするつもりです。&lt;br /&gt;
+&lt;p&gt;　巷によくある三目並べアプリとの違いがわかりにくいと思うので、リリースしたアプリの仕様について補足しておきたいと思います。アプリにもこの記事のリンクを追加してサポートページのような扱いにするつもりです。
 　そもそも&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「Tic-tac-toe Evo」&lt;/a&gt;は、以前書いた&lt;a href=&quot;http://happyclam.github.io/software/2015-10-25/machine_learning/&quot;&gt;「算数で作る機械学習プログラム」&lt;/a&gt;というタイトルの記事で紹介している自作のRubyのプログラム（&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;github&lt;/a&gt;に公開している）をCoffeeScript（JavaScript）に書き換えてCordovaを使ってAndroidアプリに作り変えたものです。ですからやっている内容は&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;github&lt;/a&gt;のソースの内容と大きな違いはなく、詳しくは記事とソースコードを見ていただきたいと思いますが、スマホアプリにするに当たって手を加えた部分について説明しておこうと思います。&lt;/p&gt;
 
 &lt;h3 id=&quot;githubtictactoeruby-githubver103&quot;&gt;&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;github上のソース&lt;/a&gt;と違う点（ver1.0.3）&lt;/h3&gt;
@@ -267,7 +267,7 @@
 &lt;/ol&gt;
 
 &lt;h4 id=&quot;section&quot;&gt;１．アプリの学習効率について&lt;/h4&gt;
-&lt;p&gt;　このアプリの「進化」とは、学習の進捗度合いのことです。学習レベルを表すのに人類の進化に例えれば面白いかなと考えて「進化する三目並べ」としたしだいです。&lt;br /&gt;
+&lt;p&gt;　このアプリの「進化」とは、学習の進捗度合いのことです。学習レベルを表すのに人類の進化に例えれば面白いかなと考えて「進化する三目並べ」としたしだいです。
 　今まで数回に渡って&lt;a href=&quot;http://happyclam.github.io/software/2015-12-25/log-linear/&quot;&gt;強化学習について&lt;/a&gt;や&lt;a href=&quot;http://happyclam.github.io/software/2016-01-16/flotr2/&quot;&gt;学習効果のグラフ&lt;/a&gt;の記事を書きましたが、&lt;a href=&quot;http://happyclam.github.io/software/2016-01-07/correlation/&quot;&gt;この記事&lt;/a&gt;で紹介した「線形関数を使って、終盤の手ほど重要視する」やり方をアプリに採用しています。リリース直前に行った最強プログラムと乱数を使ったプログラムとの対戦テストの結果は以下です（1,000回の対戦を1回として100回の対戦、合計100,000回）。&lt;/p&gt;
 
 &lt;table&gt;
@@ -590,7 +590,7 @@
 &lt;p&gt;　上の表の通り、最強プログラム（バックトラック法でゲーム終了まで読み切るので負けることがない）と対戦させたほうが学習効率がいいのは一目瞭然（「強い人と対戦するほど進化が速い」とアプリ紹介欄に書いているのはこのことです）ですが、大まかに言って９０％負けない（＝１００敗を切る）ようになるまでに9,000回、９９％負けない（負け数が一桁になる）ようになるまでに24,000回程度の対戦が必要になることが上記テスト結果からわかります。ただ、テストで使用した最強プログラムは常に最善手を選ぶ（最短手数で勝つ）わけではないですし、内部で乱数を使用していないのでいつも同じ手しか選ばないので、人間が対戦すると実際にはもう少し速く学習が進む余地はあると思っています。だから正直なところ実際にどれ位の速度で学習（進化）するのか自分でもわかっていません。&lt;/p&gt;
 
 &lt;h4 id=&quot;section-1&quot;&gt;２．アプリの「進化の度合い」の数値（％）について&lt;/h4&gt;
-&lt;p&gt;　Androidアプリにするに当たって学習効果をどのようにユーザーに伝えようかと考えたのですが、今までブログでやっていたグラフ表示だけでは面白くない。また、上記のような対戦成績はどの程度学習が進んだかの指標には使えません。人間がわざと負けてアプリの勝率が上がれば「進化した」なんて言えるわけありませんし、対戦する人間が強くても、乱数プログラムのように弱くても、対戦回数を重ねるだけで学習が進むからこそ人工知能（AI）と言えるわけですから。&lt;br /&gt;
+&lt;p&gt;　Androidアプリにするに当たって学習効果をどのようにユーザーに伝えようかと考えたのですが、今までブログでやっていたグラフ表示だけでは面白くない。また、上記のような対戦成績はどの程度学習が進んだかの指標には使えません。人間がわざと負けてアプリの勝率が上がれば「進化した」なんて言えるわけありませんし、対戦する人間が強くても、乱数プログラムのように弱くても、対戦回数を重ねるだけで学習が進むからこそ人工知能（AI）と言えるわけですから。
 　そこで最初は現時点で保持しているすべての局面データからすべてのリーチ&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;が掛かっている局面を検索して「どれぐらいの確率で勝ちを逃さないか」を計算したのですが、それよりも「どれぐらいの確率で相手が揃うのを防ぐか」を計算した値のほうが上記の対戦成績と似た推移を示したのでその値を「進化の度合い」としてアプリに表示しています。これは人間同士の対局でも同じで、まずは相手が三目揃うのを防ぐ手を優先すると思うので学習度合い（進化度合い）を示す指標としては割りと妥当じゃないかと思ってます。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
@@ -603,7 +603,7 @@
 &lt;p&gt;　&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/machinelearning&quot;&gt;githubのRubyのソース&lt;/a&gt;では起動時にすべての局面のデータ（多分木データ）を生成しますが、Cordovaアプリ（ハイブリッドアプリ）ではブラウザ（WebViewというブラウザーコンポーネント）上で動くのでネイティブアプリに比べて動作が遅いので、起動時にすべての局面を生成すると２分ぐらい掛かってしまいます。だから初めての起動時は初期局面のみ生成し、未知の局面が現れる度にそのノードに紐づく子ノードを動的に生成するようにしています。&lt;/p&gt;
 
 &lt;h4 id=&quot;section-3&quot;&gt;４．データの読込・保存・初期化&lt;/h4&gt;
-&lt;p&gt;　ツリーデータの保存・読込はlocalStorage.setItemとlocalStorage.getItemを使っています。データベースは使っていません。&lt;br /&gt;
+&lt;p&gt;　ツリーデータの保存・読込はlocalStorage.setItemとlocalStorage.getItemを使っています。データベースは使っていません。
 　アイコンを長押しして表示される「アプリ情報」メニューから「データを消去」を選べば、Androidの機能を使って対戦成績と学習データの初期化が出来ます。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
@@ -625,6 +625,19 @@
 
 &lt;h3 id=&quot;section-4&quot;&gt;アプリの更新について&lt;/h3&gt;
 &lt;p&gt;　Google Playからインストールした場合は、Google Playアプリのメニューから「マイアプリ＆ゲーム」を選んで「更新」のリンクをタップすれば今までの学習データを引き継いだまま更新できます。Amazon App Storeからインストールした場合は、Amazonから送られてくる更新通知を待って更新してください。旧バージョンを削除してから最新バージョンをインストールすることは可能ですが、そうすると対戦成績や学習データが初期化されてしまいますので気をつけてください。&lt;/p&gt;
+
+&lt;h3 id=&quot;ver122&quot;&gt;過去のイラスト表示（ver1.2.2）&lt;/h3&gt;
+&lt;p&gt;　現時点での学習状況（進化の度合い）をイラストで表現しているわけですが、過去に表示されていたせっかくのかわいいイラストを見ることが出来ないのはもったいないと思ったので、スワイプ操作で過去に表示されていた画像を再度表示できるようにしました。画像の上に指をおいて左または上にスワイプすると「戻る」右または下にスワイプすると「進む」です。&lt;br /&gt;
+　あくまで過去の画像が見れるだけで、この先どんな動物に進化するのかは今まで通り見ることは出来ません。「人」まで進化したらすべて見ることが出来ます。「人」の先はどうなるのか、それはやってみてからのお楽しみということにしておきます。&lt;/p&gt;
+
+&lt;h3 id=&quot;ver122-1&quot;&gt;デリケートなカテゴリに分類される広告をブロック（ver1.2.2）&lt;/h3&gt;
+&lt;p&gt;　アプリ説明欄に「お子様と進化を競ってみては」なんて書いておきながら、広告の種類に関して無頓着でした。デフォルトでブロックされている「制限付きのカテゴリ」に加えて、下図のように「デリケートなカテゴリ」もブロック設定しましたのでお子様にも安心して遊んでいただけると思います。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/ad_setting.png&quot;&gt;&lt;img src=&quot;/images/ad_setting.png&quot; alt=&quot;アプリの広告設定&quot; title=&quot;アプリの広告設定&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
 
 &lt;hr /&gt;
 
