@@ -1,0 +1,481 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>三目並べと同じ方法でオセロや将棋を作れるか</title>
+
+    <meta name="author" content="happyclam">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="三目並べと同じ方法でオセロや将棋を作れるか">
+  
+  
+  <meta name="twitter:url" content="http://happyclam.github.io/programming/2016-10-21/ml_miscellaneous">
+  
+  
+  <meta name="twitter:description" content="「進化する三目並べ（Tic-tac-toe Evo）」と同じ方法でオセロや将棋を作れるか？">
+  
+  
+  <meta name="twitter:image:src" content="http://happyclam.github.io/images/logo_114.png">
+  
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script language="JavaScript">
+$(document).ready( function () {
+    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
+<script src="/assets/themes/twitter/js/jquery.min.js"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
+<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
+<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-1752720-7', 'happyclam.github.io');
+      ga('send', 'pageview');
+    </script>
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div style="text-align: center;">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- トップバナー -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-1238485061299241"
+     data-ad-slot="7366457015"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    </div>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">自己満足プログラミング</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/profile">About</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="row-fluid">
+        <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+        <div class="span9"
+             <!-- Html Elements for Search -->
+             <div id="search-container" align="right">
+               <input type="text" id="search-input" placeholder="search...">
+               <ul id="results-container"></ul>
+             </div>
+             <div class="results"></div>
+        </div>
+      </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+      <div class="content">
+        
+<div class="page-header">
+  <h1>三目並べと同じ方法でオセロや将棋を作れるか </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>21 October 2016</span>
+    </div>
+    <div class="content">
+      <h3 id="section">無理とは分かっていても何とかしたい</h3>
+<p>　<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">「進化する三目並べ（Tic-tac-toe Evo）」</a>をリリースした後、このアプリと同じAIの作り方（勝ったらご褒美、負けたら罰を与える）でオセロや将棋を作れないだろうかと考えてみました。同じコードを再利用して（楽して）他のゲームが作れるなら作る側の人ならやってみたいと思うでしょう。使う側のユーザーも、なんで「進化する将棋」や「進化するオセロ」じゃないの？「三目並べでは簡単すぎて楽しめない」という人もいるかもしれません。でも、想像つくとは思いますが、三目並べなのには理由があります。ネットで検索してみたところ、オセロで出現し得る局面の数は約<script type="math/tex">10^{60}</script>で、将棋は<script type="math/tex">10^{360}</script>だそうです。私が作った三目並べは以前<a href="/software/2015-10-19/multi_branched_tree/">記事</a>にも書きましたが、局面の数は<script type="math/tex">10^7</script>以下で詳細は次の表の通りです。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">手数 \ 重複チェック</th>
+      <th style="text-align: right">　有り　　</th>
+      <th style="text-align: right">　無し　　</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">初期盤面</td>
+      <td style="text-align: right">1</td>
+      <td style="text-align: right">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">１手目　</td>
+      <td style="text-align: right">9</td>
+      <td style="text-align: right">9</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">２手目　</td>
+      <td style="text-align: right">72</td>
+      <td style="text-align: right">72</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">３手目　</td>
+      <td style="text-align: right">252</td>
+      <td style="text-align: right">504</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">４手目　</td>
+      <td style="text-align: right">756</td>
+      <td style="text-align: right">3,024</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">５手目　</td>
+      <td style="text-align: right">1,260</td>
+      <td style="text-align: right">15,120</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">６手目　</td>
+      <td style="text-align: right">1,680</td>
+      <td style="text-align: right">60,480</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">７手目　</td>
+      <td style="text-align: right">1,260</td>
+      <td style="text-align: right">181,440</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">８手目　</td>
+      <td style="text-align: right">630</td>
+      <td style="text-align: right">362,880</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">９手目　</td>
+      <td style="text-align: right">126</td>
+      <td style="text-align: right">362,880</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">計　</td>
+      <td style="text-align: right">6,046</td>
+      <td style="text-align: right">986,410</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>　三目並べだからこそ比較的容易に作れたってことです<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。三目並べでは重複局面を省けばわずか6,046通りの局面データを保持すれば済みます。100,000回対戦テスト後の手元の学習ファイル（ゲーム木データを保存したファイル）のサイズを見ると重複チェック用のデータと合わせて約800KBですので、<code>一局面分のデータ（約130バイト）× 6,046局面 ＝ ８００KB</code>って感じでしょうか。もしオセロの全局面を保存しようとすると、１テラバイトが<script type="math/tex">2^{40}</script>（=約<script type="math/tex">10^{12}</script>）なので<script type="math/tex">10^{60}</script>というオセロの局面数（重複局面を省けばもっと減ると思いますが）を保存するためには、とんでもないディスク容量が必要です。スマホでは全然容量が足りませんし、局面の検索の時間もかかるでしょうし、今のやり方そのままではオセロや将棋のアプリを作るのは現実的ではないということです。<br />
+　でも、<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">「進化する三目並べ（Tic-tac-toe Evo）」</a>はゲーム木（全局面の分岐を木構造で表現したデータ）を動的に生成するので、オセロの局面がいくら多いといっても１ゲームごとに少しずつノード（局面データ）を追加していくのであればとりあえずディスク容量に余裕があるPCで動かすソフトは作れるんじゃないか、なんて考えてとりあえず試しに作ってみようかと思ったりしたのですが、ゲーム木のノードの数が多いと一回のゲームで得られる学習効果が非常に薄まるのでいくら対戦しても全然強くならない（学習効果が実感できない）ものになるでしょう。プログラム同士で対戦させて予め学習を進めてからリリースするという方法も考えられますが、それにしてもデータを小さくしなければならないという問題は解決する必要があります。<br />
+　データを小さくする（ゲーム木を小さくする）ために回転・対照形を同一局面と見做して省略する<a href="/software/2015-11-27/reinforcement/">記事</a>は以前も書きましたが、この時は局面の数を求めるためだけに力技でプログラムを改変したのですが、AIに組み込むとなると、処理に手間取って操作性に影響が出るのも嫌なので手付かず状態です。機種にもよりますが現状でもAI側が指し手を決める時に動作が少し重いのを感じると思いますが、これは局面の先読みをする必要がない代わりに、検索と数値計算処理に手間がかかっているからです。</p>
+
+<h3 id="section-1">「消える三目並べ」なら何とかなりそう</h3>
+<p>　「無限三目並べ」、「無限まるばつ」、「Arrange Line」いろんな名前でリリースされているゲームで、正式名称は分かりませんが、「消える三目並べ」というのは、三つまでは普通に置けるけど、四つ目を置くと最初に置いた自分の駒が消えるというルールの三目並べのことです。</p>
+
+<h4 id="section-2">「消える三目並べ」のゲーム進行の一例</h4>
+
+<p><img src="/images/battle_sample.png" alt="例１" /></p>
+
+<p>　上の図の進行を見ていただければルールはすぐにわかると思いますが、５手目でダブルリーチを掛けている先手（X）が勝ちかと思いきや、次の手を打つと自分の３手前の駒が消えるのでダブルリーチを掛けたにも関わらず先手（X）が負けになっています。</p>
+
+<p>　このゲームに関しては以前にも<a href="/software/2014-09-23/tictactoe_arrange">「ちょっと変わった三目並べ」というアプリ</a>の記事として書きました。思いつきの汚いコードを晒しています<img class="emoji" title="grin" alt="grin" src="https://github.global.ssl.fastly.net/images/icons/emoji/grin.png" height="20" width="20" align="absmiddle" />が、指し手をキュー（queue）に格納するようにコードを書き直して、どれぐらいの局面の数になるのか確認してみました。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">手数 \ 重複チェック</th>
+      <th style="text-align: right">　有り　　</th>
+      <th style="text-align: right">　無し　　</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">初期盤面</td>
+      <td style="text-align: right">1</td>
+      <td style="text-align: right">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">１手目　</td>
+      <td style="text-align: right">9</td>
+      <td style="text-align: right">9</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">２手目　</td>
+      <td style="text-align: right">72</td>
+      <td style="text-align: right">72</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">３手目　</td>
+      <td style="text-align: right">252</td>
+      <td style="text-align: right">504</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">４手目　</td>
+      <td style="text-align: right">756</td>
+      <td style="text-align: right">3,024</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">５手目　</td>
+      <td style="text-align: right">1,260</td>
+      <td style="text-align: right">15,120</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">６手目　</td>
+      <td style="text-align: right">1,680</td>
+      <td style="text-align: right">60,480</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">７手目　</td>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">８手目　</td>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">９手目　</td>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">計　</td>
+      <td style="text-align: right">4,030</td>
+      <td style="text-align: right">-</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>　そうすると、思惑通りというか予想通りというか当たり前というか、Xが３手Oが３手の計６手進んだあとは、局面の数は増えることがありません。重複チェック無しだとカウント処理が終わらないので<code>-</code>としましたが、上の表でわかる通り、通常の三目並べよりデータ量は少なくて済みます。ゲーム終了までの手数は増えていきますが、AIに報酬や罰を与えるのはゲーム終了時の１回だけなので、局面の重複チェックさえしていればデータが無制限に増えることもありません。<br />
+　おまけにAIに勝つためには通常の三目並べより頭を使うので、三目並べじゃ物足りないという人にとっても楽しめそうな気がします。初めのうちは簡単に勝てていたのにだんだん勝てなくなるというのがAI（人工知能）の醍醐味だと思うので自分の思惑通りのアプリが出来そうです。それともう一つ、通常の三目並べはお互い最善手を選択し続けると引分になりますが、このゲームは引分にはならない（千日手はあり得る）ので、その点も良さそうです。<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">「進化する三目並べ（Tic-tac-toe Evo）」</a>をプレイしていて、「人」に進化するまでやってみようと思ってますが、引分ばかりでは辛いなと思っていたところなので、まずこれを作ってリリースしようかなと思っています。<br />
+　これが完成すれば次はミニ将棋（３X３将棋、５X５将棋、９マス将棋）辺りに挑戦しようかと思ってます。</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>名前を忘れてしまったのですが、２０年以上前に対戦する度に強くなると謳った将棋ソフト（シェアウェア）があったと思うのですが、どのような仕組みだったのかよく知りません。今でもあるのでしょうか？ <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#programming-ref">
+    		programming <span>18</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#programming-ref">programming <span>11</span></a></li>
+     
+    	<li><a href="/tags.html#ruby-ref">ruby <span>25</span></a></li>
+     
+    	<li><a href="/tags.html#tictactoe-ref">tictactoe <span>20</span></a></li>
+     
+    	<li><a href="/tags.html#android-ref">android <span>13</span></a></li>
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>12</span></a></li>
+     
+    	<li><a href="/tags.html#cordova-ref">cordova <span>9</span></a></li>
+     
+    	<li><a href="/tags.html#shogi-ref">shogi <span>2</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/programming/2016-10-04/spritesheet" title="JavaScriptでスプライトシートを使う">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled"><a>Next &rarr;</a>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'happyclam'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2016 happyclam
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

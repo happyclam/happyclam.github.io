@@ -10,6 +10,7 @@ http://happyclam.github.io/search.json
 http://happyclam.github.io/sitemap.txt
 http://happyclam.github.io/tags
 
+http://happyclam.github.io/programming/2016-10-21/ml_miscellaneous
 http://happyclam.github.io/programming/2016-10-04/spritesheet
 http://happyclam.github.io/project/2016-09-19/tictactoe_evo
 http://happyclam.github.io/programming/2016-08-25/texturepacker

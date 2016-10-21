@@ -5,10 +5,183 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2016-10-10T08:13:07+09:00</lastBuildDate>
-        <pubDate>2016-10-10T08:13:07+09:00</pubDate>
+        <lastBuildDate>2016-10-21T19:20:54+09:00</lastBuildDate>
+        <pubDate>2016-10-21T19:20:54+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>三目並べと同じ方法でオセロや将棋を作れるか</title>
+                <description>&lt;h3 id=&quot;section&quot;&gt;無理とは分かっていても何とかしたい&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;をリリースした後、このアプリと同じAIの作り方（勝ったらご褒美、負けたら罰を与える）でオセロや将棋を作れないだろうかと考えてみました。同じコードを再利用して（楽して）他のゲームが作れるなら作る側の人ならやってみたいと思うでしょう。使う側のユーザーも、なんで「進化する将棋」や「進化するオセロ」じゃないの？「三目並べでは簡単すぎて楽しめない」という人もいるかもしれません。でも、想像つくとは思いますが、三目並べなのには理由があります。ネットで検索してみたところ、オセロで出現し得る局面の数は約&lt;script type=&quot;math/tex&quot;&gt;10^{60}&lt;/script&gt;で、将棋は&lt;script type=&quot;math/tex&quot;&gt;10^{360}&lt;/script&gt;だそうです。私が作った三目並べは以前&lt;a href=&quot;/software/2015-10-19/multi_branched_tree/&quot;&gt;記事&lt;/a&gt;にも書きましたが、局面の数は&lt;script type=&quot;math/tex&quot;&gt;10^7&lt;/script&gt;以下で詳細は次の表の通りです。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;手数 \ 重複チェック&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　有り　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　無し　　&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;初期盤面&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;１手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;9&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;9&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;２手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;72&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;72&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;３手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;252&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;504&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;４手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;756&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3,024&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;５手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1,260&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;15,120&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;６手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1,680&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;60,480&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;７手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1,260&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;181,440&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;８手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;630&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;362,880&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;９手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;126&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;362,880&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;計　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;6,046&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;986,410&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　三目並べだからこそ比較的容易に作れたってことです&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。三目並べでは重複局面を省けばわずか6,046通りの局面データを保持すれば済みます。100,000回対戦テスト後の手元の学習ファイル（ゲーム木データを保存したファイル）のサイズを見ると重複チェック用のデータと合わせて約800KBですので、&lt;code&gt;一局面分のデータ（約130バイト）× 6,046局面 ＝ ８００KB&lt;/code&gt;って感じでしょうか。もしオセロの全局面を保存しようとすると、１テラバイトが&lt;script type=&quot;math/tex&quot;&gt;2^{40}&lt;/script&gt;（=約&lt;script type=&quot;math/tex&quot;&gt;10^{12}&lt;/script&gt;）なので&lt;script type=&quot;math/tex&quot;&gt;10^{60}&lt;/script&gt;というオセロの局面数（重複局面を省けばもっと減ると思いますが）を保存するためには、とんでもないディスク容量が必要です。スマホでは全然容量が足りませんし、局面の検索の時間もかかるでしょうし、今のやり方そのままではオセロや将棋のアプリを作るのは現実的ではないということです。&lt;br /&gt;
+　でも、&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;はゲーム木（全局面の分岐を木構造で表現したデータ）を動的に生成するので、オセロの局面がいくら多いといっても１ゲームごとに少しずつノード（局面データ）を追加していくのであればとりあえずディスク容量に余裕があるPCで動かすソフトは作れるんじゃないか、なんて考えてとりあえず試しに作ってみようかと思ったりしたのですが、ゲーム木のノードの数が多いと一回のゲームで得られる学習効果が非常に薄まるのでいくら対戦しても全然強くならない（学習効果が実感できない）ものになるでしょう。プログラム同士で対戦させて予め学習を進めてからリリースするという方法も考えられますが、それにしてもデータを小さくしなければならないという問題は解決する必要があります。&lt;br /&gt;
+　データを小さくする（ゲーム木を小さくする）ために回転・対照形を同一局面と見做して省略する&lt;a href=&quot;/software/2015-11-27/reinforcement/&quot;&gt;記事&lt;/a&gt;は以前も書きましたが、この時は局面の数を求めるためだけに力技でプログラムを改変したのですが、AIに組み込むとなると、処理に手間取って操作性に影響が出るのも嫌なので手付かず状態です。機種にもよりますが現状でもAI側が指し手を決める時に動作が少し重いのを感じると思いますが、これは局面の先読みをする必要がない代わりに、検索と数値計算処理に手間がかかっているからです。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;「消える三目並べ」なら何とかなりそう&lt;/h3&gt;
+&lt;p&gt;　「無限三目並べ」、「無限まるばつ」、「Arrange Line」いろんな名前でリリースされているゲームで、正式名称は分かりませんが、「消える三目並べ」というのは、三つまでは普通に置けるけど、四つ目を置くと最初に置いた自分の駒が消えるというルールの三目並べのことです。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;「消える三目並べ」のゲーム進行の一例&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/battle_sample.png&quot; alt=&quot;例１&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;　上の図の進行を見ていただければルールはすぐにわかると思いますが、５手目でダブルリーチを掛けている先手（X）が勝ちかと思いきや、次の手を打つと自分の３手前の駒が消えるのでダブルリーチを掛けたにも関わらず先手（X）が負けになっています。&lt;/p&gt;
+
+&lt;p&gt;　このゲームに関しては以前にも&lt;a href=&quot;/software/2014-09-23/tictactoe_arrange&quot;&gt;「ちょっと変わった三目並べ」というアプリ&lt;/a&gt;の記事として書きました。思いつきの汚いコードを晒しています&lt;img class=&quot;emoji&quot; title=&quot;grin&quot; alt=&quot;grin&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/grin.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;が、指し手をキュー（queue）に格納するようにコードを書き直して、どれぐらいの局面の数になるのか確認してみました。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;手数 \ 重複チェック&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　有り　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　無し　　&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;初期盤面&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;１手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;9&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;9&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;２手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;72&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;72&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;３手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;252&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;504&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;４手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;756&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3,024&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;５手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1,260&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;15,120&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;６手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1,680&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;60,480&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;７手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;８手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;９手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;計　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;4,030&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　そうすると、思惑通りというか予想通りというか当たり前というか、Xが３手Oが３手の計６手進んだあとは、局面の数は増えることがありません。重複チェック無しだとカウント処理が終わらないので&lt;code&gt;-&lt;/code&gt;としましたが、上の表でわかる通り、通常の三目並べよりデータ量は少なくて済みます。ゲーム終了までの手数は増えていきますが、AIに報酬や罰を与えるのはゲーム終了時の１回だけなので、局面の重複チェックさえしていればデータが無制限に増えることもありません。&lt;br /&gt;
+　おまけにAIに勝つためには通常の三目並べより頭を使うので、三目並べじゃ物足りないという人にとっても楽しめそうな気がします。初めのうちは簡単に勝てていたのにだんだん勝てなくなるというのがAI（人工知能）の醍醐味だと思うので自分の思惑通りのアプリが出来そうです。それともう一つ、通常の三目並べはお互い最善手を選択し続けると引分になりますが、このゲームは引分にはならない（千日手はあり得る）ので、その点も良さそうです。&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;をプレイしていて、「人」に進化するまでやってみようと思ってますが、引分ばかりでは辛いなと思っていたところなので、まずこれを作ってリリースしようかなと思っています。&lt;br /&gt;
+　これが完成すれば次はミニ将棋（３X３将棋、５X５将棋、９マス将棋）辺りに挑戦しようかと思ってます。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;名前を忘れてしまったのですが、２０年以上前に対戦する度に強くなると謳った将棋ソフト（シェアウェア）があったと思うのですが、どのような仕組みだったのかよく知りません。今でもあるのでしょうか？ &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+                <link>http://happyclam.github.io/programming/2016-10-21/ml_miscellaneous</link>
+                <guid>http://happyclam.github.io/programming/2016-10-21/ml_miscellaneous</guid>
+                <pubDate>2016-10-21T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>JavaScriptでスプライトシートを使う</title>
