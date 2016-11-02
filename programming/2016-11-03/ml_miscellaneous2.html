@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>「消える三目並べ」、思ったより大変</title>
+
+    <meta name="author" content="happyclam">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="「消える三目並べ」、思ったより大変">
+  
+  
+  <meta name="twitter:url" content="http://happyclam.github.io/programming/2016-11-03/ml_miscellaneous2">
+  
+  
+  <meta name="twitter:description" content="「進化する三目並べ（Tic-tac-toe Evo）」と同じ方法でオセロや将棋を作れるか？">
+  
+  
+  <meta name="twitter:image:src" content="http://happyclam.github.io/images/logo_114.png">
+  
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script language="JavaScript">
+$(document).ready( function () {
+    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
+<script src="/assets/themes/twitter/js/jquery.min.js"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
+<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
+<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-1752720-7', 'happyclam.github.io');
+      ga('send', 'pageview');
+    </script>
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div style="text-align: center;">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- トップバナー -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-1238485061299241"
+     data-ad-slot="7366457015"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    </div>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">自己満足プログラミング</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/profile">About</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="row-fluid">
+        <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+        <div class="span9"
+             <!-- Html Elements for Search -->
+             <div id="search-container" align="right">
+               <input type="text" id="search-input" placeholder="search...">
+               <ul id="results-container"></ul>
+             </div>
+             <div class="results"></div>
+        </div>
+      </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+      <div class="content">
+        
+<div class="page-header">
+  <h1>「消える三目並べ」、思ったより大変 </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>03 November 2016</span>
+    </div>
+    <div class="content">
+      <h3 id="section">乱数プログラムとの対戦テスト結果は良好だったけど</h3>
+<p>　<a href="/programming/2016-10-21/ml_miscellaneous">前回の記事</a>で「消える三目並べ」（３手前に打った自分の駒が消えるルールの三目並べ）なら保持する局面の数（ゲーム木）を通常の三目並べより少なく出来るなんて書いてしまいましたが、「消える三目並べ」では局面のデータだけを記憶していても次にどの駒が消えるかによって最善手が違ってくるので通常の三目並べのように局面の組み合わせだけで学習させることは出来ないことに気づきました。<br />
+　あまり深く考えずに「消える三目並べ」のルールをプログラムに反映させて、学習機能の部分は変更せずに乱数プログラムとの対戦テストをしたところ、最初は２０％程だった勝率が徐々に上がり、10,000回対戦後の最後の１００回の対戦は勝率６０％以上に上がったので、これだけの修正でいいのか？と疑問に思いながらも、前回の記事を書いてしまいました。<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">「進化する三目並べ（Tic-tac-toe Evo）」</a>でも、最強プログラムとの対戦では急速に学習が進みますが、乱数プログラムとの対戦では学習効果が低いため10,000回対戦後でも勝率が６０％程度でしたので、同じ結果が得られたと早合点してしまいました。<br />
+　でも「消える三目並べ」の最強プログラム<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>を作って対戦テストをしてみたところ<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>、学習機能を変更しないままでは、全く勝てるようになりませんでした。以前の記事<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>でも書いたように「消える三目並べ」は先手必勝なので少なくともAI側<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup>が先手の時は勝てるようにならなければおかしいはずなのに、５千回程対戦させても１回も勝てません。とりあえず最強の「消える三目並べ」プログラムに先手の時はある程度勝てるようにならなければ「進化する」とは言えないでしょう。<br />
+　では、なぜ乱数プログラムとの対戦テストでは勝率が上がっていったのか？乱数プログラムはまったく出鱈目に指し手を決めるので、ラインを揃えようとさえしないので、少なくとも現在の局面だけを見て（例え次にどの駒が消えるかまでは考慮していないにしても）ラインを揃えれば報酬がもらえることを学習したプログラムの方が勝率が上がっていくのは当たり前ということでしょう。してみると、乱数プログラムとの対戦テストなんて学習効果を図るためには不要なテストなのかもしれません。テスト結果が良好だったので、簡単な修正で済んだことに驚きながらも「思ったより楽勝だな」なんて思ってました。しかし、このままのプログラムでは、人間や最強プログラムを相手にした場合はまったく学習効果が感じられない偽AIプログラムと言われそうです。<br />
+　一応スマホにインストールして自分で数百回対戦してみましたが「消える三目並べ」自体あまりやったことがなく特に強いわけでもない自分にとっては、強くなってるのかどうかわからないというのが正直な感想ですが、少なくともデータ上で強くなることを確認する必要があるでしょう。</p>
+
+<h3 id="section-1">組み合わせではなく、順列</h3>
+<p>　冷静に考えれば当たり前なんですが、「消える三目並べ」では通常の三目並べと違い６手目以降は駒が消えていくので現在の局面（９箇所の配置）を見ただけでは最善手の判断が付きません。オセロや将棋では現局面の駒の配置と手番がわかればその局面での最善手は判断できるはずです<sup id="fnref:5"><a href="#fn:5" class="footnote">5</a></sup>が、「消える三目並べ」では自分が新たに着手する際にどの駒が消えるのかを知っていなければ判断できません。「消える三目並べ」のルールをプログラムに反映した段階で当然指し手の手順は記憶しているのですが、学習データを保存するためのゲーム木データにも記憶しておく必要があるということです。つまり、局面の組み合わせの数ではなく、順列の数の分だけ局面データを保持する必要があります。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">手数 \ 重複チェック</th>
+      <th style="text-align: right">　有り　　</th>
+      <th style="text-align: right">　無し　　</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">初期盤面</td>
+      <td style="text-align: right">1</td>
+      <td style="text-align: right">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">１手目　</td>
+      <td style="text-align: right">9</td>
+      <td style="text-align: right">9</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">２手目　</td>
+      <td style="text-align: right">72</td>
+      <td style="text-align: right">72</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">３手目　</td>
+      <td style="text-align: right">252</td>
+      <td style="text-align: right">504</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">４手目　</td>
+      <td style="text-align: right">756</td>
+      <td style="text-align: right">3,024</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">５手目　</td>
+      <td style="text-align: right">1,260</td>
+      <td style="text-align: right">15,120</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">６手目　</td>
+      <td style="text-align: right">1,680</td>
+      <td style="text-align: right"><strong>60,480</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">７手目　</td>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">８手目　</td>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">９手目　</td>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">計　</td>
+      <td style="text-align: right">4,030</td>
+      <td style="text-align: right"><strong>79,210</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>　上の表で手順を含めた局面データをゲーム木に含めないといけないので、<a href="/programming/2016-10-21/ml_miscellaneous">前回の記事</a>にゲーム木に必要なデータ数は左の列の4,030で済むようなことを書きましたが、正しくは右の列の合計79,210個の局面データを記憶しておく必要があります。通常の三目並べと違い、局面の重複チェックは必要ないというか、重複チェックをしてはいけなかったわけです。同じ局面でもどういう経緯でその局面に至ったかによって最善手が変わるのですから。</p>
+
+<h3 id="section-2">手数が増えてもデータは増えない</h3>
+
+<div style="width:600px; margin: 0 auto;">
+
+  <p><a href="/images/tictactoe.png"><img src="/images/tictactoe.png" alt="消える三目並べゲーム木" title="消える三目並べゲーム木" /></a></p>
+
+</div>
+
+<p>　上の図は、手数がいくら増えたとしても６手目以降の局面は、６手目の局面60,480種類の中に手順が違う局面として必ず含まれていることを示しています。プログラムとの対戦テストでは手数は２０手を超えることもあるのですが、一局面に存在する駒の数は最大６個（×が３つ、○が３つ）までなのでいくら手数が増えてもデータが無制限に増える心配がないことは<a href="/programming/2016-10-21/ml_miscellaneous">前回の記事</a>に書いた通りですが、アプリを作る場合思っていたより大幅にデータ量が増えてしまうことになりそうです。<br />
+　試しにゲーム木データをPCで作成したところ12MB程度になりました。画像をいっぱい使用する昨今のアプリに比べればそれ程でもないかもしれませんが、現在の<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">「進化する三目並べ（Tic-tac-toe Evo）」</a>の1MB程度に較べて大幅増量になりそうです。androidアプリもiosアプリも100MBまで大丈夫なようなので、サイズ的には問題ないのですが、スマホ標準のブラウザ（WebView）内のデータ制限（androidは2MB、iosは5MB）を超えるのでアプリの作りを変える必要がありそうです。自分としてはこれが一番面倒くさい、今までMacbookでブラウザ上で開発出来ていたのに、パワーの有るPCで実機やエミュレータを使いながらの開発作業が必要になりそうです。<br />
+　また、データ量の問題はどうにかなるにしても、６手目以降の局面を検索する場合、上の図の限定した範囲のゲーム木に含まれているとはいっても、今までのように単純にツリーを辿るだけでは駄目で、６手目以降に関してはツリーのルートから再検索しなければいけませんし、上の図の６手目の局面の手番はすべて同じ先手番になっています（×○×○×○で次は先手の×の手番）が、実際には後手の手番で上の図の６手目の局面を迎えることもあるので、対戦結果を学習データとして格納する時の処理が複雑で煩わしい処理になりそうです。それにAIの学習が進んでいるかどうかの指標（どれだけ進化したか現在イラストで表示している機能）をどうやって実現するかも現在手探り中です。<br />
+　乗りかかった船なので何とかリリースまで漕ぎ着けたいと思ってますが、思っていたより時間かかりそうです<img class="emoji" title="pensive" alt="pensive" src="https://github.global.ssl.fastly.net/images/icons/emoji/pensive.png" height="20" width="20" align="absmiddle" />。</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>ここで言う最強プログラムとは従来のMIN-MAX法（αβ法）を使って作ったプログラムです <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>「消える三目並べ」の最強プログラムは最低でも１１手読みを必要とするため、テストするにも時間がかかって面倒なんです<img class="emoji" title="weary" alt="weary" src="https://github.global.ssl.fastly.net/images/icons/emoji/weary.png" height="20" width="20" align="absmiddle" /> <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p><a href="/software/2014-10-04/arrange_line">「三目並べ（tic tac toe）で遊んでみた（続き）」</a>、<a href="/programming/2016-07-23/33shogi">「９マス将棋（３×３将棋）と三目並べの変化形」</a>参照 <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+      <p>ここで言うAIとは<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">「進化する三目並べ（Tic-tac-toe Evo）」</a>で使用している機械学習によるAIです。 <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:5">
+      <p>オセロと将棋に関しても、オセロは指し手が進む毎に盤面を駒が埋めていき必ず終局に向かうのに対して、将棋は駒が全て盤上を埋め尽くすわけではないので、必ずしも手数が増える毎に終局が近づくわけではないという違いがあります。オセロ、将棋、消える三目並べ、３つのゲームはそれぞれ微妙に違うわけです。こんな違いを意識している人は世の中にどれぐらいいるでしょうか<img class="emoji" title="sweat_smile" alt="sweat_smile" src="https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png" height="20" width="20" align="absmiddle" /> <a href="#fnref:5" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#programming-ref">
+    		programming <span>19</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#programming-ref">programming <span>12</span></a></li>
+     
+    	<li><a href="/tags.html#ruby-ref">ruby <span>26</span></a></li>
+     
+    	<li><a href="/tags.html#tictactoe-ref">tictactoe <span>21</span></a></li>
+     
+    	<li><a href="/tags.html#android-ref">android <span>14</span></a></li>
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>13</span></a></li>
+     
+    	<li><a href="/tags.html#cordova-ref">cordova <span>10</span></a></li>
+     
+    	<li><a href="/tags.html#shogi-ref">shogi <span>3</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/programming/2016-10-21/ml_miscellaneous" title="三目並べと同じ方法でオセロや将棋を作れるか">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled"><a>Next &rarr;</a>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'happyclam'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2016 happyclam
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

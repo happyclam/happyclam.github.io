@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "「消える三目並べ」、思ったより大変",
+      "category" : "programming",
+      "tags"     : "programming, ruby, tictactoe, android, javascript, cordova, shogi",
+      "url"      : "http://happyclam.github.io/programming/2016-11-03/ml_miscellaneous2",
+      "date"     : "2016-11-03 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "三目並べと同じ方法でオセロや将棋を作れるか",
       "category" : "programming",
       "tags"     : "programming, ruby, tictactoe, android, javascript, cordova, shogi",
