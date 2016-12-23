@@ -5,10 +5,361 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2016-11-23T09:16:08+09:00</lastBuildDate>
-        <pubDate>2016-11-23T09:16:08+09:00</pubDate>
+        <lastBuildDate>2016-12-23T13:37:04+09:00</lastBuildDate>
+        <pubDate>2016-12-23T13:37:04+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>三目並べのゲーム木データを間引く</title>
+                <description>&lt;p&gt;Project: 「&lt;strong&gt;三目並べ&lt;/strong&gt;」: &lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/machinelearning&quot;&gt;machinelearning&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;ゲーム木から回転、対照形を間引く&lt;/h3&gt;
+&lt;p&gt;　以前から懸案だったプログラム内に保持している局面データの省略をやってみました。この件については以前から何度か記事を書いています（&lt;a href=&quot;/software/2015-10-19/multi_branched_tree&quot;&gt;「対戦型ソフトでの幅優先探索（BFS）の使い途」&lt;/a&gt;、&lt;a href=&quot;/software/2015-11-27/reinforcement&quot;&gt;「強化学習の修正」&lt;/a&gt;）が面倒そうなので放置してたのですが、手を付け始めたら案外すぐに出来ました&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;と言うのも勝ったら報酬を与えて負けたら罰するという強化学習の部分がうまく機能するのか心配だったので放置していたのですが、とりあえず作ってテストしてみると報酬の与え方の部分は変更せずに局面データの変換だけでうまく機能しているようです。&lt;/p&gt;
+
+&lt;pre style=&quot;overflow:auto; white-space:nowrap&quot;&gt;
+ |X|2|3| |1|X|3| |1|2|X| |1|2|3| |1|2|3| |1|2|3| |1|2|3| |1|2|3| |1|2|3|&lt;br /&gt;
+ |4|5|6| |4|5|6| |4|5|6| |X|5|6| |4|X|6| |4|5|X| |4|5|6| |4|5|6| |4|5|6|&lt;br /&gt;
+ |7|8|9| |7|8|9| |7|8|9| |7|8|9| |7|8|9| |7|8|9| |X|8|9| |7|X|9| |7|8|X|&lt;br /&gt;
+&lt;/pre&gt;
+&lt;p&gt;　一手目の局面に関して言うと、今までゲーム木データ内に１手目の局面は上のように９種類保持していたのを、回転・対照形を省いて以下の３局面だけ保持するようになっています。&lt;/p&gt;
+
+&lt;pre style=&quot;overflow:auto; white-space:nowrap&quot;&gt;
+プログラム内に保持している１手目の全局面データ&lt;br /&gt;&lt;br /&gt;
+&lt;span style=&quot;color:blue;&quot;&gt; |X|2|3|&lt;/span&gt; |1|X|3| |1|2|3|&lt;br /&gt;
+&lt;span style=&quot;color:blue;&quot;&gt; |4|5|6|&lt;/span&gt; |4|5|6| |4|X|6|&lt;br /&gt;
+&lt;span style=&quot;color:blue;&quot;&gt; |7|8|9|&lt;/span&gt; |7|8|9| |7|8|9|&lt;br /&gt;
+ &lt;/pre&gt;
+
+&lt;p&gt;　座標変換用のテーブル（９０度毎に４種類、左右対称、上下対照、斜め対照２種類）を用意して、ゲーム木データを検索する時にすべての座標変換を試しながら検索して対象の局面を見つけ出し、そこにある報酬データ（score配列）を使って指し手を決め、実際の盤面の座標に変換して駒（×、○）を打ちます。ゲーム終了後には実際の局面からゲーム木データが保持している局面に座標変換して報酬データを書き込むようにします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;class Board &amp;lt; Array
+  @@restore_table = [0, 3, 2, 1, 4, 5, 6, 7]
+  @@rotate_sym = [
+    [0, 1, 2, 3, 4, 5, 6, 7, 8],
+    [2, 5, 8, 1, 4, 7, 0, 3, 6],
+    [8, 7, 6, 5, 4, 3, 2, 1, 0],
+    [6, 3, 0, 7, 4, 1, 8, 5, 2],
+    [2, 1, 0, 5, 4, 3, 8, 7, 6],
+    [6, 7, 8, 3, 4, 5, 0, 1, 2],
+    [0, 3, 6, 1, 4, 7, 2, 5, 8],
+    [8, 5, 2, 7, 4, 1, 6, 3, 0]
+  ]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　例えば２手目の局面は以下の１２種類しか保持していませんが&lt;/p&gt;
+
+&lt;pre style=&quot;overflow:auto; white-space:nowrap&quot;&gt;
+プログラム内に保持している２手目の全局面データ&lt;br /&gt;&lt;br /&gt;
+ |X|O|3| &lt;span style=&quot;color:red;&quot;&gt;|X|2|O|&lt;/span&gt; |X|2|3| |X|2|3| |X|2|3| |O|X|3| |1|X|3| |1|X|3| |1|X|3| |1|X|3| |O|2|3| |1|O|3|&lt;br /&gt;
+ |4|5|6| &lt;span style=&quot;color:red;&quot;&gt;|4|5|6|&lt;/span&gt; |4|O|6| |4|5|O| |4|5|6| |4|5|6| |O|5|6| |4|O|6| |4|5|6| |4|5|6| |4|X|6| |4|X|6|&lt;br /&gt;
+ |7|8|9| &lt;span style=&quot;color:red;&quot;&gt;|7|8|9|&lt;/span&gt; |7|8|9| |7|8|9| |7|8|O| |7|8|9| |7|8|9| |7|8|9| |O|8|9| |7|O|9| |7|8|9| |7|8|9|&lt;br /&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;　ゲームが以下のように進行した場合、&lt;/p&gt;
+&lt;pre style=&quot;overflow:auto; white-space:nowrap&quot;&gt;
+ １手目　　　２手目　　３手目 &lt;br /&gt;
+ &lt;span style=&quot;color:blue;&quot;&gt;|1|2|3|&lt;/span&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;color:red;&quot;&gt;|1|2|3|&lt;/span&gt;&amp;nbsp;&amp;nbsp;&lt;span&gt;|1|2|3|&lt;/span&gt;&lt;br /&gt;
+ &lt;span style=&quot;color:blue;&quot;&gt;|4|5|6|&lt;/span&gt;=&amp;gt;&lt;span style=&quot;color:red;&quot;&gt;|4|5|6|&lt;/span&gt;=&amp;gt;&lt;span&gt;|4|X|6|&lt;/span&gt;&lt;br /&gt;
+ &lt;span style=&quot;color:blue;&quot;&gt;|X|8|9|&lt;/span&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;color:red;&quot;&gt;|X|8|O|&lt;/span&gt;&amp;nbsp;&amp;nbsp;&lt;span&gt;|X|8|O|&lt;/span&gt;&lt;br /&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;１手目は実際の局面を右に９０度回転させた局面として見つけ出すことが出来、２手目は上下反転したもの、３手目はまた別の変換というように、一手毎に座標変換の仕方が異なるわけですが、一つの局面データに対して一つしか持ってない報酬データ（score配列）に対して加算（報酬）、減算（罰）していけば問題なく強化学習が進みます。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;局面の数&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;手数 \ 局面の数&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;重複チェック無し&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;重複チェック有り&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;回転・対照形とゲーム終了局面を省略&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;初期盤面&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;１手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;9&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;9&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;２手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;72&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;72&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;３手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;504&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;252&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;38&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;４手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3,024&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;756&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;108&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;５手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;15,120&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1,260&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;153&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;６手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;60,480&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1,680&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;183&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;７手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;181,440&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1,260&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;95&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;８手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;362,880&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;630&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;34&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;９手目　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;362,880&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;126&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;計　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;986,410&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;span style=&quot;color: red;&quot;&gt;6,046&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;span style=&quot;color: red;&quot;&gt;627&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　今回の改良で回転・対照形の局面は同一局面としてプログラム内に一つしか保持しないようにしたのと同時に、マス目が全て埋まっている局面や、既に勝ち負けが決まっている局面もゲーム木データから除いています。一番右の欄の９手目の局面が０になっているのはそのため（既に勝敗が決まっているから）です。&lt;br /&gt;
+　ゲーム木データを格納したファイル（trees.dump）のサイズは50Kバイト程度で今までの１０分の１以下になりました。リリース中の&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;androidアプリ&lt;/a&gt;にも反映させようと思っているのですが、現行バージョンに採用しているゲーム木を動的に生成する方法&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;と今回の方法を併用するのは難しいのでデータの互換性は無くなりそうです。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;対戦結果（学習効率）比較&lt;/h3&gt;
+&lt;p&gt;　従来のプログラムと今回修正したもので改めてデータを取り直して、学習の進捗度をグラフにしてみました。回転・対照形をゲーム木から除いた点以外はまったく同じプログラムで比較しています。&lt;/p&gt;
+
+&lt;h5 id=&quot;section-3&quot;&gt;– 最強プログラムとの対戦結果 –&lt;/h5&gt;
+
+&lt;div id=&quot;new_saikyo&quot; style=&quot;width:600px;height:300px;&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;old_saikyo&quot; style=&quot;width:600px;height:300px;&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;　三目並べの特性上、完全読み切りを行っている最強プログラムに勝つことは出来ませんが、変更前のプログラムより何割か増しで引分に持ち込む頻度が上がり、学習の速度が上がっていることがわかります。&lt;/p&gt;
+
+&lt;h5 id=&quot;section-4&quot;&gt;– 乱数プログラムとの対戦結果 –&lt;/h5&gt;
+&lt;div id=&quot;new_random&quot; style=&quot;width:600px;height:300px;&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;old_random&quot; style=&quot;width:600px;height:300px;&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;　乱数で指し手を決める弱いプログラム相手でも、今までより対戦回数が少ない段階で勝率が上がっていることがわかります。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;「消える三目並べ」に応用出来るか？&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/programming/2016-11-23/vanishing-tictactoe&quot;&gt;前回の記事&lt;/a&gt;で「消える三目並べ」（３手前に打った自分の駒が消えるルールの三目並べ）はデータ量が増えすぎて、強化学習型のスマホアプリにするのは難しいと書きました。そこで今回の方法で回転・対照形を省けば保持する局面データ量が減って問題解決に繋がるかといえば残念ながらそうはいきません。これも以前書きましたが「消える三目並べ」は局面（と手番）だけでは最善手が決まりません。将棋、オセロ、囲碁など多くのテーブルゲームは局面と手番が決まれば最善手を決めることが出来ますが、「消える三目並べ」はその局面に至った経過が大事（順列データ）なので単純に今回のように局面データを省略しても駄目そうです&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。通常の配列データではなくもっと物理的に小さなデータ（ビットパターン）で局面を保持するしかないかなと考えてますが、これについてはもう少し模索しようと思います。「どうぶつしょうぎ」を完全解析したプログラムは一つの局面を整数データとして（ビットパターンで）保持していたそうですが、有名な将棋ソフトなどもソースコードを追ったことは無いのですが、すべてそうやっているのでしょう。&lt;br /&gt;
+　と、この記事を書いている最中にlibshogiというビットパターンで将棋盤を生成するライブラリがあることをTwitterで知りました。こういうライブラリの三目並べ用があればいいのですが、有るわけないですね&lt;img class=&quot;emoji&quot; title=&quot;smile&quot; alt=&quot;smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+function show_new_saikyo(){
+    var new_lose = [];
+    var new_win = [[1, 87],[2, 57],[3, 65],[4, 53],[5, 59],[6, 47],[7, 41],[8, 42],[9, 35],[10, 31],[11, 32],[12, 32],[13, 20],[14, 22],[15, 18],[16, 20],[17, 12],[18, 14],[19, 7],[20, 12],[21, 8],[22, 8],[23, 9],[24, 8],[25, 3],[26, 9],[27, 5],[28, 6],[29, 3],[30, 5],[31, 4],[32, 2],[33, 4],[34, 3],[35, 5],[36, 5],[37, 2],[38, 9],[39, 6],[40, 1],[41, 4],[42, 3],[43, 4],[44, 4],[45, 3],[46, 4],[47, 1],[48, 1],[49, 1],[50, 5],[51, 1],[52, 2],[53, 3],[54, 1],[55, 4],[56, 3],[57, 1],[58, 3],[59, 1],[60, 1],[61, 1],[62, 5],[63, 4],[64, 3],[65, 4],[66, 3],[67, 1],[68, 4],[69, 1],[70, 0],[71, 3],[72, 4],[73, 2],[74, 4],[75, 2],[76, 4],[77, 5],[78, 0],[79, 2],[80, 0],[81, 0],[82, 0],[83, 3],[84, 1],[85, 0],[86, 0],[87, 0],[88, 1],[89, 0],[90, 2],[91, 1],[92, 4],[93, 0],[94, 1],[95, 1],[96, 3],[97, 0],[98, 2],[99, 2],[100, 1],];
+    var new_draw = [[1 ,13],[2 ,43],[3 ,35],[4 ,47],[5 ,41],[6 ,53],[7 ,59],[8 ,58],[9 ,65],[10 ,69],[11 ,68],[12 ,68],[13 ,80],[14 ,78],[15 ,82],[16 ,80],[17 ,88],[18 ,86],[19 ,93],[20 ,88],[21 ,92],[22 ,92],[23 ,91],[24 ,92],[25 ,97],[26 ,91],[27 ,95],[28 ,94],[29 ,97],[30 ,95],[31 ,96],[32 ,98],[33 ,96],[34 ,97],[35 ,95],[36 ,95],[37 ,98],[38 ,91],[39 ,94],[40 ,99],[41 ,96],[42 ,97],[43 ,96],[44 ,96],[45 ,97],[46 ,96],[47 ,99],[48 ,99],[49 ,99],[50 ,95],[51 ,99],[52 ,98],[53 ,97],[54 ,99],[55 ,96],[56 ,97],[57 ,99],[58 ,97],[59 ,99],[60 ,99],[61 ,99],[62 ,95],[63 ,96],[64 ,97],[65 ,96],[66 ,97],[67 ,99],[68 ,96],[69 ,99],[70 ,100],[71 ,97],[72 ,96],[73 ,98],[74 ,96],[75 ,98],[76 ,96],[77 ,95],[78 ,100],[79 ,98],[80 ,100],[81 ,100],[82 ,100],[83 ,97],[84 ,99],[85 ,100],[86 ,100],[87 ,99],[88 ,99],[89 ,100],[90 ,98],[91 ,99],[92 ,96],[93 ,100],[94 ,99],[95 ,99],[96 ,97],[97 ,100],[98 ,98],[99 ,98],[100 ,99]];
+
+    Flotr.draw(
+        document.getElementById(&quot;new_saikyo&quot;),
+        [
+            {data: new_lose, label: &quot;勝ち&quot;},
+            {data: new_win, label: &quot;負け&quot;},
+            {data: new_draw, label: &quot;引分&quot;}
+        ],
+        {
+            title: &quot;回転・対照形を省略&quot;,
+            subtitle: &quot;対最強プログラム&quot;,
+            HtmlText: false,
+            bars:{show: true, stacked: true, horizontal:false},
+            xaxis:{
+                title: &quot;対戦回数（×１００）&quot;,
+                max: 110,
+                noTicks: 10
+            },
+            yaxis:{
+                title: &quot;対戦結果（勝ち／負け／引き分け）&quot;,
+                titleAngle: 90,
+                max: 100,
+                noTicks: 10
+            },
+            grid: {
+                verticalLines: true,
+                horizontalLines: true,
+                outline: &quot;ws&quot;
+            },
+            mouse: {
+                track:true,
+                trackDecimals: 0
+            }
+        }
+    );
+}
+
+function show_old_saikyo(){
+    var old_lose = [];
+    var old_win = [[1, 84],[2, 65],[3, 59],[4, 50],[5, 51],[6, 52],[7, 49],[8, 48],[9, 42],[10, 38],[11, 41],[12, 37],[13, 39],[14, 41],[15, 32],[16, 41],[17, 22],[18, 35],[19, 23],[20, 26],[21, 22],[22, 25],[23, 30],[24, 14],[25, 18],[26, 16],[27, 23],[28, 10],[29, 12],[30, 19],[31, 10],[32, 16],[33, 16],[34, 12],[35, 12],[36, 11],[37, 5],[38, 9],[39, 6],[40, 8],[41, 6],[42, 5],[43, 7],[44, 3],[45, 5],[46, 3],[47, 6],[48, 4],[49, 6],[50, 7],[51, 6],[52, 4],[53, 5],[54, 2],[55, 7],[56, 2],[57, 3],[58, 2],[59, 6],[60, 4],[61, 2],[62, 3],[63, 1],[64, 2],[65, 1],[66, 1],[67, 2],[68, 2],[69, 4],[70, 2],[71, 2],[72, 7],[73, 6],[74, 3],[75, 8],[76, 3],[77, 1],[78, 3],[79, 5],[80, 4],[81, 1],[82, 1],[83, 3],[84, 1],[85, 4],[86, 1],[87, 1],[88, 4],[89, 0],[90, 2],[91, 2],[92, 3],[93, 0],[94, 0],[95, 6],[96, 5],[97, 4],[98, 0],[99, 3],[100, 1],];
+    var old_draw = [[1 ,16],[2 ,35],[3 ,41],[4 ,50],[5 ,49],[6 ,48],[7 ,51],[8 ,52],[9 ,58],[10 ,62],[11 ,59],[12 ,63],[13 ,61],[14 ,59],[15 ,68],[16 ,59],[17 ,78],[18 ,65],[19 ,77],[20 ,74],[21 ,78],[22 ,75],[23 ,70],[24 ,86],[25 ,82],[26 ,84],[27 ,77],[28 ,90],[29 ,88],[30 ,81],[31 ,90],[32 ,84],[33 ,84],[34 ,88],[35 ,88],[36 ,89],[37 ,95],[38 ,91],[39 ,94],[40 ,92],[41 ,94],[42 ,95],[43 ,93],[44 ,97],[45 ,95],[46 ,97],[47 ,94],[48 ,96],[49 ,94],[50 ,93],[51 ,94],[52 ,96],[53 ,95],[54 ,98],[55 ,93],[56 ,98],[57 ,97],[58 ,98],[59 ,94],[60 ,96],[61 ,98],[62 ,97],[63 ,99],[64 ,98],[65 ,99],[66 ,99],[67 ,98],[68 ,98],[69 ,96],[70 ,98],[71 ,98],[72 ,93],[73 ,94],[74 ,97],[75 ,92],[76 ,97],[77 ,99],[78 ,97],[79 ,95],[80 ,96],[81 ,99],[82 ,99],[83 ,97],[84 ,99],[85 ,96],[86 ,99],[87 ,99],[88 ,96],[89 ,100],[90 ,98],[91 ,98],[92 ,97],[93 ,100],[94 ,100],[95 ,94],[96 ,95],[97 ,96],[98 ,100],[99 ,97],[100 ,99]];
+
+    Flotr.draw(
+        document.getElementById(&quot;old_saikyo&quot;),
+        [
+            {data: old_lose, label: &quot;勝ち&quot;},
+            {data: old_win, label: &quot;負け&quot;},
+            {data: old_draw, label: &quot;引分&quot;}
+        ],
+        {
+            title: &quot;従来の方法&quot;,
+            subtitle: &quot;対最強プログラム&quot;,
+            HtmlText: false,
+            bars:{show: true, stacked: true, horizontal:false},
+            xaxis:{
+                title: &quot;対戦回数（×１００）&quot;,
+                max: 110,
+                noTicks: 10
+            },
+            yaxis:{
+                title: &quot;対戦結果（勝ち／負け／引き分け）&quot;,
+                titleAngle: 90,
+                max: 100,
+                noTicks: 10
+            },
+            grid: {
+                verticalLines: true,
+                horizontalLines: true,
+                outline: &quot;ws&quot;
+            },
+            mouse: {
+                track:true,
+                trackDecimals: 0
+            }
+        }
+    );
+}
+
+function show_new_random(){
+    var new_lose = [[1, 36],[2, 43],[3, 49],[4, 39],[5, 51],[6, 55],[7, 62],[8, 51],[9, 51],[10, 66],[11, 56],[12, 61],[13, 60],[14, 60],[15, 69],[16, 62],[17, 78],[18, 58],[19, 67],[20, 67],[21, 72],[22, 66],[23, 71],[24, 65],[25, 62],[26, 69],[27, 74],[28, 69],[29, 72],[30, 67],[31, 64],[32, 65],[33, 79],[34, 68],[35, 73],[36, 76],[37, 81],[38, 72],[39, 80],[40, 76],[41, 65],[42, 67],[43, 70],[44, 69],[45, 74],[46, 75],[47, 68],[48, 78],[49, 73],[50, 76],[51, 74],[52, 74],[53, 66],[54, 70],[55, 79],[56, 80],[57, 79],[58, 74],[59, 73],[60, 62],[61, 81],[62, 69],[63, 81],[64, 77],[65, 75],[66, 75],[67, 83],[68, 70],[69, 72],[70, 76],[71, 77],[72, 78],[73, 77],[74, 73],[75, 74],[76, 81],[77, 79],[78, 80],[79, 82],[80, 81],[81, 81],[82, 76],[83, 78],[84, 80],[85, 66],[86, 81],[87, 76],[88, 75],[89, 78],[90, 83],[91, 82],[92, 77],[93, 79],[94, 76],[95, 72],[96, 79],[97, 73],[98, 86],[99, 77],[100, 79],];
+    var new_win = [[1, 48],[2, 41],[3, 36],[4, 45],[5, 33],[6, 29],[7, 28],[8, 27],[9, 31],[10, 21],[11, 28],[12, 26],[13, 24],[14, 25],[15, 14],[16, 21],[17, 10],[18, 21],[19, 17],[20, 22],[21, 16],[22, 12],[23, 13],[24, 17],[25, 17],[26, 16],[27, 17],[28, 10],[29, 19],[30, 18],[31, 20],[32, 18],[33, 12],[34, 15],[35, 10],[36, 9],[37, 9],[38, 18],[39, 10],[40, 14],[41, 19],[42, 20],[43, 16],[44, 11],[45, 9],[46, 7],[47, 14],[48, 16],[49, 16],[50, 13],[51, 12],[52, 14],[53, 17],[54, 14],[55, 10],[56, 10],[57, 13],[58, 10],[59, 9],[60, 20],[61, 9],[62, 18],[63, 10],[64, 8],[65, 14],[66, 11],[67, 7],[68, 15],[69, 17],[70, 12],[71, 12],[72, 6],[73, 11],[74, 14],[75, 15],[76, 5],[77, 14],[78, 11],[79, 10],[80, 10],[81, 6],[82, 13],[83, 8],[84, 4],[85, 17],[86, 9],[87, 11],[88, 12],[89, 10],[90, 7],[91, 11],[92, 9],[93, 12],[94, 16],[95, 12],[96, 12],[97, 15],[98, 7],[99, 7],[100, 9],];
+    var new_draw = [[1 ,16],[2 ,16],[3 ,15],[4 ,16],[5 ,16],[6 ,16],[7 ,10],[8 ,22],[9 ,18],[10 ,13],[11 ,16],[12 ,13],[13 ,16],[14 ,15],[15 ,17],[16 ,17],[17 ,12],[18 ,21],[19 ,16],[20 ,11],[21 ,12],[22 ,22],[23 ,16],[24 ,18],[25 ,21],[26 ,15],[27 ,9],[28 ,21],[29 ,9],[30 ,15],[31 ,16],[32 ,17],[33 ,9],[34 ,17],[35 ,17],[36 ,15],[37 ,10],[38 ,10],[39 ,10],[40 ,10],[41 ,16],[42 ,13],[43 ,14],[44 ,20],[45 ,17],[46 ,18],[47 ,18],[48 ,6],[49 ,11],[50 ,11],[51 ,14],[52 ,12],[53 ,17],[54 ,16],[55 ,11],[56 ,10],[57 ,8],[58 ,16],[59 ,18],[60 ,18],[61 ,10],[62 ,13],[63 ,9],[64 ,15],[65 ,11],[66 ,14],[67 ,10],[68 ,15],[69 ,11],[70 ,12],[71 ,11],[72 ,16],[73 ,12],[74 ,13],[75 ,11],[76 ,14],[77 ,7],[78 ,9],[79 ,8],[80 ,9],[81 ,13],[82 ,11],[83 ,14],[84 ,16],[85 ,17],[86 ,10],[87 ,13],[88 ,13],[89 ,12],[90 ,10],[91 ,7],[92 ,14],[93 ,9],[94 ,8],[95 ,16],[96 ,9],[97 ,12],[98 ,7],[99 ,16],[100 ,12]];
+
+    Flotr.draw(
+        document.getElementById(&quot;new_random&quot;),
+        [
+            {data: new_lose, label: &quot;勝ち&quot;},
+            {data: new_win, label: &quot;負け&quot;},
+            {data: new_draw, label: &quot;引分&quot;}
+        ],
+        {
+            title: &quot;回転・対照形を省略&quot;,
+            subtitle: &quot;対乱数プログラム&quot;,
+            HtmlText: false,
+            bars:{show: true, stacked: true, horizontal:false},
+            xaxis:{
+                title: &quot;対戦回数（×１００）&quot;,
+                max: 110,
+                noTicks: 10
+            },
+            yaxis:{
+                title: &quot;対戦結果（勝ち／負け／引き分け）&quot;,
+                titleAngle: 90,
+                max: 100,
+                noTicks: 10
+            },
+            grid: {
+                verticalLines: true,
+                horizontalLines: true,
+                outline: &quot;ws&quot;
+            },
+            mouse: {
+                track:true,
+                trackDecimals: 0
+            }
+        }
+    );
+}
+    
+function show_old_random(){
+    var old_lose = [[1, 47],[2, 43],[3, 43],[4, 42],[5, 45],[6, 50],[7, 68],[8, 58],[9, 48],[10, 49],[11, 52],[12, 43],[13, 49],[14, 54],[15, 46],[16, 54],[17, 53],[18, 57],[19, 56],[20, 51],[21, 51],[22, 56],[23, 55],[24, 52],[25, 50],[26, 57],[27, 57],[28, 57],[29, 56],[30, 63],[31, 59],[32, 50],[33, 60],[34, 46],[35, 58],[36, 50],[37, 54],[38, 55],[39, 66],[40, 47],[41, 56],[42, 58],[43, 55],[44, 50],[45, 49],[46, 64],[47, 57],[48, 65],[49, 53],[50, 54],[51, 61],[52, 67],[53, 65],[54, 68],[55, 51],[56, 56],[57, 59],[58, 65],[59, 58],[60, 58],[61, 56],[62, 57],[63, 65],[64, 63],[65, 66],[66, 68],[67, 67],[68, 58],[69, 69],[70, 60],[71, 68],[72, 66],[73, 66],[74, 67],[75, 67],[76, 61],[77, 71],[78, 59],[79, 61],[80, 56],[81, 64],[82, 62],[83, 66],[84, 64],[85, 72],[86, 61],[87, 72],[88, 71],[89, 73],[90, 63],[91, 63],[92, 63],[93, 73],[94, 63],[95, 73],[96, 75],[97, 71],[98, 76],[99, 64],[100, 68],];
+    var old_win = [[1, 38],[2, 42],[3, 40],[4, 47],[5, 41],[6, 36],[7, 19],[8, 33],[9, 37],[10, 41],[11, 35],[12, 39],[13, 44],[14, 36],[15, 41],[16, 38],[17, 35],[18, 26],[19, 32],[20, 37],[21, 35],[22, 31],[23, 30],[24, 34],[25, 34],[26, 30],[27, 36],[28, 23],[29, 31],[30, 26],[31, 32],[32, 35],[33, 27],[34, 31],[35, 28],[36, 31],[37, 27],[38, 27],[39, 21],[40, 35],[41, 26],[42, 24],[43, 27],[44, 27],[45, 36],[46, 23],[47, 29],[48, 21],[49, 27],[50, 31],[51, 23],[52, 23],[53, 21],[54, 20],[55, 33],[56, 32],[57, 27],[58, 16],[59, 29],[60, 29],[61, 26],[62, 33],[63, 23],[64, 21],[65, 20],[66, 21],[67, 19],[68, 26],[69, 23],[70, 23],[71, 20],[72, 23],[73, 22],[74, 18],[75, 26],[76, 22],[77, 17],[78, 27],[79, 27],[80, 28],[81, 22],[82, 21],[83, 22],[84, 20],[85, 15],[86, 26],[87, 19],[88, 11],[89, 14],[90, 25],[91, 24],[92, 25],[93, 12],[94, 21],[95, 15],[96, 14],[97, 19],[98, 17],[99, 24],[100, 20],];
+    var old_draw = [[1 ,15],[2 ,15],[3 ,17],[4 ,11],[5 ,14],[6 ,14],[7 ,13],[8 ,9],[9 ,15],[10 ,10],[11 ,13],[12 ,18],[13 ,7],[14 ,10],[15 ,13],[16 ,8],[17 ,12],[18 ,17],[19 ,12],[20 ,12],[21 ,14],[22 ,13],[23 ,15],[24 ,14],[25 ,16],[26 ,13],[27 ,7],[28 ,20],[29 ,13],[30 ,11],[31 ,9],[32 ,15],[33 ,13],[34 ,23],[35 ,14],[36 ,19],[37 ,19],[38 ,18],[39 ,13],[40 ,18],[41 ,18],[42 ,18],[43 ,18],[44 ,23],[45 ,15],[46 ,13],[47 ,14],[48 ,14],[49 ,20],[50 ,15],[51 ,16],[52 ,10],[53 ,14],[54 ,12],[55 ,16],[56 ,12],[57 ,14],[58 ,19],[59 ,13],[60 ,13],[61 ,18],[62 ,10],[63 ,12],[64 ,16],[65 ,14],[66 ,11],[67 ,14],[68 ,16],[69 ,8],[70 ,17],[71 ,12],[72 ,11],[73 ,12],[74 ,15],[75 ,7],[76 ,17],[77 ,12],[78 ,14],[79 ,12],[80 ,16],[81 ,14],[82 ,17],[83 ,12],[84 ,16],[85 ,13],[86 ,13],[87 ,9],[88 ,18],[89 ,13],[90 ,12],[91 ,13],[92 ,12],[93 ,15],[94 ,16],[95 ,12],[96 ,11],[97 ,10],[98 ,7],[99 ,12],[100 ,12]];
+
+    Flotr.draw(
+        document.getElementById(&quot;old_random&quot;),
+        [
+            {data: old_lose, label: &quot;勝ち&quot;},
+            {data: old_win, label: &quot;負け&quot;},
+            {data: old_draw, label: &quot;引分&quot;}
+        ],
+        {
+            title: &quot;従来の方法&quot;,
+            subtitle: &quot;対乱数プログラム&quot;,
+            HtmlText: false,
+            bars:{show: true, stacked: true, horizontal:false},
+            xaxis:{
+                title: &quot;対戦回数（×１００）&quot;,
+                max: 110,
+                noTicks: 10
+            },
+            yaxis:{
+                title: &quot;対戦結果（勝ち／負け／引き分け）&quot;,
+                titleAngle: 90,
+                max: 100,
+                noTicks: 10
+            },
+            grid: {
+                verticalLines: true,
+                horizontalLines: true,
+                outline: &quot;ws&quot;
+            },
+            mouse: {
+                track:true,
+                trackDecimals: 0
+            }
+        }
+    );
+}
+
+window.onload = function() {
+    show_new_saikyo();
+    show_old_saikyo();
+    show_new_random();
+    show_old_random();
+};
+&lt;/script&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;初回起動時にゲーム木データを生成するやり方だと２分ぐらい待たされるから動的に生成するやり方にしたのですが、データを小さくすることが出来たので初回起動時にデータを作るようにしようと思ってます。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;そもそも前回試しに作った「消える三目並べ」のプログラムは局面の検索に局面データは役に立たないので、指し手の手順を含めたデータを使っています。このプログラムもいずれgithubで公開するつもりです。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+                <link>http://happyclam.github.io/project/2016-12-23/compressed_gametree</link>
+                <guid>http://happyclam.github.io/project/2016-12-23/compressed_gametree</guid>
+                <pubDate>2016-12-23T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>「消える三目並べ」は、学習が速い</title>

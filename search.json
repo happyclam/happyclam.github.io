@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "三目並べのゲーム木データを間引く",
+      "category" : "project",
+      "tags"     : "software, ruby, tictactoe, android, javascript",
+      "url"      : "http://happyclam.github.io/project/2016-12-23/compressed_gametree",
+      "date"     : "2016-12-23 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "「消える三目並べ」は、学習が速い",
       "category" : "programming",
       "tags"     : "programming, ruby, tictactoe, android, javascript",

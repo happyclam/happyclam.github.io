@@ -10,6 +10,7 @@ http://happyclam.github.io/search.json
 http://happyclam.github.io/sitemap.txt
 http://happyclam.github.io/tags
 
+http://happyclam.github.io/project/2016-12-23/compressed_gametree
 http://happyclam.github.io/programming/2016-11-23/vanishing-tictactoe
 http://happyclam.github.io/programming/2016-11-03/ml_miscellaneous2
 http://happyclam.github.io/programming/2016-10-21/ml_miscellaneous
