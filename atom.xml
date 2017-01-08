@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2017-01-07T14:41:56+09:00</updated>
+ <updated>2017-01-08T19:44:06+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -1065,8 +1065,21 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 　アプリにもこの記事のリンクを追加していますので、サポートページとして使っていくつもりです。&lt;/p&gt;
 
 &lt;h3 id=&quot;ver130&quot;&gt;学習速度の向上（ver1.3.0）&lt;/h3&gt;
-&lt;p&gt;　詳しくは&lt;a href=&quot;/project/2016-12-23/compressed_gametree&quot;&gt;この記事&lt;/a&gt;に書きましたが、学習速度を改善しました。今までのものは、なかなか進化しなくてすぐに飽きてしまった人もいると思いますが、これでかなり改善されたのではないかと思います。但し、学習データの互換性がなくなったので、1.3.0以前のバージョンをお使いの方は、申し訳ありませんが今まで学習した（進化した）分が初期化され、一から（ピロリ菌から）やり直しになってしまいます。でも進化の速度はかなり速くなったので、旧バージョンをそのまま使うより新バージョンに乗り換えたほうがすぐに進化が追いつくと思います。&lt;br /&gt;
-　今までの一手毎にゲーム木を生成するバージョンは&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/dynamic&quot;&gt;dynamicブランチ&lt;/a&gt;に移動し、今回のバージョンは&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/machinelearning&quot;&gt;machinelearningブランチ&lt;/a&gt;になっています。&lt;/p&gt;
+&lt;p&gt;　詳しくは&lt;a href=&quot;/project/2016-12-23/compressed_gametree&quot;&gt;この記事&lt;/a&gt;に書きましたが、学習速度を改善しました。今までのものは、なかなか進化しなくてすぐに飽きてしまった人もいると思いますが、これでかなり改善されたのではないかと思います。但し、学習データの互換性がなくなったので、1.3.0以前のバージョンをお使いの方は、申し訳ありませんが今まで学習した（進化した）分が初期化され、一から（ピロリ菌から）やり直しになってしまいます。でも進化の速度はかなり速くなったので、旧バージョンをそのまま使うより新バージョンに乗り換えたほうがすぐに進化が追いつくと思います。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;span&gt;ウナギに進化するまで約2,000回対戦&lt;br /&gt;（1.3.0以前のバージョン）&lt;/span&gt;
+&lt;a href=&quot;/images/eel_old.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/eel_old.png&quot; alt=&quot;旧バージョンスクリーンショット&quot; title=&quot;1.3.0以前のスクリーンショット&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;span&gt;約600回の対戦でウナギに進化&lt;br /&gt;（バージョン1.3.0以降）&lt;/span&gt;
+&lt;a href=&quot;/images/eel_new.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/eel_new.png&quot; alt=&quot;新バージョンスクリーンショット&quot; title=&quot;1.3.0以降のスクリーンショット&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　あと、今までの一手毎にゲーム木を生成するバージョンは&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/dynamic&quot;&gt;dynamicブランチ&lt;/a&gt;に移動し、今回のバージョンを&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/machinelearning&quot;&gt;machinelearningブランチ&lt;/a&gt;にしています。&lt;/p&gt;
 
 &lt;h3 id=&quot;ver122&quot;&gt;過去のイラスト表示（ver1.2.2）&lt;/h3&gt;
 &lt;p&gt;　現時点での学習状況（進化の度合い）をイラストで表現しているわけですが、過去に表示されていたせっかくのかわいいイラストを見ることが出来ないのはもったいないと思ったので、スワイプ操作で過去に表示されていた画像を再度表示できるようにしました。画像の上に指をおいて左または上にスワイプすると「戻る」右または下にスワイプすると「進む」です。&lt;br /&gt;
