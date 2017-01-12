@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2017-01-08T19:44:06+09:00</lastBuildDate>
-        <pubDate>2017-01-08T19:44:06+09:00</pubDate>
+        <lastBuildDate>2017-01-12T22:01:01+09:00</lastBuildDate>
+        <pubDate>2017-01-12T22:01:01+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -1051,11 +1051,12 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
         <item>
                 <title>Tic-tac-toe Evoリリースしました</title>
-                <description>&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;進化する三目並べ&quot; title=&quot;進化する三目並べ&quot; width=&quot;240&quot; height=&quot;93&quot; /&gt;&lt;/a&gt;
+                <description>&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;進化する三目並べ&quot; title=&quot;進化する三目並べ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;https://itunes.apple.com/jp/app/jin-huasuru-san-mu-bingbe/id1160636693?l=ja&amp;amp;ls=1&amp;amp;mt=8&quot;&gt;&lt;img src=&quot;/images/Download_on_the_App_Store_JP_135x40.svg&quot; alt=&quot;進化する三目並べ&quot; title=&quot;進化する三目並べ&quot; width=&quot;135&quot; height=&quot;40&quot; /&gt;&lt;/a&gt;
 &lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/machinelearning&quot;&gt;Ruby版のソース&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;tic-tac-toe-evo&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」について&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「Tic-tac-toe Evo」&lt;/a&gt;は、&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「Statistics Hacks」&lt;/a&gt;という統計学の本に紹介されていた強化学習の内容に興味を持った私が自作したRubyのPC用のプログラム（&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;github&lt;/a&gt;に公開している）を、せっかく作ったのだからスマホアプリにして公開してみようと考えて、CoffeeScript（JavaScript）に書き換えてCordovaを使ってスマホアプリに作り変えたものです。&lt;br /&gt;
+&lt;p&gt;　「進化する三目並べ（Tic-tac-toe Evo）」は、&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「Statistics Hacks」&lt;/a&gt;という統計学の本に紹介されていた強化学習の内容に興味を持った私が自作したRubyのPC用のプログラム（&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;github&lt;/a&gt;に公開している）を、せっかく作ったのだからスマホアプリにして公開してみようと考えて、CoffeeScript（JavaScript）に書き換えてCordovaを使ってスマホアプリに作り変えたものです。&lt;br /&gt;
 　詳しくは&lt;a href=&quot;http://happyclam.github.io/software/2015-10-25/machine_learning/&quot;&gt;「算数で作る機械学習プログラム」&lt;/a&gt;というタイトルから始まる一連の記事を読んでいただきたいのですが、ここではスマホアプリに関する内容に限定して特有の機能などについて補足していきたいと思います。プログラミングに興味の有る方はソースコード（&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;github&lt;/a&gt;）も見て下さい。&lt;br /&gt;
 　アプリにもこの記事のリンクを追加していますので、サポートページとして使っていくつもりです。&lt;/p&gt;
 
