@@ -5,10 +5,118 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2017-02-15T16:14:10+09:00</lastBuildDate>
-        <pubDate>2017-02-15T16:14:10+09:00</pubDate>
+        <lastBuildDate>2017-03-19T14:26:59+09:00</lastBuildDate>
+        <pubDate>2017-03-19T14:26:59+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>「消える三目並べ」の話の続き</title>
+                <description>&lt;h3 id=&quot;section&quot;&gt;「消える三目並べ」の対戦結果&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/programming/2016-11-23/vanishing-tictactoe&quot;&gt;以前の記事&lt;/a&gt;の最後に「消える三目並べ」（３手前に打った自分の駒が消えるルールの三目並べ）の機械学習を使ったAndroidアプリを作ってみたけど、データが大きすぎて実用に堪えなかった話を書きました。いろいろ解決策を模索した結果、とりあえずデータが大きくなり過ぎる問題は解決しそうですがその話は改めて書くとして、今回はその新しく作ってみた機械学習プログラムのテストを兼ねて実施した学習度合いの進捗テストについてまた書いてみます。&lt;br /&gt;
+　前回は先手と後手をランダムに決めてソフト同士の対戦をしたのですが、「消える三目並べ」というゲームの特性上、先手の時は最善手を選び続けると必ず勝つはずなのでその違いがわかるように先手の時と後手の時を分けてデータを取りました。前回の時はデータを取った後で気づいて後悔していたのでちょうどいい機会が出来ました。&lt;br /&gt;
+　前回同様１００回の対戦を１回戦として対最強プログラムは５０回戦（＝５，０００回）、対乱数プログラムは１００回戦（＝１０，０００回）の対戦結果です。&lt;/p&gt;
+
+&lt;div id=&quot;vanishing-tictactoe&quot; style=&quot;width:600px;height:400px;&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;button id=&quot;unzoom&quot;&gt;元に戻す&lt;/button&gt;&lt;span&gt;　※範囲をドラッグすれば、グラフを zoom up 出来ます&lt;/span&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;対最強プログラム&lt;/h3&gt;
+&lt;p&gt;　機械学習プログラムが先手で最強プログラムと対戦した黄色のグラフを見ると、６００回程度の対戦までは一度も勝てなかったのにその後急激に勝数を伸ばして先手なら必ず勝てることを学習した様子がよくわかります。この結果は前回と同じですが、&lt;a href=&quot;/programming/2016-11-23/vanishing-tictactoe&quot;&gt;前回の記事&lt;/a&gt;では、先手・後手をランダムに決めていたので勝率が約５０％にまでしか伸びませんでしたが、今回は先手番限定のテストなので１００％にまで勝率を伸ばしています。勝率１００％まで行ってから９０数％に何度か勝率を落としていますが、これは確率による指し手の選択をしている以上仕方がありません。MIN-MAX法で１１手先までの全局面を完全に読み切って常に最善手を選ぶ最強プログラムに対して、機械学習プログラムの方は経験（モンテカルロ法による強化学習）から最善手を選ぶ確率を上げているだけなのでこうなります。将棋や囲碁のように今のコンピュータでは全局面探索出来ないゲームに関して、機械学習が重宝されているのも頷けます。&lt;br /&gt;
+　今度は後手の時のグラフ（水色のグラフ）を見ると、最強プログラムに一度も勝てないままグラフでは見難いのですが０のまま横一直線のグラフになっています。先手必勝のゲームで後手番を持って最強プログラムと対戦しているわけですから一勝も出来ないのは当然の結果です。これはテストに使用している最強プログラムにバグがない（先手番では必ず勝つ）ということでもあるので安心しました&lt;img class=&quot;emoji&quot; title=&quot;smile&quot; alt=&quot;smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;あと、先手必勝のゲームをアプリにして楽しいのか？という問題もあるのですが、先手必勝と言っても１１手読みが必要なので人間ではなかなか難しいのではないかと思います。「どうぶつしょうぎ」も後手必勝のゲームだそうですが、人間が遊ぶ分にはそれなりに楽しめるのではないかと思ってます。自分が試している感じではとても先手番になったからと言って必ず勝てるとは思えない「消える三目並べ」ですが、それを極めるのも楽しみ方の一つかもしれません。&lt;br /&gt;
+　ところで、後手必勝らしい「どうぶつしょうぎ」で、「自分が後手なら必ず勝てる」と言い切れる人ってどれ位いるのでしょうか？興味があります&lt;img class=&quot;emoji&quot; title=&quot;smile&quot; alt=&quot;smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;対乱数プログラム&lt;/h3&gt;
+&lt;p&gt;　次に対乱数プログラムにおける勝率の推移を見てみると、先手番（赤色のグラフ）の方が明らかに後手番（緑色のグラフ）より速く学習が進んでいます（勝率の上がり方が速い）。これは機械学習プログラム自身が「消える三目並べ」というゲームの特徴を見出したと表現していいのでしょうか&lt;img class=&quot;emoji&quot; title=&quot;question&quot; alt=&quot;question&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/question.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;「どうやらこのゲームは先手の方が勝ち易いぞ」ということをAI自身が発見したと&lt;img class=&quot;emoji&quot; title=&quot;confused&quot; alt=&quot;confused&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/confused.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
+　機械学習プログラムが最強プログラムと対戦して、勝てるはずの先手の時に勝つことを学んでいくのはなんとなく分かるというか、最強プログラムという先生に教わっていくのだから強くなるのだろうと理解できます&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。でも先生でもない単にサイコロを振るように決めた手を選択する乱数プログラムと対戦させて、先手と後手で傾向の違いが出るというのがちょっと意外でした。「何を言ってるんだ、乱数を使うからモンテカルロ法による強化学習だろ」と言われるのかもしれませんが、先手と後手で学習度合いに違いが出るのであれば、もしかしてこれを将棋に応用したら将棋というゲームが先手必勝か、後手必勝か分かるのではないか&lt;img class=&quot;emoji&quot; title=&quot;flushed&quot; alt=&quot;flushed&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/flushed.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;と思ったわけです。将棋版の機械学習プログラムとランダムに指し手を決める将棋プログラムを用意して対戦させてみればいいだけです。そして先手の時の方が後手の時より勝率の上がり方が速ければ将棋は先手必勝のゲームと推測出来るように思えます。将棋で起こりうるすべてのパターンを確認しなくても、何万回か対戦させれば傾向がわかるのではないか？と。でもよく考えてみると将棋の場合はランダムに指し手を決めて対戦させてみてもゲームがなかなか終わってくれないので、囲碁やオセロのようにマス目が埋まれば必ず終わるゲームと違って難しいのでしょう&lt;img class=&quot;emoji&quot; title=&quot;disappointed&quot; alt=&quot;disappointed&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/disappointed.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;おそらく&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。「消える三目並べ」もマス目が埋まれば終了する類いのゲームと違う（長い対戦では２０手以上続きます）ので将棋と事情は同じなのですが、「消える三目並べ」程度の局面数ならなんとかなるということでしょう。最強プログラムで使用している先読みと評価関数を使ったやり方も機械学習を使ったやり方も、将棋というゲームの完全解析（先手or後手必勝定跡の発見等）は&lt;a href=&quot;https://ja.wikipedia.org/wiki/組合せ爆発&quot;&gt;指数爆発（組合せ爆発）&lt;/a&gt;の壁があるので難しいという事情は同じだということでしょう。&lt;br /&gt;
+　ただ、今回のテスト結果を見てもわかる通り、ソフトを学習させる場合にはヘボ将棋の棋譜（対乱数プログラム）を使うより、プロ棋士の棋譜（最強プログラム）を使うほうが速く学習するのは間違い無さそうです。&lt;/p&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+jQuery(function ($){
+
+linegraph = function() {
+    var equation1 = [[1 ,0],[2 ,0],[3 ,0],[4 ,0],[5 ,0],[6 ,0],[7 ,4],[8 ,5],[9 ,33],[10 ,62],[11 ,79],[12 ,92],[13 ,91],[14 ,91],[15 ,95],[16 ,98],[17 ,99],[18 ,99],[19 ,95],[20 ,98],[21 ,96],[22 ,99],[23 ,100],[24, 100],[25, 96],[26, 100],[27, 100],[28, 100],[29, 99],[30, 99],[31, 99],[32 ,100],[33 ,100],[34 ,100],[35 ,99],[36 ,100],[37 ,99],[38 ,100],[39 ,98],[40 ,100],[41 ,100],[42 ,98],[43 ,99],[44 ,100],[45 ,99],[46 ,100],[47 ,100],[48 ,100],[49 ,100],[50 ,99]];
+    var equation2 = [[1, 0],[2, 0],[3, 0],[4, 0],[5, 0],[6, 0],[7, 0],[8, 0],[9, 0],[10, 0],[11, 0],[12, 0],[13, 0],[14, 0],[15, 0],[16, 0],[17, 0],[18, 0],[19, 0],[20, 0],[21, 0],[22, 0],[23, 0],[24, 0],[25, 0],[26, 0],[27, 0],[28, 0],[29, 0],[30, 0],[31, 0],[32, 0],[33, 0],[34, 0],[35, 0],[36, 0],[37, 0],[38, 0],[39, 0],[40, 0],[41, 0],[42, 0],[43, 0],[44, 0],[45, 0],[46, 0],[47, 0],[48, 0],[49, 0],[50, 0]];
+    var equation3 = [[1, 55],[2, 50],[3, 45],[4, 46],[5, 48],[6, 50],[7, 48],[8, 65],[9, 59],[10, 60],[11, 54],[12, 56],[13, 67],[14, 59],[15, 59],[16, 64],[17, 54],[18, 58],[19, 61],[20, 57],[21, 64],[22, 57],[23, 59],[24, 60],[25, 64],[26, 68],[27, 57],[28, 53],[29, 74],[30, 62],[31, 67],[32, 57],[33, 70],[34, 61],[35, 66],[36, 70],[37, 62],[38, 67],[39, 63],[40, 70],[41, 69],[42, 70],[43, 67],[44, 73],[45, 67],[46, 68],[47, 57],[48, 73],[49, 76],[50, 72],[51, 71],[52, 75],[53, 72],[54, 72],[55, 73],[56, 78],[57, 72],[58, 79],[59, 77],[60, 73],[61, 75],[62, 77],[63, 83],[64, 76],[65, 78],[66, 75],[67, 75],[68, 71],[69, 75],[70, 74],[71, 77],[72, 80],[73, 76],[74, 76],[75, 77],[76, 79],[77, 82],[78, 85],[79, 85],[80, 79],[81, 74],[82, 73],[83, 89],[84, 83],[85, 76],[86, 81],[87, 83],[88, 76],[89, 80],[90, 79],[91, 78],[92, 75],[93, 83],[94, 85],[95, 81],[96, 81],[97, 83],[98, 86],[99, 75],[100, 77]];
+    var equation4 = [[1, 55],[2, 50],[3, 46],[4, 43],[5, 42],[6, 44],[7, 46],[8, 45],[9, 45],[10, 44],[11, 51],[12, 45],[13, 48],[14, 49],[15, 44],[16, 44],[17, 40],[18, 48],[19, 45],[20, 45],[21, 50],[22, 50],[23, 49],[24, 50],[25, 62],[26, 52],[27, 43],[28, 48],[29, 50],[30, 51],[31, 51],[32, 43],[33, 53],[34, 49],[35, 51],[36, 44],[37, 51],[38, 57],[39, 41],[40, 47],[41, 63],[42, 46],[43, 53],[44, 62],[45, 55],[46, 50],[47, 45],[48, 49],[49, 57],[50, 51],[51, 48],[52, 59],[53, 49],[54, 50],[55, 53],[56, 51],[57, 46],[58, 48],[59, 54],[60, 42],[61, 56],[62, 56],[63, 52],[64, 55],[65, 47],[66, 62],[67, 54],[68, 58],[69, 54],[70, 50],[71, 55],[72, 56],[73, 54],[74, 58],[75, 56],[76, 54],[77, 55],[78, 52],[79, 42],[80, 53],[81, 52],[82, 49],[83, 59],[84, 53],[85, 46],[86, 61],[87, 61],[88, 53],[89, 60],[90, 56],[91, 59],[92, 55],[93, 54],[94, 69],[95, 55],[96, 63],[97, 56],[98, 52],[99, 59],[100, 57]];
+
+    var $el = $(&quot;#vanishing-tictactoe&quot;),
+        data = [
+            {data: equation1, label: &quot;対最強プログラム先手勝数&quot;},
+            {data: equation2, label: &quot;対最強プログラム後手勝数&quot;},
+            {data: equation3, label: &quot;対乱数プログラム先手勝数&quot;},
+            {data: equation4, label: &quot;対乱数プログラム後手勝数&quot;}
+            ],
+        options = {
+            legend: {position: &quot;se&quot;},
+            selection: {mode: &quot;xy&quot;, color: &quot;#eeeeee&quot;},
+            title: &quot;勝数の推移&quot;,
+            subtitle: &quot;機械学習プログラムの学習度合い&quot;,
+            HtmlText: false,
+            lines:{show: true, horizontal:false},
+            xaxis:{
+                max: 100,
+                ticks: [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, [100, &quot;×100回&quot;]],
+                title: &quot;対戦回数（×１００）&quot;
+            },
+            yaxis:{
+                ticks: 20,
+                min: 0,
+                max: 100,
+                title: &quot;対戦結果（勝ち数）&quot;
+            },
+            grid: {
+                verticalLines: true,
+                horizontalLines: true,
+                outline: &quot;ws&quot;
+            },
+            mouse: {
+                track:true,
+                trackDecimals: 0
+            }
+        }, plotObj;
+
+    $el.on(&quot;plotselected&quot;, function(ev, ranges) {
+        plotObj = $.plot($el, data,
+                         $.extend(true, {}, options, {
+                             xaxis: {min: ranges.xaxis.from, max: ranges.xaxis.to},
+                             yaxis: {min: ranges.yaxis.from, max: ranges.yaxis.to}
+                         })
+                        );
+    });
+    plotObj = $.plot($el, data, options);
+    $(&quot;#unzoom&quot;).click(function() {
+        plotObj = $.plot($el, data, options);
+    });
+};
+
+if (typeof contentLoaded != &quot;undefined&quot;) {
+    contentLoaded.done(linegraph);
+} else {
+    window.addEventListener(&#39;load&#39;, linegraph);
+}
+
+});
+
+&lt;/script&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;たとえ理屈は分かって無くても結果が得られるところが機械学習プログラムの良いところです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;ゲームの終盤近くになった時に、ゲーム終了までをモンテカルロ法で読み切って指し手を選択するというプレイアウトと言う手法がありますが、マス目が全て埋まったら必ず終了する囲碁と違って将棋の場合は効果を上げることが難しいのだと思います。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+                <link>http://happyclam.github.io/programming/2017-03-19/vanishing-tictactoe2</link>
+                <guid>http://happyclam.github.io/programming/2017-03-19/vanishing-tictactoe2</guid>
+                <pubDate>2017-03-19T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>三目並べのゲーム木データを間引く</title>
