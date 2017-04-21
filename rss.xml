@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2017-03-19T14:26:59+09:00</lastBuildDate>
-        <pubDate>2017-03-19T14:26:59+09:00</pubDate>
+        <lastBuildDate>2017-04-21T15:32:48+09:00</lastBuildDate>
+        <pubDate>2017-04-21T15:32:48+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -1169,12 +1169,28 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 　アプリにもこの記事のリンクを追加していますので、サポートページとして使っていくつもりです。&lt;/p&gt;
 
 &lt;h5 id=&quot;section&quot;&gt;※ 進化の過程について&lt;/h5&gt;
-&lt;p&gt;　三目並べプログラムの学習度合いによって「ピロリ菌」から「人」まで、学習度合いをいろんな生物に例えて画像を表示していますが、「系統樹」「進化」等をキーワードにしてネットで調べながら自分なりに選んだ生物の画像を表示しています。必ずしも人類の進化の過程を正しく表現しているわけではありません。個人的には恐竜の画像なども登場させたかったのですが、ヒトへの進化の過程に恐竜は全く関係ないそうで、自分なりに正しいと思えるものを選んでいます。参考にしたサイトで「僕たちの祖先をめぐる15億年の旅」というサイトが特に参考になったのですが、今は残念ながら閉鎖されているようです。&lt;/p&gt;
+&lt;p&gt;　三目並べプログラムの学習度合いによって「ピロリ菌」から「人」まで、学習度合いをいろんな生物に例えて画像を表示していますが、「系統樹」「進化」等をキーワードにしてネットで調べながら自分なりに選んだ生物の画像を表示しています。必ずしも人類の進化の過程を正しく表現しているわけではありません。個人的には恐竜の画像なども登場させたかったのですが、ヒトへの進化の過程に恐竜は全く関係ないそうで、自分なりに正しいと思えるものを選んでいます。特に&lt;a href=&quot;http://kagakubar.com/mandala/mandala01.html&quot;&gt;「僕たちの祖先をめぐる15億年の旅」&lt;/a&gt;というサイトが参考になりました。&lt;/p&gt;
+
+&lt;h3 id=&quot;ver136&quot;&gt;タッチエフェクト機能追加（ver1.3.6）&lt;/h3&gt;
+&lt;p&gt;　タッチ操作にアプリの反応が遅れているだけなのかタッチ操作が効かなかったのかの区別が付きにくい時があるので、少しでもイライラを無くすために、タッチしたマス目が白っぽくフェードアウトしていく視覚効果を付加しました。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;span&gt;タッチエフェクト（バージョン1.3.6以降）&lt;/span&gt;
+&lt;a href=&quot;/images/touch-effects.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/touch-effects.png&quot; alt=&quot;タッチエフェクト&quot; title=&quot;タッチエフェクト&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;ver136-1&quot;&gt;手番表示機能追加（ver1.3.6）&lt;/h3&gt;
+&lt;p&gt;　アプリで×が先手と決めていることもあって、盤面を見れば次の手番は×か◯かは一目瞭然なので表示していなかったのですが、次にリリース予定の「消える三目並べ」（×３個、◯３個の局面が長々と続くため局面を見ただけでは次の手番がわからない）に備えて表示するようにしました。&lt;/p&gt;
+
+&lt;div style=&quot;width:220px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;span&gt;手番表示（バージョン1.3.6以降）&lt;/span&gt;
+&lt;a href=&quot;/images/next-turn.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/next-turn.png&quot; alt=&quot;手番表示&quot; title=&quot;手番表示&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;h3 id=&quot;twitterver135&quot;&gt;Twitter投稿機能追加（ver1.3.5）&lt;/h3&gt;
 &lt;p&gt;　SNS機能追加のプラグイン（cordova-plugin-x-socialsharing）を組み込みTwitter投稿を可能にしました。プラグインの機能自体はメールへの画像添付やBlueToothでの画像送信も出来るようですがすべての機能を試したわけでもなく、端末によっては使用できない可能性もあります。&lt;/p&gt;
 
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+&lt;div style=&quot;width:220px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;span&gt;Twitter投稿ボタン追加&lt;br /&gt;（バージョン1.3.5以降）&lt;/span&gt;
 &lt;a href=&quot;/images/twitter_button.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/twitter_button.png&quot; alt=&quot;Twitterボタンスクリーンショット&quot; title=&quot;Twitter投稿ボタン追加&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
