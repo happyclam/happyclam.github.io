@@ -5,10 +5,123 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2017-04-21T15:32:48+09:00</lastBuildDate>
-        <pubDate>2017-04-21T15:32:48+09:00</pubDate>
+        <lastBuildDate>2017-05-27T20:45:24+09:00</lastBuildDate>
+        <pubDate>2017-05-27T20:45:24+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>「消える三目並べ」もう少しテスト</title>
+                <description>&lt;h3 id=&quot;section&quot;&gt;全然強くない&lt;/h3&gt;
+&lt;p&gt;　前作（&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;）と同様の機能のまま「消える三目並べ」（３手前に打った自分の駒が消えるルールの三目並べ）のアプリをリリースしようと思っていたのですが、いざ作成した「消える三目並べ」のアプリをスマホにインストールしてテストしてみるとあまりにもAIが弱い。それに前作の通常の三目並べ版だと学習データが真っさらの状態から300回程度対戦すると先手の時はほぼ必ず真ん中に駒を打つようになり、成長する過程が実感できるのに対して、「消える三目並べ」版だと強くなっていく過程が全然実感できませんでした。自分が「消える三目並べ」というゲームに慣れてきて強くなった所為もあると思いますが…。&lt;br /&gt;
+　と、いうことでAIの成長を実感できないので前作のように進化する過程を画像で表現する機能はやめて、とりあえずもう少し強くする方法を試行錯誤しました。AIが思ったほど強くならないのは、やはり通常の三目並べの全局面数が6,046ノード（回転・対照形を省くと627ノード）&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;であるのに対して、「消える三目並べ」では79,210ノード&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;と２桁以上増える違いは大きかったようです。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;なかなか強くならない原因&lt;/h3&gt;
+&lt;p&gt;　以前&lt;a href=&quot;/programming/2016-11-23/vanishing-tictactoe&quot;&gt;「「消える三目並べ」は、学習が速い」&lt;/a&gt;という記事で、MIN-MAX法を使った最強プログラムと1,500回程度対戦させると、勝ち負けがほぼ互角になることを書きました。最強のプログラムと互角なので十分強いだろうと思っていたのですが、最強プログラムの方はいつも同じ手を指すようになっていたので私がテストに使った自作の最強プログラムに対してだけ強くなっているだけのことでした&lt;img class=&quot;emoji&quot; title=&quot;sob&quot; alt=&quot;sob&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sob.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
+　ちょっと考えれば分かりそうなものですが、通常の三目並べならそれで上手くいっていたので深く考えてませんでした&lt;img class=&quot;emoji&quot; title=&quot;cold_sweat&quot; alt=&quot;cold_sweat&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/cold_sweat.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;もちろん通常の三目並べのテストで使用した最強プログラムも、いつも同じ手で勝つプログラム（プログラム内で乱数を使用していない）でしたが、通常の三目並べの場合ノード（局面のパターン）の数がたった627ノードだったので、数千回の対戦でほぼすべてのノードに対して何度も学習データが蓄積されていきますが、「消える三目並べ」で数千回対戦してもほとんどのノードの学習データは初期状態のままです。同じノードに対して何度も何度も学習データを蓄積していく必要があるため、例え数千回対戦させたとしても十分ではなさそうです。&lt;br /&gt;
+　前作（&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;）は、AIの成長過程を楽しんで貰うという意図もあったのですが、「消える三目並べ」では一回の対戦で得られる学習効果が非常に薄いため成長を楽しむのは無理そうだと思い、学習度合いを生物の進化に例えて表示する機能は取りやめることにしました。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;弱すぎるアプリの改善方法&lt;/h3&gt;
+&lt;p&gt;　アプリが弱すぎることの解決策として予め学習済みのデータをアプリの初期データとして同梱してリリースすることにしたのですが、まずテストに使用しているMIN-MAX法を使った最強プログラムに修正を加え、いつも同じ手を指さないように局面の評価値が同じ場合はその都度２分の１の確率で指し手を分散させるようにして学習させることにしました。その状態で勝数の遷移をグラフにしたものが以下です。&lt;/p&gt;
+
+&lt;div id=&quot;vanishing-tictactoe&quot; style=&quot;width:600px;height:400px;&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;button id=&quot;unzoom&quot;&gt;元に戻す&lt;/button&gt;&lt;span&gt;　※範囲をドラッグすれば、グラフを zoom up 出来ます&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;　赤と黄色のグラフは&lt;a href=&quot;/programming/2016-11-23/vanishing-tictactoe&quot;&gt;以前の記事&lt;/a&gt;と同じものです。今回同じ評価値なら指し手をランダムに変更するように改良した最強プログラムとの対戦勝率（水色のグラフ）は5,000回対戦後でも３０％程度でまだまだ学習が足りないのがわかります。今まで同じ指し手しか選ばない最強プログラムでテストして、勝率５割になったから学習完了した（＝強くなった）と勘違いしていたわけです。本来なら最初からこのプログラムでテストするべきでした&lt;img class=&quot;emoji&quot; title=&quot;cold_sweat&quot; alt=&quot;cold_sweat&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/cold_sweat.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;。このプログラムを使って作った学習データをアプリの初期データとしてリリースしようかと思ってます。でも、以前にも書きましたが最強プログラムとの対戦テストは時間が掛るのが辛いところです。このわずか5,000回の対戦データを作成するためにCore i7-2600KのPCを約３日間稼働しっぱなしでした。&lt;br /&gt;
+　ちなみにグラフにはしませんでしたが、対乱数プログラムとの対戦テストなら対最強プログラムのように時間はかからないので100,000回まで試してみました。すると勝率（赤のグラフ）は９割以上まで伸びました&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;が、その学習データを使ってアプリにして遊んでみても全然強さを感じさせるものにはなっていませんでした。以前から書いてますが、いくら乱数プログラムとの対戦学習（モンテカルロ法を使った強化学習）を続けても効果は薄そうです。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;その他の方法&lt;/h3&gt;
+&lt;p&gt;　学習させたい機械学習プログラム側の学習データ作成部分だけを使用して最強プログラム同士で対戦させれば、最強プログラムの指し手そのものを学習データに反映させることもできます。これはプログラムが自分で学習するのとは異なり、最強プログラムの手を真似るデータを定跡データとして学習データに反映させていることになります。こうした定跡データを使った方法や、何も学習していない状態から学習プログラム同士で対戦を重ねて学習データを作る方法なども試しましたが、詳しく確認したわけでないですが思ったほど強くなりませんでした。強くなったかどうかをどのように判断してるのかという話もいろいろあるのですが、それほどたいそうな事はしてないのですが話が長くなるのでまた別の機会に書こうと思います。&lt;/p&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+jQuery(function ($){
+
+linegraph = function() {
+    var equation1 = [[1 ,0],[2 ,0],[3 ,0],[4 ,0],[5 ,0],[6 ,0],[7 ,2],[8 ,1],[9 ,4],[10 ,9],[11 ,30],[12 ,34],[13 ,24],[14 ,40],[15 ,41],[16 ,50],[17 ,50],[18 ,52],[19 ,46],[20 ,49],[21 ,45],[22 ,53],[23 ,46],[24, 56],[25, 45],[26, 53],[27, 39],[28, 51],[29, 47],[30, 52],[31, 40],[32 ,43],[33 ,47],[34 ,54],[35 ,53],[36 ,45],[37 ,56],[38 ,58],[39 ,52],[40 ,44],[41 ,55],[42 ,45],[43 ,53],[44 ,54],[45 ,47],[46 ,49],[47 ,51],[48 ,51],[49 ,55],[50 ,48]];
+    var equation2 = [[1 ,0],[2 ,0],[3 ,0],[4 ,2],[5 ,0],[6 ,0],[7 ,0],[8 ,3],[9 ,2],[10 ,1],[11 ,0],[12 ,1],[13 ,0],[14 ,0],[15 ,1],[16 ,0],[17 ,1],[18 ,1],[19 ,2],[20 ,0],[21 ,1],[22 ,2],[23 ,2],[24, 0],[25 ,2],[26 ,4],[27 ,3],[28 ,3],[29 ,4],[30 ,4],[31 ,4],[32 ,5],[33 ,2],[34 ,9],[35 ,6],[36, 6],[37, 14],[38, 7],[39, 13],[40, 20],[41, 19],[42, 20],[43, 11],[44, 14],[45, 16],[46, 34],[47, 20],[48, 33],[49, 33],[50, 27]];
+//    var equation2 = [[1, 7.02],[2, 7.02],[3, 6.88],[4, 6.71],[5, 7.27],[6, 6.92],[7, 7.26],[8, 7.04],[9, 7.44],[10, 7.14],[11, 7.84],[12, 8.11],[13, 7.77],[14, 8.15],[15, 7.96],[16, 8.45],[17, 8.16],[18, 8.25],[19, 8.20],[20, 7.93],[21, 7.87],[22, 8.45],[23, 8.16],[24, 8.63],[25, 7.88],[26, 8.33],[27, 7.93],[28, 7.85],[29, 8.13],[30, 8.12],[31, 7.52],[32, 8.02],[33, 8.52],[34, 8.49],[35, 8.31],[36, 8.08],[37, 8.05],[38, 8.61],[39, 8.16],[40, 8.11],[41, 8.65],[42, 8.09],[43, 8.34],[44, 8.40],[45, 7.89],[46, 8.20],[47, 8.32],[48, 8.50],[49, 8.43],[50, 8.32]];
+    var equation3 = [[1, 54],[2, 46],[3, 48],[4, 46],[5, 53],[6, 44],[7, 47],[8, 55],[9, 50],[10, 61],[11, 41],[12, 48],[13 ,52],[14, 53],[15, 44],[16, 48],[17, 52],[18, 49],[19, 52],[20, 54],[21, 57],[22, 55],[23, 53],[24, 57],[25, 61],[26, 54],[27, 54],[28, 49],[29, 57],[30, 58],[31, 65],[32, 58],[33, 55],[34, 59],[35, 49],[36, 62],[37, 55],[38, 61],[39, 61],[40, 65],[41, 67],[42, 54],[43, 56],[44, 55],[45, 60],[46, 58],[47, 53],[48, 61],[49, 57],[50, 49],[51, 66],[52, 62],[53, 51],[54, 59],[55, 60],[56, 59],[57, 60],[58, 60],[59, 60],[60, 70],[61, 64],[62, 62],[63, 60],[64, 64],[65, 65],[66, 65],[67, 59],[68, 67],[69, 63],[70, 58],[71, 64],[72, 66],[73, 65],[74, 70],[75, 67],[76, 72],[77, 66],[78, 67],[79, 69],[80, 66],[81, 59],[82, 64],[83, 57],[84, 56],[85, 61],[86, 67],[87, 65],[88, 66],[89, 64],[90, 65],[91, 64],[92, 63],[93, 60],[94, 63],[95, 60],[96, 71],[97, 64],[98, 65],[99, 69],[100, 64]];
+
+    var $el = $(&quot;#vanishing-tictactoe&quot;),
+        data = [
+            {data: equation1, label: &quot;対最強プログラム勝数（同じ指し手）&quot;},
+            {data: equation2, label: &quot;対最強プログラム勝数（ランダム指し手）&quot;},
+            {data: equation3, label: &quot;対乱数プログラム勝数&quot;}
+            ],
+        options = {
+            legend: {position: &quot;nw&quot;},
+            selection: {mode: &quot;xy&quot;, color: &quot;#eeeeee&quot;},
+            title: &quot;勝敗の推移&quot;,
+            subtitle: &quot;対最強プログラム&quot;,
+            HtmlText: false,
+            lines:{show: true, horizontal:false},
+            xaxis:{
+                max: 100,
+                ticks: [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, [100, &quot;×100回&quot;]],
+                title: &quot;対戦回数（×１００）&quot;
+            },
+            yaxis:{
+                ticks: 20,
+                min: 0,
+                max: 100,
+                title: &quot;対戦結果（勝ち数／手数）&quot;
+            },
+            grid: {
+                verticalLines: true,
+                horizontalLines: true,
+                outline: &quot;ws&quot;
+            },
+            mouse: {
+                track:true,
+                trackDecimals: 0
+            }
+        }, plotObj;
+
+    $el.on(&quot;plotselected&quot;, function(ev, ranges) {
+        plotObj = $.plot($el, data,
+                         $.extend(true, {}, options, {
+                             xaxis: {min: ranges.xaxis.from, max: ranges.xaxis.to},
+                             yaxis: {min: ranges.yaxis.from, max: ranges.yaxis.to}
+                         })
+                        );
+    });
+    plotObj = $.plot($el, data, options);
+    $(&quot;#unzoom&quot;).click(function() {
+        plotObj = $.plot($el, data, options);
+    });
+};
+
+if (typeof contentLoaded != &quot;undefined&quot;) {
+    contentLoaded.done(linegraph);
+} else {
+    window.addEventListener(&#39;load&#39;, linegraph);
+}
+
+});
+
+&lt;/script&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;/project/2016-12-23/compressed_gametree&quot;&gt;「三目並べのゲーム木データを間引く」&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;/programming/2016-11-03/ml_miscellaneous2&quot;&gt;「消える三目並べ」、思ったより大変」&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;「消える三目並べ」というゲームは先手必勝のゲームなので、先手・後手をランダムに決める条件で勝率９割以上になるというのは、かなりの実力差（乱数で指し手を決めても先手の時は偶然最善手を選び続けて勝つ場合があるため）があると言えると思います。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+                <link>http://happyclam.github.io/programming/2017-05-27/vanishing-tictactoe3</link>
+                <guid>http://happyclam.github.io/programming/2017-05-27/vanishing-tictactoe3</guid>
+                <pubDate>2017-05-27T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>「消える三目並べ」の話の続き</title>
