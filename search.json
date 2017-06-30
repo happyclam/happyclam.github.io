@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "三目並べでニューラルネットワーク",
+      "category" : "project",
+      "tags"     : "software, ruby, tictactoe, android, javascript",
+      "url"      : "http://happyclam.github.io/project/2017-07-01/neuralnw",
+      "date"     : "2017-07-01 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "「消える三目並べ」もう少しテスト",
       "category" : "programming",
       "tags"     : "programming, ruby, tictactoe, android, javascript",
