@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2017-07-01T08:41:46+09:00</updated>
+ <updated>2017-07-07T19:07:10+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -13,7 +13,7 @@
 
  
  <entry>
-   <title>三目並べでニューラルネットワーク</title>
+   <title>三目並べでニューラルネットワーク（誤）</title>
    <link href="http://happyclam.github.io/project/2017-07-01/neuralnw"/>
    <updated>2017-07-01T00:00:00+09:00</updated>
    <id>http://happyclam.github.io/project/2017-07-01/neuralnw</id>
@@ -47,8 +47,8 @@
 
 &lt;p&gt;　乱数で指し手を決める弱いプログラム相手でも、今までより対戦回数が少ない段階で勝率が上がっていることがわかります。個人的には重みデータの総量が減ったことが学習速度がアップした大きな要因（&lt;a href=&quot;/software/2016-01-07/correlation/&quot;&gt;過去記事参照&lt;/a&gt;）になった気がしてます。&lt;/p&gt;
 
-&lt;h3 id=&quot;section-4&quot;&gt;学習速度アップは歴然&lt;/h3&gt;
-&lt;p&gt;　過学習という問題はあるものの、ニューラルネットワークを採用することでご褒美を上げたり取ったり（足したり引いたり）するより学習速度がアップすることは間違いないようです。でも現在リリース中の&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;は&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;に書かれている仕様に合わせて作っていることを謳っているので今のまま変更せずに、次アプリにする予定の「消える三目並べ」に採用してみようと思ってます。試してみたいと思うテーマが次々と出てきてなかなかリリース出来ないのですが、どこかでまず一度リリースしようと思ってます。本当は「５五将棋」アプリを作りたいのですが…&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;section-4&quot;&gt;&lt;del&gt;学習速度アップは歴然&lt;/del&gt;&lt;/h3&gt;
+&lt;p&gt;　&lt;del&gt;過学習という問題はあるものの、ニューラルネットワークを採用することでご褒美を上げたり取ったり（足したり引いたり）するより学習速度がアップすることは間違いないようです。&lt;/del&gt;でも現在リリース中の&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;は&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;に書かれている仕様に合わせて作っていることを謳っているので今のまま変更せずに、次アプリにする予定の「消える三目並べ」に採用してみようと思ってます。試してみたいと思うテーマが次々と出てきてなかなかリリース出来ないのですが、どこかでまず一度リリースしようと思ってます。本当は「５五将棋」アプリを作りたいのですが…&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
 
 &lt;script type=&quot;text/javascript&quot;&gt;
 function show_new_saikyo(){
