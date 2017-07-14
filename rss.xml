@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2017-07-14T10:35:33+09:00</lastBuildDate>
-        <pubDate>2017-07-14T10:35:33+09:00</pubDate>
+        <lastBuildDate>2017-07-14T20:38:33+09:00</lastBuildDate>
+        <pubDate>2017-07-14T20:38:33+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -15,7 +15,7 @@
                 <description>&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=tictactoe_van.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;消える三目並べ&quot; title=&quot;消える三目並べ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;tic-tac-toe-van&quot;&gt;「消える三目並べ（Tic-tac-toe Van）」について&lt;/h3&gt;
-&lt;p&gt;　「消える三目並べ（Tic-tac-toe Van）」は、機械学習型三目並べアプリの第二弾です。前作（[「進化する三目並べ（Tic-tac-toe Evo）」][tictactoe-evo-google]）は通常の三目並べでしたが、今回は３手前に打った自分の駒が消えるルールの三目並べです。前作は初期データとして全く学習していないデータを使用していましたが、今回の「消える三目並べ」は出現し得る局面の数が通常の三目並べより多いため、初期データとしてある程度学習済みのデータを使用しています。対戦を重ねる度に強くなる点は同じです。&lt;/p&gt;
+&lt;p&gt;　「消える三目並べ（Tic-tac-toe Van）」は、機械学習型三目並べアプリの第二弾です。前作（&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;）は通常の三目並べでしたが、今回は３手前に打った自分の駒が消えるルールの三目並べです。前作は初期データとして全く学習していないデータを使用していましたが、今回の「消える三目並べ」は出現し得る局面の数が通常の三目並べより多いため、初期データとしてある程度学習済みのデータを使用しています。対戦を重ねる度に強くなる点は同じです。&lt;/p&gt;
 
 &lt;h3 id=&quot;section&quot;&gt;ルール&lt;/h3&gt;
 &lt;ul&gt;
