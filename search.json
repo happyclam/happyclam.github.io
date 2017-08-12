@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "ハイブリッドアプリのセキュリティ",
+      "category" : "programming",
+      "tags"     : "javascript, android, cordova, tictactoe, coffeescript",
+      "url"      : "http://happyclam.github.io/programming/2017-08-12/hybrid_csp",
+      "date"     : "2017-08-12 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "「消える三目並べ」リリースしました",
       "category" : "project",
       "tags"     : "coffeescript, cordova, tictactoe, android, javascript",
