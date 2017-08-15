@@ -250,7 +250,7 @@ MathJax.Hub.Config({
 
 <p>　今現在リリースしているアプリ（確かビルドに使用したCordovaのバージョンは6.5でした）はこの方法を使って動いているのですが、手元にある今使っているCordova（version7.0.1）では使えなくなっているようです。だから次にアプリをバージョンアップするときは他のやり方に変更する必要があります。<br />
 　なんか自分がアプリをリリースする度に次のリリース時には改変を強いられるということが続くので、「またこんなことする奴が出て来たよ〜」と言われている気がするんですが考えすぎでしょうか<img class="emoji" title="sweat_smile" alt="sweat_smile" src="https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png" height="20" width="20" align="absmiddle" /><br />
-　対策としてはデータを外部サーバーに置くかファイル操作を行うプラグインを使う必要が出て来そうですが、ファイル入出力操作はandroidアプリとiPhoneアプリの仕様の違い（ファイルの設置場所等）を考慮しないといけないので面倒です。となると外部サーバーに置くかということになりそうですが、もっと簡単な回避策があります。以下のように必要なデータをHTMLファイルに埋め込んで、それを読み込むようにすることで上のコードと同じことを実現出来ました。</p>
+　対策としてはデータを外部サーバーに置くかファイル操作を行うプラグインを使う必要が出て来そうですが、ファイル入出力操作はandroidアプリとiPhoneアプリの仕様の違い（ファイルの設置場所等）を考慮しないといけないので面倒です。となると外部サーバーに置くかということになりそうですが、もっと簡単な回避策があります。以下のように必要なデータをHTMLファイルに埋め込んで、それを読み込むようにすることで上のコードと同じことを実現出来ました<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。</p>
 
 <pre><code class="language-CoffeeScript">#CoffeeScriptファイル
         data = document.getElementById("initialdata");
@@ -273,6 +273,13 @@ MathJax.Hub.Config({
 
 <hr />
 
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>自分がテストで使っていた端末はAndroid4.4（Kitkat）で、XMLHttpRequest(ajax)で読み込めていたローカルファイルが開発環境を変えたことで読み込めなくなったのですが、古い端末だと搭載されているブラウザの制限で元々出来ないようで、やるべきじゃなかったようです。HTMLに埋め込むやり方なら古い端末でも動作しました。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
 
     </div>
 

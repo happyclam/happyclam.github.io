@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2017-08-12T14:56:27+09:00</lastBuildDate>
-        <pubDate>2017-08-12T14:56:27+09:00</pubDate>
+        <lastBuildDate>2017-08-15T22:21:34+09:00</lastBuildDate>
+        <pubDate>2017-08-15T22:21:34+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -53,7 +53,7 @@
 
 &lt;p&gt;　今現在リリースしているアプリ（確かビルドに使用したCordovaのバージョンは6.5でした）はこの方法を使って動いているのですが、手元にある今使っているCordova（version7.0.1）では使えなくなっているようです。だから次にアプリをバージョンアップするときは他のやり方に変更する必要があります。&lt;br /&gt;
 　なんか自分がアプリをリリースする度に次のリリース時には改変を強いられるということが続くので、「またこんなことする奴が出て来たよ〜」と言われている気がするんですが考えすぎでしょうか&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
-　対策としてはデータを外部サーバーに置くかファイル操作を行うプラグインを使う必要が出て来そうですが、ファイル入出力操作はandroidアプリとiPhoneアプリの仕様の違い（ファイルの設置場所等）を考慮しないといけないので面倒です。となると外部サーバーに置くかということになりそうですが、もっと簡単な回避策があります。以下のように必要なデータをHTMLファイルに埋め込んで、それを読み込むようにすることで上のコードと同じことを実現出来ました。&lt;/p&gt;
+　対策としてはデータを外部サーバーに置くかファイル操作を行うプラグインを使う必要が出て来そうですが、ファイル入出力操作はandroidアプリとiPhoneアプリの仕様の違い（ファイルの設置場所等）を考慮しないといけないので面倒です。となると外部サーバーに置くかということになりそうですが、もっと簡単な回避策があります。以下のように必要なデータをHTMLファイルに埋め込んで、それを読み込むようにすることで上のコードと同じことを実現出来ました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-CoffeeScript&quot;&gt;#CoffeeScriptファイル
         data = document.getElementById(&quot;initialdata&quot;);
@@ -76,6 +76,13 @@
 
 &lt;hr /&gt;
 
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;自分がテストで使っていた端末はAndroid4.4（Kitkat）で、XMLHttpRequest(ajax)で読み込めていたローカルファイルが開発環境を変えたことで読み込めなくなったのですが、古い端末だと搭載されているブラウザの制限で元々出来ないようで、やるべきじゃなかったようです。HTMLに埋め込むやり方なら古い端末でも動作しました。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
 </description>
                 <link>http://happyclam.github.io/programming/2017-08-12/hybrid_csp</link>
                 <guid>http://happyclam.github.io/programming/2017-08-12/hybrid_csp</guid>
