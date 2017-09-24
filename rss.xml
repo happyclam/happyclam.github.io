@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2017-08-15T22:21:34+09:00</lastBuildDate>
-        <pubDate>2017-08-15T22:21:34+09:00</pubDate>
+        <lastBuildDate>2017-09-24T12:16:12+09:00</lastBuildDate>
+        <pubDate>2017-09-24T12:16:12+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -2570,10 +2570,11 @@ Kind regards Andreas Loew&lt;br /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　やはりこのゲーム（三手前に打った駒が消えるルールの三目並べ、無限三目並べ）は辺の位置に初手を打てば先手必勝ということでしょう。私は記事に書いたとおり、自作プログラムを弄っていてたまたま無限三目並べというゲームが先手必勝なのではないかという結論を得たのですが、どうやらテーブルゲーム業界（実際にあるかどうか知りません）では公然の秘密（ネタバレ防止目的？）として知られていたことなのかもしれません。私はこのゲームの作者を知りませんし、この分野の研究者（そんな人がいる？）の知り合いもいませんのでわかりませんが、既に誰かが結論を出してどこかに論文でも存在するのかもしれません。&lt;br /&gt;
-　とにかく自分で行き着いた結論が間違ってなかったようなので嬉しくなってこの記事を書くことにしました。&lt;/p&gt;
+　とにかく自分で行き着いた結論が間違ってなかったようなので嬉しくなってこの記事を書くことにしました。&lt;br /&gt;
+　※その後自作のアプリもリリースしました→&lt;a href=&quot;https://play.google.com/store/apps/details?id=tictactoe_van.io.github.happyclam&quot;&gt;消える三目並べ&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;section-2&quot;&gt;思うこと&lt;/h3&gt;
-&lt;p&gt;　自作の将棋プログラムはRuby製（動的型付け）なので速度的に限界があるので、C++で一から３×３の将棋プログラム（いずれはスマホアプリ）を作ってみようかなどと考えます&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。でも将棋はルールを反映させるだけでも一苦労なんですよねぇ。オセロなら一から作りなおしても大した手間は掛からないのですが…。&lt;/p&gt;
+&lt;p&gt;　自作の将棋プログラムはRuby製（動的型付け）なので速度的に限界があるので、C++で一から３×３の将棋プログラム（いずれはスマホアプリ）を作ってみようかなどと考えてます&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。でも将棋はルールを反映させるだけでも一苦労なんですよねぇ。オセロなら一から作りなおしても大した手間は掛からないのですが…。&lt;/p&gt;
 
 &lt;hr /&gt;
 
