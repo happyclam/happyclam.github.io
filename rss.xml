@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2017-09-24T12:16:12+09:00</lastBuildDate>
-        <pubDate>2017-09-24T12:16:12+09:00</pubDate>
+        <lastBuildDate>2017-10-28T12:39:52+09:00</lastBuildDate>
+        <pubDate>2017-10-28T12:39:52+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -278,7 +278,22 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 &lt;div id=&quot;neural_saikyo&quot; style=&quot;width:600px;height:300px;&quot;&gt;&lt;/div&gt;
 &lt;div id=&quot;new_saikyo&quot; style=&quot;width:600px;height:300px;&quot;&gt;&lt;/div&gt;
 
-&lt;p&gt;　上の２つのグラフのうち下側のグラフは現在リリース中の&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;と同じものです。上側のニューラルネットワークのグラフは、前回間違ったプログラムを使って「学習速度が速い」なんて書いてしまいましたが、グラフを見る限りむしろ遅くなった感じです。それより特徴的なことは、学習がピークまで達すると間違った手を指さないようになっていることです。重みデータを加減算で操作している方法（下のグラフ）だと６０００回対戦後も５％ぐらいは間違った指し手を選んで負けているのに、勾配法を使ってる上のグラフだと６０００回対戦後は１００％引分に持ち込んでいます（間違った手を指していない）。指し手を選ぶ推論部分（重みデータの比率で指し手を選ぶ方法）は全く同じなのにこの差が出るのは、重みデータが圧倒的に偏った値になっているということです。&lt;/p&gt;
+&lt;p&gt;　上の２つのグラフのうち下側のグラフは現在リリース中の&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;と同じものです。上側のニューラルネットワークのグラフは、前回間違ったプログラムを使って「学習速度が速い」なんて書いてしまいましたが、グラフを見る限りむしろ遅くなった感じです。それより特徴的なことは、学習がピークまで達すると間違った手を指さないようになっていることです。重みデータを加減算で操作している方法（下のグラフ）だと６０００回対戦後も５％ぐらいは間違った指し手を選んで負けているのに、勾配法を使ってる上のグラフだと６０００回対戦後は１００％引分に持ち込んでいます（間違った手を指していない）。指し手を選ぶ推論部分（重みデータの比率で指し手を選ぶ方法）は全く同じなのにこの差が出るのは、重みデータが圧倒的に偏った値になっているということです。&lt;br /&gt;
+　例えばゲームスタート時の初期盤面の学習データ（報酬データ）は、従来の加減算によるものでは&lt;a href=&quot;/software/2015-10-25/machine_learning&quot;&gt;以前の記事&lt;/a&gt;にも書いたように、だいたい以下のような感じのデータになります。&lt;/p&gt;
+&lt;pre style=&quot;overflow:auto; white-space:nowrap&quot;&gt;
+ 初期盤面の報酬データ（加減算）
+ [94, 32, 137, 98, 160, 95, 98, 84, 97]
+&lt;/pre&gt;
+&lt;p&gt;　次にどんな手を選ぶか（推論部分）は、単に以下の確率で決まります。&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;\frac{（対象となる箇所の学習データの値）}{（９箇所の学習データの合計値）}&lt;/script&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;だからこのデータの場合は、全配列の合計は&lt;strong&gt;895&lt;/strong&gt;で盤面の真ん中のデータが&lt;strong&gt;160&lt;/strong&gt;になっていますので、AIが先手の場合に&lt;strong&gt;160／895&lt;/strong&gt;の確率で初手に真ん中を選ぶということを示しています。対して勾配法による学習後のデータは以下のようになりました。&lt;/p&gt;
+&lt;pre style=&quot;overflow:auto;&quot;&gt;
+ 初期盤面の報酬データ（勾配法）
+[-0.7601376352001628, -0.7502935835767303, -0.7520158193991342, -0.742749527313905, 6.938823028629541, -0.7552042606689815, -0.7336853491261596, -0.7136915491061318, -0.7310453055201457] 
+&lt;/pre&gt;
+&lt;p&gt;　合計は 0.9999999987181899（約 1.0 ）ですので、6.9 / 1.0 の確率（約７００％）、つまり初手は１００％真ん中を選ぶようになったということです。&lt;/p&gt;
 
 &lt;h5 id=&quot;section-2&quot;&gt;– 乱数プログラムとの対戦結果 –&lt;/h5&gt;
 &lt;div id=&quot;neural_random&quot; style=&quot;width:600px;height:300px;&quot;&gt;&lt;/div&gt;
