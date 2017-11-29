@@ -209,7 +209,7 @@ MathJax.Hub.Config({
       <span>07 June 2014</span>
     </div>
     <div class="content">
-      <h3 id="section">サーバースクリプトの状態遷移</h3>
+      <h3 id="サーバースクリプトの状態遷移">サーバースクリプトの状態遷移</h3>
 <p>　言うまでもなくclient側と言ってもWebサーバ上で動いているわけなのでユーザから見ればサーバーとして機能しているわけですが、TwitterAPIを使ってデータをDBに保存するサーバースクリプトに対してclient側ということです。<br />
 state_machine gemを利用してサーバースクリプトの状態を管理しています。
 <img src="/images/tweetwatch.png" alt="状態遷移図" /></p>
@@ -261,7 +261,7 @@ state_machine gemを利用してサーバースクリプトの状態を管理し
 ※「集計中」から「待機中」には遷移できません（停止して再起動）。</li>
 </ul>
 
-<h3 id="section-1">機能</h3>
+<h3 id="機能">機能</h3>
 
 <ul>
   <li>server側スクリプトの制御（起動、終了、状態確認）<br />
@@ -270,7 +270,7 @@ state_machine gemを利用してサーバースクリプトの状態を管理し
 ※Twitterのデータ構造はハッシュタグを本文とは別に保持しているようですが、SQLで集計する際にハッシュタグで集計するのはコストがかかるので、本文の内容でgroup byするという単純なやり方で妥協しています。詳細は別記事にするつもりです。</li>
 </ul>
 
-<h3 id="er">ER図</h3>
+<h3 id="er図">ER図</h3>
 <object data="/pdf/struct_tweetwatch.pdf" width="600" height="600">
 <p>ご覧の環境では、object要素がサポートされていないようです。<a href="/pdf/struct_tweetwatch.pdf">PDFファイルをダウンロードしてください</a></p>
 </object>

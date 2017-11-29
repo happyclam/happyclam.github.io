@@ -209,10 +209,10 @@ MathJax.Hub.Config({
       <span>19 October 2015</span>
     </div>
     <div class="content">
-      <h3 id="section">無作為選択を人工知能に</h3>
+      <h3 id="無作為選択を人工知能に">無作為選択を人工知能に</h3>
 <p>　<a href="http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1444873224&amp;sr=1-1&amp;keywords=statistics+hacks">「Statistics Hacks」</a>という本の中でココナッツの殻と石ころを使って、学習機能を持つ三目並べプログラムが作れるという話が書かれていました。無人島に漂流して何もすることがない人の暇つぶしのためにどうぞという感じで、非常に砕けた調子で書かれているのです（この本全体がそんな感じです）が、一応裏を取った根拠のある話が書かれている真面目な本だと思います。そして<a href="/project/2015-10-10/tictactoe_bfs/">前回の記事</a>で書いたようにBFSアルゴリズムの使い途を考えていた私は「これは使える」と思いました。この本で三目並べについてに書かれている部分はほんの数ページだけなのですが、難しい数式を使っていないので、書かれている内容（アイデア）だけでプログラム作成に必要な情報は十分にあると自分には思われました。但し、その結果強いプログラムが完成するかどうかはやってみないとわからないし、強くなるとしてもどの程度強くなるのか興味が湧いてきたので試してみることにしました。</p>
 
-<h3 id="section-1">多分木構造に全局面データを格納</h3>
+<h3 id="多分木構造に全局面データを格納">多分木構造に全局面データを格納</h3>
 <p>　とりあえずBFSで全局面を探索しながら多分木構造のデータを生成し、DBは使わずそのデータをシリアライズして保存（RubyのMarshal.dump）して利用するという方針だけ決めて作業にかかりました。<br />
 　以下のようなTreeクラスを用意して既に使っているBoardオブジェクト（１局面分のデータ）を格納していきます。メンバー変数valueにデータ（今回はBoardオブジェクト）を格納して、分岐する局面をメンバー変数childに格納していきます。メンバー変数scoreというのは手の良し悪しを評価する得点のことで、<a href="http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1444873224&amp;sr=1-1&amp;keywords=statistics+hacks">上記の本</a>に書いてある石ころの報酬にあたります。それぞれの局面で三目並べの９個のマスに得点（石ころの数）をつけて初期値としてとりあえず１０をセットしています。そして勝ち負けに応じて数（石ころの数）を増やしたり減らしたりして良い手悪い手を学習させるつもりです。</p>
 
@@ -277,7 +277,7 @@ end
 <p>　データを作る段階で９箇所のうち駒が打てない場所（すでに駒が存在する場所）のscoreは０をセット（石ころを置かない）しておいて、プラス評価（石ころを増やす）の上限は無いが、マイナス評価（石ころを海に向かって投げる）するときは０未満のマイナス値にはならないように作ります。こうした方が石ころをマイナス個置くなんて現実にはあり得ないということで、本の物語にも沿っていて理解しやすいかもしれません。<br />
 　データを操作するのは常に木構造の根（ルート,root）から再帰関数を呼び出す形になるので特徴的でシンプルなコードになります。今回はscoreという特殊な要素も付加したのでこのTreeクラスは汎用的なものではなくなってますが、使用するメソッドは多分木を使う時は常に似たような感じ（再帰関数ばかり）になるんじゃ無いでしょうか。</p>
 
-<h3 id="section-2">いい加減な数値検証</h3>
+<h3 id="いい加減な数値検証">いい加減な数値検証</h3>
 <p>　手始めに<a href="/project/2015-10-10/tictactoe_bfs/">前回の記事</a>で作成したbfsメソッドと上記Treeクラスを使って三目並べの局面がどれほどの数になるのか数えようと思い重複チェック（check_dupメソッド）を外して試してみたところ、いつまで経っても処理が終わりません。</p>
 
 <pre><code class="language-Ruby">    board = Board.new([nil, nil, nil, nil, nil, nil, nil, nil, nil])
@@ -376,7 +376,7 @@ end
 　世界中で調べ尽くされているであろうゲームなので、いろんなケースの数値を導き出しているサイト<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>と同じ数値が出せれば検証終了ってことにしようと思ったのですが、なかなかピッタリくるサイトがありませんでした。でも上の表の数値と「tictactoe」という単語で検索するとかなりの数のサイトが引っかかるのでおそらく問題ないでしょう^^;<br />
 　それと<a href="http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1444873224&amp;sr=1-1&amp;keywords=statistics+hacks">上記の本</a>には２８７個のココナッツを用意すれば足りると書いてあり、上下左右の対称形を省けばゲームの局面の数は６０４６ではなくその数にまで絞れるのかもしれませんが、そこまでやるとプログラムが追いにくくなると思ったのでやってません。但し、その数字を出すためにはどうすればいいのか、どうやればその数字で収まることを検証できるか興味はあるので、気が向けば挑戦するかもしれませんが、とりあえず今はまず学習機能作成を進めていこうと思います。</p>
 
-<h3 id="section-3">局面を遡るメソッド</h3>
+<h3 id="局面を遡るメソッド">局面を遡るメソッド</h3>
 <p>　本来のBFSの使い途というか迷路の解法の際には、出口に到達した時に入り口まで遡る方法を用意しておかなくてはいけないので、この三目並べのツリーでも最終局面から初手まで遡れるように自分の親を辿るparentメソッドを用意しました。</p>
 
 <pre><code class="language-Ruby">#verify.rb
@@ -420,7 +420,7 @@ end until buf == nil
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p><a href="http://www.se16.info/hgb/tictactoe.htm">How many Tic-Tac-Toe (noughts and crosses) games are possible?</a>、<a href="https://www.jesperjuul.net/ludologist/255168-ways-of-playing-tic-tac-toe">The Ludologist</a>、<a href="https://en.wikipedia.org/wiki/Tic-tac-toe">Wikipedia Tic-tac-toe</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p><a href="http://www.se16.info/hgb/tictactoe.htm">How many Tic-Tac-Toe (noughts and crosses) games are possible?</a>、<a href="https://www.jesperjuul.net/ludologist/255168-ways-of-playing-tic-tac-toe">The Ludologist</a>、<a href="https://en.wikipedia.org/wiki/Tic-tac-toe">Wikipedia Tic-tac-toe</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>

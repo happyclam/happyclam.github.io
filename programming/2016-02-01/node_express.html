@@ -209,11 +209,11 @@ MathJax.Hub.Config({
       <span>01 February 2016</span>
     </div>
     <div class="content">
-      <h3 id="heroku">久々にプロジェクトに変更を加えてherokuにアップしたらエラーに見舞われた</h3>
+      <h3 id="久々にプロジェクトに変更を加えてherokuにアップしたらエラーに見舞われた">久々にプロジェクトに変更を加えてherokuにアップしたらエラーに見舞われた</h3>
 <p>　以前<a href="/programming/2015-04-25/mongo_upsert/">記事</a>にも書きましたが、公開した<a href="https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf">androidアプリ</a>の<a href="http://tictactoe-cf.herokuapp.com/">ランキング表示用のサイト</a>で使用しているGoogle AnalyticsのトラッキングIDが間違えていたので<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>、トラッキングID（UA-XXXXXXXX-X）だけ書き換えて heroku にアップロードしたらエラーが出てランキング表示機能が使えなくなりました。全然プログラムコードと関係ない文字列を書き換えただけなのにです。<br />
 　Node.jsは最近はほとんど触ってなかったので何をどうすればいいのかすっかり忘れていたため復旧に手間取ったので顛末を記事にしておきます。本来はプロジェクト全体を網羅したドキュメントを残すべきでしょうけど…。</p>
 
-<h3 id="section">原因不明？</h3>
+<h3 id="原因不明">原因不明？</h3>
 <p>　herokuのログには</p>
 
 <pre><code>Error: Most middleware (like errorHandler) is no longer bundled with Express and must be installed separately. Please see https://github.com/senchalabs/connect#middleware.
@@ -221,7 +221,7 @@ MathJax.Hub.Config({
 
 <p>と出ていました。この時点ではよくわからなかったのですが、どうやらheroku上で実行モジュールをビルドする際に、何か仕様が変更されたパッケージを組み込んだためにエラーが発生したようです。とりあえずメッセージに沿って作業しました。</p>
 
-<h3 id="section-1">エラーの対処</h3>
+<h3 id="エラーの対処">エラーの対処</h3>
 
 <p>指定されたリンク先に書いてある通りapp.jsを書き換えます。</p>
 
@@ -291,7 +291,7 @@ Googleで検索したところ、上記エラーは<code>npm link express</code>
 
 </div>
 
-<h3 id="section-2">エラーの原因</h3>
+<h3 id="エラーの原因">エラーの原因</h3>
 <p>　それにしてもソースファイルの文字列リテラルを書き換えただけでなぜ動かなくなったのか？使用するパッケージのバージョンは〜以上と指定していることが多いので、それが影響したのかと思っていたのですが、Expressのバージョンは<code>"express": "4.12.1"</code>となっており、リビジョン番号まで指定されています。<br />
 　どうやら.gitignoreファイルが以下のようになっていて</p>
 
@@ -319,7 +319,7 @@ git push origin
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>androidアプリのAdMobとGoogle Adsenseを別々のgmailアドレスで利用しようとしたらエラーに見舞われて、それ以来ずっと放ったらかしにしていたのでした。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p>androidアプリのAdMobとGoogle Adsenseを別々のgmailアドレスで利用しようとしたらエラーに見舞われて、それ以来ずっと放ったらかしにしていたのでした。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>

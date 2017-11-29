@@ -209,7 +209,7 @@ MathJax.Hub.Config({
       <span>29 May 2015</span>
     </div>
     <div class="content">
-      <h3 id="section">やはりそんなにうまい話はなかった</h3>
+      <h3 id="やはりそんなにうまい話はなかった">やはりそんなにうまい話はなかった</h3>
 <p>　ObjectiveC++も使わずJavaのコードも一切書かずにiOSとandroidのアプリが一つのソースコードで作成できるというハイブリッドアプリ開発ですが、<a href="/programming/2015-04-25/mongo_upsert/">前回の記事</a>で書いた通りとりあえず<a href="https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf">androidアプリ</a>をリリースしたのはいいけど、いろいろなトラブルに遭遇しました。そこでcordovaを使ったandroidアプリ開発に関してネット上に出回っている一般的なトラブルは除いて、特に自分だけかもしれない嵌り方をした点について書いてみようと思います。</p>
 
 <p>　開発環境：</p>
@@ -220,16 +220,16 @@ MathJax.Hub.Config({
   <li>cordova 5.0.0</li>
 </ul>
 
-<h3 id="android23ginger-breadclick">android2.3(ginger bread)でclickイベントが発火しない</h3>
+<h3 id="android23ginger-breadでclickイベントが発火しない">android2.3(ginger bread)でclickイベントが発火しない</h3>
 <p>　これは定番のトラブルであんただけではなくネット上によく出回ってる話じゃないかと思われた方も多いと思います、そしてclickイベントは使わないってのが基本だと仰る方も多いでしょうが、clickイベントに関するネット上で見かけるトラブルはその動作が重いから避けろというものだと思います。私は先人の教えの通りfastclick.jsを最初から使用していたので特に重いと感じることもなく普通に動いているから問題無いと思っていたのですが、エミュレータも含めてandroid4.1だと問題なくclickイベントが発生するけど、android2.3（おそらくそれ以前も）だとclickイベントが発生しないというトラブルに出くわしました。<br />
 　<a href="https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf">私のアプリ</a>はダイアログを表示する箇所が２箇所あるのですが、cordovaのプラグインを使っている方は問題ないのですが、もう一方の自前のwindow（SinglePageApplicationなのでdata-role=”page”を付加したページ）を呼ぶ出す部分のclickイベントが発火しないという現象でした。エミュレータ上でマウスでクリックしようが、実機にインストールして指でタップしようがうんともすんともいいません。なんでこんなことが起こるのか分からなかったのですが、JQueryMobile(JQM)を使用しているのが原因（jQueryは問題ない）のようで、試しにJQMの読み込みをコメントにするとレイアウトは崩れますが正常に動きました。でも、JQMを使わずにレイアウトを定義し直すのは面倒だし、JQMの中まで追って行って原因を追究するのも大変そうなのでネットで検索しながらいろいろ試してみた（vclickイベント、touchイベント等に置き換える）のですが効果はなく、tappable.jsというものを見つけてそれを使ってclickイベントをtappable.jsで置き換えてみてエミュレータで動いた時は喜んだのですが、エミュレータと同じandroid-10（ginger bread）の実機（IS05）で試すと相変わらずイベントが発生しないというおかしな状況になりました。どうも複数の原因が関わっているようでエミュレータで動いたのは偶々だったようです。イベントの発生順序にも関係してそうだったのでclickイベント（というかtapイベント）のcallback設定をいろんな場所（deviceready, DOMContentLoaded, load, pageinit, $document.ready）に書いて確認したのですが動いたり動かなかったりという泥沼に陥りました。しつこいようですがandroid2.3の場合だけです。<br />
 　いくつか<a href="https://forum.jquery.com/topic/javascript-function-not-called-on-button-click-event-android-app-using-jquery-mobile">ヒントになるサイト</a>はあったのですがJQMがやっている処理をandroidのバージョンによって切り分ける作業が必要そうで、それは大変なので結局ダイアログの表示内容を簡素化してpluginのダイアログ（navigator.notification）を使うことで回避しました。<br />
 　ネットや本ではjQueryMobileは重いのでzepto.jsを使いましょう、という助言はよく見かけていたのですが、PCサイトから作り始めた私は特に問題なく動いているしパフォーマンスを気にするようなものでもなく試しに作ってみたようなシンプルなテーブルゲームアプリなのでそのままJQMを使っていたのですが、古いandroid機でも動作させるつもりなら今でもzeptoを使ったほうがいいのかもしれません。私の場合はginger breadのシェアも落ちてきているのでJQMのままで良しとしました。</p>
 
-<h3 id="android41jellybeanadmob">android4.1(JellyBean)でadmobを使うと広告表示のタイミングで落ちる</h3>
+<h3 id="android41jellybeanでadmobを使うと広告表示のタイミングで落ちる">android4.1(JellyBean)でadmobを使うと広告表示のタイミングで落ちる</h3>
 <p>　エミュレータを作成して試している限りでは正常に広告が表示されるのですが、実機で試すと広告が表示されるタイミングでアプリが落ちるという現象に悩まされました。android4.1.xだけで発生するバグのよう（私の持っている実機が4.1.2です!?）で、onAdFailedToLoadイベント等でも拾うことも出来ずにいきなりアプリ毎終了します。<a href="https://github.com/floatinghotpot/cordova-plugin-admob/issues/92">admobのオプションでoverlap:trueにするとこのバグを回避できる</a>ようなのでとりあえずそうしましたが時間を取られました。リンク先にも書かれているようにandroidのバージョンによって処理を分けるのが良さそうです。</p>
 
-<h3 id="android23ginger-breadjsonp">android2.3(ginger bread)だとJSONPでデータが取得できない？？？</h3>
+<h3 id="android23ginger-breadだとjsonpでデータが取得できない">android2.3(ginger bread)だとJSONPでデータが取得できない？？？</h3>
 <p>　これもまた古いandroidの場合だけでしたが、ランキング表示ダイアログを別のhtmlファイルで作成していたものをSPA(SinglePageApplication)にするために、同じhtmlファイル内にJQMのページ（data-role=”page”）に変更したら、ダイアログ表示時にサーバーにアクセスに行かないようになってしまいました。別ファイルを読み込んだ時にscriptタグ内のJavaScriptでサーバーからデータを取得するようにしていた処理を、JQMの場合はpageinitかpageshowイベントでやるように変更しなければいけないのかと思ってpageshowイベント内に書いてみてもpageshowイベントが発生しません。android4.1の場合は何も書き換えなくてもデータ取得できるにも拘らずです。</p>
 
 <pre><code class="language-JavaScript">        function cb(u){

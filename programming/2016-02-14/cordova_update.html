@@ -209,13 +209,13 @@ MathJax.Hub.Config({
       <span>14 February 2016</span>
     </div>
     <div class="content">
-      <h3 id="google-play-">Google Play からのお達し</h3>
+      <h3 id="google-play-からのお達し">Google Play からのお達し</h3>
 <p>　２／９に「Google Play warning: You are using a vulnerable version of Apache Cordova」というタイトルでGoogleからメールが来ました。バージョン4.1.1以前のApacheCordovaにセキュリティ上の脆弱性が見つかったので、公開している<a href="https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf">Cordova製のアプリ</a>を更新しろという内容です。<br />
 <strong>Please migrate your app(s) to Apache Cordova v.4.1.1 or higher as soon as possible and increment the version number of the upgraded APK.</strong><br />
 と書いてあり、更新しなければ2016年5月9日以降は公開を停止するとも書いてありました。備忘録のつもりで作業内容を記事に残しておきます。<br />
 　それにしても、メールのタイトルをGoogleやTwitterで検索してもほとんどヒットしなかったのでCordova(PhoneGap)製のアプリって少ないんでしょうねぇ。それとも皆さんマメに更新しているからこんなメール来ないってことでしょうか？</p>
 
-<h3 id="cordova">Cordova開発環境の更新</h3>
+<h3 id="cordova開発環境の更新">Cordova開発環境の更新</h3>
 
 <pre><code>$ cordova platform ls
 Installed platforms: android 3.7.1, ios 3.8.0
@@ -275,7 +275,7 @@ cordova-plugin-whitelist 1.2.1 "Whitelist"
 
 <p>　cordova-plugin-whitelistプラグインが勝手に追加されていました、デフォルトで組み込まれる？ようです。こういう知らないうちに変わっていることがあるので、新規プロジェクトで作り直す方がいいと思います。</p>
 
-<h3 id="apk">パッケージファイル（APK）を更新</h3>
+<h3 id="パッケージファイルapkを更新">パッケージファイル（APK）を更新</h3>
 <p>　開発環境の更新はできたのであとはビルドするだけですが、その前にAndroidManifest.xml内のバージョンNo.（android:versionCodeとandroid:versionName）をインクリメントしました。</p>
 
 <pre><code>$cd platforms/android/

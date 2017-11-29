@@ -211,13 +211,13 @@ MathJax.Hub.Config({
     <div class="content">
       <p>Project: 「<a href="https://kwl-books.herokuapp.com"><strong>楽天Kobo電子書籍新着チェッカー</strong></a>」: <a href="https://github.com/happyclam/kwl-books">GitHub</a></p>
 
-<h3 id="section">自分の本が検索されない</h3>
+<h3 id="自分の本が検索されない">自分の本が検索されない</h3>
 <p>　以前からやってみたかった電子書籍出版やってみました（<a href="http://www.amazon.co.jp/dp/B01D1IJ0S0">Amazon KDP</a>、<a href="http://books.rakuten.co.jp/rk/8353a2085f33386d8fe9102c7b8eb4c3">楽天Kobo</a>）。その顛末については別の記事を書こうと思っていますが、先に「楽天Kobo電子書籍新着チェッカー」を作ってみたのでそれについて書きます。<br />
 　楽天Koboの電子書籍出版サービス（KWL、Kobo Writing Life）に自分の本を登録して、リリースまで時間が掛かると書いてあったから<a href="http://wakufactory.jp/kobo/kwlnew.html">「KoboWritingLife新着チェッカー」</a>というサイトを見つけて、自分の本が出版されたかどうかチェックしていました。丸一日ぐらい経った後、まだ自分の本が表示されていなかったので、試しに楽天のサイトから検索してみたら、自分の本がヒットするではないですか、「なんで自分の本は出てこないの？」って感じです。この<a href="http://wakufactory.jp/kobo/kwlnew.html">新着チェッカー</a>がどれほど利用されているのかわかりませんが、「自分の本を表示してくれないサイトが新着チェッカーとしてメジャーになってもらっては困る」、「なんとか自分で世間の人に使って貰えるこれ以上の新着チェッカーを作らなければならない」という使命感に駆られて（嘘です）作ってみることにしました。<br />
 　自分で楽天APIを弄ってみてから想像するとおそらく自分の本が表示されないのは、自分の本を登録している「PC・システム開発」というジャンルが検索対象になっていないからだと思いますが、真相はわかりません。自分の本だけ意地悪されているわけでないことは確かでしょう。<br />
 　ということでジャンル別に検索する形で作りました。自己責任でご利用ください（免責条項）。<a href="https://webservice.rakuten.co.jp/guide/">楽天のサイト</a>でも簡単にAPIを試してみることも出来ます。試すだけなら開発者用のIDをわざわざ取得しなくても利用できます。</p>
 
-<h3 id="section-1">やっていること（仕様）</h3>
+<h3 id="やっていること仕様">やっていること（仕様）</h3>
 
 <ul>
   <li>使用するのは楽天Kobo系APIだけ（「楽天ブックス系API」と「楽天Kobo系API」に分かれているようです）<br />
@@ -230,7 +230,7 @@ MathJax.Hub.Config({
 ※herokuの無料枠で運用しているのでデータが大量に溜まると困ると思ってこうしています。更新頻度が高いジャンルは３０日経過していなくても表示されなくなります。</li>
 </ul>
 
-<h3 id="api">使用しているAPI</h3>
+<h3 id="使用しているapi">使用しているAPI</h3>
 <p>　発行しているAPIは以下の二種類だけです。</p>
 
 <ul>
@@ -248,7 +248,7 @@ HTTPS https://app.rakuten.co.jp/services/api/Kobo/EbookSearch/20140811?applicati
 
 </div>
 
-<h3 id="er">ER図</h3>
+<h3 id="er図">ER図</h3>
 <object data="/pdf/koboapi.pdf" width="760" height="900">
 <p>ご覧の環境では、object要素がサポートされていないようです。<a href="/pdf/koboapi.pdf">PDFファイルをダウンロードしてください</a></p>
 </object>

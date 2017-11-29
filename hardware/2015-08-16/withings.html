@@ -209,7 +209,7 @@ MathJax.Hub.Config({
       <span>16 August 2015</span>
     </div>
     <div class="content">
-      <h3 id="section">普通の腕時計を買うつもりが、スマートウォッチになったわけ</h3>
+      <h3 id="普通の腕時計を買うつもりがスマートウォッチになったわけ">普通の腕時計を買うつもりが、スマートウォッチになったわけ</h3>
 <p>　もう１０年以上前から腕時計をする習慣が無くなっていたのですが、携帯電話からスマホに変わってからは胸ポケットに入れられないスマホを鞄から取り出すのが面倒なため腕時計をする機会が多くなっていました。でも今はロードバイク用に買ったアウトドア用のソーラー電波時計しか無いので、一つビジネスにも使えるようなものを買ってみようかと思って<a href="https://www.facebook.com/powerwatch.fan/posts/840855109296593">「予算１０万円台までで購入できる　最強スポーツウオッチ選手権」</a>と銘打った時計雑誌を購入しました。<br />
 　雑誌の中ではいろいろ欲しくなる時計は紹介されていたのですが、小さく紹介されていた「Withings Activité」のデザインが気に入ってネットで調べてみるとスマートウォッチというカテゴリーに分類される時計のようです。Apple Watchにもほとんど興味が湧かなかった自分にとっては、すでに世の中にいろいろなスマートウォッチと呼ばれる時計が出回っていることを知って驚きでした。<br />
 　そして、</p>
@@ -240,7 +240,7 @@ MathJax.Hub.Config({
 
 <p>　上のグラフのように浅い眠りと深い眠りを判別出来るようです。寝起きに「あ〜よく寝た」と感じた時は濃い青のグラフの帯が大きかったので結構正確かもしれません。それと当たり前かもしれませんが朝方トイレに起きた履歴もちゃんと残っていて、いつか自分の記憶にない記録が残っていたりしないかと密かに期待しています（夢遊病か!?）。</p>
 
-<h3 id="web-api">Web APIを使ってみる</h3>
+<h3 id="web-apiを使ってみる">Web APIを使ってみる</h3>
 <p>　APIが公開されていたので少し触ってみました。<a href="http://blog.hopkins.io/2013/07/25/withings-api/">Withings API Quickstart Guide</a>と銘打ったサイトの通りwithings用のgemを使えばすぐに自分が登録したデータを取得することが出来ましたが、最新のAPIに対応しているか分からなかったし使い方もよくわからないし、アクセストークンを取得した後は<a href="http://oauth.withings.com/api">WithingsのAPIドキュメント</a>を見ながら自分でパラメータをセットしていろんなデータの取得を試してみたかったので、特別なgemを使用せずにjsonデータを取得するスクリプトを書いてみました。<br />
 　このスクリプトを実行するにはTwitterアプリを作る時なんかと同様に<a href="https://oauth.withings.com/en/partner/add">Withingsにアプリを登録</a>してAPI Key、API Secretを取得する必要があります。そしてWithings API のページの<a href="http://oauth.withings.com/api">FIRST STEP</a>に従って操作し、OAuth認証完了後userid、oauth_token、oauth_token_secretの値を取得してスクリプトにセットしておく必要があります。</p>
 
@@ -320,10 +320,10 @@ pp result
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p><a href="http://www.dream-seed.com/weblog/archives/2015/02/55372/">複数のスイス時計メーカーがスマートウォッチを発表</a>、<a href="http://weekly.ascii.jp/elem/000/000/328/328470/">腕時計好きもグッとくる絶品スマートウォッチ特選編</a>、<a href="http://matome.naver.jp/odai/2142691305853056801">グッチも！？有名ブランドが続々発売するスマートウォッチ市場が熱い！！</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p><a href="http://www.dream-seed.com/weblog/archives/2015/02/55372/">複数のスイス時計メーカーがスマートウォッチを発表</a>、<a href="http://weekly.ascii.jp/elem/000/000/328/328470/">腕時計好きもグッとくる絶品スマートウォッチ特選編</a>、<a href="http://matome.naver.jp/odai/2142691305853056801">グッチも！？有名ブランドが続々発売するスマートウォッチ市場が熱い！！</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
     </li>
     <li id="fn:2">
-      <p>例として上記スクリプトのstartdateパラメータをセットしている行で.to_iを削除すると{“status” =&gt; 342}が返ってきます。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+      <p>例として上記スクリプトのstartdateパラメータをセットしている行で.to_iを削除すると{“status” =&gt; 342}が返ってきます。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>

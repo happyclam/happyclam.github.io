@@ -209,7 +209,7 @@ MathJax.Hub.Config({
       <span>23 July 2016</span>
     </div>
     <div class="content">
-      <h3 id="section">たかが３×３の狭い空間でも完全読み切りは大変だ</h3>
+      <h3 id="たかが３３の狭い空間でも完全読み切りは大変だ">たかが３×３の狭い空間でも完全読み切りは大変だ</h3>
 <p>　Twitterで<a href="http://mainichi.jp/articles/20160612/k00/00e/040/105000c">９マス将棋発売</a>というニュースが流れていたので、検索してみると同じ９マス（３×３）と言えどもいろいろなパターンがあるようです<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。Androidアプリで見つけた<a href="https://play.google.com/store/apps/details?id=org.dyndns.vivi.SkskShogi33">「３×３将棋」</a>というのをやってみると玉頭戦を戦っている気分になれて、想像していた以上に楽しめました。他にも一番シンプルなものでは盤上には玉だけを配置して、持ち駒に銀と歩を持ったところからゲームを開始する<a href="http://www.nakajim.net/?3三将棋">「３三将棋」</a>というルールもあるようです。</p>
 
 <div style="width:320px; margin: 0 auto;">
@@ -286,7 +286,7 @@ MathJax.Hub.Config({
 <p>　最終局面は後手の指す手が無くなって、先手勝ちになってます。この例のように自分が試した多くの結果が先手か後手か一方が指す手が無くなって負けるパターンでした。一度形勢を損ねたら指す手が悪手しかなくなり更に形勢を悪くしていく感じです。<br />
 　また、自分が試したプログラムは千日手対応をしていないのですが、指定した先読み手数内に必勝手順があるなら千日手を避けてその手順を選ぶはずなので関係ありません。もっと深く読めば「先手必勝」あるいは「後手必勝」の結論が出る可能性がありますが、逆に「先手勝ち」あるいは「後手勝ち」の評価が得られたけど、実はもっと深く読めば「千日手」の結論に変わるということはあり得ないということです。この辺りの事情は<a href="/software/2014-10-04/arrange_line">以前の記事</a>にも書いた通りですが、「お互いに最善手を選ぶと千日手になる」という結論を出すには、完全読み切りするしかないのかもしれません。自分としては<a href="/software/2014-10-04/arrange_line">以前の記事</a>の時と同様に、試しにやってみて結論が出れば面白いなと思ってやってみただけなのでこれで良しとします。</p>
 
-<h3 id="section-1">思わぬ収穫が</h3>
+<h3 id="思わぬ収穫が">思わぬ収穫が</h3>
 <p>　３三将棋の結論が出なかったのでわざわざこの記事を書く気はなかったのですが、いろいろプログラムを弄っている最中に以前書いた<a href="/software/2014-10-04/arrange_line">変則三目並べの記事</a><sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>の「<strong>先手必勝</strong>」の結論が追認されるような発見があったので書いておこうという気になりました。どちらかというと自分にとってはこちらの話の方が本題です。「無限三目並べは先手必勝」というお話です。９マス将棋のタイトルに惹かれて訪問された方、すいません。<br />
 　<a href="/software/2014-10-04/arrange_line">この記事</a>を書いた時は<a href="https://play.google.com/store/apps/details?id=com.bbside.arrangeline">「ArrangeLine」</a>というアプリを使っていたのですが、同様のアプリで<a href="https://play.google.com/store/apps/details?id=com.nekobukiya.tictactoe&amp;hl=ja">「無限○×」</a>、<a href="https://play.google.com/store/apps/details?id=com.devhydrangea.Sanmokunarabe&amp;hl=ja">「無限三目並べ」</a>というものがあることを知り、それぞれダウンロードして試してみました。やはり自分のソフトと対戦させてみるとアプリの設定を最強にしていても先手では自分のソフトが必ず勝ちますし、やはりこのゲーム（無限三目並べ）は先手必勝のゲームなんだなと思って遊んでいると、<a href="https://play.google.com/store/apps/details?id=com.devhydrangea.Sanmokunarabe&amp;hl=ja">「無限三目並べ」</a>というアプリではなんと以下のように先手の場合は初手に辺の位置（<a href="/software/2014-09-23/tictactoe_arrange">以前の記事</a>の2,4,6,8の位置）を選択できないようになっていたのです。</p>
 
@@ -300,7 +300,7 @@ MathJax.Hub.Config({
 　とにかく自分で行き着いた結論が間違ってなかったようなので嬉しくなってこの記事を書くことにしました。<br />
 　※その後自作のアプリもリリースしました→<a href="https://play.google.com/store/apps/details?id=tictactoe_van.io.github.happyclam">消える三目並べ</a></p>
 
-<h3 id="section-2">思うこと</h3>
+<h3 id="思うこと">思うこと</h3>
 <p>　自作の将棋プログラムはRuby製（動的型付け）なので速度的に限界があるので、C++で一から３×３の将棋プログラム（いずれはスマホアプリ）を作ってみようかなどと考えてます<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>。でも将棋はルールを反映させるだけでも一苦労なんですよねぇ。オセロなら一から作りなおしても大した手間は掛からないのですが…。</p>
 
 <hr />
@@ -308,13 +308,13 @@ MathJax.Hub.Config({
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>ニュースで流れていた９マス将棋のルールについては<a href="http://rosetrend1.com/2016/06/18/9マス将棋ルールまとめ！無料フラッシュやアプリ/">ここ</a>が詳しかったです。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p>ニュースで流れていた９マス将棋のルールについては<a href="http://rosetrend1.com/2016/06/18/9マス将棋ルールまとめ！無料フラッシュやアプリ/">ここ</a>が詳しかったです。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
     </li>
     <li id="fn:2">
-      <p>決まった名称が無いようなのですが、３手前に打った駒が消えるルールの三目並べを「無限三目並べ」と呼ぶことが多いようです。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+      <p>決まった名称が無いようなのですが、３手前に打った駒が消えるルールの三目並べを「無限三目並べ」と呼ぶことが多いようです。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
     </li>
     <li id="fn:3">
-      <p>単純にC++に置き換えただけでは大した効果はなく先読みの深さが数手伸びるだけだと思います。詳しく知りませんが、どうぶつしょうぎの完全読み切りをしたプログラムは速度アップのためのデータ構造もかなり工夫しているようです。局面データを単なる配列データで保持している自分のやり方では完全読み切りは無理そうです。 <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+      <p>単純にC++に置き換えただけでは大した効果はなく先読みの深さが数手伸びるだけだと思います。詳しく知りませんが、どうぶつしょうぎの完全読み切りをしたプログラムは速度アップのためのデータ構造もかなり工夫しているようです。局面データを単なる配列データで保持している自分のやり方では完全読み切りは無理そうです。 <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>

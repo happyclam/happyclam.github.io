@@ -209,10 +209,10 @@ MathJax.Hub.Config({
       <span>12 August 2017</span>
     </div>
     <div class="content">
-      <h3 id="section">アプリ更新を強要されるよりかはマシだな</h3>
+      <h3 id="アプリ更新を強要されるよりかはマシだな">アプリ更新を強要されるよりかはマシだな</h3>
 <p>　以前<a href="/programming/2016-02-14/cordova_update">Google様からのお達し</a>によりアプリのアップデートを強要されたことを書きましたが、今回は自分の都合で<a href="https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf">自作のアプリ</a>のアップデートをしようとした際にCordovaの仕様変更に対応する必要に迫られたので、誰かの役に立てばと思い記事を書きます。ハイブリッドアプリの脆弱性という意味では前回の件と似たようなものだと思うのですが、前回のように既にリリースされているアプリにまで対応を迫るということはなかったようです。CordovaにCSP（ContentSecurityPolicy）が導入されたのがいつかは知りませんが、とりあえず最近まで<a href="https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf">このアプリ</a>に関してはCSPを設定しないままでリリース出来ていました、ほとんどアクティブユーザーはいませんが<img class="emoji" title="sweat_smile" alt="sweat_smile" src="https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png" height="20" width="20" align="absmiddle" /></p>
 
-<h3 id="jsonp">外部サーバーからのデータ取得（JSONP）</h3>
+<h3 id="外部サーバーからのデータ取得jsonp">外部サーバーからのデータ取得（JSONP）</h3>
 <p>　アプリの中でJSONPを使ってherokuで運用している外部サーバーからデータ（ユーザーのランキングデータ）を取得する処理があるのですが、適切にCSPを書かなければ<code>Refused to connect to 'http://XXX.herokuapp.com/XXX'</code>というエラーでデータが取得出来なくなったようです。Whitelistプラグインを使ってconfig.xmlに記載するだけではダメみたいです、通常のHTTPリクエストよりAjaxリクエストはさらに規制を強くするということでしょう。</p>
 
 <pre><code>&lt;!-- config.xml --&gt;
@@ -226,7 +226,7 @@ MathJax.Hub.Config({
 </code></pre>
 <p>　script-srcの部分にテスト時のローカルのURLと本番で使う外部サーバーのURLをスペースで区切って記述します。default-srcに記述すれば代替出来ると書かれたサイトもありましたが、私が試した限りではscript-srcに書かないと動きませんでした。</p>
 
-<h3 id="xmlhttprequest">他にもあった開発時の制約（XMLHttpRequest）</h3>
+<h3 id="他にもあった開発時の制約xmlhttprequest">他にもあった開発時の制約（XMLHttpRequest）</h3>
 <p>　つい最近もう一つの<a href="https://play.google.com/store/apps/details?id=tictactoe_van.io.github.happyclam">別のアプリ</a>を弄っててわかったことですが、初期化データをローカルディスクから読み込む際に以下のような感じでXMLHttpRequestを使えていました。</p>
 
 <pre><code class="language-CoffeeScript">#CoffeeScriptファイル
@@ -276,7 +276,7 @@ MathJax.Hub.Config({
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>自分がテストで使っていた端末はAndroid4.4（Kitkat）で、XMLHttpRequest(ajax)で読み込めていたローカルファイルが開発環境を変えたことで読み込めなくなったのですが、古い端末だと搭載されているブラウザの制限で元々出来ないようで、やるべきじゃなかったようです。HTMLに埋め込むやり方なら古い端末でも動作しました。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p>自分がテストで使っていた端末はAndroid4.4（Kitkat）で、XMLHttpRequest(ajax)で読み込めていたローカルファイルが開発環境を変えたことで読み込めなくなったのですが、古い端末だと搭載されているブラウザの制限で元々出来ないようで、やるべきじゃなかったようです。HTMLに埋め込むやり方なら古い端末でも動作しました。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>

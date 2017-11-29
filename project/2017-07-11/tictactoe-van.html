@@ -211,10 +211,10 @@ MathJax.Hub.Config({
     <div class="content">
       <p><a href="https://play.google.com/store/apps/details?id=tictactoe_van.io.github.happyclam"><img src="/images/ja_badge_web_generic.png" alt="消える三目並べ" title="消える三目並べ" width="155" height="60" /></a></p>
 
-<h3 id="tic-tac-toe-van">「消える三目並べ（Tic-tac-toe Van）」について</h3>
+<h3 id="消える三目並べtic-tac-toe-vanについて">「消える三目並べ（Tic-tac-toe Van）」について</h3>
 <p>　「消える三目並べ（Tic-tac-toe Van）」は、機械学習型三目並べアプリの第二弾です。前作（<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">「進化する三目並べ（Tic-tac-toe Evo）」</a>）は通常の三目並べでしたが、今回は３手前に打った自分の駒が消えるルールの三目並べです。前作は初期データとして全く学習していないデータを使用していましたが、今回の「消える三目並べ」は出現し得る局面の数が通常の三目並べより多いため、初期データとしてある程度学習済みのデータを使用しています。対戦を重ねる度に強くなる点は同じです。</p>
 
-<h3 id="section">ルール</h3>
+<h3 id="ルール">ルール</h3>
 <ul>
   <li>×が先手、○が後手で変更できません。</li>
   <li>通常の三目並べ同様にラインを揃えれば勝ちですが、３手前に打った自分の駒が消えるのでそれを見越した上で指し手を選択する必要があります。</li>
@@ -234,7 +234,7 @@ MathJax.Hub.Config({
   <li>引き分けはありません。厳密に言うとゲームの特性上はある限定した局面から先手・後手双方が最善手を続けることで同じ局面の繰り返しに陥る可能性があるのですが、もしそうなってもAI側が手を変えます。</li>
 </ul>
 
-<h3 id="section-1">メニュー</h3>
+<h3 id="メニュー">メニュー</h3>
 <ul>
   <li>学習機能</li>
 </ul>
@@ -277,7 +277,7 @@ MathJax.Hub.Config({
   <p><img src="/images/menu_records.png" alt="Menu - 対戦成績" title="Menu - 対戦成績" /></p>
 </div>
 
-<h3 id="section-2">学習データ</h3>
+<h3 id="学習データ">学習データ</h3>
 <p>　AI用の初期データとしてある程度学習済みのデータ（MIN-MAX法を使った最強プログラムと10,000回対戦させたデータ）を使用しています。以下のグラフはまったく学習させていないところから乱数プログラムと最強プログラムの２種類のプログラムと対戦テストを行って、アプリの勝率の推移をグラフにしたものです。グラフの黄色のラインの経過を経たデータを初期データとしてアプリに同梱しています。最強のプログラムに対して勝率５割には達していませんので、初心者の方でも全く勝てないなんてことはないと思います。</p>
 
 <div id="vanishing-tictactoe" style="width:600px;height:400px;"></div>
