@@ -5,77 +5,10 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2018-01-01T15:27:16+09:00</lastBuildDate>
-        <pubDate>2018-01-01T15:27:16+09:00</pubDate>
+        <lastBuildDate>2017-11-29T21:44:13+09:00</lastBuildDate>
+        <pubDate>2017-11-29T21:44:13+09:00</pubDate>
         <ttl>1800</ttl>
 
-
-        <item>
-                <title>「３三将棋」アプリリリースしました</title>
-                <description>&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;３三将棋&quot; title=&quot;３三将棋&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;３三将棋について&quot;&gt;「３三将棋」について&lt;/h3&gt;
-&lt;p&gt;　以前にも&lt;a href=&quot;/programming/2016-07-23/33shogi&quot;&gt;「３三将棋」に関する記事&lt;/a&gt;を書きましたが、実際に作ってみました。最初はゲーム開始時の初期盤面をユーザーが自由に編集出来るようなものにしようと考えていたのですが、そこまで開発コストをかけても実際に自分で初期盤面を試行錯誤しながら作って遊んでみようと思うユーザーがそれほどいるとは思えなかったので、とりあえず１５パターンの初期盤面を用意しました。今後パターンを増やしていくつもりです。&lt;/p&gt;
-
-&lt;h3 id=&quot;ルール&quot;&gt;ルール&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;駒の動きは将棋と同じです。&lt;/li&gt;
-  &lt;li&gt;打ち歩詰め、二歩は禁止です。&lt;/li&gt;
-  &lt;li&gt;同一局面が４回現れると千日手でゲーム終了としています。&lt;/li&gt;
-  &lt;li&gt;先手は一段目、後手は三段目に駒を移動すると成ることが出来ます。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;対局画面&quot;&gt;対局画面&lt;/h3&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/33shogi_battle.png&quot; alt=&quot;対戦画面&quot; title=&quot;対戦画面&quot; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;span&gt;ＡＩ同士の対戦の時だけ局面の評価値を表示するようにしています。左上の数値は手数です。&lt;/span&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;閲覧画面&quot;&gt;閲覧画面&lt;/h3&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/33shogi_view.png&quot; alt=&quot;閲覧画面&quot; title=&quot;閲覧画面&quot; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;span&gt;対局が終了するか、対局を中断すると閲覧画面に切り替わって、初手からの手順を確認することが出来ます。&lt;/span&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;メニュー&quot;&gt;メニュー&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;先手・後手&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;span&gt;ＡＩ同士の対戦時はどちらかが勝ちを読みきった時点で対局が終了します。なぜ対局が終了したか疑問に感じた場合は、同じ手順でＡＩと対戦してみてください、対人戦の時は詰みまで指すようにしていますので疑問が解消すると思います。&lt;/span&gt;&lt;/p&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/33shogi_player.png&quot; alt=&quot;Menu - 先手・後手&quot; title=&quot;Menu - 先手・後手&quot; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;ＡＩレベル&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;span&gt;駒に重みを設定してその合計値で局面を評価する評価関数を使い先読みを行う、よくある思考ルーチン（MIN-MAX法＋αβ法による全件探索）です。JavaScript製ということもあり、非常に遅いのであまり深く読めません。今後、候補手を事前に絞るなどして速度アップをしていく予定です。&lt;/span&gt;&lt;/p&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/33shogi_ailevel.png&quot; alt=&quot;Menu - ＡＩレベル&quot; title=&quot;Menu - ＡＩレベル&quot; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;初期配置&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;span&gt;作ってみて感じたのですが、３三将棋の場合適当に駒を配置すると将棋の上級者が見るとすぐに勝敗が明白な局面になっていたりして、面白い勝負になりそうな初期配置を探すのが一番難しいかもしれません。とりあえず勝負が楽しめそうな配置で尚且ついろんな種類の駒を使うことを考えて「９マス将棋」なども参考にしながら１５種類の局面を用意しました。今後、追加していく予定です。&lt;/span&gt;&lt;/p&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/33shogi_placement.png&quot; alt=&quot;Menu - 初期配置&quot; title=&quot;Menu - 初期配置&quot; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-</description>
-                <link>http://happyclam.github.io/project/2018-01-01/33shogiapp</link>
-                <guid>http://happyclam.github.io/project/2018-01-01/33shogiapp</guid>
-                <pubDate>2018-01-01T00:00:00+09:00</pubDate>
-        </item>
 
         <item>
                 <title>ハイブリッドアプリのセキュリティ</title>
