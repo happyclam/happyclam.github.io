@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "「３三将棋」アプリリリースしました",
+      "category" : "project",
+      "tags"     : "coffeescript, cordova, android, javascript",
+      "url"      : "http://happyclam.github.io/project/2018-01-01/33shogiapp",
+      "date"     : "2018-01-01 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "ハイブリッドアプリのセキュリティ",
       "category" : "programming",
       "tags"     : "javascript, android, cordova, tictactoe, coffeescript",
