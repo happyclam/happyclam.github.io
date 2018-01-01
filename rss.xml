@@ -5,14 +5,14 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2018-01-01T11:06:16+09:00</lastBuildDate>
-        <pubDate>2018-01-01T11:06:16+09:00</pubDate>
+        <lastBuildDate>2018-01-01T15:27:16+09:00</lastBuildDate>
+        <pubDate>2018-01-01T15:27:16+09:00</pubDate>
         <ttl>1800</ttl>
 
 
         <item>
                 <title>「３三将棋」アプリリリースしました</title>
-                <description>&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=33shogi.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;３三将棋&quot; title=&quot;３三将棋&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+                <description>&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;３三将棋&quot; title=&quot;３三将棋&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;３三将棋について&quot;&gt;「３三将棋」について&lt;/h3&gt;
 &lt;p&gt;　以前にも&lt;a href=&quot;/programming/2016-07-23/33shogi&quot;&gt;「３三将棋」に関する記事&lt;/a&gt;を書きましたが、実際に作ってみました。最初はゲーム開始時の初期盤面をユーザーが自由に編集出来るようなものにしようと考えていたのですが、そこまで開発コストをかけても実際に自分で初期盤面を試行錯誤しながら作って遊んでみようと思うユーザーがそれほどいるとは思えなかったので、とりあえず１５パターンの初期盤面を用意しました。今後パターンを増やしていくつもりです。&lt;/p&gt;
