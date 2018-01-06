@@ -37,7 +37,7 @@
   <meta name="twitter:url" content="http://happyclam.github.io/project/2018-01-01/33shogiapp">
   
   
-  <meta name="twitter:description" content="初心者に最適。ベテランにも新鮮な驚きがあるかも？">
+  <meta name="twitter:description" content="初心者に最適。ベテランでも初見で全パターン（先後とも）勝てる人はいないんじゃないかなぁ">
   
   
   <meta name="twitter:image:src" content="http://happyclam.github.io/images/33shogi_logo.png">
@@ -255,6 +255,71 @@ MathJax.Hub.Config({
 <div style="width:320px; margin: 0 auto;">
   <p><img src="/images/33shogi_ailevel.png" alt="Menu - ＡＩレベル" title="Menu - ＡＩレベル" /></p>
 </div>
+
+<p>駒の重み：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">駒の種類 \ 重み</th>
+      <th style="text-align: right">　表（不成）　　</th>
+      <th style="text-align: right">　裏（成り駒）　</th>
+      <th style="text-align: right">持ち駒</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">玉（王）</td>
+      <td style="text-align: right">9999</td>
+      <td style="text-align: right">(9999)</td>
+      <td style="text-align: right">(9999)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">飛　</td>
+      <td style="text-align: right">85</td>
+      <td style="text-align: right">110</td>
+      <td style="text-align: right">75</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">角　</td>
+      <td style="text-align: right">75</td>
+      <td style="text-align: right">100</td>
+      <td style="text-align: right">65</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">金　</td>
+      <td style="text-align: right">50</td>
+      <td style="text-align: right">(50)</td>
+      <td style="text-align: right">45</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">銀　</td>
+      <td style="text-align: right">45</td>
+      <td style="text-align: right">50</td>
+      <td style="text-align: right">40</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">桂　</td>
+      <td style="text-align: right">30</td>
+      <td style="text-align: right">50</td>
+      <td style="text-align: right">25</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">香　</td>
+      <td style="text-align: right">25</td>
+      <td style="text-align: right">50</td>
+      <td style="text-align: right">20</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">歩　</td>
+      <td style="text-align: right">10</td>
+      <td style="text-align: right">50</td>
+      <td style="text-align: right">7</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span>※対局中に大駒が成れるのに成らないケースがしばしば見られると思いますが、上記表の重みを考慮して、どうせ相手に取られるから成らない（低い重みのまま）でおこうとＡＩが判断するためです。</span></p>
 
 <ul>
   <li>初期配置</li>

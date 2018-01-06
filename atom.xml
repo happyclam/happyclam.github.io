@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2018-01-02T07:38:08+09:00</updated>
+ <updated>2018-01-06T11:42:24+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -63,6 +63,71 @@
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/images/33shogi_ailevel.png&quot; alt=&quot;Menu - ＡＩレベル&quot; title=&quot;Menu - ＡＩレベル&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
+
+&lt;p&gt;駒の重み：&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;駒の種類 \ 重み&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　表（不成）　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　裏（成り駒）　&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;持ち駒&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;玉（王）&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;9999&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;(9999)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;(9999)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;飛　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;85&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;110&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;75&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;角　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;75&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;100&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;65&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;金　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;50&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;(50)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;45&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;銀　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;45&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;50&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;40&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;桂　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;30&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;50&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;25&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;香　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;25&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;50&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;20&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;歩　&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;10&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;50&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;7&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;span&gt;※対局中に大駒が成れるのに成らないケースがしばしば見られると思いますが、上記表の重みを考慮して、どうせ相手に取られるから成らない（低い重みのまま）でおこうとＡＩが判断するためです。&lt;/span&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;初期配置&lt;/li&gt;
