@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2018-01-07T16:05:05+09:00</updated>
+ <updated>2018-01-07T20:53:08+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -139,7 +139,7 @@
   &lt;p&gt;&lt;img src=&quot;/images/33shogi_placement.png&quot; alt=&quot;Menu - 初期配置&quot; title=&quot;Menu - 初期配置&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;技術資料&quot;&gt;技術資料&lt;/h3&gt;
+&lt;h3 id=&quot;開発資料&quot;&gt;開発資料&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;クラス図&lt;/li&gt;
@@ -151,18 +151,23 @@
 
 &lt;/div&gt;
 
-&lt;p&gt;　業務アプリだととてもこんなに分かり易くすっきりした構成にはならないでしょうね&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
-
 &lt;ul&gt;
   &lt;li&gt;
     &lt;p&gt;テストツール&lt;br /&gt;
-　mocha + chai でテストケースを書きました。CoffeeScript+mocha+chai=CaffeineJSと誰かが言ってましたが、まさに依存性のあるカフェインのように癖になりそうなぐらい作りやすかったです。いずれgithubでソースも公開する予定です。その時はこの記事を更新する予定です。&lt;/p&gt;
+　mocha + chai でテストケースを書きました。CoffeeScript+mocha+chai=CaffeineJSと誰かが言ってましたが、まさに依存性のあるカフェインのように癖になりそうなぐらい作りやすかったです。いずれgithubでソースもテストスクリプトも公開する予定です。その時はこの記事を更新します。&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;コンソール版&lt;br /&gt;
-　最初は作り易さもあってコンソール画面でも遊べるCUI版（Gameクラス、Boardクラス）から作っていたのですが、将棋の指し手は複数の駒が動ける可能性がある時に「１一銀右」とか「３二銀引く成る」とか「３一金直ぐ」とかいろんなケースが発生するので、それをコンソール画面で入力させる処理が非常に面倒になります。だから一通りコンソールでも遊べるようになったところで細かいところは放置してGUI版の開発に移行しました。GUIなら駒をタッチ（クリック）するだけなのでUI（ユーザーインターフェース）が作り易くなるからです。それでもコンソールで作っていたBoardクラスは変更を加える必要がなくそのまま継承してBoardGUIクラスを作るだけで済むのはオブジェクト指向プログラミングの面目躍如と言ったところです。&lt;/p&gt;
+    &lt;p&gt;コンソール版&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/shogi33cui.png&quot;&gt;&lt;img src=&quot;/images/shogi33cui.png&quot; alt=&quot;CUI版&quot; title=&quot;CUI版&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　最初は作り易さもあってコンソール画面でも遊べるCUI版（Gameクラス、Boardクラス）から作っていたのですが、将棋の指し手は複数の駒が動ける可能性がある時に「１一銀右」とか「３二銀引く成る」とか「３一金直ぐ」とかいろんなケースが発生するので、それをコンソール画面でコマンドラインのパラメータとして入力させる処理が非常に面倒になります。だから一通りコンソールでも遊べるようになったところで細かいところは未対応のまま放置してGUI版の開発に移行しました。GUIなら駒をタッチ（クリック）するだけなのでUI（ユーザーインターフェース）が作り易くなるからです。それでもコンソールで作っていたBoardクラスは変更を加える必要がなくそのまま継承してBoardGUIクラスを作るだけで済むのはオブジェクト指向プログラミングの面目躍如と言ったところです。&lt;/p&gt;
 
 &lt;hr /&gt;
 
