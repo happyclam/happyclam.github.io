@@ -37,7 +37,7 @@
   <meta name="twitter:url" content="http://happyclam.github.io/project/2018-01-01/33shogiapp">
   
   
-  <meta name="twitter:description" content="初心者に最適。ベテランでも初見で全パターン（先後とも）勝てる人はいないんじゃないかなぁ">
+  <meta name="twitter:description" content="初心者ほど簡単と思い込んで負ける。ベテランでも初見で全パターン勝てる人はいないでしょう">
   
   
   <meta name="twitter:image:src" content="http://happyclam.github.io/images/33shogi_logo.png">
@@ -331,6 +331,31 @@ MathJax.Hub.Config({
   <p><img src="/images/33shogi_placement.png" alt="Menu - 初期配置" title="Menu - 初期配置" /></p>
 </div>
 
+<h3 id="技術資料">技術資料</h3>
+
+<ul>
+  <li>クラス図</li>
+</ul>
+
+<div style="width:480px; margin: 0 auto;">
+
+  <p><a href="/images/shogi33class.png"><img src="/images/shogi33class.png" alt="クラス図" title="クラス図" /></a></p>
+
+</div>
+
+<p>　業務アプリだととてもこんなに分かり易くすっきりした構成にはならないでしょうね<img class="emoji" title="sweat_smile" alt="sweat_smile" src="https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png" height="20" width="20" align="absmiddle" /></p>
+
+<ul>
+  <li>
+    <p>テストツール<br />
+　mocha + chai でテストケースを書きました。CoffeeScript+mocha+chai=CaffeineJSと誰かが言ってましたが、まさに依存性のあるカフェインのように癖になりそうなぐらい作りやすかったです。いずれgithubでソースも公開する予定です。その時はこの記事を更新する予定です。</p>
+  </li>
+  <li>
+    <p>コンソール版<br />
+　最初は作り易さもあってコンソール画面でも遊べるCUI版（Gameクラス、Boardクラス）から作っていたのですが、将棋の指し手は複数の駒が動ける可能性がある時に「１一銀右」とか「３二銀引く成る」とか「３一金直ぐ」とかいろんなケースが発生するので、それをコンソール画面で入力させる処理が非常に面倒になります。だから一通りコンソールでも遊べるようになったところで細かいところは放置してGUI版の開発に移行しました。GUIなら駒をタッチ（クリック）するだけなのでUI（ユーザーインターフェース）が作り易くなるからです。それでもコンソールで作っていたBoardクラスは変更を加える必要がなくそのまま継承してBoardGUIクラスを作るだけで済むのはオブジェクト指向プログラミングの面目躍如と言ったところです。</p>
+  </li>
+</ul>
+
 <hr />
 
 
@@ -371,6 +396,8 @@ MathJax.Hub.Config({
     	<li><a href="/tags.html#android-ref">android <span>23</span></a></li>
      
     	<li><a href="/tags.html#javascript-ref">javascript <span>22</span></a></li>
+     
+    	<li><a href="/tags.html#shogi-ref">shogi <span>4</span></a></li>
     
   
 
