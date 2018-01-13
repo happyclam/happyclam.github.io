@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2018-01-07T20:53:08+09:00</updated>
+ <updated>2018-01-13T11:11:45+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -27,6 +27,7 @@
   &lt;li&gt;駒の動きは将棋と同じです。&lt;/li&gt;
   &lt;li&gt;打ち歩詰め、二歩は禁止です。&lt;/li&gt;
   &lt;li&gt;同一局面が４回現れると千日手でゲーム終了としています。&lt;/li&gt;
+  &lt;li&gt;行き場の無い駒は打てません（桂馬を二段目に打ったり、先手が歩を一段目に打ったり）&lt;/li&gt;
   &lt;li&gt;先手は一段目、後手は三段目に駒を移動すると成ることが出来ます。&lt;/li&gt;
 &lt;/ul&gt;
 
