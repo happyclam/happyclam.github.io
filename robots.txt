@@ -1,0 +1,4 @@
+User-Agent:*
+Disallow:/search.json
+
+Sitemap:http://happyclam.github.io/sitemap.txt
