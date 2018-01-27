@@ -1,0 +1,366 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>打ち歩詰めについて</title>
+
+    <meta name="author" content="happyclam">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="打ち歩詰めについて">
+  
+  
+  <meta name="twitter:url" content="http://happyclam.github.io/software/2018-01-27/utifudume">
+  
+  
+  <meta name="twitter:description" content="古いバージョンをお使いの方は、バージョン0.9.1.1以降のものに更新してください">
+  
+  
+  <meta name="twitter:image:src" content="http://happyclam.github.io/images/33shogi_logo.png">
+  
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script language="JavaScript">
+$(document).ready( function () {
+    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
+<script src="/assets/themes/twitter/js/jquery.min.js"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
+<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
+<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-1752720-7', 'happyclam.github.io');
+      ga('send', 'pageview');
+    </script>
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div style="text-align: center;">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- トップバナー -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-1238485061299241"
+     data-ad-slot="7366457015"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    </div>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">自己満足プログラミング</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/profile">About</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="row-fluid">
+        <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+        <div class="span9"
+             <!-- Html Elements for Search -->
+             <div id="search-container" align="right">
+               <input type="text" id="search-input" placeholder="search...">
+               <ul id="results-container"></ul>
+             </div>
+             <div class="results"></div>
+        </div>
+      </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+      <div class="content">
+        
+<div class="page-header">
+  <h1>打ち歩詰めについて </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>27 January 2018</span>
+    </div>
+    <div class="content">
+      <h3 id="話題の９マス将棋">話題の９マス将棋</h3>
+<p>　テレビで９マス将棋が取り上げられたことでTwitterで将棋初心者の呟きをよく見かけます。その中でも打ち歩詰めというルールを知らない人のツイートを何回か見かけたので、<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>を開発した側の視点で「打ち歩詰め」について書いてみようと思います。</p>
+
+<h3 id="打ち歩詰め判定">打ち歩詰め判定</h3>
+<p>　手を指す前に打ち歩詰めになるかどうかを判定する（打ち歩詰めならtrue、そうじゃなければfalseを返す）のですが、そのメソッド内でやっていることは以下のようなチェックです。</p>
+
+<ol>
+  <li>打ち歩（持ち駒の歩）による王手かどうか、そうでなければfalseを返す。</li>
+  <li>打たれた歩を玉以外の味方の駒で取ることが出来るかどうか、出来ればfalseを返す。</li>
+  <li>打たれた歩に相手の駒の利きがあるかどうか（玉で取ることができない）を見て、取ることが出来るか、または他の場所に玉が逃げることが出ればfalseを返す。</li>
+  <li>上記の条件を満たさなければtrueを返す（＝打ち歩詰め）。</li>
+</ol>
+
+<p>　局面を読み進めていく毎に歩を打つ場合は常に一手毎にこのチェックをしなければならないので結構重たい処理です。</p>
+
+<h3 id="上記の判定では不十分なケース">上記の判定では不十分なケース</h3>
+
+<div style="width:320px; margin: 0 auto;">
+  <p><img src="/images/utifu_gote.png" alt="打ち歩詰め後手" title="打ち歩詰め後手" /></p>
+</div>
+
+<p><span>上の局面で後手が３二に歩を打つと打ち歩詰めですが、上記の打ち歩詰め判定では相手の駒（２三の角）で打ち歩を取ることが出来るので打ち歩詰めではないと判定してしまいます。後手の飛車の利きが相手玉を睨んでいるにも関わらずです。</span></p>
+
+<div style="width:320px; margin: 0 auto;">
+  <p><img src="/images/utifu_sente.png" alt="打ち歩詰め先手" title="打ち歩詰め先手" /></p>
+</div>
+
+<p><span>次の例では先手が１二に歩を打つと角が利いているので後手は２二の飛車でその歩を取ることが出来ません。ゆえにこの「１二歩打ち」も打ち歩詰めですが、上記の打ち歩詰め判定ロジックでは飛車で歩が取れるから打ち歩詰めではないと判定してしまいます。</span></p>
+
+<p>　味方の飛車や角の筋に相手玉がいるときは上記の打ち歩詰め判定ではうまくいかないことがわかります（同じ飛び道具でも香車の場合は歩と同じ方向にしか動けないので問題なし）。だからと言って、「飛車や角の利き筋に相手玉がいるときは〜」なんていう条件を追加していては、どんどん打ち歩詰め判定が複雑で重たい処理になるので避けたいところです。<br />
+　いっそのこと１手ごとに打ち歩詰めかどうか判定せずに、「持ち駒の歩を打って詰んだとき」が打ち歩詰めなので、局面の先読みをする過程では打ち歩詰め判定を省略して先読みし、直近の一手が打ち歩の時だけ打ち歩詰めチェックするという方法も考えられますが、３三将棋の場合は盤面が狭いため先読みする過程で打ち歩詰めの局面が頻発するので打ち歩詰めチェックを省略するわけにはいきません<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。<br />
+　また「打ち歩詰め判定」ではなく「詰み判定」のメソッドを用意して、一手毎に「打ち歩による詰みであればその手を避ける」とすればいいかもしれませんが、詰み局面かどうかを判定するのは打ち歩詰めかどうかを判定するより面倒そう？なので<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">自分のアプリ</a>では詰み判定ルーチンは使っていません<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。局面の静的評価値を計算する時に先手側に玉が２枚あれば最大値（50000）後手側に玉が２枚あれば最小値（−50000）を返してゲームが終了したかどうかを判定しています。人間の感覚だと、詰みの局面でゲーム終了するのが当たり前とされている将棋ですが、ソフトで判定する場合は「相手の玉を取った時にゲーム終了」とするのが一番簡単で軽い処理で済むという事情があります<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>。<br />
+　結局<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">自分のアプリ</a>では、最善手を検索する際に常に次善手を保存する（最善手を繰り下げる）ようにしておいて、ＡＩが最終的に打ち歩詰めを選んでしまった場合は、次善手を実際の指し手に変えて打ち歩詰めを回避するようにしました。</p>
+
+<h3 id="まだ問題があった">まだ問題があった</h3>
+<p>　ＡＩの思考ルーチンを最善手と次善手の二つの候補手を返すようにしたのでとりあえず打ち歩詰めをしてしまうというバグは直ったと安心してアプリをリリースしていたのですが、人間側が指す場合は上記の打ち歩詰め判定のロジックを使っていたため、飛車や角の筋に相手玉がいる場合に人間側の打ち歩詰めを許してしまうケースが発生していたと思われます（ver0.9.1以前）。<br />
+　リリースしてから２週間以上経ってそのことに気がついて、人間が歩を打つ手を選んだ場合は、そこから２手読みをして勝負が着いたら打ち歩詰めと判定して局面を元に戻して指し手をキャンセルさせるという、やや強引なやり方ではありますが打ち歩詰めをさせないようにしました。古いバージョンをお使いの方は、バージョン0.9.1.1以降のものにアプリを更新していただきたいと思います。それにしても自分が動作確認する時は打ち歩詰めなんてしないし、ＡＩの出来ばかり気にして人間側が打ち歩詰めをしてしまうことなんてすっかり頭の中から抜け落ちてました<img class="emoji" title="sweat_smile" alt="sweat_smile" src="https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png" height="20" width="20" align="absmiddle" /><br />
+　最新の将棋ソフトではおそらくBonanza由来のソース（データ構造含む）とかライブラリを使ってるのでしょうけど、自前で打ち歩詰め対策を実装するのは結構面倒だったというお話でした。</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>昔、本将棋のプログラムを作ったことがあって短時間で深く読むようにするために打ち歩詰めチェックを省いてテストしたことがありますが、本将棋の場合だと打ち歩詰めチェックを省いたからといってそれほど違和感のある指し手を選ぶことはありませんでした。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>本将棋ならほぼありえないのですが３三将棋の場合は「詰みではないが指す手が無い（玉が自殺する手しか無い）」時がよくあるので詰み判定ルーチンがあまり役に立たないと思います。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>アプリでは相手玉を取るまで指さなくても詰みの局面になればゲーム終了とさせていますが、詰み判定ルーチンを使わずにどうやって詰み局面かどうか判断させているかというと、ＡＩに二手読みをさせて最善手を選んでも負けになる（自玉が取られる）ならゲーム終了にするという方法で実現しています。局面の先読み機能の精度が必要です。 <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#software-ref">
+    		software <span>12</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#coffeescript-ref">coffeescript <span>15</span></a></li>
+     
+    	<li><a href="/tags.html#cordova-ref">cordova <span>14</span></a></li>
+     
+    	<li><a href="/tags.html#android-ref">android <span>24</span></a></li>
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>23</span></a></li>
+     
+    	<li><a href="/tags.html#shogi-ref">shogi <span>5</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/project/2018-01-01/33shogiapp" title="「３三将棋」アプリリリースしました">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled"><a>Next &rarr;</a>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'happyclam'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2018 happyclam
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "打ち歩詰めについて",
+      "category" : "software",
+      "tags"     : "coffeescript, cordova, android, javascript, shogi",
+      "url"      : "http://happyclam.github.io/software/2018-01-27/utifudume",
+      "date"     : "2018-01-27 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "「３三将棋」アプリリリースしました",
       "category" : "project",
       "tags"     : "coffeescript, cordova, android, javascript, shogi",

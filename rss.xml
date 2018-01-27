@@ -5,10 +5,72 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2018-01-27T14:37:40+09:00</lastBuildDate>
-        <pubDate>2018-01-27T14:37:40+09:00</pubDate>
+        <lastBuildDate>2018-01-27T17:43:43+09:00</lastBuildDate>
+        <pubDate>2018-01-27T17:43:43+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>打ち歩詰めについて</title>
+                <description>&lt;h3 id=&quot;話題の９マス将棋&quot;&gt;話題の９マス将棋&lt;/h3&gt;
+&lt;p&gt;　テレビで９マス将棋が取り上げられたことでTwitterで将棋初心者の呟きをよく見かけます。その中でも打ち歩詰めというルールを知らない人のツイートを何回か見かけたので、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;を開発した側の視点で「打ち歩詰め」について書いてみようと思います。&lt;/p&gt;
+
+&lt;h3 id=&quot;打ち歩詰め判定&quot;&gt;打ち歩詰め判定&lt;/h3&gt;
+&lt;p&gt;　手を指す前に打ち歩詰めになるかどうかを判定する（打ち歩詰めならtrue、そうじゃなければfalseを返す）のですが、そのメソッド内でやっていることは以下のようなチェックです。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;打ち歩（持ち駒の歩）による王手かどうか、そうでなければfalseを返す。&lt;/li&gt;
+  &lt;li&gt;打たれた歩を玉以外の味方の駒で取ることが出来るかどうか、出来ればfalseを返す。&lt;/li&gt;
+  &lt;li&gt;打たれた歩に相手の駒の利きがあるかどうか（玉で取ることができない）を見て、取ることが出来るか、または他の場所に玉が逃げることが出ればfalseを返す。&lt;/li&gt;
+  &lt;li&gt;上記の条件を満たさなければtrueを返す（＝打ち歩詰め）。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;　局面を読み進めていく毎に歩を打つ場合は常に一手毎にこのチェックをしなければならないので結構重たい処理です。&lt;/p&gt;
+
+&lt;h3 id=&quot;上記の判定では不十分なケース&quot;&gt;上記の判定では不十分なケース&lt;/h3&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/utifu_gote.png&quot; alt=&quot;打ち歩詰め後手&quot; title=&quot;打ち歩詰め後手&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;span&gt;上の局面で後手が３二に歩を打つと打ち歩詰めですが、上記の打ち歩詰め判定では相手の駒（２三の角）で打ち歩を取ることが出来るので打ち歩詰めではないと判定してしまいます。後手の飛車の利きが相手玉を睨んでいるにも関わらずです。&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/utifu_sente.png&quot; alt=&quot;打ち歩詰め先手&quot; title=&quot;打ち歩詰め先手&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;span&gt;次の例では先手が１二に歩を打つと角が利いているので後手は２二の飛車でその歩を取ることが出来ません。ゆえにこの「１二歩打ち」も打ち歩詰めですが、上記の打ち歩詰め判定ロジックでは飛車で歩が取れるから打ち歩詰めではないと判定してしまいます。&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;　味方の飛車や角の筋に相手玉がいるときは上記の打ち歩詰め判定ではうまくいかないことがわかります（同じ飛び道具でも香車の場合は歩と同じ方向にしか動けないので問題なし）。だからと言って、「飛車や角の利き筋に相手玉がいるときは〜」なんていう条件を追加していては、どんどん打ち歩詰め判定が複雑で重たい処理になるので避けたいところです。&lt;br /&gt;
+　いっそのこと１手ごとに打ち歩詰めかどうか判定せずに、「持ち駒の歩を打って詰んだとき」が打ち歩詰めなので、局面の先読みをする過程では打ち歩詰め判定を省略して先読みし、直近の一手が打ち歩の時だけ打ち歩詰めチェックするという方法も考えられますが、３三将棋の場合は盤面が狭いため先読みする過程で打ち歩詰めの局面が頻発するので打ち歩詰めチェックを省略するわけにはいきません&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
+　また「打ち歩詰め判定」ではなく「詰み判定」のメソッドを用意して、一手毎に「打ち歩による詰みであればその手を避ける」とすればいいかもしれませんが、詰み局面かどうかを判定するのは打ち歩詰めかどうかを判定するより面倒そう？なので&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;では詰み判定ルーチンは使っていません&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。局面の静的評価値を計算する時に先手側に玉が２枚あれば最大値（50000）後手側に玉が２枚あれば最小値（−50000）を返してゲームが終了したかどうかを判定しています。人間の感覚だと、詰みの局面でゲーム終了するのが当たり前とされている将棋ですが、ソフトで判定する場合は「相手の玉を取った時にゲーム終了」とするのが一番簡単で軽い処理で済むという事情があります&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
+　結局&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;では、最善手を検索する際に常に次善手を保存する（最善手を繰り下げる）ようにしておいて、ＡＩが最終的に打ち歩詰めを選んでしまった場合は、次善手を実際の指し手に変えて打ち歩詰めを回避するようにしました。&lt;/p&gt;
+
+&lt;h3 id=&quot;まだ問題があった&quot;&gt;まだ問題があった&lt;/h3&gt;
+&lt;p&gt;　ＡＩの思考ルーチンを最善手と次善手の二つの候補手を返すようにしたのでとりあえず打ち歩詰めをしてしまうというバグは直ったと安心してアプリをリリースしていたのですが、人間側が指す場合は上記の打ち歩詰め判定のロジックを使っていたため、飛車や角の筋に相手玉がいる場合に人間側の打ち歩詰めを許してしまうケースが発生していたと思われます（ver0.9.1以前）。&lt;br /&gt;
+　リリースしてから２週間以上経ってそのことに気がついて、人間が歩を打つ手を選んだ場合は、そこから２手読みをして勝負が着いたら打ち歩詰めと判定して局面を元に戻して指し手をキャンセルさせるという、やや強引なやり方ではありますが打ち歩詰めをさせないようにしました。古いバージョンをお使いの方は、バージョン0.9.1.1以降のものにアプリを更新していただきたいと思います。それにしても自分が動作確認する時は打ち歩詰めなんてしないし、ＡＩの出来ばかり気にして人間側が打ち歩詰めをしてしまうことなんてすっかり頭の中から抜け落ちてました&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
+　最新の将棋ソフトではおそらくBonanza由来のソース（データ構造含む）とかライブラリを使ってるのでしょうけど、自前で打ち歩詰め対策を実装するのは結構面倒だったというお話でした。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;昔、本将棋のプログラムを作ったことがあって短時間で深く読むようにするために打ち歩詰めチェックを省いてテストしたことがありますが、本将棋の場合だと打ち歩詰めチェックを省いたからといってそれほど違和感のある指し手を選ぶことはありませんでした。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;本将棋ならほぼありえないのですが３三将棋の場合は「詰みではないが指す手が無い（玉が自殺する手しか無い）」時がよくあるので詰み判定ルーチンがあまり役に立たないと思います。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;アプリでは相手玉を取るまで指さなくても詰みの局面になればゲーム終了とさせていますが、詰み判定ルーチンを使わずにどうやって詰み局面かどうか判断させているかというと、ＡＩに二手読みをさせて最善手を選んでも負けになる（自玉が取られる）ならゲーム終了にするという方法で実現しています。局面の先読み機能の精度が必要です。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+                <link>http://happyclam.github.io/software/2018-01-27/utifudume</link>
+                <guid>http://happyclam.github.io/software/2018-01-27/utifudume</guid>
+                <pubDate>2018-01-27T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>「３三将棋」アプリリリースしました</title>
