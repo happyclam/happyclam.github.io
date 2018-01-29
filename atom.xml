@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2018-01-29T18:37:42+09:00</updated>
+ <updated>2018-01-29T18:50:38+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -3022,7 +3022,7 @@ class Sample
    <updated>2016-05-02T00:00:00+09:00</updated>
    <id>http://happyclam.github.io/programming/2016-05-02/coffee_serialize</id>
    <content type="html">&lt;h3 id=&quot;オブジェクトのシリアライズ機能ってデータだけでいいのか&quot;&gt;オブジェクトのシリアライズ機能ってデータだけでいいのか？&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/programming/2015-01-25/ruby_to_js/&quot;&gt;以前の記事&lt;/a&gt;でJavaScriptは嫌いだけど、CoffeeScriptは好き（Rubyも好きです）と書きましたが、またJavaScriptが嫌になる出来事に遭遇しました。なんとJavaScriptにはオブジェクトをシリアライズする機能が標準では無いようです。データ交換のためJSONは今までから使っていましたが、JSON形式だとメソッドを復元することが出来ません。自分が知らないだけで探せば何か方法があるのだろうと思っていたのですが、外部のライブラリを使わない限りシリアライズは無理なようです。昔からRubyでもDelphiでもVC++でも使ってたしPHPでも使った記憶があるシリアライズ機能が無いなんて、JavaScriptはオブジェクト指向言語って言えるのか？って感じがしますが、&lt;code&gt;JSON.stringify&lt;/code&gt;でデータのみを文字列化出来るからそれこそがシリアライズ機能であって、なんでメソッドを含めないといけないのだ？という意見もあるようです。確かにメソッドをシリアライズの対象に含めると複数の同じオブジェクトをシリアライズした場合に重複して無駄だという考え方もあるようです。それにJavaScriptの場合はブラウザ上で動作させるので、セキュリティ上の配慮から敢えて標準装備していないのかもしれません。自分としては学術的な議論は置いといて、他の言語で出来るのだから同じようにやらせて欲しいってだけなのですが…。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;/programming/2015-01-25/ruby_to_js&quot;&gt;以前の記事&lt;/a&gt;でJavaScriptは嫌いだけど、CoffeeScriptは好き（Rubyも好きです）と書きましたが、またJavaScriptが嫌になる出来事に遭遇しました。なんとJavaScriptにはオブジェクトをシリアライズする機能が標準では無いようです。データ交換のためJSONは今までから使っていましたが、JSON形式だとメソッドを復元することが出来ません。自分が知らないだけで探せば何か方法があるのだろうと思っていたのですが、外部のライブラリを使わない限りシリアライズは無理なようです。昔からRubyでもDelphiでもVC++でも使ってたしPHPでも使った記憶があるシリアライズ機能が無いなんて、JavaScriptはオブジェクト指向言語って言えるのか？って感じがしますが、&lt;code&gt;JSON.stringify&lt;/code&gt;でデータのみを文字列化出来るからそれこそがシリアライズ機能であって、なんでメソッドを含めないといけないのだ？という意見もあるようです。確かにメソッドをシリアライズの対象に含めると複数の同じオブジェクトをシリアライズした場合に重複して無駄だという考え方もあるようです。それにJavaScriptの場合はブラウザ上で動作させるので、セキュリティ上の配慮から敢えて標準装備していないのかもしれません。自分としては学術的な議論は置いといて、他の言語で出来るのだから同じようにやらせて欲しいってだけなのですが…。&lt;/p&gt;
 
 &lt;h3 id=&quot;結局データだけ保存してインスタンス生成し直すしかない&quot;&gt;結局データだけ保存して、インスタンス生成し直すしかない？&lt;/h3&gt;
 &lt;p&gt;　以前から記事に書いていたRubyで作った三目並べプログラムをCoffeeScript(JavaScript)に移植しようと思ってシリアライズの必要に駆られたのですが、強化学習後の三目並べの全局面分の多分木データをシリアライズしてファイルに保存し、次回再開するときはその学習結果が反映されているファイルを読み込みデシリアライズして対戦を開始できるようにしたいわけです。Rubyなら以下のコードで簡単に実現出来たことです。&lt;/p&gt;
@@ -6458,7 +6458,7 @@ window.cancelRequestAnimFrame = (-&amp;gt;
 
 &lt;h3 id=&quot;まずは通常のwebサイトを作成&quot;&gt;まずは通常のWebサイトを作成&lt;/h3&gt;
 &lt;p&gt;　ハイブリッド開発と言っても私は現時点ではiPhoneを持っていないのでAndroidでしか確認できませんが、HTML5とJavaScript（CoffeeScript）でPC上で開発しそれをAndroidとiPhoneで利用出来るなんて虫のいい話があるのなら是非やってみたくなります。HTML5のローカルストレージなんかもいろいろ可能性が広がる気がしますがとりあえず以前作ったRuby製コンソールアプリを使ってHTML5のCanvas機能を試してみたいと思います。&lt;br /&gt;
-　まずは&lt;a href=&quot;/project/2014-08-05/tictactoe/&quot;&gt;以前の記事&lt;/a&gt;で作成した&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;Ruby製のコンソールプログラム&lt;/a&gt;をCoffeeScriptに書き換えていきます。&lt;a href=&quot;/programming/2015-01-28/ruby_to_js2&quot;&gt;前回の記事&lt;/a&gt;以降特に苦労は無かったのですがRubyからCoffeeScriptへのコンバート作業に関しては触れずに、今回はAndroidアプリ化に関して書きます。&lt;/p&gt;
+　まずは&lt;a href=&quot;/project/2014-08-05/tictactoe/&quot;&gt;以前の記事&lt;/a&gt;で作成した&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;Ruby製のコンソールプログラム&lt;/a&gt;をCoffeeScriptに書き換えていきます。&lt;a href=&quot;/programming/2015-01-25/ruby_to_js&quot;&gt;前回の記事&lt;/a&gt;以降特に苦労は無かったのですがRubyからCoffeeScriptへのコンバート作業に関しては触れずに、今回はAndroidアプリ化に関して書きます。&lt;/p&gt;
 
 &lt;h3 id=&quot;cordovaphonegapプロジェクトの作成&quot;&gt;cordova（PhoneGap）プロジェクトの作成&lt;/h3&gt;
 &lt;p&gt;　作成したCoffeeScriptをコンパイル（&lt;code&gt;coffee -c tictactoe.coffee&lt;/code&gt;）したjsファイルとindex.htmlだけのサイトですが、Androidアプリ化するためにした作業は以下の通りです。&lt;/p&gt;
