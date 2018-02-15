@@ -251,11 +251,38 @@ MathJax.Hub.Config({
   <li>ＡＩレベル</li>
 </ul>
 
-<p><span>駒に重みを設定してその合計値で局面を評価する評価関数を使い先読みを行う、よくある思考ルーチン（MIN-MAX法＋αβ法による全件探索）です。JavaScript製ということもあり、非常に遅いのであまり深く読めません。今後、候補手を事前に絞るなどして速度アップをしていく予定です。</span></p>
+<p><span>駒に重みを設定してその合計値で局面を評価する評価関数を使い先読みを行う、よくある思考ルーチン（MIN-MAX法＋αβ法による全件探索）です。JavaScript製ということもあり、<del>非常に遅いのであまり深く読めません。</del>今後、候補手を事前に絞るなどして速度アップをしていく予定です。</span></p>
 
 <div style="width:320px; margin: 0 auto;">
   <p><img src="/images/33shogi_ailevel.png" alt="Menu - ＡＩレベル" title="Menu - ＡＩレベル" /></p>
 </div>
+
+<p>長考モード：<br />
+　Version0.9.3.0から長考モードが使えます。長考モードは４手読みで候補手を上位５手までに絞って、その５手に関して９手読みをするという仕様になっています。思考時間はリリース当初から改善していますが、古い機種では遅くて使用に堪えないかもしれません。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Version</th>
+      <th>ＡＩレベル（普通）</th>
+      <th>ＡＩレベル（長考）</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0.9.1.2</td>
+      <td><img src="/images/v0912-ordinal.gif" alt="Version0.9.1.2レベル普通" title="Version0.9.1.2 ＡＩレベル（普通）" /> 経過時間：30532ミリ秒</td>
+      <td><img src="/images/v0912-tyokoh.gif" alt="Version0.9.1.2レベル長考" title="Version0.9.1.2 ＡＩレベル（長考）" /> 経過時間：153052ミリ秒</td>
+    </tr>
+    <tr>
+      <td>0.9.4.6</td>
+      <td><img src="/images/v0946-ordinal.gif" alt="Version0.9.4.6レベル普通" title="Version0.9.4.6 ＡＩレベル（普通）" /> 経過時間：29258ミリ秒</td>
+      <td><img src="/images/v0946-tyokoh.gif" alt="Version0.9.4.6レベル長考" title="Version0.9.4.6 ＡＩレベル（長考）" /> 経過時間：87109ミリ秒</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
 
 <p>駒の重み：</p>
 

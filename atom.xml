@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2018-01-29T18:50:38+09:00</updated>
+ <updated>2018-02-15T16:36:03+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -26,7 +26,7 @@
 &lt;ol&gt;
   &lt;li&gt;打ち歩（持ち駒の歩）による王手かどうか、そうでなければfalseを返す。&lt;/li&gt;
   &lt;li&gt;打たれた歩を玉以外の味方の駒で取ることが出来るかどうか、出来ればfalseを返す。&lt;/li&gt;
-  &lt;li&gt;打たれた歩に相手の駒の利きがあるかどうか（玉で取ることができない）を見て、取ることが出来るか、または他の場所に玉が逃げることが出ればfalseを返す。&lt;/li&gt;
+  &lt;li&gt;打たれた歩に相手の駒の利きがあるかどうか（玉で取ることができない）を見て、取ることが出来るか、または他の場所に玉が逃げることが出来ればfalseを返す。&lt;/li&gt;
   &lt;li&gt;上記の条件を満たさなければtrueを返す（＝打ち歩詰め）。&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -53,7 +53,7 @@
 
 &lt;h3 id=&quot;まだ問題があった&quot;&gt;まだ問題があった&lt;/h3&gt;
 &lt;p&gt;　ＡＩの思考ルーチンを最善手と次善手の二つの候補手を返すようにしたのでとりあえず打ち歩詰めをしてしまうというバグは直ったと安心してアプリをリリースしていたのですが、人間側が指す場合は上記の打ち歩詰め判定のロジックを使っていたため、飛車や角の筋に相手玉がいる場合に人間側の打ち歩詰めを許してしまうケースが発生していたと思われます（ver0.9.1以前）。&lt;br /&gt;
-　リリースしてから２週間以上経ってそのことに気がついて、人間が歩を打つ手を選んだ場合は、そこから２手読みをして勝負が着いたら打ち歩詰めと判定して局面を元に戻して指し手をキャンセルさせるという、やや強引なやり方ではありますが打ち歩詰めをさせないようにしました。古いバージョンをお使いの方は、バージョン0.9.1.1以降のものにアプリを更新していただきたいと思います。それにしても自分が動作確認する時は打ち歩詰めなんてしないし、ＡＩの出来ばかり気にして人間側が打ち歩詰めをしてしまうことなんてすっかり頭の中から抜け落ちてました&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
+　リリースしてから２週間以上経ってそのことに気がついて、人間が歩を打つ手を選んだ場合は、そこから二手読みをして勝負が着いたら打ち歩詰めと判定して局面を元に戻して指し手をキャンセルさせるという、やや強引なやり方ではありますが打ち歩詰めをさせないようにしました。古いバージョンをお使いの方は、バージョン0.9.1.1以降のものにアプリを更新していただきたいと思います。それにしても自分が動作確認する時は打ち歩詰めなんてしないし、ＡＩの出来ばかり気にして人間側が打ち歩詰めをしてしまうことなんてすっかり頭の中から抜け落ちてました&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
 　最新の将棋ソフトではおそらくBonanza由来のソース（データ構造含む）とかライブラリを使ってるのでしょうけど、自前で打ち歩詰め対策を実装するのは結構面倒だったというお話でした。&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -67,7 +67,7 @@
       &lt;p&gt;本将棋ならほぼありえないのですが３三将棋の場合は「詰みではないが指す手が無い（玉が自殺する手しか無い）」時がよくあるので詰み判定ルーチンがあまり役に立たないと思います。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:3&quot;&gt;
-      &lt;p&gt;アプリでは相手玉を取るまで指さなくても詰みの局面になればゲーム終了とさせていますが、詰み判定ルーチンを使わずにどうやって詰み局面かどうか判断させているかというと、ＡＩに二手読みをさせて最善手を選んでも負けになる（自玉が取られる）ならゲーム終了にするという方法で実現しています。局面の先読み機能の精度が必要です。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;アプリでは相手玉を取るまで指さなくても詰みの局面になればゲーム終了とさせていますが、詰み判定ルーチンを使わずにどうやって詰み局面かどうか判断させているかというと、ＡＩに二手読みをさせて最善手を選んでも負けになる（自玉が取られる）ならゲーム終了にするという方法で実現しています。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
@@ -121,11 +121,38 @@
   &lt;li&gt;ＡＩレベル&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;span&gt;駒に重みを設定してその合計値で局面を評価する評価関数を使い先読みを行う、よくある思考ルーチン（MIN-MAX法＋αβ法による全件探索）です。JavaScript製ということもあり、非常に遅いのであまり深く読めません。今後、候補手を事前に絞るなどして速度アップをしていく予定です。&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span&gt;駒に重みを設定してその合計値で局面を評価する評価関数を使い先読みを行う、よくある思考ルーチン（MIN-MAX法＋αβ法による全件探索）です。JavaScript製ということもあり、&lt;del&gt;非常に遅いのであまり深く読めません。&lt;/del&gt;今後、候補手を事前に絞るなどして速度アップをしていく予定です。&lt;/span&gt;&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/images/33shogi_ailevel.png&quot; alt=&quot;Menu - ＡＩレベル&quot; title=&quot;Menu - ＡＩレベル&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
+
+&lt;p&gt;長考モード：&lt;br /&gt;
+　Version0.9.3.0から長考モードが使えます。長考モードは４手読みで候補手を上位５手までに絞って、その５手に関して９手読みをするという仕様になっています。思考時間はリリース当初から改善していますが、古い機種では遅くて使用に堪えないかもしれません。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Version&lt;/th&gt;
+      &lt;th&gt;ＡＩレベル（普通）&lt;/th&gt;
+      &lt;th&gt;ＡＩレベル（長考）&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0.9.1.2&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;/images/v0912-ordinal.gif&quot; alt=&quot;Version0.9.1.2レベル普通&quot; title=&quot;Version0.9.1.2 ＡＩレベル（普通）&quot; /&gt; 経過時間：30532ミリ秒&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;/images/v0912-tyokoh.gif&quot; alt=&quot;Version0.9.1.2レベル長考&quot; title=&quot;Version0.9.1.2 ＡＩレベル（長考）&quot; /&gt; 経過時間：153052ミリ秒&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0.9.4.6&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;/images/v0946-ordinal.gif&quot; alt=&quot;Version0.9.4.6レベル普通&quot; title=&quot;Version0.9.4.6 ＡＩレベル（普通）&quot; /&gt; 経過時間：29258ミリ秒&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;/images/v0946-tyokoh.gif&quot; alt=&quot;Version0.9.4.6レベル長考&quot; title=&quot;Version0.9.4.6 ＡＩレベル（長考）&quot; /&gt; 経過時間：87109ミリ秒&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
 
 &lt;p&gt;駒の重み：&lt;/p&gt;
 
