@@ -5,10 +5,76 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2018-02-15T16:36:03+09:00</lastBuildDate>
-        <pubDate>2018-02-15T16:36:03+09:00</pubDate>
+        <lastBuildDate>2018-02-17T18:04:07+09:00</lastBuildDate>
+        <pubDate>2018-02-17T18:04:07+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>王手放置について</title>
+                <description>&lt;h3 id=&quot;王手放置が反則だとは知らなかった&quot;&gt;王手放置が反則だとは知らなかった&lt;/h3&gt;
+&lt;p&gt;　趣味で長年将棋を指してますが、&lt;a href=&quot;https://www.shogi.or.jp/knowledge/shogi/05.html&quot;&gt;将棋連盟のサイト&lt;/a&gt;で王手放置が反則と規定されているとは知りませんでした、というか深く考えたことがありませんでした。相手が王手を放置したら相手玉を取ればいいだけの話と思っていたし、確か将棋連盟が運営している「将棋倶楽部24」でも、王手放置した段階では反則負けとはならず、投了するか玉が取られたらゲーム終了となっていたと思います。ただ、市販の将棋ソフトやスマホアプリでは王手を放置しようとするとなんらかのメッセージを表示して王手放置をさせないようにしているものが多いと思います。&lt;a href=&quot;https://happyclam.github.io/software/2018-01-27/utifudume&quot;&gt;前回の記事&lt;/a&gt;でも少し触れましたが、将棋が「相手の玉を取ったら終了」ではなく「相手玉を詰ましたら終了」となっているため、王手放置をさせないようにする方がソフト開発時にも整合性を保ちやすいという事情があるようです。&lt;/p&gt;
+
+&lt;h3 id=&quot;規制はできるだけ無い方がいいけどいろいろ問題が&quot;&gt;規制はできるだけ無い方がいいけど、いろいろ問題が…&lt;/h3&gt;
+&lt;p&gt;　下のような局面で先手が「勝った」と思い２一歩成りと指して相手に玉を取られて負けてしまうなんてことが将棋覚えたての人にはよくあることだと思います（後手も自分が勝ったと気づかなかったり&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;）。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/hochi1.png&quot; alt=&quot;王手放置１&quot; title=&quot;王手放置１&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　自分の玉に王手がかかることに気づかずにうっかり自分の駒を動かして王手放置をしてしまうことは初心者によくあることだし、自分も将棋覚えた頃はそういうことを相手と一緒に楽しんでました。「王手に気づくなよ、気づくなよ」と念じながら空き王手したりして楽しんでいたものです。だからわざわざ王手放置を禁止する（指せないようにする）必要もないと思ってアプリを作っていたのですが、ルール上「王手放置は反則」というのであれば他のソフトに倣って対応した方がいいのかもと思えてきました。&lt;br /&gt;
+　また、王手放置には上記のような大駒の利きをうっかりする場合と、敵駒の利きにわざと玉を移動するようなあからさまな自爆行為もあります。ネット対戦とかで見かけますが、悔し紛れとか嫌がらせのつもりでそういう手を指す人もいるでしょう。でも故意に王手放置をした場合は反則でうっかりミスの場合は許されるなんていうルールはあり得ません。悪意があろうがなかろうが王手放置に違いはなく、特にソフト開発の視点からはどちらも同じ王手放置です。玉を動かして自爆した場合と大駒の利きに入った場合を区別することは出来ますが、玉をぶつけてきたとしても悪意があると断定出来るわけでもないので結局同じように扱うしかないでしょう。&lt;br /&gt;
+　もう一点、ソフト側で王手放置出来ないようにすると、本来なら王手放置で反則負けになるはずだったのにソフトに教えてもらって負けずに済んだ（放置せずに済んだ、助言を貰ったのと同じ）という弊害もあります。これは良くないと考えるなら、王手放置は出来るけど王手放置をした時点で反則負けと判定すればいいはずですが、なぜかそういう仕様のソフトは見たことがありません。ソフト相手にそんなに厳格なルールを適用する必要はないという考え方でしょうか？でも、人対人の将棋倶楽部24でも王手放置は出来るけど、その時点で反則負けになるわけではなかったと思います。&lt;br /&gt;
+　「余計な規制は必要ない」、「マナー違反出来ないようにして欲しい」、「ソフトが指し手に助言を与えるのはおかしい」、人それぞれの経験値や考え方が違うので、どういう仕様にするか迷いましたがとりあえずよくあるソフトの仕様に倣うことにしました（version0.9.4.0）。この辺りはまだ流動的で今後仕様変更するかもしれません。&lt;/p&gt;
+
+&lt;h3 id=&quot;どうなればゲーム終了かをソフトに教える必要がある&quot;&gt;どうなればゲーム終了かをソフトに教える必要がある&lt;/h3&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/hochi2.png&quot; alt=&quot;王手放置２&quot; title=&quot;王手放置２&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;span&gt;上の局面は３三将棋の初形から２二銀、２一玉（王手放置）と進んだ局面ですが、ここで先手が後手玉を取ればゲーム終了になりますが、取らずに１三歩と打っても下の図のように後手玉が詰み（王手は掛かっていませんが玉が自爆する手しかない状態、次に王手放置せざるを得ない）となります（version0.9.3.0以前）。&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/hochi3.png&quot; alt=&quot;王手放置３&quot; title=&quot;王手放置３&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;span&gt;次の例は先手が１三歩ではなく１二歩と打ったケースですが、この場合後手玉は１二に移動出来る余地があるので後手玉は詰みとならずにゲームが継続します（version0.9.3.0以前）。&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/hochi4.png&quot; alt=&quot;王手放置４&quot; title=&quot;王手放置４&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;span&gt;上の局面は先手の１二歩に対して後手が３二銀と打って先手玉を詰ました局面ですが、手番は先手ですので先手が後手玉を取ればゲーム終了になります（version0.9.3.0以前）。これでいい、玉を取るまで指させればいいじゃないか、と言う人もいると思いますが、某９マス将棋アプリのレビューを読んでいると、「将棋は玉を取るまで指させるもんじゃない」「詰み局面で終了すべき」と言う意見も多く、私も相手玉を取るまでゲームが終わらないことに違和感を感じた一人です。&lt;/span&gt;&lt;br /&gt;
+　
+ある時は詰み局面（王手は掛かってないけど、王手放置せざるを得ない局面含む）でゲームが終了して、ある時は玉を取るまで終わらないというのはおかしな仕様だと思ったので、とりあえず他の多くのソフトに倣って王手放置は出来ないように対応しました（version0.9.4.0）。&lt;br /&gt;
+　普通の将棋盤で遊ぶような感覚で自由に指せる仕様にしようと開発していたのですが、&lt;strong&gt;ソフト側で終了判定をしようとするなら、結局玉を取るまで終わらないようにするしかなさそうです。&lt;/strong&gt;でも、それでは長年将棋を指している人からすると、玉を取るまで終わらないのは将棋じゃないと感じる気持ちもわかります。また、詰み判定（終了判定）はソフトがするのに、打ち歩詰めと王手放置の時だけソフトが助言してくれるというのも一貫性がないような気がするので、いっそのこと二歩も合わせて打ち歩詰め、王手放置はその瞬間に反則負けとする仕様もありかなと思ったりもします。&lt;/p&gt;
+
+&lt;h3 id=&quot;ルールを厳格に適用すると&quot;&gt;ルールを厳格に適用すると…&lt;/h3&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/foulplay1.png&quot; alt=&quot;反則１&quot; title=&quot;反則１&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;span&gt;上の局面は後手が２一桂と王手を掛けたところです。先手がここで持ち駒の歩を３二に打った場合「二歩」であり「王手放置」であり「打ち歩詰め」でもあります。&lt;/span&gt;&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/foulplay2.png&quot; alt=&quot;反則２&quot; title=&quot;反則２&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;span&gt;上の局面は後手が２二角と王手を掛けたところです。先手がここで持ち駒の歩を３一に打った場合「二歩」であり「王手放置」であり「行き場の無い駒を打つ」という反則でもあります。&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;　おそらく反則の優先順位は聞いた事ないし規定されていないでしょう。反則手を指した段階で反則負けとする場合、ソフトのメッセージにはいったいどのように出力すればいいのでしょうか？それに行き場のない駒を打った時も反則になるわけですから、それを突き詰めていくと、持ち駒を選択した後に盤面の外をタップした時も反則になるのではないのか？という意見も出てくるかもしれません（さすがにそれはないか&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;）。&lt;br /&gt;
+　また、反則を厳格に適用すると勝負を続けたかったのにうっかりクリックミス（タップミス）しただけで中断されるのは嫌だという意見があるかもしれませんが、どうせマイナーなアプリだし、オリジナリティを出すためにもルールに厳格な「初心者に厳しい将棋アプリ」を目指すかもしれません。&lt;/p&gt;
+
+&lt;h3 id=&quot;開発者視点での王手放置&quot;&gt;開発者視点での王手放置&lt;/h3&gt;
+&lt;p&gt;　反則手のチェックをするのは一見業務システムの入力データのチェックをする場合と似ているように思えます。反則手は事前にチェックしてその手を指させないようにしようと考えがちですが、&lt;a href=&quot;https://happyclam.github.io/software/2018-01-27/utifudume&quot;&gt;前回の記事&lt;/a&gt;で書いたように、打ち歩詰めを事前にチェックしようとして苦労しました。でも、打ち歩詰めも王手放置も一旦指させてから反則の場合には元に戻すと言うやり方の方が、無駄なコードを書かなくていいことがわかってきました。&lt;br /&gt;
+　「一旦指させてから元に戻す」という作業は局面の先読みをする過程でやっていることで、局面の先読みの過程でも反則手を指させないようにチェックするのではなく、敢えて反則手を指させてその局面の評価を「負け」と評価する方がコードもすっきりして、局面の枝刈りが効率的になり実行速度も速くなるようなので、その辺りのことを書こうと思っていたのですが記事が長くなってきたので次回にまわすことにします。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+</description>
+                <link>http://happyclam.github.io/software/2018-02-17/nocareincheck</link>
+                <guid>http://happyclam.github.io/software/2018-02-17/nocareincheck</guid>
+                <pubDate>2018-02-17T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>打ち歩詰めについて</title>
