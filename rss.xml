@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2018-02-21T08:24:18+09:00</lastBuildDate>
-        <pubDate>2018-02-21T08:24:18+09:00</pubDate>
+        <lastBuildDate>2018-03-09T15:03:39+09:00</lastBuildDate>
+        <pubDate>2018-03-09T15:03:39+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -212,6 +212,9 @@
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;p&gt;長考モードにランダム選択を導入（Version0.9.7.0）：&lt;br /&gt;
+　長考モードは最初に４手読みをした結果から候補手を５手に絞っているので、その候補手を絞る段階で最善手が候補手から漏れてしまうこともあります。特に４手読みの結果上位５位、６位、７位の３手の評価値が全く同じであっても常に６位、７位の手は捨てられるのがもったいないので、評価値が同じだった場合はランダムに指し手を選ぶようにしました。あくまでも４手読み時の評価値が同じだった場合だけなので、指し手に大きな変化はありませんが長考モードに関しては常に同じ手を指すとは限らなくなりました。&lt;/p&gt;
 
 &lt;hr /&gt;
 
