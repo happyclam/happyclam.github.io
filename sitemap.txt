@@ -10,6 +10,7 @@ http://happyclam.github.io/search.json
 http://happyclam.github.io/sitemap.txt
 http://happyclam.github.io/tags
 
+http://happyclam.github.io/project/2018-03-11/55shogiapp
 http://happyclam.github.io/software/2018-02-17/nocareincheck
 http://happyclam.github.io/software/2018-01-27/utifudume
 http://happyclam.github.io/project/2018-01-01/33shogiapp
