@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2018-03-14T12:48:05+09:00</updated>
+ <updated>2018-03-14T12:55:52+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -33,7 +33,7 @@
 &lt;/div&gt;
 
 &lt;p&gt;打った桂馬が３二に跳ねた場合に、その時点で駒が成れないと次に駒の行き場がなくなってしまいます。通常の将棋で先手の歩が一段目に進んだ場合強制的に「と金」になりますが、それと同じで使用する駒に桂馬がある場合は二段目でも成れるようにする必要があります。そのため&lt;strong&gt;「初期配置に桂馬が含まれている場合は、桂馬だけでなくすべての駒が二段目（後手は四段目）で成れるルールにしています」。&lt;/strong&gt;&lt;br /&gt;
-　詳しくないですが、一段目で駒が成れるルールの&lt;a href=&quot;https://ja.wikipedia.org/wiki/5五将棋&quot;&gt;本来の５五将棋&lt;/a&gt;に桂馬が使われていない理由は、もしかしたらこのことが理由かもしれません。たしかに全部で五段しかないのに敵陣が２段を占めるというのもバランスが悪い気がしますので、５五将棋では桂馬は使うべきではないのかもしれません。でも７七将棋ならちょうど良いバランスになるような気がしているので、次は二段目（後手は四段目）で成れるルールで７七将棋を作ってみようかと思っています。&lt;/p&gt;
+　詳しくないですが、一段目で駒が成れるルールの&lt;a href=&quot;https://ja.wikipedia.org/wiki/5五将棋&quot;&gt;本来の５五将棋&lt;/a&gt;に桂馬が使われていない理由は、もしかしたらこのことが理由かもしれません。たしかに全部で五段しかないのに敵陣が２段を占めるというのもバランスが悪い気がしますので、５五将棋では桂馬は使うべきではないのかもしれません。でも７七将棋ならちょうど良いバランスになるような気がしているので、次は先手が二段目、後手は六段目で成れるルールで７七将棋を作ってみようかと思っています。&lt;/p&gt;
 
 &lt;h3 id=&quot;読みの深さ&quot;&gt;読みの深さ&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;の「普通」モードで５手読み&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;ですが、５五将棋アプリの「弱い」モードは３手読みです。「長考」モードでは３手読みで候補手を６手に絞った後、その候補手に対して４手読みをしています。候補手を絞っている割にはその後に一手しか読みが深くなっていないので長考してもあまり強くなっていません。３三将棋と５五将棋の局面数が飛躍的に変わるためにこうなってしまっています&lt;img class=&quot;emoji&quot; title=&quot;sweat&quot; alt=&quot;sweat&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;「長考」モードでは候補手を絞って他の手は捨てているのに対して、「弱い」モードではすべての手を読んでいるので、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;に関しては「弱い」モードの方がいい手を指す可能性が高いかもしれません。&lt;/p&gt;
