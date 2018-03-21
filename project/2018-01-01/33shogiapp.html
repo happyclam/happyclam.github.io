@@ -279,11 +279,19 @@ MathJax.Hub.Config({
       <td><img src="/images/v0946-ordinal.gif" alt="Version0.9.4.6レベル普通" title="Version0.9.4.6 ＡＩレベル（普通）" /> 経過時間：29258ミリ秒</td>
       <td><img src="/images/v0946-tyokoh.gif" alt="Version0.9.4.6レベル長考" title="Version0.9.4.6 ＡＩレベル（長考）" /> 経過時間：87109ミリ秒</td>
     </tr>
+    <tr>
+      <td>0.9.8.0</td>
+      <td><img src="/images/v0980-ordinal.gif" alt="Version0.9.8.0レベル普通" title="Version0.9.8.0 ＡＩレベル（普通）" /> 経過時間：25838ミリ秒</td>
+      <td><img src="/images/v0980-tyokoh.gif" alt="Version0.9.8.0レベル長考" title="Version0.9.8.0 ＡＩレベル（長考）" /> 経過時間：51774ミリ秒</td>
+    </tr>
   </tbody>
 </table>
 
-<p>長考モードにランダム選択を導入（Version0.9.7.0）：<br />
+<p>・長考モードにランダム選択を導入（Version0.9.7.0）:<br />
 　長考モードは最初に４手読みをした結果から候補手を５手に絞っているので、その候補手を絞る段階で最善手が候補手から漏れてしまうこともあります。特に４手読みの結果上位５位、６位、７位の３手の評価値が全く同じであっても常に６位、７位の手は捨てられるのがもったいないので、評価値が同じだった場合はランダムに指し手を選ぶようにしました。あくまでも４手読み時の評価値が同じだった場合だけなので、指し手に大きな変化はありませんが長考モードに関しては常に同じ手を指すとは限らなくなりました。</p>
+
+<p>・パフォーマンス大幅改善（Version0.9.8.0）:<br />
+　前回のチューニング（Version0.9.4.6）はプログラムコードを速度重視のものに置き換える方法、今回のチューニング（Version0.9.8.0）は局面の枝刈りの無駄を省くアルゴリズムの修正によるものです<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。近いうちに<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>にも適用する予定です。</p>
 
 <hr />
 
@@ -394,6 +402,13 @@ MathJax.Hub.Config({
 
 <hr />
 
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>具体的にはtoString()関数を徹底的に排除して数値のまま処理したことと、末端ノードに達する前に局面の静的評価をして先読み再帰関数の終了条件を増やしたことです。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
 
     </div>
 

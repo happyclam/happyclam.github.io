@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2018-03-14T12:55:52+09:00</updated>
+ <updated>2018-03-21T08:57:14+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -253,11 +253,19 @@
       &lt;td&gt;&lt;img src=&quot;/images/v0946-ordinal.gif&quot; alt=&quot;Version0.9.4.6レベル普通&quot; title=&quot;Version0.9.4.6 ＡＩレベル（普通）&quot; /&gt; 経過時間：29258ミリ秒&lt;/td&gt;
       &lt;td&gt;&lt;img src=&quot;/images/v0946-tyokoh.gif&quot; alt=&quot;Version0.9.4.6レベル長考&quot; title=&quot;Version0.9.4.6 ＡＩレベル（長考）&quot; /&gt; 経過時間：87109ミリ秒&lt;/td&gt;
     &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0.9.8.0&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;/images/v0980-ordinal.gif&quot; alt=&quot;Version0.9.8.0レベル普通&quot; title=&quot;Version0.9.8.0 ＡＩレベル（普通）&quot; /&gt; 経過時間：25838ミリ秒&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;/images/v0980-tyokoh.gif&quot; alt=&quot;Version0.9.8.0レベル長考&quot; title=&quot;Version0.9.8.0 ＡＩレベル（長考）&quot; /&gt; 経過時間：51774ミリ秒&lt;/td&gt;
+    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;長考モードにランダム選択を導入（Version0.9.7.0）：&lt;br /&gt;
+&lt;p&gt;・長考モードにランダム選択を導入（Version0.9.7.0）:&lt;br /&gt;
 　長考モードは最初に４手読みをした結果から候補手を５手に絞っているので、その候補手を絞る段階で最善手が候補手から漏れてしまうこともあります。特に４手読みの結果上位５位、６位、７位の３手の評価値が全く同じであっても常に６位、７位の手は捨てられるのがもったいないので、評価値が同じだった場合はランダムに指し手を選ぶようにしました。あくまでも４手読み時の評価値が同じだった場合だけなので、指し手に大きな変化はありませんが長考モードに関しては常に同じ手を指すとは限らなくなりました。&lt;/p&gt;
+
+&lt;p&gt;・パフォーマンス大幅改善（Version0.9.8.0）:&lt;br /&gt;
+　前回のチューニング（Version0.9.4.6）はプログラムコードを速度重視のものに置き換える方法、今回のチューニング（Version0.9.8.0）は局面の枝刈りの無駄を省くアルゴリズムの修正によるものです&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。近いうちに&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;にも適用する予定です。&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -368,6 +376,13 @@
 
 &lt;hr /&gt;
 
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;具体的にはtoString()関数を徹底的に排除して数値のまま処理したことと、末端ノードに達する前に局面の静的評価をして先読み再帰関数の終了条件を増やしたことです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
 </content>
  </entry>
  
