@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2018-03-21T08:57:14+09:00</updated>
+ <updated>2018-03-25T13:20:45+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -192,9 +192,9 @@
 &lt;ul&gt;
   &lt;li&gt;駒の動きは将棋と同じです。&lt;/li&gt;
   &lt;li&gt;打ち歩詰め、二歩は禁止です。&lt;/li&gt;
+  &lt;li&gt;先手は一段目、後手は三段目に駒を移動すると成ることができます。&lt;/li&gt;
   &lt;li&gt;同一局面が４回現れると千日手でゲーム終了としています。&lt;/li&gt;
   &lt;li&gt;行き場の無い駒は打てません（桂馬を二段目に打ったり、先手が歩を一段目に打ったり）&lt;/li&gt;
-  &lt;li&gt;先手は一段目、後手は三段目に駒を移動すると成ることが出来ます。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;対局画面&quot;&gt;対局画面&lt;/h3&gt;
@@ -209,14 +209,16 @@
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/images/33shogi_view.png&quot; alt=&quot;閲覧画面&quot; title=&quot;閲覧画面&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;span&gt;対局が終了するか、対局を中断すると閲覧画面に切り替わって、初手からの手順を確認することが出来ます。&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span&gt;対局が終了するか、対局を中断すると閲覧画面に切り替わって、初手からの手順を確認することが出来ます。&lt;/span&gt;
+&lt;span&gt;Version0.9.9.0から中断後レベルや先後を変更して再開することが出来ます&lt;/span&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;メニュー&quot;&gt;メニュー&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;先手・後手&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;span&gt;ＡＩ同士の対戦時はどちらかが勝ちを読みきった時点で対局が終了します。なぜ対局が終了したか疑問に感じた場合は、同じ手順でＡＩと対戦してみてください、対人戦の時は詰みまで指すようにしていますので疑問が解消すると思います。&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span&gt;ＡＩ同士の対戦時はどちらかが勝ちを読みきった時点で対局が終了します。なぜ対局が終了したか疑問に感じた場合は、&lt;del&gt;同じ手順でＡＩと対戦してみてください、対人戦の時は詰みまで指すようにしていますので疑問が解消すると思います。&lt;/del&gt;&lt;/span&gt;
+&lt;span&gt;Version0.9.9.0から、中断後にゲームを再開する機能をつけましたので、メニューから対局者を変更して負けた方の手番を持ってＡＩと対戦再開してみてください、どうやっても勝てないことを確認出来ると思います。&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/images/33shogi_player.png&quot; alt=&quot;Menu - 先手・後手&quot; title=&quot;Menu - 先手・後手&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -266,6 +268,9 @@
 
 &lt;p&gt;・パフォーマンス大幅改善（Version0.9.8.0）:&lt;br /&gt;
 　前回のチューニング（Version0.9.4.6）はプログラムコードを速度重視のものに置き換える方法、今回のチューニング（Version0.9.8.0）は局面の枝刈りの無駄を省くアルゴリズムの修正によるものです&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。近いうちに&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;にも適用する予定です。&lt;/p&gt;
+
+&lt;p&gt;瞑想モード:&lt;br /&gt;
+　Version0.9.9.0から瞑想モード追加しました。長考モードより一手深く読みます。&lt;/p&gt;
 
 &lt;hr /&gt;
 
