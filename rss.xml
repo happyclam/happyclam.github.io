@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2018-03-25T13:20:45+09:00</lastBuildDate>
-        <pubDate>2018-03-25T13:20:45+09:00</pubDate>
+        <lastBuildDate>2018-03-25T13:32:08+09:00</lastBuildDate>
+        <pubDate>2018-03-25T13:32:08+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -205,7 +205,7 @@
   &lt;p&gt;&lt;img src=&quot;/images/33shogi_view.png&quot; alt=&quot;閲覧画面&quot; title=&quot;閲覧画面&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;span&gt;対局が終了するか、対局を中断すると閲覧画面に切り替わって、初手からの手順を確認することが出来ます。&lt;/span&gt;
-&lt;span&gt;Version0.9.9.0から中断後レベルや先後を変更して再開することが出来ます&lt;/span&gt;&lt;/p&gt;
+&lt;span&gt;Version0.9.9.0から中断後レベルや対局者を変更して再開することが出来ます&lt;/span&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;メニュー&quot;&gt;メニュー&lt;/h3&gt;
 &lt;ul&gt;
