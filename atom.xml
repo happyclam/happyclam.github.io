@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2018-03-25T13:32:08+09:00</updated>
+ <updated>2018-03-26T21:12:36+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -20,7 +20,7 @@
    <content type="html">&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;５五将棋&quot; title=&quot;５五将棋&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;５五将棋アプリについて&quot;&gt;「５五将棋」アプリについて&lt;/h3&gt;
-&lt;p&gt;　現在リリースしている&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;とUI部分以外はほとんど同じソースを使って作った５五将棋アプリです。将棋初心者やいろんな初期配置を試してみたい方にはお勧めしますが、ＡＩは重いし弱いのでＡＩ対戦に期待している方には作った本人もお勧めしません&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;。アプリの仕様は３三将棋アプリとほとんど同じなので&lt;a href=&quot;/project/2018-01-01/33shogiapp&quot;&gt;３三将棋アプリの記事&lt;/a&gt;を見ていただくとして、ここでは３三将棋アプリと違う点について書いておこうと思います。
+&lt;p&gt;　現在リリースしている&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;とUI部分以外はほとんど同じソースを使って作った５五将棋アプリです。幾つかの５五将棋アプリと対戦させてみたところ、結構勝ったり負けたりのいい勝負なので機種によっては動作が重いとはいえ、そこそこ楽しめるかもしれません。アプリの仕様は３三将棋アプリとほとんど同じなので&lt;a href=&quot;/project/2018-01-01/33shogiapp&quot;&gt;３三将棋アプリの記事&lt;/a&gt;を見ていただくとして、ここでは３三将棋アプリと違う点について書いておこうと思います。
 　&lt;/p&gt;
 &lt;h3 id=&quot;５五将棋ならではの仕様桂馬の扱い&quot;&gt;５五将棋ならではの仕様（桂馬の扱い）&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;https://ja.wikipedia.org/wiki/5五将棋&quot;&gt;本来の５五将棋？&lt;/a&gt;では敵陣一段目（後手は５段目）に駒が進むと駒が成れますが、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;では初期配置によって駒が成れる段が変わる仕様にしています。使用する駒に桂馬が含まれている場合に一段目（後手は五段目）でしか駒を成れないとすると不都合が生じるからです。&lt;br /&gt;
@@ -36,7 +36,10 @@
 　詳しくないですが、一段目で駒が成れるルールの&lt;a href=&quot;https://ja.wikipedia.org/wiki/5五将棋&quot;&gt;本来の５五将棋&lt;/a&gt;に桂馬が使われていない理由は、もしかしたらこのことが理由かもしれません。たしかに全部で五段しかないのに敵陣が２段を占めるというのもバランスが悪い気がしますので、５五将棋では桂馬は使うべきではないのかもしれません。でも７七将棋ならちょうど良いバランスになるような気がしているので、次は先手が二段目、後手は六段目で成れるルールで７七将棋を作ってみようかと思っています。&lt;/p&gt;
 
 &lt;h3 id=&quot;読みの深さ&quot;&gt;読みの深さ&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;の「普通」モードで５手読み&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;ですが、５五将棋アプリの「弱い」モードは３手読みです。「長考」モードでは３手読みで候補手を６手に絞った後、その候補手に対して４手読みをしています。候補手を絞っている割にはその後に一手しか読みが深くなっていないので長考してもあまり強くなっていません。３三将棋と５五将棋の局面数が飛躍的に変わるためにこうなってしまっています&lt;img class=&quot;emoji&quot; title=&quot;sweat&quot; alt=&quot;sweat&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;「長考」モードでは候補手を絞って他の手は捨てているのに対して、「弱い」モードではすべての手を読んでいるので、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;に関しては「弱い」モードの方がいい手を指す可能性が高いかもしれません。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;の「普通」モードで５手読み&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;ですが、５五将棋アプリの「弱い」モードは３手読みです。「長考」モードでは３手読みで候補手を６手に絞った後、その候補手に対して&lt;del&gt;４手読みをしています&lt;/del&gt;Version0.9.8.0以降は５手読みをしています。候補手を絞っている割にはその後に一手しか読みが深くなっていないので長考してもあまり強くなっていません。３三将棋と５五将棋の局面数が飛躍的に変わるためにこうなってしまっています&lt;img class=&quot;emoji&quot; title=&quot;sweat&quot; alt=&quot;sweat&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;「長考」モードでは候補手を絞って他の手は捨てているのに対して、「弱い」モードではすべての手を読んでいるので、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;に関しては「弱い」モードの方がいい手を指す可能性が高いかもしれません。&lt;/p&gt;
+
+&lt;h3 id=&quot;千日手回避&quot;&gt;千日手回避&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;では千日手回避のために特別な処理はしていません。あくまでも私の主観ですが、千日手になるのが当然の成り行きと思えるケースが多いためです&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。しかし&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;の場合は駒の損得が発生しない序盤の段階で千日手になってしまうケースがあまりにも多いので千日手回避のロジックを組み込んでいます。同じ局面が３回発生した場合にはＡＩの手を次善手（あくまでもアプリのＡＩが次善手と判断しているだけです）を指すようにして、なるべく千日手を回避するようにしています。但し次善手を指していても千日手になることもあるので、絶対千日手を避けるというわけではありません。&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -44,6 +47,9 @@
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
       &lt;p&gt;５手先を読んでいるから５手詰めの詰将棋が解けるかというと、そうではなく３手詰めしか解けません。詰み局面までの手数ではなく、相手の玉を取るところまでの手数を読まないといけないためです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;千日手になって当然に見えると言ってもその局面を迎える前にもっといい手（最善手）を逃していると思われるケースが多いのですが、同一局面の繰り返しが始まってからでは時すでに遅しとなっていて千日手を避けられなくなっているという意味です。この辺りの事情はＡＩの出来の悪さなので仕方がありません。３三将棋の場合は無理に千日手を避けると致命的な悪手になるので敢えてそのままにしています。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
