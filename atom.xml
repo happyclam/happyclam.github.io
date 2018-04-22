@@ -4,13 +4,80 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2018-03-26T21:12:36+09:00</updated>
+ <updated>2018-04-22T15:14:08+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>「９マス将棋の本」買ってみました</title>
+   <link href="http://happyclam.github.io/project/2018-04-22/9masushogi"/>
+   <updated>2018-04-22T00:00:00+09:00</updated>
+   <id>http://happyclam.github.io/project/2018-04-22/9masushogi</id>
+   <content type="html">&lt;h3 id=&quot;３三将棋アプリで入門書の誤りを見つけた&quot;&gt;「３三将棋」アプリで入門書の誤りを見つけた&lt;/h3&gt;
+&lt;p&gt;　自作の&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;の開発も落ち着いてきたので放置していたのですが、小さなバグを見つけたのでどうせ新しいバージョンをリリースするなら、初期配置パターンを何種類か追加しようと思い、参考にするため&lt;a href=&quot;https://www.amazon.co.jp/９マス将棋の本-幻冬舎単行本-青野照市-ebook/dp/B072XCDPGZ/ref=tmm_kin_swatch_0?_encoding=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-1&quot;&gt;「９マス将棋の本 (幻冬舎単行本) Kindle版」&lt;/a&gt;を買いました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;a href=&quot;https://www.amazon.co.jp/9マス将棋-バラエティ-青野照市/dp/4344978757/ref=sr_1_2?s=books&amp;amp;ie=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-2&amp;amp;keywords=９マス将棋&quot;&gt;「９マス将棋」のゲーム本体&lt;/a&gt;は既に持っていて、そこで紹介されている初期配置パターンは開発時のテストにも使用していました。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;に用意している初期配置パターンはこの本に載っているものやTwitterで見かけたもの、自分で考えたものなどいろいろです&lt;sup id=&quot;fnref:1:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。今回も面白い配置パターンを探すために購入したのですが、読み進めていくと思わぬ発見がありました&lt;img class=&quot;emoji&quot; title=&quot;smile&quot; alt=&quot;smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;先手が勝てないことはない&quot;&gt;「先手が勝てない」ことはない&lt;/h3&gt;
+&lt;p&gt;　下の初期配置は&lt;a href=&quot;https://www.amazon.co.jp/９マス将棋の本-幻冬舎単行本-青野照市-ebook/dp/B072XCDPGZ/ref=tmm_kin_swatch_0?_encoding=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-1&quot;&gt;「９マス将棋の本 (幻冬舎単行本) Kindle版」&lt;/a&gt;の最初の方に、飛車と角を左右対称に置き換えた形で紹介されている配置です。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/9masu_case1.png&quot;&gt;&lt;img src=&quot;/images/9masu_case1.png&quot; alt=&quot;Arrange02&quot; title=&quot;Arrange02&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　本の説明を読んでいるといろんな変化を紹介した後に、この配置は&lt;strong&gt;「結論として、第３図の配置では先手が勝てないということになります。」&lt;/strong&gt;なんて断言されています。本を読んでいるときはふむふむと読んでいたのですが、この配置は既にアプリに用意していたんじゃないか？と思って、アプリを確認してみるとArrange02として左右対称の形で用意していました。ソフトを作り始めた極初期の段階で適当に配置したものだと思います。で、早速AI同士で対戦させてみました。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/9masu_case2.png&quot;&gt;&lt;img src=&quot;/images/9masu_case2.png&quot; alt=&quot;AIレベル＝弱い・普通&quot; title=&quot;AIレベル＝弱い・普通&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　AIレベルを「弱い」か「普通」にセットすると、初形から３二飛、２二歩、３三玉、１二玉、３一飛成、２三歩成で、本の解説通りに後手が勝ちます（上の画像）。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/9masu_case3.png&quot;&gt;&lt;img src=&quot;/images/9masu_case3.png&quot; alt=&quot;AIレベル＝長考・瞑想&quot; title=&quot;AIレベル＝長考・瞑想&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　でもAIレベルを「長考」か「瞑想」モードにすると、初形から３二飛、２二歩、３三玉、１二玉、２三歩、１三玉、２二歩、２二角、２二飛で、先手勝ちになります（上の画像）。&lt;br /&gt;
+　本の解説の「先手が勝てない」という結論のどこに問題があるかというと、３二飛、２二歩、３三玉、１二玉と進んだ下の画像の局面で２三に歩を合わせる手が抜けていることです。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/9masu_case4.png&quot;&gt;&lt;img src=&quot;/images/9masu_case4.png&quot; alt=&quot;AIレベル＝長考・瞑想、途中図&quot; title=&quot;AIレベル＝長考・瞑想、途中図&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　上の図のように先手が飛車を成らずに２三に歩を合わせると後手としては２三歩成としたくても飛車の利きがあるので歩を成れません。歩を成った瞬間に玉を素抜かれてしまいます。仕方なく後手は飛車の筋を逃れるために１三玉とかわしますが２二の歩をただで取られて後はどう変化しても先手勝ちです。是非&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;をダウンロードして試してみてください&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
+　殊更に本の間違いを責める気はありませんが、自作のAIはやはり良く出来ているなぁと嬉しくなりました&lt;img class=&quot;emoji&quot; title=&quot;smile&quot; alt=&quot;smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;。&lt;a href=&quot;https://www.amazon.co.jp/９マス将棋の本-幻冬舎単行本-青野照市-ebook/dp/B072XCDPGZ/ref=tmm_kin_swatch_0?_encoding=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-1&quot;&gt;「９マス将棋の本 (幻冬舎単行本) Kindle版」&lt;/a&gt;の内容は次の版で改訂されるのでしょうか&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;とりあえずブログネタを提供してくれた将棋連盟に感謝します&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;アプリの今後&quot;&gt;アプリの今後&lt;/h3&gt;
+&lt;p&gt;　今回のケースはソフトの方がはっきり正しいと言えると思いますが、他にも本の解説が正しいけど、間違いとも言えない遠回りするけど本と同じ結果になる変わった手をAIが指すケースとかがあって、いろんな変化を確認する意味で本に紹介されている局面をソフトで試すのも面白いものです。自分は知らなかったのですが、&lt;a href=&quot;https://www.amazon.co.jp/9マス将棋カード-バラエティ-青野照市/dp/4344978943/ref=sr_1_3?s=books&amp;amp;ie=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-3&amp;amp;keywords=９マス将棋&quot;&gt;9マス将棋カード&lt;/a&gt;という９マス将棋用の初期配置だけを紹介した商品もあるようです。解説の内容は知りませんが、ソフトに指させてみるとどうなるか興味がある人もいるんじゃないでしょうか？本に紹介されている初期配置をそのままアプリに組み込むのも問題ありそうだし&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;、こういう商品が出るのであれば、開発当初予定していたように初期配置を自由に編集出来るような機能もあった方がいいよなぁとは思っています。ユーザーが自由に初期配置を設定出来るのなら何の問題もありません。でもいざ作るとなると自分で定義した初期配置を保存する機能も必要だと思うし、結構面倒なんですよねぇ。自分でソースコードを弄って好きな局面を用意してテストするのは簡単なのですが、ユーザーが簡単に出来るようにするのは大変です。業務ソフトでもゲームソフトでもUI（ユーザーインターフェース）が一番面倒臭いと思っている開発者は多いでしょう。&lt;br /&gt;
+　で、結局どうするか、ソースはいずれ公開するつもりですが、ソース公開して欲しい人がいるのかどうかもよくわかりませんし、もうちょっと様子見します&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;自分で考えた配置では、アプリの読みの深さによって結論が変わるものを一つの基準として採用してます。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt; &lt;a href=&quot;#fnref:1:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;著作権というのは偽物を排除して本当の作者を保護するためのものなので、本の内容を引用する分には問題ないと思ってますが、いろいろ言ってくる人が出てくる可能性はあると思います。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;最初にリリースしたバージョンはソース丸見えの状態だったので、古いバージョンでいいのならネット上から入手可能だとは思います。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>「５五将棋」アプリリリースしました</title>
