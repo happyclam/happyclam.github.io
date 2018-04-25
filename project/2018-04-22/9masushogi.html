@@ -37,7 +37,7 @@
   <meta name="twitter:url" content="http://happyclam.github.io/project/2018-04-22/9masushogi">
   
   
-  <meta name="twitter:description" content="やはり人間は見落とすということがよくがわかりました…。AIなら一体どんな手を指してくるのか、確認する作業もなかなか楽しいものです。">
+  <meta name="twitter:description" content="やはり人間は見落とすということがよくわかりました…。AIなら一体どんな手を指してくるのか、確認する作業もなかなか楽しいものです。">
   
   
   <meta name="twitter:image:src" content="http://happyclam.github.io/images/33shogi_logo.png">
@@ -249,9 +249,38 @@ MathJax.Hub.Config({
 <p>　上の図のように先手が飛車を成らずに２三に歩を合わせると後手としては２三歩成としたくても飛車の利きがあるので歩を成れません。歩を成った瞬間に玉を素抜かれてしまいます。仕方なく後手は飛車の筋を逃れるために１三玉とかわしますが２二の歩をただで取られて後はどう変化しても先手勝ちです。是非<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">「３三将棋」アプリ</a>をダウンロードして試してみてください<img class="emoji" title="sweat_smile" alt="sweat_smile" src="https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png" height="20" width="20" align="absmiddle" /><br />
 　殊更に本の間違いを責める気はありませんが、自作のAIはやはり良く出来ているなぁと嬉しくなりました<img class="emoji" title="smile" alt="smile" src="https://github.global.ssl.fastly.net/images/icons/emoji/smile.png" height="20" width="20" align="absmiddle" />。<a href="https://www.amazon.co.jp/９マス将棋の本-幻冬舎単行本-青野照市-ebook/dp/B072XCDPGZ/ref=tmm_kin_swatch_0?_encoding=UTF8&amp;qid=1524311385&amp;sr=1-1">「９マス将棋の本 (幻冬舎単行本) Kindle版」</a>の内容は次の版で改訂されるのでしょうか<img class="emoji" title="sweat_smile" alt="sweat_smile" src="https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png" height="20" width="20" align="absmiddle" />とりあえずブログネタを提供してくれた将棋連盟に感謝します<img class="emoji" title="sweat_smile" alt="sweat_smile" src="https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png" height="20" width="20" align="absmiddle" /></p>
 
+<h3 id="アタック９マス将棋">アタック！９マス将棋</h3>
+<p>　上記の例以外にも本の解説が本当かどうか納得出来ないケースがあるのですが、説明するのが大変なのでとりあえず触れずにおきます。それより<a href="https://www.amazon.co.jp/９マス将棋の本-幻冬舎単行本-青野照市-ebook/dp/B072XCDPGZ/ref=tmm_kin_swatch_0?_encoding=UTF8&amp;qid=1524311385&amp;sr=1-1">「９マス将棋の本 (幻冬舎単行本) Kindle版」</a>の最後の方に、解説文はないのですがオリジナルの上級編の問題（「アタック！９マス将棋」）として下記の初期配置が紹介されていたので<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">「３三将棋」アプリ</a>に解かせてみました。</p>
+
+<div style="width:480px; margin: 0 auto;">
+
+  <p><a href="/images/9masu_case5.png"><img src="/images/9masu_case5.png" alt="上級編の問題の初期配置" title="上級編の問題の初期配置" /></a></p>
+
+</div>
+
+<p>　問題の趣旨としては先手が勝つ順を見つけてくださいということだと思います。</p>
+
+<div style="width:480px; margin: 0 auto;">
+
+  <p><a href="/images/meisou_depth7.gif"><img src="/images/meisou_depth7.gif" alt="AIレベル＝瞑想９手読み" title="AIレベル＝瞑想９手読み" /></a></p>
+
+</div>
+
+<p>　上のgifファイルの手順（１三角、同歩成、２二角、１二玉、１三角、同玉、３一歩成、１二角、３二玉、２三角成、２一玉、２二馬までで後手勝ち）のように標準のアプリの設定では「瞑想」モードにしていても読みが足りないようで、正解に辿り着けない（＝先手が勝てない）ようです。<br />
+　そこで、アプリの設定を弄くって特別に深く読むように修正したバージョンで解かせてみたのが以下の手順です。</p>
+
+<div style="width:480px; margin: 0 auto;">
+
+  <p><a href="/images/meisou_depth9.gif"><img src="/images/meisou_depth9.gif" alt="AIレベル＝瞑想１１手読み" title="瞑想１１手読み" /></a></p>
+
+</div>
+
+<p>　gitファイルの手順は２三玉、２一玉、１三角、同歩成、同玉、３三角、２三歩、３二玉、２二角、同角、同歩、３一玉、２三玉、１二歩、１一角、１三歩成、同玉、３二玉、３三歩、同玉、２一歩成、３二玉、２二角成まで２３手で先手勝ちとなります。問題文のヒントに「決着は２０数手後になります。」と書かれていることと合致しますので、おそらくこの手順が正解で間違いないでしょう。<br />
+　読みを深くすれば正解に辿り着くというのは先読みルーチンにバグがないということでもあるのでとりあえず安心しました。３三将棋（９マス将棋）の場合、盤面が狭いので本将棋のように玉の囲いの固さとか駒の働きとかの局面の静的評価関数の出来はあまり関係なく、いかに深く読むかが大事です。その点詰将棋に似ていますが、必ず王手を続けなければいけないわけでもないので、気づきにくい手を含めて有り得る全ての手を読む力を鍛えるという点では非常にいい教材になると思います。</p>
+
 <h3 id="アプリの今後">アプリの今後</h3>
-<p>　今回のケースはソフトの方がはっきり正しいと言えると思いますが、他にも本の解説が正しいけど、間違いとも言えない遠回りするけど本と同じ結果になる変わった手をAIが指すケースとかがあって、いろんな変化を確認する意味で本に紹介されている局面をソフトで試すのも面白いものです。自分は知らなかったのですが、<a href="https://www.amazon.co.jp/9マス将棋カード-バラエティ-青野照市/dp/4344978943/ref=sr_1_3?s=books&amp;ie=UTF8&amp;qid=1524311385&amp;sr=1-3&amp;keywords=９マス将棋">9マス将棋カード</a>という９マス将棋用の初期配置だけを紹介した商品もあるようです。解説の内容は知りませんが、ソフトに指させてみるとどうなるか興味がある人もいるんじゃないでしょうか？本に紹介されている初期配置をそのままアプリに組み込むのも問題ありそうだし<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>、こういう商品が出るのであれば、開発当初予定していたように初期配置を自由に編集出来るような機能もあった方がいいよなぁとは思っています。ユーザーが自由に初期配置を設定出来るのなら何の問題もありません。でもいざ作るとなると自分で定義した初期配置を保存する機能も必要だと思うし、結構面倒なんですよねぇ。自分でソースコードを弄って好きな局面を用意してテストするのは簡単なのですが、ユーザーが簡単に出来るようにするのは大変です。業務ソフトでもゲームソフトでもUI（ユーザーインターフェース）が一番面倒臭いと思っている開発者は多いでしょう。<br />
-　で、結局どうするか、ソースはいずれ公開するつもりですが、ソース公開して欲しい人がいるのかどうかもよくわかりませんし、もうちょっと様子見します<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>。</p>
+<p>　他にも本の解説が正しいとして、解説通りではないけど遠回りしながら本と同じ結果になる変わった手をAIが指すケースとかがあって、いろんな変化を確認する意味で本に紹介されている局面をソフトで試すのも面白いものです。自分は知らなかったのですが、<a href="https://www.amazon.co.jp/9マス将棋カード-バラエティ-青野照市/dp/4344978943/ref=sr_1_3?s=books&amp;ie=UTF8&amp;qid=1524311385&amp;sr=1-3&amp;keywords=９マス将棋">9マス将棋カード</a>という９マス将棋用の初期配置だけを紹介した商品もあるようです。解説の内容は知りませんが、ソフトに指させてみるとどうなるか興味がある人もいるんじゃないでしょうか？本に紹介されている初期配置をそのままアプリに組み込むのも問題ありそうだし<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>、<a href="https://www.amazon.co.jp/9マス将棋カード-バラエティ-青野照市/dp/4344978943/ref=sr_1_3?s=books&amp;ie=UTF8&amp;qid=1524311385&amp;sr=1-3&amp;keywords=９マス将棋">こういう商品</a>が出るのであれば、開発当初予定していたように初期配置を自由に編集出来るような機能もあった方がいいよなぁとは思っています。ユーザーが自由に初期配置を設定出来るのなら何の問題もありません。<br />
+　で、結局どうするか、ソースはいずれ公開するつもりですが、ソース公開して欲しい人がいるのかどうかもよくわかりませんし、編集機能を追加してからにするか、もうちょっと様子見します<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>。</p>
 
 <hr />
 

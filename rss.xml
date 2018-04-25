@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2018-04-22T15:14:08+09:00</lastBuildDate>
-        <pubDate>2018-04-22T15:14:08+09:00</pubDate>
+        <lastBuildDate>2018-04-25T14:08:08+09:00</lastBuildDate>
+        <pubDate>2018-04-25T14:08:08+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -52,9 +52,38 @@
 &lt;p&gt;　上の図のように先手が飛車を成らずに２三に歩を合わせると後手としては２三歩成としたくても飛車の利きがあるので歩を成れません。歩を成った瞬間に玉を素抜かれてしまいます。仕方なく後手は飛車の筋を逃れるために１三玉とかわしますが２二の歩をただで取られて後はどう変化しても先手勝ちです。是非&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;をダウンロードして試してみてください&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
 　殊更に本の間違いを責める気はありませんが、自作のAIはやはり良く出来ているなぁと嬉しくなりました&lt;img class=&quot;emoji&quot; title=&quot;smile&quot; alt=&quot;smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;。&lt;a href=&quot;https://www.amazon.co.jp/９マス将棋の本-幻冬舎単行本-青野照市-ebook/dp/B072XCDPGZ/ref=tmm_kin_swatch_0?_encoding=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-1&quot;&gt;「９マス将棋の本 (幻冬舎単行本) Kindle版」&lt;/a&gt;の内容は次の版で改訂されるのでしょうか&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;とりあえずブログネタを提供してくれた将棋連盟に感謝します&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
 
+&lt;h3 id=&quot;アタック９マス将棋&quot;&gt;アタック！９マス将棋&lt;/h3&gt;
+&lt;p&gt;　上記の例以外にも本の解説が本当かどうか納得出来ないケースがあるのですが、説明するのが大変なのでとりあえず触れずにおきます。それより&lt;a href=&quot;https://www.amazon.co.jp/９マス将棋の本-幻冬舎単行本-青野照市-ebook/dp/B072XCDPGZ/ref=tmm_kin_swatch_0?_encoding=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-1&quot;&gt;「９マス将棋の本 (幻冬舎単行本) Kindle版」&lt;/a&gt;の最後の方に、解説文はないのですがオリジナルの上級編の問題（「アタック！９マス将棋」）として下記の初期配置が紹介されていたので&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;に解かせてみました。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/9masu_case5.png&quot;&gt;&lt;img src=&quot;/images/9masu_case5.png&quot; alt=&quot;上級編の問題の初期配置&quot; title=&quot;上級編の問題の初期配置&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　問題の趣旨としては先手が勝つ順を見つけてくださいということだと思います。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/meisou_depth7.gif&quot;&gt;&lt;img src=&quot;/images/meisou_depth7.gif&quot; alt=&quot;AIレベル＝瞑想９手読み&quot; title=&quot;AIレベル＝瞑想９手読み&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　上のgifファイルの手順（１三角、同歩成、２二角、１二玉、１三角、同玉、３一歩成、１二角、３二玉、２三角成、２一玉、２二馬までで後手勝ち）のように標準のアプリの設定では「瞑想」モードにしていても読みが足りないようで、正解に辿り着けない（＝先手が勝てない）ようです。&lt;br /&gt;
+　そこで、アプリの設定を弄くって特別に深く読むように修正したバージョンで解かせてみたのが以下の手順です。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/meisou_depth9.gif&quot;&gt;&lt;img src=&quot;/images/meisou_depth9.gif&quot; alt=&quot;AIレベル＝瞑想１１手読み&quot; title=&quot;瞑想１１手読み&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　gitファイルの手順は２三玉、２一玉、１三角、同歩成、同玉、３三角、２三歩、３二玉、２二角、同角、同歩、３一玉、２三玉、１二歩、１一角、１三歩成、同玉、３二玉、３三歩、同玉、２一歩成、３二玉、２二角成まで２３手で先手勝ちとなります。問題文のヒントに「決着は２０数手後になります。」と書かれていることと合致しますので、おそらくこの手順が正解で間違いないでしょう。&lt;br /&gt;
+　読みを深くすれば正解に辿り着くというのは先読みルーチンにバグがないということでもあるのでとりあえず安心しました。３三将棋（９マス将棋）の場合、盤面が狭いので本将棋のように玉の囲いの固さとか駒の働きとかの局面の静的評価関数の出来はあまり関係なく、いかに深く読むかが大事です。その点詰将棋に似ていますが、必ず王手を続けなければいけないわけでもないので、気づきにくい手を含めて有り得る全ての手を読む力を鍛えるという点では非常にいい教材になると思います。&lt;/p&gt;
+
 &lt;h3 id=&quot;アプリの今後&quot;&gt;アプリの今後&lt;/h3&gt;
-&lt;p&gt;　今回のケースはソフトの方がはっきり正しいと言えると思いますが、他にも本の解説が正しいけど、間違いとも言えない遠回りするけど本と同じ結果になる変わった手をAIが指すケースとかがあって、いろんな変化を確認する意味で本に紹介されている局面をソフトで試すのも面白いものです。自分は知らなかったのですが、&lt;a href=&quot;https://www.amazon.co.jp/9マス将棋カード-バラエティ-青野照市/dp/4344978943/ref=sr_1_3?s=books&amp;amp;ie=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-3&amp;amp;keywords=９マス将棋&quot;&gt;9マス将棋カード&lt;/a&gt;という９マス将棋用の初期配置だけを紹介した商品もあるようです。解説の内容は知りませんが、ソフトに指させてみるとどうなるか興味がある人もいるんじゃないでしょうか？本に紹介されている初期配置をそのままアプリに組み込むのも問題ありそうだし&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;、こういう商品が出るのであれば、開発当初予定していたように初期配置を自由に編集出来るような機能もあった方がいいよなぁとは思っています。ユーザーが自由に初期配置を設定出来るのなら何の問題もありません。でもいざ作るとなると自分で定義した初期配置を保存する機能も必要だと思うし、結構面倒なんですよねぇ。自分でソースコードを弄って好きな局面を用意してテストするのは簡単なのですが、ユーザーが簡単に出来るようにするのは大変です。業務ソフトでもゲームソフトでもUI（ユーザーインターフェース）が一番面倒臭いと思っている開発者は多いでしょう。&lt;br /&gt;
-　で、結局どうするか、ソースはいずれ公開するつもりですが、ソース公開して欲しい人がいるのかどうかもよくわかりませんし、もうちょっと様子見します&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;p&gt;　他にも本の解説が正しいとして、解説通りではないけど遠回りしながら本と同じ結果になる変わった手をAIが指すケースとかがあって、いろんな変化を確認する意味で本に紹介されている局面をソフトで試すのも面白いものです。自分は知らなかったのですが、&lt;a href=&quot;https://www.amazon.co.jp/9マス将棋カード-バラエティ-青野照市/dp/4344978943/ref=sr_1_3?s=books&amp;amp;ie=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-3&amp;amp;keywords=９マス将棋&quot;&gt;9マス将棋カード&lt;/a&gt;という９マス将棋用の初期配置だけを紹介した商品もあるようです。解説の内容は知りませんが、ソフトに指させてみるとどうなるか興味がある人もいるんじゃないでしょうか？本に紹介されている初期配置をそのままアプリに組み込むのも問題ありそうだし&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;、&lt;a href=&quot;https://www.amazon.co.jp/9マス将棋カード-バラエティ-青野照市/dp/4344978943/ref=sr_1_3?s=books&amp;amp;ie=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-3&amp;amp;keywords=９マス将棋&quot;&gt;こういう商品&lt;/a&gt;が出るのであれば、開発当初予定していたように初期配置を自由に編集出来るような機能もあった方がいいよなぁとは思っています。ユーザーが自由に初期配置を設定出来るのなら何の問題もありません。&lt;br /&gt;
+　で、結局どうするか、ソースはいずれ公開するつもりですが、ソース公開して欲しい人がいるのかどうかもよくわかりませんし、編集機能を追加してからにするか、もうちょっと様子見します&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 
 &lt;hr /&gt;
 
