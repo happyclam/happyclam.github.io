@@ -8,4 +8,6 @@ gem 'mercenary'
 gem 'emoji_for_jekyll'
 gem 'jekyll-gist'
 gem 'pygments.rb'
+gem 'jekyll-extlinks'
+gem 'nokogiri'
 
