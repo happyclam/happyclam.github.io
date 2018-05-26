@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2018-05-24T19:00:24+09:00</updated>
+ <updated>2018-05-27T08:37:21+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -377,9 +377,9 @@
 &lt;p&gt;・パフォーマンス大幅改善（Version0.9.8.0）:&lt;br /&gt;
 　前回のチューニング（Version0.9.4.6）はプログラムコードを速度重視のものに置き換える方法、今回のチューニング（Version0.9.8.0）は局面の枝刈りの無駄を省くアルゴリズムの修正によるものです&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。近いうちに&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;にも適用する予定です。&lt;/p&gt;
 
-&lt;p&gt;・三手詰は逃さないように変更（Version1.0.0.0）:&lt;br /&gt;
-　「弱い」モードの時も含めて全てのモードで三手詰は逃さないようにしました。勝ちを読みきった後でも無駄に手数を伸ばすことがあったので、全てのモードで三手詰めがあるときは常にその手順を選択するように変更しました。&lt;br /&gt;
-　今までから「瞑想」モードでは五手詰めを逃さないようになっていますが、最初に候補手を絞る段階で好手を逃す可能性があるため、五手詰め以上に関しては絶対逃さないとは言い切れません。この修正は&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;には適用していません。&lt;/p&gt;
+&lt;p&gt;・三手以内の詰み&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;は逃さないように変更（Version1.0.0.0）:&lt;br /&gt;
+　「弱い」モードの時も含めて全てのモードで三手以内の詰みは逃さないようにしました。勝ちを読みきった後でも無駄に手数を伸ばすことがあったので、全てのモードで三手以内の詰みがあるときは常にその手順を選択するように変更しました。&lt;br /&gt;
+　今までから「瞑想」モードでは五手以内の詰みを逃さないようになっていますが、最初に候補手を絞る段階で好手を逃す可能性があるため、五手詰め以上に関しては絶対逃さないとは言い切れません。この修正は&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;には適用していません。&lt;/p&gt;
 
 &lt;p&gt;瞑想モード:&lt;br /&gt;
 　Version0.9.9.0から瞑想モード追加しました。長考モードより一手深く読みます。&lt;/p&gt;
@@ -497,6 +497,9 @@
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
       &lt;p&gt;具体的にはtoString()関数を徹底的に排除して数値のまま処理したことと、末端ノードに達する前に局面の静的評価をして先読み再帰関数の終了条件を増やしたことです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;三手詰めと書くと誤解を与えるので「三手以内の詰み」としています。詰将棋のように王手の連続で詰ますわけではなく、相手が指す手がなくなるような状態も含めて三手以内で勝つという意味です。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
