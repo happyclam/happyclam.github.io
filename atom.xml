@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2018-05-26T07:25:02+09:00</updated>
+ <updated>2018-05-24T19:00:24+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -378,11 +378,8 @@
 　前回のチューニング（Version0.9.4.6）はプログラムコードを速度重視のものに置き換える方法、今回のチューニング（Version0.9.8.0）は局面の枝刈りの無駄を省くアルゴリズムの修正によるものです&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。近いうちに&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;にも適用する予定です。&lt;/p&gt;
 
 &lt;p&gt;・三手詰は逃さないように変更（Version1.0.0.0）:&lt;br /&gt;
-　&lt;del&gt;「弱い」モードの時も含めて全てのモードで三手詰は逃さないようにしました。勝ちを読みきった後でも無駄に手数を伸ばすことがあったので、全てのモードで三手詰めがあるときは常にその手順を選択するように変更しました。&lt;/del&gt;&lt;br /&gt;
+　「弱い」モードの時も含めて全てのモードで三手詰は逃さないようにしました。勝ちを読みきった後でも無駄に手数を伸ばすことがあったので、全てのモードで三手詰めがあるときは常にその手順を選択するように変更しました。&lt;br /&gt;
 　今までから「瞑想」モードでは五手詰めを逃さないようになっていますが、最初に候補手を絞る段階で好手を逃す可能性があるため、五手詰め以上に関しては絶対逃さないとは言い切れません。この修正は&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;には適用していません。&lt;/p&gt;
-
-&lt;p&gt;・いろいろコード見直して全体的に軽くしました（Version1.0.0.4）：&lt;br /&gt;
-　「全てのモードで三手詰めは見逃さない」に拘るの止めました。「弱い」モードで絶対に見逃さないと言い切れるのは一手詰めだけになります。&lt;/p&gt;
 
 &lt;p&gt;瞑想モード:&lt;br /&gt;
 　Version0.9.9.0から瞑想モード追加しました。長考モードより一手深く読みます。&lt;/p&gt;
