@@ -265,28 +265,8 @@ MathJax.Hub.Config({
 
 </div>
 
-<p>　先読みの支流に分岐して戻ってくるという無駄な読みが無いため、先ほどの図より読む局面の数が減ったのは明らかです。注意しないといけないのは、局面の先読みをする場合に何手先まで読むかの制限値を指定するのですが、図のように四手目まで読むと指定したとしても四手目で打ち歩による王手が指された場合には制限値を無視して少なくとも二手先（打ち歩を取った後にプラス一手）まで読むようにすることです。これでようやく従来のやり方より実行速度を速くすることが出来、GUI側で打ち歩詰めの再チェックをすることもなくなったので、僅かですがレスポンスも改善しました（Version1.0.0.8）。</p>
-
-<pre><code>            result = board.gameover()
-            # 特殊な打ち歩詰めのケース（打ち歩の王手直後だけここを通過）
-            if utifudume? &amp;&amp; !result &amp;&amp; dest.length != 0 &amp;&amp; dest[0].id == utifudume.id &amp;&amp; koma.kind() != 'Ou'
-                # 先読み手数制限（limit）に関係なく先読み
-                ret = oppo.think(board, @, 0, lastscore, [], null)
-                # 打ち歩による王手直後に勝負がついていたら評価値を反転する
-                if ret[2] &gt;= Const.MAX_VALUE || ret[2] &lt;= Const.MIN_VALUE
-                    score = ret[2] * -1
-                else
-                    score = ret[2]
-            # 通常の再帰呼び出し
-            else
-                if limit &gt; 0 &amp;&amp; !result
-                    ret = oppo.think(board, @, limit - 1, lastscore, [], null)
-                    score = ret[2]
-                else
-                    score = check_tumi.call @, board
-</code></pre>
-
-<p>　一部のコードだけ見ても分からないと思いますが、追加したのはほぼこのif文ぐらいで特殊な打ち歩詰めのケースだけ例外的に処理しているのが分かると思います。今回の修正のために歩の手筋だけのテストコードを<a href="https://github.com/mochajs/mocha">mocha</a>でたくさん書きましたが、こういった混みいったリファクタリング作業はTDD（テスト駆動開発）じゃないとやってられないですね<img class="emoji" title="smile" alt="smile" src="https://github.global.ssl.fastly.net/images/icons/emoji/smile.png" height="20" width="20" align="absmiddle" /></p>
+<p>　先読みの支流に分岐して戻ってくるという無駄な読みが無いため、先ほどの図より読む局面の数が減ったのは明らかです。注意しないといけないのは、局面の先読みをする場合に何手先まで読むかの制限値を指定するのですが、図のように四手目まで読むと指定したとしても四手目で打ち歩による王手が指された場合には制限値を無視して少なくとも二手先（打ち歩を取った後にプラス一手）まで読むようにすることです。これでようやく従来のやり方より実行速度を速くすることが出来、GUI側で打ち歩詰めの再チェックをすることもなくなったので、僅かですがレスポンスも改善しました（Version1.0.0.8）。<br />
+　今回の修正のために歩の手筋だけのテストコードを<a href="https://github.com/mochajs/mocha">mocha</a>でたくさん書きましたが、こういった混みいったリファクタリング作業はTDD（テスト駆動開発）じゃないとやってられないですね<img class="emoji" title="smile" alt="smile" src="https://github.global.ssl.fastly.net/images/icons/emoji/smile.png" height="20" width="20" align="absmiddle" /></p>
 
 <h3 id="一手詰めを解くためには三手読みが必要">一手詰めを解くためには三手読みが必要</h3>
 <p>　このブログの記事でよく◯◯手読みという表現を使いますが、読みの深さと詰み手数は違うので念のため書いておきます。自分のアプリだけでなく有名どころの将棋ソフトも多分事情は同じだと思います<sup id="fnref:5"><a href="#fn:5" class="footnote">5</a></sup>が、こういう条件とこういう条件を満たせば詰みと判定するより、先手あるいは後手の一方に王将が二つある状態になればゲーム終了（＝詰み）と判定していることが多いと思います<sup id="fnref:6"><a href="#fn:6" class="footnote">6</a></sup>。だから詰みの局面からさらに二手分先読みをしないとＡＩには詰んだかどうか判断できません。<br />
