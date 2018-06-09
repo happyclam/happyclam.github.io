@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "打ち歩詰め判定は必要なのか",
+      "category" : "software",
+      "tags"     : "coffeescript, cordova, android, javascript, shogi",
+      "url"      : "http://happyclam.github.io/software/2018-06-10/droppawncheck",
+      "date"     : "2018-06-10 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "「９マス将棋の本」買ってみました",
       "category" : "project",
       "tags"     : "coffeescript, cordova, android, javascript, shogi",
