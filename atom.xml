@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2018-06-10T16:23:02+09:00</updated>
+ <updated>2018-06-26T18:01:47+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -176,7 +176,7 @@
 
 &lt;h3 id=&quot;アプリの今後&quot;&gt;アプリの今後&lt;/h3&gt;
 &lt;p&gt;　他にも本の解説が正しいとして、解説通りではないけど遠回りしながら本と同じ結果になる変わった手をAIが指すケースとかがあって、いろんな変化を確認する意味で本に紹介されている局面をソフトで試すのも面白いものです。自分は知らなかったのですが、&lt;a href=&quot;https://www.amazon.co.jp/9マス将棋カード-バラエティ-青野照市/dp/4344978943/ref=sr_1_3?s=books&amp;amp;ie=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-3&amp;amp;keywords=９マス将棋&quot;&gt;9マス将棋カード&lt;/a&gt;という９マス将棋用の初期配置だけを紹介した商品もあるようです。解説の内容は知りませんが、ソフトに指させてみるとどうなるか興味がある人もいるんじゃないでしょうか？本に紹介されている初期配置をそのままアプリに組み込むのも問題ありそうだし&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;、&lt;a href=&quot;https://www.amazon.co.jp/9マス将棋カード-バラエティ-青野照市/dp/4344978943/ref=sr_1_3?s=books&amp;amp;ie=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-3&amp;amp;keywords=９マス将棋&quot;&gt;こういう商品&lt;/a&gt;が出るのであれば、開発当初予定していたように初期配置を自由に編集出来るような機能もあった方がいいよなぁとは思っています。ユーザーが自由に初期配置を設定出来るのなら何の問題もありません。&lt;br /&gt;
-　で、結局どうするか、ソースはいずれ公開するつもりですが、ソース公開して欲しい人がいるのかどうかもよくわかりませんし、編集機能を追加してからにするか、もうちょっと様子見します&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+　で、結局どうするか、ソースはいずれ公開するつもりですが、編集機能を追加してからにするか、もうちょっと様子見します。&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -190,9 +190,6 @@
     &lt;/li&gt;
     &lt;li id=&quot;fn:3&quot;&gt;
       &lt;p&gt;著作権というのは偽物を排除して本当の作者を保護するためのものなので、本の内容を引用する分には問題ないと思ってますが、いろいろ言ってくる人が出てくる可能性はあると思います。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:4&quot;&gt;
-      &lt;p&gt;最初にリリースしたバージョンはソース丸見えの状態だったので、古いバージョンでいいのならネット上から入手可能だとは思います。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
@@ -557,6 +554,10 @@
   &lt;p&gt;&lt;img src=&quot;/images/33shogi_placement.png&quot; alt=&quot;Menu - 初期配置&quot; title=&quot;Menu - 初期配置&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
+&lt;h3 id=&quot;ソースファイル&quot;&gt;ソースファイル&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;github&lt;/a&gt;でCoffeeScriptのソースファイルを公開しました。GUI部分にはまだバグが潜んでいるかもしれませんが、思考ルーチン部分はほぼ落ち着いていると思っています。実際のアプリの先読みメソッド（思考ルーチン）は、浅い先読みを行い候補手のリストを作成しその候補手リストからさらに深読みするという方法を取っているのですが、混みいったコードになるのでその部分は省いています。リリースしてからバグを発生させていたのはほとんどこの候補手を絞り込む部分に関するもので、基本的なところはリリース当初からほとんど変わっていません。対戦型将棋ソフトを作る上で必要最低限なコードになっていると思います。このコードを元に３三将棋だけでなく９×９の本将棋に移行するのも容易だと思います、というか元々Rubyで作った自作の将棋ソフトのコードを元にしてこのアプリを作りました。&lt;br /&gt;
+　今度はMINI-MAX法＋αβ法ではなく学習型のＡＩに挑戦したいと思っています。&lt;/p&gt;
+
 &lt;h3 id=&quot;開発資料&quot;&gt;開発資料&lt;/h3&gt;
 
 &lt;ul&gt;
@@ -585,7 +586,7 @@
 
 &lt;/div&gt;
 
-&lt;p&gt;　最初は作り易さもあってコンソール画面でも遊べるCUI版（Gameクラス、Boardクラス）から作っていたのですが、将棋の指し手は複数の駒が動ける可能性がある時に「１一銀右」とか「３二銀引く成る」とか「３一金直ぐ」とかいろんなケースが発生するので、それをコンソール画面でコマンドラインのパラメータとして入力させる処理が非常に面倒になります。だから一通りコンソールでも遊べるようになったところで細かいところは未対応のまま放置してGUI版の開発に移行しました。GUIなら駒をタッチ（クリック）するだけなのでUI（ユーザーインターフェース）が作り易くなるからです。それでもコンソールで作っていたBoardクラスは変更を加える必要がなくそのまま継承してBoardGUIクラスを作るだけで済むのはオブジェクト指向プログラミングの面目躍如と言ったところです。&lt;/p&gt;
+&lt;p&gt;　最初は作り易さもあってコンソール画面でも遊べるCUI版（Gameクラス、Boardクラス）から作っていたのですが、将棋の指し手は複数の駒が動ける可能性がある時に「１一銀右」とか「３二銀引成」とか「３一金直」とかいろんなケースが発生するので、それをコンソール画面でコマンドラインのパラメータとして入力させる処理が非常に面倒になります。だから一通りコンソールでも遊べるようになったところで細かいところは未対応のまま放置してGUI版の開発に移行しました。GUIなら駒をタッチ（クリック）するだけなのでUI（ユーザーインターフェース）が作り易くなるからです。それでもコンソールで作っていたBoardクラスは変更を加える必要がなくそのまま継承してBoardGUIクラスを作るだけで済むのはオブジェクト指向プログラミングの面目躍如と言ったところです。&lt;/p&gt;
 
 &lt;hr /&gt;
 
