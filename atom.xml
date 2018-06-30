@@ -4,13 +4,290 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2018-06-26T18:01:47+09:00</updated>
+ <updated>2018-06-30T10:23:40+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>CUIで９マス将棋を解く</title>
+   <link href="http://happyclam.github.io/project/2018-06-30/9masushogi_solver"/>
+   <updated>2018-06-30T00:00:00+09:00</updated>
+   <id>http://happyclam.github.io/project/2018-06-30/9masushogi_solver</id>
+   <content type="html">&lt;h3 id=&quot;３三将棋アプリのソース公開しました&quot;&gt;３三将棋アプリのソース公開しました&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;もそろそろ安定してきたと思うのでソースを&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;githubに公開&lt;/a&gt;しました。Bonanzaを始めとする優秀な将棋ソフトをカスタマイズしようとは思わないけど、CoffeeScript(JavaScript)で将棋ソフトが作れるならやってみようと思う人はいるかも知れないと思ってます。また、プログラミングには興味ないけど９マス将棋の正解を知りたいと思う人は結構いるかもしれないと思ったので記事を書いてみました。ただ、詰みがある場合は別ですが、ここで示す方法で得られた解答が必ず最善手だとは言い切れないことには留意してください&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
+　ちなみに最近&lt;a href=&quot;https://play.google.com/store/apps/details?id=jp.co.roue.shogi&quot;&gt;９マス将棋オンライン&lt;/a&gt;というアプリで遊んでいるのですが、単純な配置でも未だに最善手が何か悩まされることがあります（特に入玉形の場合が難しい）。そういう時スクショを取ってこの記事の方法で何が最善手だったか検討したりしています&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;テスト環境&quot;&gt;テスト環境&lt;/h3&gt;
+&lt;p&gt;　９マス将棋の解答を得るために必要なものは&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;githubリポジトリ&lt;/a&gt;内のファイルとCoffeeScriptのインストールだけです。編集する必要があるのはCUIテスト用スクリプトファイル（game.coffee）だけです。CoffeeScriptのインストールに関しては環境に依りますので省略します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/happyclam/shogi33simple.git
+cd shogi33simple
+coffee game.coffee
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;将棋盤面初期配置の編集&quot;&gt;将棋盤面（初期配置）の編集&lt;/h3&gt;
+&lt;p&gt;　将棋盤に駒を配置するにはBoardクラスのpiecesメンバに駒をpushしていくのですが、コピペして書き換えれば簡単だと思います。&lt;br /&gt;
+　例えば先手の玉を３三に配置したい場合は&lt;code&gt;new Piece.Ou(Const.FIRST, Const.Status.OMOTE, [3,3])&lt;/code&gt;としてPieceクラスのインスタンスを生成してBoardオブジェクトのpiecesメンバにpushします。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/arrange13.png&quot; alt=&quot;初期配置　例１&quot; title=&quot;初期配置　例１&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　上記の初期配置をセットするコードは以下のようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-CoffeeScript&quot;&gt;b = new Board()
+b.pieces = []
+b.pieces.push(new Piece.Ou(Const.FIRST, Const.Status.OMOTE, [3,2]))
+b.pieces.push(new Piece.Ou(Const.SECOND, Const.Status.OMOTE, [1,1]))
+b.pieces.push(new Piece.Ky(Const.FIRST, Const.Status.MOTIGOMA))
+b.pieces.push(new Piece.Ki(Const.SECOND, Const.Status.MOTIGOMA))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;駒の種類&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;　クラス名　　&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;玉（王）&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Ou&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;飛　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Hi&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;角　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Ka&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;金　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Ki&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;銀　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Gi&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;桂　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Ke&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;香　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Ky&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;歩　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Fu&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　先手・後手、駒の状態（不成、成、持ち駒）の区別は以下の定数を使用します。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;定数&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;　意味　　&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Const.FIRST&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;先手&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Const.SECOND&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;後手&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Const.Status.OMOTE&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;駒の状態、表&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Const.Status.URA&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;駒の状態、成り&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Const.Status.MOTIGOMA&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;駒の状態、持ち駒&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;読む深さの指定&quot;&gt;読む深さの指定&lt;/h3&gt;
+&lt;p&gt;　Playerクラスのdepthプロパティに読む深さを指定します。０になるまで局面を先読みしますので６を指定すると７手読みになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;first = new Player(Const.FIRST, false)
+second = new Player(Const.SECOND, false)
+first.depth = 6
+second.depth = 6
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　５手詰めの詰将棋を解くには７手読みする必要がある&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;のでdepth = 6を指定しないと解けないかというとそういうわけでもなくて、それ以下でも詰み手順を正確に辿っていくこともあります。上記の初期配置の例だと、詰み手数で言えば７手詰め（１三香、１二金、同香、同玉、２二金、１三玉、２三金）ですが、depth=3（４手読み）の設定でも正確に詰み手順を辿ることができます。読み切れていなくても最善手を指せるかどうかは評価関数の巧拙にかかっています&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
+　ちなみに&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;の評価関数は&lt;code&gt;（先手の駒の重みの合計 ー 後手の駒の重みの合計）&lt;/code&gt;という非常に単純なものですが、９マス将棋ならこの程度の評価関数で十分だと言えるでしょう。&lt;/p&gt;
+
+&lt;h3 id=&quot;将棋盤面初期配置の表示&quot;&gt;将棋盤面（初期配置）の表示&lt;/h3&gt;
+&lt;p&gt;　以下の表のように先手が大文字、後手が小文字のアルファベットで将棋の駒を表現します。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;駒の種類 \ 表記&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;　先手（後手）　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;成り駒&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;　先手（後手）&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;玉（王）&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;O(o)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;飛　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;H(h)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;竜&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;R(r)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;角　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;M(m)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;馬&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U(u)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;金　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;X(x)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;銀　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;G(g)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;成銀&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;N(n)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;桂　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;K(k)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;成桂&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;E(e)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;香　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Y(y)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;成香&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;S(s)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;歩　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;F(f)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;と金&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;T(t)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/arrange21.png&quot; alt=&quot;初期配置　例２&quot; title=&quot;初期配置　例２&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;　上記の配置は&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;github&lt;/a&gt;に置いてあるgame.coffeeの初期配置です。githubからソースを取得した後、コンソール画面で&lt;code&gt;coffee game.coffee&lt;/code&gt;と打てば以下のように対局が進行するはずです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;coffee game.coffee
+x
+ 3 2 1
+| | |o|1
+| |f| |2
+|O| | |3
+H
+x
+ 3 2 1
+|H| |o|1
+| |f| |2
+|O| | |3
+
+x
+ 3 2 1
+|H| | |1
+| |f|o|2
+|O| | |3
+
+x
+ 3 2 1
+|H| | |1
+|O|f|o|2
+| | | |3
+
+
+ 3 2 1
+|H| | |1
+|O|f|o|2
+|x| | |3
+
+
+ 3 2 1
+|H| | |1
+| |f|o|2
+|O| | |3
+X
+
+ 3 2 1
+|H| | |1
+| | |o|2
+|O|t| |3
+X
+
+ 3 2 1
+|H| | |1
+|O| |o|2
+| |t| |3
+X
+
+ 3 2 1
+|H| | |1
+|O|t|o|2
+| | | |3
+X
+Second Win
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;　これじゃぁ分かりにくいという方も多いと思いますがすぐ慣れます&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;。それか、ある程度結論が得られたら初期配置のコードをgameGui.coffeeに移してトランスパイル（&lt;code&gt;webpack&lt;/code&gt;とコマンドを打つだけです）してブラウザで確認するのもいいかもしれません。但し、ブラウザであまり深読みさせると応答しなくなる可能性があります。&lt;/p&gt;
+
+&lt;h3 id=&quot;詰みが見つからなければ最善手は当てにならない&quot;&gt;詰みが見つからなければ、最善手は当てにならない&lt;/h3&gt;
+&lt;p&gt;　局面の先読みメソッド（Player.think）の戻り値は&lt;code&gt;[駒オブジェクト, 座標（筋、段）, 評価値, 成（不成）, 次善手情報]&lt;/code&gt;となっているので&lt;code&gt;temp = first.think(b, second, i, Const.MAX_VALUE)&lt;/code&gt;と呼び出した場合&lt;code&gt;temp[2]&lt;/code&gt;に評価値が入っています。temp[2]に最大値（50000）か最小値（-50000）が入っていれば勝ち（あるいは負け）を読み切った（詰みを発見した）ということです。前述の単純な静的評価関数によって指し手を選んだだけなのか、詰みを読み切った上でその手を選んだのかはここで判断出来ます。&lt;br /&gt;
+　例えば上記の例題の場合、「３一飛、１二玉、３二玉、３三金、同玉、２三歩成、３二玉、２二と」と進行していますが、&lt;code&gt;depth = 7&lt;/code&gt;で実行すると３一飛と打たれた後の後手番での先読みメソッドの戻り値を見ると、１二玉が最善だと返してきますが、評価値は-18（後手やや有利）になっています。１二玉と指せばやや有利になりますよと言っているだけで、ＡＩは後手の勝ちだとはわかっていません。しかし、&lt;code&gt;depth = 8&lt;/code&gt;にすると１二玉が最善手で評価値も-50000（後手勝ち）と返してきます。初手３一飛と打たれた時に後手の立場で考えて自分の指し手から数えると「１二玉、３二玉、３三金、同玉、２三歩成、３二玉、２二と」までの７手詰めですので、９手先まで読まないと詰みが分からないはず（&lt;code&gt;depth = 8&lt;/code&gt;は９手読み）ですので辻褄が合います。このように詰みを発見した上での最善手と、単なる評価関数による最善手は意味合いが全然違うので注意が必要です。詰みがない場合の最善手というのは読みの深さを変えたら変わる可能性があるのに対して、詰み発見後の最善手は絶対不変&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;の正解手です。この辺の事情は有名な将棋ソフトでも同じことで、読む深さを決めてその手数で詰みが見つからなかった場合は、そのソフトの評価関数を使った最善手というだけの話で客観的に絶対正しい最善手というわけではありません。それでも近年は人間の判断より正確なようですが。&lt;br /&gt;
+　また、&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;github&lt;/a&gt;に置いてあるソースは候補手を絞るという作業をしていません（全件探索）ので、&lt;code&gt;depth = 8&lt;/code&gt;をセットしてＡＩの評価値が最大値（50000）または最小値（−50000）が返ってこない場合は７手以内の詰みは存在しないという言い方も出来ます。でも、全件探索ということは読む深さを深くする（depthの値を大きくする）と読む局面の数は指数関数的に増加しますので、いくらハイスペックなPCを使っても十数手しか読めないと思います。どうしても長手数の詰みも確認したいという方は、このソースコードを他のコンパイル言語に移植したりするより、まず将棋盤をビットパターンで表現する手法を取っている他のやり方を探る方がいいと思います。自分はそこまでやろうとは思ってませんけど、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;このアプリ&lt;/a&gt;をReactNativeに移植したらどれぐらい速度アップ出来るのか興味を持ってます。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;有名な将棋ソフトを９マス将棋に対応させるのはそれなりに大変だと思いますが、どうしても９マス将棋の正解を得たいという人は、あの「どうぶつしょうぎ」を完全解析した人のソースコードを改変する方法があるようです。でも、それもまた簡単ではないと思いますが…。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;/software/2018-06-10/droppawncheck&quot;&gt;前回の記事&lt;/a&gt;にも書きましたが玉を取るところまで読まないといけないので、１手詰めの問題を解くには３手読み、３手詰めの問題を解くには５手読みが必要となります。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;これは９×９の本将棋のプログラムでも同じことですが、完全読み切りが出来るのであれば静的評価関数は先手勝ち（＋１）か後手勝ち（−１）かそれ以外（０）の３値を返すだけの単純なものでいいのですが、完全読み切りが出来ないので世のプログラマが苦心して評価関数の出来を競っているわけです。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot;&gt;
+      &lt;p&gt;詰み手順が複数ある可能性はあるのですが、自分のソースに関しては常に最初に見つけた勝ち手順を返すので変わることはありません。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>打ち歩詰め判定は必要なのか</title>

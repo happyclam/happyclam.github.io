@@ -10,4 +10,5 @@ gem 'jekyll-gist'
 gem 'pygments.rb'
 gem 'jekyll-extlinks'
 gem 'nokogiri'
+# gem "github-pages", group: :jekyll_plugins
 
