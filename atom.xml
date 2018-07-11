@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2018-07-09T17:25:56+09:00</updated>
+ <updated>2018-07-11T12:53:35+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -690,8 +690,8 @@ Second Win
   &lt;li&gt;先手・後手&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;span&gt;ＡＩ同士の対戦時はどちらかが勝ちを読みきった時点で対局が終了します。なぜ対局が終了したか疑問に感じた場合は、&lt;del&gt;同じ手順でＡＩと対戦してみてください、対人戦の時は詰みまで指すようにしていますので疑問が解消すると思います。&lt;/del&gt;&lt;/span&gt;
-&lt;span&gt;Version0.9.9.0から、中断後にゲームを再開する機能をつけましたので、メニューから対局者を変更して負けた方の手番を持ってＡＩと対戦再開してみてください、どうやっても勝てないことを確認出来ると思います。&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span&gt;Version1.0.1.8からＡＩ同士の対戦時も詰みまで指すように変更しました。&lt;/span&gt;&lt;br /&gt;
+&lt;span&gt;Version0.9.9.0から、中断後にゲームを再開する機能をつけました。&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/images/33shogi_player.png&quot; alt=&quot;Menu - 先手・後手&quot; title=&quot;Menu - 先手・後手&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -745,7 +745,7 @@ Second Win
 　長考モードは最初に４手読みをした結果から候補手を５手に絞っているので、その候補手を絞る段階で最善手が候補手から漏れてしまうこともあります。特に４手読みの結果上位５位、６位、７位の３手の評価値が全く同じであっても常に６位、７位の手は捨てられるのがもったいないので、評価値が同じだった場合はランダムに指し手を選ぶようにしました。あくまでも４手読み時の評価値が同じだった場合だけなので、指し手に大きな変化はありませんが長考モードに関しては常に同じ手を指すとは限らなくなりました。&lt;/p&gt;
 
 &lt;p&gt;・パフォーマンス大幅改善（Version0.9.8.0）:&lt;br /&gt;
-　前回のチューニング（Version0.9.4.6）はプログラムコードを速度重視のものに置き換える方法、今回のチューニング（Version0.9.8.0）は局面の枝刈りの無駄を省くアルゴリズムの修正によるものです&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。近いうちに&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;にも適用する予定です。&lt;/p&gt;
+　前回のチューニング（Version0.9.4.6）はプログラムコードを速度重視のものに置き換える方法、今回のチューニング（Version0.9.8.0）は局面の枝刈りの無駄を省くアルゴリズムの修正によるものです&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 
 &lt;p&gt;・三手以内の詰み&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;は逃さないように変更（Version1.0.0.0）:&lt;br /&gt;
 　「弱い」モードの時も含めて全てのモードで三手以内の詰みは逃さないようにしました。勝ちを読みきった後でも無駄に手数を伸ばすことがあったので、全てのモードで三手以内の詰みがあるときは常にその手順を選択するように変更しました。&lt;br /&gt;
@@ -1388,7 +1388,7 @@ window.onload = function() {
 &lt;div id=&quot;neural_random&quot; style=&quot;width:600px;height:300px;&quot;&gt;&lt;/div&gt;
 &lt;div id=&quot;new_random&quot; style=&quot;width:600px;height:300px;&quot;&gt;&lt;/div&gt;
 
-&lt;p&gt;　乱数で指し手を決める弱いプログラム相手でも、今までより対戦回数が少ない段階で勝率が上がっていることがわかります。個人的には重みデータの総量が減ったことが学習速度がアップした大きな要因（&lt;a href=&quot;/software/2016-01-07/correlation/&quot;&gt;過去記事参照&lt;/a&gt;）になった気がしてます。&lt;/p&gt;
+&lt;p&gt;　乱数で指し手を決める弱いプログラム相手でも、今までより対戦回数が少ない段階で勝率が上がっていることがわかります。個人的には重みデータの総量が減ったことが学習速度がアップした大きな要因（&lt;a href=&quot;/software/2016-01-07/correlation&quot;&gt;過去記事参照&lt;/a&gt;）になった気がしてます。&lt;/p&gt;
 
 &lt;h3 id=&quot;学習速度アップは歴然&quot;&gt;&lt;del&gt;学習速度アップは歴然&lt;/del&gt;&lt;/h3&gt;
 &lt;p&gt;　&lt;del&gt;過学習という問題はあるものの、ニューラルネットワークを採用することでご褒美を上げたり取ったり（足したり引いたり）するより学習速度がアップすることは間違いないようです。&lt;/del&gt;でも現在リリース中の&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;は&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;に書かれている仕様に合わせて作っていることを謳っているので今のまま変更せずに、次アプリにする予定の「消える三目並べ」に採用してみようと思ってます。試してみたいと思うテーマが次々と出てきてなかなかリリース出来ないのですが、どこかでまず一度リリースしようと思ってます。本当は「５五将棋」アプリを作りたいのですが…&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
@@ -2447,7 +2447,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
    <updated>2016-10-21T00:00:00+09:00</updated>
    <id>http://happyclam.github.io/programming/2016-10-21/ml_miscellaneous</id>
    <content type="html">&lt;h3 id=&quot;無理とは分かっていても何とかしたい&quot;&gt;無理とは分かっていても何とかしたい&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;をリリースした後、このアプリと同じAIの作り方（勝ったらご褒美、負けたら罰を与える）でオセロや将棋を作れないだろうかと考えてみました。同じコードを再利用して（楽して）他のゲームが作れるなら作る側の人ならやってみたいと思うでしょう。使う側のユーザーも、なんで「進化する将棋」や「進化するオセロ」じゃないの？「三目並べでは簡単すぎて楽しめない」という人もいるかもしれません。でも、想像つくとは思いますが、三目並べなのには理由があります。ネットで検索してみたところ、オセロで出現し得る局面の数は約&lt;script type=&quot;math/tex&quot;&gt;10^{60}&lt;/script&gt;で、将棋は&lt;script type=&quot;math/tex&quot;&gt;10^{360}&lt;/script&gt;だそうです。私が作った三目並べは以前&lt;a href=&quot;/software/2015-10-19/multi_branched_tree/&quot;&gt;記事&lt;/a&gt;にも書きましたが、局面の数は&lt;script type=&quot;math/tex&quot;&gt;10^7&lt;/script&gt;以下で詳細は次の表の通りです。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;をリリースした後、このアプリと同じAIの作り方（勝ったらご褒美、負けたら罰を与える）でオセロや将棋を作れないだろうかと考えてみました。同じコードを再利用して（楽して）他のゲームが作れるなら作る側の人ならやってみたいと思うでしょう。使う側のユーザーも、なんで「進化する将棋」や「進化するオセロ」じゃないの？「三目並べでは簡単すぎて楽しめない」という人もいるかもしれません。でも、想像つくとは思いますが、三目並べなのには理由があります。ネットで検索してみたところ、オセロで出現し得る局面の数は約&lt;script type=&quot;math/tex&quot;&gt;10^{60}&lt;/script&gt;で、将棋は&lt;script type=&quot;math/tex&quot;&gt;10^{360}&lt;/script&gt;だそうです。私が作った三目並べは以前&lt;a href=&quot;/software/2015-10-19/multi_branched_tree&quot;&gt;記事&lt;/a&gt;にも書きましたが、局面の数は&lt;script type=&quot;math/tex&quot;&gt;10^7&lt;/script&gt;以下で詳細は次の表の通りです。&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -2518,7 +2518,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;p&gt;　三目並べだからこそ比較的容易に作れたってことです&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。三目並べでは重複局面を省けばわずか6,046通りの局面データを保持すれば済みます。100,000回対戦テスト後の手元の学習ファイル（ゲーム木データを保存したファイル）のサイズを見ると重複チェック用のデータと合わせて約800KBですので、&lt;code&gt;一局面分のデータ（約130バイト）× 6,046局面 ＝ ８００KB&lt;/code&gt;って感じでしょうか。もしオセロの全局面を保存しようとすると、１テラバイトが&lt;script type=&quot;math/tex&quot;&gt;2^{40}&lt;/script&gt;（=約&lt;script type=&quot;math/tex&quot;&gt;10^{12}&lt;/script&gt;）なので&lt;script type=&quot;math/tex&quot;&gt;10^{60}&lt;/script&gt;というオセロの局面数（重複局面を省けばもっと減ると思いますが）を保存するためには、とんでもないディスク容量が必要です。スマホでは全然容量が足りませんし、局面の検索の時間もかかるでしょうし、今のやり方そのままではオセロや将棋のアプリを作るのは現実的ではないということです。&lt;br /&gt;
 　でも、&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;はゲーム木（全局面の分岐を木構造で表現したデータ）を動的に生成するので、オセロの局面がいくら多いといっても１ゲームごとに少しずつノード（局面データ）を追加していくのであればとりあえずディスク容量に余裕があるPCで動かすソフトは作れるんじゃないか、なんて考えてとりあえず試しに作ってみようかと思ったりしたのですが、ゲーム木のノードの数が多いと一回のゲームで得られる学習効果が非常に薄まるのでいくら対戦しても全然強くならない（学習効果が実感できない）ものになるでしょう。プログラム同士で対戦させて予め学習を進めてからリリースするという方法も考えられますが、それにしてもデータを小さくしなければならないという問題は解決する必要があります。&lt;br /&gt;
-　データを小さくする（ゲーム木を小さくする）ために回転・対照形を同一局面と見做して省略する&lt;a href=&quot;/software/2015-11-27/reinforcement/&quot;&gt;記事&lt;/a&gt;は以前も書きましたが、この時は局面の数を求めるためだけに力技でプログラムを改変したのですが、AIに組み込むとなると、処理に手間取って操作性に影響が出るのも嫌なので手付かず状態です。機種にもよりますが現状でもAI側が指し手を決める時に動作が少し重いのを感じると思いますが、これは局面の先読みをする必要がない代わりに、検索と数値計算処理に手間がかかっているからです。&lt;/p&gt;
+　データを小さくする（ゲーム木を小さくする）ために回転・対照形を同一局面と見做して省略する&lt;a href=&quot;/software/2015-11-27/reinforcement&quot;&gt;記事&lt;/a&gt;は以前も書きましたが、この時は局面の数を求めるためだけに力技でプログラムを改変したのですが、AIに組み込むとなると、処理に手間取って操作性に影響が出るのも嫌なので手付かず状態です。機種にもよりますが現状でもAI側が指し手を決める時に動作が少し重いのを感じると思いますが、これは局面の先読みをする必要がない代わりに、検索と数値計算処理に手間がかかっているからです。&lt;/p&gt;
 
 &lt;h3 id=&quot;消える三目並べなら何とかなりそう&quot;&gt;「消える三目並べ」なら何とかなりそう&lt;/h3&gt;
 &lt;p&gt;　「無限三目並べ」、「無限まるばつ」、「Arrange Line」いろんな名前でリリースされているゲームで、正式名称は分かりませんが、「消える三目並べ」というのは、三つまでは普通に置けるけど、四つ目を置くと最初に置いた自分の駒が消えるというルールの三目並べのことです。&lt;/p&gt;
@@ -2858,7 +2858,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;h3 id=&quot;進化する三目並べtic-tac-toe-evoについて&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」について&lt;/h3&gt;
 &lt;p&gt;　「進化する三目並べ（Tic-tac-toe Evo）」は、&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「Statistics Hacks」&lt;/a&gt;という統計学の本に紹介されていた強化学習の内容に興味を持った私が自作したRubyのPC用のプログラム（&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;github&lt;/a&gt;に公開している）を、せっかく作ったのだからスマホアプリにして公開してみようと考えて、CoffeeScript（JavaScript）に書き換えてCordovaを使ってスマホアプリに作り変えたものです。&lt;br /&gt;
-　詳しくは&lt;a href=&quot;http://happyclam.github.io/software/2015-10-25/machine_learning/&quot;&gt;「算数で作る機械学習プログラム」&lt;/a&gt;というタイトルから始まる一連の記事を読んでいただきたいのですが、ここではスマホアプリに関する内容に限定して特有の機能などについて補足していきたいと思います。プログラミングに興味の有る方はソースコード（&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;github&lt;/a&gt;）も見て下さい。&lt;br /&gt;
+　詳しくは&lt;a href=&quot;http://happyclam.github.io/software/2015-10-25/machine_learning&quot;&gt;「算数で作る機械学習プログラム」&lt;/a&gt;というタイトルから始まる一連の記事を読んでいただきたいのですが、ここではスマホアプリに関する内容に限定して特有の機能などについて補足していきたいと思います。プログラミングに興味の有る方はソースコード（&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;github&lt;/a&gt;）も見て下さい。&lt;br /&gt;
 　アプリにもこの記事のリンクを追加していますので、サポートページとして使っていくつもりです。&lt;/p&gt;
 
 &lt;h5 id=&quot;-進化の過程について&quot;&gt;※ 進化の過程について&lt;/h5&gt;
@@ -2941,7 +2941,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;h4 id=&quot;１アプリの学習効率について&quot;&gt;１．アプリの学習効率について&lt;/h4&gt;
 &lt;p&gt;　このアプリの「進化」とは、学習の進捗度合いのことです。学習レベルを表すのに人類の進化に例えれば面白いかなと考えて「進化する三目並べ」としたしだいです。
-　今まで数回に渡って&lt;a href=&quot;http://happyclam.github.io/software/2015-12-25/log-linear/&quot;&gt;強化学習について&lt;/a&gt;や&lt;a href=&quot;http://happyclam.github.io/software/2016-01-16/flotr2/&quot;&gt;学習効果のグラフ&lt;/a&gt;の記事を書きましたが、&lt;a href=&quot;http://happyclam.github.io/software/2016-01-07/correlation/&quot;&gt;この記事&lt;/a&gt;で紹介した「線形関数を使って、終盤の手ほど重要視する」やり方をアプリに採用しています。リリース直前に行った最強プログラムと乱数を使ったプログラムとの対戦テストの結果は以下です（1,000回の対戦を1回として100回の対戦、合計100,000回）。&lt;/p&gt;
+　今まで数回に渡って&lt;a href=&quot;http://happyclam.github.io/software/2015-12-25/log-linear&quot;&gt;強化学習について&lt;/a&gt;や&lt;a href=&quot;http://happyclam.github.io/software/2016-01-16/flotr2&quot;&gt;学習効果のグラフ&lt;/a&gt;の記事を書きましたが、&lt;a href=&quot;http://happyclam.github.io/software/2016-01-07/correlation&quot;&gt;この記事&lt;/a&gt;で紹介した「線形関数を使って、終盤の手ほど重要視する」やり方をアプリに採用しています。リリース直前に行った最強プログラムと乱数を使ったプログラムとの対戦テストの結果は以下です（1,000回の対戦を1回として100回の対戦、合計100,000回）。&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -3380,7 +3380,7 @@ Kind regards Andreas Loew&lt;br /&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
-&lt;p&gt;　&lt;a href=&quot;/software/2014-09-09/pre_shogi/&quot;&gt;以前の記事&lt;/a&gt;でShoesとRubyで作成した将棋プログラムの記事を書きましたが、この３三将棋のルールなら先手必勝あるいは後手必勝の手順が見つけられるかもと思い、ちょっとだけ試してみました。&lt;br /&gt;
+&lt;p&gt;　&lt;a href=&quot;/software/2014-09-09/pre_shogi&quot;&gt;以前の記事&lt;/a&gt;でShoesとRubyで作成した将棋プログラムの記事を書きましたが、この３三将棋のルールなら先手必勝あるいは後手必勝の手順が見つけられるかもと思い、ちょっとだけ試してみました。&lt;br /&gt;
 　やり方は以前&lt;a href=&quot;/software/2014-09-23/tictactoe_arrange&quot;&gt;ちょっと変わった三目並べの記事&lt;/a&gt;で書いた方法と同じで、先読みの制限手数を指定して徐々にその先読み手数を伸ばしていくというやり方です。先読み手数を制限せずに勝負がつくまでという条件で先読みを続けたいところ（通常の三目並べならそれが可能）ですが、おそらく何年経ってもプログラムが終了しない状況になってしまうでしょう。MIN-MAX法（＋αβ法）で先読み手数を指定して、その手数に達するまでに先手勝ち（あるいは後手勝ち）の評価値を返してくれば、必勝手順があるという確認方法です。現れ得るすべての局面を読む（手数を制限せずに先読みする完全読み切り）ことをしなくていいので、必勝手順があるかどうかの結論を得るにはこの方法が一番簡単です。この時先読みに使用する評価関数は先手勝ち（最大値）、後手勝ち（最小値）、それ以外（０）の３値だけを返す評価関数を使います。局面が有利か不利かは関係ないので玉の硬さがどうとか「と金」の評価値がどうとかは計算する必要はありません。また、初型からの詰将棋を解くのとも少し違います、王手を続けなければいけないわけではありませんし、自玉が詰まされなくても指す手が無くて負けることもあるからです。どうやら３三将棋は王手が掛かってなくても指す手が無くなって負けるパターンが多いようです。&lt;br /&gt;
 　で、結論から先に言うと、先手必勝なのか後手必勝なのか千日手になるのか結局はっきりした結論は得られませんでした。たかだか十数手の先読みしか試せなかったのでその手数内では必勝手順はないということです（詰み手順もありません）。たかが３×３の盤上の変化と言えども、将棋はオセロや囲碁と違って一手毎にマス目が埋まり徐々に終局が近づいていくゲームと違うのでマス目が少ないからと言ってもなかなか結論を出すのは難しそうです（オセロや囲碁なら簡単と言ってるわけではありません）。&lt;br /&gt;
 　対戦の手順の一例を示すと以下の様な感じです。&lt;/p&gt;
@@ -3804,10 +3804,10 @@ catch e
 　でも、自費出版というのは昔からそういうものだと思うのですが、売れるかどうかなんてことより（もちろん売れたら嬉しいですが）自分が世に出したいから出すわけです。だからもっと言えば買って読んでくれた人がどう思ってようがそれさえも大きな関心はないという感じです。そういうわけですから出版し終えたばかりなのに、早速次の本を出す構想を練っています。なんか使命感に駆られるという感じです、たとえ誰も待ち望んでいなくても&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;epubの作成方法&quot;&gt;epubの作成方法&lt;/h3&gt;
-&lt;p&gt;　以前にも&lt;a href=&quot;/miscellaneous/2015-06-09/pandoc_epub/&quot;&gt;電子出版に関して&lt;/a&gt;記事を書きましたが、そこではこのブログを書いているやり方と同じmarkdown形式で文章を書いてそれを何らかの方法でPDFかepubに変換して出版したいと書きました。でも、最新のpandocコマンド（1.16.0.2）で試してみても細々な不満があったのでmarkdownからepubを生成するのは諦めて、使い方を覚えるのは面倒臭くて嫌だったのですが結局MacのPagesを使って一から書くことにしました。本を書くということに不慣れなこともあって、文章だけでなく何度も構成や図表を変更するので、そういう細々とした作業は市販のソフトを使った方が楽になると感じました。&lt;a href=&quot;/miscellaneous/2015-06-09/pandoc_epub/&quot;&gt;以前の記事&lt;/a&gt;に書いたような自前でepubを作るやり方はもうこれで絶対変更しないと言い切れるぐらい文章が確定してからでないとやってられないと思います。でもそうは言ってもepubに変換してから修正したくなることが多いのですが、Pagesなら出力形式をepubに指定すれば何度でも出力できるので、ちょっと修正してはまたepubに出力するという作業が非常に楽でした。ブログ書いている分にはmarkdownの方が楽なんですけど、結局その違いは、最終出力をすぐに確認出来る状態で入力作業を進められるかどうかが大事なことだということでしょう。&lt;/p&gt;
+&lt;p&gt;　以前にも&lt;a href=&quot;/miscellaneous/2015-06-09/pandoc_epub&quot;&gt;電子出版に関して&lt;/a&gt;記事を書きましたが、そこではこのブログを書いているやり方と同じmarkdown形式で文章を書いてそれを何らかの方法でPDFかepubに変換して出版したいと書きました。でも、最新のpandocコマンド（1.16.0.2）で試してみても細々な不満があったのでmarkdownからepubを生成するのは諦めて、使い方を覚えるのは面倒臭くて嫌だったのですが結局MacのPagesを使って一から書くことにしました。本を書くということに不慣れなこともあって、文章だけでなく何度も構成や図表を変更するので、そういう細々とした作業は市販のソフトを使った方が楽になると感じました。&lt;a href=&quot;/miscellaneous/2015-06-09/pandoc_epub&quot;&gt;以前の記事&lt;/a&gt;に書いたような自前でepubを作るやり方はもうこれで絶対変更しないと言い切れるぐらい文章が確定してからでないとやってられないと思います。でもそうは言ってもepubに変換してから修正したくなることが多いのですが、Pagesなら出力形式をepubに指定すれば何度でも出力できるので、ちょっと修正してはまたepubに出力するという作業が非常に楽でした。ブログ書いている分にはmarkdownの方が楽なんですけど、結局その違いは、最終出力をすぐに確認出来る状態で入力作業を進められるかどうかが大事なことだということでしょう。&lt;/p&gt;
 
 &lt;h3 id=&quot;ゴールドラッシュにはスコップを売るべし&quot;&gt;「ゴールドラッシュにはスコップを売るべし」&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/miscellaneous/2015-06-09/pandoc_epub/&quot;&gt;以前の記事&lt;/a&gt;にも書きましたが最初はどこに出版するのかいろいろ迷っていたので、個人出版のノウハウ本みたいな電子書籍も何冊か買ってみましたが、役に立ったと思ったのは、この１冊（&lt;a href=&quot;http://selfpublishing.jimdo.com&quot;&gt;「電子書籍の個人作家でも、３年かければ１０００冊売れる！　セルフパブリッシングを楽しむ方法」&lt;/a&gt;）だけでした。それ以外は買って損したと思うものばかり（こんなこと言うと自分に返ってくるものですが、言わずにはいられないほど酷いものがあるんです。タイトルは伏せておきますので許して下さい）でした。今となっては特にこの本を他人にお勧めしようとは思いませんが、この本のタイトルにあるように３年で１０００冊売れたそうで、宣伝費用をかけずにこれだけ売れるのは凄いことだろうなとは思います。本を売ることが目的ならこういう類の本を書くのが一番手っ取り早いような気がします。私もそうでしたが、やっぱりみんな実際にやってみた人の体験談を知りたいんだと思います。今、ゴールドラッシュと言えるほど個人出版が流行っているのかどうか知りませんが、昔に較べて気軽に出版出来るので増えていくことは間違いないと思います。ゴールドラッシュでは自分で金鉱を見つけ出すより、そういう夢を見ている人達を相手にスコップやデニムを売った方が確実にお金になるでしょう。だから今のところ考えていませんが、私も将来体験談をまとめてノウハウ本を出すかもしれません。その時は「使命感に駆られて」とか言っていたくせに小遣い稼ぎに走ったぞと私を罵倒してください。&lt;img class=&quot;emoji&quot; title=&quot;grin&quot; alt=&quot;grin&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/grin.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;/miscellaneous/2015-06-09/pandoc_epub&quot;&gt;以前の記事&lt;/a&gt;にも書きましたが最初はどこに出版するのかいろいろ迷っていたので、個人出版のノウハウ本みたいな電子書籍も何冊か買ってみましたが、役に立ったと思ったのは、この１冊（&lt;a href=&quot;http://selfpublishing.jimdo.com&quot;&gt;「電子書籍の個人作家でも、３年かければ１０００冊売れる！　セルフパブリッシングを楽しむ方法」&lt;/a&gt;）だけでした。それ以外は買って損したと思うものばかり（こんなこと言うと自分に返ってくるものですが、言わずにはいられないほど酷いものがあるんです。タイトルは伏せておきますので許して下さい）でした。今となっては特にこの本を他人にお勧めしようとは思いませんが、この本のタイトルにあるように３年で１０００冊売れたそうで、宣伝費用をかけずにこれだけ売れるのは凄いことだろうなとは思います。本を売ることが目的ならこういう類の本を書くのが一番手っ取り早いような気がします。私もそうでしたが、やっぱりみんな実際にやってみた人の体験談を知りたいんだと思います。今、ゴールドラッシュと言えるほど個人出版が流行っているのかどうか知りませんが、昔に較べて気軽に出版出来るので増えていくことは間違いないと思います。ゴールドラッシュでは自分で金鉱を見つけ出すより、そういう夢を見ている人達を相手にスコップやデニムを売った方が確実にお金になるでしょう。だから今のところ考えていませんが、私も将来体験談をまとめてノウハウ本を出すかもしれません。その時は「使命感に駆られて」とか言っていたくせに小遣い稼ぎに走ったぞと私を罵倒してください。&lt;img class=&quot;emoji&quot; title=&quot;grin&quot; alt=&quot;grin&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/grin.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -3906,7 +3906,7 @@ HTTPS https://app.rakuten.co.jp/services/api/Kobo/EbookSearch/20140811?applicati
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;/hardware/2015-06-12/kobo_aura/&quot;&gt;楽天kobo auraを購入&lt;/a&gt;した時は記載がなくて困りました。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;/hardware/2015-06-12/kobo_aura&quot;&gt;楽天kobo auraを購入&lt;/a&gt;した時は記載がなくて困りました。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
@@ -4031,7 +4031,7 @@ $adb install -r ./Release/android/Tictactoe-release1-3-2.apk
    <updated>2016-02-01T00:00:00+09:00</updated>
    <id>http://happyclam.github.io/programming/2016-02-01/node_express</id>
    <content type="html">&lt;h3 id=&quot;久々にプロジェクトに変更を加えてherokuにアップしたらエラーに見舞われた&quot;&gt;久々にプロジェクトに変更を加えてherokuにアップしたらエラーに見舞われた&lt;/h3&gt;
-&lt;p&gt;　以前&lt;a href=&quot;/programming/2015-04-25/mongo_upsert/&quot;&gt;記事&lt;/a&gt;にも書きましたが、公開した&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf&quot;&gt;androidアプリ&lt;/a&gt;の&lt;a href=&quot;http://tictactoe-cf.herokuapp.com/&quot;&gt;ランキング表示用のサイト&lt;/a&gt;で使用しているGoogle AnalyticsのトラッキングIDが間違えていたので&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;、トラッキングID（UA-XXXXXXXX-X）だけ書き換えて heroku にアップロードしたらエラーが出てランキング表示機能が使えなくなりました。全然プログラムコードと関係ない文字列を書き換えただけなのにです。&lt;br /&gt;
+&lt;p&gt;　以前&lt;a href=&quot;/programming/2015-04-25/mongo_upsert&quot;&gt;記事&lt;/a&gt;にも書きましたが、公開した&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf&quot;&gt;androidアプリ&lt;/a&gt;の&lt;a href=&quot;http://tictactoe-cf.herokuapp.com/&quot;&gt;ランキング表示用のサイト&lt;/a&gt;で使用しているGoogle AnalyticsのトラッキングIDが間違えていたので&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;、トラッキングID（UA-XXXXXXXX-X）だけ書き換えて heroku にアップロードしたらエラーが出てランキング表示機能が使えなくなりました。全然プログラムコードと関係ない文字列を書き換えただけなのにです。&lt;br /&gt;
 　Node.jsは最近はほとんど触ってなかったので何をどうすればいいのかすっかり忘れていたため復旧に手間取ったので顛末を記事にしておきます。本来はプロジェクト全体を網羅したドキュメントを残すべきでしょうけど…。&lt;/p&gt;
 
 &lt;h3 id=&quot;原因不明&quot;&gt;原因不明？&lt;/h3&gt;
@@ -4739,7 +4739,7 @@ base = SHORTEST / history.size
 inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;　SHORTEST定数は最短で勝負がついた場合の手数６（初期盤面を含む）です。総手数を分母にしているので、最短手数の６手で勝った時だけ報酬が＋３されますが、手数が伸びるほどそれ未満の報酬しか受け取れなくなります。また、短手数で負けた時ほど罰が厳しくなります。最短手数で負けた場合は辿ったすべての局面データから、選択した場所の小石（score配列）が−１されていきますが、最長手数１０手（初期盤面を含む）で負けた時は0.6 (&lt;script type=&quot;math/tex&quot;&gt;-1\times\frac{6}{10}&lt;/script&gt; ) ずつしか引かれません&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
-　これは手数によって（何手目かによって）報酬や罰を変化させるわけではないので、&lt;a href=&quot;/software/2015-12-25/log-linear/&quot;&gt;前回の記事&lt;/a&gt;の方法と似ていますが違います。何手でゲームが終了したかによって y の値が変わる横一直線のグラフになり、前回同様６手で終了した場合を敢えてグラフ化すると、以下のようになります。&lt;/p&gt;
+　これは手数によって（何手目かによって）報酬や罰を変化させるわけではないので、&lt;a href=&quot;/software/2015-12-25/log-linear&quot;&gt;前回の記事&lt;/a&gt;の方法と似ていますが違います。何手でゲームが終了したかによって y の値が変わる横一直線のグラフになり、前回同様６手で終了した場合を敢えてグラフ化すると、以下のようになります。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
@@ -4844,8 +4844,8 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;　&lt;a href=&quot;/software/2015-12-25/log-linear/&quot;&gt;前回の記事&lt;/a&gt;を含めて、今までで一番効果が出ました。どうやら報酬や罰の与え方を変えるより、小石の総数を減らすことの方が効果があるようです。&lt;br /&gt;
-　ところで「初期状態や補充分の小石の数を手数によって変化させて、報酬や罰は一定量にする」ことと「初期状態や補充分の小石の数は一定にして、報酬や罰を手数に応じて増減させる」のとどう違うのか、&lt;a href=&quot;/software/2015-12-25/log-linear/&quot;&gt;前回&lt;/a&gt;のようにグラフの傾きで考えてみると、総手数が６手（初期盤面含む）で終了した場合、小石の総数は初期盤面では９箇所×小石１０個、１手目の局面では８箇所×小石９個、２手目の局面では７箇所×小石８個、となるので数の推移は以下の表の y′ のようになり&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;/software/2015-12-25/log-linear&quot;&gt;前回の記事&lt;/a&gt;を含めて、今までで一番効果が出ました。どうやら報酬や罰の与え方を変えるより、小石の総数を減らすことの方が効果があるようです。&lt;br /&gt;
+　ところで「初期状態や補充分の小石の数を手数によって変化させて、報酬や罰は一定量にする」ことと「初期状態や補充分の小石の数は一定にして、報酬や罰を手数に応じて増減させる」のとどう違うのか、&lt;a href=&quot;/software/2015-12-25/log-linear&quot;&gt;前回&lt;/a&gt;のようにグラフの傾きで考えてみると、総手数が６手（初期盤面含む）で終了した場合、小石の総数は初期盤面では９箇所×小石１０個、１手目の局面では８箇所×小石９個、２手目の局面では７箇所×小石８個、となるので数の推移は以下の表の y′ のようになり&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -4934,7 +4934,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 &lt;/table&gt;
 
 &lt;p&gt;　勝ちは＋３、負けは−１、引き分けは＋１という報酬や罰の与え方（グラフの傾き）を変えることで学習効果に多少の改善があったとしても、そんなものは小石の総数を減らすことに比べたらわずかな効果しかないということでしょう。&lt;br /&gt;
-　今から思えば小石が不足した時に補充するやり方に修正した時点（&lt;a href=&quot;/software/2015-11-27/reinforcement/&quot;&gt;前々回の記事&lt;/a&gt;）で、初期値を１０から１にすればよかったです。&lt;/p&gt;
+　今から思えば小石が不足した時に補充するやり方に修正した時点（&lt;a href=&quot;/software/2015-11-27/reinforcement&quot;&gt;前々回の記事&lt;/a&gt;）で、初期値を１０から１にすればよかったです。&lt;/p&gt;
 
 &lt;h3 id=&quot;終盤の手ほど重要視する方法は効果がない&quot;&gt;終盤の手ほど重要視する方法は効果がない？&lt;/h3&gt;
 &lt;p&gt;　小石の総数を減らすことが強化学習の効果を上げるのに有効なことはわかりましたが、前回の記事で試していた終盤の手ほど重要視する（終盤ほど報酬や罰を増やす）方法が否定されたわけではありません。それを確認するために、小石の初期値や補充分を１０個から１個に修正した上で、尚且つ前回の方程式１（&lt;script type=&quot;math/tex&quot;&gt;y = \frac{1}{総手数} x&lt;/script&gt;）を適用して確認してみました。&lt;/p&gt;
@@ -5005,7 +5005,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 　小石を浮動小数点数で扱うように変更した甲斐がありました&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 
 &lt;h3 id=&quot;人間並みに強くするにはどれぐらい学習が必要か&quot;&gt;人間並みに強くするにはどれぐらい学習が必要か？&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;の仕様に沿いながらこの三目並べ機械学習プログラムを&lt;a href=&quot;/software/2015-10-25/machine_learning/&quot;&gt;初めて作った時点&lt;/a&gt;では、完全読み切りの最強プログラムとの対戦成績は８割の引き分け率でしたが、いろいろ弄って９割７分まで上げることが出来ました。三目並べを人間同士で対戦すればほぼ１００％引き分けになると思いますが、うっかりミスもあるので、９割７分の引き分け率というのはほぼ人間並みになったと言えるのではないでしょうか？&lt;br /&gt;
+&lt;p&gt;　&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;の仕様に沿いながらこの三目並べ機械学習プログラムを&lt;a href=&quot;/software/2015-10-25/machine_learning&quot;&gt;初めて作った時点&lt;/a&gt;では、完全読み切りの最強プログラムとの対戦成績は８割の引き分け率でしたが、いろいろ弄って９割７分まで上げることが出来ました。三目並べを人間同士で対戦すればほぼ１００％引き分けになると思いますが、うっかりミスもあるので、９割７分の引き分け率というのはほぼ人間並みになったと言えるのではないでしょうか？&lt;br /&gt;
 　でも、三目並べで１０万回も対戦（学習）させてようやく９割７分になる&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;というのは、機械学習プログラムの出来としてどれほどのものなのかわかりません。学習効率を数値化して競う大会なんかがあっても面白いかなと思いました。ただ、麻雀ソフトなんかでもそうですが、三目並べだとズルをすれば簡単に強く出来るのでチェックが大変かもしれません。&lt;br /&gt;
 　結局、ソフトウェアとしての出来の良さを競うのであれば、将棋や囲碁のように完全読み切りが不可能なゲーム（ズルが出来ないゲーム）を題材にして、強さを競うという形が分かり易く現実的なのかもしれません。&lt;/p&gt;
 
@@ -5043,7 +5043,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
   &lt;p&gt;　動物が学習する手法をまねたい場合、ゲーム終盤近くの手が、ゲーム序盤よりも重大であるようなシステムに調整してもよい。これは行動が適切な時期に近いほど、その行動を強化する効果が最大になるという観察結果を反映することを意図したものだ。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;　現時点の機械学習プログラムは、勝負がついた時点で局面を初期盤面まで遡りながら局面に配置されている小石（score配列）の数を増減させて学習効果を反映させる仕様です。勝った場合は、一つ手前の局面の９個ある配列データ（score配列）の内、選択した手の場所の値を増やして（報酬を与えて）次からもその局面では再度その手を選ぶ確率を上げるようにするわけです。そしてその前の局面、その前の局面と遡りながら同じように数値を加減算していきます。でも、&lt;a href=&quot;/software/2015-10-25/machine_learning/&quot;&gt;以前の記事&lt;/a&gt;にも書きましたが、辿った全ての局面のデータを一律に同じ数だけ増やして（あるいは減らして）いくというのは確かに少し疑問を感じます。例えば相手の石が揃うのを防がなかったような場合、その手は大悪手であるにも関わらず、序盤の一手と同様の罰しか受けないわけで、感覚的にはそれでいいの？って感じです。だから、ここに書かれているように、報酬も罰も終盤ほど大きな値になるように調整してみました。&lt;br /&gt;
+&lt;p&gt;　現時点の機械学習プログラムは、勝負がついた時点で局面を初期盤面まで遡りながら局面に配置されている小石（score配列）の数を増減させて学習効果を反映させる仕様です。勝った場合は、一つ手前の局面の９個ある配列データ（score配列）の内、選択した手の場所の値を増やして（報酬を与えて）次からもその局面では再度その手を選ぶ確率を上げるようにするわけです。そしてその前の局面、その前の局面と遡りながら同じように数値を加減算していきます。でも、&lt;a href=&quot;/software/2015-10-25/machine_learning&quot;&gt;以前の記事&lt;/a&gt;にも書きましたが、辿った全ての局面のデータを一律に同じ数だけ増やして（あるいは減らして）いくというのは確かに少し疑問を感じます。例えば相手の石が揃うのを防がなかったような場合、その手は大悪手であるにも関わらず、序盤の一手と同様の罰しか受けないわけで、感覚的にはそれでいいの？って感じです。だから、ここに書かれているように、報酬も罰も終盤ほど大きな値になるように調整してみました。&lt;br /&gt;
 　まず、最終手が１になるように１を手数で割った値を係数にして、勝ちなら３負けなら−１を掛けた値を反映させるようにしてみました。x 手目の局面の報酬を決めるための係数を y で表します。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
@@ -5318,7 +5318,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 &lt;/table&gt;
 
 &lt;p&gt;　さらに悪化してしまいました(/_;)　でも対乱数プログラムでは改善しています。対乱数プログラムで勝率がアップしたのは係数を大きな値にしたことが素直に反映されたのだと思います。&lt;br /&gt;
-　しかし、対最強プログラムの場合では相手は絶対負けないので勝ち点３を得る機会がないので指数関数で係数を大きくしてもあまり恩恵を受けなかったということでしょう。しかも、係数を大きな値にしたために小石（score配列）を補充する際のデフォルト値を１０から２０に増やす必要があったのです（小石の数がマイナスにならないよう）が、それがよくなかったのだと思います。&lt;a href=&quot;/software/2015-10-25/machine_learning/&quot;&gt;以前の記事&lt;/a&gt;にも書いたように小石の総数を増やすと学習効果が上がらなくなるのです。&lt;br /&gt;
+　しかし、対最強プログラムの場合では相手は絶対負けないので勝ち点３を得る機会がないので指数関数で係数を大きくしてもあまり恩恵を受けなかったということでしょう。しかも、係数を大きな値にしたために小石（score配列）を補充する際のデフォルト値を１０から２０に増やす必要があったのです（小石の数がマイナスにならないよう）が、それがよくなかったのだと思います。&lt;a href=&quot;/software/2015-10-25/machine_learning&quot;&gt;以前の記事&lt;/a&gt;にも書いたように小石の総数を増やすと学習効果が上がらなくなるのです。&lt;br /&gt;
 　もう一つ問題があります。ここでは総手数が６手で終了する場合のデータをもとに作成した回帰方程式を、全ての対戦に使用しています。本来なら総手数毎に動的に計算（LibreOfficeやExcelのgrowth関数のようなものを自作する必要あり？）しなければいけないところを取り敢えず６手の場合で作った方程式を流用して手抜きしているのでよくありません。いい結果に繋がりそうなら追求してみようかと思ってましたが、やってみる価値は無さそうです。&lt;/p&gt;
 
 &lt;h3 id=&quot;終盤の手ほど重要視すべきpart-4&quot;&gt;終盤の手ほど重要視すべき？Part 4&lt;/h3&gt;
@@ -5455,7 +5455,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
    <updated>2015-11-27T00:00:00+09:00</updated>
    <id>http://happyclam.github.io/software/2015-11-27/reinforcement</id>
    <content type="html">&lt;h3 id=&quot;学習型三目並べプログラムの補足&quot;&gt;学習型三目並べプログラムの補足&lt;/h3&gt;
-&lt;p&gt;　３回に渡って学習機能を持った三目並べプログラムに関する記事を書きましたが、２つの事柄について補足しておこうと思います。一つは&lt;a href=&quot;/software/2015-10-19/multi_branched_tree/&quot;&gt;前々回の記事&lt;/a&gt;で触れた多分木データに格納する局面の数をどれぐらいまで絞れるのかという点と、&lt;a href=&quot;/software/2015-10-25/machine_learning/&quot;&gt;前回の記事&lt;/a&gt;で負けても罰を与えない仕様にしたことについてです。&lt;/p&gt;
+&lt;p&gt;　３回に渡って学習機能を持った三目並べプログラムに関する記事を書きましたが、２つの事柄について補足しておこうと思います。一つは&lt;a href=&quot;/software/2015-10-19/multi_branched_tree&quot;&gt;前々回の記事&lt;/a&gt;で触れた多分木データに格納する局面の数をどれぐらいまで絞れるのかという点と、&lt;a href=&quot;/software/2015-10-25/machine_learning&quot;&gt;前回の記事&lt;/a&gt;で負けても罰を与えない仕様にしたことについてです。&lt;/p&gt;
 
 &lt;h3 id=&quot;287個の根拠は不明&quot;&gt;287個の根拠は不明&lt;/h3&gt;
 
@@ -5464,7 +5464,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 　各マッチ箱には、小さい引き出しがあり、開けることができる。Michieは、各マッチ箱にラベルを貼った。このラベルには、３目並べで考えられる２８７の異なる盤面が描かれている。実際はもっと多くのパターンがあることになるが、３行×３列構成の標準的な３目並べのレイアウトは上下左右を入れ替えても同じ内容なので、４つの異なるパターンを１つに集約できる。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;　&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;には上記のように書かれているので多分木データとして保持する必要がある局面の数は回転・対称形をとことん省いていけば6,046から287に絞れるのかと思って縦・横・斜めの対称形とそれぞれの局面を90度ずつ回転させた局面を省いてみても626局面までにしか絞れませんでした。どうすればいいのか見当がつかなかったのでネットで検索してみたところ&lt;a href=&quot;http://www.gensu.co.jp/saito/puzzle/a15hissho1.html&quot;&gt;「数学パズルにトドメをさす？！」&lt;/a&gt;と称するサイトを見つけました。そのサイトからダウンロードできる「三目並べの局面一覧」というファイルを確認してみると、すべての局面の数は447になるとのことです。私が計算した数とどこで食い違うのかを確認してみたのですが、どうやらこのデータはお互いに最善手を打つことを前提にしているようです。このサイトの注意書きに「自分や相手のリーチを見逃さない」と書いてありますが、局面を数えるときに先手・後手のお互いが最善手を選択することを前提にして（おそらく&lt;a href=&quot;/software/2014-09-16/ab_method/&quot;&gt;MIN−MAX法&lt;/a&gt;を使った深さ優先探索を使って）数えているのでしょう。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;には上記のように書かれているので多分木データとして保持する必要がある局面の数は回転・対称形をとことん省いていけば6,046から287に絞れるのかと思って縦・横・斜めの対称形とそれぞれの局面を90度ずつ回転させた局面を省いてみても626局面までにしか絞れませんでした。どうすればいいのか見当がつかなかったのでネットで検索してみたところ&lt;a href=&quot;http://www.gensu.co.jp/saito/puzzle/a15hissho1.html&quot;&gt;「数学パズルにトドメをさす？！」&lt;/a&gt;と称するサイトを見つけました。そのサイトからダウンロードできる「三目並べの局面一覧」というファイルを確認してみると、すべての局面の数は447になるとのことです。私が計算した数とどこで食い違うのかを確認してみたのですが、どうやらこのデータはお互いに最善手を打つことを前提にしているようです。このサイトの注意書きに「自分や相手のリーチを見逃さない」と書いてありますが、局面を数えるときに先手・後手のお互いが最善手を選択することを前提にして（おそらく&lt;a href=&quot;/software/2014-09-16/ab_method&quot;&gt;MIN−MAX法&lt;/a&gt;を使った深さ優先探索を使って）数えているのでしょう。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt; |X|O|3|
  |X|O|6|
@@ -5475,7 +5475,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 　でも機械学習プログラムの多分木データとして用意する局面データは発生し得るすべての局面を用意しておく必要があります。例えば乱数プログラムと対戦するときなどは、あと一手で一列揃うような時でも見逃すことはよくあるので、そういう時に最善手を打つことを前提にした局面しか用意していないと、まさに打つ手が無くなってしまいます。&lt;br /&gt;
 　だから本に書いてある２８７個の局面というのは、おそらく&lt;a href=&quot;http://www.gensu.co.jp/saito/puzzle/a15hissho1.html&quot;&gt;上記サイト&lt;/a&gt;のように局面の先読みすることを考慮すれば２８７個にまで省略出来るということだと思います。&lt;a href=&quot;http://www.gensu.co.jp/saito/puzzle/a15hissho1.html&quot;&gt;上記サイト&lt;/a&gt;では特に局面の数を減らすことを目的にしていないと思いますが、探せば「ここまで局面が進行すれば、相手がどう応じても引き分けに持ち込める」という感じの局面が相当数存在するのだと思います。例えば「自分がダブルリーチをかけたら勝ちが確定する」からそれ以後の局面は用意しなくてもいいというのも一つの例として挙げることができます。そういった手法で先読みを考慮してとことん局面を絞ればまだまだ省略可能な局面が存在するということでしょう。でも、そこまで考慮して事前に用意する局面を絞って学習プログラムを作ると前述したように指し手が選択できないケースが生じてしまいます。&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;に例え話で書かれているように、無人島で人間が判断して局面を省略する分には問題ありませんが…。&lt;br /&gt;
 　と、いうことで苦労して多分木データに格納する局面数を絞っても学習プログラムには使えないので追求するのはここまでにしました。&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;この本&lt;/a&gt;は結構根拠を示さずに結論を書いているところがあるので、２８７という数字が、ちゃんと裏を取った根拠のある数字じゃない可能性もありますが私には何とも言えません。&lt;br /&gt;
-　根拠がある数字と言えば、&lt;a href=&quot;/project/2015-10-10/tictactoe_bfs/&quot;&gt;以前の記事&lt;/a&gt;で、３手目までを重みによる評価関数を使いそれ以降はDFSによる読み切り関数を使ったことを書きましたが、３手目までなら重みによる評価関数を使用しても負けないことを確認したからそうしたわけですが、４手目まで重みによる評価関数を使えば負けてしまうことがあるが、３手目までなら負けないようにすることが出来ることを、根拠を示して証明するのは結構大変です。&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;件の本&lt;/a&gt;も、いちいち根拠を示していたら紙面が足りなくなるという事情があるのかもしれません。たかが三目並べでも突き詰めていくと奥が深いということでしょう。&lt;br /&gt;
+　根拠がある数字と言えば、&lt;a href=&quot;/project/2015-10-10/tictactoe_bfs&quot;&gt;以前の記事&lt;/a&gt;で、３手目までを重みによる評価関数を使いそれ以降はDFSによる読み切り関数を使ったことを書きましたが、３手目までなら重みによる評価関数を使用しても負けないことを確認したからそうしたわけですが、４手目まで重みによる評価関数を使えば負けてしまうことがあるが、３手目までなら負けないようにすることが出来ることを、根拠を示して証明するのは結構大変です。&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;件の本&lt;/a&gt;も、いちいち根拠を示していたら紙面が足りなくなるという事情があるのかもしれません。たかが三目並べでも突き詰めていくと奥が深いということでしょう。&lt;br /&gt;
 　&lt;a href=&quot;http://www.gensu.co.jp/saito/puzzle/a15hissho1.html&quot;&gt;件のサイト&lt;/a&gt;では「３目並べず&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;」のデータとして最善手を選択することを前提としていないデータも用意してあって、そのファイルでは私が数えた626に近い数になっています（以下に比較表を用意しました）。でも私が数えたときの前提条件は「既に勝負がついた局面は省く」というものなので、微妙に数値が異なっています。私は機械学習プログラムで使用する多分木データに必要なデータということで考えているので、例えば９箇所すべてが埋まっている局面のデータはすでに勝ちか負けか引き分けかの勝負がついた局面なので、必要がないため９手目の局面は０になっています。&lt;/p&gt;
 
 &lt;table&gt;
@@ -5554,7 +5554,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 &lt;p&gt;&lt;a href=&quot;/pdf/aspects.txt&quot;&gt;三目並べのすべての局面データ（ X が先手、回転・対称形は同一局面と見做して除く）&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;信賞必罰が基本だけど目的を間違えてはいけない&quot;&gt;信賞必罰が基本だけど、目的を間違えてはいけない&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/software/2015-10-25/machine_learning/&quot;&gt;前回の記事&lt;/a&gt;で石の数が足りなくなるのを防ぐために負けても罰を与えない（石を減らさない）仕様にしたところで終わりました（勝ちが＋３、引き分けが＋１、負けが±０）が、やはりこれはよくないと思い直しました。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;/software/2015-10-25/machine_learning&quot;&gt;前回の記事&lt;/a&gt;で石の数が足りなくなるのを防ぐために負けても罰を与えない（石を減らさない）仕様にしたところで終わりました（勝ちが＋３、引き分けが＋１、負けが±０）が、やはりこれはよくないと思い直しました。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt; |X|X|3|
  |4|O|6|
@@ -5616,10 +5616,10 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
       &lt;p&gt;「三目並べず」とは一体何のことか分からなかったのですが、&lt;a href=&quot;http://www.gensu.co.jp/saito/puzzle/a15hissho1.html&quot;&gt;このサイト&lt;/a&gt;では、三目並べたら勝ちとなる（従って三目並べるために最善を尽くす）ゲームを「三目並べ」、相手に三目並べさせたら勝ちとなるゲームを「三目並べず」としているようです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:2&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;/software/2015-10-25/machine_learning/&quot;&gt;前回の記事&lt;/a&gt;で駒が打てない場所は 0 にしていましたが、今回から nil に変更しています。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;/software/2015-10-25/machine_learning&quot;&gt;前回の記事&lt;/a&gt;で駒が打てない場所は 0 にしていましたが、今回から nil に変更しています。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:3&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;/software/2015-10-25/machine_learning/&quot;&gt;前回の記事&lt;/a&gt;の結果と同様に、最強プログラムとの対戦後のscore配列の状態は、初期盤面で真ん中（”5”）より”2”の位置の値が大きくなっていますが、これは対戦に使用した最強プログラムが一切乱数を使用していないため、特徴的な指し手（毎回同じ勝ち手順）を選んでいるのが原因だと思います。完全読み切り必勝プログラムでもいろいろな勝ち手順をランダムに選択するようにすればいいのですがそこまではやってません。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;/software/2015-10-25/machine_learning&quot;&gt;前回の記事&lt;/a&gt;の結果と同様に、最強プログラムとの対戦後のscore配列の状態は、初期盤面で真ん中（”5”）より”2”の位置の値が大きくなっていますが、これは対戦に使用した最強プログラムが一切乱数を使用していないため、特徴的な指し手（毎回同じ勝ち手順）を選んでいるのが原因だと思います。完全読み切り必勝プログラムでもいろいろな勝ち手順をランダムに選択するようにすればいいのですがそこまではやってません。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
@@ -5636,14 +5636,14 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;多分木データ&lt;/strong&gt;（Player.trees）&lt;br /&gt;
-　&lt;a href=&quot;/software/2015-10-19/multi_branched_tree/&quot;&gt;前回の記事&lt;/a&gt;で用意した全局面分のデータです。学習データを利用して手を決めることになるので評価関数は不要になりました。&lt;/li&gt;
+　&lt;a href=&quot;/software/2015-10-19/multi_branched_tree&quot;&gt;前回の記事&lt;/a&gt;で用意した全局面分のデータです。学習データを利用して手を決めることになるので評価関数は不要になりました。&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;学習機能&lt;/strong&gt;（Player.learning）&lt;br /&gt;
 　勝った時は報酬を与えて（石の数を増やす）負けたら罰を与える（石の数を減らす）ことで学習効果を上げていくわけですが、&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;には勝ちと引き分けに差をつけて、勝ちは＋３、引き分けは＋１がいいと書いてありますのでその通りにしています。そして、そこには負けた場合どうすればいいのか書いてありませんが、負けたら石を海に投げ込むという描写もあるので−１でいいだろうと思い負けは−１にしています。もしかしたら±０でいいのかもしれませんし、逆に負けを−３にする方法もありそうですがこの辺りは評価関数の調整と同じでキリがないのでとりあえずの値です。&lt;br /&gt;
 　それと、実際に着手した局面の一手前の石の数（score配列）を操作するということに注意が必要です。&lt;br /&gt;
 &lt;img src=&quot;/images/battle_ex1.png&quot; alt=&quot;例１&quot; /&gt;&lt;br /&gt;
 　各局面が持っている石の数（score配列）はその局面で打てる場所に存在し次の手を決めるためにあるので、ソフト側が先手（X）で上記のような経過を辿って負けた場合、５手目の局面でOが揃うのを防がなかったのが悪かったということで、一つ前の４手目の局面の石（score配列）を−１します。４手目の局面で先手（X）が”2”（配列の添え字は1）を選ばずに”6”を選んだことが負けの原因なので”6”の位置のscore配列の値を−１します。score配列の初期値は[10,10,10,10,10,10,10,10,10]なので、４手目の局面のscore配列を[10,10,10,10,10,9,10,10,10]にするということです。同様に２手目で”7”を選んだことが悪かった、０手目（初期盤面）で”5”を選んだことが悪かったと評価して２手目のscore配列を[10,10,10,10,10,10,9,10,10]、０手目のscore配列を[10,10,10,10,9,10,10,10,10]にして次回からその局面でその手が選ばれにくくなるようにします。&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;ファイル入出力機能&lt;/strong&gt;（Player.prepare、Tree::read、Tree::save）&lt;br /&gt;
-　&lt;a href=&quot;/software/2015-10-19/multi_branched_tree/&quot;&gt;前回の記事&lt;/a&gt;のスクリプトの例でinitメソッドとしていましたが、他でも使用しているのでprepareメソッドに名前を変えました。起動時にTreeオブジェクトのシリアライズデータ（trees.dump）がカレントディレクトリにあればそれを読み込み、無ければBFS探索で重複局面を省いた三目並べの全局面のツリーデータを生成します。オブジェクト指向言語には必ず用意されているシリアライズ機能はオブジェクトを丸ごと保存できるので便利です。&lt;/li&gt;
+　&lt;a href=&quot;/software/2015-10-19/multi_branched_tree&quot;&gt;前回の記事&lt;/a&gt;のスクリプトの例でinitメソッドとしていましたが、他でも使用しているのでprepareメソッドに名前を変えました。起動時にTreeオブジェクトのシリアライズデータ（trees.dump）がカレントディレクトリにあればそれを読み込み、無ければBFS探索で重複局面を省いた三目並べの全局面のツリーデータを生成します。オブジェクト指向言語には必ず用意されているシリアライズ機能はオブジェクトを丸ごと保存できるので便利です。&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;指し手選択機能&lt;/strong&gt;（Tree.apply）&lt;br /&gt;
 　指定された局面を探し出して、その局面で選択可能な手毎に用意されている石ころの数（score配列の値）によって指し手を選ぶわけですが、いつも一番石ころが多い手を選ぶわけではありません。&lt;br /&gt;
 　「その箇所にある石の数（score配列の値）／その局面の石の総数（score配列の合計値）」&lt;br /&gt;
@@ -5676,7 +5676,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 
 &lt;h3 id=&quot;学習効果&quot;&gt;学習効果&lt;/h3&gt;
 &lt;p&gt;　以前RubyとShoesでGUIの将棋ソフトを作った時は&lt;a href=&quot;http://morizyun.github.io/blog/ruby-design-pattern-03-Observer/&quot;&gt;Observerパターン&lt;/a&gt;を使ってソフト同士の対戦を眺めて楽しめるように作った&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;のですが、三目並べは一瞬で勝負がつくし見学しても楽しくないのでCUIでループで回してソフト同士対戦させて学習効果がどの程度出るのか確認してみました。&lt;br /&gt;
-　乱数で手を選択する弱いプログラムと、これまでに&lt;a href=&quot;/project/2014-08-05/tictactoe/&quot;&gt;記事で紹介していたDFS探索アルゴリズム（αβ法）を使った最強プログラム&lt;/a&gt;（絶対負けることがない）との対戦結果です。１００回の対戦を１回として１０回戦までの結果が以下の通りです。&lt;/p&gt;
+　乱数で手を選択する弱いプログラムと、これまでに&lt;a href=&quot;/project/2014-08-05/tictactoe&quot;&gt;記事で紹介していたDFS探索アルゴリズム（αβ法）を使った最強プログラム&lt;/a&gt;（絶対負けることがない）との対戦結果です。１００回の対戦を１回として１０回戦までの結果が以下の通りです。&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -5928,7 +5928,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
    <updated>2015-10-19T00:00:00+09:00</updated>
    <id>http://happyclam.github.io/software/2015-10-19/multi_branched_tree</id>
    <content type="html">&lt;h3 id=&quot;無作為選択を人工知能に&quot;&gt;無作為選択を人工知能に&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「Statistics Hacks」&lt;/a&gt;という本の中でココナッツの殻と石ころを使って、学習機能を持つ三目並べプログラムが作れるという話が書かれていました。無人島に漂流して何もすることがない人の暇つぶしのためにどうぞという感じで、非常に砕けた調子で書かれているのです（この本全体がそんな感じです）が、一応裏を取った根拠のある話が書かれている真面目な本だと思います。そして&lt;a href=&quot;/project/2015-10-10/tictactoe_bfs/&quot;&gt;前回の記事&lt;/a&gt;で書いたようにBFSアルゴリズムの使い途を考えていた私は「これは使える」と思いました。この本で三目並べについてに書かれている部分はほんの数ページだけなのですが、難しい数式を使っていないので、書かれている内容（アイデア）だけでプログラム作成に必要な情報は十分にあると自分には思われました。但し、その結果強いプログラムが完成するかどうかはやってみないとわからないし、強くなるとしてもどの程度強くなるのか興味が湧いてきたので試してみることにしました。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「Statistics Hacks」&lt;/a&gt;という本の中でココナッツの殻と石ころを使って、学習機能を持つ三目並べプログラムが作れるという話が書かれていました。無人島に漂流して何もすることがない人の暇つぶしのためにどうぞという感じで、非常に砕けた調子で書かれているのです（この本全体がそんな感じです）が、一応裏を取った根拠のある話が書かれている真面目な本だと思います。そして&lt;a href=&quot;/project/2015-10-10/tictactoe_bfs&quot;&gt;前回の記事&lt;/a&gt;で書いたようにBFSアルゴリズムの使い途を考えていた私は「これは使える」と思いました。この本で三目並べについてに書かれている部分はほんの数ページだけなのですが、難しい数式を使っていないので、書かれている内容（アイデア）だけでプログラム作成に必要な情報は十分にあると自分には思われました。但し、その結果強いプログラムが完成するかどうかはやってみないとわからないし、強くなるとしてもどの程度強くなるのか興味が湧いてきたので試してみることにしました。&lt;/p&gt;
 
 &lt;h3 id=&quot;多分木構造に全局面データを格納&quot;&gt;多分木構造に全局面データを格納&lt;/h3&gt;
 &lt;p&gt;　とりあえずBFSで全局面を探索しながら多分木構造のデータを生成し、DBは使わずそのデータをシリアライズして保存（RubyのMarshal.dump）して利用するという方針だけ決めて作業にかかりました。&lt;br /&gt;
@@ -5996,7 +5996,7 @@ end
 　データを操作するのは常に木構造の根（ルート,root）から再帰関数を呼び出す形になるので特徴的でシンプルなコードになります。今回はscoreという特殊な要素も付加したのでこのTreeクラスは汎用的なものではなくなってますが、使用するメソッドは多分木を使う時は常に似たような感じ（再帰関数ばかり）になるんじゃ無いでしょうか。&lt;/p&gt;
 
 &lt;h3 id=&quot;いい加減な数値検証&quot;&gt;いい加減な数値検証&lt;/h3&gt;
-&lt;p&gt;　手始めに&lt;a href=&quot;/project/2015-10-10/tictactoe_bfs/&quot;&gt;前回の記事&lt;/a&gt;で作成したbfsメソッドと上記Treeクラスを使って三目並べの局面がどれほどの数になるのか数えようと思い重複チェック（check_dupメソッド）を外して試してみたところ、いつまで経っても処理が終わりません。&lt;/p&gt;
+&lt;p&gt;　手始めに&lt;a href=&quot;/project/2015-10-10/tictactoe_bfs&quot;&gt;前回の記事&lt;/a&gt;で作成したbfsメソッドと上記Treeクラスを使って三目並べの局面がどれほどの数になるのか数えようと思い重複チェック（check_dupメソッド）を外して試してみたところ、いつまで経っても処理が終わりません。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;    board = Board.new([nil, nil, nil, nil, nil, nil, nil, nil, nil])
     trees = Tree.new(board)
@@ -6190,7 +6190,7 @@ end until buf == nil
     end
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;　DFSの場合なら、勝ちか負けか引分けかの３値のうちどれかを返す読み切り用の評価関数を呼び出して、先手なら評価値が大きい方後手なら小さい方を選ぶという処理を書くだけで、先手番の局面・後手番の局面と実際に人間がゲームを進める時のように交互に局面を評価しながら辿っていくのに対して、BFSで同じようにコードを書くと、一手目に現われ得る全局面を評価＆比較し、それが終わったら二手目の全局面を評価＆比較するという順序で局面を辿っていくため、お互いに最善手を打つという&lt;a href=&quot;/software/2014-09-16/ab_method/&quot;&gt;MIN-MAX法&lt;/a&gt;のロジックが働いていません。とりあえずBFSで書き換えたものを実際に動かしてみても非常に弱いプログラムになります。&lt;/p&gt;
+&lt;p&gt;　DFSの場合なら、勝ちか負けか引分けかの３値のうちどれかを返す読み切り用の評価関数を呼び出して、先手なら評価値が大きい方後手なら小さい方を選ぶという処理を書くだけで、先手番の局面・後手番の局面と実際に人間がゲームを進める時のように交互に局面を評価しながら辿っていくのに対して、BFSで同じようにコードを書くと、一手目に現われ得る全局面を評価＆比較し、それが終わったら二手目の全局面を評価＆比較するという順序で局面を辿っていくため、お互いに最善手を打つという&lt;a href=&quot;/software/2014-09-16/ab_method&quot;&gt;MIN-MAX法&lt;/a&gt;のロジックが働いていません。とりあえずBFSで書き換えたものを実際に動かしてみても非常に弱いプログラムになります。&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;DFSの先読み順序&lt;/li&gt;
@@ -6213,10 +6213,10 @@ end until buf == nil
 &lt;/div&gt;
 
 &lt;p&gt;　なぜBFSだと弱いのか考えてみると、まず一手目、二手目という勝負がつかないところの評価はDFSもBFSも同じですが、勝負がついた時の評価がDFSだと局面を評価した後に一手前に戻った時（スタックからpopupした時）に評価値を比較して相手に有利だった場合にその手を避けることが出来るのに対して、BFSだと勝ちなら勝ち、負けなら負けの評価のまま上書き（比較する時に等号があれば上書き、無ければ無視）し続けることになります。それに一手前に戻って選択した手を変えることがないということは、BFSで勝ちの評価を得た局面に至ったとしても、それは相手が自分にとって有利な手を打ってくれたからこそその局面になった可能性が高いわけです。この点が迷路を解くのと違うところだと思いますが、迷路の場合は普通は正解が一つでその正解手順を発見した時点で先読みを打ち切ればいいわけですが、三目並べ等の対戦ゲームの場合は勝ち局面に至る手順が一通りではなくかなりの数になリ、勝ち局面に至ったといっても相手がお手伝いしてくれている場合が多いのです。将棋で「二人掛かりで玉を詰める」などとヘボ将棋を揶揄することがありますが、まさにそういう状態で勝ち局面を発見して「自分の勝ちだ」と評価して手を選んでいる状態がBFSの手順になります。&lt;br /&gt;
-　また、上の図の先読み順序の違いを見れば、時間制限があるような時にBFSだと確かに思考をいきなり中断された時に安定した評価を得られそうですが、その評価が独りよがりの評価になっているのでは意味がありません。仕方がないので、使用する評価関数を勝ち、負け、引分けの３値を返すものから、重み（真ん中が２点、角が１点、辺が０点）による評価関数に変えて序盤（３手目まで）をBFSで読み、３手目以降はDFSで読んで手を決定するようにしました。でもこれは重みによる評価関数を使用すればBFSによる先読みが有効に働くというわけではなく、BFSを使用している限り独りよがりの読みになっている点は同じなのですが、以前&lt;a href=&quot;/project/2014-08-05/tictactoe/&quot;&gt;記事&lt;/a&gt;に書いたように初手からDFSで読み切ると勝つことを諦めてしまって、勝つ可能性が高くなるにもかかわらず初手に真ん中を選んでくれないので、重みによる評価関数を使って初手に真ん中を選ぶようにしているだけです。でも初手に真ん中を選ぶようにするだけなら評価関数だけを変えればいいことで、先読みアルゴリズムをDFSからBFSに変更する必要はありません。つまり今&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;github&lt;/a&gt;にアップされているソースはせっかく作ったからBFSのロジックを組み込んでいるだけと言えます&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+　また、上の図の先読み順序の違いを見れば、時間制限があるような時にBFSだと確かに思考をいきなり中断された時に安定した評価を得られそうですが、その評価が独りよがりの評価になっているのでは意味がありません。仕方がないので、使用する評価関数を勝ち、負け、引分けの３値を返すものから、重み（真ん中が２点、角が１点、辺が０点）による評価関数に変えて序盤（３手目まで）をBFSで読み、３手目以降はDFSで読んで手を決定するようにしました。でもこれは重みによる評価関数を使用すればBFSによる先読みが有効に働くというわけではなく、BFSを使用している限り独りよがりの読みになっている点は同じなのですが、以前&lt;a href=&quot;/project/2014-08-05/tictactoe&quot;&gt;記事&lt;/a&gt;に書いたように初手からDFSで読み切ると勝つことを諦めてしまって、勝つ可能性が高くなるにもかかわらず初手に真ん中を選んでくれないので、重みによる評価関数を使って初手に真ん中を選ぶようにしているだけです。でも初手に真ん中を選ぶようにするだけなら評価関数だけを変えればいいことで、先読みアルゴリズムをDFSからBFSに変更する必要はありません。つまり今&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;github&lt;/a&gt;にアップされているソースはせっかく作ったからBFSのロジックを組み込んでいるだけと言えます&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 
 &lt;h3 id=&quot;まとめ&quot;&gt;まとめ&lt;/h3&gt;
-&lt;p&gt;　結局、冒頭に書いた幅優先探索のメリット１も２も一見正しいように思えるけど、BFSだけでこのメリットを実現することは無理そうです。もう昔のことでこのメリットについてどこで読んだのかも覚えていないのですが、まずBFSで局面を絞った後で、その絞った局面から&lt;a href=&quot;/software/2014-09-16/ab_method/&quot;&gt;MIN-MAX法&lt;/a&gt;を使って先読みを続けて手を決めるというような趣旨だったかもしれません。でもまぁ今回実際にプログラムを書くことによって、迷路を解くのとは違う問題があることを知ることが出来ました。&lt;br /&gt;
+&lt;p&gt;　結局、冒頭に書いた幅優先探索のメリット１も２も一見正しいように思えるけど、BFSだけでこのメリットを実現することは無理そうです。もう昔のことでこのメリットについてどこで読んだのかも覚えていないのですが、まずBFSで局面を絞った後で、その絞った局面から&lt;a href=&quot;/software/2014-09-16/ab_method&quot;&gt;MIN-MAX法&lt;/a&gt;を使って先読みを続けて手を決めるというような趣旨だったかもしれません。でもまぁ今回実際にプログラムを書くことによって、迷路を解くのとは違う問題があることを知ることが出来ました。&lt;br /&gt;
 　ネットで検索してみると幅優先探索を使用していて尚且つ強い（であろう）オセロプログラムについての記述を見つけることができました&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;が、どのように強くしているか詳細はわかりません。でも「定石」と「学習」という単語が出てきているのでBFSで形成したツリー構造に定跡データを格納して利用するということかもしれません。単に定跡データを格納しておくだけなら起動時にデータとして読み込めばよく動的にツリー構造を辿る必要はないので、学習しながら保存するということなのでしょう。確かにそういう使い方なら納得できます。&lt;/p&gt;
 
 &lt;h3 id=&quot;もう一つのまとめ&quot;&gt;もう一つのまとめ&lt;/h3&gt;
@@ -7770,12 +7770,12 @@ end
    <updated>2014-10-04T00:00:00+09:00</updated>
    <id>http://happyclam.github.io/software/2014-10-04/arrange_line</id>
    <content type="html">&lt;h3 id=&quot;先読み手数を制限しても必勝の結論は出ないはず&quot;&gt;先読み手数を制限しても必勝の結論は出ないはず&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/software/2014-09-23/tictactoe_arrange/&quot;&gt;前回の記事&lt;/a&gt;で自分が作ったプログラムは千日手対応をしていないから先手必勝の結論が出ても信用できないって書きましたが、よく考えてみたら千日手対応していなくても先手必勝の評価が出てくるってことは、ArrangeLineってゲームが先手必勝であるか検証に使った自分のプログラムがバグっているかのどちらかであると気づきました。評価関数が返す値は一つの局面に関して勝ちか負けか引き分けかの三種類にしか分けていないので、千日手の局面は引き分けの一局面として評価しているはずで、引き分けに成り得るなら後手は引き分けになる手を選択し先手勝ちの評価にはならない。スタンダードの三目並べを調べた場合と違って、11手読みという手数を限定して先読みをしているわけだからそんなこともあるかと流してしまったけど、読み切っていないから勝ちか負けか決められない（引き分けになる）という評価が返ってくることはあっても、引き分けがあり得るのに必勝・必敗の評価を返してくるというのはバグっている可能性が高いのではないか。でも一応スタンダードな三目並べでは問題なさそうだし、バグの見当が付かなかったのでまずは先に千日手対応をしてみることにしました。&lt;br /&gt;
+&lt;p&gt;　&lt;a href=&quot;/software/2014-09-23/tictactoe_arrange&quot;&gt;前回の記事&lt;/a&gt;で自分が作ったプログラムは千日手対応をしていないから先手必勝の結論が出ても信用できないって書きましたが、よく考えてみたら千日手対応していなくても先手必勝の評価が出てくるってことは、ArrangeLineってゲームが先手必勝であるか検証に使った自分のプログラムがバグっているかのどちらかであると気づきました。評価関数が返す値は一つの局面に関して勝ちか負けか引き分けかの三種類にしか分けていないので、千日手の局面は引き分けの一局面として評価しているはずで、引き分けに成り得るなら後手は引き分けになる手を選択し先手勝ちの評価にはならない。スタンダードの三目並べを調べた場合と違って、11手読みという手数を限定して先読みをしているわけだからそんなこともあるかと流してしまったけど、読み切っていないから勝ちか負けか決められない（引き分けになる）という評価が返ってくることはあっても、引き分けがあり得るのに必勝・必敗の評価を返してくるというのはバグっている可能性が高いのではないか。でも一応スタンダードな三目並べでは問題なさそうだし、バグの見当が付かなかったのでまずは先に千日手対応をしてみることにしました。&lt;br /&gt;
 　その前にArrangeLineをダウンロードして自分のプログラムと対戦させて確認したのですが、ArrangeLineのLevel2で自分のプログラムが先手なのに千日手になり決着が付かないケースがありました。実際に千日手になることを確認していたためArrangeLineは双方最善手を打てば千日手になるゲームだと思ってしまったのですが、繰返しますが千日手になるのであればやっぱり先手必勝の結論が出るのはおかしい。&lt;/p&gt;
 
 &lt;h3 id=&quot;千日手対応&quot;&gt;千日手対応&lt;/h3&gt;
 &lt;p&gt;　先読みの最中に過去に現れた局面が一定周期で続いて現れるかどうかを判定するってプログラムが重くなりそうだし、難しそうな気がして対応する気がしなかったのですが、よく考えてみると先読みの最中である必要は無く、実際に打った一手だけを局面毎に保存しておいて、先読みを開始する一手目の時だけ過去に同一局面があったかどうかを調べるだけで済みそうです。これなら重くなることもありません。&lt;br /&gt;
-　※&lt;a href=&quot;/software/2014-09-23/tictactoe_arrange/&quot;&gt;前回の記事&lt;/a&gt;で必ず千日手になることを証明するのは難しいと書いたのは、完全読み切りが出来ない場合（将棋もその一つ）はたしかにその通りですが、先手必勝あるいは後手必勝という結論を返してくるということは完全読み切りが出来ているということなので、その時点で千日手は結論に関係無かったと言うことです。&lt;/p&gt;
+　※&lt;a href=&quot;/software/2014-09-23/tictactoe_arrange&quot;&gt;前回の記事&lt;/a&gt;で必ず千日手になることを証明するのは難しいと書いたのは、完全読み切りが出来ない場合（将棋もその一つ）はたしかにその通りですが、先手必勝あるいは後手必勝という結論を返してくるということは完全読み切りが出来ているということなので、その時点で千日手は結論に関係無かったと言うことです。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;  #過去に同一局面があったかどうか判定
   def check_dup(sengo)
@@ -7855,7 +7855,7 @@ end
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;　ArrangeLineは乱数を使っているようなのでこの表の結果はいつも同じではないはずですが、自作プログラムが先手の場合はいつも勝ちます。それと千日手対応したのに千日手になることがあるのは自作のプログラムが後手で、負けるはずなのにArrangeLine側が初手で辺の部分（2,4,6,8）を取らなかったために起きる現象です。自作ソフト側としては後手なので勝てないから千日手に持っていくしか無い状況ってことです。これは&lt;a href=&quot;/software/2014-09-23/tictactoe_arrange/&quot;&gt;前回の記事&lt;/a&gt;で初手から検証した時に以下の結果になったことと符合します。初手で辺の部分を取らない場合は、勝てるとは限らないということです。&lt;/p&gt;
+&lt;p&gt;　ArrangeLineは乱数を使っているようなのでこの表の結果はいつも同じではないはずですが、自作プログラムが先手の場合はいつも勝ちます。それと千日手対応したのに千日手になることがあるのは自作のプログラムが後手で、負けるはずなのにArrangeLine側が初手で辺の部分（2,4,6,8）を取らなかったために起きる現象です。自作ソフト側としては後手なので勝てないから千日手に持っていくしか無い状況ってことです。これは&lt;a href=&quot;/software/2014-09-23/tictactoe_arrange&quot;&gt;前回の記事&lt;/a&gt;で初手から検証した時に以下の結果になったことと符合します。初手で辺の部分を取らない場合は、勝てるとは限らないということです。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt; |1|2|3|
  |4|5|6|
@@ -7880,7 +7880,7 @@ end
 
 &lt;/div&gt;
 
-&lt;p&gt;　先手がリーチ（あと一手でラインが揃う）状態になっても揃うことを防ごうとしないことがあるのです。最初はバグか？と思いましたが、これもよく考えてみると私のソフト側は後手で尚且つ初手で辺の部分を取られていると、どう足掻いても負けることがわかっているので勝つことを諦めているわけです。&lt;a href=&quot;/project/2014-08-05/tictactoe/&quot;&gt;以前の記事&lt;/a&gt;に通常ルールの三目並べソフトが初手に有利なはずの真ん中を取らないことを書きましたが、初手にどこを取っても引き分けになることを読み切っている（初手にどこを選んでも引き分けの評価値が返ってくる）ので、1（左上隅）の場所から順に読み始めて最後に評価した9の場所（右下隅）を取る現象と同じです。ArrangeLineでも初手に辺の部分を取られているとその後どういう変化をしようが負けることがわかっている（先手勝ちの評価値MAX_VALUE=9が返ってくる）ため、相手がリーチをかけていようがいまいが関係なくたまたま最後に評価した場所を選んでしまいます。一回リーチを防いでも負けることが分かってるのですから…。&lt;br /&gt;
+&lt;p&gt;　先手がリーチ（あと一手でラインが揃う）状態になっても揃うことを防ごうとしないことがあるのです。最初はバグか？と思いましたが、これもよく考えてみると私のソフト側は後手で尚且つ初手で辺の部分を取られていると、どう足掻いても負けることがわかっているので勝つことを諦めているわけです。&lt;a href=&quot;/project/2014-08-05/tictactoe&quot;&gt;以前の記事&lt;/a&gt;に通常ルールの三目並べソフトが初手に有利なはずの真ん中を取らないことを書きましたが、初手にどこを取っても引き分けになることを読み切っている（初手にどこを選んでも引き分けの評価値が返ってくる）ので、1（左上隅）の場所から順に読み始めて最後に評価した9の場所（右下隅）を取る現象と同じです。ArrangeLineでも初手に辺の部分を取られているとその後どういう変化をしようが負けることがわかっている（先手勝ちの評価値MAX_VALUE=9が返ってくる）ため、相手がリーチをかけていようがいまいが関係なくたまたま最後に評価した場所を選んでしまいます。一回リーチを防いでも負けることが分かってるのですから…。&lt;br /&gt;
 　この現象を防ぐにはどうすればいいのか、前にも書きましたが将棋にしろオセロにしろ局面の形勢判断用の評価関数と読み切り用（将棋で言えば詰将棋用）の評価関数を分けて使用するか、リーチを優先的に防ぐ処理（将棋で言えば王手放置を避ける）を用意すればいいのでしょうが、相手が間違えない限り手数を伸ばすだけで、勝敗は既に決まっています。将棋と違って完全読切りが完了しているゲームでこの処理を入れるのは虚しいだけでしょう。ただ、このArrangeLineに関して言えばandroid端末用のゲームなので完全読切りするにはマシンパワーの制限で難しいからそれなりに形勢判断用の評価関数を工夫する意味はあると思います。自分はあまり興味湧きませんが…&lt;br /&gt;
 　今回の記事の中で「よく考えてみると」と何度も書いてますが、この手のソフトは自分の意図通りに動いているのかうまくいっていないのか結構悩まされます。最後の例でもそうですが、考えて納得して改良したあとにいきなり5手で負けたりするとさっぱり意味が分からなくなりました。でも、特別なアルゴリズムを使わなくても完全読み切りが出来るわけですから、将棋なんかに較べたら作り易いゲームではあると思います。今回、千日手回避のために他にもいろいろ試行錯誤したのでそれらの手法を使って将棋作りに活かしてみようと思っています。&lt;/p&gt;
 
@@ -7893,7 +7893,7 @@ end
    <updated>2014-09-23T00:00:00+09:00</updated>
    <id>http://happyclam.github.io/software/2014-09-23/tictactoe_arrange</id>
    <content type="html">&lt;h3 id=&quot;いろんなテストケース&quot;&gt;いろんなテストケース&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/project/2014-08-05/tictactoe/&quot;&gt;以前作った三目並べのプログラム&lt;/a&gt;でいろいろ遊んでみました。&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;githubに公開&lt;/a&gt;しているので暇な人はソースをいじって試すこともできます。但し、短いソースとはいえ自分でコードを読んで編集する必要があります。もともとは対戦用プログラムとして作ったものですが、テスト用に9ヶ所の升目を順に取っていってその時の評価値を表示するように作った関数を使って、いろんなケースでプログラムの検証をしてみます。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;/project/2014-08-05/tictactoe&quot;&gt;以前作った三目並べのプログラム&lt;/a&gt;でいろいろ遊んでみました。&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;githubに公開&lt;/a&gt;しているので暇な人はソースをいじって試すこともできます。但し、短いソースとはいえ自分でコードを読んで編集する必要があります。もともとは対戦用プログラムとして作ったものですが、テスト用に9ヶ所の升目を順に取っていってその時の評価値を表示するように作った関数を使って、いろんなケースでプログラムの検証をしてみます。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;NOUGHT = -1
 CROSS = 1
@@ -7977,7 +7977,7 @@ MIN_VALUE = -9
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;　すべてのケースで引き分けになることを示していて、最初のテスト結果と符合しますので、一応プログラムは正常に動作しているようです。&lt;br /&gt;
-　あと、&lt;a href=&quot;/software/2014-09-16/ab_method/&quot;&gt;前回の記事&lt;/a&gt;にも書きましたが、αβ法がうまく機能していれば最終的な評価値の結果がMIN-MAX法と一致するはずです。&lt;/p&gt;
+　あと、&lt;a href=&quot;/software/2014-09-16/ab_method&quot;&gt;前回の記事&lt;/a&gt;にも書きましたが、αβ法がうまく機能していれば最終的な評価値の結果がMIN-MAX法と一致するはずです。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;      if (temp_v &amp;gt;= value &amp;amp;&amp;amp; turn == CROSS) 
         value = temp_v 
