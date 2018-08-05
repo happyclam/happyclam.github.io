@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2018-08-04T08:04:54+09:00</updated>
+ <updated>2018-08-05T19:21:00+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -503,7 +503,7 @@ Second Win
 &lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;では千日手回避のために特別な処理はしていません。あくまでも私の主観ですが、千日手になるのが当然の成り行きと思えるケースが多いためです&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。しかし&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;の場合は駒の損得が発生しない序盤の段階で千日手になってしまうケースがあまりにも多いので千日手回避のロジックを組み込んでいます。同じ局面が３回発生した場合にはＡＩの手を次善手（あくまでもアプリのＡＩが次善手と判断しているだけです）を指すようにして、なるべく千日手を回避するようにしています。但し次善手を指していても千日手になることもあるので、絶対千日手を避けるというわけではありません。&lt;/p&gt;
 
 &lt;h3 id=&quot;瞑想モード追加&quot;&gt;瞑想モード追加&lt;/h3&gt;
-&lt;p&gt;　Version1.0.0.2で瞑想モードを追加しました。「読みの深さ」のところで説明していますが、「長考」モードでは３手読みで候補手を１３手に絞ってその候補手に対して５手読みを行いますが、「瞑想」モードでは候補手を絞らずに３手読みしたすべての手を評価値でソートした後に５手読みしています。読みの深さは変わっていませんので、詰みを見つけた場合等、枝刈りが効果的に働いて「長考」モードより応答が速くなることもあります。&lt;/p&gt;
+&lt;p&gt;　Version1.0.0.2で瞑想モードを追加しました。「読みの深さ」のところで説明していますが、「長考」モードでは３手読みで候補手を１３手に絞ってその候補手に対して５手読みを行いますが、「瞑想」モードでは候補手を絞らずに３手読みしたすべての手を評価値でソートした後に５手読みしています。読みの深さは変わっていませんので、詰みを見つけた場合等、枝刈りが効果的に働いて「長考」モードより応答が速くなることもあります。但し、ゲーム終盤に詰みを逃しにくくなったのは確かですが、自分がテストしている限りにおいては「長考」モードより強いかどうかは微妙なところです。&lt;/p&gt;
 
 &lt;hr /&gt;
 
