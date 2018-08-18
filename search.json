@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "BFSで将棋パズルを解く",
+      "category" : "software",
+      "tags"     : "coffeescript, javascript, shogi",
+      "url"      : "http://happyclam.github.io/software/2018-08-18/puzzle",
+      "date"     : "2018-08-18 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "CUIで９マス将棋を解く",
       "category" : "project",
       "tags"     : "coffeescript, cordova, android, javascript, shogi",

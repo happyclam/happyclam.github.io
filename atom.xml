@@ -4,13 +4,301 @@
  <title>自己満足プログラミング</title>
  <link href="http://happyclam.github.io/" rel="self"/>
  <link href="http://happyclam.github.io"/>
- <updated>2018-08-05T19:21:00+09:00</updated>
+ <updated>2018-08-18T13:03:34+09:00</updated>
  <id>http://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>BFSで将棋パズルを解く</title>
+   <link href="http://happyclam.github.io/software/2018-08-18/puzzle"/>
+   <updated>2018-08-18T00:00:00+09:00</updated>
+   <id>http://happyclam.github.io/software/2018-08-18/puzzle</id>
+   <content type="html">&lt;h3 id=&quot;将棋パズルとは&quot;&gt;将棋パズルとは&lt;/h3&gt;
+&lt;p&gt;　数年前にTwitterで女流棋士の中倉彰子さんの呟きを見てその存在を知りました、最近&lt;a href=&quot;https://www.amazon.co.jp/脳がぐんぐん成長する-将棋パズル-中倉-彰子/dp/486280604X&quot;&gt;書籍&lt;/a&gt;を出されたようです。子供の頃４×４の１６マスのケースに１〜１５までの数字が書かれたバラバラのピースを数字の順に並べ直すというパズルをやったことがありますが、それの将棋版と思えばいいと思います。但し盤面は３×３で先手番の駒だけを自由に配置し、スタートの局面から将棋の駒を動かしてゴールの局面に変化させるというもので、まず将棋の駒の動きを覚えないと出来ません。パズルの存在を知った時は解答を得るためのプログラムを作ろうなんて思いませんでしたが、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;を作った直後なので、プログラムに必要な部品が全て揃っているので作ってみました。&lt;/p&gt;
+
+&lt;h3 id=&quot;必要な作業&quot;&gt;必要な作業&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;駒の動きを定義したPieceクラス（作成済み）&lt;/li&gt;
+  &lt;li&gt;駒の制御を行うBoardクラス（作成済み）&lt;/li&gt;
+  &lt;li&gt;盤面を多分木データとして格納するNodeクラス（今回作成）&lt;/li&gt;
+  &lt;li&gt;BFS（幅優先探索）で存在し得る全ての盤面を生成してNodeオブジェクトに追加&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;　１５ピースパズルや迷路を解く時なんかは１、２は不要なので簡単ですが、将棋パズル解答プログラムを一から作るとなると結構大変です。でも今回は&lt;a href=&quot;/project/2018-06-30/9masushogi_solver&quot;&gt;前回の記事&lt;/a&gt;で使用したソースを若干修正してそのまま利用出来ます。&lt;/p&gt;
+
+&lt;h3 id=&quot;nodeクラス&quot;&gt;Nodeクラス&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-CoffeeScript&quot;&gt;class Node
+    _counter = 0
+    _duplication = []
+
+    # 同じ駒が複数使用されていることもあるので座標も含めてソート
+    _sortCoordinate = (a, b) -&amp;gt;
+        kinds = [&quot;Ou&quot;, &quot;Hi&quot;, &quot;Ka&quot;, &quot;Ki&quot;, &quot;Gi&quot;, &quot;Ke&quot;, &quot;Ky&quot;, &quot;Fu&quot;]
+        return kinds.indexOf(a[&quot;kind&quot;]) - kinds.indexOf(b[&quot;kind&quot;]) || a[&quot;posi0&quot;] - b[&quot;posi0&quot;] || a[&quot;posi1&quot;] - b[&quot;posi1&quot;]
+
+    # 局面を比較するためHashを生成
+    @make_hash = (board) -&amp;gt;
+        rec = []
+        for koma in board.pieces
+            buf = {}
+            buf[&quot;kind&quot;] = koma.kind()
+            buf[&quot;turn&quot;] = koma.turn
+            buf[&quot;status&quot;] = koma.status
+            buf[&quot;posi0&quot;] = koma.posi[0]
+            buf[&quot;posi1&quot;] = koma.posi[1]
+            rec.push(buf)
+        rec.sort _sortCoordinate
+        return crypto.createHash('md5').update(JSON.stringify(rec)).digest(&quot;hex&quot;)
+
+    # 重複局面をチェックするために局面のHash値を追加
+    @set_dup = (hash) -&amp;gt;
+        _duplication.push(hash)
+
+    # 出現済みの局面ならtrue、新規局面ならfalseを返す
+    @check_dup = (hash) -&amp;gt;
+        check = (v for v in _duplication when v == hash)
+        if check.length &amp;gt; 0
+            return true
+        else
+            return false
+
+    # Boardオブジェクトとその子局面を格納するための配列を用意
+    constructor: (v) -&amp;gt;
+        @value = v
+        @child = []
+
+    # 答えの局面を探して見つけたら手数と局面を表示
+    search: (target) -&amp;gt;
+        return null unless target?
+        return @ if Node.make_hash(@value) == Node.make_hash(target)
+        ret = false
+        for v in @child
+            # 答えの局面を見つけた
+            if Node.make_hash(v.value) == Node.make_hash(target)
+                ret = true
+                _counter += 1
+                console.log(&quot;#{_counter}:&quot;)
+                v.value.display()
+            else
+                ret = v.search(target)
+                # 答えを見つけた後は、その過程の局面と手数を遡って表示
+                if ret
+                    _counter += 1
+                    console.log(&quot;#{_counter}:&quot;)
+                    v.value.display()
+            break if ret
+        return ret
+
+    # 子局面を辿りながら多分木データを追加していく
+    add: (target, obj) -&amp;gt;
+        ret = null
+        for v, i in @child
+            # 親となる局面を見つけたらその子局面としてNodeオブジェクトを追加
+            if Node.make_hash(v.value) == Node.make_hash(target)
+                ret = v.child.push(obj)
+            # 見つからなければさらに子局面を辿る
+            else
+                ret = v.add(target, obj)
+            break if ret?
+        return ret
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;実行ファイル&quot;&gt;実行ファイル&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-CoffeeScript&quot;&gt;# game.coffee
+startTime = new Date().getTime()
+
+bfs = (board) -&amp;gt;
+    queue = []
+    queue.push(board)
+    seq = 0
+    layer = 0
+    while queue.length &amp;gt; 0
+        bd = queue.shift()
+        layer += 1
+        for koma in bd.pieces
+            for v in eval(&quot;Piece.&quot; + koma.kind()).getD(koma.turn, koma.status)
+                buf = [].concat(koma.posi)
+                loop
+                    break unless ((buf[0] + v.xd in [1..bd.cols]) &amp;amp;&amp;amp; (buf[1] + v.yd in [1..bd.rows]))
+                    buf[0] += v.xd; buf[1] += v.yd
+                    dest = (o for o in bd.pieces when o.posi? &amp;amp;&amp;amp; o.posi[0] == buf[0] &amp;amp;&amp;amp; o.posi[1] == buf[1])
+                    break if dest.length != 0 &amp;amp;&amp;amp; dest[0].turn == koma.turn
+                    if bd.check_move(koma, buf)
+                        # 着手可能な手ならBoardオブジェクトをディープコピー（新たな局面を生成）
+                        temp = bd.clone()
+                        move_piece = (o for o in temp.pieces when o.posi? &amp;amp;&amp;amp; o.posi[0] == koma.posi[0] &amp;amp;&amp;amp; o.posi[1] == koma.posi[1])
+                        temp.move_capture(move_piece[0], buf)
+                        md5hash = Node.make_hash(temp)
+                        # temp.display()
+                        # 重複局面は多分木データに追加しない
+                        if Node.check_dup(md5hash)
+                            continue
+                        else
+                            Node.set_dup(md5hash)
+                        seq += 1
+                        if layer == 1
+                            node.child.push(new Node(temp))
+                        else
+                            node.add(bd, new Node(temp))
+                        queue.push(temp)
+                        # console.log(&quot;seq = #{seq}&quot;)
+                    break unless (dest.length == 0 &amp;amp;&amp;amp; v.series)
+
+# スタート局面
+b = new Board()
+b.pieces = []
+b.pieces.push(new Piece.Ka(Const.FIRST, Const.Status.OMOTE, [3,1]))
+b.pieces.push(new Piece.Gi(Const.FIRST, Const.Status.OMOTE, [2,2]))
+b.pieces.push(new Piece.Fu(Const.FIRST, Const.Status.OMOTE, [3,3]))
+b.pieces.push(new Piece.Fu(Const.FIRST, Const.Status.OMOTE, [2,1]))
+b.pieces.push(new Piece.Fu(Const.FIRST, Const.Status.OMOTE, [1,3]))
+
+# ゴール（答え）の局面
+answer = new Board()
+answer.pieces.push(new Piece.Ka(Const.FIRST, Const.Status.OMOTE, [1,3]))
+answer.pieces.push(new Piece.Gi(Const.FIRST, Const.Status.OMOTE, [2,2]))
+answer.pieces.push(new Piece.Fu(Const.FIRST, Const.Status.OMOTE, [3,3]))
+answer.pieces.push(new Piece.Fu(Const.FIRST, Const.Status.OMOTE, [2,1]))
+answer.pieces.push(new Piece.Fu(Const.FIRST, Const.Status.OMOTE, [1,1]))
+
+node = new Node(b)
+bfs(b)
+node.search(answer)
+# 一応最後にスタート時の画面も表示
+b.display()
+
+elapsed = new Date().getTime() - startTime
+console.log &quot;経過時間: #{elapsed}ミリ秒&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;　&lt;strong&gt;重複局面を除くことで答えの局面を探し出す際に最短手順であることが保証されます。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;例題&quot;&gt;例題&lt;/h3&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/puzzle_example.png&quot;&gt;&lt;img src=&quot;/images/puzzle_example.png&quot; alt=&quot;例題局面&quot; title=&quot;例題局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;span&gt;最短手数＝５手&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;実行結果&quot;&gt;実行結果&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;coffee game.coffee
+1:
+
+ 3 2 1
+| |F|F|1
+| |G| |2
+|F| |M|3
+
+2:
+
+ 3 2 1
+| |F| |1
+| |G|F|2
+|F| |M|3
+
+3:
+
+ 3 2 1
+| |F|G|1
+| | |F|2
+|F| |M|3
+
+4:
+
+ 3 2 1
+|M|F|G|1
+| | |F|2
+|F| | |3
+
+5:
+
+ 3 2 1
+|M|F|G|1
+| | | |2
+|F| |F|3
+
+
+ 3 2 1
+|M|F| |1
+| |G| |2
+|F| |F|3
+
+経過時間: 223ミリ秒
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　ゴールの局面からスタートの局面まで遡って表示されます。&lt;/p&gt;
+
+&lt;h3 id=&quot;最短手数になる原理&quot;&gt;最短手数になる原理&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/project/2015-10-10/tictactoe_bfs&quot;&gt;以前の記事&lt;/a&gt;にも書きましたが、BFS（幅優先探索）では局面を辿る順番が、一手目で現れ得る局面を全て辿った後に二手目の局面、二手目で現れ得る全ての局面を辿った後に三手目の局面と進んでいきますので、たとえ答えの局面に辿り着く経路が複数あったとしても答えに辿り着いた手順が最短経路であることが保証されます。答えに辿り着く手順が１０手で完成する手順と１５手で完成する手順があったとしても、BFSを使っている限り最短手数のものから見つかるからです。答えが見つかった時点で探索をやめればわざわざ多分木データを生成しなくてもいいのですが、せっかく全局面を探索してくれるので、このプログラムでは一旦全局面を保存してます。今回のNodeオブジェクトのような二つのメンバー変数を持つオブジェクトに全データを格納しておけば、いろいろな条件に当てはまる局面を探し出すのに便利で、最長手数を求めたりその手数で実現出来る局面を全てリストアップしたり出来ますので問題を作る時も便利です。&lt;/p&gt;
+
+&lt;h3 id=&quot;問題を作る&quot;&gt;問題を作る&lt;/h3&gt;
+&lt;p&gt;　例えば以下のようなメソッドを追加して&lt;code&gt;node.recurCount(0)&lt;/code&gt;と呼び出せば、スタート局面から最短手順を選択した上で手数が最も長くなるのは何手かを求めることが出来ます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-CoffeeScript&quot;&gt;
+    recurCount: (cnt) -&amp;gt;
+        if _counter &amp;lt; cnt
+            _counter = cnt
+        cnt += 1
+        for v, i in @child
+            v.recurCount(cnt)
+        return _counter
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　先の例題のスタート局面から最も長い手数が必要となる局面は以下の局面で、必要な手数は９手です。&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/puzzle_deepest.png&quot;&gt;&lt;img src=&quot;/images/puzzle_deepest.png&quot; alt=&quot;最長手数局面&quot; title=&quot;最長手数局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;span&gt;最短手数＝９手&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;　
+　スタート局面から無駄に手数を伸ばすことなく最も手数がかかる局面をゴール局面とすれば難問が完成します。&lt;/p&gt;
+
+&lt;h3 id=&quot;もっと難問を作れるか&quot;&gt;もっと難問を作れるか&lt;/h3&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/puzzle_example2.png&quot;&gt;&lt;img src=&quot;/images/puzzle_example2.png&quot; alt=&quot;例題局面&quot; title=&quot;例題局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　全ての駒を適当に配置した問題を作って調べてみました。下の３パターンが最長手数となる解答です。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/puzzle_example2-all.png&quot;&gt;&lt;img src=&quot;/images/puzzle_example2-all.png&quot; alt=&quot;解答局面&quot; title=&quot;解答局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;span&gt;最短手数＝２５手&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　手順は省略しますが上の局面から下の３つの局面に駒を移動させるには最短手数でも２５手必要で、上のスタート局面から出現し得る全ての局面のうち２５手かかるのは下の局面３つだけのようです。もちろん無理やり手数を伸ばして実現することは可能ですが、最短手順を選んでも２５手かかってしまうというところがミソです。&lt;br /&gt;
+　ちなみにスタート画面の「歩」を「と金」に変えると最長手順は３１手に伸びるようですが、長手順の難問を作るには適当に駒を配置するだけではダメなのかも知れません。３三将棋（＝９マス将棋）もそうですが、簡単には正解手順を得られないような初期画面を見つける方が問題を解くより難しいのかも&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;余談&quot;&gt;余談&lt;/h3&gt;
+&lt;p&gt;　自分のブログは「BFS DFS 違い」とか「BFS 用途」とかの検索ワードで来訪される人が偶にいるのですが、対戦ゲームに使用するとすればBFS（幅優先探索）の使い途は定跡データや学習データの格納・検索、DFS（深さ優先探索）の使い途は局面の先読み（MIN-MAX法を使った有利不利判定）ってことになるんじゃないでしょうか。&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;進化する三目並べ&lt;/a&gt;でも学習データの保存・検索にBFSを使用しています。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;では簡単な初期配置は除いて、面白い対局になる初期配置を厳選しているつもりです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>CUIで９マス将棋を解く</title>
