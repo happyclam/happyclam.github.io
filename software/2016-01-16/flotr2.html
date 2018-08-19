@@ -43,13 +43,13 @@
   <meta name="twitter:title" content="学習効果をグラフ化してみる">
   
   
-  <meta name="twitter:url" content="http://happyclam.github.io/software/2016-01-16/flotr2">
+  <meta name="twitter:url" content="https://happyclam.github.io/software/2016-01-16/flotr2">
   
   
   <meta name="twitter:description" content="三目並べ機械学習プログラムの強化学習効果をグラフ化してみる。">
   
   
-  <meta name="twitter:image:src" content="http://happyclam.github.io/images/graph_flotr2.png">
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/graph_flotr2.png">
   
 
     <!-- atom & rss feed -->
@@ -216,7 +216,7 @@ MathJax.Hub.Config({
       <span>16 January 2016</span>
     </div>
     <div class="content">
-      <h3 id="ブログgithub-pagesでグラフ描画flotr2">ブログ（<a href="http://jekyllrb-ja.github.io">Github Pages</a>）でグラフ描画（<a href="http://www.humblesoftware.com/flotr2">Flotr2</a>）</h3>
+      <h3 id="ブログgithub-pagesでグラフ描画flotr2">ブログ（<a href="https://jekyllrb-ja.github.io">Github Pages</a>）でグラフ描画（<a href="https://www.humblesoftware.com/flotr2">Flotr2</a>）</h3>
 <p>　ジュンク堂書店でオライリーのカレンダーを入手するために<a href="http://www.amazon.co.jp/本-JavaScriptによるデータビジュアライゼーション入門-Stephen-Thomas/dp/4873117461/ref=sr_1_1?ie=UTF8&amp;qid=1452166533&amp;sr=8-1&amp;keywords=javascript+ビジュアライゼーション">「JavaScriptによるデータビジュアライゼーション入門」</a>という本を買ってしまいました。前回まで三目並べプログラムの学習効果の記事を書いていましたが、１０万回対戦（学習）後の最終結果だけではなく、推移をグラフ化してみたいと思っていながらも面倒なのでやってなかったのですが、本を買ったことでやる気が出たので、awkやemacsのキーボードマクロを駆使してグラフ用データを編集してみました。今回はとりあえず買った本の内容は置いといて、グラフ化した学習効果の結果について書きます。</p>
 
 <h3 id="小石の数を減らしたことの影響">小石の数を減らしたことの影響</h3>
@@ -320,7 +320,7 @@ MathJax.Hub.Config({
 
 <p>　<a href="/software/2015-12-25/log-linear/">前々回の記事</a>の方程式１（青、<script type="math/tex">y = \frac{1}{総手数} x</script>）と方程式２（黄緑、<script type="math/tex">y = 0.029 \times 1.882^x</script>）が、わずかですが他の２つの方程式より学習効率がいいということがグラフから分かります。<br />
 　でも、グラフが少し見にくいですね。１０万回分の対戦データを取らなくても、２万回分程度のデータでグラフを描画すべきだったのでしょうか？でも、そうするともっと対戦を続けた場合どうなるか知りたくなるので、これはこれでいいと思います。こういう時こそ今回導入したグラフライブラリの出番です。<br />
-　そこで<a href="http://www.flotcharts.org">Flotライブラリ</a>を使って、次の記事で拡大表示可能なグラフに変更してみます。</p>
+　そこで<a href="https://www.flotcharts.org">Flotライブラリ</a>を使って、次の記事で拡大表示可能なグラフに変更してみます。</p>
 
 <script type="text/javascript">
 

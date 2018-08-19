@@ -43,13 +43,13 @@
   <meta name="twitter:title" content="楽天Kobo電子書籍検索API使ってみた">
   
   
-  <meta name="twitter:url" content="http://happyclam.github.io/project/2016-03-30/koboAPI">
+  <meta name="twitter:url" content="https://happyclam.github.io/project/2016-03-30/koboAPI">
   
   
   <meta name="twitter:description" content="楽天Kobo電子書籍（KWL）の新着チェッカー作ってみました。">
   
   
-  <meta name="twitter:image:src" content="http://happyclam.github.io/images/kwlchecker_small.png">
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/kwlchecker_small.png">
   
 
     <!-- atom & rss feed -->
@@ -219,8 +219,8 @@ MathJax.Hub.Config({
       <p>Project: 「<a href="https://kwl-books.herokuapp.com"><strong>楽天Kobo電子書籍新着チェッカー</strong></a>」: <a href="https://github.com/happyclam/kwl-books">GitHub</a></p>
 
 <h3 id="自分の本が検索されない">自分の本が検索されない</h3>
-<p>　以前からやってみたかった電子書籍出版やってみました（<a href="http://www.amazon.co.jp/dp/B01D1IJ0S0">Amazon KDP</a>、<a href="http://books.rakuten.co.jp/rk/8353a2085f33386d8fe9102c7b8eb4c3">楽天Kobo</a>）。その顛末については別の記事を書こうと思っていますが、先に「楽天Kobo電子書籍新着チェッカー」を作ってみたのでそれについて書きます。<br />
-　楽天Koboの電子書籍出版サービス（KWL、Kobo Writing Life）に自分の本を登録して、リリースまで時間が掛かると書いてあったから<a href="http://wakufactory.jp/kobo/kwlnew.html">「KoboWritingLife新着チェッカー」</a>というサイトを見つけて、自分の本が出版されたかどうかチェックしていました。丸一日ぐらい経った後、まだ自分の本が表示されていなかったので、試しに楽天のサイトから検索してみたら、自分の本がヒットするではないですか、「なんで自分の本は出てこないの？」って感じです。この<a href="http://wakufactory.jp/kobo/kwlnew.html">新着チェッカー</a>がどれほど利用されているのかわかりませんが、「自分の本を表示してくれないサイトが新着チェッカーとしてメジャーになってもらっては困る」、「なんとか自分で世間の人に使って貰えるこれ以上の新着チェッカーを作らなければならない」という使命感に駆られて（嘘です）作ってみることにしました。<br />
+<p>　以前からやってみたかった電子書籍出版やってみました（<a href="https://www.amazon.co.jp/dp/B01D1IJ0S0">Amazon KDP</a>、<a href="https://books.rakuten.co.jp/rk/8353a2085f33386d8fe9102c7b8eb4c3">楽天Kobo</a>）。その顛末については別の記事を書こうと思っていますが、先に「楽天Kobo電子書籍新着チェッカー」を作ってみたのでそれについて書きます。<br />
+　楽天Koboの電子書籍出版サービス（KWL、Kobo Writing Life）に自分の本を登録して、リリースまで時間が掛かると書いてあったから<a href="https://wakufactory.jp/kobo/kwlnew.html">「KoboWritingLife新着チェッカー」</a>というサイトを見つけて、自分の本が出版されたかどうかチェックしていました。丸一日ぐらい経った後、まだ自分の本が表示されていなかったので、試しに楽天のサイトから検索してみたら、自分の本がヒットするではないですか、「なんで自分の本は出てこないの？」って感じです。この<a href="https://wakufactory.jp/kobo/kwlnew.html">新着チェッカー</a>がどれほど利用されているのかわかりませんが、「自分の本を表示してくれないサイトが新着チェッカーとしてメジャーになってもらっては困る」、「なんとか自分で世間の人に使って貰えるこれ以上の新着チェッカーを作らなければならない」という使命感に駆られて（嘘です）作ってみることにしました。<br />
 　自分で楽天APIを弄ってみてから想像するとおそらく自分の本が表示されないのは、自分の本を登録している「PC・システム開発」というジャンルが検索対象になっていないからだと思いますが、真相はわかりません。自分の本だけ意地悪されているわけでないことは確かでしょう。<br />
 　ということでジャンル別に検索する形で作りました。自己責任でご利用ください（免責条項）。<a href="https://webservice.rakuten.co.jp/guide/">楽天のサイト</a>でも簡単にAPIを試してみることも出来ます。試すだけなら開発者用のIDをわざわざ取得しなくても利用できます。</p>
 
@@ -228,7 +228,7 @@ MathJax.Hub.Config({
 
 <ul>
   <li>使用するのは楽天Kobo系APIだけ（「楽天ブックス系API」と「楽天Kobo系API」に分かれているようです）<br />
-※深くは追求してませんが、<a href="http://wakufactory.jp/kobo/kwlnew.html">件のサイト</a>で自分の本が検索出来なかったのはこのAPIの違いによるものかもしれません。APIを分けている理由も知りませんが、Kobo系は簡易版みたいな感じかもしれません。</li>
+※深くは追求してませんが、<a href="https://wakufactory.jp/kobo/kwlnew.html">件のサイト</a>で自分の本が検索出来なかったのはこのAPIの違いによるものかもしれません。APIを分けている理由も知りませんが、Kobo系は簡易版みたいな感じかもしれません。</li>
   <li>予約販売分は検索対象外（予約販売分を含めると未来の発売日分のデータばかりになるため）</li>
   <li>サイトにアクセスがあると、その都度最新のジャンルデータを取得して表示し差分を保存する</li>
   <li>ジャンルがクリックされると、一度のAPIで取得出来る最大３０件の最新出版データを保存して日付の新しい順に過去に取得した分を含めて最大５０件表示<br />

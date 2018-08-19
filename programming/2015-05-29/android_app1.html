@@ -43,13 +43,13 @@
   <meta name="twitter:title" content="ハイブリッド開発（HTML5 + JavaScript）でハマったこと">
   
   
-  <meta name="twitter:url" content="http://happyclam.github.io/programming/2015-05-29/android_app1">
+  <meta name="twitter:url" content="https://happyclam.github.io/programming/2015-05-29/android_app1">
   
   
   <meta name="twitter:description" content="programming for enjoyment.">
   
   
-  <meta name="twitter:image:src" content="http://happyclam.github.io/images/favicon.png">
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/favicon.png">
   
 
     <!-- atom & rss feed -->
@@ -266,7 +266,7 @@ MathJax.Hub.Config({
             });
 </code></pre>
 
-<p>　android4.1では動くというのが混乱の元のような気がしますが、問題は<code>location.href = "#win_show_ranking"</code>の部分でした。<a href="http://www.buildinsider.net/web/jquerymobileref/34">このサイト</a>に書いてあるようにjavascriptを使って画面遷移するのではなく、JQMのchangeメソッドを使って画面遷移しなければいけないようです。<code>location.href = "#win_show_ranking"</code>と書いている部分を<code>pagecontainer('change', '#win_show_ranking', {allowSamePageTransition: false});</code>と書き換えれば問題なく動作しました。<br />
+<p>　android4.1では動くというのが混乱の元のような気がしますが、問題は<code>location.href = "#win_show_ranking"</code>の部分でした。<a href="https://www.buildinsider.net/web/jquerymobileref/34">このサイト</a>に書いてあるようにjavascriptを使って画面遷移するのではなく、JQMのchangeメソッドを使って画面遷移しなければいけないようです。<code>location.href = "#win_show_ranking"</code>と書いている部分を<code>pagecontainer('change', '#win_show_ranking', {allowSamePageTransition: false});</code>と書き換えれば問題なく動作しました。<br />
 　逆に何で新しいandroidだと動くのかについてはよくわかりませんが、JQMはajaxを無効にして使うことも出来るようなので、古いandroidについては面倒を見るのを止めてサポートを切り捨てたけど、新し目のバージョンに関してはどちらでも動くようになっているということでしょうか？それとも偶々動いただけかもしれません。<br />
 　JQMのことをよく調べずに使い始めたのがよくなかったみたいです。それに現在はJQMを使っているといってもほとんど画面レイアウトにしか使っていない状態なのでJQMの機能をもう少し取り込んで行こうと思っているのですが、そうするとまた新たな問題が出て来るのでしょう。</p>
 

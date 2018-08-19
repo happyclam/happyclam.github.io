@@ -43,13 +43,13 @@
   <meta name="twitter:title" content="HerokuでNodeとMongoDBを使う">
   
   
-  <meta name="twitter:url" content="http://happyclam.github.io/programming/2015-04-25/mongo_upsert">
+  <meta name="twitter:url" content="https://happyclam.github.io/programming/2015-04-25/mongo_upsert">
   
   
   <meta name="twitter:description" content="programming for enjoyment.">
   
   
-  <meta name="twitter:image:src" content="http://happyclam.github.io/images/favicon.png">
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/favicon.png">
   
 
     <!-- atom & rss feed -->
@@ -243,7 +243,7 @@ MathJax.Hub.Config({
 </code></pre>
 
 <h3 id="出来るだけ新しいバージョンで開発環境を作る">出来るだけ新しいバージョンで開発環境を作る</h3>
-<p>　<a href="http://www.oreilly.co.jp/books/9784873116068/">Nodeクックブック</a>という本を参考にしていたのですが、ネット上に転がっていた古いコードから書き始めたのが間違いの元で、本のサンプルコードが動かない環境で一通り作った後に何度も同じ箇所を書き換えなければいけない羽目に陥りました。古いバージョンのままでも動けばいいのですが、何かトラブルに見舞われた時に「もしかしてバージョンが古いせいか？新しくしてみよう」となって直接トラブルとは関係ないのに書き直す羽目に陥ったということです。皆さんも気をつけて下さい。特にExpressはバージョンによって書式（構文）の変化が激しくて、バージョンが変わるともうそれは必要がなくなったというコードが多かったです。依存関係で深刻なものは無かったのですが、自分が使っているパッケージのバージョンは把握しておいた方が右往左往しなくて済みそうです。以下が現時点で使っているパッケージ（package.json）ファイルの一部です。</p>
+<p>　<a href="https://www.oreilly.co.jp/books/9784873116068/">Nodeクックブック</a>という本を参考にしていたのですが、ネット上に転がっていた古いコードから書き始めたのが間違いの元で、本のサンプルコードが動かない環境で一通り作った後に何度も同じ箇所を書き換えなければいけない羽目に陥りました。古いバージョンのままでも動けばいいのですが、何かトラブルに見舞われた時に「もしかしてバージョンが古いせいか？新しくしてみよう」となって直接トラブルとは関係ないのに書き直す羽目に陥ったということです。皆さんも気をつけて下さい。特にExpressはバージョンによって書式（構文）の変化が激しくて、バージョンが変わるともうそれは必要がなくなったというコードが多かったです。依存関係で深刻なものは無かったのですが、自分が使っているパッケージのバージョンは把握しておいた方が右往左往しなくて済みそうです。以下が現時点で使っているパッケージ（package.json）ファイルの一部です。</p>
 
 <pre><code>  , "dependencies": {
       "express": "4.12.1"
@@ -266,7 +266,7 @@ app.use(require('less-middleware')({
 }));
 </code></pre>
 
-<p>　上手くいかなくて、<a href="http://stackoverflow.com/questions/22274832/public-static-directory-typeerror-arguments-to-path-join-must-be-strings">ここ</a>に書いてある通り以下のように修正すれば動きました。</p>
+<p>　上手くいかなくて、<a href="https://stackoverflow.com/questions/22274832/public-static-directory-typeerror-arguments-to-path-join-must-be-strings">ここ</a>に書いてある通り以下のように修正すれば動きました。</p>
 
 <pre><code>//app.js
 app.use(require('less-middleware')(__dirname + '/public'));
@@ -276,7 +276,7 @@ app.use(require('less-middleware')(__dirname + '/public'));
 　あと、Rubyのrvm環境同様にNodeも最初からnvmを使って複数のバージョンを切り替えられるようにしておいたほうがよさそうです。</p>
 
 <h3 id="ローカルで動くのにheroku上で動かない">ローカルで動くのにHeroku上で動かない</h3>
-<p>　herokuで動かないのはMongoDBへの接続が出来ていないようだということはすぐわかったのですが、<a href="http://d.hatena.ne.jp/koda_hd28v/20120512/1336799056">この記事</a>を見つけるまで理由がわかりませんでした。ローカルではDBオブジェクトをnewしてServer.open、herokuではconnectを使うということのようです。ローカル環境にデータベースが存在しているわけじゃないんだからopen出来ると考える方がおかしいと言われそうですが、herokuもMongoDBもどこまで私の面倒を見てくれるのかわからないんだから、ローカルで動くんだからそのまま動くと考えてしまっても仕方がないと思います。<br />
+<p>　herokuで動かないのはMongoDBへの接続が出来ていないようだということはすぐわかったのですが、<a href="https://d.hatena.ne.jp/koda_hd28v/20120512/1336799056">この記事</a>を見つけるまで理由がわかりませんでした。ローカルではDBオブジェクトをnewしてServer.open、herokuではconnectを使うということのようです。ローカル環境にデータベースが存在しているわけじゃないんだからopen出来ると考える方がおかしいと言われそうですが、herokuもMongoDBもどこまで私の面倒を見てくれるのかわからないんだから、ローカルで動くんだからそのまま動くと考えてしまっても仕方がないと思います。<br />
 　で、記事の中で説明してくれているように、以下のようにDB接続モジュールだけ分割して</p>
 
 <pre><code>// lib/MongoBuilder.js

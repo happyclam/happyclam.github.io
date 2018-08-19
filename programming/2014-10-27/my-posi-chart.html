@@ -43,13 +43,13 @@
   <meta name="twitter:title" content="gruffからlazy_high_chartへ">
   
   
-  <meta name="twitter:url" content="http://happyclam.github.io/programming/2014-10-27/my-posi-chart">
+  <meta name="twitter:url" content="https://happyclam.github.io/programming/2014-10-27/my-posi-chart">
   
   
   <meta name="twitter:description" content="programming for enjoyment.">
   
   
-  <meta name="twitter:image:src" content="http://happyclam.github.io/images/favicon.png">
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/favicon.png">
   
 
     <!-- atom & rss feed -->
@@ -217,7 +217,7 @@ MathJax.Hub.Config({
     </div>
     <div class="content">
       <h3 id="rails3からrails4への移行">Rails3からRails4への移行</h3>
-<p>　一応<a href="http://my-posi.herokuapp.com/">herokuで公開</a>してますがほとんど誰も使っていないようだし<img class="emoji" title="grin" alt="grin" src="https://github.global.ssl.fastly.net/images/icons/emoji/grin.png" height="20" width="20" align="absmiddle" />自分が使うときはローカル環境で動かすだけなのでRails4に移行する必要も無いのですが、<a href="/project/2014-05-30/tweetwatch/">TweetWatch</a>を作ったときにLazyHighChartが気に入ったのでグラフ描画機能を変更する目的でついでにRailsもバージョンアップしました。Rails3からRails4への以降に関しては特に大きな変更は必要なかったのでgruffからlazy_high_chartへの移行に関して書きます。</p>
+<p>　一応<a href="https://my-posi.herokuapp.com/">herokuで公開</a>してますがほとんど誰も使っていないようだし<img class="emoji" title="grin" alt="grin" src="https://github.global.ssl.fastly.net/images/icons/emoji/grin.png" height="20" width="20" align="absmiddle" />自分が使うときはローカル環境で動かすだけなのでRails4に移行する必要も無いのですが、<a href="/project/2014-05-30/tweetwatch/">TweetWatch</a>を作ったときにLazyHighChartが気に入ったのでグラフ描画機能を変更する目的でついでにRailsもバージョンアップしました。Rails3からRails4への以降に関しては特に大きな変更は必要なかったのでgruffからlazy_high_chartへの移行に関して書きます。</p>
 
 <h3 id="使い方">使い方</h3>
 <p>　その前に<a href="https://www.ruby-toolbox.com/categories/graphing">ここのサイト</a>でいろんなグラフ描画ツールが紹介されています。以前googlechartsは試したことがあるのですが、何か気に入らないことがあってgruffに戻しました。でも、その理由が何であったのか忘れてしまいました<img class="emoji" title="grin" alt="grin" src="https://github.global.ssl.fastly.net/images/icons/emoji/grin.png" height="20" width="20" align="absmiddle" /></p>
@@ -262,7 +262,7 @@ MathJax.Hub.Config({
 </code></pre>
 
 <p>　gruffを使っていた時のコードをほぼそのまま流用できましたが一点だけ引っかかったのが一つのキャンバスに複数の折れ線グラフを描画する方法。<br />
-　<a href="http://www.highcharts.com/docs/getting-started/your-first-chart">本家サイトのサンプル</a>を見てHashの配列を渡すのかと思いきや上のコードのようにseriesメソッドを複数回呼ぶようにしないとグラフを描画してくれませんでした。本家のサンプルはもちろんそのまま動きましたので、これはlazy_high_chart gemの仕様ということでしょう。普通の人は引っかからないのかぁ？たぶん普通はgemのヘルプの方を見るんですね。</p>
+　<a href="https://www.highcharts.com/docs/getting-started/your-first-chart">本家サイトのサンプル</a>を見てHashの配列を渡すのかと思いきや上のコードのようにseriesメソッドを複数回呼ぶようにしないとグラフを描画してくれませんでした。本家のサンプルはもちろんそのまま動きましたので、これはlazy_high_chart gemの仕様ということでしょう。普通の人は引っかからないのかぁ？たぶん普通はgemのヘルプの方を見るんですね。</p>
 
 <h3 id="グラフ描画ツールを変えたことによる影響">グラフ描画ツールを変えたことによる影響</h3>
 <dl>
@@ -306,7 +306,7 @@ MathJax.Hub.Config({
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>cssでwidthが変化するのでてっきり反映出来ているものと思っていましたが、<a href="http://api.highcharts.com/highstock#chart.height">highchartsのドキュメント</a>に書いてある通りデフォルトの高さに関しては400pxのようです。ソースコードは修正済みです。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p>cssでwidthが変化するのでてっきり反映出来ているものと思っていましたが、<a href="https://api.highcharts.com/highstock#chart.height">highchartsのドキュメント</a>に書いてある通りデフォルトの高さに関しては400pxのようです。ソースコードは修正済みです。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>

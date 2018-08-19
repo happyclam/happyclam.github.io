@@ -43,13 +43,13 @@
   <meta name="twitter:title" content="Withings Activité購入">
   
   
-  <meta name="twitter:url" content="http://happyclam.github.io/hardware/2015-08-16/withings">
+  <meta name="twitter:url" content="https://happyclam.github.io/hardware/2015-08-16/withings">
   
   
   <meta name="twitter:description" content="programming for enjoyment.">
   
   
-  <meta name="twitter:image:src" content="http://happyclam.github.io/images/favicon.png">
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/favicon.png">
   
 
     <!-- atom & rss feed -->
@@ -237,7 +237,7 @@ MathJax.Hub.Config({
 </div>
 
 <p>　それにしても購入を決めた当初は、自分のように時計を物色していてこの機種を購入するに至った人は珍しいんじゃないかと思っていたのですが、その後もスマートウォッチの情報をネットで漁っているとApple Watchのような如何にも今までの腕時計とは異質のものではなく、見た目は本格的な腕時計のままスマホとの連携機能を持つスタイルのスマートウォッチのほうが主流になる可能性があることを知りました<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。時計雑誌で紹介されていたスマートウォッチはこの機種だけだったので、浮いている感じを受けましたが、今後は普通の時計雑誌でスマートウォッチが紹介される機会が増えてくるのかもしれません。<br />
-　セットアップは<a href="http://uxlayman.hatenablog.com/entry/2015/04/28/073100">こちらのサイト</a>を参考にしました。</p>
+　セットアップは<a href="https://uxlayman.hatenablog.com/entry/2015/04/28/073100">こちらのサイト</a>を参考にしました。</p>
 
 <div style="width:160px; margin: 0 auto;">
 
@@ -248,8 +248,8 @@ MathJax.Hub.Config({
 <p>　上のグラフのように浅い眠りと深い眠りを判別出来るようです。寝起きに「あ〜よく寝た」と感じた時は濃い青のグラフの帯が大きかったので結構正確かもしれません。それと当たり前かもしれませんが朝方トイレに起きた履歴もちゃんと残っていて、いつか自分の記憶にない記録が残っていたりしないかと密かに期待しています（夢遊病か!?）。</p>
 
 <h3 id="web-apiを使ってみる">Web APIを使ってみる</h3>
-<p>　APIが公開されていたので少し触ってみました。<a href="http://blog.hopkins.io/2013/07/25/withings-api/">Withings API Quickstart Guide</a>と銘打ったサイトの通りwithings用のgemを使えばすぐに自分が登録したデータを取得することが出来ましたが、最新のAPIに対応しているか分からなかったし使い方もよくわからないし、アクセストークンを取得した後は<a href="http://oauth.withings.com/api">WithingsのAPIドキュメント</a>を見ながら自分でパラメータをセットしていろんなデータの取得を試してみたかったので、特別なgemを使用せずにjsonデータを取得するスクリプトを書いてみました。<br />
-　このスクリプトを実行するにはTwitterアプリを作る時なんかと同様に<a href="https://oauth.withings.com/en/partner/add">Withingsにアプリを登録</a>してAPI Key、API Secretを取得する必要があります。そしてWithings API のページの<a href="http://oauth.withings.com/api">FIRST STEP</a>に従って操作し、OAuth認証完了後userid、oauth_token、oauth_token_secretの値を取得してスクリプトにセットしておく必要があります。</p>
+<p>　APIが公開されていたので少し触ってみました。<a href="https://blog.hopkins.io/2013/07/25/withings-api/">Withings API Quickstart Guide</a>と銘打ったサイトの通りwithings用のgemを使えばすぐに自分が登録したデータを取得することが出来ましたが、最新のAPIに対応しているか分からなかったし使い方もよくわからないし、アクセストークンを取得した後は<a href="https://oauth.withings.com/api">WithingsのAPIドキュメント</a>を見ながら自分でパラメータをセットしていろんなデータの取得を試してみたかったので、特別なgemを使用せずにjsonデータを取得するスクリプトを書いてみました。<br />
+　このスクリプトを実行するにはTwitterアプリを作る時なんかと同様に<a href="https://oauth.withings.com/en/partner/add">Withingsにアプリを登録</a>してAPI Key、API Secretを取得する必要があります。そしてWithings API のページの<a href="https://oauth.withings.com/api">FIRST STEP</a>に従って操作し、OAuth認証完了後userid、oauth_token、oauth_token_secretの値を取得してスクリプトにセットしておく必要があります。</p>
 
 <pre><code class="language-Ruby">#sleep.rb
 require 'pp'
@@ -312,7 +312,7 @@ result = JSON.parse(json)
 pp result
 </code></pre>
 
-<p>　要するにリクエスト毎に変わるOAuth1.0の署名（oauth_signature）の生成を自動化するためのスクリプトです。<a href="http://blog.hopkins.io/2013/07/25/withings-api/">gem のソースコード</a>と<a href="http://syncer.jp/how-to-make-signature-of-oauth-1">このサイト</a>を参考にしました。RailsでTwitterのAPI使う時はgemが勝手にやってくれるので今までこの作業を自前でやったことはなかったため、サーバーからのエラーが無くなるまで結構手間取りました。サーバーがステータスコード「342 : The signature (using Oauth) is invalid」を返してくるわけですが、必ずしも署名の作成の仕方が悪いわけではないようです<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。サーバー側でもう少しパラメータのチェックを優先して、それに沿ったエラーを返して欲しいところですがどうなのでしょう。</p>
+<p>　要するにリクエスト毎に変わるOAuth1.0の署名（oauth_signature）の生成を自動化するためのスクリプトです。<a href="https://blog.hopkins.io/2013/07/25/withings-api/">gem のソースコード</a>と<a href="https://syncer.jp/how-to-make-signature-of-oauth-1">このサイト</a>を参考にしました。RailsでTwitterのAPI使う時はgemが勝手にやってくれるので今までこの作業を自前でやったことはなかったため、サーバーからのエラーが無くなるまで結構手間取りました。サーバーがステータスコード「342 : The signature (using Oauth) is invalid」を返してくるわけですが、必ずしも署名の作成の仕方が悪いわけではないようです<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。サーバー側でもう少しパラメータのチェックを優先して、それに沿ったエラーを返して欲しいところですがどうなのでしょう。</p>
 
 <div style="width:320px; margin: 0 auto;">
 
@@ -327,7 +327,7 @@ pp result
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p><a href="http://www.dream-seed.com/weblog/archives/2015/02/55372/">複数のスイス時計メーカーがスマートウォッチを発表</a>、<a href="http://weekly.ascii.jp/elem/000/000/328/328470/">腕時計好きもグッとくる絶品スマートウォッチ特選編</a>、<a href="http://matome.naver.jp/odai/2142691305853056801">グッチも！？有名ブランドが続々発売するスマートウォッチ市場が熱い！！</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p><a href="https://www.dream-seed.com/weblog/archives/2015/02/55372/">複数のスイス時計メーカーがスマートウォッチを発表</a>、<a href="https://weekly.ascii.jp/elem/000/000/328/328470/">腕時計好きもグッとくる絶品スマートウォッチ特選編</a>、<a href="https://matome.naver.jp/odai/2142691305853056801">グッチも！？有名ブランドが続々発売するスマートウォッチ市場が熱い！！</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
     </li>
     <li id="fn:2">
       <p>例として上記スクリプトのstartdateパラメータをセットしている行で.to_iを削除すると{“status” =&gt; 342}が返ってきます。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>

@@ -43,13 +43,13 @@
   <meta name="twitter:title" content="ハイブリッドアプリのセキュリティ">
   
   
-  <meta name="twitter:url" content="http://happyclam.github.io/programming/2017-08-12/hybrid_csp">
+  <meta name="twitter:url" content="https://happyclam.github.io/programming/2017-08-12/hybrid_csp">
   
   
   <meta name="twitter:description" content="JSONPで外部サーバーからデータを取得する際に必要なCSP（Content Security Policy）他">
   
   
-  <meta name="twitter:image:src" content="http://happyclam.github.io/images/unbeaten_logo.png">
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/unbeaten_logo.png">
   
 
     <!-- atom & rss feed -->
@@ -223,12 +223,12 @@ MathJax.Hub.Config({
 <p>　アプリの中でJSONPを使ってherokuで運用している外部サーバーからデータ（ユーザーのランキングデータ）を取得する処理があるのですが、適切にCSPを書かなければ<code>Refused to connect to 'http://XXX.herokuapp.com/XXX'</code>というエラーでデータが取得出来なくなったようです。Whitelistプラグインを使ってconfig.xmlに記載するだけではダメみたいです、通常のHTTPリクエストよりAjaxリクエストはさらに規制を強くするということでしょう。</p>
 
 <pre><code>&lt;!-- config.xml --&gt;
-&lt;access origin="http://tictactoe-cf.herokuapp.com" /&gt;
+&lt;access origin="https://tictactoe-cf.herokuapp.com" /&gt;
 </code></pre>
 <p>　以下のようにindex.htmlにmetaタグを書くことでデータ取得に成功しました。</p>
 
 <pre><code class="language-HTML">&lt;!-- index.html --&gt;
-&lt;meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' http://localhost:3000 http://tictactoe-cf.herokuapp.com 'unsafe-inline' 'unsafe-eval'"&gt;
+&lt;meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' http://localhost:3000 https://stictactoe-cf.herokuapp.com 'unsafe-inline' 'unsafe-eval'"&gt;
 
 </code></pre>
 <p>　script-srcの部分にテスト時のローカルのURLと本番で使う外部サーバーのURLをスペースで区切って記述します。default-srcに記述すれば代替出来ると書かれたサイトもありましたが、私が試した限りではscript-srcに書かないと動きませんでした。</p>

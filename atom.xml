@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
  
  <title>自己満足プログラミング</title>
- <link href="http://happyclam.github.io/" rel="self"/>
- <link href="http://happyclam.github.io"/>
- <updated>2018-08-18T13:03:34+09:00</updated>
- <id>http://happyclam.github.io</id>
+ <link href="https://happyclam.github.io/" rel="self"/>
+ <link href="https://happyclam.github.io"/>
+ <updated>2018-08-19T16:59:08+09:00</updated>
+ <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>BFSで将棋パズルを解く</title>
-   <link href="http://happyclam.github.io/software/2018-08-18/puzzle"/>
+   <link href="https://happyclam.github.io/software/2018-08-18/puzzle"/>
    <updated>2018-08-18T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/software/2018-08-18/puzzle</id>
+   <id>https://happyclam.github.io/software/2018-08-18/puzzle</id>
    <content type="html">&lt;h3 id=&quot;将棋パズルとは&quot;&gt;将棋パズルとは&lt;/h3&gt;
 &lt;p&gt;　数年前にTwitterで女流棋士の中倉彰子さんの呟きを見てその存在を知りました、最近&lt;a href=&quot;https://www.amazon.co.jp/脳がぐんぐん成長する-将棋パズル-中倉-彰子/dp/486280604X&quot;&gt;書籍&lt;/a&gt;を出されたようです。子供の頃４×４の１６マスのケースに１〜１５までの数字が書かれたバラバラのピースを数字の順に並べ直すというパズルをやったことがありますが、それの将棋版と思えばいいと思います。但し盤面は３×３で先手番の駒だけを自由に配置し、スタートの局面から将棋の駒を動かしてゴールの局面に変化させるというもので、まず将棋の駒の動きを覚えないと出来ません。パズルの存在を知った時は解答を得るためのプログラムを作ろうなんて思いませんでしたが、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;を作った直後なので、プログラムに必要な部品が全て揃っているので作ってみました。&lt;/p&gt;
 
@@ -302,9 +302,9 @@ console.log &quot;経過時間: #{elapsed}ミリ秒&quot;
  
  <entry>
    <title>CUIで９マス将棋を解く</title>
-   <link href="http://happyclam.github.io/project/2018-06-30/9masushogi_solver"/>
+   <link href="https://happyclam.github.io/project/2018-06-30/9masushogi_solver"/>
    <updated>2018-06-30T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/project/2018-06-30/9masushogi_solver</id>
+   <id>https://happyclam.github.io/project/2018-06-30/9masushogi_solver</id>
    <content type="html">&lt;h3 id=&quot;３三将棋アプリのソース公開しました&quot;&gt;３三将棋アプリのソース公開しました&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;もそろそろ安定してきたと思うのでソースを&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;githubに公開&lt;/a&gt;しました。Bonanzaを始めとする優秀な将棋ソフトをカスタマイズしようとは思わないけど、CoffeeScript(JavaScript)で将棋ソフトが作れるならやってみようと思う人はいるかも知れないと思ってます。また、プログラミングには興味ないけど９マス将棋の正解を知りたいと思う人は結構いるかもしれないと思ったので記事を書いてみました。ただ、詰みがある場合は別ですが、ここで示す方法で得られた解答が必ず最善手だとは言い切れないことには留意してください&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
 　ちなみに最近&lt;a href=&quot;https://play.google.com/store/apps/details?id=jp.co.roue.shogi&quot;&gt;９マス将棋オンライン&lt;/a&gt;というアプリで遊んでいるのですが、単純な配置でも未だに最善手が何か悩まされることがあります（特に入玉形の場合が難しい）。そういう時スクショを取ってこの記事の方法で何が最善手だったか検討したりしています&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;。&lt;/p&gt;
@@ -579,9 +579,9 @@ Second Win
  
  <entry>
    <title>打ち歩詰め判定は必要なのか</title>
-   <link href="http://happyclam.github.io/software/2018-06-10/droppawncheck"/>
+   <link href="https://happyclam.github.io/software/2018-06-10/droppawncheck"/>
    <updated>2018-06-10T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/software/2018-06-10/droppawncheck</id>
+   <id>https://happyclam.github.io/software/2018-06-10/droppawncheck</id>
    <content type="html">&lt;h3 id=&quot;打ち歩詰め判定メソッド&quot;&gt;打ち歩詰め判定メソッド&lt;/h3&gt;
 &lt;p&gt;　以前&lt;a href=&quot;/software/2018-01-27/utifudume&quot;&gt;「打ち歩詰めについて」&lt;/a&gt;という記事で打ち歩詰め判定メソッドのことを書いて、結局それだけではうまくいかず、ＡＩが打ち歩詰めの手を返してきた時は次善手に置き換えて打ち歩詰めを回避したことを書きました。&lt;a href=&quot;/software/2018-01-27/utifudume&quot;&gt;あの記事&lt;/a&gt;を読んだ人はそれでいいのか？と疑問を感じた人がいるかもしれません。中途半端な打ち歩詰め判定メソッドを使っているということは、先読みの最中に打ち歩詰めの手も読んでいるわけです。それには目を瞑るとしても、局面の先読みメソッド（ＡＩ）が打ち歩の王手を返してきた場合に、それが打ち歩詰めの反則手かどうかを確認するために呼び出し元のGUIプログラム側でもう一度先読みメソッドで二手読みをして、打ち歩詰めになっていたら次善手に置き換えるという手法はなんとも泥臭い。幸いなことに打ち歩詰めに関しては一局面に一手しか存在しないためＡＩが返してきた次善手もまた打ち歩詰めだったなんてことはあり得ないので、次善手に置き換えるという方法でも実害はないのですが、コードが煩雑になるのと二手読み分の処理が重複しているのが気になっていました。&lt;br /&gt;
 　ということで頑張ってＡＩが打ち歩詰めの指し手を返してこないように修正したので、どうやって打ち歩詰めの手を返してこないようにしているか現状を書いておきます。&lt;/p&gt;
@@ -667,9 +667,9 @@ Second Win
  
  <entry>
    <title>「９マス将棋の本」買ってみました</title>
-   <link href="http://happyclam.github.io/project/2018-04-22/9masushogi"/>
+   <link href="https://happyclam.github.io/project/2018-04-22/9masushogi"/>
    <updated>2018-04-22T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/project/2018-04-22/9masushogi</id>
+   <id>https://happyclam.github.io/project/2018-04-22/9masushogi</id>
    <content type="html">&lt;h3 id=&quot;３三将棋アプリで入門書の誤りを見つけた&quot;&gt;「３三将棋」アプリで入門書の誤りを見つけた&lt;/h3&gt;
 &lt;p&gt;　自作の&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;の開発も落ち着いてきたので放置していたのですが、小さなバグを見つけたのでどうせ新しいバージョンをリリースするなら、初期配置パターンを何種類か追加しようと思い、参考にするため&lt;a href=&quot;https://www.amazon.co.jp/９マス将棋の本-幻冬舎単行本-青野照市-ebook/dp/B072XCDPGZ/ref=tmm_kin_swatch_0?_encoding=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-1&quot;&gt;「９マス将棋の本 (幻冬舎単行本) Kindle版」&lt;/a&gt;を買いました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;a href=&quot;https://www.amazon.co.jp/9マス将棋-バラエティ-青野照市/dp/4344978757/ref=sr_1_2?s=books&amp;amp;ie=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-2&amp;amp;keywords=９マス将棋&quot;&gt;「９マス将棋」のゲーム本体&lt;/a&gt;は既に持っていて、そこで紹介されている初期配置パターンは開発時のテストにも使用していました。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;に用意している初期配置パターンはこの本に載っているものやTwitterで見かけたもの、自分で考えたものなどいろいろです&lt;sup id=&quot;fnref:1:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。今回も面白い配置パターンを探すために購入したのですが、読み進めていくと思わぬ発見がありました&lt;img class=&quot;emoji&quot; title=&quot;smile&quot; alt=&quot;smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
 
@@ -763,9 +763,9 @@ Second Win
  
  <entry>
    <title>「５五将棋」アプリリリースしました</title>
-   <link href="http://happyclam.github.io/project/2018-03-11/55shogiapp"/>
+   <link href="https://happyclam.github.io/project/2018-03-11/55shogiapp"/>
    <updated>2018-03-11T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/project/2018-03-11/55shogiapp</id>
+   <id>https://happyclam.github.io/project/2018-03-11/55shogiapp</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;５五将棋&quot; title=&quot;５五将棋&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;５五将棋アプリについて&quot;&gt;「５五将棋」アプリについて&lt;/h3&gt;
@@ -813,9 +813,9 @@ Second Win
  
  <entry>
    <title>王手放置について</title>
-   <link href="http://happyclam.github.io/software/2018-02-17/nocareincheck"/>
+   <link href="https://happyclam.github.io/software/2018-02-17/nocareincheck"/>
    <updated>2018-02-17T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/software/2018-02-17/nocareincheck</id>
+   <id>https://happyclam.github.io/software/2018-02-17/nocareincheck</id>
    <content type="html">&lt;h3 id=&quot;王手放置が反則だとは知らなかった&quot;&gt;王手放置が反則だとは知らなかった&lt;/h3&gt;
 &lt;p&gt;　趣味で長年将棋を指してますが、&lt;a href=&quot;https://www.shogi.or.jp/knowledge/shogi/05.html&quot;&gt;将棋連盟のサイト&lt;/a&gt;で王手放置が反則と規定されているとは知りませんでした、というか深く考えたことがありませんでした。相手が王手を放置したら相手玉を取ればいいだけの話と思っていたし、確か将棋連盟が運営している「将棋倶楽部24」でも、王手放置した段階では反則負けとはならず、投了するか玉が取られたらゲーム終了となっていたと思います。ただ、市販の将棋ソフトやスマホアプリでは王手を放置しようとするとなんらかのメッセージを表示して王手放置をさせないようにしているものが多いと思います。&lt;a href=&quot;https://happyclam.github.io/software/2018-01-27/utifudume&quot;&gt;前回の記事&lt;/a&gt;でも少し触れましたが、将棋が「相手の玉を取ったら終了」ではなく「相手玉を詰ましたら終了」となっているため、王手放置をさせないようにする方がソフト開発時にも整合性を保ちやすいという事情があるようです。&lt;/p&gt;
 
@@ -879,9 +879,9 @@ Second Win
  
  <entry>
    <title>打ち歩詰めについて</title>
-   <link href="http://happyclam.github.io/software/2018-01-27/utifudume"/>
+   <link href="https://happyclam.github.io/software/2018-01-27/utifudume"/>
    <updated>2018-01-27T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/software/2018-01-27/utifudume</id>
+   <id>https://happyclam.github.io/software/2018-01-27/utifudume</id>
    <content type="html">&lt;h3 id=&quot;話題の９マス将棋&quot;&gt;話題の９マス将棋&lt;/h3&gt;
 &lt;p&gt;　テレビで９マス将棋が取り上げられたことでTwitterで将棋初心者の呟きをよく見かけます。その中でも打ち歩詰めというルールを知らない人のツイートを何回か見かけたので、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;を開発した側の視点で「打ち歩詰め」について書いてみようと思います。&lt;/p&gt;
 
@@ -944,9 +944,9 @@ Second Win
  
  <entry>
    <title>「３三将棋」アプリリリースしました</title>
-   <link href="http://happyclam.github.io/project/2018-01-01/33shogiapp"/>
+   <link href="https://happyclam.github.io/project/2018-01-01/33shogiapp"/>
    <updated>2018-01-01T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/project/2018-01-01/33shogiapp</id>
+   <id>https://happyclam.github.io/project/2018-01-01/33shogiapp</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;３三将棋&quot; title=&quot;３三将棋&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;３三将棋について&quot;&gt;「３三将棋」について&lt;/h3&gt;
@@ -1173,9 +1173,9 @@ Second Win
  
  <entry>
    <title>ハイブリッドアプリのセキュリティ</title>
-   <link href="http://happyclam.github.io/programming/2017-08-12/hybrid_csp"/>
+   <link href="https://happyclam.github.io/programming/2017-08-12/hybrid_csp"/>
    <updated>2017-08-12T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/programming/2017-08-12/hybrid_csp</id>
+   <id>https://happyclam.github.io/programming/2017-08-12/hybrid_csp</id>
    <content type="html">&lt;h3 id=&quot;アプリ更新を強要されるよりかはマシだな&quot;&gt;アプリ更新を強要されるよりかはマシだな&lt;/h3&gt;
 &lt;p&gt;　以前&lt;a href=&quot;/programming/2016-02-14/cordova_update&quot;&gt;Google様からのお達し&lt;/a&gt;によりアプリのアップデートを強要されたことを書きましたが、今回は自分の都合で&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf&quot;&gt;自作のアプリ&lt;/a&gt;のアップデートをしようとした際にCordovaの仕様変更に対応する必要に迫られたので、誰かの役に立てばと思い記事を書きます。ハイブリッドアプリの脆弱性という意味では前回の件と似たようなものだと思うのですが、前回のように既にリリースされているアプリにまで対応を迫るということはなかったようです。CordovaにCSP（ContentSecurityPolicy）が導入されたのがいつかは知りませんが、とりあえず最近まで&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf&quot;&gt;このアプリ&lt;/a&gt;に関してはCSPを設定しないままでリリース出来ていました、ほとんどアクティブユーザーはいませんが&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
 
@@ -1183,12 +1183,12 @@ Second Win
 &lt;p&gt;　アプリの中でJSONPを使ってherokuで運用している外部サーバーからデータ（ユーザーのランキングデータ）を取得する処理があるのですが、適切にCSPを書かなければ&lt;code&gt;Refused to connect to 'http://XXX.herokuapp.com/XXX'&lt;/code&gt;というエラーでデータが取得出来なくなったようです。Whitelistプラグインを使ってconfig.xmlに記載するだけではダメみたいです、通常のHTTPリクエストよりAjaxリクエストはさらに規制を強くするということでしょう。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;!-- config.xml --&amp;gt;
-&amp;lt;access origin=&quot;http://tictactoe-cf.herokuapp.com&quot; /&amp;gt;
+&amp;lt;access origin=&quot;https://tictactoe-cf.herokuapp.com&quot; /&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;　以下のようにindex.htmlにmetaタグを書くことでデータ取得に成功しました。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-HTML&quot;&gt;&amp;lt;!-- index.html --&amp;gt;
-&amp;lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' http://localhost:3000 http://tictactoe-cf.herokuapp.com 'unsafe-inline' 'unsafe-eval'&quot;&amp;gt;
+&amp;lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' http://localhost:3000 https://stictactoe-cf.herokuapp.com 'unsafe-inline' 'unsafe-eval'&quot;&amp;gt;
 
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;　script-srcの部分にテスト時のローカルのURLと本番で使う外部サーバーのURLをスペースで区切って記述します。default-srcに記述すれば代替出来ると書かれたサイトもありましたが、私が試した限りではscript-srcに書かないと動きませんでした。&lt;/p&gt;
@@ -1252,9 +1252,9 @@ Second Win
  
  <entry>
    <title>「消える三目並べ」リリースしました</title>
-   <link href="http://happyclam.github.io/project/2017-07-11/tictactoe-van"/>
+   <link href="https://happyclam.github.io/project/2017-07-11/tictactoe-van"/>
    <updated>2017-07-11T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/project/2017-07-11/tictactoe-van</id>
+   <id>https://happyclam.github.io/project/2017-07-11/tictactoe-van</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=tictactoe_van.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;消える三目並べ&quot; title=&quot;消える三目並べ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;消える三目並べtic-tac-toe-vanについて&quot;&gt;「消える三目並べ（Tic-tac-toe Van）」について&lt;/h3&gt;
@@ -1409,9 +1409,9 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
  
  <entry>
    <title>三目並べでニューラルネットワーク（正）</title>
-   <link href="http://happyclam.github.io/project/2017-07-07/neuralnw2"/>
+   <link href="https://happyclam.github.io/project/2017-07-07/neuralnw2"/>
    <updated>2017-07-07T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/project/2017-07-07/neuralnw2</id>
+   <id>https://happyclam.github.io/project/2017-07-07/neuralnw2</id>
    <content type="html">&lt;p&gt;Project: 「&lt;strong&gt;三目並べ&lt;/strong&gt;」: &lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/neural&quot;&gt;neural&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;aiの学習は信賞必罰が必要&quot;&gt;AIの学習は信賞必罰が必要？&lt;/h3&gt;
@@ -1648,9 +1648,9 @@ window.onload = function() {
  
  <entry>
    <title>三目並べでニューラルネットワーク（誤）</title>
-   <link href="http://happyclam.github.io/project/2017-07-01/neuralnw"/>
+   <link href="https://happyclam.github.io/project/2017-07-01/neuralnw"/>
    <updated>2017-07-01T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/project/2017-07-01/neuralnw</id>
+   <id>https://happyclam.github.io/project/2017-07-01/neuralnw</id>
    <content type="html">&lt;p&gt;Project: 「&lt;strong&gt;三目並べ&lt;/strong&gt;」: &lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/neural&quot;&gt;neural&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;消える三目並べの学習効率を上げるには&quot;&gt;消える三目並べの学習効率を上げるには&lt;/h3&gt;
@@ -1877,9 +1877,9 @@ window.onload = function() {
  
  <entry>
    <title>「消える三目並べ」もう少しテスト</title>
-   <link href="http://happyclam.github.io/programming/2017-05-27/vanishing-tictactoe3"/>
+   <link href="https://happyclam.github.io/programming/2017-05-27/vanishing-tictactoe3"/>
    <updated>2017-05-27T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/programming/2017-05-27/vanishing-tictactoe3</id>
+   <id>https://happyclam.github.io/programming/2017-05-27/vanishing-tictactoe3</id>
    <content type="html">&lt;h3 id=&quot;全然強くない&quot;&gt;全然強くない&lt;/h3&gt;
 &lt;p&gt;　前作（&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;）と同様の機能のまま「消える三目並べ」（３手前に打った自分の駒が消えるルールの三目並べ）のアプリをリリースしようと思っていたのですが、いざ作成した「消える三目並べ」のアプリをスマホにインストールしてテストしてみるとあまりにもAIが弱い。それに前作の通常の三目並べ版だと学習データが真っさらの状態から300回程度対戦すると先手の時はほぼ必ず真ん中に駒を打つようになり、成長する過程が実感できるのに対して、「消える三目並べ」版だと強くなっていく過程が全然実感できませんでした。自分が「消える三目並べ」というゲームに慣れてきて強くなった所為もあると思いますが…。&lt;br /&gt;
 　と、いうことでAIの成長を実感できないので前作のように進化する過程を画像で表現する機能はやめて、とりあえずもう少し強くする方法を試行錯誤しました。AIが思ったほど強くならないのは、やはり通常の三目並べの全局面数が6,046ノード（回転・対照形を省くと627ノード）&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;であるのに対して、「消える三目並べ」では79,210ノード&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;と２桁以上増える違いは大きかったようです。&lt;/p&gt;
@@ -1990,9 +1990,9 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
  
  <entry>
    <title>「消える三目並べ」の話の続き</title>
-   <link href="http://happyclam.github.io/programming/2017-03-19/vanishing-tictactoe2"/>
+   <link href="https://happyclam.github.io/programming/2017-03-19/vanishing-tictactoe2"/>
    <updated>2017-03-19T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/programming/2017-03-19/vanishing-tictactoe2</id>
+   <id>https://happyclam.github.io/programming/2017-03-19/vanishing-tictactoe2</id>
    <content type="html">&lt;h3 id=&quot;消える三目並べの対戦結果&quot;&gt;「消える三目並べ」の対戦結果&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;/programming/2016-11-23/vanishing-tictactoe&quot;&gt;以前の記事&lt;/a&gt;の最後に「消える三目並べ」（３手前に打った自分の駒が消えるルールの三目並べ）の機械学習を使ったAndroidアプリを作ってみたけど、データが大きすぎて実用に堪えなかった話を書きました。いろいろ解決策を模索した結果、とりあえずデータが大きくなり過ぎる問題は解決しそうですがその話は改めて書くとして、今回はその新しく作ってみた機械学習プログラムのテストを兼ねて実施した学習度合いの進捗テストについてまた書いてみます。&lt;br /&gt;
 　前回は先手と後手をランダムに決めてソフト同士の対戦をしたのですが、「消える三目並べ」というゲームの特性上、先手の時は最善手を選び続けると必ず勝つはずなのでその違いがわかるように先手の時と後手の時を分けてデータを取りました。前回の時はデータを取った後で気づいて後悔していたのでちょうどいい機会が出来ました。&lt;br /&gt;
@@ -2098,9 +2098,9 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
  
  <entry>
    <title>三目並べのゲーム木データを間引く</title>
-   <link href="http://happyclam.github.io/project/2016-12-23/compressed_gametree"/>
+   <link href="https://happyclam.github.io/project/2016-12-23/compressed_gametree"/>
    <updated>2016-12-23T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/project/2016-12-23/compressed_gametree</id>
+   <id>https://happyclam.github.io/project/2016-12-23/compressed_gametree</id>
    <content type="html">&lt;p&gt;Project: 「&lt;strong&gt;三目並べ&lt;/strong&gt;」: &lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/machinelearning&quot;&gt;machinelearning&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;ゲーム木から回転対照形を間引く&quot;&gt;ゲーム木から回転、対照形を間引く&lt;/h3&gt;
@@ -2449,9 +2449,9 @@ window.onload = function() {
  
  <entry>
    <title>「消える三目並べ」は、学習が速い</title>
-   <link href="http://happyclam.github.io/programming/2016-11-23/vanishing-tictactoe"/>
+   <link href="https://happyclam.github.io/programming/2016-11-23/vanishing-tictactoe"/>
    <updated>2016-11-23T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/programming/2016-11-23/vanishing-tictactoe</id>
+   <id>https://happyclam.github.io/programming/2016-11-23/vanishing-tictactoe</id>
    <content type="html">&lt;h3 id=&quot;消える三目並べの対戦結果&quot;&gt;「消える三目並べ」の対戦結果&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;/programming/2016-11-03/ml_miscellaneous2&quot;&gt;前回の記事&lt;/a&gt;で「消える三目並べ」（３手前に打った自分の駒が消えるルールの三目並べ）の機械学習プログラムと最強プログラム（MIN-MAX法、αβ法を使った１１手読みのプログラム）と対戦させて、機械学習プログラムが一回も勝てなかった話をしましたが、どこが悪いかは分かっていたので今回機械学習部分の修正が完了したものと再度対戦させてみました。通常の三目並べより対戦に時間がかかるので最強プログラムの方は１００回の対戦を１回として５０回戦、乱数プログラムは１００回戦の対戦結果です。&lt;/p&gt;
 
@@ -2613,9 +2613,9 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
  
  <entry>
    <title>「消える三目並べ」、思ったより大変</title>
-   <link href="http://happyclam.github.io/programming/2016-11-03/ml_miscellaneous2"/>
+   <link href="https://happyclam.github.io/programming/2016-11-03/ml_miscellaneous2"/>
    <updated>2016-11-03T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/programming/2016-11-03/ml_miscellaneous2</id>
+   <id>https://happyclam.github.io/programming/2016-11-03/ml_miscellaneous2</id>
    <content type="html">&lt;h3 id=&quot;乱数プログラムとの対戦テスト結果は良好だったけど&quot;&gt;乱数プログラムとの対戦テスト結果は良好だったけど&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;/programming/2016-10-21/ml_miscellaneous&quot;&gt;前回の記事&lt;/a&gt;で「消える三目並べ」（３手前に打った自分の駒が消えるルールの三目並べ）なら保持する局面の数（ゲーム木）を通常の三目並べより少なく出来るなんて書いてしまいましたが、「消える三目並べ」では局面のデータだけを記憶していても次にどの駒が消えるかによって最善手が違ってくるので通常の三目並べのように局面の組み合わせだけで学習させることは出来ないことに気づきました。&lt;br /&gt;
 　あまり深く考えずに「消える三目並べ」のルールをプログラムに反映させて、学習機能の部分は変更せずに乱数プログラムとの対戦テストをしたところ、最初は２０％程だった勝率が徐々に上がり、10,000回対戦後の最後の１００回の対戦は勝率６０％以上に上がったので、これだけの修正でいいのか？と疑問に思いながらも、前回の記事を書いてしまいました。&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;でも、最強プログラムとの対戦では急速に学習が進みますが、乱数プログラムとの対戦では学習効果が低いため10,000回対戦後でも勝率が６０％程度でしたので、同じ結果が得られたと早合点してしまいました。&lt;br /&gt;
@@ -2734,9 +2734,9 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
  
  <entry>
    <title>三目並べと同じ方法でオセロや将棋を作れるか</title>
-   <link href="http://happyclam.github.io/programming/2016-10-21/ml_miscellaneous"/>
+   <link href="https://happyclam.github.io/programming/2016-10-21/ml_miscellaneous"/>
    <updated>2016-10-21T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/programming/2016-10-21/ml_miscellaneous</id>
+   <id>https://happyclam.github.io/programming/2016-10-21/ml_miscellaneous</id>
    <content type="html">&lt;h3 id=&quot;無理とは分かっていても何とかしたい&quot;&gt;無理とは分かっていても何とかしたい&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;をリリースした後、このアプリと同じAIの作り方（勝ったらご褒美、負けたら罰を与える）でオセロや将棋を作れないだろうかと考えてみました。同じコードを再利用して（楽して）他のゲームが作れるなら作る側の人ならやってみたいと思うでしょう。使う側のユーザーも、なんで「進化する将棋」や「進化するオセロ」じゃないの？「三目並べでは簡単すぎて楽しめない」という人もいるかもしれません。でも、想像つくとは思いますが、三目並べなのには理由があります。ネットで検索してみたところ、オセロで出現し得る局面の数は約&lt;script type=&quot;math/tex&quot;&gt;10^{60}&lt;/script&gt;で、将棋は&lt;script type=&quot;math/tex&quot;&gt;10^{360}&lt;/script&gt;だそうです。私が作った三目並べは以前&lt;a href=&quot;/software/2015-10-19/multi_branched_tree&quot;&gt;記事&lt;/a&gt;にも書きましたが、局面の数は&lt;script type=&quot;math/tex&quot;&gt;10^7&lt;/script&gt;以下で詳細は次の表の通りです。&lt;/p&gt;
 
@@ -2907,9 +2907,9 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
  
  <entry>
    <title>JavaScriptでスプライトシートを使う</title>
-   <link href="http://happyclam.github.io/programming/2016-10-04/spritesheet"/>
+   <link href="https://happyclam.github.io/programming/2016-10-04/spritesheet"/>
    <updated>2016-10-04T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/programming/2016-10-04/spritesheet</id>
+   <id>https://happyclam.github.io/programming/2016-10-04/spritesheet</id>
    <content type="html">&lt;h3 id=&quot;せっかくtexturepackerのブロガーライセンスを取得したのでアプリに使ってみました&quot;&gt;せっかくTexturePackerのブロガーライセンスを取得したのでアプリに使ってみました&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;/programming/2016-08-25/texturepacker&quot;&gt;以前の記事&lt;/a&gt;に書いたように、CEO直々にブロガーライセンスを認めてもらったので義理を果たすためにも記事を書いておくことにしました&lt;img class=&quot;emoji&quot; title=&quot;smile&quot; alt=&quot;smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;ただ単に画像ファイルをパックするだけでは意味が無いので簡単なアニメーションを表示しています。&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;androidアプリ&lt;/a&gt;で使用するので、ネットワークに繋がっていなくても使用できるようにCDNは使わずに&lt;a href=&quot;https://github.com/CreateJS/&quot;&gt;ここ&lt;/a&gt;から必要なファイルをダウンロードして使用します。&lt;/p&gt;
 
@@ -3132,7 +3132,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;p&gt;　TexturePackerから出力されたJSONファイルのフォーマットをそのまま利用する方法があると思うのですが、とりあえずJSONファイル内の画像の座標のみ抜き出してJavaScriptで使用しています。&lt;/p&gt;
 
-&lt;p&gt;　※イラスト画像は&lt;a href=&quot;http://www.irasutoya.com&quot;&gt;「いらすとや」様&lt;/a&gt;のものを利用させていただきました。&lt;/p&gt;
+&lt;p&gt;　※イラスト画像は&lt;a href=&quot;https://www.irasutoya.com&quot;&gt;「いらすとや」様&lt;/a&gt;のものを利用させていただきました。&lt;/p&gt;
 
 &lt;hr /&gt;
 </content>
@@ -3140,20 +3140,20 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
  
  <entry>
    <title>Tic-tac-toe Evoリリースしました</title>
-   <link href="http://happyclam.github.io/project/2016-09-19/tictactoe_evo"/>
+   <link href="https://happyclam.github.io/project/2016-09-19/tictactoe_evo"/>
    <updated>2016-09-19T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/project/2016-09-19/tictactoe_evo</id>
+   <id>https://happyclam.github.io/project/2016-09-19/tictactoe_evo</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;進化する三目並べ&quot; title=&quot;進化する三目並べ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
 &lt;a href=&quot;https://itunes.apple.com/jp/app/jin-huasuru-san-mu-bingbe/id1160636693?l=ja&amp;amp;ls=1&amp;amp;mt=8&quot;&gt;&lt;img src=&quot;/images/Download_on_the_App_Store_JP_135x40.svg&quot; alt=&quot;進化する三目並べ&quot; title=&quot;進化する三目並べ&quot; width=&quot;135&quot; height=&quot;40&quot; /&gt;&lt;/a&gt;
 &lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/machinelearning&quot;&gt;Ruby版のソース&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;進化する三目並べtic-tac-toe-evoについて&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」について&lt;/h3&gt;
-&lt;p&gt;　「進化する三目並べ（Tic-tac-toe Evo）」は、&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「Statistics Hacks」&lt;/a&gt;という統計学の本に紹介されていた強化学習の内容に興味を持った私が自作したRubyのPC用のプログラム（&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;github&lt;/a&gt;に公開している）を、せっかく作ったのだからスマホアプリにして公開してみようと考えて、CoffeeScript（JavaScript）に書き換えてCordovaを使ってスマホアプリに作り変えたものです。&lt;br /&gt;
-　詳しくは&lt;a href=&quot;http://happyclam.github.io/software/2015-10-25/machine_learning&quot;&gt;「算数で作る機械学習プログラム」&lt;/a&gt;というタイトルから始まる一連の記事を読んでいただきたいのですが、ここではスマホアプリに関する内容に限定して特有の機能などについて補足していきたいと思います。プログラミングに興味の有る方はソースコード（&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;github&lt;/a&gt;）も見て下さい。&lt;br /&gt;
+&lt;p&gt;　「進化する三目並べ（Tic-tac-toe Evo）」は、&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「Statistics Hacks」&lt;/a&gt;という統計学の本に紹介されていた強化学習の内容に興味を持った私が自作したRubyのPC用のプログラム（&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;github&lt;/a&gt;に公開している）を、せっかく作ったのだからスマホアプリにして公開してみようと考えて、CoffeeScript（JavaScript）に書き換えてCordovaを使ってスマホアプリに作り変えたものです。&lt;br /&gt;
+　詳しくは&lt;a href=&quot;https://happyclam.github.io/software/2015-10-25/machine_learning&quot;&gt;「算数で作る機械学習プログラム」&lt;/a&gt;というタイトルから始まる一連の記事を読んでいただきたいのですが、ここではスマホアプリに関する内容に限定して特有の機能などについて補足していきたいと思います。プログラミングに興味の有る方はソースコード（&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;github&lt;/a&gt;）も見て下さい。&lt;br /&gt;
 　アプリにもこの記事のリンクを追加していますので、サポートページとして使っていくつもりです。&lt;/p&gt;
 
 &lt;h5 id=&quot;-進化の過程について&quot;&gt;※ 進化の過程について&lt;/h5&gt;
-&lt;p&gt;　三目並べプログラムの学習度合いによって「ピロリ菌」から「人」まで、学習度合いをいろんな生物に例えて画像を表示していますが、「系統樹」「進化」等をキーワードにしてネットで調べながら自分なりに選んだ生物の画像を表示しています。必ずしも人類の進化の過程を正しく表現しているわけではありません。個人的には恐竜の画像なども登場させたかったのですが、ヒトへの進化の過程に恐竜は全く関係ないそうで、自分なりに正しいと思えるものを選んでいます。特に&lt;a href=&quot;http://kagakubar.com/mandala/mandala01.html&quot;&gt;「僕たちの祖先をめぐる15億年の旅」&lt;/a&gt;というサイトが参考になりました。&lt;/p&gt;
+&lt;p&gt;　三目並べプログラムの学習度合いによって「ピロリ菌」から「人」まで、学習度合いをいろんな生物に例えて画像を表示していますが、「系統樹」「進化」等をキーワードにしてネットで調べながら自分なりに選んだ生物の画像を表示しています。必ずしも人類の進化の過程を正しく表現しているわけではありません。個人的には恐竜の画像なども登場させたかったのですが、ヒトへの進化の過程に恐竜は全く関係ないそうで、自分なりに正しいと思えるものを選んでいます。特に&lt;a href=&quot;https://kagakubar.com/mandala/mandala01.html&quot;&gt;「僕たちの祖先をめぐる15億年の旅」&lt;/a&gt;というサイトが参考になりました。&lt;/p&gt;
 
 &lt;h3 id=&quot;タッチエフェクト機能追加ver136&quot;&gt;タッチエフェクト機能追加（ver1.3.6）&lt;/h3&gt;
 &lt;p&gt;　タッチ操作にアプリの反応が遅れているだけなのかタッチ操作が効かなかったのかの区別が付きにくい時があるので、少しでもイライラを無くすために、タッチしたマス目が白っぽくフェードアウトしていく視覚効果を付加しました。&lt;/p&gt;
@@ -3232,7 +3232,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;h4 id=&quot;１アプリの学習効率について&quot;&gt;１．アプリの学習効率について&lt;/h4&gt;
 &lt;p&gt;　このアプリの「進化」とは、学習の進捗度合いのことです。学習レベルを表すのに人類の進化に例えれば面白いかなと考えて「進化する三目並べ」としたしだいです。
-　今まで数回に渡って&lt;a href=&quot;http://happyclam.github.io/software/2015-12-25/log-linear&quot;&gt;強化学習について&lt;/a&gt;や&lt;a href=&quot;http://happyclam.github.io/software/2016-01-16/flotr2&quot;&gt;学習効果のグラフ&lt;/a&gt;の記事を書きましたが、&lt;a href=&quot;http://happyclam.github.io/software/2016-01-07/correlation&quot;&gt;この記事&lt;/a&gt;で紹介した「線形関数を使って、終盤の手ほど重要視する」やり方をアプリに採用しています。リリース直前に行った最強プログラムと乱数を使ったプログラムとの対戦テストの結果は以下です（1,000回の対戦を1回として100回の対戦、合計100,000回）。&lt;/p&gt;
+　今まで数回に渡って&lt;a href=&quot;https://happyclam.github.io/software/2015-12-25/log-linear&quot;&gt;強化学習について&lt;/a&gt;や&lt;a href=&quot;https://happyclam.github.io/software/2016-01-16/flotr2&quot;&gt;学習効果のグラフ&lt;/a&gt;の記事を書きましたが、&lt;a href=&quot;https://happyclam.github.io/software/2016-01-07/correlation&quot;&gt;この記事&lt;/a&gt;で紹介した「線形関数を使って、終盤の手ほど重要視する」やり方をアプリに採用しています。リリース直前に行った最強プログラムと乱数を使ったプログラムとの対戦テストの結果は以下です（1,000回の対戦を1回として100回の対戦、合計100,000回）。&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -3592,14 +3592,14 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
  
  <entry>
    <title>TexturePackerのフリーライセンス</title>
-   <link href="http://happyclam.github.io/programming/2016-08-25/texturepacker"/>
+   <link href="https://happyclam.github.io/programming/2016-08-25/texturepacker"/>
    <updated>2016-08-25T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/programming/2016-08-25/texturepacker</id>
+   <id>https://happyclam.github.io/programming/2016-08-25/texturepacker</id>
    <content type="html">&lt;h3 id=&quot;cocosのパッケージ区分がよくわからない&quot;&gt;Cocosのパッケージ区分がよくわからない&lt;/h3&gt;
-&lt;p&gt;　最近&lt;a href=&quot;http://www.cocos2d-x.org/wiki/Getting_Started_Cocos2d-js&quot;&gt;Cocos2d-js&lt;/a&gt;を弄り始めたのですがGUIのパッケージがいろいろあって違いがよくわかっていません。以前CocosStudio（Version3.1）というGUI環境でスプライトシートの作成が出来ていたのですが、なぜか自分の環境で新規プロジェクトの作成が出来なくなってしまいました（コマンドラインでの開発&lt;code&gt;cocos new&lt;/code&gt;は問題なく使えます）。新たにCocosCreatorが出てきたことと関係しているのかどうかわかりませんが、スプライトシートを作るだけならTexturePackerだけあればいいので１年間のフリーライセンスを取得することにしました。cocosについてはまた別の記事をいつか書こうと思ってます。&lt;/p&gt;
+&lt;p&gt;　最近&lt;a href=&quot;https://www.cocos2d-x.org/wiki/Getting_Started_Cocos2d-js&quot;&gt;Cocos2d-js&lt;/a&gt;を弄り始めたのですがGUIのパッケージがいろいろあって違いがよくわかっていません。以前CocosStudio（Version3.1）というGUI環境でスプライトシートの作成が出来ていたのですが、なぜか自分の環境で新規プロジェクトの作成が出来なくなってしまいました（コマンドラインでの開発&lt;code&gt;cocos new&lt;/code&gt;は問題なく使えます）。新たにCocosCreatorが出てきたことと関係しているのかどうかわかりませんが、スプライトシートを作るだけならTexturePackerだけあればいいので１年間のフリーライセンスを取得することにしました。cocosについてはまた別の記事をいつか書こうと思ってます。&lt;/p&gt;
 
 &lt;h3 id=&quot;ブロガーライセンスの取得の手順が変わった&quot;&gt;ブロガーライセンスの取得の手順が変わった？&lt;/h3&gt;
-&lt;p&gt;　TexturePackerの一年間限定のフリーライセンスの取得に関して検索してみると昔のもの（&lt;a href=&quot;http://oxosi.hatenablog.com/entry/2014/12/27/204407&quot;&gt;TexturePackerの1年ライセンスキーを無料でもらおう&lt;/a&gt;）が多く、昔は申請後にライセンスキーがメールで送られてくるだけだったようですが、今は一手間増えて申請が認められたら自分のブログに認証キーを書き込んで、ブログ所有者本人であることを確認後にライセンスキーが送られてくるような手順になっているみたいです。&lt;a href=&quot;http://moonrailgun.com/2016/04/04/感谢TexturePacker提供的免费软件授权/&quot;&gt;こちらの記事&lt;/a&gt;を参考にしました。&lt;br /&gt;
+&lt;p&gt;　TexturePackerの一年間限定のフリーライセンスの取得に関して検索してみると昔のもの（&lt;a href=&quot;https://oxosi.hatenablog.com/entry/2014/12/27/204407&quot;&gt;TexturePackerの1年ライセンスキーを無料でもらおう&lt;/a&gt;）が多く、昔は申請後にライセンスキーがメールで送られてくるだけだったようですが、今は一手間増えて申請が認められたら自分のブログに認証キーを書き込んで、ブログ所有者本人であることを確認後にライセンスキーが送られてくるような手順になっているみたいです。&lt;a href=&quot;http://moonrailgun.com/2016/04/04/感谢TexturePacker提供的免费软件授权/&quot;&gt;こちらの記事&lt;/a&gt;を参考にしました。&lt;br /&gt;
 　過去に実際に申請をした人たちの記事を読んでいたら対応はまちまちのようで一週間返信がなくて再度申請したら通ったとか、すぐにライセンスキーが送られてきたとか、ブログを褒めてもらえたとか、いろいろなパターンがあるようです。自分の場合もちょっとしたやりとりがありました。&lt;br /&gt;
 　まず申請の意思の確認のためのメールが送られてきました。&lt;/p&gt;
 
@@ -3647,7 +3647,7 @@ Please let me know if you write a tutorial or review - we might link back from o
 Kind regards Andreas Loew&lt;br /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;　私はどうすればよかったのでしょうか？まず、私が少し誤解していたのが、前述の&lt;a href=&quot;http://oxosi.hatenablog.com/entry/2014/12/27/204407&quot;&gt;日本語の紹介記事&lt;/a&gt;や他の申請した人の記事を読んで、レビューや紹介記事を書くことは必須ではないと思い気軽に申請したのですが、向こうとしては記事を書いてそこにコードを埋め込むことを期待していたのかもしれません（それにしても誰もが見えるところに意味不明の認証コードを表示するの？）。確かに&lt;a href=&quot;https://www.codeandweb.com/request-free-license&quot;&gt;本家サイトの申請ページ&lt;/a&gt;にも必須ではないとは書かれていますが、運用方針が変わったのかもしれません。あまりにも売上に繋がらなくて嫌気が差してるとか&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;。ライセンスコードとともに送られてきたメールの「記事を書いたら連絡してね」という文言とともに付けられていた「tutorials page」のリンクも４０４エラーになっていました。&lt;br /&gt;
+&lt;p&gt;　私はどうすればよかったのでしょうか？まず、私が少し誤解していたのが、前述の&lt;a href=&quot;https://oxosi.hatenablog.com/entry/2014/12/27/204407&quot;&gt;日本語の紹介記事&lt;/a&gt;や他の申請した人の記事を読んで、レビューや紹介記事を書くことは必須ではないと思い気軽に申請したのですが、向こうとしては記事を書いてそこにコードを埋め込むことを期待していたのかもしれません（それにしても誰もが見えるところに意味不明の認証コードを表示するの？）。確かに&lt;a href=&quot;https://www.codeandweb.com/request-free-license&quot;&gt;本家サイトの申請ページ&lt;/a&gt;にも必須ではないとは書かれていますが、運用方針が変わったのかもしれません。あまりにも売上に繋がらなくて嫌気が差してるとか&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;。ライセンスコードとともに送られてきたメールの「記事を書いたら連絡してね」という文言とともに付けられていた「tutorials page」のリンクも４０４エラーになっていました。&lt;br /&gt;
 　それとこういう手続は自動でスクリプトが処理していると思っていたので、サイトのページをパースして文字列検索でもしているのかな？とか勝手に想像していましたが、CEO自身が記事を読んでいるようですね。CEO自身からメールの返信が来たことにも驚きました。日本なら手作業で申請の対応をするにしても、若手の担当者にやらせていることでしょう。&lt;br /&gt;
 　厚かましいかもしれませんが、こちらとしてもTexturePackerがどうしても必要というわけでもなく、数種類の画像をドラッグ＆ドロップしてスプライトシートを作成するだけなので、非常に多くの機能は私にとっては持て余し気味で、レビュー記事を書くほど使い込んでもいないし現時点では購入する気にはなれないんですよねぇ。最終的には「感謝して使わせてもらいます」と返信しましたが、それほど多くの画像を使う予定もないし、そもそもが購入した本のサンプルコードでスプライトシートを使っていたから真似をしただけという状態ですから、もう少し使ってみてから購入するかどうか決めようと思います。&lt;br /&gt;
 　このAndreasっていうCEOはQ&amp;amp;Aサイトとかでも積極的に回答したりしているようで、未だにパソコン操作出来ないような人がIT企業の社長やってたりする日本とは大違いですね。&lt;/p&gt;
@@ -3658,11 +3658,11 @@ Kind regards Andreas Loew&lt;br /&gt;&lt;/p&gt;
  
  <entry>
    <title>９マス将棋（３×３将棋）と三目並べの変化形</title>
-   <link href="http://happyclam.github.io/programming/2016-07-23/33shogi"/>
+   <link href="https://happyclam.github.io/programming/2016-07-23/33shogi"/>
    <updated>2016-07-23T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/programming/2016-07-23/33shogi</id>
+   <id>https://happyclam.github.io/programming/2016-07-23/33shogi</id>
    <content type="html">&lt;h3 id=&quot;たかが３３の狭い空間でも完全読み切りは大変だ&quot;&gt;たかが３×３の狭い空間でも完全読み切りは大変だ&lt;/h3&gt;
-&lt;p&gt;　Twitterで&lt;a href=&quot;http://mainichi.jp/articles/20160612/k00/00e/040/105000c&quot;&gt;９マス将棋発売&lt;/a&gt;というニュースが流れていたので、検索してみると同じ９マス（３×３）と言えどもいろいろなパターンがあるようです&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。Androidアプリで見つけた&lt;a href=&quot;https://play.google.com/store/apps/details?id=org.dyndns.vivi.SkskShogi33&quot;&gt;「３×３将棋」&lt;/a&gt;というのをやってみると玉頭戦を戦っている気分になれて、想像していた以上に楽しめました。他にも一番シンプルなものでは盤上には玉だけを配置して、持ち駒に銀と歩を持ったところからゲームを開始する&lt;a href=&quot;http://www.nakajim.net/?3三将棋&quot;&gt;「３三将棋」&lt;/a&gt;というルールもあるようです。&lt;/p&gt;
+&lt;p&gt;　Twitterで&lt;a href=&quot;https://mainichi.jp/articles/20160612/k00/00e/040/105000c&quot;&gt;９マス将棋発売&lt;/a&gt;というニュースが流れていたので、検索してみると同じ９マス（３×３）と言えどもいろいろなパターンがあるようです&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。Androidアプリで見つけた&lt;a href=&quot;https://play.google.com/store/apps/details?id=org.dyndns.vivi.SkskShogi33&quot;&gt;「３×３将棋」&lt;/a&gt;というのをやってみると玉頭戦を戦っている気分になれて、想像していた以上に楽しめました。他にも一番シンプルなものでは盤上には玉だけを配置して、持ち駒に銀と歩を持ったところからゲームを開始する&lt;a href=&quot;http://www.nakajim.net/?3三将棋&quot;&gt;「３三将棋」&lt;/a&gt;というルールもあるようです。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
@@ -3775,14 +3775,14 @@ Kind regards Andreas Loew&lt;br /&gt;&lt;/p&gt;
  
  <entry>
    <title>CoffeeScriptで割り込み処理</title>
-   <link href="http://happyclam.github.io/programming/2016-05-18/coffee_settimeout"/>
+   <link href="https://happyclam.github.io/programming/2016-05-18/coffee_settimeout"/>
    <updated>2016-05-18T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/programming/2016-05-18/coffee_settimeout</id>
+   <id>https://happyclam.github.io/programming/2016-05-18/coffee_settimeout</id>
    <content type="html">&lt;h3 id=&quot;重たい処理をしている最中に再描画する方法&quot;&gt;重たい処理をしている最中に再描画する方法&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;/programming/2016-05-02/coffee_serialize&quot;&gt;前回&lt;/a&gt;同様Ruby製プログラムをCoffeeScript（JavaScript）に移植する際の話ですが、PC上で動くプログラムでもそうですが、重たい処理をしている最中に画面の更新をしたい時があると思います。三目並べの全局面データを作成する処理がRuby製プログラムで４、５秒かかるのですが、この処理をブラウザ上で動かすCoffeeScript（JavaScript）製のプログラムにした時の顛末を書きます。&lt;/p&gt;
 
 &lt;h3 id=&quot;スレッドが使えない&quot;&gt;スレッドが使えない&lt;/h3&gt;
-&lt;p&gt;　今回の三目並べプログラムは&lt;a href=&quot;/project/2015-10-10/tictactoe_bfs&quot;&gt;BFS（Breadth First Search）アルゴリズム&lt;/a&gt;や&lt;a href=&quot;/software/2015-10-25/machine_learning&quot;&gt;機械学習プログラム&lt;/a&gt;の動作確認用のサンプルとして作ったものですから、レスポンスが遅くても問題なかったのですが、以前Rubyと&lt;a href=&quot;http://shoesrb.com&quot;&gt;Shoes&lt;/a&gt;でGUIの将棋プログラムを作った時は、先読みさせる時に別スレッドを起動して画面を更新しました。人間とソフトの対戦中のループ処理内に&lt;code&gt;Thread.new&lt;/code&gt;で囲んだブロックを以下のように入れておくだけで、ソフトが思考中でもユーザーの操作を妨げることなく画面の再描画やメニュー操作をすることが出来ました。&lt;/p&gt;
+&lt;p&gt;　今回の三目並べプログラムは&lt;a href=&quot;/project/2015-10-10/tictactoe_bfs&quot;&gt;BFS（Breadth First Search）アルゴリズム&lt;/a&gt;や&lt;a href=&quot;/software/2015-10-25/machine_learning&quot;&gt;機械学習プログラム&lt;/a&gt;の動作確認用のサンプルとして作ったものですから、レスポンスが遅くても問題なかったのですが、以前Rubyと&lt;a href=&quot;https://shoesrb.com&quot;&gt;Shoes&lt;/a&gt;でGUIの将棋プログラムを作った時は、先読みさせる時に別スレッドを起動して画面を更新しました。人間とソフトの対戦中のループ処理内に&lt;code&gt;Thread.new&lt;/code&gt;で囲んだブロックを以下のように入れておくだけで、ソフトが思考中でもユーザーの操作を妨げることなく画面の再描画やメニュー操作をすることが出来ました。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;@thinking = Thread.new do
     #思考ルーチンを呼び出す処理　
@@ -3944,7 +3944,7 @@ class Sample
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;　setTimeoutを使ったサンプルをこれと同じように書いてもheavy関数の実行終了を待たずに実行されるので意味がありません。setTimeoutを使ったサンプルで、初期化処理（&lt;code&gt;@trees = new Array()&lt;/code&gt;）と終了時の処理（&lt;code&gt;@statusarea.innerHTML = @trees.length.toString()&lt;/code&gt;）をheavy関数内に移動しているのはそのためです。&lt;br /&gt;
-　それから、&lt;a href=&quot;http://azu.github.io/promises-book/&quot;&gt;Promise&lt;/a&gt;を使えば敢えて同期をとって実行させることも出来るらしいと聞いたので、何か得るものがあるかと思い少し弄ってみたのですが、setTimeoutを使わずに同様のことが出来るようになるわけでもなさそうだったので使うのをやめました、用途が違うようです。どんなツールを使ってもブラウザ上で動作するシングルスレッド環境には変わりないので、前述のWindowsソフトのような書き方は出来なくて、タイマーによる割り込み処理を避けることはたぶん無理なのでしょう。&lt;/p&gt;
+　それから、&lt;a href=&quot;https://azu.github.io/promises-book/&quot;&gt;Promise&lt;/a&gt;を使えば敢えて同期をとって実行させることも出来るらしいと聞いたので、何か得るものがあるかと思い少し弄ってみたのですが、setTimeoutを使わずに同様のことが出来るようになるわけでもなさそうだったので使うのをやめました、用途が違うようです。どんなツールを使ってもブラウザ上で動作するシングルスレッド環境には変わりないので、前述のWindowsソフトのような書き方は出来なくて、タイマーによる割り込み処理を避けることはたぶん無理なのでしょう。&lt;/p&gt;
 
 &lt;hr /&gt;
 </content>
@@ -3952,9 +3952,9 @@ class Sample
  
  <entry>
    <title>CoffeeScriptでシリアライズ</title>
-   <link href="http://happyclam.github.io/programming/2016-05-02/coffee_serialize"/>
+   <link href="https://happyclam.github.io/programming/2016-05-02/coffee_serialize"/>
    <updated>2016-05-02T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/programming/2016-05-02/coffee_serialize</id>
+   <id>https://happyclam.github.io/programming/2016-05-02/coffee_serialize</id>
    <content type="html">&lt;h3 id=&quot;オブジェクトのシリアライズ機能ってデータだけでいいのか&quot;&gt;オブジェクトのシリアライズ機能ってデータだけでいいのか？&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;/programming/2015-01-25/ruby_to_js&quot;&gt;以前の記事&lt;/a&gt;でJavaScriptは嫌いだけど、CoffeeScriptは好き（Rubyも好きです）と書きましたが、またJavaScriptが嫌になる出来事に遭遇しました。なんとJavaScriptにはオブジェクトをシリアライズする機能が標準では無いようです。データ交換のためJSONは今までから使っていましたが、JSON形式だとメソッドを復元することが出来ません。自分が知らないだけで探せば何か方法があるのだろうと思っていたのですが、外部のライブラリを使わない限りシリアライズは無理なようです。昔からRubyでもDelphiでもVC++でも使ってたしPHPでも使った記憶があるシリアライズ機能が無いなんて、JavaScriptはオブジェクト指向言語って言えるのか？って感じがしますが、&lt;code&gt;JSON.stringify&lt;/code&gt;でデータのみを文字列化出来るからそれこそがシリアライズ機能であって、なんでメソッドを含めないといけないのだ？という意見もあるようです。確かにメソッドをシリアライズの対象に含めると複数の同じオブジェクトをシリアライズした場合に重複して無駄だという考え方もあるようです。それにJavaScriptの場合はブラウザ上で動作させるので、セキュリティ上の配慮から敢えて標準装備していないのかもしれません。自分としては学術的な議論は置いといて、他の言語で出来るのだから同じようにやらせて欲しいってだけなのですが…。&lt;/p&gt;
 
@@ -4048,9 +4048,9 @@ catch e
  
  <entry>
    <title>Withings Activitéの電池のもち</title>
-   <link href="http://happyclam.github.io/hardware/2016-04-25/activite_batt"/>
+   <link href="https://happyclam.github.io/hardware/2016-04-25/activite_batt"/>
    <updated>2016-04-25T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/hardware/2016-04-25/activite_batt</id>
+   <id>https://happyclam.github.io/hardware/2016-04-25/activite_batt</id>
    <content type="html">&lt;h3 id=&quot;検索ワードトップに-withings-が&quot;&gt;検索ワードトップに withings が&lt;/h3&gt;
 &lt;p&gt;　Google Analyticsを見ていると最近このサイトに辿り着く検索ワードに「withings」が目立つようになってきました。以前は「αβ法」や「rails」等のプログラミング関連のキーワードでこのサイトに訪れる人が多かったのですが、やはりプログラミングする人よりしない人の方が圧倒的に多いのだから一見さんは特にそうなるのでしょう。もともと訪問者が少ない弱小零細ブログですが、そういえばMacbookが発売された時にその記事を書いたら一時的に訪問者が増えたことからも、プログラミングの話題なんかより、関わる人の絶対数が多い言葉の方が人が集まり易いのは当然でしょう。Withingsの製品が別段ブームになっているとは思えませんが、情報を求めている人もいるみたいなので気づいたことを記事にしておきます。&lt;/p&gt;
 
@@ -4086,10 +4086,10 @@ catch e
  
  <entry>
    <title>電子書籍出版して２週間経ちました</title>
-   <link href="http://happyclam.github.io/miscellaneous/2016-04-02/self-publishing"/>
+   <link href="https://happyclam.github.io/miscellaneous/2016-04-02/self-publishing"/>
    <updated>2016-04-02T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/miscellaneous/2016-04-02/self-publishing</id>
-   <content type="html">&lt;h3 id=&quot;html5coffeescriptで作る-最強の三目並べプログラムamazon楽天&quot;&gt;「HTML5+CoffeeScriptで作る 最強の三目並べプログラム」（&lt;a href=&quot;http://www.amazon.co.jp/dp/B01D1IJ0S0&quot;&gt;Amazon&lt;/a&gt;、&lt;a href=&quot;http://books.rakuten.co.jp/rk/8353a2085f33386d8fe9102c7b8eb4c3&quot;&gt;楽天&lt;/a&gt;）&lt;/h3&gt;
+   <id>https://happyclam.github.io/miscellaneous/2016-04-02/self-publishing</id>
+   <content type="html">&lt;h3 id=&quot;html5coffeescriptで作る-最強の三目並べプログラムamazon楽天&quot;&gt;「HTML5+CoffeeScriptで作る 最強の三目並べプログラム」（&lt;a href=&quot;https://www.amazon.co.jp/dp/B01D1IJ0S0&quot;&gt;Amazon&lt;/a&gt;、&lt;a href=&quot;https://books.rakuten.co.jp/rk/8353a2085f33386d8fe9102c7b8eb4c3&quot;&gt;楽天&lt;/a&gt;）&lt;/h3&gt;
 &lt;p&gt;　個人出版してみた結果売れ行きはどうなのか、興味ある人いると思います。私自身も試しに出版してみたらどうなるだろうという好奇心で出版したようなものです。現在約２週間経ちましたが楽天で２冊、Amazonで１冊です。買っていただいた方ありがとうございました。&lt;img class=&quot;emoji&quot; title=&quot;bow&quot; alt=&quot;bow&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/bow.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
 　最初Amazonに出版して三日経っても反応無かったので楽天に出版したのですが、楽天に出してすぐに１部売れました。登録してすぐに売れたものですから、KWLの中の人が作者を励ます為に買ってくれたのか？もしかして知り合い？とかいろいろ想像してしまいました。一応匿名で出しているつもりですが、どこで身元がバレているかわかりませんから。それにしても全く宣伝せずに２週間で３部も売れたというのは自分では上出来だと思っていますが、新着ということで目にする機会があっただけで、このまま放っておいたら今後一切売れないような気もします。Twitterを使った販促や他のサイトでの販売もその効果に興味があるのでやってみるかもしれませんが、売れたかどうかより、買って読んでくれた人がどう思っているかの方が大事だと思っています。&lt;br /&gt;
 　でも、自費出版というのは昔からそういうものだと思うのですが、売れるかどうかなんてことより（もちろん売れたら嬉しいですが）自分が世に出したいから出すわけです。だからもっと言えば買って読んでくれた人がどう思ってようがそれさえも大きな関心はないという感じです。そういうわけですから出版し終えたばかりなのに、早速次の本を出す構想を練っています。なんか使命感に駆られるという感じです、たとえ誰も待ち望んでいなくても&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
@@ -4098,7 +4098,7 @@ catch e
 &lt;p&gt;　以前にも&lt;a href=&quot;/miscellaneous/2015-06-09/pandoc_epub&quot;&gt;電子出版に関して&lt;/a&gt;記事を書きましたが、そこではこのブログを書いているやり方と同じmarkdown形式で文章を書いてそれを何らかの方法でPDFかepubに変換して出版したいと書きました。でも、最新のpandocコマンド（1.16.0.2）で試してみても細々な不満があったのでmarkdownからepubを生成するのは諦めて、使い方を覚えるのは面倒臭くて嫌だったのですが結局MacのPagesを使って一から書くことにしました。本を書くということに不慣れなこともあって、文章だけでなく何度も構成や図表を変更するので、そういう細々とした作業は市販のソフトを使った方が楽になると感じました。&lt;a href=&quot;/miscellaneous/2015-06-09/pandoc_epub&quot;&gt;以前の記事&lt;/a&gt;に書いたような自前でepubを作るやり方はもうこれで絶対変更しないと言い切れるぐらい文章が確定してからでないとやってられないと思います。でもそうは言ってもepubに変換してから修正したくなることが多いのですが、Pagesなら出力形式をepubに指定すれば何度でも出力できるので、ちょっと修正してはまたepubに出力するという作業が非常に楽でした。ブログ書いている分にはmarkdownの方が楽なんですけど、結局その違いは、最終出力をすぐに確認出来る状態で入力作業を進められるかどうかが大事なことだということでしょう。&lt;/p&gt;
 
 &lt;h3 id=&quot;ゴールドラッシュにはスコップを売るべし&quot;&gt;「ゴールドラッシュにはスコップを売るべし」&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/miscellaneous/2015-06-09/pandoc_epub&quot;&gt;以前の記事&lt;/a&gt;にも書きましたが最初はどこに出版するのかいろいろ迷っていたので、個人出版のノウハウ本みたいな電子書籍も何冊か買ってみましたが、役に立ったと思ったのは、この１冊（&lt;a href=&quot;http://selfpublishing.jimdo.com&quot;&gt;「電子書籍の個人作家でも、３年かければ１０００冊売れる！　セルフパブリッシングを楽しむ方法」&lt;/a&gt;）だけでした。それ以外は買って損したと思うものばかり（こんなこと言うと自分に返ってくるものですが、言わずにはいられないほど酷いものがあるんです。タイトルは伏せておきますので許して下さい）でした。今となっては特にこの本を他人にお勧めしようとは思いませんが、この本のタイトルにあるように３年で１０００冊売れたそうで、宣伝費用をかけずにこれだけ売れるのは凄いことだろうなとは思います。本を売ることが目的ならこういう類の本を書くのが一番手っ取り早いような気がします。私もそうでしたが、やっぱりみんな実際にやってみた人の体験談を知りたいんだと思います。今、ゴールドラッシュと言えるほど個人出版が流行っているのかどうか知りませんが、昔に較べて気軽に出版出来るので増えていくことは間違いないと思います。ゴールドラッシュでは自分で金鉱を見つけ出すより、そういう夢を見ている人達を相手にスコップやデニムを売った方が確実にお金になるでしょう。だから今のところ考えていませんが、私も将来体験談をまとめてノウハウ本を出すかもしれません。その時は「使命感に駆られて」とか言っていたくせに小遣い稼ぎに走ったぞと私を罵倒してください。&lt;img class=&quot;emoji&quot; title=&quot;grin&quot; alt=&quot;grin&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/grin.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;/miscellaneous/2015-06-09/pandoc_epub&quot;&gt;以前の記事&lt;/a&gt;にも書きましたが最初はどこに出版するのかいろいろ迷っていたので、個人出版のノウハウ本みたいな電子書籍も何冊か買ってみましたが、役に立ったと思ったのは、この１冊（&lt;a href=&quot;https://selfpublishing.jimdo.com&quot;&gt;「電子書籍の個人作家でも、３年かければ１０００冊売れる！　セルフパブリッシングを楽しむ方法」&lt;/a&gt;）だけでした。それ以外は買って損したと思うものばかり（こんなこと言うと自分に返ってくるものですが、言わずにはいられないほど酷いものがあるんです。タイトルは伏せておきますので許して下さい）でした。今となっては特にこの本を他人にお勧めしようとは思いませんが、この本のタイトルにあるように３年で１０００冊売れたそうで、宣伝費用をかけずにこれだけ売れるのは凄いことだろうなとは思います。本を売ることが目的ならこういう類の本を書くのが一番手っ取り早いような気がします。私もそうでしたが、やっぱりみんな実際にやってみた人の体験談を知りたいんだと思います。今、ゴールドラッシュと言えるほど個人出版が流行っているのかどうか知りませんが、昔に較べて気軽に出版出来るので増えていくことは間違いないと思います。ゴールドラッシュでは自分で金鉱を見つけ出すより、そういう夢を見ている人達を相手にスコップやデニムを売った方が確実にお金になるでしょう。だから今のところ考えていませんが、私も将来体験談をまとめてノウハウ本を出すかもしれません。その時は「使命感に駆られて」とか言っていたくせに小遣い稼ぎに走ったぞと私を罵倒してください。&lt;img class=&quot;emoji&quot; title=&quot;grin&quot; alt=&quot;grin&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/grin.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -4107,14 +4107,14 @@ catch e
  
  <entry>
    <title>楽天Kobo電子書籍検索API使ってみた</title>
-   <link href="http://happyclam.github.io/project/2016-03-30/koboAPI"/>
+   <link href="https://happyclam.github.io/project/2016-03-30/koboAPI"/>
    <updated>2016-03-30T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/project/2016-03-30/koboAPI</id>
+   <id>https://happyclam.github.io/project/2016-03-30/koboAPI</id>
    <content type="html">&lt;p&gt;Project: 「&lt;a href=&quot;https://kwl-books.herokuapp.com&quot;&gt;&lt;strong&gt;楽天Kobo電子書籍新着チェッカー&lt;/strong&gt;&lt;/a&gt;」: &lt;a href=&quot;https://github.com/happyclam/kwl-books&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;自分の本が検索されない&quot;&gt;自分の本が検索されない&lt;/h3&gt;
-&lt;p&gt;　以前からやってみたかった電子書籍出版やってみました（&lt;a href=&quot;http://www.amazon.co.jp/dp/B01D1IJ0S0&quot;&gt;Amazon KDP&lt;/a&gt;、&lt;a href=&quot;http://books.rakuten.co.jp/rk/8353a2085f33386d8fe9102c7b8eb4c3&quot;&gt;楽天Kobo&lt;/a&gt;）。その顛末については別の記事を書こうと思っていますが、先に「楽天Kobo電子書籍新着チェッカー」を作ってみたのでそれについて書きます。&lt;br /&gt;
-　楽天Koboの電子書籍出版サービス（KWL、Kobo Writing Life）に自分の本を登録して、リリースまで時間が掛かると書いてあったから&lt;a href=&quot;http://wakufactory.jp/kobo/kwlnew.html&quot;&gt;「KoboWritingLife新着チェッカー」&lt;/a&gt;というサイトを見つけて、自分の本が出版されたかどうかチェックしていました。丸一日ぐらい経った後、まだ自分の本が表示されていなかったので、試しに楽天のサイトから検索してみたら、自分の本がヒットするではないですか、「なんで自分の本は出てこないの？」って感じです。この&lt;a href=&quot;http://wakufactory.jp/kobo/kwlnew.html&quot;&gt;新着チェッカー&lt;/a&gt;がどれほど利用されているのかわかりませんが、「自分の本を表示してくれないサイトが新着チェッカーとしてメジャーになってもらっては困る」、「なんとか自分で世間の人に使って貰えるこれ以上の新着チェッカーを作らなければならない」という使命感に駆られて（嘘です）作ってみることにしました。&lt;br /&gt;
+&lt;p&gt;　以前からやってみたかった電子書籍出版やってみました（&lt;a href=&quot;https://www.amazon.co.jp/dp/B01D1IJ0S0&quot;&gt;Amazon KDP&lt;/a&gt;、&lt;a href=&quot;https://books.rakuten.co.jp/rk/8353a2085f33386d8fe9102c7b8eb4c3&quot;&gt;楽天Kobo&lt;/a&gt;）。その顛末については別の記事を書こうと思っていますが、先に「楽天Kobo電子書籍新着チェッカー」を作ってみたのでそれについて書きます。&lt;br /&gt;
+　楽天Koboの電子書籍出版サービス（KWL、Kobo Writing Life）に自分の本を登録して、リリースまで時間が掛かると書いてあったから&lt;a href=&quot;https://wakufactory.jp/kobo/kwlnew.html&quot;&gt;「KoboWritingLife新着チェッカー」&lt;/a&gt;というサイトを見つけて、自分の本が出版されたかどうかチェックしていました。丸一日ぐらい経った後、まだ自分の本が表示されていなかったので、試しに楽天のサイトから検索してみたら、自分の本がヒットするではないですか、「なんで自分の本は出てこないの？」って感じです。この&lt;a href=&quot;https://wakufactory.jp/kobo/kwlnew.html&quot;&gt;新着チェッカー&lt;/a&gt;がどれほど利用されているのかわかりませんが、「自分の本を表示してくれないサイトが新着チェッカーとしてメジャーになってもらっては困る」、「なんとか自分で世間の人に使って貰えるこれ以上の新着チェッカーを作らなければならない」という使命感に駆られて（嘘です）作ってみることにしました。&lt;br /&gt;
 　自分で楽天APIを弄ってみてから想像するとおそらく自分の本が表示されないのは、自分の本を登録している「PC・システム開発」というジャンルが検索対象になっていないからだと思いますが、真相はわかりません。自分の本だけ意地悪されているわけでないことは確かでしょう。&lt;br /&gt;
 　ということでジャンル別に検索する形で作りました。自己責任でご利用ください（免責条項）。&lt;a href=&quot;https://webservice.rakuten.co.jp/guide/&quot;&gt;楽天のサイト&lt;/a&gt;でも簡単にAPIを試してみることも出来ます。試すだけなら開発者用のIDをわざわざ取得しなくても利用できます。&lt;/p&gt;
 
@@ -4122,7 +4122,7 @@ catch e
 
 &lt;ul&gt;
   &lt;li&gt;使用するのは楽天Kobo系APIだけ（「楽天ブックス系API」と「楽天Kobo系API」に分かれているようです）&lt;br /&gt;
-※深くは追求してませんが、&lt;a href=&quot;http://wakufactory.jp/kobo/kwlnew.html&quot;&gt;件のサイト&lt;/a&gt;で自分の本が検索出来なかったのはこのAPIの違いによるものかもしれません。APIを分けている理由も知りませんが、Kobo系は簡易版みたいな感じかもしれません。&lt;/li&gt;
+※深くは追求してませんが、&lt;a href=&quot;https://wakufactory.jp/kobo/kwlnew.html&quot;&gt;件のサイト&lt;/a&gt;で自分の本が検索出来なかったのはこのAPIの違いによるものかもしれません。APIを分けている理由も知りませんが、Kobo系は簡易版みたいな感じかもしれません。&lt;/li&gt;
   &lt;li&gt;予約販売分は検索対象外（予約販売分を含めると未来の発売日分のデータばかりになるため）&lt;/li&gt;
   &lt;li&gt;サイトにアクセスがあると、その都度最新のジャンルデータを取得して表示し差分を保存する&lt;/li&gt;
   &lt;li&gt;ジャンルがクリックされると、一度のAPIで取得出来る最大３０件の最新出版データを保存して日付の新しい順に過去に取得した分を含めて最大５０件表示&lt;br /&gt;
@@ -4161,11 +4161,11 @@ HTTPS https://app.rakuten.co.jp/services/api/Kobo/EbookSearch/20140811?applicati
  
  <entry>
    <title>モバイルプリンター PX-S05B</title>
-   <link href="http://happyclam.github.io/hardware/2016-03-21/pr_epson"/>
+   <link href="https://happyclam.github.io/hardware/2016-03-21/pr_epson"/>
    <updated>2016-03-21T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/hardware/2016-03-21/pr_epson</id>
+   <id>https://happyclam.github.io/hardware/2016-03-21/pr_epson</id>
    <content type="html">&lt;h3 id=&quot;またプリンターを買ってしまった&quot;&gt;またプリンターを買ってしまった&lt;/h3&gt;
-&lt;p&gt;　去年プリンターを処分してから、もうプリンターはコンビニで済まして自分で持たないつもりだったけど、確定申告にも使うし出力結果をすぐに確認したい時が多いのでやっぱり持つことにしました。でも狭い家の床をプリンターに占有されるのは嫌だったので、買ったのはエプソンのモバイルプリンター &lt;a href=&quot;http://ink-revolution.com/contentsplus/epson-px-s05w-px-s05b-mobile-purinter/&quot;&gt;PX-S05B&lt;/a&gt;です。外で印刷する予定はないし、事前に機種等を調べずに半ば衝動買いに近い感じで買ったのですが、本棚に収納出来るので気に入りました。&lt;/p&gt;
+&lt;p&gt;　去年プリンターを処分してから、もうプリンターはコンビニで済まして自分で持たないつもりだったけど、確定申告にも使うし出力結果をすぐに確認したい時が多いのでやっぱり持つことにしました。でも狭い家の床をプリンターに占有されるのは嫌だったので、買ったのはエプソンのモバイルプリンター &lt;a href=&quot;https://ink-revolution.com/contentsplus/epson-px-s05w-px-s05b-mobile-purinter/&quot;&gt;PX-S05B&lt;/a&gt;です。外で印刷する予定はないし、事前に機種等を調べずに半ば衝動買いに近い感じで買ったのですが、本棚に収納出来るので気に入りました。&lt;/p&gt;
 
 &lt;h3 id=&quot;macアドレス&quot;&gt;MACアドレス&lt;/h3&gt;
 &lt;p&gt;　自宅ルーターのMACアドレスフィルタリング設定をするためにプリンターのMACアドレスはどうやれば知ることが出来るんだ？とプリンターのメニューを弄っているうちにネットワーク接続エラーで「エラー情報を印刷しますか？」みたいな表示が出てOKを選択したら以下のように欲しかった情報が印刷されました。&lt;/p&gt;
@@ -4181,7 +4181,7 @@ HTTPS https://app.rakuten.co.jp/services/api/Kobo/EbookSearch/20140811?applicati
 
 &lt;h3 id=&quot;廃インク吸収体&quot;&gt;廃インク吸収体&lt;/h3&gt;
 &lt;p&gt;　このプリンターの売りの一つがエプソンがメンテナンスボックスと呼んでる廃インク吸収体という消耗品を自分で交換できる点だそうです。今まで廃インク吸収体がいっぱいになるとメーカーに送る必要があったのに、この機種は自分で交換可能だということです。この廃インク吸収体というのはインクジェットプリンターには必ずあるらしいのですが、私は長年インクジェットプリンターを使ってきたのにその存在を知りませんでしたし、メーカーに送った経験もありません。それは今までプライベートではブラザー製のインクジェットしか購入したことがなく、それらしきエラーに見舞われたことはあったのですが、ブラザーの場合ネットで検索すれば今でも見つかりますが、廃インク吸収体の交換時期を示すカウンターを自分でリセットする方法があって、リセットしながらそのまま使い続けることが出来たからです。私がプリンターを使う頻度がそれほど多くなかったのでこのやり方でやっていけたのだと思いますが、こんな私にとって廃インク吸収体を自分で交換出来るなんて言われても全然メリットに感じません。ヨドバシの定員に廃インク吸収体の説明を受けながら、あの時のプリンターのエラーはそういうことだったのかと昔の経験を思い出しながら、ブラザーってオープンというか緩いというか改めてブラザーという会社が好きになったのでした。それとともにブラザー製のインクジェットが全てそうなのかどうか知りませんが、自分以外の普通の人は廃インク吸収体がいっぱいになる度にメーカーに送ってお金も取られる使い方をしていたのかと思うとなんか得した気分になりました。それにカウンターをリセットするだけで特に不都合なく使用できるのならそもそも廃インク吸収体の交換自体が必須というわけでもなさそうですが、プリンター業界の闇に関しては詳しく知らないのでこれ以上は言及しないことにします。&lt;br /&gt;
-　ヨドバシの定員に廃インク吸収体の話を聞いてから、ブラザー製で似たような機種があるならそっちの方がいいなと思いながらも、無いようだったのでこの機種を買って帰ったのですが、後からこの機種に関して&lt;a href=&quot;http://www.amazon.co.jp/gp/customer-reviews/R15E5KAC5D77GH/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&amp;amp;ASIN=B00L9X1T02&quot;&gt;Amazonのレビュー&lt;/a&gt;を読んでみると「廃インク吸収体を自分で交換出来る」という謳い文句自体も鵜呑みにしてはいけないようです。&lt;a href=&quot;http://www.amazon.co.jp/gp/customer-reviews/R15E5KAC5D77GH/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&amp;amp;ASIN=B00L9X1T02&quot;&gt;このレビュー&lt;/a&gt;の真偽はわかりませんが、とりあえず偶にしか使用しない自分の使い方なら大きな不満が出ることは無いかなという感じです。&lt;/p&gt;
+　ヨドバシの定員に廃インク吸収体の話を聞いてから、ブラザー製で似たような機種があるならそっちの方がいいなと思いながらも、無いようだったのでこの機種を買って帰ったのですが、後からこの機種に関して&lt;a href=&quot;https://www.amazon.co.jp/gp/customer-reviews/R15E5KAC5D77GH/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&amp;amp;ASIN=B00L9X1T02&quot;&gt;Amazonのレビュー&lt;/a&gt;を読んでみると「廃インク吸収体を自分で交換出来る」という謳い文句自体も鵜呑みにしてはいけないようです。&lt;a href=&quot;https://www.amazon.co.jp/gp/customer-reviews/R15E5KAC5D77GH/ref=cm_cr_arp_d_rvw_ttl?ie=UTF8&amp;amp;ASIN=B00L9X1T02&quot;&gt;このレビュー&lt;/a&gt;の真偽はわかりませんが、とりあえず偶にしか使用しない自分の使い方なら大きな不満が出ることは無いかなという感じです。&lt;/p&gt;
 
 &lt;h3 id=&quot;wi-fi-direct&quot;&gt;Wi-Fi Direct&lt;/h3&gt;
 &lt;p&gt;　「ノートPCとモバイルプリンターをWi-Fi環境で使用していて、スマートデバイスからプリントしたい時に、同じネットワークに入れずにWi-Fi Directでプリントできます。」ということです。スマホで撮った写真をWi-Fi Directで印刷してみましたが、自宅無線LAN環境からWi-Fi Directにプリンタ側で切り替えて簡単に印刷出来ました。これは便利なので、必要なくても出先で使ってみたくなります。&lt;/p&gt;
@@ -4206,9 +4206,9 @@ HTTPS https://app.rakuten.co.jp/services/api/Kobo/EbookSearch/20140811?applicati
  
  <entry>
    <title>Apache Cordova のアップデート</title>
-   <link href="http://happyclam.github.io/programming/2016-02-14/cordova_update"/>
+   <link href="https://happyclam.github.io/programming/2016-02-14/cordova_update"/>
    <updated>2016-02-14T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/programming/2016-02-14/cordova_update</id>
+   <id>https://happyclam.github.io/programming/2016-02-14/cordova_update</id>
    <content type="html">&lt;h3 id=&quot;google-play-からのお達し&quot;&gt;Google Play からのお達し&lt;/h3&gt;
 &lt;p&gt;　２／９に「Google Play warning: You are using a vulnerable version of Apache Cordova」というタイトルでGoogleからメールが来ました。バージョン4.1.1以前のApacheCordovaにセキュリティ上の脆弱性が見つかったので、公開している&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf&quot;&gt;Cordova製のアプリ&lt;/a&gt;を更新しろという内容です。&lt;br /&gt;
 &lt;strong&gt;Please migrate your app(s) to Apache Cordova v.4.1.1 or higher as soon as possible and increment the version number of the upgraded APK.&lt;/strong&gt;&lt;br /&gt;
@@ -4318,11 +4318,11 @@ $adb install -r ./Release/android/Tictactoe-release1-3-2.apk
  
  <entry>
    <title>herokuのNode.jsプロジェクトでエラー</title>
-   <link href="http://happyclam.github.io/programming/2016-02-01/node_express"/>
+   <link href="https://happyclam.github.io/programming/2016-02-01/node_express"/>
    <updated>2016-02-01T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/programming/2016-02-01/node_express</id>
+   <id>https://happyclam.github.io/programming/2016-02-01/node_express</id>
    <content type="html">&lt;h3 id=&quot;久々にプロジェクトに変更を加えてherokuにアップしたらエラーに見舞われた&quot;&gt;久々にプロジェクトに変更を加えてherokuにアップしたらエラーに見舞われた&lt;/h3&gt;
-&lt;p&gt;　以前&lt;a href=&quot;/programming/2015-04-25/mongo_upsert&quot;&gt;記事&lt;/a&gt;にも書きましたが、公開した&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf&quot;&gt;androidアプリ&lt;/a&gt;の&lt;a href=&quot;http://tictactoe-cf.herokuapp.com/&quot;&gt;ランキング表示用のサイト&lt;/a&gt;で使用しているGoogle AnalyticsのトラッキングIDが間違えていたので&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;、トラッキングID（UA-XXXXXXXX-X）だけ書き換えて heroku にアップロードしたらエラーが出てランキング表示機能が使えなくなりました。全然プログラムコードと関係ない文字列を書き換えただけなのにです。&lt;br /&gt;
+&lt;p&gt;　以前&lt;a href=&quot;/programming/2015-04-25/mongo_upsert&quot;&gt;記事&lt;/a&gt;にも書きましたが、公開した&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf&quot;&gt;androidアプリ&lt;/a&gt;の&lt;a href=&quot;https://tictactoe-cf.herokuapp.com/&quot;&gt;ランキング表示用のサイト&lt;/a&gt;で使用しているGoogle AnalyticsのトラッキングIDが間違えていたので&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;、トラッキングID（UA-XXXXXXXX-X）だけ書き換えて heroku にアップロードしたらエラーが出てランキング表示機能が使えなくなりました。全然プログラムコードと関係ない文字列を書き換えただけなのにです。&lt;br /&gt;
 　Node.jsは最近はほとんど触ってなかったので何をどうすればいいのかすっかり忘れていたため復旧に手間取ったので顛末を記事にしておきます。本来はプロジェクト全体を網羅したドキュメントを残すべきでしょうけど…。&lt;/p&gt;
 
 &lt;h3 id=&quot;原因不明&quot;&gt;原因不明？&lt;/h3&gt;
@@ -4440,22 +4440,22 @@ git push origin
  
  <entry>
    <title>Flotライブラリで拡大表示可能なグラフ作成</title>
-   <link href="http://happyclam.github.io/software/2016-01-17/flot_library"/>
+   <link href="https://happyclam.github.io/software/2016-01-17/flot_library"/>
    <updated>2016-01-17T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/software/2016-01-17/flot_library</id>
-   <content type="html">&lt;h3 id=&quot;ブログgithub-pagesでグラフ描画flot&quot;&gt;ブログ（&lt;a href=&quot;http://jekyllrb-ja.github.io/docs/github-pages/&quot;&gt;Github Pages&lt;/a&gt;）でグラフ描画（&lt;a href=&quot;http://www.flotcharts.org&quot;&gt;Flot&lt;/a&gt;）&lt;/h3&gt;
+   <id>https://happyclam.github.io/software/2016-01-17/flot_library</id>
+   <content type="html">&lt;h3 id=&quot;ブログgithub-pagesでグラフ描画flot&quot;&gt;ブログ（&lt;a href=&quot;https://jekyllrb-ja.github.io/docs/github-pages/&quot;&gt;Github Pages&lt;/a&gt;）でグラフ描画（&lt;a href=&quot;https://www.flotcharts.org&quot;&gt;Flot&lt;/a&gt;）&lt;/h3&gt;
 &lt;p&gt;　以前&lt;a href=&quot;/programming/2014-10-27/my-posi-chart/&quot;&gt;lazy-high-chartの記事&lt;/a&gt;を書いたことがありましたが、RailsのようなWebアプリではなくこのブログ（Jekyllで生成）のような静的サイトでグラフを描画する必要性を感じた経験はなかったのですが、&lt;a href=&quot;/software/2016-01-16/flotr2/&quot;&gt;前回の記事&lt;/a&gt;のようなグラフばかりのページを作る時は便利だと実感しました。LibreやExcelにデータを貼り付けてグラフ化してそれを画像ファイルに変換してページに貼り付けるより手間が省けます。それだけじゃなくインタラクティブなグラフにすることでより情報を伝えやすくなるというのが今回のお話です。&lt;br /&gt;
-　前回は&lt;a href=&quot;http://www.amazon.co.jp/本-JavaScriptによるデータビジュアライゼーション入門-Stephen-Thomas/dp/4873117461/ref=sr_1_1?ie=UTF8&amp;amp;qid=1452166533&amp;amp;sr=8-1&amp;amp;keywords=javascript+ビジュアライゼーション&quot;&gt;「JavaScriptによるデータビジュアライゼーション入門」&lt;/a&gt;に紹介されていた&lt;a href=&quot;http://www.humblesoftware.com/flotr2&quot;&gt;Flotr2&lt;/a&gt;を使ってグラフを描画していたのですが、インタラクティブなグラフにする際には同じ本に紹介されているjQuery版の&lt;a href=&quot;http://www.flotcharts.org&quot;&gt;Flotライブラリ&lt;/a&gt;を使いました。同じものだと思っていたのですが、結構違いがあるようです。&lt;br /&gt;
+　前回は&lt;a href=&quot;http://www.amazon.co.jp/本-JavaScriptによるデータビジュアライゼーション入門-Stephen-Thomas/dp/4873117461/ref=sr_1_1?ie=UTF8&amp;amp;qid=1452166533&amp;amp;sr=8-1&amp;amp;keywords=javascript+ビジュアライゼーション&quot;&gt;「JavaScriptによるデータビジュアライゼーション入門」&lt;/a&gt;に紹介されていた&lt;a href=&quot;https://www.humblesoftware.com/flotr2&quot;&gt;Flotr2&lt;/a&gt;を使ってグラフを描画していたのですが、インタラクティブなグラフにする際には同じ本に紹介されているjQuery版の&lt;a href=&quot;https://www.flotcharts.org&quot;&gt;Flotライブラリ&lt;/a&gt;を使いました。同じものだと思っていたのですが、結構違いがあるようです。&lt;br /&gt;
 　&lt;a href=&quot;/software/2016-01-16/flotr2/#dfs-regression&quot;&gt;前回の記事の最後に描画したグラフ&lt;/a&gt;と同じパラメータを渡して描画したものが以下のグラフです。マウスでドラッグした範囲を拡大表示することが出来ます。&lt;/p&gt;
 
 &lt;div id=&quot;dfs-regression&quot; style=&quot;width:600px;height:300px;&quot;&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;button id=&quot;unzoom&quot;&gt;元に戻す&lt;/button&gt;&lt;/p&gt;
 
-&lt;p&gt;　&lt;a href=&quot;http://www.humblesoftware.com/flotr2&quot;&gt;Flotr2&lt;/a&gt;の時と同じパラメータを指定して描画しているにも関わらず、&lt;a href=&quot;/software/2016-01-16/flotr2/#dfs-regression&quot;&gt;前回の記事&lt;/a&gt;と比較すればグラフの見た目に結構違いがあることがわかると思います。グラフの色の違いは色指定していないためデフォルトの色が違うだけなのですが、グリッドの線が表示されていたりグラフの凡例が表示されていなかったり、いくつかのパラメータが無視されています。JavaScript製なので「ページのソースの表示」でコードそのものを見ることも出来ます。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;https://www.humblesoftware.com/flotr2&quot;&gt;Flotr2&lt;/a&gt;の時と同じパラメータを指定して描画しているにも関わらず、&lt;a href=&quot;/software/2016-01-16/flotr2/#dfs-regression&quot;&gt;前回の記事&lt;/a&gt;と比較すればグラフの見た目に結構違いがあることがわかると思います。グラフの色の違いは色指定していないためデフォルトの色が違うだけなのですが、グリッドの線が表示されていたりグラフの凡例が表示されていなかったり、いくつかのパラメータが無視されています。JavaScript製なので「ページのソースの表示」でコードそのものを見ることも出来ます。&lt;/p&gt;
 
 &lt;h3 id=&quot;flotライブラリを使うために必要だった作業&quot;&gt;Flotライブラリを使うために必要だった作業&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;http://jekyllrb-ja.github.io/docs/github-pages/&quot;&gt;Github Pages&lt;/a&gt;の使い方もいろいろあると思いますが、私の場合自宅でgitサーバを運用して、Jekyllで静的ファイルを出力しgithubに保存しています。だからローカル環境で完結させたいので、&lt;a href=&quot;http://www.flotcharts.org&quot;&gt;Flotライブラリ&lt;/a&gt;をダウンロードして使用しています。&lt;a href=&quot;http://www.amazon.co.jp/本-JavaScriptによるデータビジュアライゼーション入門-Stephen-Thomas/dp/4873117461/ref=sr_1_1?ie=UTF8&amp;amp;qid=1452166533&amp;amp;sr=8-1&amp;amp;keywords=javascript+ビジュアライゼーション&quot;&gt;「JavaScriptによるデータビジュアライゼーション入門」&lt;/a&gt;の中で紹介されているCDN(Contents Delivery Network)を使用した方法でも動きましたが、以下の２つのファイルをJekyll環境にコピーすれば上記のグラフは動作しました。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;https://jekyllrb-ja.github.io/docs/github-pages/&quot;&gt;Github Pages&lt;/a&gt;の使い方もいろいろあると思いますが、私の場合自宅でgitサーバを運用して、Jekyllで静的ファイルを出力しgithubに保存しています。だからローカル環境で完結させたいので、&lt;a href=&quot;https://www.flotcharts.org&quot;&gt;Flotライブラリ&lt;/a&gt;をダウンロードして使用しています。&lt;a href=&quot;http://www.amazon.co.jp/本-JavaScriptによるデータビジュアライゼーション入門-Stephen-Thomas/dp/4873117461/ref=sr_1_1?ie=UTF8&amp;amp;qid=1452166533&amp;amp;sr=8-1&amp;amp;keywords=javascript+ビジュアライゼーション&quot;&gt;「JavaScriptによるデータビジュアライゼーション入門」&lt;/a&gt;の中で紹介されているCDN(Contents Delivery Network)を使用した方法でも動きましたが、以下の２つのファイルをJekyll環境にコピーすれば上記のグラフは動作しました。&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;jquery.min.js&lt;/li&gt;
@@ -4504,7 +4504,7 @@ git push origin
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&quot;データ値の追跡&quot;&gt;データ値の追跡&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;http://www.humblesoftware.com/flotr2&quot;&gt;Flotr2&lt;/a&gt;では&lt;code&gt; options{ mouse: { track:true }}&lt;/code&gt;とするだけで、マウスでグラフ上を通過した時に、値を表示してくれたのですが、&lt;a href=&quot;http://www.flotcharts.org&quot;&gt;Flot&lt;/a&gt;には無い？ようです。&lt;a href=&quot;http://www.flotcharts.org&quot;&gt;Flotのサイト&lt;/a&gt;の例を見ても、グラフ上の値を追跡表示するには自前でイベントを追加して結構面倒なことをしなければいけないようです。以前使った&lt;a href=&quot;/programming/2014-10-27/my-posi-chart/&quot;&gt;lazy-high-chart&lt;/a&gt;だとグラフの凡例と値をToolTipで表示することが、オプションで簡単に出来た記憶があるのに、そんなもんでしょうか？う〜ん、バージョンアップに期待することにして、今回はこれ以上弄らないことにします。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;https://www.humblesoftware.com/flotr2&quot;&gt;Flotr2&lt;/a&gt;では&lt;code&gt; options{ mouse: { track:true }}&lt;/code&gt;とするだけで、マウスでグラフ上を通過した時に、値を表示してくれたのですが、&lt;a href=&quot;https://www.flotcharts.org&quot;&gt;Flot&lt;/a&gt;には無い？ようです。&lt;a href=&quot;https://www.flotcharts.org&quot;&gt;Flotのサイト&lt;/a&gt;の例を見ても、グラフ上の値を追跡表示するには自前でイベントを追加して結構面倒なことをしなければいけないようです。以前使った&lt;a href=&quot;/programming/2014-10-27/my-posi-chart/&quot;&gt;lazy-high-chart&lt;/a&gt;だとグラフの凡例と値をToolTipで表示することが、オプションで簡単に出来た記憶があるのに、そんなもんでしょうか？う〜ん、バージョンアップに期待することにして、今回はこれ以上弄らないことにします。&lt;/p&gt;
 
 &lt;script type=&quot;text/javascript&quot;&gt;
 jQuery(function ($){
@@ -4581,10 +4581,10 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
  
  <entry>
    <title>学習効果をグラフ化してみる</title>
-   <link href="http://happyclam.github.io/software/2016-01-16/flotr2"/>
+   <link href="https://happyclam.github.io/software/2016-01-16/flotr2"/>
    <updated>2016-01-16T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/software/2016-01-16/flotr2</id>
-   <content type="html">&lt;h3 id=&quot;ブログgithub-pagesでグラフ描画flotr2&quot;&gt;ブログ（&lt;a href=&quot;http://jekyllrb-ja.github.io&quot;&gt;Github Pages&lt;/a&gt;）でグラフ描画（&lt;a href=&quot;http://www.humblesoftware.com/flotr2&quot;&gt;Flotr2&lt;/a&gt;）&lt;/h3&gt;
+   <id>https://happyclam.github.io/software/2016-01-16/flotr2</id>
+   <content type="html">&lt;h3 id=&quot;ブログgithub-pagesでグラフ描画flotr2&quot;&gt;ブログ（&lt;a href=&quot;https://jekyllrb-ja.github.io&quot;&gt;Github Pages&lt;/a&gt;）でグラフ描画（&lt;a href=&quot;https://www.humblesoftware.com/flotr2&quot;&gt;Flotr2&lt;/a&gt;）&lt;/h3&gt;
 &lt;p&gt;　ジュンク堂書店でオライリーのカレンダーを入手するために&lt;a href=&quot;http://www.amazon.co.jp/本-JavaScriptによるデータビジュアライゼーション入門-Stephen-Thomas/dp/4873117461/ref=sr_1_1?ie=UTF8&amp;amp;qid=1452166533&amp;amp;sr=8-1&amp;amp;keywords=javascript+ビジュアライゼーション&quot;&gt;「JavaScriptによるデータビジュアライゼーション入門」&lt;/a&gt;という本を買ってしまいました。前回まで三目並べプログラムの学習効果の記事を書いていましたが、１０万回対戦（学習）後の最終結果だけではなく、推移をグラフ化してみたいと思っていながらも面倒なのでやってなかったのですが、本を買ったことでやる気が出たので、awkやemacsのキーボードマクロを駆使してグラフ用データを編集してみました。今回はとりあえず買った本の内容は置いといて、グラフ化した学習効果の結果について書きます。&lt;/p&gt;
 
 &lt;h3 id=&quot;小石の数を減らしたことの影響&quot;&gt;小石の数を減らしたことの影響&lt;/h3&gt;
@@ -4688,7 +4688,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;p&gt;　&lt;a href=&quot;/software/2015-12-25/log-linear/&quot;&gt;前々回の記事&lt;/a&gt;の方程式１（青、&lt;script type=&quot;math/tex&quot;&gt;y = \frac{1}{総手数} x&lt;/script&gt;）と方程式２（黄緑、&lt;script type=&quot;math/tex&quot;&gt;y = 0.029 \times 1.882^x&lt;/script&gt;）が、わずかですが他の２つの方程式より学習効率がいいということがグラフから分かります。&lt;br /&gt;
 　でも、グラフが少し見にくいですね。１０万回分の対戦データを取らなくても、２万回分程度のデータでグラフを描画すべきだったのでしょうか？でも、そうするともっと対戦を続けた場合どうなるか知りたくなるので、これはこれでいいと思います。こういう時こそ今回導入したグラフライブラリの出番です。&lt;br /&gt;
-　そこで&lt;a href=&quot;http://www.flotcharts.org&quot;&gt;Flotライブラリ&lt;/a&gt;を使って、次の記事で拡大表示可能なグラフに変更してみます。&lt;/p&gt;
+　そこで&lt;a href=&quot;https://www.flotcharts.org&quot;&gt;Flotライブラリ&lt;/a&gt;を使って、次の記事で拡大表示可能なグラフに変更してみます。&lt;/p&gt;
 
 &lt;script type=&quot;text/javascript&quot;&gt;
 
@@ -5000,9 +5000,9 @@ window.onload = function() {
  
  <entry>
    <title>三目並べプログラムの強化学習効率を上げる</title>
-   <link href="http://happyclam.github.io/software/2016-01-07/correlation"/>
+   <link href="https://happyclam.github.io/software/2016-01-07/correlation"/>
    <updated>2016-01-07T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/software/2016-01-07/correlation</id>
+   <id>https://happyclam.github.io/software/2016-01-07/correlation</id>
    <content type="html">&lt;h3 id=&quot;気になることがまだ残っている&quot;&gt;気になることがまだ残っている&lt;/h3&gt;
 &lt;p&gt;　前回の続きです。手数毎に報酬や罰の値を変更する方法をいろいろ試しましたが、大した成果が上がらなかったので、もとに戻して（全ての局面データに一律に報酬や罰を与える方法、前々回までの状態に戻して）他の切り口から気になっていたことを試してみたいと思います。&lt;br /&gt;
 　もしかしたら三目並べに最善の強化方法というものが既に確立されているのかもしれませんが、自分で試してみたいので続けます。&lt;/p&gt;
@@ -5320,9 +5320,9 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
  
  <entry>
    <title>曲線回帰で強化を試みる</title>
-   <link href="http://happyclam.github.io/software/2015-12-25/log-linear"/>
+   <link href="https://happyclam.github.io/software/2015-12-25/log-linear"/>
    <updated>2015-12-25T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/software/2015-12-25/log-linear</id>
+   <id>https://happyclam.github.io/software/2015-12-25/log-linear</id>
    <content type="html">&lt;h3 id=&quot;闇雲ってこういうことかも&quot;&gt;闇雲ってこういうことかも&lt;/h3&gt;
 &lt;p&gt;　次に記事を書く時は別の話題にしようと思っていたのですが、三目並べの強化学習に関して試さずにはいられなかったので、闇雲と言われようが思いつくままにやってみたことを書いておきます。&lt;br /&gt;
 　以前、&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;の中で序盤より終盤の手を重視する方法について記述されていることに触れました、そして今まで試した方法は報酬を与えるにしても罰するにしても選択した全ての局面で同じ値を加算したり減算したりしていましたが、今回は手数毎に違う値を加減算する方法を試してみました。&lt;/p&gt;
@@ -5742,9 +5742,9 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
  
  <entry>
    <title>強化学習の修正</title>
-   <link href="http://happyclam.github.io/software/2015-11-27/reinforcement"/>
+   <link href="https://happyclam.github.io/software/2015-11-27/reinforcement"/>
    <updated>2015-11-27T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/software/2015-11-27/reinforcement</id>
+   <id>https://happyclam.github.io/software/2015-11-27/reinforcement</id>
    <content type="html">&lt;h3 id=&quot;学習型三目並べプログラムの補足&quot;&gt;学習型三目並べプログラムの補足&lt;/h3&gt;
 &lt;p&gt;　３回に渡って学習機能を持った三目並べプログラムに関する記事を書きましたが、２つの事柄について補足しておこうと思います。一つは&lt;a href=&quot;/software/2015-10-19/multi_branched_tree&quot;&gt;前々回の記事&lt;/a&gt;で触れた多分木データに格納する局面の数をどれぐらいまで絞れるのかという点と、&lt;a href=&quot;/software/2015-10-25/machine_learning&quot;&gt;前回の記事&lt;/a&gt;で負けても罰を与えない仕様にしたことについてです。&lt;/p&gt;
 
@@ -5755,7 +5755,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 　各マッチ箱には、小さい引き出しがあり、開けることができる。Michieは、各マッチ箱にラベルを貼った。このラベルには、３目並べで考えられる２８７の異なる盤面が描かれている。実際はもっと多くのパターンがあることになるが、３行×３列構成の標準的な３目並べのレイアウトは上下左右を入れ替えても同じ内容なので、４つの異なるパターンを１つに集約できる。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;　&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;には上記のように書かれているので多分木データとして保持する必要がある局面の数は回転・対称形をとことん省いていけば6,046から287に絞れるのかと思って縦・横・斜めの対称形とそれぞれの局面を90度ずつ回転させた局面を省いてみても626局面までにしか絞れませんでした。どうすればいいのか見当がつかなかったのでネットで検索してみたところ&lt;a href=&quot;http://www.gensu.co.jp/saito/puzzle/a15hissho1.html&quot;&gt;「数学パズルにトドメをさす？！」&lt;/a&gt;と称するサイトを見つけました。そのサイトからダウンロードできる「三目並べの局面一覧」というファイルを確認してみると、すべての局面の数は447になるとのことです。私が計算した数とどこで食い違うのかを確認してみたのですが、どうやらこのデータはお互いに最善手を打つことを前提にしているようです。このサイトの注意書きに「自分や相手のリーチを見逃さない」と書いてありますが、局面を数えるときに先手・後手のお互いが最善手を選択することを前提にして（おそらく&lt;a href=&quot;/software/2014-09-16/ab_method&quot;&gt;MIN−MAX法&lt;/a&gt;を使った深さ優先探索を使って）数えているのでしょう。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;には上記のように書かれているので多分木データとして保持する必要がある局面の数は回転・対称形をとことん省いていけば6,046から287に絞れるのかと思って縦・横・斜めの対称形とそれぞれの局面を90度ずつ回転させた局面を省いてみても626局面までにしか絞れませんでした。どうすればいいのか見当がつかなかったのでネットで検索してみたところ&lt;a href=&quot;https://www.gensu.co.jp/saito/puzzle/a15hissho1.html&quot;&gt;「数学パズルにトドメをさす？！」&lt;/a&gt;と称するサイトを見つけました。そのサイトからダウンロードできる「三目並べの局面一覧」というファイルを確認してみると、すべての局面の数は447になるとのことです。私が計算した数とどこで食い違うのかを確認してみたのですが、どうやらこのデータはお互いに最善手を打つことを前提にしているようです。このサイトの注意書きに「自分や相手のリーチを見逃さない」と書いてありますが、局面を数えるときに先手・後手のお互いが最善手を選択することを前提にして（おそらく&lt;a href=&quot;/software/2014-09-16/ab_method&quot;&gt;MIN−MAX法&lt;/a&gt;を使った深さ優先探索を使って）数えているのでしょう。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt; |X|O|3|
  |X|O|6|
@@ -5764,10 +5764,10 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 
 &lt;p&gt;　例えば上のような局面は相手のリーチ（あと一手で駒が揃う状態）を防がなかった時にしか発生しません。お互いが最善手を選択することを前提にすると、絶対現れない局面として省いているようです。&lt;br /&gt;
 　でも機械学習プログラムの多分木データとして用意する局面データは発生し得るすべての局面を用意しておく必要があります。例えば乱数プログラムと対戦するときなどは、あと一手で一列揃うような時でも見逃すことはよくあるので、そういう時に最善手を打つことを前提にした局面しか用意していないと、まさに打つ手が無くなってしまいます。&lt;br /&gt;
-　だから本に書いてある２８７個の局面というのは、おそらく&lt;a href=&quot;http://www.gensu.co.jp/saito/puzzle/a15hissho1.html&quot;&gt;上記サイト&lt;/a&gt;のように局面の先読みすることを考慮すれば２８７個にまで省略出来るということだと思います。&lt;a href=&quot;http://www.gensu.co.jp/saito/puzzle/a15hissho1.html&quot;&gt;上記サイト&lt;/a&gt;では特に局面の数を減らすことを目的にしていないと思いますが、探せば「ここまで局面が進行すれば、相手がどう応じても引き分けに持ち込める」という感じの局面が相当数存在するのだと思います。例えば「自分がダブルリーチをかけたら勝ちが確定する」からそれ以後の局面は用意しなくてもいいというのも一つの例として挙げることができます。そういった手法で先読みを考慮してとことん局面を絞ればまだまだ省略可能な局面が存在するということでしょう。でも、そこまで考慮して事前に用意する局面を絞って学習プログラムを作ると前述したように指し手が選択できないケースが生じてしまいます。&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;に例え話で書かれているように、無人島で人間が判断して局面を省略する分には問題ありませんが…。&lt;br /&gt;
+　だから本に書いてある２８７個の局面というのは、おそらく&lt;a href=&quot;https://www.gensu.co.jp/saito/puzzle/a15hissho1.html&quot;&gt;上記サイト&lt;/a&gt;のように局面の先読みすることを考慮すれば２８７個にまで省略出来るということだと思います。&lt;a href=&quot;https://www.gensu.co.jp/saito/puzzle/a15hissho1.html&quot;&gt;上記サイト&lt;/a&gt;では特に局面の数を減らすことを目的にしていないと思いますが、探せば「ここまで局面が進行すれば、相手がどう応じても引き分けに持ち込める」という感じの局面が相当数存在するのだと思います。例えば「自分がダブルリーチをかけたら勝ちが確定する」からそれ以後の局面は用意しなくてもいいというのも一つの例として挙げることができます。そういった手法で先読みを考慮してとことん局面を絞ればまだまだ省略可能な局面が存在するということでしょう。でも、そこまで考慮して事前に用意する局面を絞って学習プログラムを作ると前述したように指し手が選択できないケースが生じてしまいます。&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;に例え話で書かれているように、無人島で人間が判断して局面を省略する分には問題ありませんが…。&lt;br /&gt;
 　と、いうことで苦労して多分木データに格納する局面数を絞っても学習プログラムには使えないので追求するのはここまでにしました。&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;この本&lt;/a&gt;は結構根拠を示さずに結論を書いているところがあるので、２８７という数字が、ちゃんと裏を取った根拠のある数字じゃない可能性もありますが私には何とも言えません。&lt;br /&gt;
 　根拠がある数字と言えば、&lt;a href=&quot;/project/2015-10-10/tictactoe_bfs&quot;&gt;以前の記事&lt;/a&gt;で、３手目までを重みによる評価関数を使いそれ以降はDFSによる読み切り関数を使ったことを書きましたが、３手目までなら重みによる評価関数を使用しても負けないことを確認したからそうしたわけですが、４手目まで重みによる評価関数を使えば負けてしまうことがあるが、３手目までなら負けないようにすることが出来ることを、根拠を示して証明するのは結構大変です。&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;件の本&lt;/a&gt;も、いちいち根拠を示していたら紙面が足りなくなるという事情があるのかもしれません。たかが三目並べでも突き詰めていくと奥が深いということでしょう。&lt;br /&gt;
-　&lt;a href=&quot;http://www.gensu.co.jp/saito/puzzle/a15hissho1.html&quot;&gt;件のサイト&lt;/a&gt;では「３目並べず&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;」のデータとして最善手を選択することを前提としていないデータも用意してあって、そのファイルでは私が数えた626に近い数になっています（以下に比較表を用意しました）。でも私が数えたときの前提条件は「既に勝負がついた局面は省く」というものなので、微妙に数値が異なっています。私は機械学習プログラムで使用する多分木データに必要なデータということで考えているので、例えば９箇所すべてが埋まっている局面のデータはすでに勝ちか負けか引き分けかの勝負がついた局面なので、必要がないため９手目の局面は０になっています。&lt;/p&gt;
+　&lt;a href=&quot;https://www.gensu.co.jp/saito/puzzle/a15hissho1.html&quot;&gt;件のサイト&lt;/a&gt;では「３目並べず&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;」のデータとして最善手を選択することを前提としていないデータも用意してあって、そのファイルでは私が数えた626に近い数になっています（以下に比較表を用意しました）。でも私が数えたときの前提条件は「既に勝負がついた局面は省く」というものなので、微妙に数値が異なっています。私は機械学習プログラムで使用する多分木データに必要なデータということで考えているので、例えば９箇所すべてが埋まっている局面のデータはすでに勝ちか負けか引き分けかの勝負がついた局面なので、必要がないため９手目の局面は０になっています。&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -5904,7 +5904,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;「三目並べず」とは一体何のことか分からなかったのですが、&lt;a href=&quot;http://www.gensu.co.jp/saito/puzzle/a15hissho1.html&quot;&gt;このサイト&lt;/a&gt;では、三目並べたら勝ちとなる（従って三目並べるために最善を尽くす）ゲームを「三目並べ」、相手に三目並べさせたら勝ちとなるゲームを「三目並べず」としているようです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;「三目並べず」とは一体何のことか分からなかったのですが、&lt;a href=&quot;https://www.gensu.co.jp/saito/puzzle/a15hissho1.html&quot;&gt;このサイト&lt;/a&gt;では、三目並べたら勝ちとなる（従って三目並べるために最善を尽くす）ゲームを「三目並べ」、相手に三目並べさせたら勝ちとなるゲームを「三目並べず」としているようです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:2&quot;&gt;
       &lt;p&gt;&lt;a href=&quot;/software/2015-10-25/machine_learning&quot;&gt;前回の記事&lt;/a&gt;で駒が打てない場所は 0 にしていましたが、今回から nil に変更しています。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
@@ -5919,9 +5919,9 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
  
  <entry>
    <title>算数で作る機械学習プログラム</title>
-   <link href="http://happyclam.github.io/software/2015-10-25/machine_learning"/>
+   <link href="https://happyclam.github.io/software/2015-10-25/machine_learning"/>
    <updated>2015-10-25T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/software/2015-10-25/machine_learning</id>
+   <id>https://happyclam.github.io/software/2015-10-25/machine_learning</id>
    <content type="html">&lt;h3 id=&quot;新たに必要になった機能&quot;&gt;新たに必要になった機能&lt;/h3&gt;
 &lt;p&gt;　前回の続きです。&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;の内容に沿って機械学習機能を付加した三目並べプログラムを作成したのですが、元々あった三目並べ対戦プログラムに対してどんな作業が必要だったのか、新たに付加した機能を列挙してみます。&lt;/p&gt;
 
@@ -5966,7 +5966,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 &lt;p&gt;　最初は９箇所にそれぞれ石を持っているのだから２次元配列を使うのかとかMatrixを使えば変換できるかとか難しく考えたのですが、一番シンプルな一次元配列のまま、コンストラクタで打てる場所かどうか（打てない場所は０をセットしておく）を判断し、指し手選択時にscore配列分の９回ループするだけで添え字を求められることに気がついてこれはいい！と思いました。９箇所のマス目の内、打てない場所（既に駒がある場所）のscore配列の値を０にしておくことで、インクリメントに影響を与えないのがミソです。だから石の数（score配列）がマイナスになると動きがおかしくなります。&lt;/p&gt;
 
 &lt;h3 id=&quot;学習効果&quot;&gt;学習効果&lt;/h3&gt;
-&lt;p&gt;　以前RubyとShoesでGUIの将棋ソフトを作った時は&lt;a href=&quot;http://morizyun.github.io/blog/ruby-design-pattern-03-Observer/&quot;&gt;Observerパターン&lt;/a&gt;を使ってソフト同士の対戦を眺めて楽しめるように作った&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;のですが、三目並べは一瞬で勝負がつくし見学しても楽しくないのでCUIでループで回してソフト同士対戦させて学習効果がどの程度出るのか確認してみました。&lt;br /&gt;
+&lt;p&gt;　以前RubyとShoesでGUIの将棋ソフトを作った時は&lt;a href=&quot;https://morizyun.github.io/blog/ruby-design-pattern-03-Observer/&quot;&gt;Observerパターン&lt;/a&gt;を使ってソフト同士の対戦を眺めて楽しめるように作った&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;のですが、三目並べは一瞬で勝負がつくし見学しても楽しくないのでCUIでループで回してソフト同士対戦させて学習効果がどの程度出るのか確認してみました。&lt;br /&gt;
 　乱数で手を選択する弱いプログラムと、これまでに&lt;a href=&quot;/project/2014-08-05/tictactoe&quot;&gt;記事で紹介していたDFS探索アルゴリズム（αβ法）を使った最強プログラム&lt;/a&gt;（絶対負けることがない）との対戦結果です。１００回の対戦を１回として１０回戦までの結果が以下の通りです。&lt;/p&gt;
 
 &lt;table&gt;
@@ -6215,9 +6215,9 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
  
  <entry>
    <title>対戦型ソフトでの幅優先探索（BFS）の使い途</title>
-   <link href="http://happyclam.github.io/software/2015-10-19/multi_branched_tree"/>
+   <link href="https://happyclam.github.io/software/2015-10-19/multi_branched_tree"/>
    <updated>2015-10-19T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/software/2015-10-19/multi_branched_tree</id>
+   <id>https://happyclam.github.io/software/2015-10-19/multi_branched_tree</id>
    <content type="html">&lt;h3 id=&quot;無作為選択を人工知能に&quot;&gt;無作為選択を人工知能に&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「Statistics Hacks」&lt;/a&gt;という本の中でココナッツの殻と石ころを使って、学習機能を持つ三目並べプログラムが作れるという話が書かれていました。無人島に漂流して何もすることがない人の暇つぶしのためにどうぞという感じで、非常に砕けた調子で書かれているのです（この本全体がそんな感じです）が、一応裏を取った根拠のある話が書かれている真面目な本だと思います。そして&lt;a href=&quot;/project/2015-10-10/tictactoe_bfs&quot;&gt;前回の記事&lt;/a&gt;で書いたようにBFSアルゴリズムの使い途を考えていた私は「これは使える」と思いました。この本で三目並べについてに書かれている部分はほんの数ページだけなのですが、難しい数式を使っていないので、書かれている内容（アイデア）だけでプログラム作成に必要な情報は十分にあると自分には思われました。但し、その結果強いプログラムが完成するかどうかはやってみないとわからないし、強くなるとしてもどの程度強くなるのか興味が湧いてきたので試してみることにしました。&lt;/p&gt;
 
@@ -6429,7 +6429,7 @@ end until buf == nil
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;http://www.se16.info/hgb/tictactoe.htm&quot;&gt;How many Tic-Tac-Toe (noughts and crosses) games are possible?&lt;/a&gt;、&lt;a href=&quot;https://www.jesperjuul.net/ludologist/255168-ways-of-playing-tic-tac-toe&quot;&gt;The Ludologist&lt;/a&gt;、&lt;a href=&quot;https://en.wikipedia.org/wiki/Tic-tac-toe&quot;&gt;Wikipedia Tic-tac-toe&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.se16.info/hgb/tictactoe.htm&quot;&gt;How many Tic-Tac-Toe (noughts and crosses) games are possible?&lt;/a&gt;、&lt;a href=&quot;https://www.jesperjuul.net/ludologist/255168-ways-of-playing-tic-tac-toe&quot;&gt;The Ludologist&lt;/a&gt;、&lt;a href=&quot;https://en.wikipedia.org/wiki/Tic-tac-toe&quot;&gt;Wikipedia Tic-tac-toe&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
@@ -6438,9 +6438,9 @@ end until buf == nil
  
  <entry>
    <title>幅優先探索(BFS)で対戦型ソフトを強くできるのか？</title>
-   <link href="http://happyclam.github.io/project/2015-10-10/tictactoe_bfs"/>
+   <link href="https://happyclam.github.io/project/2015-10-10/tictactoe_bfs"/>
    <updated>2015-10-10T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/project/2015-10-10/tictactoe_bfs</id>
+   <id>https://happyclam.github.io/project/2015-10-10/tictactoe_bfs</id>
    <content type="html">&lt;p&gt;Project: &lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;幅優先探索のメリット&quot;&gt;幅優先探索のメリット&lt;/h3&gt;
@@ -6523,10 +6523,10 @@ end until buf == nil
       &lt;p&gt;実は序盤をBFSで読むように変更することで、JavaScriptのブラウザアプリに置き換えた時にスタックオーバーフローを避けることが出来るという意味があったのですが、最近のブラウザだと三目並べの全局面探索をした程度ではオーバーフローを起こさないようです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:2&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;http://uguisu.skr.jp/othello/5-3.html&quot;&gt;オセロ（リバーシ）の作り方&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;https://uguisu.skr.jp/othello/5-3.html&quot;&gt;オセロ（リバーシ）の作り方&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:3&quot;&gt;
-      &lt;p&gt;経験上、タイトルに「人工知能」「ＡＩ」という単語が含まれる本の多くが、単にDFSアルゴリズムの説明しかしていないものが多かったです。但し最近は事情が違ってきているようで&lt;a href=&quot;http://www.amazon.co.jp/gp/product/B00UAAK07S?psc=1&amp;amp;redirect=true&amp;amp;ref_=oh_aui_d_detailpage_o02_&quot;&gt;この本&lt;/a&gt;は参考になりました。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;経験上、タイトルに「人工知能」「ＡＩ」という単語が含まれる本の多くが、単にDFSアルゴリズムの説明しかしていないものが多かったです。但し最近は事情が違ってきているようで&lt;a href=&quot;https://www.amazon.co.jp/gp/product/B00UAAK07S?psc=1&amp;amp;redirect=true&amp;amp;ref_=oh_aui_d_detailpage_o02_&quot;&gt;この本&lt;/a&gt;は参考になりました。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
@@ -6535,13 +6535,13 @@ end until buf == nil
  
  <entry>
    <title>WithingsのAPIで遊ぶ</title>
-   <link href="http://happyclam.github.io/project/2015-09-19/activite"/>
+   <link href="https://happyclam.github.io/project/2015-09-19/activite"/>
    <updated>2015-09-19T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/project/2015-09-19/activite</id>
-   <content type="html">&lt;p&gt;Project: 「&lt;a href=&quot;http://nocturia.herokuapp.com&quot;&gt;&lt;strong&gt;夜間頻尿診断&lt;/strong&gt;&lt;/a&gt;」: &lt;a href=&quot;https://github.com/happyclam/nocturia&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
+   <id>https://happyclam.github.io/project/2015-09-19/activite</id>
+   <content type="html">&lt;p&gt;Project: 「&lt;a href=&quot;https://nocturia.herokuapp.com&quot;&gt;&lt;strong&gt;夜間頻尿診断&lt;/strong&gt;&lt;/a&gt;」: &lt;a href=&quot;https://github.com/happyclam/nocturia&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;何か作ってみたい&quot;&gt;何か作ってみたい&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/hardware/2015-08-16/withings/&quot;&gt;前回の記事&lt;/a&gt;の続きでWithingsのAPIを使って何か作るものはないかと無理やり考えてみた結果、&lt;a href=&quot;http://nocturia.herokuapp.com&quot;&gt;夜間頻尿判定サイト&lt;/a&gt;を作ってみました。睡眠中の「目覚め」回数をトイレに起きた回数と考えて、夜間頻尿状態かどうかを判断するサイトです。Withingsのサイトで表示される睡眠トラッキングのグラフには「目覚め」回数は数字で表示されていますが、グラフ化されていないので睡眠トラッキングと同じグラフ上に描画しようという魂胆です。Withingsの週単位のグラフは、縦軸に時間、横軸に曜日（日付）となっていますが、睡眠時間を小数表示にして「目覚め」の回数を同じグラフ上にプロットしています。無理やりなんて書きましたが、Withingsのグラフは週単位でしか表示できなくて、もっと長い期間のグラフをまとめて表示したいという不満があったので、その不満を解消する目的もあります。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;/hardware/2015-08-16/withings/&quot;&gt;前回の記事&lt;/a&gt;の続きでWithingsのAPIを使って何か作るものはないかと無理やり考えてみた結果、&lt;a href=&quot;https://nocturia.herokuapp.com&quot;&gt;夜間頻尿判定サイト&lt;/a&gt;を作ってみました。睡眠中の「目覚め」回数をトイレに起きた回数と考えて、夜間頻尿状態かどうかを判断するサイトです。Withingsのサイトで表示される睡眠トラッキングのグラフには「目覚め」回数は数字で表示されていますが、グラフ化されていないので睡眠トラッキングと同じグラフ上に描画しようという魂胆です。Withingsの週単位のグラフは、縦軸に時間、横軸に曜日（日付）となっていますが、睡眠時間を小数表示にして「目覚め」の回数を同じグラフ上にプロットしています。無理やりなんて書きましたが、Withingsのグラフは週単位でしか表示できなくて、もっと長い期間のグラフをまとめて表示したいという不満があったので、その不満を解消する目的もあります。&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Withingsのグラフ&lt;/li&gt;
@@ -6614,9 +6614,9 @@ end until buf == nil
  
  <entry>
    <title>Withings Activité購入</title>
-   <link href="http://happyclam.github.io/hardware/2015-08-16/withings"/>
+   <link href="https://happyclam.github.io/hardware/2015-08-16/withings"/>
    <updated>2015-08-16T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/hardware/2015-08-16/withings</id>
+   <id>https://happyclam.github.io/hardware/2015-08-16/withings</id>
    <content type="html">&lt;h3 id=&quot;普通の腕時計を買うつもりがスマートウォッチになったわけ&quot;&gt;普通の腕時計を買うつもりが、スマートウォッチになったわけ&lt;/h3&gt;
 &lt;p&gt;　もう１０年以上前から腕時計をする習慣が無くなっていたのですが、携帯電話からスマホに変わってからは胸ポケットに入れられないスマホを鞄から取り出すのが面倒なため腕時計をする機会が多くなっていました。でも今はロードバイク用に買ったアウトドア用のソーラー電波時計しか無いので、一つビジネスにも使えるようなものを買ってみようかと思って&lt;a href=&quot;https://www.facebook.com/powerwatch.fan/posts/840855109296593&quot;&gt;「予算１０万円台までで購入できる　最強スポーツウオッチ選手権」&lt;/a&gt;と銘打った時計雑誌を購入しました。&lt;br /&gt;
 　雑誌の中ではいろいろ欲しくなる時計は紹介されていたのですが、小さく紹介されていた「Withings Activité」のデザインが気に入ってネットで調べてみるとスマートウォッチというカテゴリーに分類される時計のようです。Apple Watchにもほとんど興味が湧かなかった自分にとっては、すでに世の中にいろいろなスマートウォッチと呼ばれる時計が出回っていることを知って驚きでした。&lt;br /&gt;
@@ -6638,7 +6638,7 @@ end until buf == nil
 &lt;/div&gt;
 
 &lt;p&gt;　それにしても購入を決めた当初は、自分のように時計を物色していてこの機種を購入するに至った人は珍しいんじゃないかと思っていたのですが、その後もスマートウォッチの情報をネットで漁っているとApple Watchのような如何にも今までの腕時計とは異質のものではなく、見た目は本格的な腕時計のままスマホとの連携機能を持つスタイルのスマートウォッチのほうが主流になる可能性があることを知りました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。時計雑誌で紹介されていたスマートウォッチはこの機種だけだったので、浮いている感じを受けましたが、今後は普通の時計雑誌でスマートウォッチが紹介される機会が増えてくるのかもしれません。&lt;br /&gt;
-　セットアップは&lt;a href=&quot;http://uxlayman.hatenablog.com/entry/2015/04/28/073100&quot;&gt;こちらのサイト&lt;/a&gt;を参考にしました。&lt;/p&gt;
+　セットアップは&lt;a href=&quot;https://uxlayman.hatenablog.com/entry/2015/04/28/073100&quot;&gt;こちらのサイト&lt;/a&gt;を参考にしました。&lt;/p&gt;
 
 &lt;div style=&quot;width:160px; margin: 0 auto;&quot;&gt;
 
@@ -6649,8 +6649,8 @@ end until buf == nil
 &lt;p&gt;　上のグラフのように浅い眠りと深い眠りを判別出来るようです。寝起きに「あ〜よく寝た」と感じた時は濃い青のグラフの帯が大きかったので結構正確かもしれません。それと当たり前かもしれませんが朝方トイレに起きた履歴もちゃんと残っていて、いつか自分の記憶にない記録が残っていたりしないかと密かに期待しています（夢遊病か!?）。&lt;/p&gt;
 
 &lt;h3 id=&quot;web-apiを使ってみる&quot;&gt;Web APIを使ってみる&lt;/h3&gt;
-&lt;p&gt;　APIが公開されていたので少し触ってみました。&lt;a href=&quot;http://blog.hopkins.io/2013/07/25/withings-api/&quot;&gt;Withings API Quickstart Guide&lt;/a&gt;と銘打ったサイトの通りwithings用のgemを使えばすぐに自分が登録したデータを取得することが出来ましたが、最新のAPIに対応しているか分からなかったし使い方もよくわからないし、アクセストークンを取得した後は&lt;a href=&quot;http://oauth.withings.com/api&quot;&gt;WithingsのAPIドキュメント&lt;/a&gt;を見ながら自分でパラメータをセットしていろんなデータの取得を試してみたかったので、特別なgemを使用せずにjsonデータを取得するスクリプトを書いてみました。&lt;br /&gt;
-　このスクリプトを実行するにはTwitterアプリを作る時なんかと同様に&lt;a href=&quot;https://oauth.withings.com/en/partner/add&quot;&gt;Withingsにアプリを登録&lt;/a&gt;してAPI Key、API Secretを取得する必要があります。そしてWithings API のページの&lt;a href=&quot;http://oauth.withings.com/api&quot;&gt;FIRST STEP&lt;/a&gt;に従って操作し、OAuth認証完了後userid、oauth_token、oauth_token_secretの値を取得してスクリプトにセットしておく必要があります。&lt;/p&gt;
+&lt;p&gt;　APIが公開されていたので少し触ってみました。&lt;a href=&quot;https://blog.hopkins.io/2013/07/25/withings-api/&quot;&gt;Withings API Quickstart Guide&lt;/a&gt;と銘打ったサイトの通りwithings用のgemを使えばすぐに自分が登録したデータを取得することが出来ましたが、最新のAPIに対応しているか分からなかったし使い方もよくわからないし、アクセストークンを取得した後は&lt;a href=&quot;https://oauth.withings.com/api&quot;&gt;WithingsのAPIドキュメント&lt;/a&gt;を見ながら自分でパラメータをセットしていろんなデータの取得を試してみたかったので、特別なgemを使用せずにjsonデータを取得するスクリプトを書いてみました。&lt;br /&gt;
+　このスクリプトを実行するにはTwitterアプリを作る時なんかと同様に&lt;a href=&quot;https://oauth.withings.com/en/partner/add&quot;&gt;Withingsにアプリを登録&lt;/a&gt;してAPI Key、API Secretを取得する必要があります。そしてWithings API のページの&lt;a href=&quot;https://oauth.withings.com/api&quot;&gt;FIRST STEP&lt;/a&gt;に従って操作し、OAuth認証完了後userid、oauth_token、oauth_token_secretの値を取得してスクリプトにセットしておく必要があります。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;#sleep.rb
 require 'pp'
@@ -6713,7 +6713,7 @@ result = JSON.parse(json)
 pp result
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;　要するにリクエスト毎に変わるOAuth1.0の署名（oauth_signature）の生成を自動化するためのスクリプトです。&lt;a href=&quot;http://blog.hopkins.io/2013/07/25/withings-api/&quot;&gt;gem のソースコード&lt;/a&gt;と&lt;a href=&quot;http://syncer.jp/how-to-make-signature-of-oauth-1&quot;&gt;このサイト&lt;/a&gt;を参考にしました。RailsでTwitterのAPI使う時はgemが勝手にやってくれるので今までこの作業を自前でやったことはなかったため、サーバーからのエラーが無くなるまで結構手間取りました。サーバーがステータスコード「342 : The signature (using Oauth) is invalid」を返してくるわけですが、必ずしも署名の作成の仕方が悪いわけではないようです&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。サーバー側でもう少しパラメータのチェックを優先して、それに沿ったエラーを返して欲しいところですがどうなのでしょう。&lt;/p&gt;
+&lt;p&gt;　要するにリクエスト毎に変わるOAuth1.0の署名（oauth_signature）の生成を自動化するためのスクリプトです。&lt;a href=&quot;https://blog.hopkins.io/2013/07/25/withings-api/&quot;&gt;gem のソースコード&lt;/a&gt;と&lt;a href=&quot;https://syncer.jp/how-to-make-signature-of-oauth-1&quot;&gt;このサイト&lt;/a&gt;を参考にしました。RailsでTwitterのAPI使う時はgemが勝手にやってくれるので今までこの作業を自前でやったことはなかったため、サーバーからのエラーが無くなるまで結構手間取りました。サーバーがステータスコード「342 : The signature (using Oauth) is invalid」を返してくるわけですが、必ずしも署名の作成の仕方が悪いわけではないようです&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。サーバー側でもう少しパラメータのチェックを優先して、それに沿ったエラーを返して欲しいところですがどうなのでしょう。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
@@ -6728,7 +6728,7 @@ pp result
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;http://www.dream-seed.com/weblog/archives/2015/02/55372/&quot;&gt;複数のスイス時計メーカーがスマートウォッチを発表&lt;/a&gt;、&lt;a href=&quot;http://weekly.ascii.jp/elem/000/000/328/328470/&quot;&gt;腕時計好きもグッとくる絶品スマートウォッチ特選編&lt;/a&gt;、&lt;a href=&quot;http://matome.naver.jp/odai/2142691305853056801&quot;&gt;グッチも！？有名ブランドが続々発売するスマートウォッチ市場が熱い！！&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.dream-seed.com/weblog/archives/2015/02/55372/&quot;&gt;複数のスイス時計メーカーがスマートウォッチを発表&lt;/a&gt;、&lt;a href=&quot;https://weekly.ascii.jp/elem/000/000/328/328470/&quot;&gt;腕時計好きもグッとくる絶品スマートウォッチ特選編&lt;/a&gt;、&lt;a href=&quot;https://matome.naver.jp/odai/2142691305853056801&quot;&gt;グッチも！？有名ブランドが続々発売するスマートウォッチ市場が熱い！！&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:2&quot;&gt;
       &lt;p&gt;例として上記スクリプトのstartdateパラメータをセットしている行で.to_iを削除すると{“status” =&amp;gt; 342}が返ってきます。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
@@ -6740,11 +6740,11 @@ pp result
  
  <entry>
    <title>kobo aura購入</title>
-   <link href="http://happyclam.github.io/hardware/2015-06-12/kobo_aura"/>
+   <link href="https://happyclam.github.io/hardware/2015-06-12/kobo_aura"/>
    <updated>2015-06-12T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/hardware/2015-06-12/kobo_aura</id>
+   <id>https://happyclam.github.io/hardware/2015-06-12/kobo_aura</id>
    <content type="html">&lt;h3 id=&quot;今更だけどkobo購入&quot;&gt;今更だけどkobo購入&lt;/h3&gt;
-&lt;p&gt;　前々から試してみたかった E-Ink端末を買ってみました。Kindleではなく&lt;a href=&quot;http://books.rakuten.co.jp/event/e-book/ereaders/koboaura/&quot;&gt;Kobo&lt;/a&gt;を買ったのは、日用品や書籍の購入は昔からAmazonばかり利用しているので少しAmazonに偏りすぎている気がしていたのと、koboはKindleと違ってSDカードが使えることや個人出版する場合Amazonのkindle direct publishing（KDP）から出版するより&lt;a href=&quot;http://books.rakuten.co.jp/e-book/rakutenkwl/&quot;&gt;koboライティングライフ(KWL)&lt;/a&gt;から出版した方が&lt;a href=&quot;http://internet.watch.impress.co.jp/docs/news/20150430_700205.html&quot;&gt;ロイヤルティが高い&lt;/a&gt;と聞いたので、楽天のことも少しは使って知っておこうと思ったのが動機です。まぁ電子出版に関して今後どうするか決めていませんが、とりあえずkobo auraを使ってみた感想を書いてみたいと思います。&lt;/p&gt;
+&lt;p&gt;　前々から試してみたかった E-Ink端末を買ってみました。Kindleではなく&lt;a href=&quot;https://books.rakuten.co.jp/event/e-book/ereaders/koboaura/&quot;&gt;Kobo&lt;/a&gt;を買ったのは、日用品や書籍の購入は昔からAmazonばかり利用しているので少しAmazonに偏りすぎている気がしていたのと、koboはKindleと違ってSDカードが使えることや個人出版する場合Amazonのkindle direct publishing（KDP）から出版するより&lt;a href=&quot;https://books.rakuten.co.jp/e-book/rakutenkwl/&quot;&gt;koboライティングライフ(KWL)&lt;/a&gt;から出版した方が&lt;a href=&quot;https://internet.watch.impress.co.jp/docs/news/20150430_700205.html&quot;&gt;ロイヤルティが高い&lt;/a&gt;と聞いたので、楽天のことも少しは使って知っておこうと思ったのが動機です。まぁ電子出版に関して今後どうするか決めていませんが、とりあえずkobo auraを使ってみた感想を書いてみたいと思います。&lt;/p&gt;
 
 &lt;h3 id=&quot;セットアップ&quot;&gt;セットアップ&lt;/h3&gt;
 &lt;p&gt;　本体を取り出してWi-Fiでセットアップしようと思いましたが、自宅のフレッツ光のルーターはMACアドレスフィルタリングを設定しているので、まずはkoboのMACアドレスを知りたいのですが取説にシールが貼ってある気配もないし、外箱にもそれらしい値は書いてありません。セットアップの途中でキャンセルして設定を見ることが出来るかもと思いながらメニューを進めたり戻ったりしましたがどうもセットアップを完了するまで何も操作できないようになっているようで、MACアドレスを確認することはできませんでした。仕方がないのでUSBで接続してセットアップを完了させましたが、先々月購入したMacBookは外箱にちゃんとMACアドレスが記載されていたことを思うと、さすがAppleは抜かりないなって感じです。&lt;br /&gt;
@@ -6752,7 +6752,7 @@ pp result
 
 &lt;h3 id=&quot;自分で作成したepubファイルをkoboで読んでみる&quot;&gt;自分で作成したepubファイルをkoboで読んでみる&lt;/h3&gt;
 &lt;p&gt;　DVDや音楽データと違ってAmazonで購入した電子書籍のDRMを解除してkoboで読むことに現時点では法的な問題はないもののAmazonとの契約上は問題があるようです&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
-　ということで、まず自分で作成したepubファイルをkoboにコピーして動作確認してみました。USBで接続したらkoboがストレージとして認識されるので、そこに自作のepubファイルをコピーするだけでkoboで読むことができました。コピー後初めて開いた時は日本語が文字化けしていたのですが&lt;a href=&quot;http://iphone.f-tools.net/Book-Reader/EPUB-MojiBake.html&quot;&gt;このサイト&lt;/a&gt;に書いてある通り「ドキュメントデフォルト」となっているフォントを別のものに指定し直せば問題なく表示されました。&lt;/p&gt;
+　ということで、まず自分で作成したepubファイルをkoboにコピーして動作確認してみました。USBで接続したらkoboがストレージとして認識されるので、そこに自作のepubファイルをコピーするだけでkoboで読むことができました。コピー後初めて開いた時は日本語が文字化けしていたのですが&lt;a href=&quot;https://iphone.f-tools.net/Book-Reader/EPUB-MojiBake.html&quot;&gt;このサイト&lt;/a&gt;に書いてある通り「ドキュメントデフォルト」となっているフォントを別のものに指定し直せば問題なく表示されました。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
@@ -6787,7 +6787,7 @@ pp result
 
 &lt;p&gt;　つまりkoboのepubリーダーでURLエスケープした後、koboのブラウザでもさらに二重にエスケープしてWikipediaにリクエストしたものだから、Wikipediaサーバー側でunescapeしても”%”が入ってきちゃってるよ、オイオイってことです。&lt;br /&gt;
 　ちなみに元のURL文字列を手動で二重にエスケープしてPCで試してみたところ、koboと同じ画面をPCでも出すことが出来ました。&lt;br /&gt;
-&lt;a href=&quot;http://ja.wikipedia.org/wiki/%25E4%25BA%258C%25E4%25BA%25BA%25E9%259B%25B6%25E5%2592%258C%25E6%259C%2589%25E9%2599%2590%25E7%25A2%25BA%25E5%25AE%259A%25E5%25AE%258C%25E5%2585%25A8%25E6%2583%2585%25E5%25A0%25B1%25E3%2582%25B2%25E3%2583%25BC%25E3%2583%25A0&quot; target=&quot;_blank&quot;&gt;このリンク&lt;/a&gt;です。&lt;br /&gt;
+&lt;a href=&quot;https://ja.wikipedia.org/wiki/%25E4%25BA%258C%25E4%25BA%25BA%25E9%259B%25B6%25E5%2592%258C%25E6%259C%2589%25E9%2599%2590%25E7%25A2%25BA%25E5%25AE%259A%25E5%25AE%258C%25E5%2585%25A8%25E6%2583%2585%25E5%25A0%25B1%25E3%2582%25B2%25E3%2583%25BC%25E3%2583%25A0&quot; target=&quot;_blank&quot;&gt;このリンク&lt;/a&gt;です。&lt;br /&gt;
 　これって問題になっていないのでしょうか？URLに２バイト文字を使っているところは少ないかもしれませんが、Wikipediaを参照するepub本って結構あると思うのですがそうでも無いのでしょうか？&lt;br /&gt;
 　ちなみにもともとエンコードしてaタグに書いていたのものをエラーになったから日本語直書きで試したわけですが、FirefoxでもiBooksでもフリーのandroidアプリ数種類でも、そしてaタグは日本語直書きでもエンコード済みでも正常にリンク出来ました。おまけに楽天koboのandroidアプリでも問題なくリンクが動作しました。koboのepubリーダーソフトの方はブラウザを起動する際に表示するダイアログを見る限り二重にエンコードするわけでは無いようなので、koboのブラウザがエンコード済みかどうかに関わらずURLエンコードしてサーバーにリクエストするようになっているのが問題のようです。&lt;br /&gt;
 　う〜む、発売から一年以上経っているのでこのバグが知られていないとは思えないのですが、ネットで検索してもそれらしい書き込みは見当たりませんでした。不具合を指摘しているこちらが不安になるぐらいです。とりあえず自作のepub本以外で日本語URLを参照しているepub本を見つけたらkoboで動作確認をしてみようと思います。たとえ自作epub本じゃなくても、kobo側が対応してくれないとどうしようも無いと思うので、私のepubの作成の仕方が悪いってことでは無いと思いますが、電子書籍の世界は思っていたより奥が深そうなので私が知らない仕掛け（ルール）があるのかも知れません。あっ一応epubcheckでもエラーは出ていません。&lt;br /&gt;
@@ -6803,10 +6803,10 @@ pp result
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;http://herooftheday.net/backup-and-epub-converting-on-kindle-for-mac&quot;&gt;「Kindle for Mac日本語版が出たのでePub変換とかバックアップとかイロイロ試してみた」&lt;/a&gt;に詳しく書かれています。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;https://herooftheday.net/backup-and-epub-converting-on-kindle-for-mac&quot;&gt;「Kindle for Mac日本語版が出たのでePub変換とかバックアップとかイロイロ試してみた」&lt;/a&gt;に詳しく書かれています。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:2&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;http://blog.livedoor.jp/harpsichord1980/archives/51900585.html&quot;&gt;Kobo AuraのWebブラウザを触ってきたよ！&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;https://blog.livedoor.jp/harpsichord1980/archives/51900585.html&quot;&gt;Kobo AuraのWebブラウザを触ってきたよ！&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
@@ -6815,9 +6815,9 @@ pp result
  
  <entry>
    <title>markdownファイルを元に電子出版</title>
-   <link href="http://happyclam.github.io/miscellaneous/2015-06-09/pandoc_epub"/>
+   <link href="https://happyclam.github.io/miscellaneous/2015-06-09/pandoc_epub"/>
    <updated>2015-06-09T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/miscellaneous/2015-06-09/pandoc_epub</id>
+   <id>https://happyclam.github.io/miscellaneous/2015-06-09/pandoc_epub</id>
    <content type="html">&lt;h3 id=&quot;無料で出版してもダウンロードさえして貰えないと聞くけど&quot;&gt;無料で出版してもダウンロードさえして貰えないと聞くけど&lt;/h3&gt;
 &lt;p&gt;　最近自分が購入する本に占める電子書籍の割合が高くなってきました。単に購入する電子書籍の数が増えてきているだけでなく、昔は購入する電子書籍といえばマンガや雑誌のようなどうでもいいと思える本が多かったのに、最近は何度も読み返すようなお気に入りの技術系の本の中に電子書籍が混じっています。そして、電子書籍に触れる機会が増えてきたのと出版へのハードルが下がってきたこともあって、電子書籍を作るほう（出版）にも興味が湧いてきました。でも、原稿用紙に鉛筆で文章を書いて出版したいわけじゃなく、今このブログを書いているスタイル（markdownで書く）のまま書いたものを流用したいという拘りがあります。&lt;br /&gt;
 　だから、書きたいことはあるけど、わざわざMacのpagesを使ったりWindowsの一太郎を使ったりネット上のサービス&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;を利用してepubファイルを作成して出版したいわけじゃないってことです。こういう方法論に拘るタイプは作家としては大成できないことは分かっていますが、あくまでmarkdownファイルを元にして電子書籍出版するにはどうすればいいのか、最近試行錯誤したことを書いてみたいと思います。&lt;/p&gt;
@@ -6949,7 +6949,7 @@ markdown-pdfコマンドを使用してPDFファイルに変換します。CSS�
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;markdownに拘らなければAmazonやAppleや楽天ブックス以外にも&lt;a href=&quot;http://bccks.jp&quot;&gt;個人出版を助けるネットサービス&lt;/a&gt;があるようですし、&lt;a href=&quot;http://www7b.biglobe.ne.jp/~yama88/make.html&quot;&gt;変換ツール&lt;/a&gt;も色々あります。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;markdownに拘らなければAmazonやAppleや楽天ブックス以外にも&lt;a href=&quot;https://bccks.jp&quot;&gt;個人出版を助けるネットサービス&lt;/a&gt;があるようですし、&lt;a href=&quot;https://www7b.biglobe.ne.jp/~yama88/make.html&quot;&gt;変換ツール&lt;/a&gt;も色々あります。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
@@ -6958,9 +6958,9 @@ markdown-pdfコマンドを使用してPDFファイルに変換します。CSS�
  
  <entry>
    <title>ハイブリッド開発（HTML5 + JavaScript）でハマったこと</title>
-   <link href="http://happyclam.github.io/programming/2015-05-29/android_app1"/>
+   <link href="https://happyclam.github.io/programming/2015-05-29/android_app1"/>
    <updated>2015-05-29T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/programming/2015-05-29/android_app1</id>
+   <id>https://happyclam.github.io/programming/2015-05-29/android_app1</id>
    <content type="html">&lt;h3 id=&quot;やはりそんなにうまい話はなかった&quot;&gt;やはりそんなにうまい話はなかった&lt;/h3&gt;
 &lt;p&gt;　ObjectiveC++も使わずJavaのコードも一切書かずにiOSとandroidのアプリが一つのソースコードで作成できるというハイブリッドアプリ開発ですが、&lt;a href=&quot;/programming/2015-04-25/mongo_upsert/&quot;&gt;前回の記事&lt;/a&gt;で書いた通りとりあえず&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf&quot;&gt;androidアプリ&lt;/a&gt;をリリースしたのはいいけど、いろいろなトラブルに遭遇しました。そこでcordovaを使ったandroidアプリ開発に関してネット上に出回っている一般的なトラブルは除いて、特に自分だけかもしれない嵌り方をした点について書いてみようと思います。&lt;/p&gt;
 
@@ -7011,7 +7011,7 @@ markdown-pdfコマンドを使用してPDFファイルに変換します。CSS�
             });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;　android4.1では動くというのが混乱の元のような気がしますが、問題は&lt;code&gt;location.href = &quot;#win_show_ranking&quot;&lt;/code&gt;の部分でした。&lt;a href=&quot;http://www.buildinsider.net/web/jquerymobileref/34&quot;&gt;このサイト&lt;/a&gt;に書いてあるようにjavascriptを使って画面遷移するのではなく、JQMのchangeメソッドを使って画面遷移しなければいけないようです。&lt;code&gt;location.href = &quot;#win_show_ranking&quot;&lt;/code&gt;と書いている部分を&lt;code&gt;pagecontainer('change', '#win_show_ranking', {allowSamePageTransition: false});&lt;/code&gt;と書き換えれば問題なく動作しました。&lt;br /&gt;
+&lt;p&gt;　android4.1では動くというのが混乱の元のような気がしますが、問題は&lt;code&gt;location.href = &quot;#win_show_ranking&quot;&lt;/code&gt;の部分でした。&lt;a href=&quot;https://www.buildinsider.net/web/jquerymobileref/34&quot;&gt;このサイト&lt;/a&gt;に書いてあるようにjavascriptを使って画面遷移するのではなく、JQMのchangeメソッドを使って画面遷移しなければいけないようです。&lt;code&gt;location.href = &quot;#win_show_ranking&quot;&lt;/code&gt;と書いている部分を&lt;code&gt;pagecontainer('change', '#win_show_ranking', {allowSamePageTransition: false});&lt;/code&gt;と書き換えれば問題なく動作しました。&lt;br /&gt;
 　逆に何で新しいandroidだと動くのかについてはよくわかりませんが、JQMはajaxを無効にして使うことも出来るようなので、古いandroidについては面倒を見るのを止めてサポートを切り捨てたけど、新し目のバージョンに関してはどちらでも動くようになっているということでしょうか？それとも偶々動いただけかもしれません。&lt;br /&gt;
 　JQMのことをよく調べずに使い始めたのがよくなかったみたいです。それに現在はJQMを使っているといってもほとんど画面レイアウトにしか使っていない状態なのでJQMの機能をもう少し取り込んで行こうと思っているのですが、そうするとまた新たな問題が出て来るのでしょう。&lt;/p&gt;
 
@@ -7022,9 +7022,9 @@ markdown-pdfコマンドを使用してPDFファイルに変換します。CSS�
  
  <entry>
    <title>HerokuでNodeとMongoDBを使う</title>
-   <link href="http://happyclam.github.io/programming/2015-04-25/mongo_upsert"/>
+   <link href="https://happyclam.github.io/programming/2015-04-25/mongo_upsert"/>
    <updated>2015-04-25T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/programming/2015-04-25/mongo_upsert</id>
+   <id>https://happyclam.github.io/programming/2015-04-25/mongo_upsert</id>
    <content type="html">&lt;h3 id=&quot;スマホアプリからサーバに接続してデータ取得&quot;&gt;スマホアプリからサーバに接続してデータ取得&lt;/h3&gt;
 &lt;p&gt;　以前から記事に書いている三目並べプログラムをとりあえず&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf&quot;&gt;androidアプリ&lt;/a&gt;にしてみたのですが、単なる三目並べだとつまらないので一手の時間制限を設けて連続無敗記録を保存するように変更しました。そして今度はその記録をユーザ間で競ってもらおうと思い、サーバーを用意してスマホ上でランキング表示する機能をつけることにしました。&lt;br /&gt;
 　ユーザ認証などの機能をつけると利用者側にとって敷居が高くなるので、適当なハンドルネームを登録してランキング表示するだけの機能です。単純な機能（スマホからハンドルネームを登録し、JSONPでランキングデータを取得する）なのでどうせなら今までやったことない方法でと思いNode.jsとMongoDBを使うことにしました。いろいろ印象に残ったことを書いてみます。&lt;/p&gt;
@@ -7052,7 +7052,7 @@ markdown-pdfコマンドを使用してPDFファイルに変換します。CSS�
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&quot;出来るだけ新しいバージョンで開発環境を作る&quot;&gt;出来るだけ新しいバージョンで開発環境を作る&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;http://www.oreilly.co.jp/books/9784873116068/&quot;&gt;Nodeクックブック&lt;/a&gt;という本を参考にしていたのですが、ネット上に転がっていた古いコードから書き始めたのが間違いの元で、本のサンプルコードが動かない環境で一通り作った後に何度も同じ箇所を書き換えなければいけない羽目に陥りました。古いバージョンのままでも動けばいいのですが、何かトラブルに見舞われた時に「もしかしてバージョンが古いせいか？新しくしてみよう」となって直接トラブルとは関係ないのに書き直す羽目に陥ったということです。皆さんも気をつけて下さい。特にExpressはバージョンによって書式（構文）の変化が激しくて、バージョンが変わるともうそれは必要がなくなったというコードが多かったです。依存関係で深刻なものは無かったのですが、自分が使っているパッケージのバージョンは把握しておいた方が右往左往しなくて済みそうです。以下が現時点で使っているパッケージ（package.json）ファイルの一部です。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;https://www.oreilly.co.jp/books/9784873116068/&quot;&gt;Nodeクックブック&lt;/a&gt;という本を参考にしていたのですが、ネット上に転がっていた古いコードから書き始めたのが間違いの元で、本のサンプルコードが動かない環境で一通り作った後に何度も同じ箇所を書き換えなければいけない羽目に陥りました。古いバージョンのままでも動けばいいのですが、何かトラブルに見舞われた時に「もしかしてバージョンが古いせいか？新しくしてみよう」となって直接トラブルとは関係ないのに書き直す羽目に陥ったということです。皆さんも気をつけて下さい。特にExpressはバージョンによって書式（構文）の変化が激しくて、バージョンが変わるともうそれは必要がなくなったというコードが多かったです。依存関係で深刻なものは無かったのですが、自分が使っているパッケージのバージョンは把握しておいた方が右往左往しなくて済みそうです。以下が現時点で使っているパッケージ（package.json）ファイルの一部です。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;  , &quot;dependencies&quot;: {
       &quot;express&quot;: &quot;4.12.1&quot;
@@ -7075,7 +7075,7 @@ app.use(require('less-middleware')({
 }));
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;　上手くいかなくて、&lt;a href=&quot;http://stackoverflow.com/questions/22274832/public-static-directory-typeerror-arguments-to-path-join-must-be-strings&quot;&gt;ここ&lt;/a&gt;に書いてある通り以下のように修正すれば動きました。&lt;/p&gt;
+&lt;p&gt;　上手くいかなくて、&lt;a href=&quot;https://stackoverflow.com/questions/22274832/public-static-directory-typeerror-arguments-to-path-join-must-be-strings&quot;&gt;ここ&lt;/a&gt;に書いてある通り以下のように修正すれば動きました。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;//app.js
 app.use(require('less-middleware')(__dirname + '/public'));
@@ -7085,7 +7085,7 @@ app.use(require('less-middleware')(__dirname + '/public'));
 　あと、Rubyのrvm環境同様にNodeも最初からnvmを使って複数のバージョンを切り替えられるようにしておいたほうがよさそうです。&lt;/p&gt;
 
 &lt;h3 id=&quot;ローカルで動くのにheroku上で動かない&quot;&gt;ローカルで動くのにHeroku上で動かない&lt;/h3&gt;
-&lt;p&gt;　herokuで動かないのはMongoDBへの接続が出来ていないようだということはすぐわかったのですが、&lt;a href=&quot;http://d.hatena.ne.jp/koda_hd28v/20120512/1336799056&quot;&gt;この記事&lt;/a&gt;を見つけるまで理由がわかりませんでした。ローカルではDBオブジェクトをnewしてServer.open、herokuではconnectを使うということのようです。ローカル環境にデータベースが存在しているわけじゃないんだからopen出来ると考える方がおかしいと言われそうですが、herokuもMongoDBもどこまで私の面倒を見てくれるのかわからないんだから、ローカルで動くんだからそのまま動くと考えてしまっても仕方がないと思います。&lt;br /&gt;
+&lt;p&gt;　herokuで動かないのはMongoDBへの接続が出来ていないようだということはすぐわかったのですが、&lt;a href=&quot;https://d.hatena.ne.jp/koda_hd28v/20120512/1336799056&quot;&gt;この記事&lt;/a&gt;を見つけるまで理由がわかりませんでした。ローカルではDBオブジェクトをnewしてServer.open、herokuではconnectを使うということのようです。ローカル環境にデータベースが存在しているわけじゃないんだからopen出来ると考える方がおかしいと言われそうですが、herokuもMongoDBもどこまで私の面倒を見てくれるのかわからないんだから、ローカルで動くんだからそのまま動くと考えてしまっても仕方がないと思います。&lt;br /&gt;
 　で、記事の中で説明してくれているように、以下のようにDB接続モジュールだけ分割して&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;// lib/MongoBuilder.js
@@ -7128,9 +7128,9 @@ exports.mypage = function(req, res){
  
  <entry>
    <title>新Macbook購入</title>
-   <link href="http://happyclam.github.io/hardware/2015-04-14/macbook"/>
+   <link href="https://happyclam.github.io/hardware/2015-04-14/macbook"/>
    <updated>2015-04-14T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/hardware/2015-04-14/macbook</id>
+   <id>https://happyclam.github.io/hardware/2015-04-14/macbook</id>
    <content type="html">&lt;h3 id=&quot;発売日翌日にゲット&quot;&gt;発売日翌日にゲット&lt;/h3&gt;
 &lt;p&gt;　発売日（４月１０日）にはアップルストアでも入手できた人はいなかったようなので、ダメモトで梅田のヨドバシに朝一番で行ってみると幸運なことに買うことができました。開店早々Appleのブースに行くと男ばかり１４、５人がたむろしていて３台の展示機に何人か並んでいました。自分は既に買うことは決めていたので試用する気もなくすぐに店員に「買えるんですか？欲しいんですけどっ」と伝えると「はい、今在庫を確認しているところです」と他の客からも質問されているらしく慌てている感じで、どういう風に対応すべきか迷っている感じでした。結局、他からも店員がワラワラと集まってきて、客たちが希望する機種を個別に聞いて在庫確認のために消えていくって感じで店に来た順番とかは関係ない感じで進んでいました。確かに購入を決めている客ばかりでも無さそうだったので順番に並んでくださいと誘導するわけにもいかなかったのでしょう。目の前で購入できている人がいるのに目当ての機種が買えなかったら辛いなぁと思いながらもラッキーなことにほどなく購入（MacBookスペースグレイ512GB）することが出来ました。自分が購入できた後はすぐに店を出たのでわかりませんが、購入できた人とできなかった人で揉めたりしたのでは無いかとちょっと心配になりました。ヨドバシとしては新MacBookに人が集まるのが意外だったのかもしれません。店に着いたとき外に行列（確認してみたところ妖怪メダル目当ての行列だったそうです）が出来ていて店員が誘導して整列させていたんですが、ヨドバシ全体の取扱商品から考えたら新MacBookなんてものはかなりマイナーなものでしかないんでしょう。&lt;/p&gt;
 
@@ -7147,7 +7147,7 @@ exports.mypage = function(req, res){
 &lt;/div&gt;
 
 &lt;h3 id=&quot;vaio-type-pは今までで一番気に入ったモバイルpc&quot;&gt;Vaio type Pは今までで一番気に入ったモバイルPC&lt;/h3&gt;
-&lt;p&gt;　2009年に発売されたソニーのVAIO type P（&lt;a href=&quot;http://www.vaio.sony.co.jp/Products/P1/&quot;&gt;VGN-P90S&lt;/a&gt;）を今でも使用している人はかなり少数派だと思いますが、サードパーティから購入した中国製の予備のバッテリーを駆使しながら今まで使ってきました。キーボードは打ち易いし解像度はUWXGA（1600×768）というMacBookAirより広い環境でRailsを使ったWebアプリ開発機としてもドキュメント作成用としても結構満足して使っていましたが、CPUが非力なのでEclipseを使ったりandroidアプリ開発（エミュレータが重い）には使えないなと感じていました。&lt;br /&gt;
+&lt;p&gt;　2009年に発売されたソニーのVAIO type P（&lt;a href=&quot;https://www.vaio.sony.co.jp/Products/P1/&quot;&gt;VGN-P90S&lt;/a&gt;）を今でも使用している人はかなり少数派だと思いますが、サードパーティから購入した中国製の予備のバッテリーを駆使しながら今まで使ってきました。キーボードは打ち易いし解像度はUWXGA（1600×768）というMacBookAirより広い環境でRailsを使ったWebアプリ開発機としてもドキュメント作成用としても結構満足して使っていましたが、CPUが非力なのでEclipseを使ったりandroidアプリ開発（エミュレータが重い）には使えないなと感じていました。&lt;br /&gt;
 　私の場合Vaioは購入当初からUbuntuやLinuxMintやlubuntuに入れ替えて使っていたので、Windowsの新作モバイルPCが出る度に気は進まないけどまた購入してすぐにWindowsを削除して使おうかなんてことも考えていましたが、そこまでするほどVaioよりいいと思えるモバイルPCはなかったしiPhoneアプリの開発もやってみたいって理由もあってMacBookAirの高解像度版が出れば乗り換えようと思いながら今まで使ってきました。MacBookAir買えばいいじゃないかという人がいると思いますが、過去の経験からMacBookAir11の解像度では開発は出来ないと思っていたし、MacBookAir13は持ち歩く気はしないというか、正確に言うと持ち歩くのはまだいいんですが出先で使うときの占有面積が広いのでちょっと邪魔だなって感じです。以上のような結果として自分にとってVaioPは今までで一番長期にわたって使い尽くしたモバイルPCになりました。&lt;br /&gt;
 　そこであまり他の人の役には立たないと思いますがあくまで自分目線でVaioPとの勝敗表を作ってみました。上の項目ほど自分が重視する点です。&lt;/p&gt;
 
@@ -7200,7 +7200,7 @@ exports.mypage = function(req, res){
 
 &lt;p&gt;◎…大差で勝ち、◯…勝ち、△…引き分け、×…負け&lt;/p&gt;
 
-&lt;p&gt;USB機器やアクセサリー類は今後時間とともに解決していくことでしょう。まずはVaioPで使っていたような&lt;a href=&quot;http://www.sony.jp/vaio/products/VGP-CKP1/&quot;&gt;革製のケース&lt;/a&gt;が欲しいです。&lt;/p&gt;
+&lt;p&gt;USB機器やアクセサリー類は今後時間とともに解決していくことでしょう。まずはVaioPで使っていたような&lt;a href=&quot;https://www.sony.jp/vaio/products/VGP-CKP1/&quot;&gt;革製のケース&lt;/a&gt;が欲しいです。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
@@ -7240,9 +7240,9 @@ exports.mypage = function(req, res){
  
  <entry>
    <title>HTML5でアニメーション</title>
-   <link href="http://happyclam.github.io/programming/2015-03-26/html5_anim"/>
+   <link href="https://happyclam.github.io/programming/2015-03-26/html5_anim"/>
    <updated>2015-03-26T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/programming/2015-03-26/html5_anim</id>
+   <id>https://happyclam.github.io/programming/2015-03-26/html5_anim</id>
    <content type="html">&lt;h3 id=&quot;タイマーを使わない&quot;&gt;タイマーを使わない&lt;/h3&gt;
 &lt;p&gt;　HTML5でアニメーションを実現する方法を調べてみたら、タイマーを使う必要が無くなったらしい（タイマー間隔をブラウザ任せに出来る）のでやってみました。それぞれのブラウザ用にAPIが分かれているようで今後どうなるかわかりません（HTML5自体がまだまだ流動的だと思いますが）が、結構以前（HTML5リリース当初）からこのやり方は定着しているらしいです。手元のAndroid4.1.2の端末（GL07S）でも問題なく動きました。IEでHTML5を利用するにはIE9以上が必要です。&lt;/p&gt;
 
@@ -7362,7 +7362,7 @@ window.cancelRequestAnimFrame = (-&amp;gt;
 &lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;/project/2015-02-01/first_cordova/&quot;&gt;前回記事&lt;/a&gt;で作成した&lt;a href=&quot;http://tictactoe-cf.herokuapp.com&quot;&gt;サイト&lt;/a&gt;にも適用。白線もチョークっぽく掠れた感じにしようかと思いましたが暗くなるので止めました&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/project/2015-02-01/first_cordova/&quot;&gt;前回記事&lt;/a&gt;で作成した&lt;a href=&quot;https://tictactoe-cf.herokuapp.com&quot;&gt;サイト&lt;/a&gt;にも適用。白線もチョークっぽく掠れた感じにしようかと思いましたが暗くなるので止めました&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
@@ -7376,7 +7376,7 @@ window.cancelRequestAnimFrame = (-&amp;gt;
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;RequestAnimationFrame APIの対応状況は&lt;a href=&quot;http://caniuse.com/#feat=requestanimationframe&quot;&gt;ここ&lt;/a&gt;です。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;RequestAnimationFrame APIの対応状況は&lt;a href=&quot;https://caniuse.com/#feat=requestanimationframe&quot;&gt;ここ&lt;/a&gt;です。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
@@ -7385,10 +7385,10 @@ window.cancelRequestAnimFrame = (-&amp;gt;
  
  <entry>
    <title>iOS/Androidハイブリッドアプリ開発</title>
-   <link href="http://happyclam.github.io/project/2015-02-01/first_cordova"/>
+   <link href="https://happyclam.github.io/project/2015-02-01/first_cordova"/>
    <updated>2015-02-01T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/project/2015-02-01/first_cordova</id>
-   <content type="html">&lt;p&gt;Project: 「&lt;a href=&quot;http://tictactoe-cf.herokuapp.com&quot;&gt;&lt;strong&gt;CoffeeScript版三目並べ&lt;/strong&gt;&lt;/a&gt;」: &lt;a href=&quot;https://github.com/happyclam/tictactoe-cf&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
+   <id>https://happyclam.github.io/project/2015-02-01/first_cordova</id>
+   <content type="html">&lt;p&gt;Project: 「&lt;a href=&quot;https://tictactoe-cf.herokuapp.com&quot;&gt;&lt;strong&gt;CoffeeScript版三目並べ&lt;/strong&gt;&lt;/a&gt;」: &lt;a href=&quot;https://github.com/happyclam/tictactoe-cf&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;まずは通常のwebサイトを作成&quot;&gt;まずは通常のWebサイトを作成&lt;/h3&gt;
 &lt;p&gt;　ハイブリッド開発と言っても私は現時点ではiPhoneを持っていないのでAndroidでしか確認できませんが、HTML5とJavaScript（CoffeeScript）でPC上で開発しそれをAndroidとiPhoneで利用出来るなんて虫のいい話があるのなら是非やってみたくなります。HTML5のローカルストレージなんかもいろいろ可能性が広がる気がしますがとりあえず以前作ったRuby製コンソールアプリを使ってHTML5のCanvas機能を試してみたいと思います。&lt;br /&gt;
@@ -7462,7 +7462,7 @@ cordova platform add android
 
 &lt;/div&gt;
 
-&lt;p&gt;　cordovaプロジェクト下のwww内のファイルを修正してcordovaコマンドを実行すると、platforms/android/以下にAndroid用のファイルが出力されるようです。ビルドしてエミュレータや実機にインストールして実行するまで一気に行うので上記のようにあっという間に完成しました。このビルド作業を行う環境構築の方が時間がかかるかもしれません。環境構築については&lt;a href=&quot;http://www.amazon.co.jp/Android%E5%AF%BE%E5%BF%9C-HTML5-%E3%83%8F%E3%82%A4%E3%83%96%E3%83%AA%E3%83%83%E3%83%89%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA-Software-Design/dp/4774162116/ref=tmm_pap_title_0?ie=UTF8&amp;amp;qid=1421726606&amp;amp;sr=1-1&quot;&gt;この本&lt;/a&gt;を参考にしましたが、個人的にはRubyの開発環境と同じく、ユーザ領域に構築（sudoを使わない）する方がいいのではないかと思ってます。&lt;br /&gt;
+&lt;p&gt;　cordovaプロジェクト下のwww内のファイルを修正してcordovaコマンドを実行すると、platforms/android/以下にAndroid用のファイルが出力されるようです。ビルドしてエミュレータや実機にインストールして実行するまで一気に行うので上記のようにあっという間に完成しました。このビルド作業を行う環境構築の方が時間がかかるかもしれません。環境構築については&lt;a href=&quot;https://www.amazon.co.jp/Android%E5%AF%BE%E5%BF%9C-HTML5-%E3%83%8F%E3%82%A4%E3%83%96%E3%83%AA%E3%83%83%E3%83%89%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA-Software-Design/dp/4774162116/ref=tmm_pap_title_0?ie=UTF8&amp;amp;qid=1421726606&amp;amp;sr=1-1&quot;&gt;この本&lt;/a&gt;を参考にしましたが、個人的にはRubyの開発環境と同じく、ユーザ領域に構築（sudoを使わない）する方がいいのではないかと思ってます。&lt;br /&gt;
 　それにしても以前droidgapコマンド（cordovaの前身？）の時はeclipseを使わなければいけなかったり、いろいろトラブルに見舞われた記憶があるのですが、思った以上に簡単でした。でも、このままだと見た目もUIも貧弱過ぎるのでjquery mobileを使って追加・修正していくことになると思いますが、そうするとPCサイト用とは別物になっていくのでしょう。そのあたりも今後確認していこうと思います。&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -7472,11 +7472,11 @@ cordova platform add android
  
  <entry>
    <title>Ruby製プログラムをCoffeeScript（JavaScript）に書き換える</title>
-   <link href="http://happyclam.github.io/programming/2015-01-25/ruby_to_js"/>
+   <link href="https://happyclam.github.io/programming/2015-01-25/ruby_to_js"/>
    <updated>2015-01-25T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/programming/2015-01-25/ruby_to_js</id>
+   <id>https://happyclam.github.io/programming/2015-01-25/ruby_to_js</id>
    <content type="html">&lt;h3 id=&quot;クライアントサイドの入力チェック用だったjavascriptが今は主役&quot;&gt;クライアントサイドの入力チェック用だったJavaScriptが今は主役&lt;/h3&gt;
-&lt;p&gt;　以前Titaniumを弄ったときはどうしてもJavaScriptに積極的に取り組む気にはなれなかったのですが、cordova（PhoneGap）の存在を知り&lt;a href=&quot;http://www.amazon.co.jp/Android%E5%AF%BE%E5%BF%9C-HTML5-%E3%83%8F%E3%82%A4%E3%83%96%E3%83%AA%E3%83%83%E3%83%89%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA-Software-Design/dp/4774162116/ref=tmm_pap_title_0?ie=UTF8&amp;amp;qid=1421726606&amp;amp;sr=1-1&quot;&gt;[iOS/Android対応] HTML5 ハイブリッドアプリ開発[実践]入門&lt;/a&gt;という本を読んで、またJavaScriptを使ったandroidアプリ開発への興味が戻って来ました。Titaniumを弄ったときと違って自分にとってはCoffeeScriptの存在が大きい、JavaScriptは嫌いだけどCoffeeScriptならやる気が湧きます。なので試しに以前記事を書いたRuby製の三目並べのプログラムをCoffeeScript（最終的にはJavaScriptを使ったandroidアプリ）に移植して見ようと思い取り組み始めたらいきなり問題に遭遇したのでTips的に記事を書いてみます。&lt;br /&gt;
+&lt;p&gt;　以前Titaniumを弄ったときはどうしてもJavaScriptに積極的に取り組む気にはなれなかったのですが、cordova（PhoneGap）の存在を知り&lt;a href=&quot;https://www.amazon.co.jp/Android%E5%AF%BE%E5%BF%9C-HTML5-%E3%83%8F%E3%82%A4%E3%83%96%E3%83%AA%E3%83%83%E3%83%89%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA-Software-Design/dp/4774162116/ref=tmm_pap_title_0?ie=UTF8&amp;amp;qid=1421726606&amp;amp;sr=1-1&quot;&gt;[iOS/Android対応] HTML5 ハイブリッドアプリ開発[実践]入門&lt;/a&gt;という本を読んで、またJavaScriptを使ったandroidアプリ開発への興味が戻って来ました。Titaniumを弄ったときと違って自分にとってはCoffeeScriptの存在が大きい、JavaScriptは嫌いだけどCoffeeScriptならやる気が湧きます。なので試しに以前記事を書いたRuby製の三目並べのプログラムをCoffeeScript（最終的にはJavaScriptを使ったandroidアプリ）に移植して見ようと思い取り組み始めたらいきなり問題に遭遇したのでTips的に記事を書いてみます。&lt;br /&gt;
 　それにしても昔のWebシステムはブラウザのJavaScript機能がOffでも使えることを要求されたものなのに、リッチなUIを要求するユーザーの声がどんどん大きくなり、最近ではJavaScript（jQuery,Ajax）無しは考えられない感じですね。そしてどうせJavaScriptを避けることが出来ないのなら、どうにかしてJavaScriptを楽に生成しようという流れが続いてます。&lt;/p&gt;
 
 &lt;h3 id=&quot;arrayクラスを継承したrubyのクラスをjavascriptに&quot;&gt;Arrayクラスを継承したRubyのクラスをJavaScriptに&lt;/h3&gt;
@@ -7566,7 +7566,7 @@ b = new Board([1, 2, 3, 4, 5, 6, 7, 8, 9])
 console.log b[3]
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;　配列の大括弧（[]、bracket）さえもメソッドとして実装しているRubyとの違いかもしれませんが、とりあえず移植できてなによりです。今までJavaScriptに関して真剣に取り組んだことが無かったのですが、&lt;a href=&quot;http://www.amazon.co.jp/%E9%96%8B%E7%9C%BC-JavaScript-%E2%80%95%E8%A8%80%E8%AA%9E%E4%BB%95%E6%A7%98%E3%81%8B%E3%82%89%E5%AD%A6%E3%81%B6JavaScript%E3%81%AE%E6%9C%AC%E8%B3%AA-Cody-Lindley/dp/487311621X/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1421851059&amp;amp;sr=1-1&amp;amp;keywords=%E9%96%8B%E7%9C%BC%EF%BC%81javascript&quot;&gt;買ってきた本&lt;/a&gt;を見ながら移植を進めて、また何か問題が発生すれば記事を書いてみます。&lt;/p&gt;
+&lt;p&gt;　配列の大括弧（[]、bracket）さえもメソッドとして実装しているRubyとの違いかもしれませんが、とりあえず移植できてなによりです。今までJavaScriptに関して真剣に取り組んだことが無かったのですが、&lt;a href=&quot;https://www.amazon.co.jp/%E9%96%8B%E7%9C%BC-JavaScript-%E2%80%95%E8%A8%80%E8%AA%9E%E4%BB%95%E6%A7%98%E3%81%8B%E3%82%89%E5%AD%A6%E3%81%B6JavaScript%E3%81%AE%E6%9C%AC%E8%B3%AA-Cody-Lindley/dp/487311621X/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1421851059&amp;amp;sr=1-1&amp;amp;keywords=%E9%96%8B%E7%9C%BC%EF%BC%81javascript&quot;&gt;買ってきた本&lt;/a&gt;を見ながら移植を進めて、また何か問題が発生すれば記事を書いてみます。&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;div class=&quot;footnotes&quot;&gt;
@@ -7581,11 +7581,11 @@ console.log b[3]
  
  <entry>
    <title>checkboxでAjaxで更新（PATCH）処理</title>
-   <link href="http://happyclam.github.io/programming/2014-12-26/csrf"/>
+   <link href="https://happyclam.github.io/programming/2014-12-26/csrf"/>
    <updated>2014-12-26T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/programming/2014-12-26/csrf</id>
+   <id>https://happyclam.github.io/programming/2014-12-26/csrf</id>
    <content type="html">&lt;h3 id=&quot;jqueryajaxcoffeescript覚えること多過ぎ&quot;&gt;jQuery,Ajax,CoffeeScript覚えること多過ぎ&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;http://my-posi.herokuapp.com/&quot;&gt;先物・オプションのシミュレーションサイト&lt;/a&gt;のポジション編集画面で、チェックボックスをクリックすることでグラフのタイプを切り替える処理（データ更新後リダイレクトしている）をしているのですが、これをAjaxで実現しようとしたところ思わぬエラーに遭遇したので、新規サンプルプロジェクトを作って改めて動作を確認することにしました。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;https://my-posi.herokuapp.com/&quot;&gt;先物・オプションのシミュレーションサイト&lt;/a&gt;のポジション編集画面で、チェックボックスをクリックすることでグラフのタイプを切り替える処理（データ更新後リダイレクトしている）をしているのですが、これをAjaxで実現しようとしたところ思わぬエラーに遭遇したので、新規サンプルプロジェクトを作って改めて動作を確認することにしました。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;rails _4.1.6_ new chkbox                ←バージョンを指定して新規プロジェクト作成
 cd chkbox
@@ -7601,7 +7601,7 @@ rails s
 
 &lt;/div&gt;
 
-&lt;p&gt;　あと、turbolinksを有効にしているとAjaxの動作状況が分かりにくいので&lt;a href=&quot;http://qiita.com/kazz187/items/12737363d62b9c91993c&quot;&gt;このサイト&lt;/a&gt;を参考にしてturbolinksを無効にしました。&lt;/p&gt;
+&lt;p&gt;　あと、turbolinksを有効にしているとAjaxの動作状況が分かりにくいので&lt;a href=&quot;https://qiita.com/kazz187/items/12737363d62b9c91993c&quot;&gt;このサイト&lt;/a&gt;を参考にしてturbolinksを無効にしました。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;#app/views/memos/_form.html.erb
  &amp;lt;%= form_for(@memo, remote: true) do |f| %&amp;gt;
@@ -7816,7 +7816,7 @@ jQuery ($) -&amp;gt;
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;javascriptをcoffeescriptに書き換えるのは&lt;a href=&quot;http://js2coffee.org/&quot;&gt;こちらのサイト&lt;/a&gt;を利用しました &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;javascriptをcoffeescriptに書き換えるのは&lt;a href=&quot;https://js2coffee.org/&quot;&gt;こちらのサイト&lt;/a&gt;を利用しました &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
@@ -7825,12 +7825,12 @@ jQuery ($) -&amp;gt;
  
  <entry>
    <title>自動でコードレビュー</title>
-   <link href="http://happyclam.github.io/programming/2014-11-05/sideci_review"/>
+   <link href="https://happyclam.github.io/programming/2014-11-05/sideci_review"/>
    <updated>2014-11-05T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/programming/2014-11-05/sideci_review</id>
+   <id>https://happyclam.github.io/programming/2014-11-05/sideci_review</id>
    <content type="html">&lt;h3 id=&quot;当面は無料で提供されるらしいのでやってみて損はないかな&quot;&gt;当面は無料で提供されるらしいのでやってみて損はないかな？&lt;/h3&gt;
-&lt;p&gt;　セキュリティホールをふせぐという謳い文句に惹かれて&lt;a href=&quot;http://jp.techcrunch.com/2014/04/30/%E3%82%A2%E3%82%AF%E3%83%88%E3%82%AD%E3%83%A3%E3%83%83%E3%83%88%E3%81%AE%E3%80%8Csideci%E3%80%8D%E3%81%AF%E3%80%81%E3%82%B3%E3%83%BC%E3%83%89%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E3%82%92%E8%87%AA/&quot;&gt;「SideCI」&lt;/a&gt;使ってみました。レビューの対象に使ったプロジェクトは&lt;a href=&quot;/programming/2014-10-27/my-posi-chart/&quot;&gt;前回の記事&lt;/a&gt;でRails4にバージョンアップしたばかりの&lt;a href=&quot;https://github.com/happyclam/my-posi&quot;&gt;これ&lt;/a&gt;です。&lt;br /&gt;
-　使っている人の感想とか探せばもっと見つかると思いますが自分が参考にしたのは&lt;a href=&quot;http://blog.mah-lab.com/2014/05/14/rails-side-ci/&quot;&gt;ここ&lt;/a&gt;です。中身は&lt;a href=&quot;http://brakemanscanner.org/&quot;&gt;Brakeman&lt;/a&gt;や&lt;a href=&quot;https://github.com/railsbp/rails_best_practices&quot;&gt;Rails Best Practice&lt;/a&gt;などのツールを組み合わせたものらしいけど、統合メニューで操作できるのは確かに有難いかも。色々メニュー項目がありますが自分が使ってみたものについて感想と、指摘された改善点についてざっと書きます。&lt;br /&gt;
+&lt;p&gt;　セキュリティホールをふせぐという謳い文句に惹かれて&lt;a href=&quot;https://jp.techcrunch.com/2014/04/30/%E3%82%A2%E3%82%AF%E3%83%88%E3%82%AD%E3%83%A3%E3%83%83%E3%83%88%E3%81%AE%E3%80%8Csideci%E3%80%8D%E3%81%AF%E3%80%81%E3%82%B3%E3%83%BC%E3%83%89%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E3%82%92%E8%87%AA/&quot;&gt;「SideCI」&lt;/a&gt;使ってみました。レビューの対象に使ったプロジェクトは&lt;a href=&quot;/programming/2014-10-27/my-posi-chart/&quot;&gt;前回の記事&lt;/a&gt;でRails4にバージョンアップしたばかりの&lt;a href=&quot;https://github.com/happyclam/my-posi&quot;&gt;これ&lt;/a&gt;です。&lt;br /&gt;
+　使っている人の感想とか探せばもっと見つかると思いますが自分が参考にしたのは&lt;a href=&quot;https://blog.mah-lab.com/2014/05/14/rails-side-ci/&quot;&gt;ここ&lt;/a&gt;です。中身は&lt;a href=&quot;https://brakemanscanner.org/&quot;&gt;Brakeman&lt;/a&gt;や&lt;a href=&quot;https://github.com/railsbp/rails_best_practices&quot;&gt;Rails Best Practice&lt;/a&gt;などのツールを組み合わせたものらしいけど、統合メニューで操作できるのは確かに有難いかも。色々メニュー項目がありますが自分が使ってみたものについて感想と、指摘された改善点についてざっと書きます。&lt;br /&gt;
 　自分が書いたプログラムにどのような難癖を付けられるのか気になる人もいると思いますので参考にしてください&lt;img class=&quot;emoji&quot; title=&quot;grin&quot; alt=&quot;grin&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/grin.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
@@ -7860,13 +7860,13 @@ jQuery ($) -&amp;gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;セキュリティ&lt;/strong&gt;
     &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;http://brakemanscanner.org/docs/warning_types/link_to_href/&quot;&gt;Cross Site Scripting: Link to HREF&lt;/a&gt;&lt;br /&gt;
+      &lt;li&gt;&lt;a href=&quot;https://brakemanscanner.org/docs/warning_types/link_to_href/&quot;&gt;Cross Site Scripting: Link to HREF&lt;/a&gt;&lt;br /&gt;
 twitterで呟くための文字列をAPIに渡す以下のコードでセキュリティ警告が出ました。&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;pre&gt;&lt;code&gt;&amp;lt;%= link_to(&quot;結果をTwitterでつぶやく&quot;, &quot;https://twitter.com/intent/tweet?text=#{u(@strategy.get_message_str)}&amp;amp;url=&quot; + request.url) %&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-    &lt;p&gt;　たしかRails3以降は自動で文字列をエスケープしてくれるはずと思って検索したら&lt;a href=&quot;http://www.rubylife.jp/rails/template/index7.html&quot;&gt;ここ&lt;/a&gt;にもそう書いてあります。それなのに警告が出るのはおそらくSideCI上の&lt;a href=&quot;https://github.com/railsbp/rails_best_practices&quot;&gt;Rails Best Practice&lt;/a&gt;のオプション設定の問題だと思います。もしそうだとしたらGemfileに使用しているRailsのバージョンが書いてあるのだからオプション設定もそれに合わせてほしいところですが、一応以下のように修正して警告を出さないようにすることは出来ました。&lt;/p&gt;
+    &lt;p&gt;　たしかRails3以降は自動で文字列をエスケープしてくれるはずと思って検索したら&lt;a href=&quot;https://www.rubylife.jp/rails/template/index7.html&quot;&gt;ここ&lt;/a&gt;にもそう書いてあります。それなのに警告が出るのはおそらくSideCI上の&lt;a href=&quot;https://github.com/railsbp/rails_best_practices&quot;&gt;Rails Best Practice&lt;/a&gt;のオプション設定の問題だと思います。もしそうだとしたらGemfileに使用しているRailsのバージョンが書いてあるのだからオプション設定もそれに合わせてほしいところですが、一応以下のように修正して警告を出さないようにすることは出来ました。&lt;/p&gt;
 
     &lt;pre&gt;&lt;code&gt;&amp;lt;%= link_to(&quot;結果をTwitterでつぶやく&quot;, &quot;https://twitter.com/intent/tweet?text=#{h(@strategy.get_message_str)}&amp;amp;url=#{h(request.url)}&quot;) %&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
@@ -7875,23 +7875,23 @@ twitterで呟くための文字列をAPIに渡す以下のコードでセキュ�
   &lt;li&gt;&lt;strong&gt;コード品質&lt;/strong&gt;
     &lt;ul&gt;
       &lt;li&gt;
-        &lt;p&gt;&lt;a href=&quot;http://rails-bestpractices.com/posts/148-protect-mass-assignment&quot;&gt;Protect mass assignment&lt;/a&gt;&lt;br /&gt;
-このサイト（&lt;a href=&quot;http://qiita.com/aquamikan/items/57c6c95b39f961a18453&quot;&gt;Rails4はattr_accessibleが使えない&lt;/a&gt;）に書いてある通り、Rails4だとエラーになるからRailsをバージョンアップした時に削除したのに、そこが悪いと指摘されました。これはどういうことでしょう？これもセキュリティの警告と同じで&lt;a href=&quot;https://github.com/railsbp/rails_best_practices&quot;&gt;Rails Best Practice&lt;/a&gt;がRails4に対応していないものを使っているのか、オプション設定が厳しめになっているのかそんなところでしょう。よく分からないけど無視することにしました。こうなってくるとコードレビューしたことが混乱を引き起こすという本末転倒になってる気もしますが^^;本気でこのツールを使う気があるなら運営元に質問すればおそらく解決するでしょう。&lt;/p&gt;
+        &lt;p&gt;&lt;a href=&quot;https://rails-bestpractices.com/posts/148-protect-mass-assignment&quot;&gt;Protect mass assignment&lt;/a&gt;&lt;br /&gt;
+このサイト（&lt;a href=&quot;https://qiita.com/aquamikan/items/57c6c95b39f961a18453&quot;&gt;Rails4はattr_accessibleが使えない&lt;/a&gt;）に書いてある通り、Rails4だとエラーになるからRailsをバージョンアップした時に削除したのに、そこが悪いと指摘されました。これはどういうことでしょう？これもセキュリティの警告と同じで&lt;a href=&quot;https://github.com/railsbp/rails_best_practices&quot;&gt;Rails Best Practice&lt;/a&gt;がRails4に対応していないものを使っているのか、オプション設定が厳しめになっているのかそんなところでしょう。よく分からないけど無視することにしました。こうなってくるとコードレビューしたことが混乱を引き起こすという本末転倒になってる気もしますが^^;本気でこのツールを使う気があるなら運営元に質問すればおそらく解決するでしょう。&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;p&gt;&lt;a href=&quot;http://rails-bestpractices.com/posts/7-move-model-logic-into-the-model&quot;&gt;Move Model Logic into the Model&lt;/a&gt;&lt;br /&gt;
+        &lt;p&gt;&lt;a href=&quot;https://rails-bestpractices.com/posts/7-move-model-logic-into-the-model&quot;&gt;Move Model Logic into the Model&lt;/a&gt;&lt;br /&gt;
 自分が納得したとこだけ修正しました。&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;p&gt;&lt;a href=&quot;http://rails-bestpractices.com/posts/72-remove-empty-helpers&quot;&gt;Remove empty helpers&lt;/a&gt;&lt;br /&gt;
+        &lt;p&gt;&lt;a href=&quot;https://rails-bestpractices.com/posts/72-remove-empty-helpers&quot;&gt;Remove empty helpers&lt;/a&gt;&lt;br /&gt;
 中身が空のヘルパーファイルがありますよ。自動生成したくなかったら&lt;code&gt;config.generators.helper = false&lt;/code&gt;しておけということですね。&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;p&gt;&lt;a href=&quot;http://rails-bestpractices.com/posts/27-replace-instance-variable-with-local-variable&quot;&gt;Replace instance variable with local variable&lt;/a&gt;&lt;br /&gt;
+        &lt;p&gt;&lt;a href=&quot;https://rails-bestpractices.com/posts/27-replace-instance-variable-with-local-variable&quot;&gt;Replace instance variable with local variable&lt;/a&gt;&lt;br /&gt;
 納得。Rails2の頃からのソースで、よく理解していないまま書いていたコードがそのままでした。&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;p&gt;&lt;a href=&quot;http://rails-bestpractices.com/posts/86-restrict-auto-generated-routes&quot;&gt;restrict auto-generated&lt;/a&gt; routes strategies (except: [:new])&lt;br /&gt;
+        &lt;p&gt;&lt;a href=&quot;https://rails-bestpractices.com/posts/86-restrict-auto-generated-routes&quot;&gt;restrict auto-generated&lt;/a&gt; routes strategies (except: [:new])&lt;br /&gt;
 以下のように定義していたルートに対して、&lt;/p&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
@@ -7913,7 +7913,7 @@ end
 &lt;/code&gt;&lt;/pre&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;http://rails-bestpractices.com/posts/62-simplify-render-in-controllers&quot;&gt;Simplify render in controllers&lt;/a&gt;&lt;br /&gt;
+      &lt;li&gt;&lt;a href=&quot;https://rails-bestpractices.com/posts/62-simplify-render-in-controllers&quot;&gt;Simplify render in controllers&lt;/a&gt;&lt;br /&gt;
 このプロジェクトはModel用のテストスクリプト（Model用のspecファイル）しか書いていなくて、Railsのバージョンアップをした時に以下のようなRailsが出力する雛形のコードに対するテストが不十分でしたが、バグ出しツールとして役に立ちました。saveに失敗したら’new’テンプレートをrenderするとコードでは書いていますが、newテンプレートは存在していませんでした。但しファイルが存在しないことを指摘してくれたわけではありません。&lt;/li&gt;
     &lt;/ul&gt;
 
@@ -7930,11 +7930,11 @@ end
 
     &lt;ul&gt;
       &lt;li&gt;
-        &lt;p&gt;&lt;a href=&quot;http://rails-bestpractices.com/posts/61-simplify-render-in-views&quot;&gt;Simplify render in views&lt;/a&gt;&lt;br /&gt;
+        &lt;p&gt;&lt;a href=&quot;https://rails-bestpractices.com/posts/61-simplify-render-in-views&quot;&gt;Simplify render in views&lt;/a&gt;&lt;br /&gt;
 部分テンプレートを使うとき&lt;code&gt;:partial&lt;/code&gt;というオプションを使わなければならない機会っていうのは無いってことなのか？と、新たな疑問が湧きましたが、リンク先に書いてある通りに修正しました。&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;p&gt;&lt;a href=&quot;http://rails-bestpractices.com/posts/60-remove-trailing-whitespace&quot;&gt;remove trailing whitespace&lt;/a&gt;&lt;br /&gt;
+        &lt;p&gt;&lt;a href=&quot;https://rails-bestpractices.com/posts/60-remove-trailing-whitespace&quot;&gt;remove trailing whitespace&lt;/a&gt;&lt;br /&gt;
 行末のスペースを削除しろってことだけど、これは細かい！まぁチームで開発するときには一応統一しておいたほうがいいでしょうね。&lt;br /&gt;
 あと、一つのファイルで最初に見つかった行だけを指摘するみたいなので、他の場所にも存在しないかよく確認してからcommitしましょう。&lt;/p&gt;
       &lt;/li&gt;
@@ -7955,11 +7955,11 @@ end
  
  <entry>
    <title>gruffからlazy_high_chartへ</title>
-   <link href="http://happyclam.github.io/programming/2014-10-27/my-posi-chart"/>
+   <link href="https://happyclam.github.io/programming/2014-10-27/my-posi-chart"/>
    <updated>2014-10-27T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/programming/2014-10-27/my-posi-chart</id>
+   <id>https://happyclam.github.io/programming/2014-10-27/my-posi-chart</id>
    <content type="html">&lt;h3 id=&quot;rails3からrails4への移行&quot;&gt;Rails3からRails4への移行&lt;/h3&gt;
-&lt;p&gt;　一応&lt;a href=&quot;http://my-posi.herokuapp.com/&quot;&gt;herokuで公開&lt;/a&gt;してますがほとんど誰も使っていないようだし&lt;img class=&quot;emoji&quot; title=&quot;grin&quot; alt=&quot;grin&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/grin.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;自分が使うときはローカル環境で動かすだけなのでRails4に移行する必要も無いのですが、&lt;a href=&quot;/project/2014-05-30/tweetwatch/&quot;&gt;TweetWatch&lt;/a&gt;を作ったときにLazyHighChartが気に入ったのでグラフ描画機能を変更する目的でついでにRailsもバージョンアップしました。Rails3からRails4への以降に関しては特に大きな変更は必要なかったのでgruffからlazy_high_chartへの移行に関して書きます。&lt;/p&gt;
+&lt;p&gt;　一応&lt;a href=&quot;https://my-posi.herokuapp.com/&quot;&gt;herokuで公開&lt;/a&gt;してますがほとんど誰も使っていないようだし&lt;img class=&quot;emoji&quot; title=&quot;grin&quot; alt=&quot;grin&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/grin.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;自分が使うときはローカル環境で動かすだけなのでRails4に移行する必要も無いのですが、&lt;a href=&quot;/project/2014-05-30/tweetwatch/&quot;&gt;TweetWatch&lt;/a&gt;を作ったときにLazyHighChartが気に入ったのでグラフ描画機能を変更する目的でついでにRailsもバージョンアップしました。Rails3からRails4への以降に関しては特に大きな変更は必要なかったのでgruffからlazy_high_chartへの移行に関して書きます。&lt;/p&gt;
 
 &lt;h3 id=&quot;使い方&quot;&gt;使い方&lt;/h3&gt;
 &lt;p&gt;　その前に&lt;a href=&quot;https://www.ruby-toolbox.com/categories/graphing&quot;&gt;ここのサイト&lt;/a&gt;でいろんなグラフ描画ツールが紹介されています。以前googlechartsは試したことがあるのですが、何か気に入らないことがあってgruffに戻しました。でも、その理由が何であったのか忘れてしまいました&lt;img class=&quot;emoji&quot; title=&quot;grin&quot; alt=&quot;grin&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/grin.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
@@ -8004,7 +8004,7 @@ end
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;　gruffを使っていた時のコードをほぼそのまま流用できましたが一点だけ引っかかったのが一つのキャンバスに複数の折れ線グラフを描画する方法。&lt;br /&gt;
-　&lt;a href=&quot;http://www.highcharts.com/docs/getting-started/your-first-chart&quot;&gt;本家サイトのサンプル&lt;/a&gt;を見てHashの配列を渡すのかと思いきや上のコードのようにseriesメソッドを複数回呼ぶようにしないとグラフを描画してくれませんでした。本家のサンプルはもちろんそのまま動きましたので、これはlazy_high_chart gemの仕様ということでしょう。普通の人は引っかからないのかぁ？たぶん普通はgemのヘルプの方を見るんですね。&lt;/p&gt;
+　&lt;a href=&quot;https://www.highcharts.com/docs/getting-started/your-first-chart&quot;&gt;本家サイトのサンプル&lt;/a&gt;を見てHashの配列を渡すのかと思いきや上のコードのようにseriesメソッドを複数回呼ぶようにしないとグラフを描画してくれませんでした。本家のサンプルはもちろんそのまま動きましたので、これはlazy_high_chart gemの仕様ということでしょう。普通の人は引っかからないのかぁ？たぶん普通はgemのヘルプの方を見るんですね。&lt;/p&gt;
 
 &lt;h3 id=&quot;グラフ描画ツールを変えたことによる影響&quot;&gt;グラフ描画ツールを変えたことによる影響&lt;/h3&gt;
 &lt;dl&gt;
@@ -8048,7 +8048,7 @@ end
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;cssでwidthが変化するのでてっきり反映出来ているものと思っていましたが、&lt;a href=&quot;http://api.highcharts.com/highstock#chart.height&quot;&gt;highchartsのドキュメント&lt;/a&gt;に書いてある通りデフォルトの高さに関しては400pxのようです。ソースコードは修正済みです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;cssでwidthが変化するのでてっきり反映出来ているものと思っていましたが、&lt;a href=&quot;https://api.highcharts.com/highstock#chart.height&quot;&gt;highchartsのドキュメント&lt;/a&gt;に書いてある通りデフォルトの高さに関しては400pxのようです。ソースコードは修正済みです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
@@ -8057,9 +8057,9 @@ end
  
  <entry>
    <title>三目並べ（tic tac toe）で遊んでみた（続き）</title>
-   <link href="http://happyclam.github.io/software/2014-10-04/arrange_line"/>
+   <link href="https://happyclam.github.io/software/2014-10-04/arrange_line"/>
    <updated>2014-10-04T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/software/2014-10-04/arrange_line</id>
+   <id>https://happyclam.github.io/software/2014-10-04/arrange_line</id>
    <content type="html">&lt;h3 id=&quot;先読み手数を制限しても必勝の結論は出ないはず&quot;&gt;先読み手数を制限しても必勝の結論は出ないはず&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;/software/2014-09-23/tictactoe_arrange&quot;&gt;前回の記事&lt;/a&gt;で自分が作ったプログラムは千日手対応をしていないから先手必勝の結論が出ても信用できないって書きましたが、よく考えてみたら千日手対応していなくても先手必勝の評価が出てくるってことは、ArrangeLineってゲームが先手必勝であるか検証に使った自分のプログラムがバグっているかのどちらかであると気づきました。評価関数が返す値は一つの局面に関して勝ちか負けか引き分けかの三種類にしか分けていないので、千日手の局面は引き分けの一局面として評価しているはずで、引き分けに成り得るなら後手は引き分けになる手を選択し先手勝ちの評価にはならない。スタンダードの三目並べを調べた場合と違って、11手読みという手数を限定して先読みをしているわけだからそんなこともあるかと流してしまったけど、読み切っていないから勝ちか負けか決められない（引き分けになる）という評価が返ってくることはあっても、引き分けがあり得るのに必勝・必敗の評価を返してくるというのはバグっている可能性が高いのではないか。でも一応スタンダードな三目並べでは問題なさそうだし、バグの見当が付かなかったのでまずは先に千日手対応をしてみることにしました。&lt;br /&gt;
 　その前にArrangeLineをダウンロードして自分のプログラムと対戦させて確認したのですが、ArrangeLineのLevel2で自分のプログラムが先手なのに千日手になり決着が付かないケースがありました。実際に千日手になることを確認していたためArrangeLineは双方最善手を打てば千日手になるゲームだと思ってしまったのですが、繰返しますが千日手になるのであればやっぱり先手必勝の結論が出るのはおかしい。&lt;/p&gt;
@@ -8180,9 +8180,9 @@ end
  
  <entry>
    <title>三目並べ（tic tac toe）で遊んでみた</title>
-   <link href="http://happyclam.github.io/software/2014-09-23/tictactoe_arrange"/>
+   <link href="https://happyclam.github.io/software/2014-09-23/tictactoe_arrange"/>
    <updated>2014-09-23T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/software/2014-09-23/tictactoe_arrange</id>
+   <id>https://happyclam.github.io/software/2014-09-23/tictactoe_arrange</id>
    <content type="html">&lt;h3 id=&quot;いろんなテストケース&quot;&gt;いろんなテストケース&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;/project/2014-08-05/tictactoe&quot;&gt;以前作った三目並べのプログラム&lt;/a&gt;でいろいろ遊んでみました。&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;githubに公開&lt;/a&gt;しているので暇な人はソースをいじって試すこともできます。但し、短いソースとはいえ自分でコードを読んで編集する必要があります。もともとは対戦用プログラムとして作ったものですが、テスト用に9ヶ所の升目を順に取っていってその時の評価値を表示するように作った関数を使って、いろんなケースでプログラムの検証をしてみます。&lt;/p&gt;
 
@@ -8381,9 +8381,9 @@ MIN_VALUE = -9
  
  <entry>
    <title>MIN-MAX法とαβ法</title>
-   <link href="http://happyclam.github.io/software/2014-09-16/ab_method"/>
+   <link href="https://happyclam.github.io/software/2014-09-16/ab_method"/>
    <updated>2014-09-16T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/software/2014-09-16/ab_method</id>
+   <id>https://happyclam.github.io/software/2014-09-16/ab_method</id>
    <content type="html">&lt;h3 id=&quot;min-max法&quot;&gt;MIN-MAX法&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;/images/tree_min-max.png&quot; alt=&quot;min-max法&quot; style=&quot;width: 800px; vertical-align:middle;&quot; /&gt;
 　MIN-MAX法とは、オセロゲームなどのある局面で先手、後手、どちらが有利か判断する評価関数を用意し、先手、後手が互いに最善手を打つと仮定して先読みを行うアルゴリズムです。先手をプラス方向の値（MAX値）後手をマイナス方向の値（MIN値）で評価することが多いようです。&lt;br /&gt;
@@ -8408,9 +8408,9 @@ MIN_VALUE = -9
  
  <entry>
    <title>将棋はやっぱり深く読まなくてはダメ</title>
-   <link href="http://happyclam.github.io/software/2014-09-09/pre_shogi"/>
+   <link href="https://happyclam.github.io/software/2014-09-09/pre_shogi"/>
    <updated>2014-09-09T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/software/2014-09-09/pre_shogi</id>
+   <id>https://happyclam.github.io/software/2014-09-09/pre_shogi</id>
    <content type="html">&lt;h3 id=&quot;三目並べtictactoe作成後&quot;&gt;三目並べ（tictactoe）作成後&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;/project/2014-08-05/tictactoe/&quot;&gt;前回の記事&lt;/a&gt;で自分で作った将棋ソフトが弱い原因を確認するために三目並べ（tictactoe）プログラムを作ったことを書きましたが、一応その後の結果を書いておこうと思います&lt;br /&gt;
 　&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;三目並べプログラム&lt;/a&gt;で先読み関数には問題ないと確認出来たので、将棋プログラムの先読み部分もそれと同じように修正してみました。将棋の前にオセロプログラムも作って確認したのですがここではその話は置いておきます。それと、三目並べと同じように修正したと言っても将棋には盤上の駒を動かす場合と持ち駒を打つ場合があったり、相手の駒を取ったりするので、三目並べと同じにはならないのですが、どういうパラメータを与えるかとかどこで評価関数を呼んでどこで再帰関数から抜けるのかとかそういう部分を同じにしたということです。将棋プログラムでは、評価関数を呼び出す場所を先読み再帰関数の先頭にしてみたりforループの中にしたり、評価部分の等号・不等号の違いや評価する局面の枝刈りをする場所変えたりいろいろ試行錯誤しているうちに正確に先読み・枝刈りが出来ているかどうかわからなくなってきたので、三目並べで確認したかったんです。&lt;br /&gt;
@@ -8453,7 +8453,7 @@ MIN_VALUE = -9
 　ということで、まずはもっと深く読むことが必要だと思うので、クラスの構成やデータ構造も見直して作り直そうかと思っています。駒の働きや玉の固さなども考慮した凝った評価関数を作るとなると、結局速度が必要になるのでデータ構造も出来るだけ単純にすべきなのですが、そもそもRubyで実効速度は期待出来ないと思っていたし、ミニ将棋ならオセロより駒の数も少ないし特に凝ったことしなくても自然と強いソフトになるだろうなんて甘い見通しだったのがいけなかったようです。&lt;/p&gt;
 
 &lt;h3 id=&quot;おまけ&quot;&gt;おまけ&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;http://sdin.jp/browser/board/55shogi/&quot;&gt;SDIN将棋のサイト&lt;/a&gt;で自分が作ったソフトとCPU対戦したところ、4手読みの設定でいい加減な評価関数でもレベル２には常に勝てるようです。レベル３には勝てませんので、これに勝つことを当面の目標にしてみます。&lt;br /&gt;
+&lt;p&gt;　&lt;a href=&quot;https://sdin.jp/browser/board/55shogi/&quot;&gt;SDIN将棋のサイト&lt;/a&gt;で自分が作ったソフトとCPU対戦したところ、4手読みの設定でいい加減な評価関数でもレベル２には常に勝てるようです。レベル３には勝てませんので、これに勝つことを当面の目標にしてみます。&lt;br /&gt;
 　それと、つい最近まで開発の動機なども含めてgithubのwikiに書いて「Shoes de shogi」という名前でgithubで公開していたのですが、とりあえずもう少し強くできるまで一時的に削除することにしました。&lt;/p&gt;
 
 </content>
@@ -8461,9 +8461,9 @@ MIN_VALUE = -9
  
  <entry>
    <title>三目並べ（tictactoe）</title>
-   <link href="http://happyclam.github.io/project/2014-08-05/tictactoe"/>
+   <link href="https://happyclam.github.io/project/2014-08-05/tictactoe"/>
    <updated>2014-08-05T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/project/2014-08-05/tictactoe</id>
+   <id>https://happyclam.github.io/project/2014-08-05/tictactoe</id>
    <content type="html">&lt;p&gt;Project: 「&lt;strong&gt;三目並べ&lt;/strong&gt;」: &lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;開発の動機&quot;&gt;開発の動機&lt;/h3&gt;
@@ -8546,7 +8546,7 @@ end
 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;※min-max法に僅かなコードを追加しただけで素晴らしい効果が得られました。&lt;a href=&quot;http://www.vaio.sony.co.jp/Products/P1/spec_vom1.html&quot;&gt;vaio type p (VGN-P90S)&lt;/a&gt;という非力なPCで比較したところ、単なるmin-max法で完全読み切りに３０秒ほどかかったのに、αβ法なら５秒で完了しました。評価関数が、勝ち、負け、引き分けの３値しかない単純なものだったせいもありますがすごいです。&lt;/p&gt;
+&lt;p&gt;※min-max法に僅かなコードを追加しただけで素晴らしい効果が得られました。&lt;a href=&quot;https://www.vaio.sony.co.jp/Products/P1/spec_vom1.html&quot;&gt;vaio type p (VGN-P90S)&lt;/a&gt;という非力なPCで比較したところ、単なるmin-max法で完全読み切りに３０秒ほどかかったのに、αβ法なら５秒で完了しました。評価関数が、勝ち、負け、引き分けの３値しかない単純なものだったせいもありますがすごいです。&lt;/p&gt;
 
 &lt;h3 id=&quot;検証と意外だったこと&quot;&gt;検証と意外だったこと&lt;/h3&gt;
 &lt;p&gt;　先読みがうまく機能しているかは、初手をどこに打ってゲーム開始しても引き分けという結果が返ってくることや、先手・後手でそれぞれ何度か三目並べで遊んでみて確認した程度ですが、それで十分でしょう。&lt;br /&gt;
@@ -8559,20 +8559,20 @@ end
  
  <entry>
    <title>BlueToothマウス</title>
-   <link href="http://happyclam.github.io/hardware/2014-07-12/bt_mouse"/>
+   <link href="https://happyclam.github.io/hardware/2014-07-12/bt_mouse"/>
    <updated>2014-07-12T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/hardware/2014-07-12/bt_mouse</id>
+   <id>https://happyclam.github.io/hardware/2014-07-12/bt_mouse</id>
    <content type="html">&lt;h3 id=&quot;携帯する気は無いがマウスのケーブルは細い方がいい&quot;&gt;携帯する気は無いが、マウスのケーブルは細い方がいい&lt;/h3&gt;
 &lt;p&gt;　まだ一年程しか使っていなかったマウスが壊れました。ケーブルが平べったいタイプでUSB端子をマウスの中に収納できるタイプのもの。ケーブルが巻き取れるタイプのものは携帯用の小さなマウスばかりですが、USB端子も本体に収納出来るようになっているため比較的マウス本体も大きめの作りでまぁまぁ気に入っていたのに短い命でした。このタイプのマウスでもう一つお気に入りのマウスを持っているのですが、それはビックカメラ製の今はもう製造していないであろう珍しいもの（だと思います）。10年以上前に新横浜のビックカメラで買ったものですが、ELECOM等のOEM製品だと思いますが、どういう経緯で自社ブランドで販売したのか知りませんが、確かにビックカメラ製と銘打っていたと記憶しています。あの時まとめて買いだめしておけばよかったと思います。&lt;br /&gt;
 &lt;img src=&quot;/images/biccamera_mouse.png&quot; alt=&quot;ビックカメラ製マウス&quot; style=&quot;float: left;&quot; /&gt;
 　大きいマウスの方が使いやすいのですが、ケーブルが太いと、わずかではあるけどケーブルに操作を持っていかれる時があるので好きではありません。だからと言ってケーブルの無い無線方式だと何となく信頼できないというか、安心できないというかイザというとき困るんじゃないかとか、CPU切替器も使っているのでちゃんと動くかどうかわからないという不安が先走って、未だに無線方式のものは使わずにいます。マウスに関してはキーボードほど使い勝手にこだわりは無いのでそろそろ無線を試してもいいかもと思いながらも、あくまで細いケーブルの大きなマウスを求めていろんな店舗を見て回ることにしました。&lt;/p&gt;
 
 &lt;h3 id=&quot;予定していた行動とまったく違うことすることってありますよね&quot;&gt;予定していた行動とまったく違うことすることってありますよね&lt;/h3&gt;
-&lt;p&gt;　細く平たいケーブルのマウスか、それが無ければ無線マウスを買うつもりで家を出たのに、家に持ち帰ったのはBuffalo製の&lt;a href=&quot;http://buffalo.jp/product/input/mouse/bsmbb17/&quot;&gt;BlueToothマウス&lt;/a&gt;でした。細いケーブルのマウスは携帯用の小さいものしか無く、目当てのものが売っていなかったのが最大の原因ですが、無線のマウスは専用のレシーバが必要なのが何となく嫌で躊躇していたところにそれ以外の選択肢が目についてしまったのです。プログラマっていうのはXXX社製専用というのが何となく美しくないと感じてしまうものです、そう、縛られるのが嫌いなのでしょう。BlueToothマウスもBlueTooth機能を備えていないPCで使う場合はドングルというレシーバが必要なわけですが、マウスと同じメーカーでなくても使えます。マウスと同じメーカーの対になったレシーバしか使えないという不自由さが気に入らないのでしょう（家でしか使わないならそれで十分なのに…）。そういえば昔買ってほとんど使わずじまいのドングルが家に何個かあるなぁと思い出してしまったことも購入に踏み切った原因だと思います。&lt;/p&gt;
+&lt;p&gt;　細く平たいケーブルのマウスか、それが無ければ無線マウスを買うつもりで家を出たのに、家に持ち帰ったのはBuffalo製の&lt;a href=&quot;https://buffalo.jp/product/input/mouse/bsmbb17/&quot;&gt;BlueToothマウス&lt;/a&gt;でした。細いケーブルのマウスは携帯用の小さいものしか無く、目当てのものが売っていなかったのが最大の原因ですが、無線のマウスは専用のレシーバが必要なのが何となく嫌で躊躇していたところにそれ以外の選択肢が目についてしまったのです。プログラマっていうのはXXX社製専用というのが何となく美しくないと感じてしまうものです、そう、縛られるのが嫌いなのでしょう。BlueToothマウスもBlueTooth機能を備えていないPCで使う場合はドングルというレシーバが必要なわけですが、マウスと同じメーカーでなくても使えます。マウスと同じメーカーの対になったレシーバしか使えないという不自由さが気に入らないのでしょう（家でしか使わないならそれで十分なのに…）。そういえば昔買ってほとんど使わずじまいのドングルが家に何個かあるなぁと思い出してしまったことも購入に踏み切った原因だと思います。&lt;/p&gt;
 
 &lt;h3 id=&quot;ubuntu1204では使えない&quot;&gt;Ubuntu12.04では使えない？&lt;/h3&gt;
-&lt;p&gt;　家では主にUbuntu12.04を使っているのですが、そのままでは認識すらしてくれませんでした。Windows7のノートPCでは２つのドングル（&lt;a href=&quot;http://www.planex.co.jp/product/bluetooth/bt-microedr2x/&quot;&gt;BT-MicroEDR2X&lt;/a&gt;、&lt;a href=&quot;http://www.planex.co.jp/product/bluetooth/bt-01ude.shtml&quot;&gt;BT-01UDE&lt;/a&gt;）で確認したので故障ではありません。dbusを最新のものに入れ替えたらデバイス検索でBSMBB17を検出してはくれたものの動作しませんでした。そこで以前から更新しようと思っていながら放ったらかしにしていたUbuntu14.04へのアップグレード（do-release-upgradeコマンド一発）をやってみたらすぐに認識することが出来、使えました。メデタシメデタシ。って結局マウスが壊れたおかげで以前から懸案だったUbuntuアップグレード作業をすることが出来たことが収穫って感じです。マウスが壊れたところから神様のお導きだったのかもしれません。&lt;br /&gt;
-&lt;a href=&quot;http://buffalo.jp/product/input/mouse/bsmbb17/&quot;&gt;&lt;img src=&quot;/images/bsmbb17_mouse.png&quot; alt=&quot;BSMBB17&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
+&lt;p&gt;　家では主にUbuntu12.04を使っているのですが、そのままでは認識すらしてくれませんでした。Windows7のノートPCでは２つのドングル（&lt;a href=&quot;https://www.planex.co.jp/product/bluetooth/bt-microedr2x/&quot;&gt;BT-MicroEDR2X&lt;/a&gt;、&lt;a href=&quot;https://www.planex.co.jp/product/bluetooth/bt-01ude.shtml&quot;&gt;BT-01UDE&lt;/a&gt;）で確認したので故障ではありません。dbusを最新のものに入れ替えたらデバイス検索でBSMBB17を検出してはくれたものの動作しませんでした。そこで以前から更新しようと思っていながら放ったらかしにしていたUbuntu14.04へのアップグレード（do-release-upgradeコマンド一発）をやってみたらすぐに認識することが出来、使えました。メデタシメデタシ。って結局マウスが壊れたおかげで以前から懸案だったUbuntuアップグレード作業をすることが出来たことが収穫って感じです。マウスが壊れたところから神様のお導きだったのかもしれません。&lt;br /&gt;
+&lt;a href=&quot;https://buffalo.jp/product/input/mouse/bsmbb17/&quot;&gt;&lt;img src=&quot;/images/bsmbb17_mouse.png&quot; alt=&quot;BSMBB17&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
 　で、肝心のBlueToothマウスの使い勝手ですが、頻繁に動作が引っかかる感じでとても使い続ける気にはなりませんでした。自分的にはBlueToothマウスはまだまだ実用には堪えられないって感じです。あくまでlinuxで使う場合の話ですが…。結局マウスはしばらく買わずに、とっておきのビックカメラ製のものを使うことにします。チャンチャン。&lt;/p&gt;
 
 </content>
@@ -8580,9 +8580,9 @@ end
  
  <entry>
    <title>production環境でjQueryが発動しない</title>
-   <link href="http://happyclam.github.io/programming/2014-07-07/rails_env"/>
+   <link href="https://happyclam.github.io/programming/2014-07-07/rails_env"/>
    <updated>2014-07-07T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/programming/2014-07-07/rails_env</id>
+   <id>https://happyclam.github.io/programming/2014-07-07/rails_env</id>
    <content type="html">&lt;h3 id=&quot;自宅サーバーにdeployment&quot;&gt;自宅サーバーにdeployment&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&quot;/project/2014-05-30/tweetwatch&quot;&gt;TweetWatch&lt;/a&gt;がとりあえず完成したので、自鯖（Apatch）で動かしてみたらjQueryの一部（画面描画時&lt;code&gt;$(document).ready()&lt;/code&gt;の処理だけ）が上手く動かなかったので動くようになったまでの顛末を書きます（Rails 4.0.2, ruby 2.0.0p353）。&lt;br /&gt;
 コードは以下の通りです&lt;/p&gt;
@@ -8762,9 +8762,9 @@ config.assets.compile = falseでdevelopment,production両方の環境で動き�
  
  <entry>
    <title>ツイートを監視して集計する（client側）</title>
-   <link href="http://happyclam.github.io/project/2014-06-07/tweetwatch_client"/>
+   <link href="https://happyclam.github.io/project/2014-06-07/tweetwatch_client"/>
    <updated>2014-06-07T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/project/2014-06-07/tweetwatch_client</id>
+   <id>https://happyclam.github.io/project/2014-06-07/tweetwatch_client</id>
    <content type="html">&lt;h3 id=&quot;サーバースクリプトの状態遷移&quot;&gt;サーバースクリプトの状態遷移&lt;/h3&gt;
 &lt;p&gt;　言うまでもなくclient側と言ってもWebサーバ上で動いているわけなのでユーザから見ればサーバーとして機能しているわけですが、TwitterAPIを使ってデータをDBに保存するサーバースクリプトに対してclient側ということです。&lt;br /&gt;
 state_machine gemを利用してサーバースクリプトの状態を管理しています。
@@ -8844,11 +8844,11 @@ state_machine gemを利用してサーバースクリプトの状態を管理し
  
  <entry>
    <title>ツイートを監視して集計する（server側）</title>
-   <link href="http://happyclam.github.io/project/2014-06-06/tweetwatch_server"/>
+   <link href="https://happyclam.github.io/project/2014-06-06/tweetwatch_server"/>
    <updated>2014-06-06T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/project/2014-06-06/tweetwatch_server</id>
+   <id>https://happyclam.github.io/project/2014-06-06/tweetwatch_server</id>
    <content type="html">&lt;h3 id=&quot;eventmachineで簡単インターフェース&quot;&gt;EventMachineで簡単インターフェース&lt;/h3&gt;
-&lt;p&gt;　初めて&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;morizyun氏のこの記事&lt;/a&gt;を読んだときはEventMachineとかforemanとかって何をするものか知らなかったのですが、EventMachineというのは「&lt;a href=&quot;https://morizyun.github.io/blog/reactor-pattern-ruby/&quot;&gt;[Ruby] Reactorパターンについて&lt;/a&gt;」にも書いてある通り、ソケットの受信待機をして貰って簡単にReactorパターンを実現することが出来るツールってことのようです。だからわざわざ自分でプロセス間通信の手続きを書く必要がなくアプリケーションレベルのコマンドを用意してあげるだけで済むのではないか？と思いながら作ったら思惑通りにうまく動いたって感じです。実際に組み込む前には、以下のような単純なサンプルで確認しました。&lt;/p&gt;
+&lt;p&gt;　初めて&lt;a href=&quot;https://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;morizyun氏のこの記事&lt;/a&gt;を読んだときはEventMachineとかforemanとかって何をするものか知らなかったのですが、EventMachineというのは「&lt;a href=&quot;https://morizyun.github.io/blog/reactor-pattern-ruby/&quot;&gt;[Ruby] Reactorパターンについて&lt;/a&gt;」にも書いてある通り、ソケットの受信待機をして貰って簡単にReactorパターンを実現することが出来るツールってことのようです。だからわざわざ自分でプロセス間通信の手続きを書く必要がなくアプリケーションレベルのコマンドを用意してあげるだけで済むのではないか？と思いながら作ったら思惑通りにうまく動いたって感じです。実際に組み込む前には、以下のような単純なサンプルで確認しました。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;#server側サンプル  
 require 'eventmachine'
@@ -8957,8 +8957,8 @@ end
 &lt;h3 id=&quot;参考サイト&quot;&gt;参考サイト&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://keijinsonyaban.blogspot.jp/2010/12/eventmachine.html&quot;&gt;【翻訳】EventMachine入門 &lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://gihyo.jp/dev/serial/01/ruby/0032&quot;&gt;Reactorで非同期処理をやってみよう（2）&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://keijinsonyaban.blogspot.jp/2010/12/eventmachine.html&quot;&gt;【翻訳】EventMachine入門 &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gihyo.jp/dev/serial/01/ruby/0032&quot;&gt;Reactorで非同期処理をやってみよう（2）&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </content>
@@ -8966,9 +8966,9 @@ end
  
  <entry>
    <title>ツイートを監視して集計する</title>
-   <link href="http://happyclam.github.io/project/2014-05-30/tweetwatch"/>
+   <link href="https://happyclam.github.io/project/2014-05-30/tweetwatch"/>
    <updated>2014-05-30T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/project/2014-05-30/tweetwatch</id>
+   <id>https://happyclam.github.io/project/2014-05-30/tweetwatch</id>
    <content type="html">&lt;p&gt;Project: 「tweetwatch」: &lt;a href=&quot;https://github.com/happyclam/tweetwatch&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;開発の動機&quot;&gt;開発の動機&lt;/h3&gt;
@@ -8982,7 +8982,7 @@ Yahooのアンケートのように、誰がどれぐらい票を獲得してい
 　プログラマたるもの、そこで「すぐ出来ますよ」とリプライするような軽率な行動をとってはいけません。職業プログラマなら尚更です。誰かが手を挙げるかもと思いながらしばらく様子を見ていましたが、その呟きに対して反応する人はいなかったようです。こういう場合、相手がどれほどのものを要求しているかわからないので迂闊に出来ますなんて言えませんが、StreamingAPI使えばとりあえず使える程度のものであれば、すぐ出来るんじゃないかと思い調べてみました。&lt;/p&gt;
 
 &lt;h3 id=&quot;とりあえずローカル環境で動くもの&quot;&gt;とりあえずローカル環境で動くもの&lt;/h3&gt;
-&lt;p&gt;　「StreamingAPI」で検索すると役に立ちそうなサイトはすぐに見つかりました→&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;「Herokuの無料枠でTwitter Stream APIを常時監視 =&amp;gt; DBに保存するRubyコード」&lt;/a&gt;&lt;br /&gt;
+&lt;p&gt;　「StreamingAPI」で検索すると役に立ちそうなサイトはすぐに見つかりました→&lt;a href=&quot;https://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;「Herokuの無料枠でTwitter Stream APIを常時監視 =&amp;gt; DBに保存するRubyコード」&lt;/a&gt;&lt;br /&gt;
 このmorizyunって人のサイトは調べ物をしている際にはよくお世話になっていますが、今回見つけた記事も自分の要望その物です。私はherokuは使いませんでしたがほぼこの記事のコードそのままがローカル環境で動作しました。ツイートの集計がしたいのであればDBに溜まったデータに対してSQLを打ち込めば好きな結果が得られます。a氏に教えてあげようかとも思いましたが、おそらくプログラミングやSQLも知らないa氏が実際に自分のPCで動かすためにはそうとうな時間をかけてサポートしてあげないと無理だろうと思って止めておきました。自分が良かれと思って教えても、逆に恨まれることになり兼ねません。そうなんです、自分でニタニタ楽しむためのソフトを作れたとしても、それをひと様に使ってもらおうとするとまた一段とハードルが高くなるんですねぇ（今回は自分で楽しむものさえパクリですが）。&lt;/p&gt;
 
 &lt;h3 id=&quot;ひと様が使えるようにするために&quot;&gt;ひと様が使えるようにするために&lt;/h3&gt;
@@ -8996,7 +8996,7 @@ Yahooのアンケートのように、誰がどれぐらい票を獲得してい
 
 &lt;p&gt;という方針で作りました。
 &lt;img src=&quot;/images/tweetwatch_screen.png&quot; alt=&quot;集計画面&quot; /&gt;  &lt;br /&gt;
-DBにデータを格納するシェルスクリプトは、&lt;a href=&quot;http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;morizyun氏のコード&lt;/a&gt;を叩き台にしてWebサイトから制御するためのプロセス間通信用インターフェースを追加し、そのサーバーとなるシェルスクリプトに接続するクライアントアプリとなるユーザ向けのwebサイトを作る。そのwebサイトは&lt;a href=&quot;http://railstutorial.jp/&quot;&gt;Ruby on Rails チュートリアル&lt;/a&gt;でRSpecの勉強（写経）をしながら作ったものがあったのでそれを流用しています。&lt;br /&gt;
+DBにデータを格納するシェルスクリプトは、&lt;a href=&quot;https://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/&quot;&gt;morizyun氏のコード&lt;/a&gt;を叩き台にしてWebサイトから制御するためのプロセス間通信用インターフェースを追加し、そのサーバーとなるシェルスクリプトに接続するクライアントアプリとなるユーザ向けのwebサイトを作る。そのwebサイトは&lt;a href=&quot;https://railstutorial.jp/&quot;&gt;Ruby on Rails チュートリアル&lt;/a&gt;でRSpecの勉強（写経）をしながら作ったものがあったのでそれを流用しています。&lt;br /&gt;
 以降、DBにデータを格納する&lt;a href=&quot;/project/2014-06-06/tweetwatch_server/&quot;&gt;&lt;em&gt;サーバースクリプト（server側）&lt;/em&gt;&lt;/a&gt;とRails製&lt;a href=&quot;/project/2014-06-07/tweetwatch_client/&quot;&gt;&lt;em&gt;Webサイト（client側）&lt;/em&gt;&lt;/a&gt;に分けて紹介します。&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -9005,13 +9005,13 @@ DBにデータを格納するシェルスクリプトは、&lt;a href=&quot;http
  
  <entry>
    <title>ボラティリティについて</title>
-   <link href="http://happyclam.github.io/miscellaneous/2014-05-27/my-posi_vola"/>
+   <link href="https://happyclam.github.io/miscellaneous/2014-05-27/my-posi_vola"/>
    <updated>2014-05-27T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/miscellaneous/2014-05-27/my-posi_vola</id>
+   <id>https://happyclam.github.io/miscellaneous/2014-05-27/my-posi_vola</id>
    <content type="html">&lt;h3 id=&quot;インプライドボラティリティivとヒストリカルボラティリティhv&quot;&gt;インプライド・ボラティリティ（IV）とヒストリカル・ボラティリティ（HV）&lt;/h3&gt;
 &lt;p&gt;　ボラティリティには２種類ありますが、ニュースの記者や市況解説者が「ボラティリティ」という言葉を理解していないまま使っていることが多いと感じるので、以前から一言言っておきたいと思っていたことを書いておこうと思います。&lt;br /&gt;
 　市況解説の中でも現物市場ではなく特に先物市場の解説をしている人が、先物価格の値動きが荒かった日などに「今日はボラの大きな一日でした」と解説しているのを聞くと「(・_・)……ン?」となることがあります、そういう日でもインプライドボラティリティ(IV)が低い日も結構あるからです。オプションの買いで勝負する時はボラが高い時が有利、逆に売りはボラが低い時が有利なのですが、IVが低い日に「今日は（オプション買いに）手出ししなくてよかった」と思っているところに、市況解説で「ボラの高い一日でした」なんて言われると「(‾△‾;)エッ・・そうだっけ？」となるわけです。実際にIVが高かったかどうかはスマイルチャートなどで確認できます。&lt;br /&gt;
-　&lt;a href=&quot;http://www.option-dojo.com/kn/225_latest.html&quot;&gt;直近1年のボラティリティー&lt;/a&gt;をみればよく分かりますが、ヒストリカル・ボラティリティ（HV）とインプライド・ボラティリティ（IV）の動きは必ずしも一致していません。原資産である先物の動きがそれ程なくても、オプションの値動きが激しい日もあるということです。それにオプションは先物と違い、満期(SQ)が近づくとボラ(IV)が高くなるという性質（時間価値の減少に伴うもの）もあります。また、日経２２５先物とそれを原資産とする派生商品である日経２２５オプションの関係だけでなく、現物株とそれを原資産とする派生商品（株オプ等）の間でも同じことが言えます。&lt;br /&gt;
+　&lt;a href=&quot;https://www.option-dojo.com/kn/225_latest.html&quot;&gt;直近1年のボラティリティー&lt;/a&gt;をみればよく分かりますが、ヒストリカル・ボラティリティ（HV）とインプライド・ボラティリティ（IV）の動きは必ずしも一致していません。原資産である先物の動きがそれ程なくても、オプションの値動きが激しい日もあるということです。それにオプションは先物と違い、満期(SQ)が近づくとボラ(IV)が高くなるという性質（時間価値の減少に伴うもの）もあります。また、日経２２５先物とそれを原資産とする派生商品である日経２２５オプションの関係だけでなく、現物株とそれを原資産とする派生商品（株オプ等）の間でも同じことが言えます。&lt;br /&gt;
 　まぁIVとHVの違いは理解しているけど、ボラティリティと言う言葉は単に「値動き」とか「値幅」と同義で使っているだけなので、区別する必要はないと言われればそれまでなのですが。&lt;/p&gt;
 
 &lt;h3 id=&quot;誤解を生む説明の仕方&quot;&gt;誤解を生む説明の仕方&lt;/h3&gt;
@@ -9021,13 +9021,13 @@ DBにデータを格納するシェルスクリプトは、&lt;a href=&quot;http
 　&lt;strong&gt;ボラティリティが高いと&lt;/strong&gt;という表現がIVのことを指しているとしてもHVのことを指しているとしても、いずれも不正確な文章だと言えます。IVとHVの違いを理解している人でもつい説明する手間を省いて、こういう表現をしがちなんだと思いますが、説明する側がよく理解していないケースも多いと思います。&lt;/p&gt;
 
 &lt;h3 id=&quot;違いが分かる説明の仕方&quot;&gt;違いが分かる説明の仕方&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;http://ja.wikipedia.org/wiki/%E3%83%9C%E3%83%A9%E3%83%86%E3%82%A3%E3%83%AA%E3%83%86%E3%82%A3&quot;&gt;wikipediaによるボラティリティの説明&lt;/a&gt;は学問的で、これはこれでいいのかもしれません。それに「インプライド・ボラティリティとは&lt;strong&gt;現実のオプション市場でついたオプション価格から逆算されたボラティリティ&lt;/strong&gt;のことである」とこれ以上望めない簡潔な言葉で言い表されています。&lt;br /&gt;
+&lt;p&gt;　&lt;a href=&quot;https://ja.wikipedia.org/wiki/%E3%83%9C%E3%83%A9%E3%83%86%E3%82%A3%E3%83%AA%E3%83%86%E3%82%A3&quot;&gt;wikipediaによるボラティリティの説明&lt;/a&gt;は学問的で、これはこれでいいのかもしれません。それに「インプライド・ボラティリティとは&lt;strong&gt;現実のオプション市場でついたオプション価格から逆算されたボラティリティ&lt;/strong&gt;のことである」とこれ以上望めない簡潔な言葉で言い表されています。&lt;br /&gt;
 しかし、これ&lt;br /&gt;
-&lt;img src=&quot;http://upload.wikimedia.org/math/c/8/9/c89911f0951782890cbb855572aa9de7.png&quot; alt=&quot;wikipediaのHVの数式&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;https://upload.wikimedia.org/math/c/8/9/c89911f0951782890cbb855572aa9de7.png&quot; alt=&quot;wikipediaのHVの数式&quot; /&gt;&lt;br /&gt;
 とか、&lt;br /&gt;
 こういう&lt;br /&gt;
-&lt;img src=&quot;http://upload.wikimedia.org/math/1/9/b/19beb2fcdc78f6d56e3e16ad3f04c624.png&quot; alt=&quot;wikipediaのIVの数式&quot; /&gt;&lt;br /&gt;
-難しい数式が出てくるので、「要するにどちらも値動きの荒さ、変動率のことだろ？」と言う感じで思考を中断してしまいがちだと思うのです。オプションという商品を理解しているつもりだった自分も、&lt;a href=&quot;http://my-posi.herokuapp.com&quot;&gt;先物・オプション売買損益シミュレーションサイト&lt;/a&gt;を自分で作ってみるまではIVとHVの違いを明確に区別出来ていなくて、よく似たような物ぐらいに考えていました。２つの間には相関関係が非常に薄いにも関わらずです。&lt;br /&gt;
+&lt;img src=&quot;https://upload.wikimedia.org/math/1/9/b/19beb2fcdc78f6d56e3e16ad3f04c624.png&quot; alt=&quot;wikipediaのIVの数式&quot; /&gt;&lt;br /&gt;
+難しい数式が出てくるので、「要するにどちらも値動きの荒さ、変動率のことだろ？」と言う感じで思考を中断してしまいがちだと思うのです。オプションという商品を理解しているつもりだった自分も、&lt;a href=&quot;https://my-posi.herokuapp.com&quot;&gt;先物・オプション売買損益シミュレーションサイト&lt;/a&gt;を自分で作ってみるまではIVとHVの違いを明確に区別出来ていなくて、よく似たような物ぐらいに考えていました。２つの間には相関関係が非常に薄いにも関わらずです。&lt;br /&gt;
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;
 ヒストリカル・ボラティリティxとオプション理論価格yは以下のように表すことが出来て、  \\
 y = ax\\
@@ -9041,9 +9041,9 @@ x_1 = \frac{y_1}{a}\\
  
  <entry>
    <title>DBのカラムに対応しないプロパティ</title>
-   <link href="http://happyclam.github.io/programming/2014-05-26/my-posi_tip1"/>
+   <link href="https://happyclam.github.io/programming/2014-05-26/my-posi_tip1"/>
    <updated>2014-05-26T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/programming/2014-05-26/my-posi_tip1</id>
+   <id>https://happyclam.github.io/programming/2014-05-26/my-posi_tip1</id>
    <content type="html">&lt;h3 id=&quot;日付型のカラムのデータを年月だけの文字列にしてコンボボックスに表示したい&quot;&gt;日付型のカラムのデータを年月だけの文字列にしてコンボボックスに表示したい&lt;/h3&gt;
 &lt;p&gt;先物やオプションの建玉を入力する時には限月を選ぶ必要がありますが、必要なのは年と月(“2014/06”等の文字列)だけです。でもDBに”年/月”のフォーマットで文字列として格納するのはあまりにも汚い。DBのカラム属性は日付型にしておいた方が何かと便利、というかしておくべきでしょう（日数や時間の差を計算する時に困ります）。&lt;br /&gt;
 &lt;img src=&quot;/images/dropdown_exp.png&quot; alt=&quot;限月の選択&quot; title=&quot;限月の選択&quot; /&gt;&lt;br /&gt;
@@ -9090,10 +9090,10 @@ Viewでは入出力用に追加したym_expirationプロパティだけを使う
  
  <entry>
    <title>先物・オプションのシミュレーションサイト</title>
-   <link href="http://happyclam.github.io/project/2014-05-24/my-posi"/>
+   <link href="https://happyclam.github.io/project/2014-05-24/my-posi"/>
    <updated>2014-05-24T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/project/2014-05-24/my-posi</id>
-   <content type="html">&lt;p&gt;Project: 「&lt;a href=&quot;http://my-posi.herokuapp.com/&quot;&gt;&lt;strong&gt;みんなのポジション&lt;/strong&gt;&lt;/a&gt;」: &lt;a href=&quot;https://github.com/happyclam/my-posi&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
+   <id>https://happyclam.github.io/project/2014-05-24/my-posi</id>
+   <content type="html">&lt;p&gt;Project: 「&lt;a href=&quot;https://my-posi.herokuapp.com/&quot;&gt;&lt;strong&gt;みんなのポジション&lt;/strong&gt;&lt;/a&gt;」: &lt;a href=&quot;https://github.com/happyclam/my-posi&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;開発の動機&quot;&gt;開発の動機&lt;/h3&gt;
 &lt;p&gt;当時、利用している証券会社のシステムが物足りなく信用できないものであったため自作しました。でも自分で作成した後、まもなくネット証券側もシステムをリニューアルして、自分のものより遥に高機能なものに置き換わったのですが、損益グラフを表示した時にグラフのメモリ幅を変更出来ないため見にくいという不満があったりするので、その点でまだは自分のソフトの方が優れているかなと思っています。まぁオプション売買を活発にしている人はそれ程多くないと思いますので、証券会社も力を入れていないのだと思います。５社ほどで取引したことありますが、そもそもオプション売買のシミュレーション機能なんて無い証券会社もありました。&lt;br /&gt;
@@ -9113,7 +9113,7 @@ Viewでは入出力用に追加したym_expirationプロパティだけを使う
 &lt;/object&gt;
 
 &lt;p&gt;UserモデルとStrategyモデルが1対多、StrategyモデルとPositionモデルが1対多で関連付けられている単純なテーブル構造です。&lt;br /&gt;
-他のテーブルと関連付けられていないCandlestickモデルというのはネット上に転がっている先物価格のロウソク足用のcsvデータを流し込むためのテーブルで、ヒストリカル・ボラティリティ（HV）を計算するためだけに使用しています。HVの計算方法には色々あるようですが、自分が使用したのは&lt;a href=&quot;http://www.option-dojo.com/kn/225_vola.html&quot;&gt;ここ&lt;/a&gt;に記載されている方法に倣っています。&lt;br /&gt;
+他のテーブルと関連付けられていないCandlestickモデルというのはネット上に転がっている先物価格のロウソク足用のcsvデータを流し込むためのテーブルで、ヒストリカル・ボラティリティ（HV）を計算するためだけに使用しています。HVの計算方法には色々あるようですが、自分が使用したのは&lt;a href=&quot;https://www.option-dojo.com/kn/225_vola.html&quot;&gt;ここ&lt;/a&gt;に記載されている方法に倣っています。&lt;br /&gt;
 気が向いたときにcsvデータを手動で更新するという運用の仕方をしてました。画面から手入力するとその値を優先して使用するようにしているので、実際にはHVを手入力して使うことが多かったです。開発当時は無かったのですが、今なら日経平均ボラティリティインデックスがリアルタイムで更新されているのでその値を手入力する方がいいかもしれません。20%（日経平均VIが20ポイント）であれば0.2を入力します。このHVの値を使ってオプション理論価格を算出します。&lt;br /&gt;
 ※ボラティリティにはHVとは別にインプライド・ボラティリティ（IV）というものがありますが、ボラティリティに関しては別記事を書こうと思います。&lt;/p&gt;
 
@@ -9246,12 +9246,12 @@ Viewでは入出力用に追加したym_expirationプロパティだけを使う
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;em&gt;Candlestickテーブル&lt;/em&gt;&lt;br /&gt;
-※どこから先物価格のデータを取得するかでテーブル構造は変わるので省略します。必要なのはオプションの原資産となる先物価格の終値20日分です。私が利用していたのは&lt;a href=&quot;http://k-db.com/&quot;&gt;このサイト&lt;/a&gt;です。&lt;br /&gt;
+※どこから先物価格のデータを取得するかでテーブル構造は変わるので省略します。必要なのはオプションの原資産となる先物価格の終値20日分です。私が利用していたのは&lt;a href=&quot;https://k-db.com/&quot;&gt;このサイト&lt;/a&gt;です。&lt;br /&gt;
 以下のようにcsvデータをダウンロード&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;pre&gt;&lt;code&gt;wget -O ./lib/futures.csv &quot;http://k-db.com/site/jikeiretsuF.aspx?c=101&amp;amp;year=0&amp;amp;download=csv&quot;  
+&lt;pre&gt;&lt;code&gt;wget -O ./lib/futures.csv &quot;https://k-db.com/site/jikeiretsuF.aspx?c=101&amp;amp;year=0&amp;amp;download=csv&quot;  
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;csvデータから先物価格データを格納&lt;/p&gt;
 
@@ -9261,7 +9261,7 @@ Viewでは入出力用に追加したym_expirationプロパティだけを使う
 &lt;h3 id=&quot;参考文献&quot;&gt;参考文献&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.amazon.co.jp/%E4%B8%96%E7%95%8C%E4%B8%80%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E9%87%91%E8%9E%8D%E5%B7%A5%E5%AD%A6%E3%81%AE%E6%9C%AC%E3%81%A7%E3%81%99-%E7%94%B0%E6%B8%95-%E7%9B%B4%E4%B9%9F/dp/4534040512/ref=sr_1_1?ie=UTF8&amp;amp;qid=1413415898&amp;amp;sr=8-1&amp;amp;keywords=%E3%80%8C%E4%B8%96%E7%95%8C%E4%B8%80%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E9%87%91%E8%9E%8D%E5%B7%A5%E5%AD%A6%E3%81%AE%E6%9C%AC%E3%81%A7%E3%81%99%E3%80%8D&quot;&gt;「世界一やさしい金融工学の本です」&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.amazon.co.jp/%E4%B8%96%E7%95%8C%E4%B8%80%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E9%87%91%E8%9E%8D%E5%B7%A5%E5%AD%A6%E3%81%AE%E6%9C%AC%E3%81%A7%E3%81%99-%E7%94%B0%E6%B8%95-%E7%9B%B4%E4%B9%9F/dp/4534040512/ref=sr_1_1?ie=UTF8&amp;amp;qid=1413415898&amp;amp;sr=8-1&amp;amp;keywords=%E3%80%8C%E4%B8%96%E7%95%8C%E4%B8%80%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E9%87%91%E8%9E%8D%E5%B7%A5%E5%AD%A6%E3%81%AE%E6%9C%AC%E3%81%A7%E3%81%99%E3%80%8D&quot;&gt;「世界一やさしい金融工学の本です」&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </content>
@@ -9269,10 +9269,10 @@ Viewでは入出力用に追加したym_expirationプロパティだけを使う
  
  <entry>
    <title>rspecに納得できない</title>
-   <link href="http://happyclam.github.io/programming/2014-05-17/inflexible-rspec"/>
+   <link href="https://happyclam.github.io/programming/2014-05-17/inflexible-rspec"/>
    <updated>2014-05-17T00:00:00+09:00</updated>
-   <id>http://happyclam.github.io/programming/2014-05-17/inflexible-rspec</id>
-   <content type="html">&lt;p&gt;先日衝動買いした&lt;a href=&quot;http://www.amazon.co.jp/Instant-RSpec-Test-Driven-Development-How-ebook/dp/B00DMYO1QK&quot;&gt;Instant RSpec Test-Driven Development How-to [Kindle版]&lt;/a&gt;の最初に出てくるサンプルコード&lt;/p&gt;
+   <id>https://happyclam.github.io/programming/2014-05-17/inflexible-rspec</id>
+   <content type="html">&lt;p&gt;先日衝動買いした&lt;a href=&quot;https://www.amazon.co.jp/Instant-RSpec-Test-Driven-Development-How-ebook/dp/B00DMYO1QK&quot;&gt;Instant RSpec Test-Driven Development How-to [Kindle版]&lt;/a&gt;の最初に出てくるサンプルコード&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;#location_spec.rb
 describe Location do

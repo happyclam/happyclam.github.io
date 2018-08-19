@@ -43,13 +43,13 @@
   <meta name="twitter:title" content="ツイートを監視して集計する">
   
   
-  <meta name="twitter:url" content="http://happyclam.github.io/project/2014-05-30/tweetwatch">
+  <meta name="twitter:url" content="https://happyclam.github.io/project/2014-05-30/tweetwatch">
   
   
   <meta name="twitter:description" content="programming for enjoyment.">
   
   
-  <meta name="twitter:image:src" content="http://happyclam.github.io/images/favicon.png">
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/favicon.png">
   
 
     <!-- atom & rss feed -->
@@ -229,7 +229,7 @@ Yahooのアンケートのように、誰がどれぐらい票を獲得してい
 　プログラマたるもの、そこで「すぐ出来ますよ」とリプライするような軽率な行動をとってはいけません。職業プログラマなら尚更です。誰かが手を挙げるかもと思いながらしばらく様子を見ていましたが、その呟きに対して反応する人はいなかったようです。こういう場合、相手がどれほどのものを要求しているかわからないので迂闊に出来ますなんて言えませんが、StreamingAPI使えばとりあえず使える程度のものであれば、すぐ出来るんじゃないかと思い調べてみました。</p>
 
 <h3 id="とりあえずローカル環境で動くもの">とりあえずローカル環境で動くもの</h3>
-<p>　「StreamingAPI」で検索すると役に立ちそうなサイトはすぐに見つかりました→<a href="http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/">「Herokuの無料枠でTwitter Stream APIを常時監視 =&gt; DBに保存するRubyコード」</a><br />
+<p>　「StreamingAPI」で検索すると役に立ちそうなサイトはすぐに見つかりました→<a href="https://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/">「Herokuの無料枠でTwitter Stream APIを常時監視 =&gt; DBに保存するRubyコード」</a><br />
 このmorizyunって人のサイトは調べ物をしている際にはよくお世話になっていますが、今回見つけた記事も自分の要望その物です。私はherokuは使いませんでしたがほぼこの記事のコードそのままがローカル環境で動作しました。ツイートの集計がしたいのであればDBに溜まったデータに対してSQLを打ち込めば好きな結果が得られます。a氏に教えてあげようかとも思いましたが、おそらくプログラミングやSQLも知らないa氏が実際に自分のPCで動かすためにはそうとうな時間をかけてサポートしてあげないと無理だろうと思って止めておきました。自分が良かれと思って教えても、逆に恨まれることになり兼ねません。そうなんです、自分でニタニタ楽しむためのソフトを作れたとしても、それをひと様に使ってもらおうとするとまた一段とハードルが高くなるんですねぇ（今回は自分で楽しむものさえパクリですが）。</p>
 
 <h3 id="ひと様が使えるようにするために">ひと様が使えるようにするために</h3>
@@ -243,7 +243,7 @@ Yahooのアンケートのように、誰がどれぐらい票を獲得してい
 
 <p>という方針で作りました。
 <img src="/images/tweetwatch_screen.png" alt="集計画面" />  <br />
-DBにデータを格納するシェルスクリプトは、<a href="http://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/">morizyun氏のコード</a>を叩き台にしてWebサイトから制御するためのプロセス間通信用インターフェースを追加し、そのサーバーとなるシェルスクリプトに接続するクライアントアプリとなるユーザ向けのwebサイトを作る。そのwebサイトは<a href="http://railstutorial.jp/">Ruby on Rails チュートリアル</a>でRSpecの勉強（写経）をしながら作ったものがあったのでそれを流用しています。<br />
+DBにデータを格納するシェルスクリプトは、<a href="https://morizyun.github.io/blog/ruby-twitter-stream-api-heroku/">morizyun氏のコード</a>を叩き台にしてWebサイトから制御するためのプロセス間通信用インターフェースを追加し、そのサーバーとなるシェルスクリプトに接続するクライアントアプリとなるユーザ向けのwebサイトを作る。そのwebサイトは<a href="https://railstutorial.jp/">Ruby on Rails チュートリアル</a>でRSpecの勉強（写経）をしながら作ったものがあったのでそれを流用しています。<br />
 以降、DBにデータを格納する<a href="/project/2014-06-06/tweetwatch_server/"><em>サーバースクリプト（server側）</em></a>とRails製<a href="/project/2014-06-07/tweetwatch_client/"><em>Webサイト（client側）</em></a>に分けて紹介します。</p>
 
 <hr />

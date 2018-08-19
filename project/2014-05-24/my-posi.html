@@ -43,13 +43,13 @@
   <meta name="twitter:title" content="先物・オプションのシミュレーションサイト">
   
   
-  <meta name="twitter:url" content="http://happyclam.github.io/project/2014-05-24/my-posi">
+  <meta name="twitter:url" content="https://happyclam.github.io/project/2014-05-24/my-posi">
   
   
   <meta name="twitter:description" content="programming for enjoyment.">
   
   
-  <meta name="twitter:image:src" content="http://happyclam.github.io/images/favicon.png">
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/favicon.png">
   
 
     <!-- atom & rss feed -->
@@ -216,7 +216,7 @@ MathJax.Hub.Config({
       <span>24 May 2014</span>
     </div>
     <div class="content">
-      <p>Project: 「<a href="http://my-posi.herokuapp.com/"><strong>みんなのポジション</strong></a>」: <a href="https://github.com/happyclam/my-posi">GitHub</a></p>
+      <p>Project: 「<a href="https://my-posi.herokuapp.com/"><strong>みんなのポジション</strong></a>」: <a href="https://github.com/happyclam/my-posi">GitHub</a></p>
 
 <h3 id="開発の動機">開発の動機</h3>
 <p>当時、利用している証券会社のシステムが物足りなく信用できないものであったため自作しました。でも自分で作成した後、まもなくネット証券側もシステムをリニューアルして、自分のものより遥に高機能なものに置き換わったのですが、損益グラフを表示した時にグラフのメモリ幅を変更出来ないため見にくいという不満があったりするので、その点でまだは自分のソフトの方が優れているかなと思っています。まぁオプション売買を活発にしている人はそれ程多くないと思いますので、証券会社も力を入れていないのだと思います。５社ほどで取引したことありますが、そもそもオプション売買のシミュレーション機能なんて無い証券会社もありました。<br />
@@ -236,7 +236,7 @@ MathJax.Hub.Config({
 </object>
 
 <p>UserモデルとStrategyモデルが1対多、StrategyモデルとPositionモデルが1対多で関連付けられている単純なテーブル構造です。<br />
-他のテーブルと関連付けられていないCandlestickモデルというのはネット上に転がっている先物価格のロウソク足用のcsvデータを流し込むためのテーブルで、ヒストリカル・ボラティリティ（HV）を計算するためだけに使用しています。HVの計算方法には色々あるようですが、自分が使用したのは<a href="http://www.option-dojo.com/kn/225_vola.html">ここ</a>に記載されている方法に倣っています。<br />
+他のテーブルと関連付けられていないCandlestickモデルというのはネット上に転がっている先物価格のロウソク足用のcsvデータを流し込むためのテーブルで、ヒストリカル・ボラティリティ（HV）を計算するためだけに使用しています。HVの計算方法には色々あるようですが、自分が使用したのは<a href="https://www.option-dojo.com/kn/225_vola.html">ここ</a>に記載されている方法に倣っています。<br />
 気が向いたときにcsvデータを手動で更新するという運用の仕方をしてました。画面から手入力するとその値を優先して使用するようにしているので、実際にはHVを手入力して使うことが多かったです。開発当時は無かったのですが、今なら日経平均ボラティリティインデックスがリアルタイムで更新されているのでその値を手入力する方がいいかもしれません。20%（日経平均VIが20ポイント）であれば0.2を入力します。このHVの値を使ってオプション理論価格を算出します。<br />
 ※ボラティリティにはHVとは別にインプライド・ボラティリティ（IV）というものがありますが、ボラティリティに関しては別記事を書こうと思います。</p>
 
@@ -369,12 +369,12 @@ MathJax.Hub.Config({
   </li>
   <li>
     <p><em>Candlestickテーブル</em><br />
-※どこから先物価格のデータを取得するかでテーブル構造は変わるので省略します。必要なのはオプションの原資産となる先物価格の終値20日分です。私が利用していたのは<a href="http://k-db.com/">このサイト</a>です。<br />
+※どこから先物価格のデータを取得するかでテーブル構造は変わるので省略します。必要なのはオプションの原資産となる先物価格の終値20日分です。私が利用していたのは<a href="https://k-db.com/">このサイト</a>です。<br />
 以下のようにcsvデータをダウンロード</p>
   </li>
 </ul>
 
-<pre><code>wget -O ./lib/futures.csv "http://k-db.com/site/jikeiretsuF.aspx?c=101&amp;year=0&amp;download=csv"  
+<pre><code>wget -O ./lib/futures.csv "https://k-db.com/site/jikeiretsuF.aspx?c=101&amp;year=0&amp;download=csv"  
 </code></pre>
 <p>csvデータから先物価格データを格納</p>
 
@@ -384,7 +384,7 @@ MathJax.Hub.Config({
 <h3 id="参考文献">参考文献</h3>
 
 <ul>
-  <li><a href="http://www.amazon.co.jp/%E4%B8%96%E7%95%8C%E4%B8%80%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E9%87%91%E8%9E%8D%E5%B7%A5%E5%AD%A6%E3%81%AE%E6%9C%AC%E3%81%A7%E3%81%99-%E7%94%B0%E6%B8%95-%E7%9B%B4%E4%B9%9F/dp/4534040512/ref=sr_1_1?ie=UTF8&amp;qid=1413415898&amp;sr=8-1&amp;keywords=%E3%80%8C%E4%B8%96%E7%95%8C%E4%B8%80%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E9%87%91%E8%9E%8D%E5%B7%A5%E5%AD%A6%E3%81%AE%E6%9C%AC%E3%81%A7%E3%81%99%E3%80%8D">「世界一やさしい金融工学の本です」</a></li>
+  <li><a href="https://www.amazon.co.jp/%E4%B8%96%E7%95%8C%E4%B8%80%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E9%87%91%E8%9E%8D%E5%B7%A5%E5%AD%A6%E3%81%AE%E6%9C%AC%E3%81%A7%E3%81%99-%E7%94%B0%E6%B8%95-%E7%9B%B4%E4%B9%9F/dp/4534040512/ref=sr_1_1?ie=UTF8&amp;qid=1413415898&amp;sr=8-1&amp;keywords=%E3%80%8C%E4%B8%96%E7%95%8C%E4%B8%80%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E9%87%91%E8%9E%8D%E5%B7%A5%E5%AD%A6%E3%81%AE%E6%9C%AC%E3%81%A7%E3%81%99%E3%80%8D">「世界一やさしい金融工学の本です」</a></li>
 </ul>
 
 
