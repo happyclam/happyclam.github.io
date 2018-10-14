@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2018-08-19T18:22:49+09:00</lastBuildDate>
-        <pubDate>2018-08-19T18:22:49+09:00</pubDate>
+        <lastBuildDate>2018-10-14T12:33:38+09:00</lastBuildDate>
+        <pubDate>2018-10-14T12:33:38+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -261,6 +261,7 @@ console.log &quot;経過時間: #{elapsed}ミリ秒&quot;
 　スタート局面から無駄に手数を伸ばすことなく最も手数がかかる局面をゴール局面とすれば難問が完成します。&lt;/p&gt;
 
 &lt;h3 id=&quot;もっと難問を作れるか&quot;&gt;もっと難問を作れるか&lt;/h3&gt;
+&lt;p&gt;　Twitterでゴール局面まで６０手掛かるという難問を見かけたので、問題を作る側の立場で考えてみました。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
@@ -268,7 +269,7 @@ console.log &quot;経過時間: #{elapsed}ミリ秒&quot;
 
 &lt;/div&gt;
 
-&lt;p&gt;　全ての駒を適当に配置した問題を作って調べてみました。下の３パターンが最長手数となる解答です。&lt;/p&gt;
+&lt;p&gt;　まず全ての駒を適当に配置した問題を作って調べてみました。下の３パターンが上図をスタート局面とした場合の最長手数となる解答です。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
@@ -278,7 +279,7 @@ console.log &quot;経過時間: #{elapsed}ミリ秒&quot;
 &lt;/div&gt;
 
 &lt;p&gt;　手順は省略しますが上の局面から下の３つの局面に駒を移動させるには最短手数でも２５手必要で、上のスタート局面から出現し得る全ての局面のうち２５手かかるのは下の局面３つだけのようです。もちろん無理やり手数を伸ばして実現することは可能ですが、最短手順を選んでも２５手かかってしまうというところがミソです。&lt;br /&gt;
-　ちなみにスタート画面の「歩」を「と金」に変えると最長手順は３１手に伸びるようですが、長手順の難問を作るには適当に駒を配置するだけではダメなのかも知れません。３三将棋（＝９マス将棋）もそうですが、簡単には正解手順を得られないような初期画面を見つける方が問題を解くより難しいのかも&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+　ちなみにスタート画面の「歩」を「と金」に変えると最長手順は３１手に伸びるようですが、長手順の難問を作るには適当に駒を配置するだけではダメなのかも知れません。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;を作った時に感じたのですが、「３三将棋（＝９マス将棋）」だと適当に駒を配置するだけだと一目で正解が分かるような簡単な配置になってしまうことも多くて、熱戦が期待出来るような初期配置パターンを探すのに苦労しました。「将棋パズル」の場合も正解手順を見つけることより、長手順になる問題を見つける方が、問題を解くより難しいのかもしれません。最近はソフトで詰将棋を解くのは当たり前になってしまって、芸術的な詰将棋をソフトで作る研究が行われていると聞いたことがありますが、その状況と似ていますね&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;余談&quot;&gt;余談&lt;/h3&gt;
 &lt;p&gt;　自分のブログは「BFS DFS 違い」とか「BFS 用途」とかの検索ワードで来訪される人が偶にいるのですが、対戦ゲームに使用するとすればBFS（幅優先探索）の使い途は定跡データや学習データの格納・検索、DFS（深さ優先探索）の使い途は局面の先読み（MIN-MAX法を使った有利不利判定）ってことになるんじゃないでしょうか。&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;進化する三目並べ&lt;/a&gt;でも学習データの保存・検索にBFSを使用しています。&lt;/p&gt;
