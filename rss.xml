@@ -5,10 +5,99 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2018-10-14T17:34:43+09:00</lastBuildDate>
-        <pubDate>2018-10-14T17:34:43+09:00</pubDate>
+        <lastBuildDate>2018-10-27T08:30:02+09:00</lastBuildDate>
+        <pubDate>2018-10-27T08:30:02+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>不成の詰将棋</title>
+                <description>&lt;h3 id=&quot;打ち歩詰めを回避するための不成&quot;&gt;打ち歩詰めを回避するための不成&lt;/h3&gt;
+&lt;p&gt;　真偽の程はわからないのですが、最新の将棋ソフトを以ってしても角不成を含む詰将棋を解くことが出来ないと小耳に挟みました。自分は最新の将棋ソフトの動向には疎くソフトも古いのしか持っていないので確認出来ませんが、有名な&lt;a href=&quot;https://shogi100.com/2018/03/14/1-13/&quot;&gt;「谷川九段の角不成」&lt;/a&gt;という実践詰将棋があって、機械学習（おそらくディープラーニングを使ったもの）を用いた最新のソフトでも６七角引不成（&lt;a href=&quot;http://i2chmeijin.blog.fc2.com/blog-entry-1955.html&quot;&gt;参考記事&lt;/a&gt;）からの１９手詰めが解けないそうです。学習型の将棋ソフトは終盤が弱いとは聞いていました。でも自分が持っている相当古いソフト（１０年以上前に購入した「AI将棋 Version13」&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;）で試してみたところ、見事に詰め上げることが出来たので結局はソフトに依るということでしょう。ただ最新のソフトがなぜ解けないのか、なぜそうなっている（あるいはそうしている）のでしょう？もしかしたら結構難しいのでしょうか？データ構造によっては難しい処理を強いられるかもしれないなぁとは思います。原因というか不成を読まない？理由についてはもしかしてと思い当たることもあるのですが、想像の域を出ないので他人様のことは置いといて、とりあえず自分の作ったソフトが成りと不成をちゃんと区別出来るか確認することにしました。打ち歩詰めに関しても詰将棋に関しても成る・成らないに関しても一応テストはしてますが、&lt;strong&gt;打ち歩詰めを回避するために敢えて成らない&lt;/strong&gt;ということが出来るかどうかちょっと心配になったからです&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;１９手詰めで確認したいけど&quot;&gt;１９手詰めで確認したいけど&lt;/h3&gt;
+&lt;p&gt;　有名な角不成の１９手詰の詰将棋をそのまま自分のソフトで試してみたいところですが、自分のソフトでは１９手詰めなんて出来ません。何度かこのブログでも書いていますが、有名な将棋ソフトは大抵、将棋盤をビットパターンで表現して高速に先読み出来るようになっています（BitBoardと呼ばれているようです）が、自分のソフトは通常の多次元配列データで将棋盤を表現しているので到底太刀打ち出来ません。将棋ソフトに革命をもたらしたボナンザ（Bonanza）は独自の評価関数や学習機能で有名ですが、BitBoardを最初に将棋ソフトに取り入れたのも同じ開発者（保木氏）なのでしょうか？よく知らないのですが、もしそうならそのことももっと評価されるべきだと思いますけどどうなのでしょう？&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;BitBoardをJavaScriptで作る人は…いないでしょうね&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
+　話が逸れましたが、長手数の詰将棋は無理なので、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋&lt;/a&gt;の形に修正した短手数の詰将棋問題で確認することにしました。９×９の本将棋のままでは時間が掛かり過ぎるからです。&lt;br /&gt;
+　&lt;strong&gt;以下のテストは５五将棋の盤面（５×５）ですが、通常の本将棋（９×９）と同じように先手は３段目で成ることが出来、後手は５段目だけで成ることが出来るよう特殊な設定にしています。また、詰みに影響を与えないように双玉の形にして後手（玉方）の持ち駒は時間短縮のため金一枚にしました。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;打ち歩詰め回避詰将棋 - 角不成（&lt;a href=&quot;https://books.google.co.jp/books?id=Ze7DCAAAQBAJ&amp;amp;pg=PA108&amp;amp;lpg=PA108&amp;amp;dq=角不成+詰将棋&amp;amp;source=bl&amp;amp;ots=SVjU7lWwSg&amp;amp;sig=CU4yi7RK8IsYeDGyRZoslpCT19I&amp;amp;hl=ja&amp;amp;sa=X&amp;amp;ved=2ahUKEwj-1Jvw84LeAhXCM94KHbo3DEA4FBDoATABegQICBAB#v=onepage&amp;amp;q=角不成%20詰将棋&amp;amp;f=false&quot;&gt;出典&lt;/a&gt;）:&lt;br /&gt;
+&lt;a href=&quot;/images/tume1.gif&quot;&gt;&lt;img src=&quot;/images/tume1.gif&quot; alt=&quot;角不成詰将棋&quot; title=&quot;角不成詰将棋&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
+先手持ち駒＝無し&lt;br /&gt;
+詰み手順＝２三角不成、１一玉、１二歩、２二玉、３二飛成、まで５手詰め&lt;br /&gt;
+&lt;strong&gt;初手２三角成は打ち歩詰めになります。&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;打ち歩詰め回避詰将棋 - 歩不成（&lt;a href=&quot;https://www.shogitown.com/beginner/5te_2008/5te_tume08-12.html&quot;&gt;出典&lt;/a&gt;）:&lt;br /&gt;
+&lt;a href=&quot;/images/tume2.gif&quot;&gt;&lt;img src=&quot;/images/tume2.gif&quot; alt=&quot;歩不成詰将棋&quot; title=&quot;歩不成詰将棋&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
+先手持ち駒＝歩一枚&lt;br /&gt;
+詰み手順＝３二歩不成、１二玉、１三歩、２二玉、３三飛成、まで５手詰め&lt;br /&gt;
+&lt;strong&gt;初手３二歩成は打ち歩詰めになります。&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;打ち歩詰め回避詰将棋 - その他（&lt;a href=&quot;https://ja.wikipedia.org/wiki/打ち歩詰め&quot;&gt;出典&lt;/a&gt;）:&lt;br /&gt;
+&lt;a href=&quot;/images/tume3.gif&quot;&gt;&lt;img src=&quot;/images/tume3.gif&quot; alt=&quot;打ち歩詰め回避詰将棋&quot; title=&quot;打ち歩詰め回避詰将棋&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
+先手持ち駒＝桂一枚、歩一枚&lt;br /&gt;
+詰み手順＝２四桂、同龍、１三歩、同龍、２一銀不成、まで５手詰め&lt;br /&gt;
+&lt;strong&gt;すぐに１三歩は打ち歩詰めになるので、桂馬で王手して龍で打ち歩を取らざるを得ないようにして打ち歩詰めを回避します。&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;玉方打ち歩詰め誘導 - 飛不成（&lt;a href=&quot;https://ja.wikipedia.org/wiki/打ち歩詰め&quot;&gt;出典&lt;/a&gt;）:&lt;br /&gt;
+&lt;a href=&quot;/images/tume4.gif&quot;&gt;&lt;img src=&quot;/images/tume4.gif&quot; alt=&quot;玉方飛不成詰将棋&quot; title=&quot;玉方飛不成詰将棋&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
+先手持ち駒＝桂一枚、歩一枚&lt;br /&gt;
+正解手順＝２四桂、同飛不成で１三歩が打ち歩詰めになるようにして即詰みを逃れます（結局は詰まされますが…）。&lt;br /&gt;
+&lt;strong&gt;玉方が飛不成で打ち歩詰めに誘導することで即詰みを逃れます。&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;玉方打ち歩詰め誘導の反証テスト：&lt;br /&gt;
+&lt;a href=&quot;/images/tume5.gif&quot;&gt;&lt;img src=&quot;/images/tume5.gif&quot; alt=&quot;玉方飛不成詰将棋の反証&quot; title=&quot;玉方飛不成詰将棋の反証&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
+先手持ち駒＝桂一枚、香一枚&lt;br /&gt;
+正解手順＝２四桂、同飛成&lt;br /&gt;
+&lt;strong&gt;桂馬を打たれた時に先手の持ち駒が歩ではなく香車だった場合には飛車が成る（最善手）ことを確認。（持ち駒に歩ではなく香車がある場合は、１三香と打てば詰みなので２四桂馬は悪手ですが、テストのために人間が指してます）&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;　一応すべてのテストで正解でした。但し、このテストは実際のアプリより深く読むように設定し、敢えて指し手の候補手を絞り込まない（全件探索）ようにして実施しています。&lt;/p&gt;
+
+&lt;h3 id=&quot;詰将棋を解くことと勝負に勝つことは別物&quot;&gt;詰将棋を解くことと勝負に勝つことは別物&lt;/h3&gt;
+&lt;p&gt;　ＡＩ同士で対戦させて上記のテストを実施したのですが、1.と5.のテストはＡＩ対人間でテストしています。1.は後手側、5.は先手側を人間が担当しています。ちなみに1.のケースで先手・後手ともにＡＩにしてＡＩ同士で対戦させると以下のように対局が進行します。&lt;br /&gt;
+&lt;a href=&quot;/images/tume_example.gif&quot;&gt;&lt;img src=&quot;/images/tume_example.gif&quot; alt=&quot;駒余り&quot; title=&quot;駒余り&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
+　ＡＩは特別な処理をしない限り駒が余ることに拘らないので駒余りの手順を選んでしまいました。受ける側（後手）が正確に駒が余らないように&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;応じないと、詰将棋として正解手順にならないので玉方（後手）は人間が指すことにしたわけです。「駒が余ってはいけない」という詰将棋独自のルールをソフトに実装するのは結構手間がかかりそうです。また、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋&lt;/a&gt;では王手が掛かっていなくても玉が自殺する手しか存在しない時がよくあります（&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋&lt;/a&gt;だともっと頻繁に現れます）。そのような時、ＡＩにとっては連続王手で綺麗に詰ますのも、相手の指す手を無くしてゲーム終了させるのも同じ&lt;strong&gt;「勝ち」&lt;/strong&gt;なので、綺麗な詰み手順があるのにそれを選ばない時がよくあります&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;。そういう時に端から見ている開発者としてはがっかりするのですが、「駒が余ってはいけない」という詰将棋独自のルールも含めて、そうなるように作っていないので仕方がありません&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
+　言いたいことは、以下の３つは微妙に意味が異なるということです。&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;詰将棋を解く（駒を余らせない、無駄合いをしない等の詰将棋独自のルールにもしたがう）&lt;/li&gt;
+  &lt;li&gt;相手玉を詰まして勝つ（詰みを逃さない、詰みを優先する）&lt;/li&gt;
+  &lt;li&gt;将棋に勝つ（連続王手による詰み手順に拘らない）&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;　たぶん機械学習（ディープラーニング含む）によるＡＩだと1.と2.の機能を実装するのは難しいのだと思います。特に1.の機能は、勝手な想像ですが外国人の開発者が将棋ソフトを作ったらよほどの将棋好きでもない限り省く（実装しようとさえ思わない）と思いますし、話題になったAlphaZeroも今後1.の機能を実装することはないでしょう（予言）&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
+　2.の機能は昔からノウハウが蓄積されてる詰み判定ルーチン（学習によるものではなく力技の探索機能）を併用することで、程度の差こそあれ実現出来るような気がします。&lt;br /&gt;
+　ということで、角不成の詰将棋が解けない最新のＡＩっていうのは、純粋に機械学習によるＡＩ機能だけで将棋を強くすることを目指していて、敢えて力技による先読み機能を実装していないソフトなのかも知れません、私の単なる憶測ですが。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;Windows用のまともなPCを持ってないので、Windows向けソフトをLinux上でWineを使って動かしてます。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;誰かが作ったというより多くの人の手によって改良されてきているのかもしれませんし、もっと古くから実装されてそうな気もします。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;詰将棋では同じ詰まされるにしても受ける側（玉方）が攻める側になるべく多くの駒を使わせるのが最善手。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot;&gt;
+      &lt;p&gt;ここで言っているのは連続王手の三手詰めが存在しているのに王手を掛けずに、同じく三手で勝つことがあるという意味です。三手で勝てるのに勝ちを逃して（手数を伸ばして）勝ってしまうという意味ではありません。「詰みより必至」という話とも違います。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+                <link>https://happyclam.github.io/software/2018-10-27/unpromote</link>
+                <guid>https://happyclam.github.io/software/2018-10-27/unpromote</guid>
+                <pubDate>2018-10-27T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>BFSで将棋パズルを解く</title>

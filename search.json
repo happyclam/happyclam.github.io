@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "不成の詰将棋",
+      "category" : "software",
+      "tags"     : "coffeescript, javascript, shogi",
+      "url"      : "https://happyclam.github.io/software/2018-10-27/unpromote",
+      "date"     : "2018-10-27 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "BFSで将棋パズルを解く",
       "category" : "software",
       "tags"     : "coffeescript, javascript, shogi",
