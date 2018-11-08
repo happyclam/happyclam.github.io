@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2018-10-27T08:30:02+09:00</updated>
+ <updated>2018-11-08T18:14:44+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -79,6 +79,9 @@
 &lt;p&gt;　たぶん機械学習（ディープラーニング含む）によるＡＩだと1.と2.の機能を実装するのは難しいのだと思います。特に1.の機能は、勝手な想像ですが外国人の開発者が将棋ソフトを作ったらよほどの将棋好きでもない限り省く（実装しようとさえ思わない）と思いますし、話題になったAlphaZeroも今後1.の機能を実装することはないでしょう（予言）&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
 　2.の機能は昔からノウハウが蓄積されてる詰み判定ルーチン（学習によるものではなく力技の探索機能）を併用することで、程度の差こそあれ実現出来るような気がします。&lt;br /&gt;
 　ということで、角不成の詰将棋が解けない最新のＡＩっていうのは、純粋に機械学習によるＡＩ機能だけで将棋を強くすることを目指していて、敢えて力技による先読み機能を実装していないソフトなのかも知れません、私の単なる憶測ですが。&lt;/p&gt;
+
+&lt;h3 id=&quot;追記&quot;&gt;追記&lt;/h3&gt;
+&lt;p&gt;　この記事を書いた時点では「最新の将棋ソフト」と聞いただけで特定のソフトを想定して書いていたわけではないのですが、最新の将棋ソフトの一つで最も有名？な&lt;a href=&quot;https://book.mynavi.jp/yaneura/&quot;&gt;「将棋神やねうら王」&lt;/a&gt;はオプションで不成の指し手を読むように変更出来るそうです（&lt;a href=&quot;https://twitter.com/yaneuraou/status/1060264215175299074&quot;&gt;開発者のTweet&lt;/a&gt;）。オプション設定で簡単に変更出来るということは、「やねうら王」に関しては不成の指し手を敢えて読んでいなかっただけみたいです。「やねうら王」はLinuxでも動作させることが可能だと聞いたので、いつか製品版にこの機能が組み込まれたら購入して試してみようと思ってます。&lt;/p&gt;
 
 &lt;hr /&gt;
 
