@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2018-11-12T18:39:44+09:00</updated>
+ <updated>2018-11-12T19:05:51+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -1056,6 +1056,12 @@ Second Win
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;駒の動き&quot;&gt;駒の動き&lt;/h3&gt;
+
+&lt;div&gt;
+&lt;div style=&quot;display: inline-block; width:15px; height: 15px; background: red;&quot;&gt;&lt;/div&gt;&lt;span&gt;一マス移動&lt;/span&gt;
+&lt;span&gt;&amp;nbsp;&lt;/span&gt;
+&lt;div style=&quot;display: inline-block; width:15px; height: 15px; background: blue;&quot;&gt;&lt;/div&gt;&lt;span&gt;連続移動&lt;/span&gt;
+&lt;/div&gt;
 
 &lt;table&gt;
   &lt;thead&gt;

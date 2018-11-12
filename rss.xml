@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2018-11-12T18:39:44+09:00</lastBuildDate>
-        <pubDate>2018-11-12T18:39:44+09:00</pubDate>
+        <lastBuildDate>2018-11-12T19:05:51+09:00</lastBuildDate>
+        <pubDate>2018-11-12T19:05:51+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -1051,6 +1051,12 @@ Second Win
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;駒の動き&quot;&gt;駒の動き&lt;/h3&gt;
+
+&lt;div&gt;
+&lt;div style=&quot;display: inline-block; width:15px; height: 15px; background: red;&quot;&gt;&lt;/div&gt;&lt;span&gt;一マス移動&lt;/span&gt;
+&lt;span&gt;&amp;nbsp;&lt;/span&gt;
+&lt;div style=&quot;display: inline-block; width:15px; height: 15px; background: blue;&quot;&gt;&lt;/div&gt;&lt;span&gt;連続移動&lt;/span&gt;
+&lt;/div&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
