@@ -228,7 +228,62 @@ MathJax.Hub.Config({
   <li>先手は一段目、後手は三段目に駒を移動すると成ることができます。</li>
   <li>同一局面（手番も同じ）が４回現れると千日手でゲーム終了としています。</li>
   <li>行き場の無い駒は打てません（桂馬を二段目に打ったり、先手が歩を一段目に打ったり）</li>
+  <li>王手放置は出来ません（王の自殺手も不可）</li>
 </ul>
+
+<h3 id="駒の動き">駒の動き</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">駒の種類</th>
+      <th style="text-align: center">表　</th>
+      <th style="text-align: center">　裏（成り駒） Promoted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">玉（王） King</td>
+      <td style="text-align: center"><img src="/images/move_ou.png" alt="玉" title="玉" /> gyoku(ou)</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">飛　     Rook</td>
+      <td style="text-align: center"><img src="/images/move_hi.png" alt="飛" title="飛" /> hi</td>
+      <td style="text-align: center"><img src="/images/move_ry.png" alt="竜" title="竜" />  ryu</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">角　     Bishop</td>
+      <td style="text-align: center"><img src="/images/move_ka.png" alt="角" title="角" /> kaku</td>
+      <td style="text-align: center"><img src="/images/move_um.png" alt="馬" title="馬" /> uma</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">金　     Gold</td>
+      <td style="text-align: center"><img src="/images/move_ki.png" alt="金" title="金" /> kin</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">銀　     Silver</td>
+      <td style="text-align: center"><img src="/images/move_gi.png" alt="銀" title="銀" /> gin</td>
+      <td style="text-align: center"><img src="/images/move_ng.png" alt="飛" title="成銀" /> nari-gin</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">桂　     Knight</td>
+      <td style="text-align: center"><img src="/images/move_ke.png" alt="桂" title="桂" /> kei</td>
+      <td style="text-align: center"><img src="/images/move_nk.png" alt="飛" title="成桂" /> nari-kei</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">香　     Lance</td>
+      <td style="text-align: center"><img src="/images/move_ky.png" alt="香" title="香" /> kyo</td>
+      <td style="text-align: center"><img src="/images/move_ny.png" alt="飛" title="成香" /> nari-kyo</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">歩　     Pawn</td>
+      <td style="text-align: center"><img src="/images/move_fu.png" alt="歩" title="歩" /> fu</td>
+      <td style="text-align: center"><img src="/images/move_to.png" alt="飛" title="と" /> tokin</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="対局画面">対局画面</h3>
 
@@ -391,6 +446,22 @@ MathJax.Hub.Config({
   <p><img src="/images/33shogi_placement.png" alt="Menu - 初期配置" title="Menu - 初期配置" /></p>
 </div>
 
+<ul>
+  <li>初期配置検索機能</li>
+</ul>
+
+<p>　初期配置パターンが１００を超えてきたので、Version1.0.2.6から初期配置検索機能を付けました。</p>
+
+<div style="width:320px; margin: 0 auto;">
+  <p><img src="/images/menu_search1.png" alt="Menu - 初期配置検索" title="Menu - 初期配置検索" /></p>
+</div>
+
+<p>　駒を選択して検索ボタンを押下すると、持ち駒あるいは盤上にその駒を使用している初期配置がリストアップされます<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>。駒の選択条件はアンド（＆）検索になっているので、例えば「角」と「香」を選んで検索すると「角」も「香」も使用されている初期配置だけが検索結果に表示されます。</p>
+
+<div style="width:320px; margin: 0 auto;">
+  <p><img src="/images/menu_search2.png" alt="Menu - 初期配置検索結果" title="Menu - 初期配置検索結果" /></p>
+</div>
+
 <h3 id="ソースファイル">ソースファイル</h3>
 <p>　<a href="https://github.com/happyclam/shogi33simple">github</a>でCoffeeScriptのソースファイルを公開しました。GUI部分にはまだバグが潜んでいるかもしれませんが、思考ルーチン部分はほぼ落ち着いていると思っています。実際のアプリの先読みメソッド（思考ルーチン）は、浅い先読みを行い候補手のリストを作成しその候補手リストからさらに深読みするという方法を取っているのですが、混みいったコードになるのでその部分は省いています。リリースしてからバグを発生させていたのはほとんどこの候補手を絞り込む部分に関するもので、基本的なところはリリース当初からほとんど変わっていません。対戦型将棋ソフトを作る上で必要最低限なコードになっていると思います。このコードを元に３三将棋だけでなく９×９の本将棋に移行するのも容易だと思います、というか元々Rubyで作った自作の将棋ソフトのコードを元にしてこのアプリを作りました。<br />
 　今度はMINI-MAX法＋αβ法ではなく学習型のＡＩに挑戦したいと思っています。</p>
@@ -434,6 +505,9 @@ MathJax.Hub.Config({
     </li>
     <li id="fn:2">
       <p>三手詰めと書くと誤解を与えるので「三手以内の詰み」としています。詰将棋のように王手の連続で詰ますわけではなく、相手が指す手がなくなるような状態も含めて三手以内で勝つという意味です。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>今後初期配置パターンが増えてきたら、持ち駒は含めずに盤上の駒だけを検索するように変更するかもしれません。 <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>
