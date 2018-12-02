@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2018-11-30T10:24:37+09:00</lastBuildDate>
-        <pubDate>2018-11-30T10:24:37+09:00</pubDate>
+        <lastBuildDate>2018-12-02T10:51:50+09:00</lastBuildDate>
+        <pubDate>2018-12-02T10:51:50+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -78,6 +78,17 @@
 &lt;h3 id=&quot;追記&quot;&gt;追記&lt;/h3&gt;
 &lt;p&gt;　この記事を書いた時点では「最新の将棋ソフト」と聞いただけで特定のソフトを想定して書いていたわけではないのですが、最新の将棋ソフトの一つで最も有名？な&lt;a href=&quot;https://book.mynavi.jp/yaneura/&quot;&gt;「将棋神やねうら王」&lt;/a&gt;はオプションで不成の指し手を読むように変更出来るそうです（&lt;a href=&quot;https://twitter.com/yaneuraou/status/1060264215175299074&quot;&gt;開発者のTweet&lt;/a&gt;）。オプション設定で簡単に変更出来るということは、「やねうら王」に関しては不成の指し手を敢えて読んでいなかっただけみたいです。「やねうら王」はLinuxでも動作させることが可能だと聞いたので、いつか製品版にこの機能が組み込まれたら購入して試してみようと思ってます。&lt;/p&gt;
 
+&lt;h3 id=&quot;おまけ&quot;&gt;おまけ&lt;/h3&gt;
+&lt;p&gt;　５×５の将棋盤で特別な設定でテストするのではなく、なぜ９×９の通常の将棋盤で玉方の持ち駒は残りの駒全てという普通の詰将棋と同じ設定でテストしないのか、疑問に思った人がいると思います。やってみるとどうなるか、９×９のGUI環境を用意するのは面倒なのでCUI環境でやってみました。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/55shogi_test.png&quot; alt=&quot;９×９将棋盤でのテスト&quot; title=&quot;９×９将棋盤でのテスト&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　将棋盤の上部に&lt;code&gt;hmmxxxggggkkkkyyyffffffffffff&lt;/code&gt;と表示されているのは玉方の持ち駒です（飛角角金金金銀銀銀銀…）。&lt;br /&gt;
+　テスト1.のケースで試してみたところ、正解の初手を指すまでに約２週間（経過時間＝1208445383ミリ秒）かかりました&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;この問題を解くには６手読みが必要で、５手読みだと初手を指すまでに約３時間掛かりましたが不正解（歩を成ってしまう）で、一手読みを深くするだけで約２週間に伸びてしまうってまさに指数爆発です。&lt;br /&gt;
+　最初は９×９の通常の将棋盤でテストをやりかけたのですが、時間が掛かり過ぎることが分かったので、５五将棋の形に修正するやり方でテストすることにしたわけです。&lt;/p&gt;
+
 &lt;hr /&gt;
 
 &lt;div class=&quot;footnotes&quot;&gt;
@@ -89,7 +100,7 @@
       &lt;p&gt;誰かが作ったというより多くの人の手によって改良されてきているのかもしれませんし、もっと古くから実装されてそうな気もします。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:3&quot;&gt;
-      &lt;p&gt;「局面の静的評価を枝刈りするためのアルゴリズム＝αβ法」ということで、αβ法というのは全ての局面を読まずに端折ってるから読み抜けすることもあると勘違いしている方がいるので、敢えて「αβ法を使った全件探索」と書きました。αβ法は「ある静的評価関数を使って全ノードを探索した場合と同じ結果が得られる時間短縮のためのアルゴリズム」です。一つ一つの局面を全件探索して評価する場合と同じ結果が得られます。自分のアプリでもやっていますが、「敢えて候補手を絞って評価する方法」はαβ法とは関係ありません。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;「局面の静的評価を枝刈りするためのアルゴリズム＝αβ法」ということで、αβ法というのは全ての局面を読まずに端折ってるから読み抜けすることもあると勘違いしている方がいるので、敢えて「αβ法を使った全件探索」と書きました。αβ法は「ある静的評価関数を使って全ノードを探索した場合と同じ結果が得られる時間短縮のためのアルゴリズム」です。一つ一つの局面を全件探索して評価する場合と同じ結果が得られますので読み抜けはありません。自分のアプリでもやっていますが、「敢えて候補手を端折って評価する方法」はαβ法とは関係ありません。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:4&quot;&gt;
       &lt;p&gt;詰将棋では同じ詰まされるにしても受ける側（玉方）が攻める側になるべく多くの駒を使わせるのが最善手。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
