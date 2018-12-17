@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2018-12-12T12:04:46+09:00</updated>
+ <updated>2018-12-17T20:29:23+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -4630,19 +4630,19 @@ git push origin
    <link href="https://happyclam.github.io/software/2016-01-17/flot_library"/>
    <updated>2016-01-17T00:00:00+09:00</updated>
    <id>https://happyclam.github.io/software/2016-01-17/flot_library</id>
-   <content type="html">&lt;h3 id=&quot;ブログgithub-pagesでグラフ描画flot&quot;&gt;ブログ（&lt;a href=&quot;https://jekyllrb-ja.github.io/docs/github-pages/&quot;&gt;Github Pages&lt;/a&gt;）でグラフ描画（&lt;a href=&quot;https://www.flotcharts.org&quot;&gt;Flot&lt;/a&gt;）&lt;/h3&gt;
-&lt;p&gt;　以前&lt;a href=&quot;/programming/2014-10-27/my-posi-chart/&quot;&gt;lazy-high-chartの記事&lt;/a&gt;を書いたことがありましたが、RailsのようなWebアプリではなくこのブログ（Jekyllで生成）のような静的サイトでグラフを描画する必要性を感じた経験はなかったのですが、&lt;a href=&quot;/software/2016-01-16/flotr2/&quot;&gt;前回の記事&lt;/a&gt;のようなグラフばかりのページを作る時は便利だと実感しました。LibreやExcelにデータを貼り付けてグラフ化してそれを画像ファイルに変換してページに貼り付けるより手間が省けます。それだけじゃなくインタラクティブなグラフにすることでより情報を伝えやすくなるというのが今回のお話です。&lt;br /&gt;
+   <content type="html">&lt;h3 id=&quot;ブログgithub-pagesでグラフ描画flot&quot;&gt;ブログ（&lt;a href=&quot;https://jekyllrb-ja.github.io/docs/github-pages&quot;&gt;Github Pages&lt;/a&gt;）でグラフ描画（&lt;a href=&quot;https://www.flotcharts.org&quot;&gt;Flot&lt;/a&gt;）&lt;/h3&gt;
+&lt;p&gt;　以前&lt;a href=&quot;/programming/2014-10-27/my-posi-chart&quot;&gt;lazy-high-chartの記事&lt;/a&gt;を書いたことがありましたが、RailsのようなWebアプリではなくこのブログ（Jekyllで生成）のような静的サイトでグラフを描画する必要性を感じた経験はなかったのですが、&lt;a href=&quot;/software/2016-01-16/flotr2&quot;&gt;前回の記事&lt;/a&gt;のようなグラフばかりのページを作る時は便利だと実感しました。LibreやExcelにデータを貼り付けてグラフ化してそれを画像ファイルに変換してページに貼り付けるより手間が省けます。それだけじゃなくインタラクティブなグラフにすることでより情報を伝えやすくなるというのが今回のお話です。&lt;br /&gt;
 　前回は&lt;a href=&quot;http://www.amazon.co.jp/本-JavaScriptによるデータビジュアライゼーション入門-Stephen-Thomas/dp/4873117461/ref=sr_1_1?ie=UTF8&amp;amp;qid=1452166533&amp;amp;sr=8-1&amp;amp;keywords=javascript+ビジュアライゼーション&quot;&gt;「JavaScriptによるデータビジュアライゼーション入門」&lt;/a&gt;に紹介されていた&lt;a href=&quot;https://www.humblesoftware.com/flotr2&quot;&gt;Flotr2&lt;/a&gt;を使ってグラフを描画していたのですが、インタラクティブなグラフにする際には同じ本に紹介されているjQuery版の&lt;a href=&quot;https://www.flotcharts.org&quot;&gt;Flotライブラリ&lt;/a&gt;を使いました。同じものだと思っていたのですが、結構違いがあるようです。&lt;br /&gt;
-　&lt;a href=&quot;/software/2016-01-16/flotr2/#dfs-regression&quot;&gt;前回の記事の最後に描画したグラフ&lt;/a&gt;と同じパラメータを渡して描画したものが以下のグラフです。マウスでドラッグした範囲を拡大表示することが出来ます。&lt;/p&gt;
+　&lt;a href=&quot;/software/2016-01-16/flotr2#dfs-regression&quot;&gt;前回の記事の最後に描画したグラフ&lt;/a&gt;と同じパラメータを渡して描画したものが以下のグラフです。マウスでドラッグした範囲を拡大表示することが出来ます。&lt;/p&gt;
 
 &lt;div id=&quot;dfs-regression&quot; style=&quot;width:600px;height:300px;&quot;&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;button id=&quot;unzoom&quot;&gt;元に戻す&lt;/button&gt;&lt;/p&gt;
 
-&lt;p&gt;　&lt;a href=&quot;https://www.humblesoftware.com/flotr2&quot;&gt;Flotr2&lt;/a&gt;の時と同じパラメータを指定して描画しているにも関わらず、&lt;a href=&quot;/software/2016-01-16/flotr2/#dfs-regression&quot;&gt;前回の記事&lt;/a&gt;と比較すればグラフの見た目に結構違いがあることがわかると思います。グラフの色の違いは色指定していないためデフォルトの色が違うだけなのですが、グリッドの線が表示されていたりグラフの凡例が表示されていなかったり、いくつかのパラメータが無視されています。JavaScript製なので「ページのソースの表示」でコードそのものを見ることも出来ます。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;https://www.humblesoftware.com/flotr2&quot;&gt;Flotr2&lt;/a&gt;の時と同じパラメータを指定して描画しているにも関わらず、&lt;a href=&quot;/software/2016-01-16/flotr2#dfs-regression&quot;&gt;前回の記事&lt;/a&gt;と比較すればグラフの見た目に結構違いがあることがわかると思います。グラフの色の違いは色指定していないためデフォルトの色が違うだけなのですが、グリッドの線が表示されていたりグラフの凡例が表示されていなかったり、いくつかのパラメータが無視されています。JavaScript製なので「ページのソースの表示」でコードそのものを見ることも出来ます。&lt;/p&gt;
 
 &lt;h3 id=&quot;flotライブラリを使うために必要だった作業&quot;&gt;Flotライブラリを使うために必要だった作業&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;https://jekyllrb-ja.github.io/docs/github-pages/&quot;&gt;Github Pages&lt;/a&gt;の使い方もいろいろあると思いますが、私の場合自宅でgitサーバを運用して、Jekyllで静的ファイルを出力しgithubに保存しています。だからローカル環境で完結させたいので、&lt;a href=&quot;https://www.flotcharts.org&quot;&gt;Flotライブラリ&lt;/a&gt;をダウンロードして使用しています。&lt;a href=&quot;http://www.amazon.co.jp/本-JavaScriptによるデータビジュアライゼーション入門-Stephen-Thomas/dp/4873117461/ref=sr_1_1?ie=UTF8&amp;amp;qid=1452166533&amp;amp;sr=8-1&amp;amp;keywords=javascript+ビジュアライゼーション&quot;&gt;「JavaScriptによるデータビジュアライゼーション入門」&lt;/a&gt;の中で紹介されているCDN(Contents Delivery Network)を使用した方法でも動きましたが、以下の２つのファイルをJekyll環境にコピーすれば上記のグラフは動作しました。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;https://jekyllrb-ja.github.io/docs/github-pages&quot;&gt;Github Pages&lt;/a&gt;の使い方もいろいろあると思いますが、私の場合自宅でgitサーバを運用して、Jekyllで静的ファイルを出力しgithubに保存しています。だからローカル環境で完結させたいので、&lt;a href=&quot;https://www.flotcharts.org&quot;&gt;Flotライブラリ&lt;/a&gt;をダウンロードして使用しています。&lt;a href=&quot;http://www.amazon.co.jp/本-JavaScriptによるデータビジュアライゼーション入門-Stephen-Thomas/dp/4873117461/ref=sr_1_1?ie=UTF8&amp;amp;qid=1452166533&amp;amp;sr=8-1&amp;amp;keywords=javascript+ビジュアライゼーション&quot;&gt;「JavaScriptによるデータビジュアライゼーション入門」&lt;/a&gt;の中で紹介されているCDN(Contents Delivery Network)を使用した方法でも動きましたが、以下の２つのファイルをJekyll環境にコピーすれば上記のグラフは動作しました。&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;jquery.min.js&lt;/li&gt;
@@ -4691,7 +4691,7 @@ git push origin
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&quot;データ値の追跡&quot;&gt;データ値の追跡&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;https://www.humblesoftware.com/flotr2&quot;&gt;Flotr2&lt;/a&gt;では&lt;code&gt; options{ mouse: { track:true }}&lt;/code&gt;とするだけで、マウスでグラフ上を通過した時に、値を表示してくれたのですが、&lt;a href=&quot;https://www.flotcharts.org&quot;&gt;Flot&lt;/a&gt;には無い？ようです。&lt;a href=&quot;https://www.flotcharts.org&quot;&gt;Flotのサイト&lt;/a&gt;の例を見ても、グラフ上の値を追跡表示するには自前でイベントを追加して結構面倒なことをしなければいけないようです。以前使った&lt;a href=&quot;/programming/2014-10-27/my-posi-chart/&quot;&gt;lazy-high-chart&lt;/a&gt;だとグラフの凡例と値をToolTipで表示することが、オプションで簡単に出来た記憶があるのに、そんなもんでしょうか？う〜ん、バージョンアップに期待することにして、今回はこれ以上弄らないことにします。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;https://www.humblesoftware.com/flotr2&quot;&gt;Flotr2&lt;/a&gt;では&lt;code&gt; options{ mouse: { track:true }}&lt;/code&gt;とするだけで、マウスでグラフ上を通過した時に、値を表示してくれたのですが、&lt;a href=&quot;https://www.flotcharts.org&quot;&gt;Flot&lt;/a&gt;には無い？ようです。&lt;a href=&quot;https://www.flotcharts.org&quot;&gt;Flotのサイト&lt;/a&gt;の例を見ても、グラフ上の値を追跡表示するには自前でイベントを追加して結構面倒なことをしなければいけないようです。以前使った&lt;a href=&quot;/programming/2014-10-27/my-posi-chart&quot;&gt;lazy-high-chart&lt;/a&gt;だとグラフの凡例と値をToolTipで表示することが、オプションで簡単に出来た記憶があるのに、そんなもんでしょうか？う〜ん、バージョンアップに期待することにして、今回はこれ以上弄らないことにします。&lt;/p&gt;
 
 &lt;script type=&quot;text/javascript&quot;&gt;
 jQuery(function ($){
