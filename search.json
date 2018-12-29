@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "７七将棋の評価関数",
+      "category" : "software",
+      "tags"     : "coffeescript, cordova, android, javascript, shogi",
+      "url"      : "https://happyclam.github.io/software/2018-12-29/evaluate",
+      "date"     : "2018-12-29 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "不成の詰将棋",
       "category" : "software",
       "tags"     : "coffeescript, javascript, shogi",
