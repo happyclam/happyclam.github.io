@@ -10,6 +10,7 @@ https://happyclam.github.io/search.json
 https://happyclam.github.io/sitemap.txt
 https://happyclam.github.io/tags
 
+https://happyclam.github.io/software/2019-01-02/torishogi
 https://happyclam.github.io/software/2018-12-29/evaluate
 https://happyclam.github.io/software/2018-10-27/unpromote
 https://happyclam.github.io/software/2018-08-18/puzzle

@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "「禽将棋」アプリリリースしました",
+      "category" : "software",
+      "tags"     : "coffeescript, cordova, android, javascript, shogi",
+      "url"      : "https://happyclam.github.io/software/2019-01-02/torishogi",
+      "date"     : "2019-01-02 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "７七将棋の評価関数",
       "category" : "software",
       "tags"     : "coffeescript, cordova, android, javascript, shogi",
