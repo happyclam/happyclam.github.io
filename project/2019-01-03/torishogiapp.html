@@ -1,0 +1,789 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>「禽将棋」アプリについて</title>
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'UA-1752720-7');
+    </script>
+    <meta name="author" content="happyclam">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="「禽将棋」アプリについて">
+  
+  
+  <meta name="twitter:url" content="https://happyclam.github.io/project/2019-01-03/torishogiapp">
+  
+  
+  <meta name="twitter:description" content="うっかり、見落とし、ポカの連続、本将棋にはない楽しみ方が出来るでしょう。">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/torishogi_logo.png">
+  
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script language="JavaScript">
+$(document).ready( function () {
+    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
+<script src="/assets/themes/twitter/js/jquery.min.js"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
+<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
+<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-1752720-7', 'happyclam.github.io');
+      ga('send', 'pageview');
+    </script>
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div style="text-align: center;">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-9018029357773039",
+        enable_page_level_ads: true
+        });
+      </script>
+    </div>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">自己満足プログラミング</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/profile">About</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="row-fluid">
+        <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+        <div class="span9"
+             <!-- Html Elements for Search -->
+             <div id="search-container" align="right">
+               <input type="text" id="search-input" placeholder="search...">
+               <ul id="results-container"></ul>
+             </div>
+             <div class="results"></div>
+        </div>
+      </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+      <div class="content">
+        
+<div class="page-header">
+  <h1>「禽将棋」アプリについて </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>03 January 2019</span>
+    </div>
+    <div class="content">
+      <p><a href="https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam"><img src="/images/ja_badge_web_generic.png" alt="禽将棋" title="禽将棋" width="155" height="60" /></a></p>
+
+<h3 id="禽将棋アプリについて">「禽将棋」アプリについて</h3>
+<p>　<ruby>禽将棋<rt>とりしょうぎ</rt></ruby>は江戸時代に考案された将棋で、棋譜も現存しているそうです。一応<a href="https://ja.wikipedia.org/wiki/禽将棋">Wikipedia</a>の内容に沿ってアプリを作りましたが、アプリの都合で決めた部分もあります。アプリの仕様については<a href="/project/2018-01-01/33shogiapp">３三将棋アプリの記事</a>や<a href="/project/2018-03-11/55shogiapp">５五将棋アプリの記事</a>も合わせて読んでいただきたいと思います。</p>
+
+<h3 id="ルール">ルール</h3>
+<ul>
+  <li>鷹と燕は敵陣（先手は二段目、後手は六段目）に駒を移動すると成ります。<br />
+　※成るか成らないかを選択することは出来ず、強制的に成ります。</li>
+  <li>同一局面（手番も同じ）が４回現れると千日手でゲーム終了としています。</li>
+  <li>現代将棋の打ち歩詰めと同様、打ち燕詰めは出来ません。</li>
+  <li>現代将棋の二歩にあたる二燕は可能ですが、三燕は禁止。</li>
+  <li>同一局面が４回現れると千日手。</li>
+  <li>行き場の無い駒は打てません（燕を一段目に打つ）</li>
+  <li>王手放置は禁止です。</li>
+</ul>
+
+<h3 id="駒の動き">駒の動き</h3>
+<ul>
+  <li>◯はその位置に動ける</li>
+  <li>☆はその場所まで飛び越えて移動出来る</li>
+  <li>｜、ー、／、＼はその方向に何ヶ所でも移動出来るが、駒を飛び越えることは出来ない</li>
+</ul>
+
+<div>
+          <table style="border-collapse:collapse;" border="1" align="center">
+            <thead>
+              <tr>
+                <th data-i18n="koma_front">表</th>
+                <th data-i18n="koma_front_moves">動き</th>                
+                <th data-i18n="koma_back">裏（成駒）</th>
+                <th data-i18n="koma_back_moves">動き</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center" data-i18n="[html]koma_otori"><img src="/images/ootori.png" /><br />鵬（おおとり）</td>
+                <td>
+                  <table border="1">
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">鵬</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                  </table>
+                </td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="center" data-i18n="[html]koma_taka"><img src="/images/taka.png" /><br />鷹（たか）</td>
+                <td align="center">
+                  <table border="1">
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;︎</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">鷹</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                  </table>
+                </td>
+                <td align="center" data-i18n="[html]koma_kumataka"><img src="/images/kumataka.png" /><br />鵰（くまたか）</td>
+                <td align="center">
+                  <table border="1">
+                    <tr>
+                      <td align="center">＼</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;︎</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">／</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">＼</td>
+                      <td align="center">◯</td>
+                      <td align="center">／</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">鵰</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">|</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">|</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" data-i18n="[html]koma_tsuru"><img src="/images/tsuru.png" /><br />鶴（つる）</td>
+                <td align="center">
+                  <table border="1">
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">鶴</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                  </table>
+                </td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="center" data-i18n="[html]koma_kiji"><img src="/images/kizi.png" /><br />雉（きじ）</td>
+                <td align="center">
+                  <table border="1">
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">☆</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">雉</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                  </table>
+                </td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="center" data-i18n="[html]koma_left_uzura"><img src="/images/luzura.png" /><br />|鶉（ひだりうずら）</td>
+                <td align="center">
+                  <table border="1">
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">|︎</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">|</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">鶉</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">＼</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td>＼</td>
+                    </tr>
+                  </table>
+                </td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="center" data-i18n="[html]koma_right_uzura"><img src="/images/ruzura.png" /><br />鶉|（みぎうずら）</td>
+                <td align="center">
+                  <table border="1">
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">|︎</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">|</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">鶉</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">／</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">／</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                  </table>
+                </td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="center" data-i18n="[html]koma_tsubame"><img src="/images/tsubame.png" /><br />燕（つばめ）</td>
+                <td align="center">
+                  <table border="1">
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;︎</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">燕</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                  </table>
+                </td>
+                <td align="center" data-i18n="[html]koma_kari"><img src="/images/kari.png" /><br />雁（かり）</td>
+                <td align="center">
+                  <table border="1">
+                    <tr>
+                      <td align="center">☆︎</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;︎</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">☆︎</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">雁</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">☆︎</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+
+<p>　※<ruby>鶉<rt>うずら</rt></ruby>の駒の実物は駒の裏に「左」「右」の文字が書かれていて左右を区別するそうですが、アプリでは<ruby>鶉<rt>うずら</rt></ruby>の駒の左下、右下に切欠を入れて区別してます。</p>
+
+<h3 id="初期配置">初期配置</h3>
+<div style="width:320px; margin: 0 auto;">
+  <p><img src="/images/torishogi_standard.png" alt="禽将棋初期配置" title="禽将棋初期配置" /></p>
+</div>
+
+<h3 id="ａｉレベル">ＡＩレベル</h3>
+<div style="width:320px; margin: 0 auto;">
+  <p><img src="/images/torishogi_ai.png" alt="禽将棋ＡＩメニュー" title="禽将棋ＡＩメニュー" /></p>
+</div>
+<p>　ＡＩのレベルは３段階で、思考ルーチンは<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>とほとんど同じです。<a href="/project/2018-03-11/55shogiapp">５五将棋アプリの記事</a>も参照してください。</p>
+
+<h3 id="駒の動きガイド">駒の動きガイド</h3>
+<div style="width:320px; margin: 0 auto;">
+  <p><img src="/images/torishogi_guide.png" alt="禽将棋ガイドメニュー" title="禽将棋ガイドメニュー" /></p>
+</div>
+<p>　禽将棋独特の駒の動きに慣れるには時間が掛かると思いますので、駒を選択した時に駒の動かせる位置を表示出来るようにしています。</p>
+<div style="width:320px; margin: 0 auto;">
+  <p><img src="/images/torishogi_guide_ex.png" alt="禽将棋ガイド例" title="禽将棋ガイド例" /></p>
+</div>
+
+<h3 id="棋譜出力">棋譜出力</h3>
+<p>　今後５五将棋で使用されているCSA形式で棋譜出力機能を追加しようと思っています。</p>
+
+<hr />
+
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#project-ref">
+    		project <span>19</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#coffeescript-ref">coffeescript <span>25</span></a></li>
+     
+    	<li><a href="/tags.html#cordova-ref">cordova <span>22</span></a></li>
+     
+    	<li><a href="/tags.html#android-ref">android <span>32</span></a></li>
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>33</span></a></li>
+     
+    	<li><a href="/tags.html#shogi-ref">shogi <span>15</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/software/2019-01-02/torishogi" title="「禽将棋」アプリリリースしました">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled"><a>Next &rarr;</a>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'hello-my-world'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';        
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hello-my-world.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2019 happyclam
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

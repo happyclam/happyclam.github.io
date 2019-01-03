@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "「禽将棋」アプリについて",
+      "category" : "project",
+      "tags"     : "coffeescript, cordova, android, javascript, shogi",
+      "url"      : "https://happyclam.github.io/project/2019-01-03/torishogiapp",
+      "date"     : "2019-01-03 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "「禽将棋」アプリリリースしました",
       "category" : "software",
       "tags"     : "coffeescript, cordova, android, javascript, shogi",
