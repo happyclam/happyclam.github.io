@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-01-03T11:08:17+09:00</lastBuildDate>
-        <pubDate>2019-01-03T11:08:17+09:00</pubDate>
+        <lastBuildDate>2019-01-04T19:31:19+09:00</lastBuildDate>
+        <pubDate>2019-01-04T19:31:19+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -24,7 +24,6 @@
   &lt;li&gt;同一局面（手番も同じ）が４回現れると千日手でゲーム終了としています。&lt;/li&gt;
   &lt;li&gt;現代将棋の打ち歩詰めと同様、打ち燕詰めは出来ません。&lt;/li&gt;
   &lt;li&gt;現代将棋の二歩にあたる二燕は可能ですが、三燕は禁止。&lt;/li&gt;
-  &lt;li&gt;同一局面が４回現れると千日手。&lt;/li&gt;
   &lt;li&gt;行き場の無い駒は打てません（燕を一段目に打つ）&lt;/li&gt;
   &lt;li&gt;王手放置は禁止です。&lt;/li&gt;
 &lt;/ul&gt;
@@ -32,7 +31,7 @@
 &lt;h3 id=&quot;駒の動き&quot;&gt;駒の動き&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;◯はその位置に動ける&lt;/li&gt;
-  &lt;li&gt;☆はその場所まで飛び越えて移動出来る&lt;/li&gt;
+  &lt;li&gt;☆はその場所まで駒を飛び越えて移動出来る&lt;/li&gt;
   &lt;li&gt;｜、ー、／、＼はその方向に何ヶ所でも移動出来るが、駒を飛び越えることは出来ない&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -470,11 +469,9 @@
 
         <item>
                 <title>「禽将棋」アプリリリースしました</title>
-                <description>&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;禽将棋&quot; title=&quot;禽将棋&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;とにかく一度遊んでみたかった&quot;&gt;とにかく一度遊んでみたかった&lt;/h3&gt;
-&lt;p&gt;　Twitterで&lt;ruby&gt;禽将棋&lt;rt&gt;とりしょうぎ&lt;/rt&gt;&lt;/ruby&gt;の存在を知り、是非一度やってみたいと思って早速作ってみました。詳しいルールは&lt;a href=&quot;https://ja.wikipedia.org/wiki/禽将棋&quot;&gt;Wikipedia&lt;/a&gt;を見ていただくとして、通常の将棋との違いについて色々面白い事に気づいたので書いてみます。&lt;br /&gt;
-　アプリの説明用の記事は別途用意しようと思ってます。というか思っていたより面白い発見が多いので禽将棋用のサイトを立ち上げたい気分です&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+                <description>&lt;h3 id=&quot;とにかく一度遊んでみたかった&quot;&gt;とにかく一度遊んでみたかった&lt;/h3&gt;
+&lt;p&gt;　Twitterで&lt;ruby&gt;禽将棋&lt;rt&gt;とりしょうぎ&lt;/rt&gt;&lt;/ruby&gt;の存在を知り、是非一度遊んでみたいと思って早速作ってみました。&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;禽将棋&quot; title=&quot;禽将棋&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
+詳しいルールは&lt;a href=&quot;https://ja.wikipedia.org/wiki/禽将棋&quot;&gt;Wikipedia&lt;/a&gt;を見ていただくとして、通常の将棋との違いについて色々面白い事に気づいたので紹介しようと思います。&lt;/p&gt;
 
 &lt;h3 id=&quot;駒の動きの特徴&quot;&gt;駒の動きの特徴&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;https://ja.wikipedia.org/wiki/禽将棋&quot;&gt;Wikipedia&lt;/a&gt;で駒の動きの一覧表に◯と☆と直線（｜ー＼／）を使って駒の動きを説明しているのを見て、最初☆は不要なんじゃないか？と思いました。例えば&lt;ruby&gt;雉&lt;rt&gt;きじ&lt;/rt&gt;&lt;/ruby&gt;の動きは以下のように書かれています。&lt;/p&gt;
@@ -583,7 +580,7 @@
                   &lt;/table&gt;
 &lt;/div&gt;
 
-&lt;p&gt;　この☆の部分を◯で書いたとしても駒を飛び越えられることは理解出来るのではないでしょうか？間に駒があっても直線では結ばれていないので飛び越えられるんだなと分かります。プログラムで駒の動きを定義する時も直線（何ヶ所でも移動出来る）と◯（場所指定で動く）の二種類の定義しか必要ありませんでした。&lt;br /&gt;
+&lt;p&gt;　この☆の部分を◯で書いたとしても駒を飛び越えられることは理解出来るのではないでしょうか？間に駒があっても直線では結ばれていないので飛び越えられるんだなと理解出来ます。プログラムで駒の動きを定義する時も直線（何ヶ所でも移動出来る）と◯（場所指定で動く）の二種類の定義しか必要ありませんでした。&lt;br /&gt;
 　でも、&lt;ruby&gt;鷹&lt;rt&gt;たか&lt;/rt&gt;&lt;/ruby&gt;の成駒である&lt;ruby&gt;鵰&lt;rt&gt;くまたか&lt;/rt&gt;&lt;/ruby&gt;の動きの説明を見て☆と◯を区別する必要があることに気づきました。&lt;/p&gt;
 
 &lt;div&gt;
@@ -626,7 +623,7 @@
                   &lt;/table&gt;
 &lt;/div&gt;
 
-&lt;p&gt;　&lt;ruby&gt;鵰&lt;rt&gt;くまたか&lt;/rt&gt;&lt;/ruby&gt;は斜め後方に二つだけ動けるのです。斜め後方に二つ動く時は、間に駒があっては駄目なので☆を使っては書けませんし、三つ以上動くことは出来ませんので直線で表すことも出来ません。やはり☆と◯は区別して表現する必要がありそうです。この動きは&lt;strong&gt;移動回数制限付きの直線&lt;/strong&gt;と言い換えることも出来ます。本将棋の駒にはない動きですね。&lt;br /&gt;
+&lt;p&gt;　&lt;ruby&gt;鵰&lt;rt&gt;くまたか&lt;/rt&gt;&lt;/ruby&gt;は斜め後方に二つだけ動けるのです。斜め後方に二つ動く時は、間に駒があっては駄目なので☆を使っては書けませんし、三つ以上動くことは出来ませんので直線で表すことも出来ません。やはり☆と◯は区別して表現する必要がありそうです。この&lt;ruby&gt;鵰&lt;rt&gt;くまたか&lt;/rt&gt;&lt;/ruby&gt;の斜め後方への動きは&lt;strong&gt;移動回数制限付きの直線&lt;/strong&gt;と言い換えることも出来ます。&lt;strong&gt;本将棋の駒にはない動き&lt;/strong&gt;ですね。&lt;br /&gt;
 　この動きがあるために汎用的に作っていた（と思っていた）プログラムを修正する必要がありました。連続移動かそうでないかの２値（Boolean型）で定義していたためです。ソフト開発って作り始めないと気づかないこと多いですね&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;禽将棋の手筋&quot;&gt;禽将棋の手筋&lt;/h3&gt;
@@ -642,6 +639,21 @@
     &lt;p&gt;吊るし雉（吊るし桂）&lt;br /&gt;
 &lt;a href=&quot;/images/tsurushi.png&quot;&gt;&lt;img src=&quot;/images/tsurushi.png&quot; alt=&quot;雉頭の燕&quot; title=&quot;雉頭の燕&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
 　アプリとの対戦で出てきた局面ですが、雉を打って詰みです。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;二燕（二歩）の有効活用&lt;br /&gt;
+&lt;a href=&quot;/images/kizi_ashi.gif&quot;&gt;&lt;img src=&quot;/images/kizi_ashi.gif&quot; alt=&quot;二燕の有効活用&quot; title=&quot;二燕の有効活用&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
+　燕を突き捨ててその裏に打ってさらに二燕で鶴を捕獲&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;鶉の二段ロケット&lt;br /&gt;
+&lt;a href=&quot;/images/2maiuzura.gif&quot;&gt;&lt;img src=&quot;/images/2maiuzura.gif&quot; alt=&quot;鶉の二段ロケット&quot; title=&quot;鶉の二段ロケット&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
+　燕が雁に成っても雁が後ろにしか進めません。本将棋のと金と違って鶉の前にあっても邪魔になるだけのようです。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;鶉の串刺し&lt;br /&gt;
+&lt;a href=&quot;/images/kusizasi.gif&quot;&gt;&lt;img src=&quot;/images/kusizasi.gif&quot; alt=&quot;鶉の串刺し&quot; title=&quot;鶉の串刺し&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
+　雉の利きを利用して鶴を打って鷹を取ろうとしましたが、鶉が自鵬（自玉）を睨んでいて鷹を取り返すことが出来ません（王手放置、自殺手）。&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
