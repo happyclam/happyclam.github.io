@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-01-04T19:31:19+09:00</lastBuildDate>
-        <pubDate>2019-01-04T19:31:19+09:00</pubDate>
+        <lastBuildDate>2019-01-05T07:45:34+09:00</lastBuildDate>
+        <pubDate>2019-01-05T07:45:34+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -471,7 +471,8 @@
                 <title>「禽将棋」アプリリリースしました</title>
                 <description>&lt;h3 id=&quot;とにかく一度遊んでみたかった&quot;&gt;とにかく一度遊んでみたかった&lt;/h3&gt;
 &lt;p&gt;　Twitterで&lt;ruby&gt;禽将棋&lt;rt&gt;とりしょうぎ&lt;/rt&gt;&lt;/ruby&gt;の存在を知り、是非一度遊んでみたいと思って早速作ってみました。&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;禽将棋&quot; title=&quot;禽将棋&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
-詳しいルールは&lt;a href=&quot;https://ja.wikipedia.org/wiki/禽将棋&quot;&gt;Wikipedia&lt;/a&gt;を見ていただくとして、通常の将棋との違いについて色々面白い事に気づいたので紹介しようと思います。&lt;/p&gt;
+詳しいルールは&lt;a href=&quot;https://ja.wikipedia.org/wiki/禽将棋&quot;&gt;Wikipedia&lt;/a&gt;を見ていただくとして、通常の将棋との違いについて色々面白い事に気づいたので紹介しようと思います。&lt;br /&gt;
+　アプリの説明用の記事は別途用意しようと思ってます。&lt;/p&gt;
 
 &lt;h3 id=&quot;駒の動きの特徴&quot;&gt;駒の動きの特徴&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;https://ja.wikipedia.org/wiki/禽将棋&quot;&gt;Wikipedia&lt;/a&gt;で駒の動きの一覧表に◯と☆と直線（｜ー＼／）を使って駒の動きを説明しているのを見て、最初☆は不要なんじゃないか？と思いました。例えば&lt;ruby&gt;雉&lt;rt&gt;きじ&lt;/rt&gt;&lt;/ruby&gt;の動きは以下のように書かれています。&lt;/p&gt;
