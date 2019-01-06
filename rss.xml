@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-01-05T09:18:00+09:00</lastBuildDate>
-        <pubDate>2019-01-05T09:18:00+09:00</pubDate>
+        <lastBuildDate>2019-01-06T09:31:58+09:00</lastBuildDate>
+        <pubDate>2019-01-06T09:31:58+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -36,7 +36,7 @@
 &lt;/ul&gt;
 
 &lt;div&gt;
-          &lt;table style=&quot;border-collapse:collapse;&quot; border=&quot;1&quot; align=&quot;center&quot;&gt;
+          &lt;table style=&quot;border-collapse:collapse;width: 80%; table-layout: auto; word-break: break-all; wordwrap: break-word&quot; border=&quot;1&quot; align=&quot;center&quot;&gt;
             &lt;thead&gt;
               &lt;tr&gt;
                 &lt;th data-i18n=&quot;koma_front&quot;&gt;表&lt;/th&gt;
@@ -457,7 +457,7 @@
 &lt;/div&gt;
 
 &lt;h3 id=&quot;棋譜出力&quot;&gt;棋譜出力&lt;/h3&gt;
-&lt;p&gt;　今後５五将棋で使用されているCSA形式で棋譜出力機能を追加しようと思っています。&lt;/p&gt;
+&lt;p&gt;　今後５五将棋で使用されている&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式&lt;/a&gt;で棋譜出力機能を追加しようと思っています。&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式&lt;/a&gt;は他の棋譜ファイル形式よりは変則的な将棋（駒落ち、５五将棋等）にもある程度対応できる規約になっているようですが、本将棋で使用する駒が前提になっていて&lt;ruby&gt;禽&lt;rt&gt;とり&lt;/rt&gt;将棋&lt;/ruby&gt;の駒を表現する方法は決まってないようです。そのため結局は独自形式の棋譜になりそうですが、駒の表現方法以外は&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式&lt;/a&gt;のルールに従った形にするのがいいかなぁと思ってます。&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -655,6 +655,11 @@
     &lt;p&gt;鶉の串刺し&lt;br /&gt;
 &lt;a href=&quot;/images/kusizasi.gif&quot;&gt;&lt;img src=&quot;/images/kusizasi.gif&quot; alt=&quot;鶉の串刺し&quot; title=&quot;鶉の串刺し&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
 　雉の利きを利用して鶴を打って鷹を取ろうとしましたが、鶉が自鵬（自玉）を睨んでいて鷹を取り返すことが出来ません（王手放置、自殺手）。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;鷹は尻から狙う&lt;br /&gt;
+&lt;a href=&quot;/images/catch_taka.gif&quot;&gt;&lt;img src=&quot;/images/catch_taka.gif&quot; alt=&quot;鷹の弱点&quot; title=&quot;鷹の弱点&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
+　鷹の弱点は後ろ。禽将棋では鷹を持ち駒にして敵陣に打って鵰にすると優勢になると思います。チェスのクイーン並みに強力な駒？チェスに詳しいわけではありませんが&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
