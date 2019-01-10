@@ -661,7 +661,62 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="棋譜出力">棋譜出力</h3>
-<p>　今後５五将棋で使用されている<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式</a>で棋譜出力機能を追加しようと思っています。<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式</a>は他の棋譜ファイル形式よりは変則的な将棋（駒落ち、５五将棋等）にもある程度対応できる規約になっているようですが、本将棋で使用する駒が前提になっていて<ruby>禽<rt>とり</rt>将棋</ruby>の駒を表現する方法は決まってないようです。そのため結局は独自形式の棋譜になりそうですが、駒の表現方法以外は<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式</a>のルールに従った形にするのがいいかなぁと思ってます。</p>
+<p>　今後５五将棋で使用されている<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式</a>で棋譜出力機能を追加しようと思っています。<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式</a>は他の棋譜ファイル形式よりは変則的な将棋（駒落ち、５五将棋等）にもある程度対応できる規約になっているようですが、本将棋で使用する駒が前提になっていて<ruby>禽<rt>とり</rt>将棋</ruby>の駒を表現する方法は決まってないようです。そのため結局は独自形式の棋譜になりそうですが、駒の表現方法以外は<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式</a>のルールに従った形にしようと思ってます。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">駒の種類</th>
+      <th style="text-align: center">表略号　</th>
+      <th style="text-align: center">駒の種類</th>
+      <th style="text-align: center">裏略号</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">鵬</td>
+      <td style="text-align: center">OO</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">鷹</td>
+      <td style="text-align: center">TK</td>
+      <td style="text-align: center">鵰</td>
+      <td style="text-align: center">KT</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">鶴</td>
+      <td style="text-align: center">TR</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">雉</td>
+      <td style="text-align: center">KZ</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">左鶉</td>
+      <td style="text-align: center">LU</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">右鶉</td>
+      <td style="text-align: center">RU</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">燕</td>
+      <td style="text-align: center">TB</td>
+      <td style="text-align: center">雁</td>
+      <td style="text-align: center">KR</td>
+    </tr>
+  </tbody>
+</table>
 
 <hr />
 

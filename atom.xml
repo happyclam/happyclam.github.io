@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-01-06T09:31:58+09:00</updated>
+ <updated>2019-01-10T20:23:33+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -462,7 +462,62 @@
 &lt;/div&gt;
 
 &lt;h3 id=&quot;棋譜出力&quot;&gt;棋譜出力&lt;/h3&gt;
-&lt;p&gt;　今後５五将棋で使用されている&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式&lt;/a&gt;で棋譜出力機能を追加しようと思っています。&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式&lt;/a&gt;は他の棋譜ファイル形式よりは変則的な将棋（駒落ち、５五将棋等）にもある程度対応できる規約になっているようですが、本将棋で使用する駒が前提になっていて&lt;ruby&gt;禽&lt;rt&gt;とり&lt;/rt&gt;将棋&lt;/ruby&gt;の駒を表現する方法は決まってないようです。そのため結局は独自形式の棋譜になりそうですが、駒の表現方法以外は&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式&lt;/a&gt;のルールに従った形にするのがいいかなぁと思ってます。&lt;/p&gt;
+&lt;p&gt;　今後５五将棋で使用されている&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式&lt;/a&gt;で棋譜出力機能を追加しようと思っています。&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式&lt;/a&gt;は他の棋譜ファイル形式よりは変則的な将棋（駒落ち、５五将棋等）にもある程度対応できる規約になっているようですが、本将棋で使用する駒が前提になっていて&lt;ruby&gt;禽&lt;rt&gt;とり&lt;/rt&gt;将棋&lt;/ruby&gt;の駒を表現する方法は決まってないようです。そのため結局は独自形式の棋譜になりそうですが、駒の表現方法以外は&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式&lt;/a&gt;のルールに従った形にしようと思ってます。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;駒の種類&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;表略号　&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;駒の種類&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;裏略号&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;鵬&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;OO&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;鷹&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TK&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;鵰&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;KT&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;鶴&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TR&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;雉&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;KZ&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;左鶉&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;LU&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;右鶉&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;RU&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;燕&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TB&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;雁&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;KR&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;hr /&gt;
 
@@ -1705,6 +1760,56 @@ Second Win
 
 &lt;h3 id=&quot;二ヶ国語対応&quot;&gt;二ヶ国語対応&lt;/h3&gt;
 &lt;p&gt;　Version1.0.1.0から二ヶ国語対応しました。Androidの言語設定で日本語以外を選ぶとアプリで使用するメッセージが全て英語表現になります。&lt;/p&gt;
+
+&lt;h3 id=&quot;クリップボードを使った棋譜出力&quot;&gt;クリップボードを使った棋譜出力&lt;/h3&gt;
+&lt;p&gt;　Version1.0.2.0から&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式(*.csa)&lt;/a&gt;での棋譜出力が出来るようになりました。&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/55shogi_kifu_output.png&quot; alt=&quot;棋譜出力画面&quot; title=&quot;棋譜出力画面&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　左上のチェックマークアイコンをタップすると共有画面（インテント）が表示されるので、クリップボードを選べばテキストファイルを扱えるアプリに棋譜データを貼り付けて保存出来ます。&lt;br /&gt;
+　&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式&lt;/a&gt;の棋譜はヘッダ部分に駒の初期配置を定義出来る（駒落ち将棋にも対応している）ので、駒の初期配置パターンを選択出来るこのアプリに都合がいいと思ったので採用しました。但し&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式&lt;/a&gt;の規約を全て網羅しているわけではなく、必要最小限の部分だけ実装しています。&lt;code&gt;T&lt;/code&gt;で始まる指し手の消費時間や&lt;code&gt;$&lt;/code&gt;で始まる棋譜情報は出力されません。以下が出力される棋譜の一例です。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam 
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  * 
+P4+FU *  *  *  * 
+P5+OU+KI+GI+KA+HI
++
++4544KI
+-4132KA
++5453FU
+-2122KI
++2534KA
+-5141HI
++3524GI
+-1213FU
++2413GI
+-2213KI
++1513HI
+-0012GI
++1312HI
+-1121OU
++0011KI
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;クリップボードを使った棋譜読み込み&quot;&gt;クリップボードを使った棋譜読み込み&lt;/h3&gt;
+&lt;p&gt;　Version1.0.2.4から&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式(*.csa)&lt;/a&gt;の棋譜入力が出来るようになりました。&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/55shogi_kifu_input1.png&quot; alt=&quot;棋譜入力画面１&quot; title=&quot;棋譜入力画面１&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　テキストボックスに棋譜テキストデータを貼り付けて読み込みボタンをタップすれば、棋譜を読み込みます。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;このアプリ&lt;/a&gt;自身が出力した棋譜データは読めますが、他のソフトから出力された棋譜データは読み込みに失敗するかもしれません。エラーが発生した場合はその行数を表示しますので、データを編集して試してください。&lt;br /&gt;
+　※たとえ&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式(*.csa)&lt;/a&gt;の棋譜であっても本将棋（９×９）の棋譜は読めません、５五将棋専用です。&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/55shogi_kifu_input2.png&quot; alt=&quot;棋譜入力画面２&quot; title=&quot;棋譜入力画面２&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　棋譜を読み込んだ後は通常の対局通り、対局者を変更したり局面を戻して途中から指し継いだり出来ます。&lt;/p&gt;
 
 &lt;hr /&gt;
 
