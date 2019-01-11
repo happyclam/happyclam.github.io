@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-01-10T20:23:33+09:00</updated>
+ <updated>2019-01-12T07:26:16+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -439,7 +439,7 @@
           &lt;/table&gt;
 &lt;/div&gt;
 
-&lt;p&gt;　※&lt;ruby&gt;鶉&lt;rt&gt;うずら&lt;/rt&gt;&lt;/ruby&gt;の駒の実物は駒の裏に「左」「右」の文字が書かれていて左右を区別するそうですが、アプリでは&lt;ruby&gt;鶉&lt;rt&gt;うずら&lt;/rt&gt;&lt;/ruby&gt;の駒の左下、右下に切欠を入れて区別してます。&lt;/p&gt;
+&lt;p&gt;　※&lt;ruby&gt;鶉&lt;rt&gt;うずら&lt;/rt&gt;&lt;/ruby&gt;の駒の実物は駒の裏に「左」「右」の文字が書かれていて左右を区別するそうです&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;が、アプリでは&lt;ruby&gt;鶉&lt;rt&gt;うずら&lt;/rt&gt;&lt;/ruby&gt;の駒の左下、右下に切欠を入れて区別してます。&lt;/p&gt;
 
 &lt;h3 id=&quot;初期配置&quot;&gt;初期配置&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
@@ -521,6 +521,13 @@
 
 &lt;hr /&gt;
 
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;裏に書かれているだけだと対局するときに分かりにくいので、人間同士の実際の対局時は「左」「右」と書かれている面を表に向けて対局するようです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
 </content>
  </entry>
  
