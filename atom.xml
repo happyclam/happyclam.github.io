@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-01-13T22:15:15+09:00</updated>
+ <updated>2019-01-14T07:31:23+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -1812,6 +1812,7 @@ P5+OU+KI+GI+KA+HI
 &lt;/div&gt;
 
 &lt;p&gt;　テキストボックスに棋譜テキストデータを貼り付けて読み込みボタンをタップすれば、棋譜を読み込みます。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;このアプリ&lt;/a&gt;自身が出力した棋譜データは読めますが、他のソフトから出力された棋譜データは読み込みに失敗するかもしれません。エラーが発生した場合はその行数を表示しますので、データを編集して試してください。&lt;br /&gt;
+　※カンマ区切りのマルチステートメントには対応していません。&lt;br /&gt;
 　※たとえ&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式(*.csa)&lt;/a&gt;の棋譜であっても本将棋（９×９）の棋譜は読めません、５五将棋専用です。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/images/55shogi_kifu_input2.png&quot; alt=&quot;棋譜入力画面２&quot; title=&quot;棋譜入力画面２&quot; /&gt;&lt;/p&gt;
