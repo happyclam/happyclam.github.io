@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-01-13T09:23:54+09:00</lastBuildDate>
-        <pubDate>2019-01-13T09:23:54+09:00</pubDate>
+        <lastBuildDate>2019-01-13T22:15:15+09:00</lastBuildDate>
+        <pubDate>2019-01-13T22:15:15+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -1813,6 +1813,29 @@ P5+OU+KI+GI+KA+HI
 &lt;/div&gt;
 
 &lt;p&gt;　棋譜を読み込んだ後は通常の対局通り、対局者を変更したり局面を戻して途中から指し継いだり出来ます。&lt;/p&gt;
+
+&lt;h3 id=&quot;csa形式の初期配置定義を利用する&quot;&gt;CSA形式の初期配置定義を利用する&lt;/h3&gt;
+&lt;p&gt;　CSA形式の棋譜読み込みが出来るということは初期配置を自由に定義出来るということです。試しに以下のような上下左右の隅に飛車を配置した棋譜（飛車が４枚）を読み込ませてみました。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'
+V2.2
+N+AI
+N-AI
+P1-HI-KI-OU-GI-HI
+P2-FU *  *  *  *
+P3 *  *  *  *  *
+P4 *  *  *  * +FU
+P5+HI+GI+OU+KI+HI
++
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/55shogi_illegal_demo.png&quot; alt=&quot;独自定義初期盤面&quot; title=&quot;独自定義初期盤面&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　飛車４枚の盤面がちゃんと表示されました。ここで「再開」ボタンをタップすると通常通りゲームを開始できます。&lt;br /&gt;
+　誤って「新規対局」ボタンをタップすると読み込んだ棋譜ではなく、現在「初期配置」メニューで選ばれている初期配置から新規対局が始まってしまうので気をつけてください。&lt;br /&gt;
+　また、棋譜の例の最後に&lt;code&gt;+&lt;/code&gt;記号がありますが、この&lt;code&gt;+&lt;/code&gt;がないと初期配置盤面が棋譜に残らないので必要です。&lt;/p&gt;
 
 &lt;hr /&gt;
 

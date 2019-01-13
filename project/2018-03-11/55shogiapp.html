@@ -300,6 +300,29 @@ P5+OU+KI+GI+KA+HI
 
 <p>　棋譜を読み込んだ後は通常の対局通り、対局者を変更したり局面を戻して途中から指し継いだり出来ます。</p>
 
+<h3 id="csa形式の初期配置定義を利用する">CSA形式の初期配置定義を利用する</h3>
+<p>　CSA形式の棋譜読み込みが出来るということは初期配置を自由に定義出来るということです。試しに以下のような上下左右の隅に飛車を配置した棋譜（飛車が４枚）を読み込ませてみました。</p>
+<pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'
+V2.2
+N+AI
+N-AI
+P1-HI-KI-OU-GI-HI
+P2-FU *  *  *  *
+P3 *  *  *  *  *
+P4 *  *  *  * +FU
+P5+HI+GI+OU+KI+HI
++
+</code></pre>
+
+<div style="width:320px; margin: 0 auto;">
+  <p><img src="/images/55shogi_illegal_demo.png" alt="独自定義初期盤面" title="独自定義初期盤面" /></p>
+</div>
+
+<p>　飛車４枚の盤面がちゃんと表示されました。ここで「再開」ボタンをタップすると通常通りゲームを開始できます。<br />
+　誤って「新規対局」ボタンをタップすると読み込んだ棋譜ではなく、現在「初期配置」メニューで選ばれている初期配置から新規対局が始まってしまうので気をつけてください。<br />
+　また、棋譜の例の最後に<code>+</code>記号がありますが、この<code>+</code>がないと初期配置盤面が棋譜に残らないので必要です。</p>
+
 <hr />
 
 <div class="footnotes">
