@@ -268,7 +268,7 @@ P2 *  *  *  * -FU
 P3 *  *  *  *  * 
 P4+FU *  *  *  * 
 P5+OU+KI+GI+KA+HI
-+
+-
 +4544KI
 -4132KA
 +5453FU
@@ -321,8 +321,57 @@ P5+HI+GI+OU+KI+HI
 </div>
 
 <p>　飛車４枚の盤面がちゃんと表示されました。ここで「再開」ボタンをタップすると通常通りゲームを開始できます。<br />
-　誤って「新規対局」ボタンをタップすると読み込んだ棋譜ではなく、現在「初期配置」メニューで選ばれている初期配置から新規対局が始まってしまうので気をつけてください。<br />
-　また、棋譜の例の最後に<code>+</code>記号がありますが、この<code>+</code>がないと初期配置盤面が棋譜に残らないので必要です。</p>
+　誤って「新規対局」ボタンをタップすると読み込んだ棋譜ではなく、現在「初期配置」メニューで選ばれている初期配置から新規対局が始まってしまうので気をつけてください。</p>
+
+<h3 id="読み込みエラーの意味">読み込みエラーの意味</h3>
+<p>　独自に編集した棋譜ファイルや他のソフトから出力したファイルを読み込む場合はエラーになる可能性があります。以下の表を参考に棋譜ファイルを編集して再度読み込みを試してみてください。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">エラー番号</th>
+      <th style="text-align: left">エラーの意味、可能性のある原因</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">01</td>
+      <td style="text-align: left">盤面データの一行が長すぎるか短すぎます。駒のない場所はスペース＋アスタリスク＋スペース（<code> * </code>）の３バイトです。<br />盤面データは一行ずつ改行する必要があります。</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">02</td>
+      <td style="text-align: left">盤面データのアルファベット２文字の駒の略号が間違えている可能性があります。</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">03</td>
+      <td style="text-align: left">持ち駒データのアルファベット２文字の駒の略号が間違えている可能性があります。</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">04</td>
+      <td style="text-align: left">盤面データの先頭<code>P</code>の文字の次は、数値か<code>+</code>か<code>-</code>です。</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">05</td>
+      <td style="text-align: left">指し手データの持ち駒を打つ時の記述が間違えている可能性があります。<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">06</td>
+      <td style="text-align: left">指し手データの指し手に誤りがあります。飛車（HI）が成っていないのに斜め後ろに移動している等</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">07</td>
+      <td style="text-align: left"><code>P</code>、<code>+</code>、<code>-</code>、<code>'</code>、<code>V</code>、<code>T</code>、<code>%</code>、<code>N</code>、<code>$</code>以外の文字が行の先頭にあります。<br /> ちなみに<code>P</code>、<code>+</code>、<code>-</code>以外の文字は読み飛ばして無視しています。</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">08</td>
+      <td style="text-align: left">指し手データのアルファベット２文字の駒の略号が間違えています。</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">09</td>
+      <td style="text-align: left">手番データ（<code>+</code>か<code>-</code>）は盤面データが記述された後に書かれている必要があります。</td>
+    </tr>
+  </tbody>
+</table>
 
 <hr />
 
@@ -336,6 +385,9 @@ P5+HI+GI+OU+KI+HI
     </li>
     <li id="fn:3">
       <p>千日手になって当然に見えると言ってもその局面を迎える前にもっといい手（最善手）を逃していると思われるケースが多いのですが、同一局面の繰り返しが始まってからでは時すでに遅しとなっていて千日手を避けられなくなっているという意味です。この辺りの事情はＡＩの出来の悪さなので仕方がありません。３三将棋の場合は無理に千日手を避けると致命的な悪手になるので敢えてそのままにしています。 <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+      <p><a href="http://minerva.cs.uec.ac.jp/~uec55shogi/wiki.cgi?page=GPW%C7%D5%A5%B3%A5%F3%A5%D4%A5%E5%A1%BC%A5%BF%A3%B5%B8%DE%BE%AD%B4%FD%C2%E7%B2%F12018">５五将棋大会の棋譜</a>を読み込んでテストしていたら、成りを不成で出力していると思われる棋譜も混じっていました。 <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>

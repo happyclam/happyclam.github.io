@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-01-16T12:45:41+09:00</updated>
+ <updated>2019-01-19T19:01:38+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -1789,7 +1789,7 @@ P2 *  *  *  * -FU
 P3 *  *  *  *  * 
 P4+FU *  *  *  * 
 P5+OU+KI+GI+KA+HI
-+
+-
 +4544KI
 -4132KA
 +5453FU
@@ -1842,8 +1842,57 @@ P5+HI+GI+OU+KI+HI
 &lt;/div&gt;
 
 &lt;p&gt;　飛車４枚の盤面がちゃんと表示されました。ここで「再開」ボタンをタップすると通常通りゲームを開始できます。&lt;br /&gt;
-　誤って「新規対局」ボタンをタップすると読み込んだ棋譜ではなく、現在「初期配置」メニューで選ばれている初期配置から新規対局が始まってしまうので気をつけてください。&lt;br /&gt;
-　また、棋譜の例の最後に&lt;code&gt;+&lt;/code&gt;記号がありますが、この&lt;code&gt;+&lt;/code&gt;がないと初期配置盤面が棋譜に残らないので必要です。&lt;/p&gt;
+　誤って「新規対局」ボタンをタップすると読み込んだ棋譜ではなく、現在「初期配置」メニューで選ばれている初期配置から新規対局が始まってしまうので気をつけてください。&lt;/p&gt;
+
+&lt;h3 id=&quot;読み込みエラーの意味&quot;&gt;読み込みエラーの意味&lt;/h3&gt;
+&lt;p&gt;　独自に編集した棋譜ファイルや他のソフトから出力したファイルを読み込む場合はエラーになる可能性があります。以下の表を参考に棋譜ファイルを編集して再度読み込みを試してみてください。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;エラー番号&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;エラーの意味、可能性のある原因&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;01&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;盤面データの一行が長すぎるか短すぎます。駒のない場所はスペース＋アスタリスク＋スペース（&lt;code&gt; * &lt;/code&gt;）の３バイトです。&lt;br /&gt;盤面データは一行ずつ改行する必要があります。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;02&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;盤面データのアルファベット２文字の駒の略号が間違えている可能性があります。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;03&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;持ち駒データのアルファベット２文字の駒の略号が間違えている可能性があります。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;04&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;盤面データの先頭&lt;code&gt;P&lt;/code&gt;の文字の次は、数値か&lt;code&gt;+&lt;/code&gt;か&lt;code&gt;-&lt;/code&gt;です。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;05&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;指し手データの持ち駒を打つ時の記述が間違えている可能性があります。&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;06&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;指し手データの指し手に誤りがあります。飛車（HI）が成っていないのに斜め後ろに移動している等&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;07&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code&gt;P&lt;/code&gt;、&lt;code&gt;+&lt;/code&gt;、&lt;code&gt;-&lt;/code&gt;、&lt;code&gt;'&lt;/code&gt;、&lt;code&gt;V&lt;/code&gt;、&lt;code&gt;T&lt;/code&gt;、&lt;code&gt;%&lt;/code&gt;、&lt;code&gt;N&lt;/code&gt;、&lt;code&gt;$&lt;/code&gt;以外の文字が行の先頭にあります。&lt;br /&gt; ちなみに&lt;code&gt;P&lt;/code&gt;、&lt;code&gt;+&lt;/code&gt;、&lt;code&gt;-&lt;/code&gt;以外の文字は読み飛ばして無視しています。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;08&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;指し手データのアルファベット２文字の駒の略号が間違えています。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;09&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;手番データ（&lt;code&gt;+&lt;/code&gt;か&lt;code&gt;-&lt;/code&gt;）は盤面データが記述された後に書かれている必要があります。&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;hr /&gt;
 
@@ -1857,6 +1906,9 @@ P5+HI+GI+OU+KI+HI
     &lt;/li&gt;
     &lt;li id=&quot;fn:3&quot;&gt;
       &lt;p&gt;千日手になって当然に見えると言ってもその局面を迎える前にもっといい手（最善手）を逃していると思われるケースが多いのですが、同一局面の繰り返しが始まってからでは時すでに遅しとなっていて千日手を避けられなくなっているという意味です。この辺りの事情はＡＩの出来の悪さなので仕方がありません。３三将棋の場合は無理に千日手を避けると致命的な悪手になるので敢えてそのままにしています。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;http://minerva.cs.uec.ac.jp/~uec55shogi/wiki.cgi?page=GPW%C7%D5%A5%B3%A5%F3%A5%D4%A5%E5%A1%BC%A5%BF%A3%B5%B8%DE%BE%AD%B4%FD%C2%E7%B2%F12018&quot;&gt;５五将棋大会の棋譜&lt;/a&gt;を読み込んでテストしていたら、成りを不成で出力していると思われる棋譜も混じっていました。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
@@ -2013,66 +2065,6 @@ P5+HI+GI+OU+KI+HI
   &lt;li&gt;行き場の無い駒は打てません（桂馬を二段目に打ったり、先手が歩を一段目に打ったり）&lt;/li&gt;
   &lt;li&gt;王手放置は出来ません（王の自殺手も不可）&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h3 id=&quot;駒の動き&quot;&gt;駒の動き&lt;/h3&gt;
-
-&lt;div&gt;
-&lt;div style=&quot;display: inline-block; width:15px; height: 15px; background: red;&quot;&gt;&lt;/div&gt;&lt;span&gt;一マス移動&lt;/span&gt;
-&lt;span&gt;&amp;nbsp;&lt;/span&gt;
-&lt;div style=&quot;display: inline-block; width:15px; height: 15px; background: blue;&quot;&gt;&lt;/div&gt;&lt;span&gt;連続移動&lt;/span&gt;
-&lt;/div&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;駒の種類&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;表　&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;　裏（成り駒） Promoted&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;玉（王） King&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/move_ou.png&quot; alt=&quot;玉&quot; title=&quot;玉&quot; /&gt; gyoku(ou)&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;飛　     Rook&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/move_hi.png&quot; alt=&quot;飛&quot; title=&quot;飛&quot; /&gt; hi&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/move_ry.png&quot; alt=&quot;竜&quot; title=&quot;竜&quot; /&gt;  ryu&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;角　     Bishop&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/move_ka.png&quot; alt=&quot;角&quot; title=&quot;角&quot; /&gt; kaku&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/move_um.png&quot; alt=&quot;馬&quot; title=&quot;馬&quot; /&gt; uma&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;金　     Gold&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/move_ki.png&quot; alt=&quot;金&quot; title=&quot;金&quot; /&gt; kin&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;銀　     Silver&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/move_gi.png&quot; alt=&quot;銀&quot; title=&quot;銀&quot; /&gt; gin&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/move_ng.png&quot; alt=&quot;飛&quot; title=&quot;成銀&quot; /&gt; nari-gin&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;桂　     Knight&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/move_ke.png&quot; alt=&quot;桂&quot; title=&quot;桂&quot; /&gt; kei&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/move_nk.png&quot; alt=&quot;飛&quot; title=&quot;成桂&quot; /&gt; nari-kei&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;香　     Lance&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/move_ky.png&quot; alt=&quot;香&quot; title=&quot;香&quot; /&gt; kyo&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/move_ny.png&quot; alt=&quot;飛&quot; title=&quot;成香&quot; /&gt; nari-kyo&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;歩　     Pawn&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/move_fu.png&quot; alt=&quot;歩&quot; title=&quot;歩&quot; /&gt; fu&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/move_to.png&quot; alt=&quot;飛&quot; title=&quot;と&quot; /&gt; tokin&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
 
 &lt;h3 id=&quot;対局画面&quot;&gt;対局画面&lt;/h3&gt;
 
@@ -2251,9 +2243,783 @@ P5+HI+GI+OU+KI+HI
   &lt;p&gt;&lt;img src=&quot;/images/menu_search2.png&quot; alt=&quot;Menu - 初期配置検索結果&quot; title=&quot;Menu - 初期配置検索結果&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
+&lt;ul&gt;
+  &lt;li&gt;駒の動きガイド&lt;br /&gt;
+　駒の動ける場所と、棋譜の入出力に使用する「駒の略号」を一覧表にしました。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div&gt;
+          &lt;table style=&quot;border-collapse:collapse;width: 80%; table-layout: auto; word-break: break-all; wordwrap: break-word&quot; border=&quot;1&quot; align=&quot;center&quot;&gt;
+            &lt;thead&gt;
+              &lt;tr&gt;
+                &lt;th data-i18n=&quot;[html]koma_front&quot;&gt;表&lt;br /&gt;略号&lt;/th&gt;
+                &lt;th data-i18n=&quot;koma_front_moves&quot;&gt;動き&lt;/th&gt;
+                &lt;th data-i18n=&quot;koma_back&quot;&gt;裏（成駒）&lt;/th&gt;
+                &lt;th data-i18n=&quot;koma_back_moves&quot;&gt;動き&lt;/th&gt;
+              &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+              &lt;tr&gt;
+                &lt;td align=&quot;center&quot; data-i18n=&quot;[html]koma_gyoku&quot;&gt;&lt;img src=&quot;/images/ou.png&quot; /&gt;&lt;br /&gt;OU&lt;/td&gt;
+                &lt;td&gt;
+                  &lt;table border=&quot;1&quot;&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;玉&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/table&gt;
+                &lt;/td&gt;
+                &lt;td align=&quot;center&quot;&gt;-&lt;/td&gt;
+                &lt;td align=&quot;center&quot;&gt;-&lt;/td&gt;
+              &lt;/tr&gt;
+              &lt;tr&gt;
+                &lt;td align=&quot;center&quot; data-i18n=&quot;[html]koma_hisya&quot;&gt;&lt;img src=&quot;/images/hi.png&quot; /&gt;&lt;br /&gt;HI&lt;/td&gt;
+                &lt;td align=&quot;center&quot;&gt;
+                  &lt;table border=&quot;1&quot;&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;｜︎&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;｜&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;ー&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;ー&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;飛&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;ー&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;ー&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;｜&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;｜&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/table&gt;
+                &lt;/td&gt;
+                &lt;td align=&quot;center&quot; data-i18n=&quot;[html]koma_ryu&quot;&gt;&lt;img src=&quot;/images/ry.png&quot; /&gt;&lt;br /&gt;RY&lt;/td&gt;
+                &lt;td align=&quot;center&quot;&gt;
+                  &lt;table border=&quot;1&quot;&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;｜&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;｜&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;ー&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;ー&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;竜&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;ー&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;ー&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;|&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;|&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/table&gt;
+                &lt;/td&gt;
+              &lt;/tr&gt;
+              &lt;tr&gt;
+                &lt;td align=&quot;center&quot; data-i18n=&quot;[html]koma_kaku&quot;&gt;&lt;img src=&quot;/images/ka.png&quot; /&gt;&lt;br /&gt;KA&lt;/td&gt;
+                &lt;td align=&quot;center&quot;&gt;
+                  &lt;table border=&quot;1&quot;&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;＼&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;／&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;＼&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;／&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;角&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;／&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;＼&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;／&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;＼&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/table&gt;
+                &lt;/td&gt;
+                &lt;td align=&quot;center&quot; data-i18n=&quot;[html]koma_uma&quot;&gt;&lt;img src=&quot;/images/um.png&quot; /&gt;&lt;br /&gt;UM&lt;/td&gt;
+                &lt;td align=&quot;center&quot;&gt;
+                  &lt;table border=&quot;1&quot;&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;＼&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;／&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;＼&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;／&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;馬&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;／&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;＼&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;／&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;＼&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/table&gt;
+                &lt;/td&gt;
+              &lt;/tr&gt;
+              &lt;tr&gt;
+                &lt;td align=&quot;center&quot; data-i18n=&quot;[html]koma_kin&quot;&gt;&lt;img src=&quot;/images/ki.png&quot; /&gt;&lt;br /&gt;KI&lt;/td&gt;
+                &lt;td align=&quot;center&quot;&gt;
+                  &lt;table border=&quot;1&quot;&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;金&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/table&gt;
+                &lt;/td&gt;
+                &lt;td align=&quot;center&quot;&gt;-&lt;/td&gt;
+                &lt;td align=&quot;center&quot;&gt;-&lt;/td&gt;
+              &lt;/tr&gt;
+              &lt;tr&gt;
+                &lt;td align=&quot;center&quot; data-i18n=&quot;[html]koma_gin&quot;&gt;&lt;img src=&quot;/images/gi.png&quot; /&gt;&lt;br /&gt;GI&lt;/td&gt;
+                &lt;td align=&quot;center&quot;&gt;
+                  &lt;table border=&quot;1&quot;&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;銀&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/table&gt;
+                &lt;/td&gt;
+                &lt;td align=&quot;center&quot; data-i18n=&quot;[html]koma_narigin&quot;&gt;&lt;img src=&quot;/images/ng.png&quot; /&gt;&lt;br /&gt;NG&lt;/td&gt;
+                &lt;td align=&quot;center&quot;&gt;
+                  &lt;table border=&quot;1&quot;&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;全&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/table&gt;
+                &lt;/td&gt;
+              &lt;/tr&gt;
+              &lt;tr&gt;
+                &lt;td align=&quot;center&quot; data-i18n=&quot;[html]koma_keima&quot;&gt;&lt;img src=&quot;/images/ke.png&quot; /&gt;&lt;br /&gt;KE&lt;/td&gt;
+                &lt;td align=&quot;center&quot;&gt;
+                  &lt;table border=&quot;1&quot;&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;︎&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;桂&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/table&gt;
+                &lt;/td&gt;
+                &lt;td align=&quot;center&quot; data-i18n=&quot;[html]koma_narikei&quot;&gt;&lt;img src=&quot;/images/nk.png&quot; /&gt;&lt;br /&gt;NK&lt;/td&gt;
+                &lt;td align=&quot;center&quot;&gt;
+                  &lt;table border=&quot;1&quot;&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;圭&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/table&gt;
+                &lt;/td&gt;
+              &lt;/tr&gt;
+              &lt;tr&gt;
+                &lt;td align=&quot;center&quot; data-i18n=&quot;[html]koma_kyosya&quot;&gt;&lt;img src=&quot;/images/ky.png&quot; /&gt;&lt;br /&gt;KY&lt;/td&gt;
+                &lt;td align=&quot;center&quot;&gt;
+                  &lt;table border=&quot;1&quot;&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;｜︎&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;｜&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;香&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/table&gt;
+                &lt;/td&gt;
+                &lt;td align=&quot;center&quot; data-i18n=&quot;[html]koma_narikyo&quot;&gt;&lt;img src=&quot;/images/ny.png&quot; /&gt;&lt;br /&gt;NY&lt;/td&gt;
+                &lt;td align=&quot;center&quot;&gt;
+                  &lt;table border=&quot;1&quot;&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;杏&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/table&gt;
+                &lt;/td&gt;
+              &lt;/tr&gt;
+              &lt;tr&gt;
+                &lt;td align=&quot;center&quot; data-i18n=&quot;[html]koma_fu&quot;&gt;&lt;img src=&quot;/images/fu.png&quot; /&gt;&lt;br /&gt;FU&lt;/td&gt;
+                &lt;td align=&quot;center&quot;&gt;
+                  &lt;table border=&quot;1&quot;&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;歩&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/table&gt;
+                &lt;/td&gt;
+                &lt;td align=&quot;center&quot; data-i18n=&quot;[html]koma_tokin&quot;&gt;&lt;img src=&quot;/images/to.png&quot; /&gt;&lt;br /&gt;TO&lt;/td&gt;
+                &lt;td align=&quot;center&quot;&gt;
+                  &lt;table border=&quot;1&quot;&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;と&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;◯&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                      &lt;td align=&quot;center&quot;&gt;&amp;emsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/table&gt;
+                &lt;/td&gt;
+              &lt;/tr&gt;
+            &lt;/tbody&gt;
+          &lt;/table&gt;
+&lt;/div&gt;
+
 &lt;h3 id=&quot;多言語対応&quot;&gt;多言語対応&lt;/h3&gt;
 &lt;p&gt;　Version1.0.4.1から多言語対応しました。対応言語は英語、日本語、繁体中国語、スペイン語で、アプリで使用するメッセージが全てAndroidの言語設定で選んだ言語で表示されます。デフォルトは英語です。&lt;br /&gt;
-　将棋の駒の動かし方を知らない人のために、このページの上部に駒の動きを表示することにしました。&lt;/p&gt;
+　将棋の駒の動かし方を知らない人のために、&lt;del&gt;このページの上部に駒の動きを表示することにしました。&lt;/del&gt;アプリ内メニューに駒の動き一覧表を追加しました。&lt;/p&gt;
+
+&lt;h3 id=&quot;クリップボードを使った棋譜の入出力対応&quot;&gt;クリップボードを使った棋譜の入出力対応&lt;/h3&gt;
+&lt;p&gt;　Version1.0.5.0から&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式(*.csa)&lt;/a&gt;の棋譜の入出力に対応しました。&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式(*.csa)&lt;/a&gt;では棋譜ファイルのヘッダー部分に駒の配置を定義出来るので、好きなように初期配置を定義して読み込ませれば自分が試してみたい初期配置から対戦が可能です。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;棋譜出力&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/33shogi_kifu_output.png&quot; alt=&quot;棋譜出力画面&quot; title=&quot;棋譜出力画面&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　左上のチェックマークアイコンをタップすると共有画面（インテント）が表示されるので、クリップボードを選べばテキストファイルを扱えるアプリに棋譜データを貼り付けて保存出来ます。&lt;br /&gt;
+　&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式&lt;/a&gt;の棋譜はヘッダ部分に駒の初期配置を定義出来る（駒落ち将棋にも対応している）ので、駒の初期配置パターンを選択出来るこのアプリに都合がいいと思ったので採用しました。但し&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式&lt;/a&gt;の規約を全て網羅しているわけではなく、必要最小限の部分だけ実装しています。&lt;code&gt;T&lt;/code&gt;で始まる指し手の消費時間や&lt;code&gt;$&lt;/code&gt;で始まる棋譜情報は出力されません。以下が出力される棋譜の一例です。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;' #３三将棋 https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam 
+'No. 52
+'
+V2.2
+N+AI
+N-AI
+P1+OU-KA * 
+P2 *  *  * 
+P3 * +KA-OU
+P+00KE
+P-00KE
++
++3121OU
+-1323OU
++0011KA
+-0013KA
++0033KE
+-0031KE
++1122KA
+-1322KA
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;棋譜入力&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/33shogi_kifu_input1.png&quot; alt=&quot;棋譜入力画面１&quot; title=&quot;棋譜入力画面１&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　テキストボックスに棋譜テキストデータを貼り付けて読み込みボタンをタップすれば、棋譜を読み込みます。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;このアプリ&lt;/a&gt;自身が出力した棋譜データは読めますが、他のソフトから出力された棋譜データや自前で作成した棋譜データは読み込みに失敗するかもしれません。エラーが発生した場合はその行数を表示しますので、データを編集して試してください。&lt;br /&gt;
+　※カンマ区切りのマルチステートメントには対応していません。&lt;br /&gt;
+　※たとえ&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式(*.csa)&lt;/a&gt;の棋譜であっても本将棋（９×９）の棋譜は読めません、３三将棋専用です。&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/33shogi_kifu_input2.png&quot; alt=&quot;棋譜入力画面２&quot; title=&quot;棋譜入力画面２&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　棋譜を読み込んだ後は通常の対局通り、対局者を変更したり局面を戻して途中から指し継いだり出来ます。&lt;/p&gt;
+
+&lt;h3 id=&quot;独自の初期配置から対局開始する例&quot;&gt;独自の初期配置から対局開始する例&lt;/h3&gt;
+&lt;p&gt;　９マス将棋の答えを知りたい、特定の局面を検討したいと思っていた人に役に立つと思います。&lt;br /&gt;
+　棋譜ファイルは&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式(*.csa)&lt;/a&gt;のルールに従ってアルファベット２文字からなる駒の略号を使って記述します。&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式(*.csa)&lt;/a&gt;の規約を網羅しているわけではないので、必要最小限のデータの例は以下のようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Text&quot;&gt;P1 *  * -OU
+P2 *  *  *
+P3+OU *  *
+P+00KA00FU
+P-00GI00GI
++
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　&lt;code&gt;P&lt;/code&gt;に続く&lt;strong&gt;盤面データ&lt;/strong&gt;と&lt;strong&gt;持ち駒データ&lt;/strong&gt;、それに続く&lt;strong&gt;手番データ&lt;/strong&gt;の３つを記述すれば読み込んで対局可能です。駒の無い升目は&lt;code&gt; * &lt;/code&gt;（スペース＋アスタリスク＋スペースの３バイト）で、持ち駒は&lt;code&gt;00&lt;/code&gt;に続けて駒の略号を記述します。駒の略号についてはこのページの「駒の動きガイド」の表かアプリ内にある「駒の動き」メニューを参照してください。棋譜を読み込んだ後は通常の対局通り、対局者を変更したりAIレベルを変更したりして指し継げます。&lt;/p&gt;
+
+&lt;h3 id=&quot;出力される棋譜ファイルの例&quot;&gt;出力される棋譜ファイルの例&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;上記の初期盤面からAI同士で対戦した後の出力ファイル例
+    &lt;pre&gt;&lt;code class=&quot;language-Text&quot;&gt;' #３三将棋 https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam 
+'
+'
+V2.2
+N+AI
+N-AI
+P1 *  * -OU
+P2 *  *  *
+P3+OU *  *
+P+00KA00FU
+P-00GI00GI
++
++0022KA
+-1121OU
++0032FU
+-2112OU
++3231TO
+-0023GI
++3132TO
+-2332GI
++3332OU
+-0021GI
++3231OU
+-2122GI
++3132OU
+-0021KA
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;　手番データの後に&lt;strong&gt;指し手データ&lt;/strong&gt;が続きます。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;初期配置メニューの&lt;strong&gt;Arrange4&lt;/strong&gt;を選んでAI同士で対戦した後の出力ファイル例
+    &lt;pre&gt;&lt;code class=&quot;language-Text&quot;&gt;' #３三将棋 https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam 
+'No. 4
+'
+V2.2
+N+AI
+N-AI
+P1 * -KA-OU
+P2 *  *  * 
+P3+OU+KA * 
+P+00HI00FU
+P-00HI00FU
+-
++0032FU
+-0012FU
++3231TO
+-1213TO
++3121TO
+-1121OU
++0032KA
+-2131OU
++0021HI
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;　メニューから初期配置を選んで棋譜ファイルを出力した場合は、コメントとして初期配置の番号（No. 4）が出力されます。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;読み込みエラーの意味&quot;&gt;読み込みエラーの意味&lt;/h3&gt;
+&lt;p&gt;　独自に編集した棋譜ファイルを読み込む場合はエラーになる可能性があります。以下の表を参考に棋譜ファイルを編集して再度読み込みを試してみてください。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;エラー番号&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;エラーの意味、可能性のある原因&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;01&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;盤面データの一行が長すぎるか短すぎます。駒のない場所はスペース＋アスタリスク＋スペース（&lt;code&gt; * &lt;/code&gt;）の３バイトです。&lt;br /&gt;盤面データは一行ずつ改行する必要があります。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;02&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;盤面データのアルファベット２文字の駒の略号が間違えている可能性があります。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;03&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;持ち駒データのアルファベット２文字の駒の略号が間違えている可能性があります。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;04&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;盤面データの先頭&lt;code&gt;P&lt;/code&gt;の文字の次は、数値か&lt;code&gt;+&lt;/code&gt;か&lt;code&gt;-&lt;/code&gt;です。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;05&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;指し手データの持ち駒を打つ時の記述が間違えている可能性があります。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;06&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;指し手データの指し手に誤りがあります。飛車（HI）が成っていないのに斜め後ろに移動している等&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;07&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code&gt;P&lt;/code&gt;、&lt;code&gt;+&lt;/code&gt;、&lt;code&gt;-&lt;/code&gt;、&lt;code&gt;'&lt;/code&gt;、&lt;code&gt;V&lt;/code&gt;、&lt;code&gt;T&lt;/code&gt;、&lt;code&gt;%&lt;/code&gt;、&lt;code&gt;N&lt;/code&gt;、&lt;code&gt;$&lt;/code&gt;以外の文字が行の先頭にあります。&lt;br /&gt; ちなみに&lt;code&gt;P&lt;/code&gt;、&lt;code&gt;+&lt;/code&gt;、&lt;code&gt;-&lt;/code&gt;以外の文字は読み飛ばして無視しています。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;08&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;指し手データのアルファベット２文字の駒の略号が間違えています。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;09&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;手番データ（&lt;code&gt;+&lt;/code&gt;か&lt;code&gt;-&lt;/code&gt;）は盤面データが記述された後に書かれている必要があります。&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h3 id=&quot;ソースファイル&quot;&gt;ソースファイル&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;github&lt;/a&gt;でCoffeeScriptのソースファイルを公開しました。GUI部分にはまだバグが潜んでいるかもしれませんが、思考ルーチン部分はほぼ落ち着いていると思っています。実際のアプリの先読みメソッド（思考ルーチン）は、浅い先読みを行い候補手のリストを作成しその候補手リストからさらに深読みするという方法を取っているのですが、混みいったコードになるのでその部分は省いています。リリースしてからバグを発生させていたのはほとんどこの候補手を絞り込む部分に関するもので、基本的なところはリリース当初からほとんど変わっていません。対戦型将棋ソフトを作る上で必要最低限なコードになっていると思います。このコードを元に３三将棋だけでなく９×９の本将棋に移行するのも容易だと思います、というか元々Rubyで作った自作の将棋ソフトのコードを元にしてこのアプリを作りました。&lt;br /&gt;

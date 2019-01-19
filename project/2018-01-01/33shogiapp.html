@@ -231,66 +231,6 @@ MathJax.Hub.Config({
   <li>王手放置は出来ません（王の自殺手も不可）</li>
 </ul>
 
-<h3 id="駒の動き">駒の動き</h3>
-
-<div>
-<div style="display: inline-block; width:15px; height: 15px; background: red;"></div><span>一マス移動</span>
-<span>&nbsp;</span>
-<div style="display: inline-block; width:15px; height: 15px; background: blue;"></div><span>連続移動</span>
-</div>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">駒の種類</th>
-      <th style="text-align: center">表　</th>
-      <th style="text-align: center">　裏（成り駒） Promoted</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">玉（王） King</td>
-      <td style="text-align: center"><img src="/images/move_ou.png" alt="玉" title="玉" /> gyoku(ou)</td>
-      <td style="text-align: center"> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left">飛　     Rook</td>
-      <td style="text-align: center"><img src="/images/move_hi.png" alt="飛" title="飛" /> hi</td>
-      <td style="text-align: center"><img src="/images/move_ry.png" alt="竜" title="竜" />  ryu</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">角　     Bishop</td>
-      <td style="text-align: center"><img src="/images/move_ka.png" alt="角" title="角" /> kaku</td>
-      <td style="text-align: center"><img src="/images/move_um.png" alt="馬" title="馬" /> uma</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">金　     Gold</td>
-      <td style="text-align: center"><img src="/images/move_ki.png" alt="金" title="金" /> kin</td>
-      <td style="text-align: center"> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left">銀　     Silver</td>
-      <td style="text-align: center"><img src="/images/move_gi.png" alt="銀" title="銀" /> gin</td>
-      <td style="text-align: center"><img src="/images/move_ng.png" alt="飛" title="成銀" /> nari-gin</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">桂　     Knight</td>
-      <td style="text-align: center"><img src="/images/move_ke.png" alt="桂" title="桂" /> kei</td>
-      <td style="text-align: center"><img src="/images/move_nk.png" alt="飛" title="成桂" /> nari-kei</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">香　     Lance</td>
-      <td style="text-align: center"><img src="/images/move_ky.png" alt="香" title="香" /> kyo</td>
-      <td style="text-align: center"><img src="/images/move_ny.png" alt="飛" title="成香" /> nari-kyo</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">歩　     Pawn</td>
-      <td style="text-align: center"><img src="/images/move_fu.png" alt="歩" title="歩" /> fu</td>
-      <td style="text-align: center"><img src="/images/move_to.png" alt="飛" title="と" /> tokin</td>
-    </tr>
-  </tbody>
-</table>
-
 <h3 id="対局画面">対局画面</h3>
 
 <div style="width:320px; margin: 0 auto;">
@@ -468,9 +408,783 @@ MathJax.Hub.Config({
   <p><img src="/images/menu_search2.png" alt="Menu - 初期配置検索結果" title="Menu - 初期配置検索結果" /></p>
 </div>
 
+<ul>
+  <li>駒の動きガイド<br />
+　駒の動ける場所と、棋譜の入出力に使用する「駒の略号」を一覧表にしました。</li>
+</ul>
+
+<div>
+          <table style="border-collapse:collapse;width: 80%; table-layout: auto; word-break: break-all; wordwrap: break-word" border="1" align="center">
+            <thead>
+              <tr>
+                <th data-i18n="[html]koma_front">表<br />略号</th>
+                <th data-i18n="koma_front_moves">動き</th>
+                <th data-i18n="koma_back">裏（成駒）</th>
+                <th data-i18n="koma_back_moves">動き</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center" data-i18n="[html]koma_gyoku"><img src="/images/ou.png" /><br />OU</td>
+                <td>
+                  <table border="1">
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">玉</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                  </table>
+                </td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="center" data-i18n="[html]koma_hisya"><img src="/images/hi.png" /><br />HI</td>
+                <td align="center">
+                  <table border="1">
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">｜︎</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">｜</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">ー</td>
+                      <td align="center">ー</td>
+                      <td align="center">飛</td>
+                      <td align="center">ー</td>
+                      <td align="center">ー</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">｜</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">｜</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                  </table>
+                </td>
+                <td align="center" data-i18n="[html]koma_ryu"><img src="/images/ry.png" /><br />RY</td>
+                <td align="center">
+                  <table border="1">
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">｜</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">｜</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">ー</td>
+                      <td align="center">ー</td>
+                      <td align="center">竜</td>
+                      <td align="center">ー</td>
+                      <td align="center">ー</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">|</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">|</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" data-i18n="[html]koma_kaku"><img src="/images/ka.png" /><br />KA</td>
+                <td align="center">
+                  <table border="1">
+                    <tr>
+                      <td align="center">＼</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">／</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">＼</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">／</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">角</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">／</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">＼</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">／</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">＼</td>
+                    </tr>
+                  </table>
+                </td>
+                <td align="center" data-i18n="[html]koma_uma"><img src="/images/um.png" /><br />UM</td>
+                <td align="center">
+                  <table border="1">
+                    <tr>
+                      <td align="center">＼</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">／</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">＼</td>
+                      <td align="center">◯</td>
+                      <td align="center">／</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">馬</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">／</td>
+                      <td align="center">◯</td>
+                      <td align="center">＼</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">／</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">＼</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" data-i18n="[html]koma_kin"><img src="/images/ki.png" /><br />KI</td>
+                <td align="center">
+                  <table border="1">
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">金</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                  </table>
+                </td>
+                <td align="center">-</td>
+                <td align="center">-</td>
+              </tr>
+              <tr>
+                <td align="center" data-i18n="[html]koma_gin"><img src="/images/gi.png" /><br />GI</td>
+                <td align="center">
+                  <table border="1">
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">銀</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                  </table>
+                </td>
+                <td align="center" data-i18n="[html]koma_narigin"><img src="/images/ng.png" /><br />NG</td>
+                <td align="center">
+                  <table border="1">
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">全</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" data-i18n="[html]koma_keima"><img src="/images/ke.png" /><br />KE</td>
+                <td align="center">
+                  <table border="1">
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;︎</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">桂</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                  </table>
+                </td>
+                <td align="center" data-i18n="[html]koma_narikei"><img src="/images/nk.png" /><br />NK</td>
+                <td align="center">
+                  <table border="1">
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">圭</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" data-i18n="[html]koma_kyosya"><img src="/images/ky.png" /><br />KY</td>
+                <td align="center">
+                  <table border="1">
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">｜︎</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">｜</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">香</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                  </table>
+                </td>
+                <td align="center" data-i18n="[html]koma_narikyo"><img src="/images/ny.png" /><br />NY</td>
+                <td align="center">
+                  <table border="1">
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">杏</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" data-i18n="[html]koma_fu"><img src="/images/fu.png" /><br />FU</td>
+                <td align="center">
+                  <table border="1">
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">歩</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                  </table>
+                </td>
+                <td align="center" data-i18n="[html]koma_tokin"><img src="/images/to.png" /><br />TO</td>
+                <td align="center">
+                  <table border="1">
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">と</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">◯</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                      <td align="center">&emsp;</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+
 <h3 id="多言語対応">多言語対応</h3>
 <p>　Version1.0.4.1から多言語対応しました。対応言語は英語、日本語、繁体中国語、スペイン語で、アプリで使用するメッセージが全てAndroidの言語設定で選んだ言語で表示されます。デフォルトは英語です。<br />
-　将棋の駒の動かし方を知らない人のために、このページの上部に駒の動きを表示することにしました。</p>
+　将棋の駒の動かし方を知らない人のために、<del>このページの上部に駒の動きを表示することにしました。</del>アプリ内メニューに駒の動き一覧表を追加しました。</p>
+
+<h3 id="クリップボードを使った棋譜の入出力対応">クリップボードを使った棋譜の入出力対応</h3>
+<p>　Version1.0.5.0から<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式(*.csa)</a>の棋譜の入出力に対応しました。<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式(*.csa)</a>では棋譜ファイルのヘッダー部分に駒の配置を定義出来るので、好きなように初期配置を定義して読み込ませれば自分が試してみたい初期配置から対戦が可能です。</p>
+
+<ul>
+  <li>棋譜出力</li>
+</ul>
+<div style="width:320px; margin: 0 auto;">
+  <p><img src="/images/33shogi_kifu_output.png" alt="棋譜出力画面" title="棋譜出力画面" /></p>
+</div>
+
+<p>　左上のチェックマークアイコンをタップすると共有画面（インテント）が表示されるので、クリップボードを選べばテキストファイルを扱えるアプリに棋譜データを貼り付けて保存出来ます。<br />
+　<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式</a>の棋譜はヘッダ部分に駒の初期配置を定義出来る（駒落ち将棋にも対応している）ので、駒の初期配置パターンを選択出来るこのアプリに都合がいいと思ったので採用しました。但し<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式</a>の規約を全て網羅しているわけではなく、必要最小限の部分だけ実装しています。<code>T</code>で始まる指し手の消費時間や<code>$</code>で始まる棋譜情報は出力されません。以下が出力される棋譜の一例です。</p>
+<pre><code>' #３三将棋 https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam 
+'No. 52
+'
+V2.2
+N+AI
+N-AI
+P1+OU-KA * 
+P2 *  *  * 
+P3 * +KA-OU
+P+00KE
+P-00KE
++
++3121OU
+-1323OU
++0011KA
+-0013KA
++0033KE
+-0031KE
++1122KA
+-1322KA
+</code></pre>
+
+<ul>
+  <li>棋譜入力</li>
+</ul>
+<div style="width:320px; margin: 0 auto;">
+  <p><img src="/images/33shogi_kifu_input1.png" alt="棋譜入力画面１" title="棋譜入力画面１" /></p>
+</div>
+
+<p>　テキストボックスに棋譜テキストデータを貼り付けて読み込みボタンをタップすれば、棋譜を読み込みます。<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">このアプリ</a>自身が出力した棋譜データは読めますが、他のソフトから出力された棋譜データや自前で作成した棋譜データは読み込みに失敗するかもしれません。エラーが発生した場合はその行数を表示しますので、データを編集して試してください。<br />
+　※カンマ区切りのマルチステートメントには対応していません。<br />
+　※たとえ<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式(*.csa)</a>の棋譜であっても本将棋（９×９）の棋譜は読めません、３三将棋専用です。</p>
+<div style="width:320px; margin: 0 auto;">
+  <p><img src="/images/33shogi_kifu_input2.png" alt="棋譜入力画面２" title="棋譜入力画面２" /></p>
+</div>
+
+<p>　棋譜を読み込んだ後は通常の対局通り、対局者を変更したり局面を戻して途中から指し継いだり出来ます。</p>
+
+<h3 id="独自の初期配置から対局開始する例">独自の初期配置から対局開始する例</h3>
+<p>　９マス将棋の答えを知りたい、特定の局面を検討したいと思っていた人に役に立つと思います。<br />
+　棋譜ファイルは<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式(*.csa)</a>のルールに従ってアルファベット２文字からなる駒の略号を使って記述します。<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式(*.csa)</a>の規約を網羅しているわけではないので、必要最小限のデータの例は以下のようになります。</p>
+
+<pre><code class="language-Text">P1 *  * -OU
+P2 *  *  *
+P3+OU *  *
+P+00KA00FU
+P-00GI00GI
++
+</code></pre>
+
+<p>　<code>P</code>に続く<strong>盤面データ</strong>と<strong>持ち駒データ</strong>、それに続く<strong>手番データ</strong>の３つを記述すれば読み込んで対局可能です。駒の無い升目は<code> * </code>（スペース＋アスタリスク＋スペースの３バイト）で、持ち駒は<code>00</code>に続けて駒の略号を記述します。駒の略号についてはこのページの「駒の動きガイド」の表かアプリ内にある「駒の動き」メニューを参照してください。棋譜を読み込んだ後は通常の対局通り、対局者を変更したりAIレベルを変更したりして指し継げます。</p>
+
+<h3 id="出力される棋譜ファイルの例">出力される棋譜ファイルの例</h3>
+
+<ol>
+  <li>上記の初期盤面からAI同士で対戦した後の出力ファイル例
+    <pre><code class="language-Text">' #３三将棋 https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam 
+'
+'
+V2.2
+N+AI
+N-AI
+P1 *  * -OU
+P2 *  *  *
+P3+OU *  *
+P+00KA00FU
+P-00GI00GI
++
++0022KA
+-1121OU
++0032FU
+-2112OU
++3231TO
+-0023GI
++3132TO
+-2332GI
++3332OU
+-0021GI
++3231OU
+-2122GI
++3132OU
+-0021KA
+</code></pre>
+    <p>　手番データの後に<strong>指し手データ</strong>が続きます。</p>
+  </li>
+  <li>初期配置メニューの<strong>Arrange4</strong>を選んでAI同士で対戦した後の出力ファイル例
+    <pre><code class="language-Text">' #３三将棋 https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam 
+'No. 4
+'
+V2.2
+N+AI
+N-AI
+P1 * -KA-OU
+P2 *  *  * 
+P3+OU+KA * 
+P+00HI00FU
+P-00HI00FU
+-
++0032FU
+-0012FU
++3231TO
+-1213TO
++3121TO
+-1121OU
++0032KA
+-2131OU
++0021HI
+</code></pre>
+    <p>　メニューから初期配置を選んで棋譜ファイルを出力した場合は、コメントとして初期配置の番号（No. 4）が出力されます。</p>
+  </li>
+</ol>
+
+<h3 id="読み込みエラーの意味">読み込みエラーの意味</h3>
+<p>　独自に編集した棋譜ファイルを読み込む場合はエラーになる可能性があります。以下の表を参考に棋譜ファイルを編集して再度読み込みを試してみてください。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">エラー番号</th>
+      <th style="text-align: left">エラーの意味、可能性のある原因</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">01</td>
+      <td style="text-align: left">盤面データの一行が長すぎるか短すぎます。駒のない場所はスペース＋アスタリスク＋スペース（<code> * </code>）の３バイトです。<br />盤面データは一行ずつ改行する必要があります。</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">02</td>
+      <td style="text-align: left">盤面データのアルファベット２文字の駒の略号が間違えている可能性があります。</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">03</td>
+      <td style="text-align: left">持ち駒データのアルファベット２文字の駒の略号が間違えている可能性があります。</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">04</td>
+      <td style="text-align: left">盤面データの先頭<code>P</code>の文字の次は、数値か<code>+</code>か<code>-</code>です。</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">05</td>
+      <td style="text-align: left">指し手データの持ち駒を打つ時の記述が間違えている可能性があります。</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">06</td>
+      <td style="text-align: left">指し手データの指し手に誤りがあります。飛車（HI）が成っていないのに斜め後ろに移動している等</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">07</td>
+      <td style="text-align: left"><code>P</code>、<code>+</code>、<code>-</code>、<code>'</code>、<code>V</code>、<code>T</code>、<code>%</code>、<code>N</code>、<code>$</code>以外の文字が行の先頭にあります。<br /> ちなみに<code>P</code>、<code>+</code>、<code>-</code>以外の文字は読み飛ばして無視しています。</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">08</td>
+      <td style="text-align: left">指し手データのアルファベット２文字の駒の略号が間違えています。</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">09</td>
+      <td style="text-align: left">手番データ（<code>+</code>か<code>-</code>）は盤面データが記述された後に書かれている必要があります。</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="ソースファイル">ソースファイル</h3>
 <p>　<a href="https://github.com/happyclam/shogi33simple">github</a>でCoffeeScriptのソースファイルを公開しました。GUI部分にはまだバグが潜んでいるかもしれませんが、思考ルーチン部分はほぼ落ち着いていると思っています。実際のアプリの先読みメソッド（思考ルーチン）は、浅い先読みを行い候補手のリストを作成しその候補手リストからさらに深読みするという方法を取っているのですが、混みいったコードになるのでその部分は省いています。リリースしてからバグを発生させていたのはほとんどこの候補手を絞り込む部分に関するもので、基本的なところはリリース当初からほとんど変わっていません。対戦型将棋ソフトを作る上で必要最低限なコードになっていると思います。このコードを元に３三将棋だけでなく９×９の本将棋に移行するのも容易だと思います、というか元々Rubyで作った自作の将棋ソフトのコードを元にしてこのアプリを作りました。<br />
