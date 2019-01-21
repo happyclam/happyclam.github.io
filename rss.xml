@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-01-19T19:01:38+09:00</lastBuildDate>
-        <pubDate>2019-01-19T19:01:38+09:00</pubDate>
+        <lastBuildDate>2019-01-21T21:10:09+09:00</lastBuildDate>
+        <pubDate>2019-01-21T21:10:09+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -1274,6 +1274,11 @@ console.log &quot;経過時間: #{elapsed}ミリ秒&quot;
                 <description>&lt;h3 id=&quot;３三将棋アプリのソース公開しました&quot;&gt;３三将棋アプリのソース公開しました&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;もそろそろ安定してきたと思うのでソースを&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;githubに公開&lt;/a&gt;しました。Bonanzaを始めとする優秀な将棋ソフトをカスタマイズしようとは思わないけど、CoffeeScript(JavaScript)で将棋ソフトが作れるならやってみようと思う人はいるかも知れないと思ってます。また、プログラミングには興味ないけど９マス将棋の正解を知りたいと思う人は結構いるかもしれないと思ったので記事を書いてみました。ただ、詰みがある場合は別ですが、ここで示す方法で得られた解答が必ず最善手だとは言い切れないことには留意してください&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
 　ちなみに最近&lt;a href=&quot;https://play.google.com/store/apps/details?id=jp.co.roue.shogi&quot;&gt;９マス将棋オンライン&lt;/a&gt;というアプリで遊んでいるのですが、単純な配置でも未だに最善手が何か悩まされることがあります（特に入玉形の場合が難しい）。そういう時スクショを取ってこの記事の方法で何が最善手だったか検討したりしています&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;。&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;　&lt;strong&gt;追記：&lt;/strong&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;はVersion1.0.5.0から&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式(*.csa)&lt;/a&gt;の棋譜の入出力に対応しましたので、CUI（コンソール画面）でコマンドを入力しなくてもアプリを使って自由に初期配置を編集出来ます。やり方については&lt;a href=&quot;/project/2018-01-01/33shogiapp#inout&quot;&gt;３三将棋アプリの記事&lt;/a&gt;を参照してください。&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;h3 id=&quot;テスト環境&quot;&gt;テスト環境&lt;/h3&gt;
 &lt;p&gt;　９マス将棋の解答を得るために必要なものは&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;githubリポジトリ&lt;/a&gt;内のファイルとCoffeeScriptのインストールだけです。編集する必要があるのはCUIテスト用スクリプトファイル（game.coffee）だけです。CoffeeScriptのインストールに関しては環境に依りますので省略します。&lt;/p&gt;
@@ -2842,6 +2847,7 @@ P5+HI+GI+OU+KI+HI
 &lt;p&gt;　Version1.0.4.1から多言語対応しました。対応言語は英語、日本語、繁体中国語、スペイン語で、アプリで使用するメッセージが全てAndroidの言語設定で選んだ言語で表示されます。デフォルトは英語です。&lt;br /&gt;
 　将棋の駒の動かし方を知らない人のために、&lt;del&gt;このページの上部に駒の動きを表示することにしました。&lt;/del&gt;アプリ内メニューに駒の動き一覧表を追加しました。&lt;/p&gt;
 
+&lt;div id=&quot;inout&quot;&gt;&lt;/div&gt;
 &lt;h3 id=&quot;クリップボードを使った棋譜の入出力対応&quot;&gt;クリップボードを使った棋譜の入出力対応&lt;/h3&gt;
 &lt;p&gt;　Version1.0.5.0から&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式(*.csa)&lt;/a&gt;の棋譜の入出力に対応しました。&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式(*.csa)&lt;/a&gt;では棋譜ファイルのヘッダー部分に駒の配置を定義出来るので、好きなように初期配置を定義して読み込ませれば自分が試してみたい初期配置から対戦が可能です。&lt;/p&gt;
 
@@ -2904,7 +2910,13 @@ P-00GI00GI
 +
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;　&lt;code&gt;P&lt;/code&gt;に続く&lt;strong&gt;盤面データ&lt;/strong&gt;と&lt;strong&gt;持ち駒データ&lt;/strong&gt;、それに続く&lt;strong&gt;手番データ&lt;/strong&gt;の３つを記述すれば読み込んで対局可能です。駒の無い升目は&lt;code&gt; * &lt;/code&gt;（スペース＋アスタリスク＋スペースの３バイト）で、持ち駒は&lt;code&gt;00&lt;/code&gt;に続けて駒の略号を記述します。駒の略号についてはこのページの「駒の動きガイド」の表かアプリ内にある「駒の動き」メニューを参照してください。棋譜を読み込んだ後は通常の対局通り、対局者を変更したりAIレベルを変更したりして指し継げます。&lt;/p&gt;
+&lt;p&gt;　&lt;code&gt;P&lt;/code&gt;に続く&lt;strong&gt;盤面データ&lt;/strong&gt;と&lt;strong&gt;持ち駒データ&lt;/strong&gt;、それに続く&lt;strong&gt;手番データ&lt;/strong&gt;の３つを記述すれば読み込んで対局可能です。駒の無い升目は&lt;code&gt; * &lt;/code&gt;（スペース＋アスタリスク＋スペースの３バイト）で、持ち駒は&lt;code&gt;00&lt;/code&gt;に続けて駒の略号を記述します。駒の略号についてはこのページの「駒の動きガイド」の表かアプリ内にある「駒の動き」メニューを参照してください。&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/33shogi_kifu_input0.png&quot; alt=&quot;棋譜入力画面&quot; title=&quot;棋譜入力画面&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　必要最小限の上記データを読み込んだ直後の画面です。ここで「再開」ボタンをタップすると通常通りゲームを開始できます。&lt;br /&gt;
+　誤って「新規対局」ボタンをタップすると読み込んだ棋譜ではなく、現在「初期配置」メニューで選ばれている初期配置から新規対局が始まってしまうので気をつけてください。&lt;/p&gt;
 
 &lt;h3 id=&quot;出力される棋譜ファイルの例&quot;&gt;出力される棋譜ファイルの例&lt;/h3&gt;
 
@@ -2962,7 +2974,7 @@ P-00HI00FU
 -2131OU
 +0021HI
 &lt;/code&gt;&lt;/pre&gt;
-    &lt;p&gt;　メニューから初期配置を選んで棋譜ファイルを出力した場合は、コメントとして初期配置の番号（No. 4）が出力されます。&lt;/p&gt;
+    &lt;p&gt;　アプリ内のメニューから初期配置を選んで棋譜ファイルを出力した場合は、コメントとして初期配置の番号（No. 4）が出力されます。&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
