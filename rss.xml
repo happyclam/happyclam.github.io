@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-02-01T22:01:26+09:00</lastBuildDate>
-        <pubDate>2019-02-01T22:01:26+09:00</pubDate>
+        <lastBuildDate>2019-02-01T22:43:36+09:00</lastBuildDate>
+        <pubDate>2019-02-01T22:43:36+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -724,14 +724,17 @@
 &lt;a href=&quot;/images/catch_taka.gif&quot;&gt;&lt;img src=&quot;/images/catch_taka.gif&quot; alt=&quot;鷹の弱点&quot; title=&quot;鷹の弱点&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
 　鷹の弱点は後ろ。禽将棋では鷹を持ち駒にして敵陣に打って鵰にすると優勢になると思います。チェスのクイーン並みに強力な駒？チェスに詳しいわけではありませんが&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;実戦詰将棋（駒余り）&lt;/p&gt;
-  &lt;/li&gt;
 &lt;/ol&gt;
-&lt;div id=&quot;tsumeshogi1&quot;&gt;&lt;/div&gt;
-&lt;p&gt;&lt;a href=&quot;/images/tori_tsumeshogi1.gif&quot;&gt;&lt;img src=&quot;/images/tori_tsumeshogi1.gif&quot; alt=&quot;実戦詰将棋１&quot; title=&quot;実戦詰将棋１&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
+
+&lt;h3 id=&quot;tsumeshogi1&quot;&gt;実戦詰将棋&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;七手詰め（駒余り）&lt;br /&gt;
 　持ち駒＝鶴１、雉１、左鶉２、燕１&lt;br /&gt;
-　アプリとの対戦で出てきた局面ですが、禽将棋では本将棋の詰将棋で活躍する金にあたる駒が鷹ぐらいしかないので、相手鵬を綺麗に詰ますのはなかなか大変です。&lt;/p&gt;
+&lt;a href=&quot;/images/tori_tsumeshogi1.png&quot;&gt;&lt;img src=&quot;/images/tori_tsumeshogi1.png&quot; alt=&quot;実戦詰将棋１&quot; title=&quot;実戦詰将棋１&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
+　アプリとの対戦で出てきた局面ですが、禽将棋では本将棋の詰将棋で活躍する金にあたる駒が鷹ぐらいしかないので、相手鵬を綺麗に詰ますのはなかなか大変です。&lt;br /&gt;
+　（答え：７四雉、同燕、７三燕、同鵬、６二鶴、７二鵬、７三左鶉まで、七手詰め）&lt;br /&gt;
+&lt;a href=&quot;/images/tori_tsumeshogi1.gif&quot;&gt;&lt;img src=&quot;/images/tori_tsumeshogi1.gif&quot; alt=&quot;実戦詰将棋１答え&quot; title=&quot;実戦詰将棋１答え&quot; /&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;hr /&gt;
 
