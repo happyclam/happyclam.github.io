@@ -219,7 +219,7 @@ MathJax.Hub.Config({
       <p><a href="https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam"><img src="/images/ja_badge_web_generic.png" alt="禽将棋" title="禽将棋" width="155" height="60" /></a></p>
 
 <h3 id="禽将棋アプリについて">「禽将棋」アプリについて</h3>
-<p>　<ruby>禽将棋<rt>とりしょうぎ</rt></ruby>は江戸時代に考案された将棋で、棋譜も現存しているそうです。一応<a href="https://ja.wikipedia.org/wiki/禽将棋">Wikipedia</a>の内容に沿ってアプリを作りましたが、アプリの都合で決めた部分もあります。アプリの仕様については<a href="/project/2018-01-01/33shogiapp">３三将棋アプリの記事</a>や<a href="/project/2018-03-11/55shogiapp">５五将棋アプリの記事</a>も合わせて読んでいただきたいと思います。</p>
+<p>　<ruby>禽将棋<rt>とりしょうぎ</rt></ruby>は江戸時代に考案された将棋で、棋譜も現存しているそうです。一応<a href="https://ja.wikipedia.org/wiki/禽将棋">Wikipedia</a>の内容に沿ってアプリを作りましたが、アプリの都合で決めた部分もあります。アプリの仕様については<a href="/project/2018-01-01/33shogiapp#inout">３三将棋アプリの記事</a>や<a href="/project/2018-03-11/55shogiapp">５五将棋アプリの記事</a>も合わせて読んでいただきたいと思います。</p>
 
 <h3 id="ルール">ルール</h3>
 <ul>
@@ -660,8 +660,9 @@ MathJax.Hub.Config({
   <p><img src="/images/torishogi_guide_ex.png" alt="禽将棋ガイド例" title="禽将棋ガイド例" /></p>
 </div>
 
-<h3 id="棋譜出力">棋譜出力</h3>
-<p>　今後５五将棋で使用されている<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式</a>で棋譜出力機能を追加しようと思っています。<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式</a>は他の棋譜ファイル形式よりは変則的な将棋（駒落ち、５五将棋等）にもある程度対応できる規約になっているようですが、本将棋で使用する駒が前提になっていて<ruby>禽<rt>とり</rt>将棋</ruby>の駒を表現する方法は決まってないようです。そのため結局は独自形式の棋譜になりそうですが、駒の表現方法以外は<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式</a>のルールに従った形にしようと思ってます。</p>
+<h3 id="棋譜入出力対応">棋譜入出力対応</h3>
+<p>　Version1.0.2.0から棋譜の入出力に対応しました。操作方法については<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>と同じですので<a href="/project/2018-01-01/33shogiapp#inout">３三将棋アプリの記事</a>を参照してください。<br />
+　一応<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式</a>に倣ってますが、<ruby>禽<rt>とり</rt>将棋</ruby>独特の駒の略号等独自に決めた形式です。駒の略号については以下の表の通りです。</p>
 
 <table>
   <thead>
@@ -674,45 +675,45 @@ MathJax.Hub.Config({
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center">鵬</td>
+      <td style="text-align: center"><ruby>鵬<rt>おおとり</rt></ruby></td>
       <td style="text-align: center">OO</td>
       <td style="text-align: center">-</td>
       <td style="text-align: center">-</td>
     </tr>
     <tr>
-      <td style="text-align: center">鷹</td>
+      <td style="text-align: center"><ruby>鷹<rt>たか</rt></ruby></td>
       <td style="text-align: center">TK</td>
-      <td style="text-align: center">鵰</td>
+      <td style="text-align: center"><ruby>鵰<rt>くまたか</rt></ruby></td>
       <td style="text-align: center">KT</td>
     </tr>
     <tr>
-      <td style="text-align: center">鶴</td>
+      <td style="text-align: center"><ruby>鶴<rt>つる</rt></ruby></td>
       <td style="text-align: center">TR</td>
       <td style="text-align: center">-</td>
       <td style="text-align: center">-</td>
     </tr>
     <tr>
-      <td style="text-align: center">雉</td>
+      <td style="text-align: center"><ruby>雉<rt>きじ</rt></ruby></td>
       <td style="text-align: center">KZ</td>
       <td style="text-align: center">-</td>
       <td style="text-align: center">-</td>
     </tr>
     <tr>
-      <td style="text-align: center">左鶉</td>
+      <td style="text-align: center"><ruby>左鶉<rt>ひだりうずら</rt></ruby></td>
       <td style="text-align: center">LU</td>
       <td style="text-align: center">-</td>
       <td style="text-align: center">-</td>
     </tr>
     <tr>
-      <td style="text-align: center">右鶉</td>
+      <td style="text-align: center"><ruby>右鶉<rt>みぎうずら</rt></ruby></td>
       <td style="text-align: center">RU</td>
       <td style="text-align: center">-</td>
       <td style="text-align: center">-</td>
     </tr>
     <tr>
-      <td style="text-align: center">燕</td>
+      <td style="text-align: center"><ruby>燕<rt>つばめ</rt></ruby></td>
       <td style="text-align: center">TB</td>
-      <td style="text-align: center">雁</td>
+      <td style="text-align: center"><ruby>雁<rt>かり</rt></ruby></td>
       <td style="text-align: center">KR</td>
     </tr>
   </tbody>
