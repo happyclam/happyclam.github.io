@@ -720,12 +720,137 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 
+<h3 id="駒の重み">駒の重み</h3>
+<p>　Version1.0.2.2から評価関数で使用する駒の重みを変更しました。今までは本将棋に倣って禽将棋の駒の重みを適当に割り振っていただけ<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>だったので全面的に見直しました。と言っても機械学習等で導き出したわけではなく、移動可能な升目の数を根拠にして相変わらず適当に変更しただけなのですが、<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>や<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>並みの精度（適当度）にはなった気がします。旧バージョンと対戦させて強くなっていることも確認しました。特に燕をやたらとただ捨てする点が気になっていたので、燕は持ち駒の方が盤上の駒より重みを大きな値にしたところや、鷹と鶉の重みを同じ<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>にしたところが大きな変更点となります。</p>
+
+<div style="float: left;">
+  <span><b>変更前</b>:</span>
+    <table style="border-collapse:collapse;width: 100%; table-layout: auto; word-break: break-all; wordwrap: break-word" border="1" align="center">
+      <thead>
+        <tr>
+          <th align="center">駒の種類＼重み</th>
+          <th align="center">&emsp;表&emsp;</th>
+          <th align="center">裏（成駒）</th>
+          <th align="center">持ち駒</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="center"><ruby>鵬<rt>おおとり</rt></ruby></td>
+          <td align="right">9999</td>
+          <td align="center"> - </td>
+          <td align="center"> - </td>
+        </tr>
+        <tr>
+          <td align="center"><ruby>鷹<rt>たか</rt></ruby></td>
+          <td align="right">75</td>
+          <td align="right">110</td>
+          <td align="right">65</td>
+        </tr>
+        <tr>
+          <td align="center"><ruby>鶴<rt>つる</rt></ruby></td>
+          <td align="right">50</td>
+          <td align="center"> - </td>
+          <td align="right">45</td>          
+        </tr>
+        <tr>
+          <td align="center"><ruby>雉<rt>きじ</rt></ruby></td>
+          <td align="right">30</td>
+          <td align="center"> - </td>
+          <td align="right">25</td>          
+        </tr>
+        <tr>
+          <td align="center"><ruby>左鶉<rt>ひだりうずら</rt></ruby></td>
+          <td align="right">45</td>
+          <td align="center"> - </td>
+          <td align="right">40</td>          
+        </tr>
+        <tr>
+          <td align="center"><ruby>右鶉<rt>みぎうずら</rt></ruby></td>
+          <td align="right">45</td>
+          <td align="center"> - </td>
+          <td align="right">40</td>          
+        </tr>
+        <tr>
+          <td align="center"><ruby>燕<rt>つばめ</rt></ruby></td>
+          <td align="right">10</td>
+          <td align="right">30</td>
+          <td align="right">7</td>          
+        </tr>
+      </tbody>
+    </table>
+</div>
+<div style="float: right">
+  <span><b>変更後</b>:</span>
+    <table style="border-collapse:collapse;width: 100%; table-layout: auto; word-break: break-all; wordwrap: break-word" border="1" align="center">
+      <thead>
+        <tr>
+          <th align="center">駒の種類＼重み</th>
+          <th align="center">&emsp;表&emsp;</th>
+          <th align="center">裏（成駒）</th>
+          <th align="center">持ち駒</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="center"><ruby>鵬<rt>おおとり</rt></ruby></td>
+          <td align="right">9999</td>
+          <td align="center"> - </td>
+          <td align="center"> - </td>
+        </tr>
+        <tr>
+          <td align="center"><ruby>鷹<rt>たか</rt></ruby></td>
+          <td align="right">70</td>
+          <td align="right">160</td>
+          <td align="right">56</td>
+        </tr>
+        <tr>
+          <td align="center"><ruby>鶴<rt>つる</rt></ruby></td>
+          <td align="right">60</td>
+          <td align="center"> - </td>
+          <td align="right">48</td>          
+        </tr>
+        <tr>
+          <td align="center"><ruby>雉<rt>きじ</rt></ruby></td>
+          <td align="right">30</td>
+          <td align="center"> - </td>
+          <td align="right">24</td>          
+        </tr>
+        <tr>
+          <td align="center"><ruby>左鶉<rt>ひだりうずら</rt></ruby></td>
+          <td align="right">70</td>
+          <td align="center"> - </td>
+          <td align="right">56</td>          
+        </tr>
+        <tr>
+          <td align="center"><ruby>右鶉<rt>みぎうずら</rt></ruby></td>
+          <td align="right">70</td>
+          <td align="center"> - </td>
+          <td align="right">56</td>          
+        </tr>
+        <tr>
+          <td align="center"><ruby>燕<rt>つばめ</rt></ruby></td>
+          <td align="right">10</td>
+          <td align="right">20</td>
+          <td align="right">12</td>          
+        </tr>
+      </tbody>
+    </table>
+</div>
+<p><br clear="all" /></p>
+
 <hr />
 
 <div class="footnotes">
   <ol>
     <li id="fn:1">
       <p>裏に書かれているだけだと対局するときに分かりにくいので、人間同士の実際の対局時は「左」「右」と書かれている面を表に向けて対局するようです。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>初期のバージョンは鶴は本将棋の金相当、雉は桂馬相当かなって感じで直感でなんとなく重みを決めていただけです。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>鷹も鶉も盤上に配置した時の最大の移動箇所数は７で同じです。 <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>
