@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>http://happyclam.github.io</link>
         <link>http://happyclam.github.io</link>
-        <lastBuildDate>2019-02-14T07:23:03+09:00</lastBuildDate>
-        <pubDate>2019-02-14T07:23:03+09:00</pubDate>
+        <lastBuildDate>2019-02-15T19:47:31+09:00</lastBuildDate>
+        <pubDate>2019-02-15T19:47:31+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -853,11 +853,11 @@
 
 &lt;h3 id=&quot;tsumeshogi1&quot;&gt;実戦詰将棋&lt;/h3&gt;
 &lt;ol&gt;
-  &lt;li&gt;七手詰め（駒余り）&lt;br /&gt;
-　持ち駒＝鶴１、雉１、左鶉２、燕１&lt;br /&gt;
+  &lt;li&gt;１１手詰め（駒余り）&lt;br /&gt;
+　持ち駒＝左鶉１、燕５&lt;br /&gt;
 &lt;a href=&quot;/images/tori_tsumeshogi1.png&quot;&gt;&lt;img src=&quot;/images/tori_tsumeshogi1.png&quot; alt=&quot;実戦詰将棋１&quot; title=&quot;実戦詰将棋１&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
-　アプリとの対戦で出てきた局面ですが、禽将棋では本将棋の詰将棋で活躍する金にあたる駒が鷹ぐらいしかないので、相手鵬を綺麗に詰ますのはなかなか大変です。&lt;br /&gt;
-　（答え：７四雉、同燕、７三燕、同鵬、６二鶴、７二鵬、７三左鶉まで、七手詰め）&lt;br /&gt;
+　アプリとの対戦で出てきた局面ですが、燕が雁に成った手が空き王手で、雁が鷹に紐付けられるのがミソです。常々雁は使えない駒だなぁと思っていたのですが、こういう筋があるんですね。&lt;br /&gt;
+　（答え：４三左鶉、３一鵬、３二燕、２二鵬、２三燕、同鵬、３一燕成、２二鵬、３三鷹、３一鵬、３二鷹成まで、１１手詰め）&lt;br /&gt;
 &lt;a href=&quot;/images/tori_tsumeshogi1.gif&quot;&gt;&lt;img src=&quot;/images/tori_tsumeshogi1.gif&quot; alt=&quot;実戦詰将棋１答え&quot; title=&quot;実戦詰将棋１答え&quot; /&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -1013,7 +1013,7 @@
         <item>
                 <title>不成の詰将棋</title>
                 <description>&lt;h3 id=&quot;打ち歩詰めを回避するための不成&quot;&gt;打ち歩詰めを回避するための不成&lt;/h3&gt;
-&lt;p&gt;　真偽の程はわからないのですが、最新の将棋ソフトを以ってしても角不成を含む詰将棋を解くことが出来ないと小耳に挟みました。自分は最新の将棋ソフトの動向には疎くソフトも古いのしか持っていないので確認出来ませんが、有名な&lt;a href=&quot;https://shogi100.com/2018/03/14/1-13/&quot;&gt;「谷川九段の角不成」&lt;/a&gt;という実践詰将棋があって、機械学習（おそらくディープラーニングを使ったもの）を用いた最新のソフトでも６七角引不成（&lt;a href=&quot;http://i2chmeijin.blog.fc2.com/blog-entry-1955.html&quot;&gt;参考記事&lt;/a&gt;）からの１９手詰めが解けないそうです。学習型の将棋ソフトは終盤が弱いとは聞いていました。でも自分が持っている相当古いソフト（１０年以上前に購入した「AI将棋 Version13」&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;）で試してみたところ、見事に詰め上げることが出来たので結局はソフトに依るということでしょう。ただ最新のソフトがなぜ解けないのか、なぜそうなっている（あるいはそうしている）のでしょう？もしかしたら結構難しいのでしょうか？データ構造によっては難しい処理を強いられるかもしれないなぁとは思います。原因というか不成を読まない？理由についてはもしかしてと思い当たることもあるのですが、想像の域を出ないので他人様のことは置いといて、とりあえず自分の作ったソフトが成りと不成をちゃんと区別出来るか確認することにしました。打ち歩詰めに関しても詰将棋に関しても成る・成らないに関しても一応テストはしてますが、&lt;strong&gt;打ち歩詰めを回避するために敢えて成らない&lt;/strong&gt;ということが出来るかどうかちょっと心配になったからです&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;　真偽の程はわからないのですが、最新の将棋ソフトを以ってしても角不成を含む詰将棋を解くことが出来ないと小耳に挟みました。自分は最新の将棋ソフトの動向には疎くソフトも古いのしか持っていないので確認出来ませんが、有名な&lt;a href=&quot;https://shogi100.com/2018/03/14/1-13/&quot;&gt;「谷川九段の角不成」&lt;/a&gt;という実戦詰将棋があって、機械学習（おそらくディープラーニングを使ったもの）を用いた最新のソフトでも６七角引不成（&lt;a href=&quot;http://i2chmeijin.blog.fc2.com/blog-entry-1955.html&quot;&gt;参考記事&lt;/a&gt;）からの１９手詰めが解けないそうです。学習型の将棋ソフトは終盤が弱いとは聞いていました。でも自分が持っている相当古いソフト（１０年以上前に購入した「AI将棋 Version13」&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;）で試してみたところ、見事に詰め上げることが出来たので結局はソフトに依るということでしょう。ただ最新のソフトがなぜ解けないのか、なぜそうなっている（あるいはそうしている）のでしょう？もしかしたら結構難しいのでしょうか？データ構造によっては難しい処理を強いられるかもしれないなぁとは思います。原因というか不成を読まない？理由についてはもしかしてと思い当たることもあるのですが、想像の域を出ないので他人様のことは置いといて、とりあえず自分の作ったソフトが成りと不成をちゃんと区別出来るか確認することにしました。打ち歩詰めに関しても詰将棋に関しても成る・成らないに関しても一応テストはしてますが、&lt;strong&gt;打ち歩詰めを回避するために敢えて成らない&lt;/strong&gt;ということが出来るかどうかちょっと心配になったからです&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;１９手詰めで確認したいけど&quot;&gt;１９手詰めで確認したいけど&lt;/h3&gt;
 &lt;p&gt;　有名な角不成の１９手詰の詰将棋をそのまま自分のソフトで試してみたいところですが、自分のソフトでは１９手詰めなんて出来ません。何度かこのブログでも書いていますが、有名な将棋ソフトは大抵、将棋盤をビットパターンで表現して高速に先読み出来るようになっています（BitBoardと呼ばれているようです）が、自分のソフトは通常の多次元配列データで将棋盤を表現しているので到底太刀打ち出来ません。将棋ソフトに革命をもたらしたボナンザ（Bonanza）は独自の評価関数や学習機能で有名ですが、BitBoardを最初に将棋ソフトに取り入れたのも同じ開発者（保木氏）なのでしょうか？よく知らないのですが、もしそうならそのことももっと評価されるべきだと思いますけどどうなのでしょう？&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;BitBoardをJavaScriptで作る人は…いないでしょうね&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
