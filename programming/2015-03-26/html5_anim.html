@@ -182,11 +182,10 @@ MathJax.Hub.Config({
     <div class="container-narrow">
       <div class="row-fluid">
         <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
-        <div class="span9"
-             <!-- Html Elements for Search -->
+        <div class="span9" html elements for search>
              <div id="search-container" align="right">
                <input type="text" id="search-input" placeholder="search...">
                <ul id="results-container"></ul>
@@ -221,7 +220,7 @@ MathJax.Hub.Config({
 <p>　HTML5でアニメーションを実現する方法を調べてみたら、タイマーを使う必要が無くなったらしい（タイマー間隔をブラウザ任せに出来る）のでやってみました。それぞれのブラウザ用にAPIが分かれているようで今後どうなるかわかりません（HTML5自体がまだまだ流動的だと思いますが）が、結構以前（HTML5リリース当初）からこのやり方は定着しているらしいです。手元のAndroid4.1.2の端末（GL07S）でも問題なく動きました。IEでHTML5を利用するにはIE9以上が必要です。</p>
 
 <h3 id="二点の座標をクリックして直線を引くサンプル">二点の座標をクリックして直線を引くサンプル</h3>
-<p>　要するにRequestAnimationFrameというAPIを使えばいいという話なのですがネットでandroidの対応状況は4.1以上でも全滅という書き込みをちらほら見かけます。でも、実際にやってみると以下のCoffeeScriptをコンパイルしたanimation.jsとanimation.htmlをandroid端末（GL07s）にコピーしてURL指定すれば標準ブラウザでふつうに動作しました。ネットではjQueryといっしょに使用することで問題が出るという書き込みも見かけましたが無視することにしました。知らないうちに解決されたのでしょう<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup><img class="emoji" title="grin" alt="grin" src="https://github.global.ssl.fastly.net/images/icons/emoji/grin.png" height="20" width="20" align="absmiddle" /><br />
+<p>　要するにRequestAnimationFrameというAPIを使えばいいという話なのですがネットでandroidの対応状況は4.1以上でも全滅という書き込みをちらほら見かけます。でも、実際にやってみると以下のCoffeeScriptをコンパイルしたanimation.jsとanimation.htmlをandroid端末（GL07s）にコピーしてURL指定すれば標準ブラウザでふつうに動作しました。ネットではjQueryといっしょに使用することで問題が出るという書き込みも見かけましたが無視することにしました。知らないうちに解決されたのでしょう<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup><img class="emoji" title=":grin:" alt=":grin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f601.png" height="20" width="20"><br>
 　実際にアニメーションを駆使するスマホアプリを作るときは、既存のいろんなライブラリを使うことが多いのかもしれませんがHTML5だけで出来るほうがシンプルでいいですね。</p>
 
 <pre><code class="language-CoffeeScript">#animation.coffee
@@ -331,26 +330,27 @@ window.cancelRequestAnimFrame = (-&gt;
 
 <div style="width:320px; margin: 0 auto;">
 
-  <p><a href="/images/animation.png" target="_blank"><img src="/images/animation.png" alt="実機画面" title="実機（gl07s）で動作確認" /></a></p>
+  <p><a href="/images/animation.png" target="_blank"><img src="/images/animation.png" alt="実機画面" title="実機（gl07s）で動作確認"></a></p>
 
 </div>
 
 <ul>
-  <li><a href="/project/2015-02-01/first_cordova">前回記事</a>で作成した<a href="https://tictactoe-cf.herokuapp.com">サイト</a>にも適用。白線もチョークっぽく掠れた感じにしようかと思いましたが暗くなるので止めました</li>
+  <li>
+<a href="/project/2015-02-01/first_cordova">前回記事</a>で作成した<a href="https://tictactoe-cf.herokuapp.com">サイト</a>にも適用。白線もチョークっぽく掠れた感じにしようかと思いましたが暗くなるので止めました</li>
 </ul>
 
 <div style="width:320px; margin: 0 auto;">
 
-  <p><a href="/images/3mokunarabe.png" target="_blank"><img src="/images/3mokunarabe.png" alt="三目並べアプリ画面" title="実機（gl07s）で三目並べアプリ" /></a></p>
+  <p><a href="/images/3mokunarabe.png" target="_blank"><img src="/images/3mokunarabe.png" alt="三目並べアプリ画面" title="実機（gl07s）で三目並べアプリ"></a></p>
 
 </div>
 
-<hr />
+<hr>
 
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>RequestAnimationFrame APIの対応状況は<a href="https://caniuse.com/#feat=requestanimationframe">ここ</a>です。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p>RequestAnimationFrame APIの対応状況は<a href="https://caniuse.com/#feat=requestanimationframe">ここ</a>です。 <a href="#fnref:1" class="reversefootnote">↩</a></p>
     </li>
   </ol>
 </div>
@@ -406,11 +406,11 @@ window.cancelRequestAnimFrame = (-&gt;
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/project/2015-02-01/first_cordova" title="iOS/Androidハイブリッドアプリ開発">&larr; Previous</a></li>
+        <li class="prev"><a href="/project/2015-02-01/first_cordova" title="iOS/Androidハイブリッドアプリ開発">← Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next"><a href="/hardware/2015-04-14/macbook" title="新Macbook購入">Next &rarr;</a></li>
+        <li class="next"><a href="/hardware/2015-04-14/macbook" title="新Macbook購入">Next →</a></li>
       
       </ul>
     </div>
@@ -430,7 +430,8 @@ window.cancelRequestAnimFrame = (-&gt;
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
@@ -458,12 +459,13 @@ s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 
       </div>
       <hr>
       <footer>
-        <p>&copy; 2019 happyclam
+        <p>© 2019 happyclam
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>

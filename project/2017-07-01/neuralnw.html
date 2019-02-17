@@ -182,11 +182,10 @@ MathJax.Hub.Config({
     <div class="container-narrow">
       <div class="row-fluid">
         <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
-        <div class="span9"
-             <!-- Html Elements for Search -->
+        <div class="span9" html elements for search>
              <div id="search-container" align="right">
                <input type="text" id="search-input" placeholder="search...">
                <ul id="results-container"></ul>
@@ -220,8 +219,8 @@ MathJax.Hub.Config({
       <p>Project: 「<strong>三目並べ</strong>」: <a href="https://github.com/happyclam/tictactoe_ruby/tree/neural">neural</a></p>
 
 <h3 id="消える三目並べの学習効率を上げるには">消える三目並べの学習効率を上げるには</h3>
-<p>　<a href="/programming/2017-05-27/vanishing-tictactoe3">前回の記事</a>で現在作成中の「消える三目並べ」（３手前に打った自分の駒が消えるルールの三目並べ）の学習に時間が掛ることを書きましたが、<a href="https://www.amazon.co.jp/ゼロから作るDeep-Learning-Pythonで学ぶディープラーニングの理論と実装-斎藤-康毅/dp/4873117585/ref=sr_1_2?ie=UTF8&amp;qid=1498438151&amp;sr=8-2&amp;keywords=ディープラーニング">「ゼロから作るDeep Learning」</a>という本<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>に書いてあるニューラルネットワークのアルゴリズムを適用すれば学習効率が上がるのではないかと思い試すことにしました。ただ「消える三目並べ」のアプリに組み込む前に例のごとく「通常の三目並べ」でどうなるか試してみました。ディープラーニング（多層構造のニューラルネットワーク）を組み入れたわけではなく、指し手を決める「推論」部分は今まで通りで、対戦毎に学習データを更新する「学習」部分をニューラルネットワークに変更したということです。<a href="https://www.amazon.co.jp/ゼロから作るDeep-Learning-Pythonで学ぶディープラーニングの理論と実装-斎藤-康毅/dp/4873117585/ref=sr_1_2?ie=UTF8&amp;qid=1498438151&amp;sr=8-2&amp;keywords=ディープラーニング">前述の本</a>の中で”simpleNet”クラスとして紹介されているものに当たると思います。<br />
-　汎用的なAIライブラリもいろいろあるようですが、既存ライブラリの使い方を覚えるだけでは面白くないので自前（スクラッチ開発）でやってます<img class="emoji" title="smiley" alt="smiley" src="https://github.global.ssl.fastly.net/images/icons/emoji/smiley.png" height="20" width="20" align="absmiddle" />と言っても<a href="https://www.amazon.co.jp/ゼロから作るDeep-Learning-Pythonで学ぶディープラーニングの理論と実装-斎藤-康毅/dp/4873117585/ref=sr_1_2?ie=UTF8&amp;qid=1498438151&amp;sr=8-2&amp;keywords=ディープラーニング">前述の本</a>に書いてある通りやっただけですが<img class="emoji" title="sweat_smile" alt="sweat_smile" src="https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png" height="20" width="20" align="absmiddle" /></p>
+<p>　<a href="/programming/2017-05-27/vanishing-tictactoe3">前回の記事</a>で現在作成中の「消える三目並べ」（３手前に打った自分の駒が消えるルールの三目並べ）の学習に時間が掛ることを書きましたが、<a href="https://www.amazon.co.jp/%E3%82%BC%E3%83%AD%E3%81%8B%E3%82%89%E4%BD%9C%E3%82%8BDeep-Learning-Python%E3%81%A7%E5%AD%A6%E3%81%B6%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0%E3%81%AE%E7%90%86%E8%AB%96%E3%81%A8%E5%AE%9F%E8%A3%85-%E6%96%8E%E8%97%A4-%E5%BA%B7%E6%AF%85/dp/4873117585/ref=sr_1_2?ie=UTF8&amp;qid=1498438151&amp;sr=8-2&amp;keywords=%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0">「ゼロから作るDeep Learning」</a>という本<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>に書いてあるニューラルネットワークのアルゴリズムを適用すれば学習効率が上がるのではないかと思い試すことにしました。ただ「消える三目並べ」のアプリに組み込む前に例のごとく「通常の三目並べ」でどうなるか試してみました。ディープラーニング（多層構造のニューラルネットワーク）を組み入れたわけではなく、指し手を決める「推論」部分は今まで通りで、対戦毎に学習データを更新する「学習」部分をニューラルネットワークに変更したということです。<a href="https://www.amazon.co.jp/%E3%82%BC%E3%83%AD%E3%81%8B%E3%82%89%E4%BD%9C%E3%82%8BDeep-Learning-Python%E3%81%A7%E5%AD%A6%E3%81%B6%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0%E3%81%AE%E7%90%86%E8%AB%96%E3%81%A8%E5%AE%9F%E8%A3%85-%E6%96%8E%E8%97%A4-%E5%BA%B7%E6%AF%85/dp/4873117585/ref=sr_1_2?ie=UTF8&amp;qid=1498438151&amp;sr=8-2&amp;keywords=%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0">前述の本</a>の中で”simpleNet”クラスとして紹介されているものに当たると思います。<br>
+　汎用的なAIライブラリもいろいろあるようですが、既存ライブラリの使い方を覚えるだけでは面白くないので自前（スクラッチ開発）でやってます<img class="emoji" title=":smiley:" alt=":smiley:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f603.png" height="20" width="20">と言っても<a href="https://www.amazon.co.jp/%E3%82%BC%E3%83%AD%E3%81%8B%E3%82%89%E4%BD%9C%E3%82%8BDeep-Learning-Python%E3%81%A7%E5%AD%A6%E3%81%B6%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0%E3%81%AE%E7%90%86%E8%AB%96%E3%81%A8%E5%AE%9F%E8%A3%85-%E6%96%8E%E8%97%A4-%E5%BA%B7%E6%AF%85/dp/4873117585/ref=sr_1_2?ie=UTF8&amp;qid=1498438151&amp;sr=8-2&amp;keywords=%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0">前述の本</a>に書いてある通りやっただけですが<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"></p>
 
 <h3 id="修正内容">修正内容</h3>
 
@@ -230,8 +229,8 @@ MathJax.Hub.Config({
   <li>重みデータを更新する際に勾配法（確率的勾配降下法）を使う（学習率＝0.1）</li>
 </ol>
 
-<p>　変更したのは主に上記２点だけです。１．に関しては本に紹介されていたsoftmax関数を使いました。ニューラルネットワークで学習するための準備です。２．に関しては、今までは勝ったら＋３、負けたら−１、引き分けなら＋１、という報酬＆罰を与えていた（重みデータの加減算）わけですが、その数値を使う必要がなくなります。根拠がはっきりしないマジックナンバーが無くなることはいいことでしょう。元々<a href="http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1444873224&amp;sr=1-1&amp;keywords=statistics+hacks">「STATISTICS HACKS」</a>という本にこの数値（勝ち＋３、負け−１、引分＋１）を使うのがいいと書いてあったからそうしただけなので<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>以前から気になってました。また今回の修正で、ゲーム序盤の指し手よりゲーム終盤の指し手を重視するというロジックはとりあえず取り外すことにしました。<br />
-　２.の修正を行う際には、MIN-MAX法を使った最強プログラムと対戦させて最強プログラムの指し手を教師データとして一手毎に重みを修正するようにすれば、とりあえず学習データを作成することが出来て、後述するグラフデータと同様の結果が得られました。普通はこの学習済みのデータを使えば強いプログラムが完成したということになります。でもこのままだと乱数で指し手を決める弱いプログラムと対戦させた時に勝率が上がりません。弱いプログラムの指し手を教師データとして学習してしまうので、勝率グラフはほぼ５割の横ばい状態になってしまいます（実際に試しました）。どんな対戦相手でも対戦する度に強くなるようにするために、勝った方の指し手を教師データとして重みを更新するように修正しました。簡単に言うと今までは「AI側の指し手を元に勝ったらAIの手番の局面データの重みを加算、負けたら減算」<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>としていたのを「勝っても負けても勝った方の指し手を教師データとして、勝った方の手番の局面データの重みを勾配法を使って誤差修正する」というやり方に変えたということです。実際に取り組んでみないと分かりづらいかもしれませんが、学習済みデータを作ることと、対戦しながら強くなるプログラムを作ることは少し違うってことです。興味のある方はソースのPlayer.learningメソッドを参照して下さい。<br />
+<p>　変更したのは主に上記２点だけです。１．に関しては本に紹介されていたsoftmax関数を使いました。ニューラルネットワークで学習するための準備です。２．に関しては、今までは勝ったら＋３、負けたら−１、引き分けなら＋１、という報酬＆罰を与えていた（重みデータの加減算）わけですが、その数値を使う必要がなくなります。根拠がはっきりしないマジックナンバーが無くなることはいいことでしょう。元々<a href="http://www.amazon.co.jp/Statistics-Hacks-%E2%80%95%E7%B5%B1%E8%A8%88%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%81%A8%E4%B8%96%E7%95%8C%E3%82%92%E6%B8%AC%E3%82%8B%E3%83%86%E3%82%AF%E3%83%8B%E3%83%83%E3%82%AF-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1444873224&amp;sr=1-1&amp;keywords=statistics+hacks">「STATISTICS HACKS」</a>という本にこの数値（勝ち＋３、負け−１、引分＋１）を使うのがいいと書いてあったからそうしただけなので<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>以前から気になってました。また今回の修正で、ゲーム序盤の指し手よりゲーム終盤の指し手を重視するというロジックはとりあえず取り外すことにしました。<br>
+　２.の修正を行う際には、MIN-MAX法を使った最強プログラムと対戦させて最強プログラムの指し手を教師データとして一手毎に重みを修正するようにすれば、とりあえず学習データを作成することが出来て、後述するグラフデータと同様の結果が得られました。普通はこの学習済みのデータを使えば強いプログラムが完成したということになります。でもこのままだと乱数で指し手を決める弱いプログラムと対戦させた時に勝率が上がりません。弱いプログラムの指し手を教師データとして学習してしまうので、勝率グラフはほぼ５割の横ばい状態になってしまいます（実際に試しました）。どんな対戦相手でも対戦する度に強くなるようにするために、勝った方の指し手を教師データとして重みを更新するように修正しました。簡単に言うと今までは「AI側の指し手を元に勝ったらAIの手番の局面データの重みを加算、負けたら減算」<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>としていたのを「勝っても負けても勝った方の指し手を教師データとして、勝った方の手番の局面データの重みを勾配法を使って誤差修正する」というやり方に変えたということです。実際に取り組んでみないと分かりづらいかもしれませんが、学習済みデータを作ることと、対戦しながら強くなるプログラムを作ることは少し違うってことです。興味のある方はソースのPlayer.learningメソッドを参照して下さい。<br>
 　あと、引き分けの時はどうするかという問題もあったのですが、相手のデータを教師データとして誤差修正するようにしました。学習中のAI側が最強プログラムに対して偶然引き分けに持ち込んだ時でも最強プログラムの指し手を教師データとして学習するようにするためです。</p>
 
 <h5 id="-最強プログラムとの対戦結果-">– 最強プログラムとの対戦結果 –</h5>
@@ -248,7 +247,7 @@ MathJax.Hub.Config({
 <p>　乱数で指し手を決める弱いプログラム相手でも、今までより対戦回数が少ない段階で勝率が上がっていることがわかります。個人的には重みデータの総量が減ったことが学習速度がアップした大きな要因（<a href="/software/2016-01-07/correlation">過去記事参照</a>）になった気がしてます。</p>
 
 <h3 id="学習速度アップは歴然"><del>学習速度アップは歴然</del></h3>
-<p>　<del>過学習という問題はあるものの、ニューラルネットワークを採用することでご褒美を上げたり取ったり（足したり引いたり）するより学習速度がアップすることは間違いないようです。</del>でも現在リリース中の<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">「進化する三目並べ（Tic-tac-toe Evo）」</a>は<a href="http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1444873224&amp;sr=1-1&amp;keywords=statistics+hacks">「STATISTICS HACKS」</a>に書かれている仕様に合わせて作っていることを謳っているので今のまま変更せずに、次アプリにする予定の「消える三目並べ」に採用してみようと思ってます。試してみたいと思うテーマが次々と出てきてなかなかリリース出来ないのですが、どこかでまず一度リリースしようと思ってます。本当は「５五将棋」アプリを作りたいのですが…<img class="emoji" title="sweat_smile" alt="sweat_smile" src="https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png" height="20" width="20" align="absmiddle" /></p>
+<p>　<del>過学習という問題はあるものの、ニューラルネットワークを採用することでご褒美を上げたり取ったり（足したり引いたり）するより学習速度がアップすることは間違いないようです。</del>でも現在リリース中の<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">「進化する三目並べ（Tic-tac-toe Evo）」</a>は<a href="http://www.amazon.co.jp/Statistics-Hacks-%E2%80%95%E7%B5%B1%E8%A8%88%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%81%A8%E4%B8%96%E7%95%8C%E3%82%92%E6%B8%AC%E3%82%8B%E3%83%86%E3%82%AF%E3%83%8B%E3%83%83%E3%82%AF-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1444873224&amp;sr=1-1&amp;keywords=statistics+hacks">「STATISTICS HACKS」</a>に書かれている仕様に合わせて作っていることを謳っているので今のまま変更せずに、次アプリにする予定の「消える三目並べ」に採用してみようと思ってます。試してみたいと思うテーマが次々と出てきてなかなかリリース出来ないのですが、どこかでまず一度リリースしようと思ってます。本当は「５五将棋」アプリを作りたいのですが…<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"></p>
 
 <script type="text/javascript">
 function show_new_saikyo(){
@@ -423,18 +422,18 @@ window.onload = function() {
 };
 </script>
 
-<hr />
+<hr>
 
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>ディープラーニングやニューラルネットワークに関する本をいろいろ読みましたが、個人的にはこの本が一番実践に役立つ気がします。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p>ディープラーニングやニューラルネットワークに関する本をいろいろ読みましたが、個人的にはこの本が一番実践に役立つ気がします。 <a href="#fnref:1" class="reversefootnote">↩</a></p>
     </li>
     <li id="fn:2">
-      <p>なぜ勝ちは＋３，引き分けは＋１，負けは−１がいいのかという根拠は<a href="http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1444873224&amp;sr=1-1&amp;keywords=statistics+hacks">「STATISTICS HACKS」</a>にも明確には書かれていません。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+      <p>なぜ勝ちは＋３，引き分けは＋１，負けは−１がいいのかという根拠は<a href="http://www.amazon.co.jp/Statistics-Hacks-%E2%80%95%E7%B5%B1%E8%A8%88%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%81%A8%E4%B8%96%E7%95%8C%E3%82%92%E6%B8%AC%E3%82%8B%E3%83%86%E3%82%AF%E3%83%8B%E3%83%83%E3%82%AF-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1444873224&amp;sr=1-1&amp;keywords=statistics+hacks">「STATISTICS HACKS」</a>にも明確には書かれていません。 <a href="#fnref:2" class="reversefootnote">↩</a></p>
     </li>
     <li id="fn:3">
-      <p>今までのやり方だと最強プログラムと対戦した場合には引き分けに持ち込んだ時にしか重みの加算が行われない状態でした（最強プログラムには絶対勝てないので＋３を得る機会はない）。 <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+      <p>今までのやり方だと最強プログラムと対戦した場合には引き分けに持ち込んだ時にしか重みの加算が行われない状態でした（最強プログラムには絶対勝てないので＋３を得る機会はない）。 <a href="#fnref:3" class="reversefootnote">↩</a></p>
     </li>
   </ol>
 </div>
@@ -490,11 +489,11 @@ window.onload = function() {
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/programming/2017-05-27/vanishing-tictactoe3" title="「消える三目並べ」もう少しテスト">&larr; Previous</a></li>
+        <li class="prev"><a href="/programming/2017-05-27/vanishing-tictactoe3" title="「消える三目並べ」もう少しテスト">← Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next"><a href="/project/2017-07-07/neuralnw2" title="三目並べでニューラルネットワーク（正）">Next &rarr;</a></li>
+        <li class="next"><a href="/project/2017-07-07/neuralnw2" title="三目並べでニューラルネットワーク（正）">Next →</a></li>
       
       </ul>
     </div>
@@ -514,7 +513,8 @@ window.onload = function() {
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
@@ -542,12 +542,13 @@ s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 
       </div>
       <hr>
       <footer>
-        <p>&copy; 2019 happyclam
+        <p>© 2019 happyclam
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>

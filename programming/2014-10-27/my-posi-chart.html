@@ -182,11 +182,10 @@ MathJax.Hub.Config({
     <div class="container-narrow">
       <div class="row-fluid">
         <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
-        <div class="span9"
-             <!-- Html Elements for Search -->
+        <div class="span9" html elements for search>
              <div id="search-container" align="right">
                <input type="text" id="search-input" placeholder="search...">
                <ul id="results-container"></ul>
@@ -218,10 +217,10 @@ MathJax.Hub.Config({
     </div>
     <div class="content">
       <h3 id="rails3からrails4への移行">Rails3からRails4への移行</h3>
-<p>　一応<a href="https://my-posi.herokuapp.com/">herokuで公開</a>してますがほとんど誰も使っていないようだし<img class="emoji" title="grin" alt="grin" src="https://github.global.ssl.fastly.net/images/icons/emoji/grin.png" height="20" width="20" align="absmiddle" />自分が使うときはローカル環境で動かすだけなのでRails4に移行する必要も無いのですが、<a href="/project/2014-05-30/tweetwatch">TweetWatch</a>を作ったときにLazyHighChartが気に入ったのでグラフ描画機能を変更する目的でついでにRailsもバージョンアップしました。Rails3からRails4への以降に関しては特に大きな変更は必要なかったのでgruffからlazy_high_chartへの移行に関して書きます。</p>
+<p>　一応<a href="https://my-posi.herokuapp.com/">herokuで公開</a>してますがほとんど誰も使っていないようだし<img class="emoji" title=":grin:" alt=":grin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f601.png" height="20" width="20">自分が使うときはローカル環境で動かすだけなのでRails4に移行する必要も無いのですが、<a href="/project/2014-05-30/tweetwatch">TweetWatch</a>を作ったときにLazyHighChartが気に入ったのでグラフ描画機能を変更する目的でついでにRailsもバージョンアップしました。Rails3からRails4への以降に関しては特に大きな変更は必要なかったのでgruffからlazy_high_chartへの移行に関して書きます。</p>
 
 <h3 id="使い方">使い方</h3>
-<p>　その前に<a href="https://www.ruby-toolbox.com/categories/graphing">ここのサイト</a>でいろんなグラフ描画ツールが紹介されています。以前googlechartsは試したことがあるのですが、何か気に入らないことがあってgruffに戻しました。でも、その理由が何であったのか忘れてしまいました<img class="emoji" title="grin" alt="grin" src="https://github.global.ssl.fastly.net/images/icons/emoji/grin.png" height="20" width="20" align="absmiddle" /></p>
+<p>　その前に<a href="https://www.ruby-toolbox.com/categories/graphing">ここのサイト</a>でいろんなグラフ描画ツールが紹介されています。以前googlechartsは試したことがあるのですが、何か気に入らないことがあってgruffに戻しました。でも、その理由が何であったのか忘れてしまいました<img class="emoji" title=":grin:" alt=":grin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f601.png" height="20" width="20"></p>
 
 <ul>
   <li>
@@ -262,7 +261,7 @@ MathJax.Hub.Config({
 &lt;/div&gt;
 </code></pre>
 
-<p>　gruffを使っていた時のコードをほぼそのまま流用できましたが一点だけ引っかかったのが一つのキャンバスに複数の折れ線グラフを描画する方法。<br />
+<p>　gruffを使っていた時のコードをほぼそのまま流用できましたが一点だけ引っかかったのが一つのキャンバスに複数の折れ線グラフを描画する方法。<br>
 　<a href="https://www.highcharts.com/docs/getting-started/your-first-chart">本家サイトのサンプル</a>を見てHashの配列を渡すのかと思いきや上のコードのようにseriesメソッドを複数回呼ぶようにしないとグラフを描画してくれませんでした。本家のサンプルはもちろんそのまま動きましたので、これはlazy_high_chart gemの仕様ということでしょう。普通の人は引っかからないのかぁ？たぶん普通はgemのヘルプの方を見るんですね。</p>
 
 <h3 id="グラフ描画ツールを変えたことによる影響">グラフ描画ツールを変えたことによる影響</h3>
@@ -282,12 +281,12 @@ MathJax.Hub.Config({
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center"><img src="/images/my_posi_ex1.png" alt="gruffの画像1" /></td>
-      <td style="text-align: center"><img src="/images/my_posi_chart1.png" alt="lazy_high_chartの画像1" /></td>
+      <td style="text-align: center"><img src="/images/my_posi_ex1.png" alt="gruffの画像1"></td>
+      <td style="text-align: center"><img src="/images/my_posi_chart1.png" alt="lazy_high_chartの画像1"></td>
     </tr>
     <tr>
-      <td style="text-align: center"><img src="/images/my_posi_ex2.png" alt="gruffの画像2" /></td>
-      <td style="text-align: center"><img src="/images/my_posi_chart2.png" alt="lazy_high_chartの画像2" /></td>
+      <td style="text-align: center"><img src="/images/my_posi_ex2.png" alt="gruffの画像2"></td>
+      <td style="text-align: center"><img src="/images/my_posi_chart2.png" alt="lazy_high_chartの画像2"></td>
     </tr>
   </tbody>
 </table>
@@ -296,18 +295,18 @@ MathJax.Hub.Config({
 
 <div style="width:320px; height:240px; margin:0 auto;">
 
-  <p><img src="/images/my_posi_chart3.png" alt="マウスオーバーによるポップアップの画像" /></p>
+  <p><img src="/images/my_posi_chart3.png" alt="マウスオーバーによるポップアップの画像"></p>
 
 </div>
 
 <p>　また、ググればいろいろ出て来ますが、gruffをruby1.9.3で使用するためとかLineメソッドを使うためにパッチを当てたりしなければいけませんでしたが、そういう無駄な作業からも開放されました。まあRubyだからモンキーパッチで簡単に出来る作業ではありましたが。</p>
 
-<hr />
+<hr>
 
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>cssでwidthが変化するのでてっきり反映出来ているものと思っていましたが、<a href="https://api.highcharts.com/highstock#chart.height">highchartsのドキュメント</a>に書いてある通りデフォルトの高さに関しては400pxのようです。ソースコードは修正済みです。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p>cssでwidthが変化するのでてっきり反映出来ているものと思っていましたが、<a href="https://api.highcharts.com/highstock#chart.height">highchartsのドキュメント</a>に書いてある通りデフォルトの高さに関しては400pxのようです。ソースコードは修正済みです。 <a href="#fnref:1" class="reversefootnote">↩</a></p>
     </li>
   </ol>
 </div>
@@ -357,11 +356,11 @@ MathJax.Hub.Config({
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/software/2014-10-04/arrange_line" title="三目並べ（tic tac toe）で遊んでみた（続き）">&larr; Previous</a></li>
+        <li class="prev"><a href="/software/2014-10-04/arrange_line" title="三目並べ（tic tac toe）で遊んでみた（続き）">← Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next"><a href="/programming/2014-11-05/sideci_review" title="自動でコードレビュー">Next &rarr;</a></li>
+        <li class="next"><a href="/programming/2014-11-05/sideci_review" title="自動でコードレビュー">Next →</a></li>
       
       </ul>
     </div>
@@ -381,7 +380,8 @@ MathJax.Hub.Config({
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
@@ -409,12 +409,13 @@ s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 
       </div>
       <hr>
       <footer>
-        <p>&copy; 2019 happyclam
+        <p>© 2019 happyclam
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>

@@ -182,11 +182,10 @@ MathJax.Hub.Config({
     <div class="container-narrow">
       <div class="row-fluid">
         <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
-        <div class="span9"
-             <!-- Html Elements for Search -->
+        <div class="span9" html elements for search>
              <div id="search-container" align="right">
                <input type="text" id="search-input" placeholder="search...">
                <ul id="results-container"></ul>
@@ -217,26 +216,26 @@ MathJax.Hub.Config({
       <span>11 March 2018</span>
     </div>
     <div class="content">
-      <p><a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam"><img src="/images/ja_badge_web_generic.png" alt="５五将棋" title="５五将棋" width="155" height="60" /></a></p>
+      <p><a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam"><img src="/images/ja_badge_web_generic.png" alt="５五将棋" title="５五将棋" width="155" height="60"></a></p>
 
 <h3 id="５五将棋アプリについて">「５五将棋」アプリについて</h3>
 <p>　現在リリースしている<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">「３三将棋」アプリ</a>とUI部分以外はほとんど同じソースを使って作った５五将棋アプリです。幾つかの５五将棋アプリと対戦させてみたところ、結構勝ったり負けたりのいい勝負なので機種によっては動作が重いとはいえ、そこそこ楽しめるかもしれません。アプリの仕様は３三将棋アプリとほとんど同じなので<a href="/project/2018-01-01/33shogiapp">３三将棋アプリの記事</a>を見ていただくとして、ここでは３三将棋アプリと違う点について書いておこうと思います。
 　</p>
 <h3 id="５五将棋ならではの仕様桂馬の扱い">５五将棋ならではの仕様（桂馬の扱い）</h3>
-<p>　<a href="https://ja.wikipedia.org/wiki/5五将棋">本来の５五将棋？</a>では敵陣一段目（後手は５段目）に駒が進むと駒が成れますが、<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>では初期配置によって駒が成れる段が変わる仕様にしています。使用する駒に桂馬が含まれている場合に一段目（後手は五段目）でしか駒を成れないとすると不都合が生じるからです。<br />
+<p>　<a href="https://ja.wikipedia.org/wiki/5%E4%BA%94%E5%B0%86%E6%A3%8B">本来の５五将棋？</a>では敵陣一段目（後手は５段目）に駒が進むと駒が成れますが、<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>では初期配置によって駒が成れる段が変わる仕様にしています。使用する駒に桂馬が含まれている場合に一段目（後手は五段目）でしか駒を成れないとすると不都合が生じるからです。<br>
 　例えば以下の局面は持ち駒の桂馬を２四に打ったところですが、</p>
 
 <div style="width:480px; margin: 0 auto;">
 
-  <p><a href="/images/55shogi_ex1.png"><img src="/images/55shogi_ex1.png" alt="桂馬を打った局面" title="桂馬を打った局面" /></a></p>
+  <p><a href="/images/55shogi_ex1.png"><img src="/images/55shogi_ex1.png" alt="桂馬を打った局面" title="桂馬を打った局面"></a></p>
 
 </div>
 
-<p>打った桂馬が３二に跳ねた場合に、その時点で駒が成れないと次に駒の行き場がなくなってしまいます。通常の将棋で先手の歩が一段目に進んだ場合強制的に「と金」になりますが、それと同じで使用する駒に桂馬がある場合は二段目でも成れるようにする必要があります。そのため<strong>「初期配置に桂馬が含まれている場合は、桂馬だけでなくすべての駒が二段目（後手は四段目）で成れるルールにしています」。</strong><br />
-　詳しくないですが、一段目で駒が成れるルールの<a href="https://ja.wikipedia.org/wiki/5五将棋">本来の５五将棋</a>に桂馬が使われていない理由は、もしかしたらこのことが理由かもしれません。たしかに全部で五段しかないのに敵陣が２段を占めるというのもバランスが悪い気がしますので、５五将棋では桂馬は使うべきではないのかもしれません。でも７七将棋ならちょうど良いバランスになるような気がしているので、次は先手が二段目、後手は六段目で成れるルールで７七将棋を作ってみようかと思っています。</p>
+<p>打った桂馬が３二に跳ねた場合に、その時点で駒が成れないと次に駒の行き場がなくなってしまいます。通常の将棋で先手の歩が一段目に進んだ場合強制的に「と金」になりますが、それと同じで使用する駒に桂馬がある場合は二段目でも成れるようにする必要があります。そのため<strong>「初期配置に桂馬が含まれている場合は、桂馬だけでなくすべての駒が二段目（後手は四段目）で成れるルールにしています」。</strong><br>
+　詳しくないですが、一段目で駒が成れるルールの<a href="https://ja.wikipedia.org/wiki/5%E4%BA%94%E5%B0%86%E6%A3%8B">本来の５五将棋</a>に桂馬が使われていない理由は、もしかしたらこのことが理由かもしれません。たしかに全部で五段しかないのに敵陣が２段を占めるというのもバランスが悪い気がしますので、５五将棋では桂馬は使うべきではないのかもしれません。でも７七将棋ならちょうど良いバランスになるような気がしているので、次は先手が二段目、後手は六段目で成れるルールで７七将棋を作ってみようかと思っています。</p>
 
 <h3 id="読みの深さ">読みの深さ</h3>
-<p>　Version0.9.9.5で読む範囲を変更しました。「弱い」モードは３手読みで全ての手を読みます。「普通」「長考」モードでは、まず３手読みで候補手を１３手に絞った後、その候補手に対して「普通」モードで４手読み、「長考」モードで５手読みをしています。<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">「３三将棋」アプリ</a>の「長考」モードが９手読み<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>であることを考えると性能が落ちてますが、３三将棋に比べると５五将棋の局面数が飛躍的に増えるためこうなってしまっています<img class="emoji" title="sweat" alt="sweat" src="https://github.global.ssl.fastly.net/images/icons/emoji/sweat.png" height="20" width="20" align="absmiddle" />以前のバージョンは深読みする候補手を６手に絞っていたのですが、持ち駒が豊富な時には一局面で大体３０〜４０手の候補手があるので、たった６手に絞るのはあまりにも無理があると思い直して変更しました<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。「普通」「長考」モードでは候補手を絞って他の手は捨てているのに対して、「弱い」モードではすべての手を読んでいるので、<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>に関しては「弱い」モードの方がいい手を指す可能性が高いかもしれません。</p>
+<p>　Version0.9.9.5で読む範囲を変更しました。「弱い」モードは３手読みで全ての手を読みます。「普通」「長考」モードでは、まず３手読みで候補手を１３手に絞った後、その候補手に対して「普通」モードで４手読み、「長考」モードで５手読みをしています。<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">「３三将棋」アプリ</a>の「長考」モードが９手読み<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>であることを考えると性能が落ちてますが、３三将棋に比べると５五将棋の局面数が飛躍的に増えるためこうなってしまっています<img class="emoji" title=":sweat:" alt=":sweat:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f613.png" height="20" width="20">以前のバージョンは深読みする候補手を６手に絞っていたのですが、持ち駒が豊富な時には一局面で大体３０〜４０手の候補手があるので、たった６手に絞るのはあまりにも無理があると思い直して変更しました<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。「普通」「長考」モードでは候補手を絞って他の手は捨てているのに対して、「弱い」モードではすべての手を読んでいるので、<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>に関しては「弱い」モードの方がいい手を指す可能性が高いかもしれません。</p>
 
 <h3 id="千日手回避">千日手回避</h3>
 <p>　<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">「３三将棋」アプリ</a>では千日手回避のために特別な処理はしていません。あくまでも私の主観ですが、千日手になるのが当然の成り行きと思えるケースが多いためです<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>。しかし<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>の場合は駒の損得が発生しない序盤の段階で千日手になってしまうケースがあまりにも多いので千日手回避のロジックを組み込んでいます。同じ局面が３回発生した場合にはＡＩの手を次善手（あくまでもアプリのＡＩが次善手と判断しているだけです）を指すようにして、なるべく千日手を回避するようにしています。但し次善手を指していても千日手になることもあるので、絶対千日手を避けるというわけではありません。</p>
@@ -245,7 +244,7 @@ MathJax.Hub.Config({
 <p>　Version1.0.0.2で瞑想モードを追加しました。「読みの深さ」のところで説明していますが、「長考」モードでは３手読みで候補手を１３手に絞ってその候補手に対して５手読みを行いますが、<del>「瞑想」モードでは候補手を絞らずに３手読みしたすべての手を評価値でソートした後に５手読みしています。読みの深さは変わっていませんので、詰みを見つけた場合等、枝刈りが効果的に働いて「長考」モードより応答が速くなることもあります。但し、ゲーム終盤に詰みを逃しにくくなったのは確かですが、</del>自分がテストしている限りにおいては「長考」モードより強いかどうかは微妙なところです。</p>
 
 <h3 id="瞑想モードの評価関数変更">瞑想モードの評価関数変更</h3>
-<p>　Version1.0.2.0から瞑想モードの評価関数が新しくなりました。瞑想モード以外は「駒得」しか考慮していない評価関数を使用していますが、瞑想モードでは「駒得」＋「駒の働き」を考慮した評価関数を使用しています。人によっては対戦して棋風が違うと感じるかもしれません。少し強くなったとは思いますが、長考モードより指し手に時間をかけていることを考慮すると、強くなったと言っていいかは相変わらず微妙なところです。<br />
+<p>　Version1.0.2.0から瞑想モードの評価関数が新しくなりました。瞑想モード以外は「駒得」しか考慮していない評価関数を使用していますが、瞑想モードでは「駒得」＋「駒の働き」を考慮した評価関数を使用しています。人によっては対戦して棋風が違うと感じるかもしれません。少し強くなったとは思いますが、長考モードより指し手に時間をかけていることを考慮すると、強くなったと言っていいかは相変わらず微妙なところです。<br>
 　評価関数の変更がどのように作用したのかは詳しくは分かりません。評価関数の変更内容に関しては<a href="/software/2018-12-29/evaluate">この記事</a>を参照してください。</p>
 
 <h3 id="二ヶ国語対応">二ヶ国語対応</h3>
@@ -254,10 +253,10 @@ MathJax.Hub.Config({
 <h3 id="クリップボードを使った棋譜出力">クリップボードを使った棋譜出力</h3>
 <p>　Version1.0.2.0から<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式(*.csa)</a>での棋譜出力が出来るようになりました。</p>
 <div style="width:320px; margin: 0 auto;">
-  <p><img src="/images/55shogi_kifu_output.png" alt="棋譜出力画面" title="棋譜出力画面" /></p>
+  <p><img src="/images/55shogi_kifu_output.png" alt="棋譜出力画面" title="棋譜出力画面"></p>
 </div>
 
-<p>　左上のチェックマークアイコンをタップすると共有画面（インテント）が表示されるので、クリップボードを選べばテキストファイルを扱えるアプリに棋譜データを貼り付けて保存出来ます。<br />
+<p>　左上のチェックマークアイコンをタップすると共有画面（インテント）が表示されるので、クリップボードを選べばテキストファイルを扱えるアプリに棋譜データを貼り付けて保存出来ます。<br>
 　<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式</a>の棋譜はヘッダ部分に駒の初期配置を定義出来る（駒落ち将棋にも対応している）ので、駒の初期配置パターンを選択出来るこのアプリに都合がいいと思ったので採用しました。但し<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式</a>の規約を全て網羅しているわけではなく、必要最小限の部分だけ実装しています。<code>T</code>で始まる指し手の消費時間や<code>$</code>で始まる棋譜情報は出力されません。以下が出力される棋譜の一例です。</p>
 <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam 
 '
@@ -290,14 +289,14 @@ P5+OU+KI+GI+KA+HI
 <h3 id="クリップボードを使った棋譜読み込み">クリップボードを使った棋譜読み込み</h3>
 <p>　Version1.0.2.4から<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式(*.csa)</a>の棋譜入力が出来るようになりました。</p>
 <div style="width:320px; margin: 0 auto;">
-  <p><img src="/images/55shogi_kifu_input1.png" alt="棋譜入力画面１" title="棋譜入力画面１" /></p>
+  <p><img src="/images/55shogi_kifu_input1.png" alt="棋譜入力画面１" title="棋譜入力画面１"></p>
 </div>
 
-<p>　テキストボックスに棋譜テキストデータを貼り付けて読み込みボタンをタップすれば、棋譜を読み込みます。<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">このアプリ</a>自身が出力した棋譜データは読めますが、他のソフトから出力された棋譜データは読み込みに失敗するかもしれません。エラーが発生した場合はその行数を表示しますので、データを編集して試してください。<br />
-　※カンマ区切りのマルチステートメントには対応していません。<br />
+<p>　テキストボックスに棋譜テキストデータを貼り付けて読み込みボタンをタップすれば、棋譜を読み込みます。<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">このアプリ</a>自身が出力した棋譜データは読めますが、他のソフトから出力された棋譜データは読み込みに失敗するかもしれません。エラーが発生した場合はその行数を表示しますので、データを編集して試してください。<br>
+　※カンマ区切りのマルチステートメントには対応していません。<br>
 　※たとえ<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式(*.csa)</a>の棋譜であっても本将棋（９×９）の棋譜は読めません、５五将棋専用です。</p>
 <div style="width:320px; margin: 0 auto;">
-  <p><img src="/images/55shogi_kifu_input2.png" alt="棋譜入力画面２" title="棋譜入力画面２" /></p>
+  <p><img src="/images/55shogi_kifu_input2.png" alt="棋譜入力画面２" title="棋譜入力画面２"></p>
 </div>
 
 <p>　棋譜を読み込んだ後は通常の対局通り、対局者を変更したり局面を戻して途中から指し継いだり出来ます。</p>
@@ -318,10 +317,10 @@ P5+HI+GI+OU+KI+HI
 </code></pre>
 
 <div style="width:320px; margin: 0 auto;">
-  <p><img src="/images/55shogi_illegal_demo.png" alt="独自定義初期盤面" title="独自定義初期盤面" /></p>
+  <p><img src="/images/55shogi_illegal_demo.png" alt="独自定義初期盤面" title="独自定義初期盤面"></p>
 </div>
 
-<p>　飛車４枚の盤面がちゃんと表示されました。ここで「再開」ボタンをタップすると通常通りゲームを開始できます。<br />
+<p>　飛車４枚の盤面がちゃんと表示されました。ここで「再開」ボタンをタップすると通常通りゲームを開始できます。<br>
 　誤って「新規対局」ボタンをタップすると読み込んだ棋譜ではなく、現在「初期配置」メニューで選ばれている初期配置から新規対局が始まってしまうので気をつけてください。</p>
 
 <h3 id="読み込みエラーの意味">読み込みエラーの意味</h3>
@@ -337,7 +336,7 @@ P5+HI+GI+OU+KI+HI
   <tbody>
     <tr>
       <td style="text-align: center">01</td>
-      <td style="text-align: left">盤面データの一行が長すぎるか短すぎます。駒のない場所はスペース＋アスタリスク＋スペース（<code> * </code>）の３バイトです。<br />盤面データは一行ずつ改行する必要があります。</td>
+      <td style="text-align: left">盤面データの一行が長すぎるか短すぎます。駒のない場所はスペース＋アスタリスク＋スペース（<code> * </code>）の３バイトです。<br>盤面データは一行ずつ改行する必要があります。</td>
     </tr>
     <tr>
       <td style="text-align: center">02</td>
@@ -357,11 +356,13 @@ P5+HI+GI+OU+KI+HI
     </tr>
     <tr>
       <td style="text-align: center">06</td>
-      <td style="text-align: left">指し手データの指し手に誤りがあります。飛車（HI）が成っていないのに斜め後ろに移動している等<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup></td>
+      <td style="text-align: left">指し手データの指し手に誤りがあります。飛車（HI）が成っていないのに斜め後ろに移動している等<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup>
+</td>
     </tr>
     <tr>
       <td style="text-align: center">07</td>
-      <td style="text-align: left"><code>P</code>、<code>+</code>、<code>-</code>、<code>'</code>、<code>V</code>、<code>T</code>、<code>%</code>、<code>N</code>、<code>$</code>以外の文字が行の先頭にあります。<br /> ちなみに<code>P</code>、<code>+</code>、<code>-</code>以外の文字は読み飛ばして無視しています。</td>
+      <td style="text-align: left">
+<code>P</code>、<code>+</code>、<code>-</code>、<code>'</code>、<code>V</code>、<code>T</code>、<code>%</code>、<code>N</code>、<code>$</code>以外の文字が行の先頭にあります。<br> ちなみに<code>P</code>、<code>+</code>、<code>-</code>以外の文字は読み飛ばして無視しています。</td>
     </tr>
     <tr>
       <td style="text-align: center">08</td>
@@ -374,21 +375,21 @@ P5+HI+GI+OU+KI+HI
   </tbody>
 </table>
 
-<hr />
+<hr>
 
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>９手先を読んでいるから９手詰めの詰将棋が解けるかというと、そうではなく７手詰めしか解けません。詰み局面までの手数ではなく、相手の玉を取るところまでの手数を読まないといけないためです。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p>９手先を読んでいるから９手詰めの詰将棋が解けるかというと、そうではなく７手詰めしか解けません。詰み局面までの手数ではなく、相手の玉を取るところまでの手数を読まないといけないためです。 <a href="#fnref:1" class="reversefootnote">↩</a></p>
     </li>
     <li id="fn:2">
-      <p>読みの範囲を広げたことで強くなっているのですが、その分少し遅くなってます<img class="emoji" title="sweat" alt="sweat" src="https://github.global.ssl.fastly.net/images/icons/emoji/sweat.png" height="20" width="20" align="absmiddle" /> <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+      <p>読みの範囲を広げたことで強くなっているのですが、その分少し遅くなってます<img class="emoji" title=":sweat:" alt=":sweat:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f613.png" height="20" width="20"> <a href="#fnref:2" class="reversefootnote">↩</a></p>
     </li>
     <li id="fn:3">
-      <p>千日手になって当然に見えると言ってもその局面を迎える前にもっといい手（最善手）を逃していると思われるケースが多いのですが、同一局面の繰り返しが始まってからでは時すでに遅しとなっていて千日手を避けられなくなっているという意味です。この辺りの事情はＡＩの出来の悪さなので仕方がありません。３三将棋の場合は無理に千日手を避けると致命的な悪手になるので敢えてそのままにしています。 <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+      <p>千日手になって当然に見えると言ってもその局面を迎える前にもっといい手（最善手）を逃していると思われるケースが多いのですが、同一局面の繰り返しが始まってからでは時すでに遅しとなっていて千日手を避けられなくなっているという意味です。この辺りの事情はＡＩの出来の悪さなので仕方がありません。３三将棋の場合は無理に千日手を避けると致命的な悪手になるので敢えてそのままにしています。 <a href="#fnref:3" class="reversefootnote">↩</a></p>
     </li>
     <li id="fn:4">
-      <p><a href="http://minerva.cs.uec.ac.jp/~uec55shogi/wiki.cgi?page=GPW%C7%D5%A5%B3%A5%F3%A5%D4%A5%E5%A1%BC%A5%BF%A3%B5%B8%DE%BE%AD%B4%FD%C2%E7%B2%F12018">５五将棋大会の棋譜</a>を読み込んでテストしていたら、成りを不成で出力していると思われる棋譜も混じっていました。 <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+      <p><a href="http://minerva.cs.uec.ac.jp/~uec55shogi/wiki.cgi?page=GPW%C7%D5%A5%B3%A5%F3%A5%D4%A5%E5%A1%BC%A5%BF%A3%B5%B8%DE%BE%AD%B4%FD%C2%E7%B2%F12018">５五将棋大会の棋譜</a>を読み込んでテストしていたら、成りを不成で出力していると思われる棋譜も混じっていました。 <a href="#fnref:4" class="reversefootnote">↩</a></p>
     </li>
   </ol>
 </div>
@@ -444,11 +445,11 @@ P5+HI+GI+OU+KI+HI
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/software/2018-02-17/nocareincheck" title="王手放置について">&larr; Previous</a></li>
+        <li class="prev"><a href="/software/2018-02-17/nocareincheck" title="王手放置について">← Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next"><a href="/project/2018-04-22/9masushogi" title="「９マス将棋の本」買ってみました">Next &rarr;</a></li>
+        <li class="next"><a href="/project/2018-04-22/9masushogi" title="「９マス将棋の本」買ってみました">Next →</a></li>
       
       </ul>
     </div>
@@ -468,7 +469,8 @@ P5+HI+GI+OU+KI+HI
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
@@ -496,12 +498,13 @@ s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 
       </div>
       <hr>
       <footer>
-        <p>&copy; 2019 happyclam
+        <p>© 2019 happyclam
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>

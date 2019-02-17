@@ -182,11 +182,10 @@ MathJax.Hub.Config({
     <div class="container-narrow">
       <div class="row-fluid">
         <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
-        <div class="span9"
-             <!-- Html Elements for Search -->
+        <div class="span9" html elements for search>
              <div id="search-container" align="right">
                <input type="text" id="search-input" placeholder="search...">
                <ul id="results-container"></ul>
@@ -235,42 +234,42 @@ MathJax.Hub.Config({
 <h3 id="上記の判定では不十分なケース">上記の判定では不十分なケース</h3>
 
 <div style="width:320px; margin: 0 auto;">
-  <p><img src="/images/utifu_gote.png" alt="打ち歩詰め後手" title="打ち歩詰め後手" /></p>
+  <p><img src="/images/utifu_gote.png" alt="打ち歩詰め後手" title="打ち歩詰め後手"></p>
 </div>
 
 <p><span>上の局面で後手が３二に歩を打つと打ち歩詰めですが、上記の打ち歩詰め判定では相手の駒（２三の角）で打ち歩を取ることが出来るので打ち歩詰めではないと判定してしまいます。後手の飛車の利きが相手玉を睨んでいるにも関わらずです。</span></p>
 
 <div style="width:320px; margin: 0 auto;">
-  <p><img src="/images/utifu_sente.png" alt="打ち歩詰め先手" title="打ち歩詰め先手" /></p>
+  <p><img src="/images/utifu_sente.png" alt="打ち歩詰め先手" title="打ち歩詰め先手"></p>
 </div>
 
 <p><span>次の例では先手が１二に歩を打つと角が利いているので後手は２二の飛車でその歩を取ることが出来ません。ゆえにこの「１二歩打ち」も打ち歩詰めですが、上記の打ち歩詰め判定ロジックでは飛車で歩が取れるから打ち歩詰めではないと判定してしまいます。</span></p>
 
-<p>　味方の飛車や角の筋に相手玉がいるときは上記の打ち歩詰め判定ではうまくいかないことがわかります（同じ飛び道具でも香車の場合は歩と同じ方向にしか動けないので問題なし）。だからと言って、「飛車や角の利き筋に相手玉がいるときは〜」なんていう条件を追加していては、どんどん打ち歩詰め判定が複雑で重たい処理になるので避けたいところです。<br />
-　いっそのこと１手ごとに打ち歩詰めかどうか判定せずに、「持ち駒の歩を打って詰んだとき」が打ち歩詰めなので、局面の先読みをする過程では打ち歩詰め判定を省略して先読みし、直近の一手が打ち歩の時だけ打ち歩詰めチェックするという方法も考えられますが、３三将棋の場合は盤面が狭いため先読みする過程で打ち歩詰めの局面が頻発するので打ち歩詰めチェックを省略するわけにはいきません<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。<br />
-　また「打ち歩詰め判定」ではなく「詰み判定」のメソッドを用意して、一手毎に「打ち歩による詰みであればその手を避ける」とすればいいかもしれませんが、詰み局面かどうかを判定するのは打ち歩詰めかどうかを判定するより面倒そう？なので<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">自分のアプリ</a>では詰み判定ルーチンは使っていません<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。局面の静的評価値を計算する時に先手側に玉が２枚あれば最大値（50000）後手側に玉が２枚あれば最小値（−50000）を返してゲームが終了したかどうかを判定しています。人間の感覚だと、詰みの局面でゲーム終了するのが当たり前とされている将棋ですが、ソフトで判定する場合は「相手の玉を取った時にゲーム終了」とするのが一番簡単で軽い処理で済むという事情があります<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>。<br />
+<p>　味方の飛車や角の筋に相手玉がいるときは上記の打ち歩詰め判定ではうまくいかないことがわかります（同じ飛び道具でも香車の場合は歩と同じ方向にしか動けないので問題なし）。だからと言って、「飛車や角の利き筋に相手玉がいるときは〜」なんていう条件を追加していては、どんどん打ち歩詰め判定が複雑で重たい処理になるので避けたいところです。<br>
+　いっそのこと１手ごとに打ち歩詰めかどうか判定せずに、「持ち駒の歩を打って詰んだとき」が打ち歩詰めなので、局面の先読みをする過程では打ち歩詰め判定を省略して先読みし、直近の一手が打ち歩の時だけ打ち歩詰めチェックするという方法も考えられますが、３三将棋の場合は盤面が狭いため先読みする過程で打ち歩詰めの局面が頻発するので打ち歩詰めチェックを省略するわけにはいきません<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。<br>
+　また「打ち歩詰め判定」ではなく「詰み判定」のメソッドを用意して、一手毎に「打ち歩による詰みであればその手を避ける」とすればいいかもしれませんが、詰み局面かどうかを判定するのは打ち歩詰めかどうかを判定するより面倒そう？なので<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">自分のアプリ</a>では詰み判定ルーチンは使っていません<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。局面の静的評価値を計算する時に先手側に玉が２枚あれば最大値（50000）後手側に玉が２枚あれば最小値（−50000）を返してゲームが終了したかどうかを判定しています。人間の感覚だと、詰みの局面でゲーム終了するのが当たり前とされている将棋ですが、ソフトで判定する場合は「相手の玉を取った時にゲーム終了」とするのが一番簡単で軽い処理で済むという事情があります<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>。<br>
 　結局<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">自分のアプリ</a>では、最善手を検索する際に常に次善手を保存する（最善手を繰り下げる）ようにしておいて、ＡＩが最終的に打ち歩詰めを選んでしまった場合は、次善手を実際の指し手に変えて打ち歩詰めを回避するようにしました<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup>。</p>
 
 <h3 id="まだ問題があった">まだ問題があった</h3>
-<p>　ＡＩの思考ルーチンを最善手と次善手の二つの候補手を返すようにしたのでとりあえず打ち歩詰めをしてしまうというバグは直ったと安心してアプリをリリースしていたのですが、人間側が指す場合は上記の打ち歩詰め判定のロジックを使っていたため、飛車や角の筋に相手玉がいる場合に人間側の打ち歩詰めを許してしまうケースが発生していたと思われます（ver0.9.1以前）。<br />
-　リリースしてから２週間以上経ってそのことに気がついて、人間が歩を打つ手を選んだ場合は、そこから二手読みをして勝負が着いたら打ち歩詰めと判定して局面を元に戻して指し手をキャンセルさせるという、やや強引なやり方ではありますが打ち歩詰めをさせないようにしました。古いバージョンをお使いの方は、バージョン0.9.1.1以降のものにアプリを更新していただきたいと思います。それにしても自分が動作確認する時は打ち歩詰めなんてしないし、ＡＩの出来ばかり気にして人間側が打ち歩詰めをしてしまうことなんてすっかり頭の中から抜け落ちてました<img class="emoji" title="sweat_smile" alt="sweat_smile" src="https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png" height="20" width="20" align="absmiddle" /><br />
+<p>　ＡＩの思考ルーチンを最善手と次善手の二つの候補手を返すようにしたのでとりあえず打ち歩詰めをしてしまうというバグは直ったと安心してアプリをリリースしていたのですが、人間側が指す場合は上記の打ち歩詰め判定のロジックを使っていたため、飛車や角の筋に相手玉がいる場合に人間側の打ち歩詰めを許してしまうケースが発生していたと思われます（ver0.9.1以前）。<br>
+　リリースしてから２週間以上経ってそのことに気がついて、人間が歩を打つ手を選んだ場合は、そこから二手読みをして勝負が着いたら打ち歩詰めと判定して局面を元に戻して指し手をキャンセルさせるという、やや強引なやり方ではありますが打ち歩詰めをさせないようにしました。古いバージョンをお使いの方は、バージョン0.9.1.1以降のものにアプリを更新していただきたいと思います。それにしても自分が動作確認する時は打ち歩詰めなんてしないし、ＡＩの出来ばかり気にして人間側が打ち歩詰めをしてしまうことなんてすっかり頭の中から抜け落ちてました<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"><br>
 　最新の将棋ソフトではおそらくBonanza由来のソース（データ構造含む）とかライブラリを使ってるのでしょうけど、自前で打ち歩詰め対策を実装するのは結構面倒だったというお話でした。</p>
 
-<hr />
+<hr>
 
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>昔、本将棋のプログラムを作ったことがあって短時間で深く読むようにするために打ち歩詰めチェックを省いてテストしたことがありますが、本将棋の場合だと打ち歩詰めチェックを省いたからといってそれほど違和感のある指し手を選ぶことはありませんでした。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p>昔、本将棋のプログラムを作ったことがあって短時間で深く読むようにするために打ち歩詰めチェックを省いてテストしたことがありますが、本将棋の場合だと打ち歩詰めチェックを省いたからといってそれほど違和感のある指し手を選ぶことはありませんでした。 <a href="#fnref:1" class="reversefootnote">↩</a></p>
     </li>
     <li id="fn:2">
-      <p>本将棋ならほぼありえないのですが３三将棋の場合は「詰みではないが指す手が無い（玉が自殺する手しか無い）」時がよくあるので詰み判定ルーチンがあまり役に立たないと思います。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+      <p>本将棋ならほぼありえないのですが３三将棋の場合は「詰みではないが指す手が無い（玉が自殺する手しか無い）」時がよくあるので詰み判定ルーチンがあまり役に立たないと思います。 <a href="#fnref:2" class="reversefootnote">↩</a></p>
     </li>
     <li id="fn:3">
-      <p>アプリでは相手玉を取るまで指さなくても詰みの局面になればゲーム終了とさせていますが、詰み判定ルーチンを使わずにどうやって詰み局面かどうか判断させているかというと、ＡＩに二手読みをさせて最善手を選んでも負けになる（自玉が取られる）ならゲーム終了にするという方法で実現しています。 <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+      <p>アプリでは相手玉を取るまで指さなくても詰みの局面になればゲーム終了とさせていますが、詰み判定ルーチンを使わずにどうやって詰み局面かどうか判断させているかというと、ＡＩに二手読みをさせて最善手を選んでも負けになる（自玉が取られる）ならゲーム終了にするという方法で実現しています。 <a href="#fnref:3" class="reversefootnote">↩</a></p>
     </li>
     <li id="fn:4">
-      <p>これは暫定的な解決方法で、最新版のアプリでは上記の打ち歩詰め判定メソッドは使用しない方法で解決しています。 <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+      <p>これは暫定的な解決方法で、最新版のアプリでは上記の打ち歩詰め判定メソッドは使用しない方法で解決しています。 <a href="#fnref:4" class="reversefootnote">↩</a></p>
     </li>
   </ol>
 </div>
@@ -326,11 +325,11 @@ MathJax.Hub.Config({
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/project/2018-01-01/33shogiapp" title="「３三将棋」アプリリリースしました">&larr; Previous</a></li>
+        <li class="prev"><a href="/project/2018-01-01/33shogiapp" title="「３三将棋」アプリリリースしました">← Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next"><a href="/software/2018-02-17/nocareincheck" title="王手放置について">Next &rarr;</a></li>
+        <li class="next"><a href="/software/2018-02-17/nocareincheck" title="王手放置について">Next →</a></li>
       
       </ul>
     </div>
@@ -350,7 +349,8 @@ MathJax.Hub.Config({
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
@@ -378,12 +378,13 @@ s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 
       </div>
       <hr>
       <footer>
-        <p>&copy; 2019 happyclam
+        <p>© 2019 happyclam
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>

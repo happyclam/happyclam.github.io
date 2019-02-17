@@ -182,11 +182,10 @@ MathJax.Hub.Config({
     <div class="container-narrow">
       <div class="row-fluid">
         <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
-        <div class="span9"
-             <!-- Html Elements for Search -->
+        <div class="span9" html elements for search>
              <div id="search-container" align="right">
                <input type="text" id="search-input" placeholder="search...">
                <ul id="results-container"></ul>
@@ -218,9 +217,9 @@ MathJax.Hub.Config({
     </div>
     <div class="content">
       <h3 id="google-play-からのお達し">Google Play からのお達し</h3>
-<p>　２／９に「Google Play warning: You are using a vulnerable version of Apache Cordova」というタイトルでGoogleからメールが来ました。バージョン4.1.1以前のApacheCordovaにセキュリティ上の脆弱性が見つかったので、公開している<a href="https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf">Cordova製のアプリ</a>を更新しろという内容です。<br />
-<strong>Please migrate your app(s) to Apache Cordova v.4.1.1 or higher as soon as possible and increment the version number of the upgraded APK.</strong><br />
-と書いてあり、更新しなければ2016年5月9日以降は公開を停止するとも書いてありました。備忘録のつもりで作業内容を記事に残しておきます。<br />
+<p>　２／９に「Google Play warning: You are using a vulnerable version of Apache Cordova」というタイトルでGoogleからメールが来ました。バージョン4.1.1以前のApacheCordovaにセキュリティ上の脆弱性が見つかったので、公開している<a href="https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf">Cordova製のアプリ</a>を更新しろという内容です。<br>
+<strong>Please migrate your app(s) to Apache Cordova v.4.1.1 or higher as soon as possible and increment the version number of the upgraded APK.</strong><br>
+と書いてあり、更新しなければ2016年5月9日以降は公開を停止するとも書いてありました。備忘録のつもりで作業内容を記事に残しておきます。<br>
 　それにしても、メールのタイトルをGoogleやTwitterで検索してもほとんどヒットしなかったのでCordova(PhoneGap)製のアプリって少ないんでしょうねぇ。それとも皆さんマメに更新しているからこんなメール来ないってことでしょうか？</p>
 
 <h3 id="cordova開発環境の更新">Cordova開発環境の更新</h3>
@@ -292,7 +291,7 @@ Buildfile: build.xml does not exist!
 Build failed
 </code></pre>
 
-<p>　今まで<code>ant release</code>コマンドでビルドしていたのですが、バージョンアップで変更になったのか、エラーになりました。<br />
+<p>　今まで<code>ant release</code>コマンドでビルドしていたのですが、バージョンアップで変更になったのか、エラーになりました。<br>
 　エラーメッセージはbuild.xmlが無いと言ってるだけなので、旧プロジェクトからbuild.xmlを持って来れば出来そうですが、新しいやり方に従って以下のようにビルド</p>
 
 <pre><code>$ cordova build android --release
@@ -300,7 +299,7 @@ Built the following apk(s):
 	/Users/xxxx/workspace/Tictactoe45/platforms/android/build/outputs/apk/android-release-unsigned.apk
 </code></pre>
 
-<p>　私はその気はありませんが、GUI環境に移行すればもっと分かりやすいメニューがあるのかもしれません。<br />
+<p>　私はその気はありませんが、GUI環境に移行すればもっと分かりやすいメニューがあるのかもしれません。<br>
 　その後、私有鍵は以前作成したものを使い、デジタル署名も以前のバージョンと同様に出来ました。</p>
 
 <pre><code>$jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore ~/mine/myAndroidKey.keystore ./platforms/android/build/outputs/apk/android-release-unsigned.apk myAndroidKeyAlias
@@ -313,13 +312,13 @@ $adb install -r ./Release/android/Tictactoe-release1-3-2.apk
 
 <div style="width:320px; margin: 0 auto;">
 
-  <p><a href="/images/screenshot_googleplay.png" target="_blank"><img src="/images/screenshot_googleplay.png" alt="GooglePlayAPK画面" title="Google Play APK画面" /></a></p>
+  <p><a href="/images/screenshot_googleplay.png" target="_blank"><img src="/images/screenshot_googleplay.png" alt="GooglePlayAPK画面" title="Google Play APK画面"></a></p>
 
 </div>
 
-<p>　↑バージョン（android:versionCode）が６桁の数字（103028）になってしまっていますが、なぜか私の環境からGooglePlayのサイトにパッケージファイルをアップロードするとAndroidManifest.xmlに記載した数値（10302）に一桁追加されてしまうのです。以前のものより数値が小さいとアップロード出来ないらしいので、１桁でいいはずの数字なのに今は６桁になってしまっています。う〜ん不思議だ<img class="emoji" title="confused" alt="confused" src="https://github.global.ssl.fastly.net/images/icons/emoji/confused.png" height="20" width="20" align="absmiddle" /></p>
+<p>　↑バージョン（android:versionCode）が６桁の数字（103028）になってしまっていますが、なぜか私の環境からGooglePlayのサイトにパッケージファイルをアップロードするとAndroidManifest.xmlに記載した数値（10302）に一桁追加されてしまうのです。以前のものより数値が小さいとアップロード出来ないらしいので、１桁でいいはずの数字なのに今は６桁になってしまっています。う〜ん不思議だ<img class="emoji" title=":confused:" alt=":confused:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f615.png" height="20" width="20"></p>
 
-<hr />
+<hr>
 
 
     </div>
@@ -369,11 +368,11 @@ $adb install -r ./Release/android/Tictactoe-release1-3-2.apk
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/programming/2016-02-01/node_express" title="herokuのNode.jsプロジェクトでエラー">&larr; Previous</a></li>
+        <li class="prev"><a href="/programming/2016-02-01/node_express" title="herokuのNode.jsプロジェクトでエラー">← Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next"><a href="/hardware/2016-03-21/pr_epson" title="モバイルプリンター PX-S05B">Next &rarr;</a></li>
+        <li class="next"><a href="/hardware/2016-03-21/pr_epson" title="モバイルプリンター PX-S05B">Next →</a></li>
       
       </ul>
     </div>
@@ -393,7 +392,8 @@ $adb install -r ./Release/android/Tictactoe-release1-3-2.apk
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
@@ -421,12 +421,13 @@ s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 
       </div>
       <hr>
       <footer>
-        <p>&copy; 2019 happyclam
+        <p>© 2019 happyclam
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>

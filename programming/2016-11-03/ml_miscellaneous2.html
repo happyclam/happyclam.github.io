@@ -182,11 +182,10 @@ MathJax.Hub.Config({
     <div class="container-narrow">
       <div class="row-fluid">
         <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
-        <div class="span9"
-             <!-- Html Elements for Search -->
+        <div class="span9" html elements for search>
              <div id="search-container" align="right">
                <input type="text" id="search-input" placeholder="search...">
                <ul id="results-container"></ul>
@@ -218,10 +217,10 @@ MathJax.Hub.Config({
     </div>
     <div class="content">
       <h3 id="乱数プログラムとの対戦テスト結果は良好だったけど">乱数プログラムとの対戦テスト結果は良好だったけど</h3>
-<p>　<a href="/programming/2016-10-21/ml_miscellaneous">前回の記事</a>で「消える三目並べ」（３手前に打った自分の駒が消えるルールの三目並べ）なら保持する局面の数（ゲーム木）を通常の三目並べより少なく出来るなんて書いてしまいましたが、「消える三目並べ」では局面のデータだけを記憶していても次にどの駒が消えるかによって最善手が違ってくるので通常の三目並べのように局面の組み合わせだけで学習させることは出来ないことに気づきました。<br />
-　あまり深く考えずに「消える三目並べ」のルールをプログラムに反映させて、学習機能の部分は変更せずに乱数プログラムとの対戦テストをしたところ、最初は２０％程だった勝率が徐々に上がり、10,000回対戦後の最後の１００回の対戦は勝率６０％以上に上がったので、これだけの修正でいいのか？と疑問に思いながらも、前回の記事を書いてしまいました。<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">「進化する三目並べ（Tic-tac-toe Evo）」</a>でも、最強プログラムとの対戦では急速に学習が進みますが、乱数プログラムとの対戦では学習効果が低いため10,000回対戦後でも勝率が６０％程度でしたので、同じ結果が得られたと早合点してしまいました。<br />
-　でも「消える三目並べ」の最強プログラム<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>を作って対戦テストをしてみたところ<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>、学習機能を変更しないままでは、全く勝てるようになりませんでした。以前の記事<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>でも書いたように「消える三目並べ」は先手必勝なので少なくともAI側<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup>が先手の時は勝てるようにならなければおかしいはずなのに、５千回程対戦させても１回も勝てません。とりあえず最強の「消える三目並べ」プログラムに先手の時はある程度勝てるようにならなければ「進化する」とは言えないでしょう。<br />
-　では、なぜ乱数プログラムとの対戦テストでは勝率が上がっていったのか？乱数プログラムはまったく出鱈目に指し手を決めるので、ラインを揃えようとさえしないので、少なくとも現在の局面だけを見て（例え次にどの駒が消えるかまでは考慮していないにしても）ラインを揃えれば報酬がもらえることを学習したプログラムの方が勝率が上がっていくのは当たり前ということでしょう。してみると、乱数プログラムとの対戦テストなんて学習効果を図るためには不要なテストなのかもしれません。テスト結果が良好だったので、簡単な修正で済んだことに驚きながらも「思ったより楽勝だな」なんて思ってました。しかし、このままのプログラムでは、人間や最強プログラムを相手にした場合はまったく学習効果が感じられない偽AIプログラムと言われそうです。<br />
+<p>　<a href="/programming/2016-10-21/ml_miscellaneous">前回の記事</a>で「消える三目並べ」（３手前に打った自分の駒が消えるルールの三目並べ）なら保持する局面の数（ゲーム木）を通常の三目並べより少なく出来るなんて書いてしまいましたが、「消える三目並べ」では局面のデータだけを記憶していても次にどの駒が消えるかによって最善手が違ってくるので通常の三目並べのように局面の組み合わせだけで学習させることは出来ないことに気づきました。<br>
+　あまり深く考えずに「消える三目並べ」のルールをプログラムに反映させて、学習機能の部分は変更せずに乱数プログラムとの対戦テストをしたところ、最初は２０％程だった勝率が徐々に上がり、10,000回対戦後の最後の１００回の対戦は勝率６０％以上に上がったので、これだけの修正でいいのか？と疑問に思いながらも、前回の記事を書いてしまいました。<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">「進化する三目並べ（Tic-tac-toe Evo）」</a>でも、最強プログラムとの対戦では急速に学習が進みますが、乱数プログラムとの対戦では学習効果が低いため10,000回対戦後でも勝率が６０％程度でしたので、同じ結果が得られたと早合点してしまいました。<br>
+　でも「消える三目並べ」の最強プログラム<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>を作って対戦テストをしてみたところ<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>、学習機能を変更しないままでは、全く勝てるようになりませんでした。以前の記事<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>でも書いたように「消える三目並べ」は先手必勝なので少なくともAI側<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup>が先手の時は勝てるようにならなければおかしいはずなのに、５千回程対戦させても１回も勝てません。とりあえず最強の「消える三目並べ」プログラムに先手の時はある程度勝てるようにならなければ「進化する」とは言えないでしょう。<br>
+　では、なぜ乱数プログラムとの対戦テストでは勝率が上がっていったのか？乱数プログラムはまったく出鱈目に指し手を決めるので、ラインを揃えようとさえしないので、少なくとも現在の局面だけを見て（例え次にどの駒が消えるかまでは考慮していないにしても）ラインを揃えれば報酬がもらえることを学習したプログラムの方が勝率が上がっていくのは当たり前ということでしょう。してみると、乱数プログラムとの対戦テストなんて学習効果を図るためには不要なテストなのかもしれません。テスト結果が良好だったので、簡単な修正で済んだことに驚きながらも「思ったより楽勝だな」なんて思ってました。しかし、このままのプログラムでは、人間や最強プログラムを相手にした場合はまったく学習効果が感じられない偽AIプログラムと言われそうです。<br>
 　一応スマホにインストールして自分で数百回対戦してみましたが「消える三目並べ」自体あまりやったことがなく特に強いわけでもない自分にとっては、強くなってるのかどうかわからないというのが正直な感想ですが、少なくともデータ上で強くなることを確認する必要があるでしょう。</p>
 
 <h3 id="組み合わせではなく順列">組み合わせではなく、順列</h3>
@@ -300,33 +299,33 @@ MathJax.Hub.Config({
 
 <div style="width:600px; margin: 0 auto;">
 
-  <p><a href="/images/tictactoe.png"><img src="/images/tictactoe.png" alt="消える三目並べゲーム木" title="消える三目並べゲーム木" /></a></p>
+  <p><a href="/images/tictactoe.png"><img src="/images/tictactoe.png" alt="消える三目並べゲーム木" title="消える三目並べゲーム木"></a></p>
 
 </div>
 
-<p>　上の図は、手数がいくら増えたとしても６手目以降の局面は、６手目の局面60,480種類の中に手順が違う局面として必ず含まれていることを示しています。プログラムとの対戦テストでは手数は２０手を超えることもあるのですが、一局面に存在する駒の数は最大６個（×が３つ、○が３つ）までなのでいくら手数が増えてもデータが無制限に増える心配がないことは<a href="/programming/2016-10-21/ml_miscellaneous">前回の記事</a>に書いた通りですが、アプリを作る場合思っていたより大幅にデータ量が増えてしまうことになりそうです。<br />
-　試しにゲーム木データをPCで作成したところ12MB程度になりました。画像をいっぱい使用する昨今のアプリに比べればそれ程でもないかもしれませんが、現在の<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">「進化する三目並べ（Tic-tac-toe Evo）」</a>の1MB程度に較べて大幅増量になりそうです。androidアプリもiosアプリも100MBまで大丈夫なようなので、サイズ的には問題ないのですが、スマホ標準のブラウザ（WebView）内のデータ制限（androidは2MB、iosは5MB）を超えるのでアプリの作りを変える必要がありそうです。自分としてはこれが一番面倒くさい、今までMacbookでブラウザ上で開発出来ていたのに、パワーの有るPCで実機やエミュレータを使いながらの開発作業が必要になりそうです。<br />
-　また、データ量の問題はどうにかなるにしても、６手目以降の局面を検索する場合、上の図の限定した範囲のゲーム木に含まれているとはいっても、今までのように単純にツリーを辿るだけでは駄目で、６手目以降に関してはツリーのルートから再検索しなければいけませんし、上の図の６手目の局面の手番はすべて同じ先手番になっています（×○×○×○で次は先手の×の手番）が、実際には後手の手番で上の図の６手目の局面を迎えることもあるので、対戦結果を学習データとして格納する時の処理が複雑で煩わしい処理になりそうです。それにAIの学習が進んでいるかどうかの指標（どれだけ進化したか現在イラストで表示している機能）をどうやって実現するかも現在手探り中です。<br />
-　乗りかかった船なので何とかリリースまで漕ぎ着けたいと思ってますが、思っていたより時間かかりそうです<img class="emoji" title="pensive" alt="pensive" src="https://github.global.ssl.fastly.net/images/icons/emoji/pensive.png" height="20" width="20" align="absmiddle" />。</p>
+<p>　上の図は、手数がいくら増えたとしても６手目以降の局面は、６手目の局面60,480種類の中に手順が違う局面として必ず含まれていることを示しています。プログラムとの対戦テストでは手数は２０手を超えることもあるのですが、一局面に存在する駒の数は最大６個（×が３つ、○が３つ）までなのでいくら手数が増えてもデータが無制限に増える心配がないことは<a href="/programming/2016-10-21/ml_miscellaneous">前回の記事</a>に書いた通りですが、アプリを作る場合思っていたより大幅にデータ量が増えてしまうことになりそうです。<br>
+　試しにゲーム木データをPCで作成したところ12MB程度になりました。画像をいっぱい使用する昨今のアプリに比べればそれ程でもないかもしれませんが、現在の<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">「進化する三目並べ（Tic-tac-toe Evo）」</a>の1MB程度に較べて大幅増量になりそうです。androidアプリもiosアプリも100MBまで大丈夫なようなので、サイズ的には問題ないのですが、スマホ標準のブラウザ（WebView）内のデータ制限（androidは2MB、iosは5MB）を超えるのでアプリの作りを変える必要がありそうです。自分としてはこれが一番面倒くさい、今までMacbookでブラウザ上で開発出来ていたのに、パワーの有るPCで実機やエミュレータを使いながらの開発作業が必要になりそうです。<br>
+　また、データ量の問題はどうにかなるにしても、６手目以降の局面を検索する場合、上の図の限定した範囲のゲーム木に含まれているとはいっても、今までのように単純にツリーを辿るだけでは駄目で、６手目以降に関してはツリーのルートから再検索しなければいけませんし、上の図の６手目の局面の手番はすべて同じ先手番になっています（×○×○×○で次は先手の×の手番）が、実際には後手の手番で上の図の６手目の局面を迎えることもあるので、対戦結果を学習データとして格納する時の処理が複雑で煩わしい処理になりそうです。それにAIの学習が進んでいるかどうかの指標（どれだけ進化したか現在イラストで表示している機能）をどうやって実現するかも現在手探り中です。<br>
+　乗りかかった船なので何とかリリースまで漕ぎ着けたいと思ってますが、思っていたより時間かかりそうです<img class="emoji" title=":pensive:" alt=":pensive:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f614.png" height="20" width="20">。</p>
 
-<hr />
+<hr>
 
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>ここで言う最強プログラムとは従来のMIN-MAX法（αβ法）を使って作ったプログラムです <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p>ここで言う最強プログラムとは従来のMIN-MAX法（αβ法）を使って作ったプログラムです <a href="#fnref:1" class="reversefootnote">↩</a></p>
     </li>
     <li id="fn:2">
-      <p>「消える三目並べ」の最強プログラムは最低でも１１手読みを必要とするため、テストするにも時間がかかって面倒なんです<img class="emoji" title="weary" alt="weary" src="https://github.global.ssl.fastly.net/images/icons/emoji/weary.png" height="20" width="20" align="absmiddle" /> <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+      <p>「消える三目並べ」の最強プログラムは最低でも１１手読みを必要とするため、テストするにも時間がかかって面倒なんです<img class="emoji" title=":weary:" alt=":weary:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f629.png" height="20" width="20"> <a href="#fnref:2" class="reversefootnote">↩</a></p>
     </li>
     <li id="fn:3">
-      <p><a href="/software/2014-10-04/arrange_line">「三目並べ（tic tac toe）で遊んでみた（続き）」</a>、<a href="/programming/2016-07-23/33shogi">「９マス将棋（３×３将棋）と三目並べの変化形」</a>参照 <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+      <p><a href="/software/2014-10-04/arrange_line">「三目並べ（tic tac toe）で遊んでみた（続き）」</a>、<a href="/programming/2016-07-23/33shogi">「９マス将棋（３×３将棋）と三目並べの変化形」</a>参照 <a href="#fnref:3" class="reversefootnote">↩</a></p>
     </li>
     <li id="fn:4">
-      <p>ここで言うAIとは<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">「進化する三目並べ（Tic-tac-toe Evo）」</a>で使用している機械学習によるAIです。 <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+      <p>ここで言うAIとは<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">「進化する三目並べ（Tic-tac-toe Evo）」</a>で使用している機械学習によるAIです。 <a href="#fnref:4" class="reversefootnote">↩</a></p>
     </li>
     <li id="fn:5">
-      <p>オセロと将棋に関しても、オセロは指し手が進む毎に盤面を駒が埋めていき必ず終局に向かうのに対して、将棋は駒が全て盤上を埋め尽くすわけではないので、必ずしも手数が増える毎に終局が近づくわけではないという違いがあります。オセロ、将棋、消える三目並べ、３つのゲームはそれぞれ微妙に違うわけです。こんな違いを意識している人は世の中にどれぐらいいるでしょうか<img class="emoji" title="sweat_smile" alt="sweat_smile" src="https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png" height="20" width="20" align="absmiddle" /> <a href="#fnref:5" class="reversefootnote">&#8617;</a></p>
+      <p>オセロと将棋に関しても、オセロは指し手が進む毎に盤面を駒が埋めていき必ず終局に向かうのに対して、将棋は駒が全て盤上を埋め尽くすわけではないので、必ずしも手数が増える毎に終局が近づくわけではないという違いがあります。オセロ、将棋、消える三目並べ、３つのゲームはそれぞれ微妙に違うわけです。こんな違いを意識している人は世の中にどれぐらいいるでしょうか<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"> <a href="#fnref:5" class="reversefootnote">↩</a></p>
     </li>
   </ol>
 </div>
@@ -386,11 +385,11 @@ MathJax.Hub.Config({
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/programming/2016-10-21/ml_miscellaneous" title="三目並べと同じ方法でオセロや将棋を作れるか">&larr; Previous</a></li>
+        <li class="prev"><a href="/programming/2016-10-21/ml_miscellaneous" title="三目並べと同じ方法でオセロや将棋を作れるか">← Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next"><a href="/programming/2016-11-23/vanishing-tictactoe" title="「消える三目並べ」は、学習が速い">Next &rarr;</a></li>
+        <li class="next"><a href="/programming/2016-11-23/vanishing-tictactoe" title="「消える三目並べ」は、学習が速い">Next →</a></li>
       
       </ul>
     </div>
@@ -410,7 +409,8 @@ MathJax.Hub.Config({
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
@@ -438,12 +438,13 @@ s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 
       </div>
       <hr>
       <footer>
-        <p>&copy; 2019 happyclam
+        <p>© 2019 happyclam
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>

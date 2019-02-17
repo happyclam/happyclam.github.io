@@ -182,11 +182,10 @@ MathJax.Hub.Config({
     <div class="container-narrow">
       <div class="row-fluid">
         <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
-        <div class="span9"
-             <!-- Html Elements for Search -->
+        <div class="span9" html elements for search>
              <div id="search-container" align="right">
                <input type="text" id="search-input" placeholder="search...">
                <ul id="results-container"></ul>
@@ -218,47 +217,47 @@ MathJax.Hub.Config({
     </div>
     <div class="content">
       <h3 id="打ち歩詰めを回避するための不成">打ち歩詰めを回避するための不成</h3>
-<p>　真偽の程はわからないのですが、最新の将棋ソフトを以ってしても角不成を含む詰将棋を解くことが出来ないと小耳に挟みました。自分は最新の将棋ソフトの動向には疎くソフトも古いのしか持っていないので確認出来ませんが、有名な<a href="https://shogi100.com/2018/03/14/1-13/">「谷川九段の角不成」</a>という実戦詰将棋があって、機械学習（おそらくディープラーニングを使ったもの）を用いた最新のソフトでも６七角引不成（<a href="http://i2chmeijin.blog.fc2.com/blog-entry-1955.html">参考記事</a>）からの１９手詰めが解けないそうです。学習型の将棋ソフトは終盤が弱いとは聞いていました。でも自分が持っている相当古いソフト（１０年以上前に購入した「AI将棋 Version13」<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>）で試してみたところ、見事に詰め上げることが出来たので結局はソフトに依るということでしょう。ただ最新のソフトがなぜ解けないのか、なぜそうなっている（あるいはそうしている）のでしょう？もしかしたら結構難しいのでしょうか？データ構造によっては難しい処理を強いられるかもしれないなぁとは思います。原因というか不成を読まない？理由についてはもしかしてと思い当たることもあるのですが、想像の域を出ないので他人様のことは置いといて、とりあえず自分の作ったソフトが成りと不成をちゃんと区別出来るか確認することにしました。打ち歩詰めに関しても詰将棋に関しても成る・成らないに関しても一応テストはしてますが、<strong>打ち歩詰めを回避するために敢えて成らない</strong>ということが出来るかどうかちょっと心配になったからです<img class="emoji" title="sweat_smile" alt="sweat_smile" src="https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png" height="20" width="20" align="absmiddle" /></p>
+<p>　真偽の程はわからないのですが、最新の将棋ソフトを以ってしても角不成を含む詰将棋を解くことが出来ないと小耳に挟みました。自分は最新の将棋ソフトの動向には疎くソフトも古いのしか持っていないので確認出来ませんが、有名な<a href="https://shogi100.com/2018/03/14/1-13/">「谷川九段の角不成」</a>という実戦詰将棋があって、機械学習（おそらくディープラーニングを使ったもの）を用いた最新のソフトでも６七角引不成（<a href="http://i2chmeijin.blog.fc2.com/blog-entry-1955.html">参考記事</a>）からの１９手詰めが解けないそうです。学習型の将棋ソフトは終盤が弱いとは聞いていました。でも自分が持っている相当古いソフト（１０年以上前に購入した「AI将棋 Version13」<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>）で試してみたところ、見事に詰め上げることが出来たので結局はソフトに依るということでしょう。ただ最新のソフトがなぜ解けないのか、なぜそうなっている（あるいはそうしている）のでしょう？もしかしたら結構難しいのでしょうか？データ構造によっては難しい処理を強いられるかもしれないなぁとは思います。原因というか不成を読まない？理由についてはもしかしてと思い当たることもあるのですが、想像の域を出ないので他人様のことは置いといて、とりあえず自分の作ったソフトが成りと不成をちゃんと区別出来るか確認することにしました。打ち歩詰めに関しても詰将棋に関しても成る・成らないに関しても一応テストはしてますが、<strong>打ち歩詰めを回避するために敢えて成らない</strong>ということが出来るかどうかちょっと心配になったからです<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"></p>
 
 <h3 id="１９手詰めで確認したいけど">１９手詰めで確認したいけど</h3>
-<p>　有名な角不成の１９手詰の詰将棋をそのまま自分のソフトで試してみたいところですが、自分のソフトでは１９手詰めなんて出来ません。何度かこのブログでも書いていますが、有名な将棋ソフトは大抵、将棋盤をビットパターンで表現して高速に先読み出来るようになっています（BitBoardと呼ばれているようです）が、自分のソフトは通常の多次元配列データで将棋盤を表現しているので到底太刀打ち出来ません。将棋ソフトに革命をもたらしたボナンザ（Bonanza）は独自の評価関数や学習機能で有名ですが、BitBoardを最初に将棋ソフトに取り入れたのも同じ開発者（保木氏）なのでしょうか？よく知らないのですが、もしそうならそのことももっと評価されるべきだと思いますけどどうなのでしょう？<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>BitBoardをJavaScriptで作る人は…いないでしょうね<img class="emoji" title="sweat_smile" alt="sweat_smile" src="https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png" height="20" width="20" align="absmiddle" /><br />
-　話が逸れましたが、長手数の詰将棋は無理なので、<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋</a>の形に修正した短手数の詰将棋問題で確認することにしました。９×９の本将棋のままでは時間が掛かり過ぎるからです。<br />
+<p>　有名な角不成の１９手詰の詰将棋をそのまま自分のソフトで試してみたいところですが、自分のソフトでは１９手詰めなんて出来ません。何度かこのブログでも書いていますが、有名な将棋ソフトは大抵、将棋盤をビットパターンで表現して高速に先読み出来るようになっています（BitBoardと呼ばれているようです）が、自分のソフトは通常の多次元配列データで将棋盤を表現しているので到底太刀打ち出来ません。将棋ソフトに革命をもたらしたボナンザ（Bonanza）は独自の評価関数や学習機能で有名ですが、BitBoardを最初に将棋ソフトに取り入れたのも同じ開発者（保木氏）なのでしょうか？よく知らないのですが、もしそうならそのことももっと評価されるべきだと思いますけどどうなのでしょう？<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>BitBoardをJavaScriptで作る人は…いないでしょうね<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"><br>
+　話が逸れましたが、長手数の詰将棋は無理なので、<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋</a>の形に修正した短手数の詰将棋問題で確認することにしました。９×９の本将棋のままでは時間が掛かり過ぎるからです。<br>
 　<strong>以下のテストは５五将棋の盤面（５×５）ですが、通常の本将棋（９×９）と同じように先手は３段目で成ることが出来、後手は５段目だけで成ることが出来るよう特殊な設定にしています。また、詰みに影響を与えないように双玉の形にして後手（玉方）の持ち駒は時間短縮のため金一枚にしました。</strong></p>
 
 <ol>
   <li>
-    <p>打ち歩詰め回避詰将棋 - 角不成（<a href="https://books.google.co.jp/books?id=Ze7DCAAAQBAJ&amp;pg=PA108&amp;lpg=PA108&amp;dq=角不成+詰将棋&amp;source=bl&amp;ots=SVjU7lWwSg&amp;sig=CU4yi7RK8IsYeDGyRZoslpCT19I&amp;hl=ja&amp;sa=X&amp;ved=2ahUKEwj-1Jvw84LeAhXCM94KHbo3DEA4FBDoATABegQICBAB#v=onepage&amp;q=角不成%20詰将棋&amp;f=false">出典</a>）:<br />
-<a href="/images/tume1.gif"><img src="/images/tume1.gif" alt="角不成詰将棋" title="角不成詰将棋" /></a><br />
-先手持ち駒＝無し<br />
-詰み手順＝２三角不成、１一玉、１二歩、２二玉、３二飛成、まで５手詰め<br />
+    <p>打ち歩詰め回避詰将棋 - 角不成（<a href="https://books.google.co.jp/books?id=Ze7DCAAAQBAJ&amp;pg=PA108&amp;lpg=PA108&amp;dq=%E8%A7%92%E4%B8%8D%E6%88%90+%E8%A9%B0%E5%B0%86%E6%A3%8B&amp;source=bl&amp;ots=SVjU7lWwSg&amp;sig=CU4yi7RK8IsYeDGyRZoslpCT19I&amp;hl=ja&amp;sa=X&amp;ved=2ahUKEwj-1Jvw84LeAhXCM94KHbo3DEA4FBDoATABegQICBAB#v=onepage&amp;q=%E8%A7%92%E4%B8%8D%E6%88%90%20%E8%A9%B0%E5%B0%86%E6%A3%8B&amp;f=false">出典</a>）:<br>
+<a href="/images/tume1.gif"><img src="/images/tume1.gif" alt="角不成詰将棋" title="角不成詰将棋"></a><br>
+先手持ち駒＝無し<br>
+詰み手順＝２三角不成、１一玉、１二歩、２二玉、３二飛成、まで５手詰め<br>
 <strong>初手２三角成は打ち歩詰めになります。</strong></p>
   </li>
   <li>
-    <p>打ち歩詰め回避詰将棋 - 歩不成（<a href="https://www.shogitown.com/beginner/5te_2008/5te_tume08-12.html">出典</a>）:<br />
-<a href="/images/tume2.gif"><img src="/images/tume2.gif" alt="歩不成詰将棋" title="歩不成詰将棋" /></a><br />
-先手持ち駒＝歩一枚<br />
-詰み手順＝３二歩不成、１二玉、１三歩、２二玉、３三飛成、まで５手詰め<br />
+    <p>打ち歩詰め回避詰将棋 - 歩不成（<a href="https://www.shogitown.com/beginner/5te_2008/5te_tume08-12.html">出典</a>）:<br>
+<a href="/images/tume2.gif"><img src="/images/tume2.gif" alt="歩不成詰将棋" title="歩不成詰将棋"></a><br>
+先手持ち駒＝歩一枚<br>
+詰み手順＝３二歩不成、１二玉、１三歩、２二玉、３三飛成、まで５手詰め<br>
 <strong>初手３二歩成は打ち歩詰めになります。</strong></p>
   </li>
   <li>
-    <p>打ち歩詰め回避詰将棋 - その他（<a href="https://ja.wikipedia.org/wiki/打ち歩詰め">出典</a>）:<br />
-<a href="/images/tume3.gif"><img src="/images/tume3.gif" alt="打ち歩詰め回避詰将棋" title="打ち歩詰め回避詰将棋" /></a><br />
-先手持ち駒＝桂一枚、歩一枚<br />
-詰み手順＝２四桂、同龍、１三歩、同龍、２一銀不成、まで５手詰め<br />
+    <p>打ち歩詰め回避詰将棋 - その他（<a href="https://ja.wikipedia.org/wiki/%E6%89%93%E3%81%A1%E6%AD%A9%E8%A9%B0%E3%82%81">出典</a>）:<br>
+<a href="/images/tume3.gif"><img src="/images/tume3.gif" alt="打ち歩詰め回避詰将棋" title="打ち歩詰め回避詰将棋"></a><br>
+先手持ち駒＝桂一枚、歩一枚<br>
+詰み手順＝２四桂、同龍、１三歩、同龍、２一銀不成、まで５手詰め<br>
 <strong>すぐに１三歩は打ち歩詰めになるので、桂馬で王手して龍で打ち歩を取らざるを得ないようにして打ち歩詰めを回避します。</strong></p>
   </li>
   <li>
-    <p>玉方打ち歩詰め誘導 - 飛不成（<a href="https://ja.wikipedia.org/wiki/打ち歩詰め">出典</a>）:<br />
-<a href="/images/tume4.gif"><img src="/images/tume4.gif" alt="玉方飛不成詰将棋" title="玉方飛不成詰将棋" /></a><br />
-先手持ち駒＝桂一枚、歩一枚<br />
-正解手順＝２四桂、同飛不成で１三歩が打ち歩詰めになるようにして即詰みを逃れます（結局は詰まされますが…）。<br />
+    <p>玉方打ち歩詰め誘導 - 飛不成（<a href="https://ja.wikipedia.org/wiki/%E6%89%93%E3%81%A1%E6%AD%A9%E8%A9%B0%E3%82%81">出典</a>）:<br>
+<a href="/images/tume4.gif"><img src="/images/tume4.gif" alt="玉方飛不成詰将棋" title="玉方飛不成詰将棋"></a><br>
+先手持ち駒＝桂一枚、歩一枚<br>
+正解手順＝２四桂、同飛不成で１三歩が打ち歩詰めになるようにして即詰みを逃れます（結局は詰まされますが…）。<br>
 <strong>玉方が飛不成で打ち歩詰めに誘導することで即詰みを逃れます。</strong></p>
   </li>
   <li>
-    <p>玉方打ち歩詰め誘導の反証テスト：<br />
-<a href="/images/tume5.gif"><img src="/images/tume5.gif" alt="玉方飛不成詰将棋の反証" title="玉方飛不成詰将棋の反証" /></a><br />
-先手持ち駒＝桂一枚、香一枚<br />
-正解手順＝２四桂、同飛成<br />
+    <p>玉方打ち歩詰め誘導の反証テスト：<br>
+<a href="/images/tume5.gif"><img src="/images/tume5.gif" alt="玉方飛不成詰将棋の反証" title="玉方飛不成詰将棋の反証"></a><br>
+先手持ち駒＝桂一枚、香一枚<br>
+正解手順＝２四桂、同飛成<br>
 <strong>桂馬を打たれた時に先手の持ち駒が歩ではなく香車だった場合には飛車が成る（最善手）ことを確認。（持ち駒に歩ではなく香車がある場合は、１三香と打てば詰みなので２四桂馬は悪手ですが、テストのために人間が指してます）</strong></p>
   </li>
 </ol>
@@ -266,9 +265,9 @@ MathJax.Hub.Config({
 <p>　一応すべてのテストで正解でした。但し、このテストは実際のアプリより深く読むように設定し、敢えて指し手の候補手を絞り込まない（αβ法を使った全件探索<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>）ようにして実施しています。</p>
 
 <h3 id="詰将棋を解くことと将棋に勝つことは別物">詰将棋を解くことと将棋に勝つことは別物</h3>
-<p>　ＡＩ同士で対戦させて上記のテストを実施したのですが、1.と5.のテストはＡＩ対人間でテストしています。1.は後手側、5.は先手側を人間が担当しています。ちなみに1.のケースで先手・後手ともにＡＩにしてＡＩ同士で対戦させると以下のように対局が進行します。<br />
-<a href="/images/tume_example.gif"><img src="/images/tume_example.gif" alt="駒余り" title="駒余り" /></a><br />
-　ＡＩは特別な処理をしない限り駒が余ることに拘らないので駒余りの手順を選んでしまいました。受ける側（後手）が正確に駒が余らないように<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup>応じないと、詰将棋として正解手順にならないので玉方（後手）は人間が指すことにしたわけです。「駒が余ってはいけない」という詰将棋独自のルールをソフトに実装するのは結構手間がかかりそうです。また、<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋</a>では王手が掛かっていなくても玉が自殺する手しか存在しない時がよくあります（<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋</a>だともっと頻繁に現れます）。そのような時、ＡＩにとっては連続王手で綺麗に詰ますのも、相手の指す手を無くしてゲーム終了させるのも同じ<strong>「勝ち」</strong>なので、綺麗な詰み手順があるのにそれを選ばない時がよくあります<sup id="fnref:5"><a href="#fn:5" class="footnote">5</a></sup>。そういう時に端から見ている開発者としてはがっかりするのですが、「駒が余ってはいけない」という詰将棋独自のルールも含めて、そうなるように作っていないので仕方がありません<img class="emoji" title="sweat_smile" alt="sweat_smile" src="https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png" height="20" width="20" align="absmiddle" /><br />
+<p>　ＡＩ同士で対戦させて上記のテストを実施したのですが、1.と5.のテストはＡＩ対人間でテストしています。1.は後手側、5.は先手側を人間が担当しています。ちなみに1.のケースで先手・後手ともにＡＩにしてＡＩ同士で対戦させると以下のように対局が進行します。<br>
+<a href="/images/tume_example.gif"><img src="/images/tume_example.gif" alt="駒余り" title="駒余り"></a><br>
+　ＡＩは特別な処理をしない限り駒が余ることに拘らないので駒余りの手順を選んでしまいました。受ける側（後手）が正確に駒が余らないように<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup>応じないと、詰将棋として正解手順にならないので玉方（後手）は人間が指すことにしたわけです。「駒が余ってはいけない」という詰将棋独自のルールをソフトに実装するのは結構手間がかかりそうです。また、<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋</a>では王手が掛かっていなくても玉が自殺する手しか存在しない時がよくあります（<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋</a>だともっと頻繁に現れます）。そのような時、ＡＩにとっては連続王手で綺麗に詰ますのも、相手の指す手を無くしてゲーム終了させるのも同じ<strong>「勝ち」</strong>なので、綺麗な詰み手順があるのにそれを選ばない時がよくあります<sup id="fnref:5"><a href="#fn:5" class="footnote">5</a></sup>。そういう時に端から見ている開発者としてはがっかりするのですが、「駒が余ってはいけない」という詰将棋独自のルールも含めて、そうなるように作っていないので仕方がありません<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"><br>
 　言いたいことは、以下の３つは微妙に意味が異なるということです。</p>
 <ol>
   <li>詰将棋を解く（駒を余らせない、無駄合いをしない等の詰将棋独自のルールにもしたがう）</li>
@@ -276,8 +275,8 @@ MathJax.Hub.Config({
   <li>将棋に勝つ（連続王手による詰み手順に拘らない）</li>
 </ol>
 
-<p>　たぶん機械学習（ディープラーニング含む）によるＡＩだと1.と2.の機能を実装するのは難しいのだと思います。特に1.の機能は、勝手な想像ですが外国人の開発者が将棋ソフトを作ったらよほどの将棋好きでもない限り省く（実装しようとさえ思わない）と思いますし、話題になったAlphaZeroも今後1.の機能を実装することはないでしょう（予言）<img class="emoji" title="sweat_smile" alt="sweat_smile" src="https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png" height="20" width="20" align="absmiddle" /><br />
-　2.の機能は昔からノウハウが蓄積されてる詰み判定ルーチン（学習によるものではなく力技の探索機能）を併用することで、程度の差こそあれ実現出来るような気がします。<br />
+<p>　たぶん機械学習（ディープラーニング含む）によるＡＩだと1.と2.の機能を実装するのは難しいのだと思います。特に1.の機能は、勝手な想像ですが外国人の開発者が将棋ソフトを作ったらよほどの将棋好きでもない限り省く（実装しようとさえ思わない）と思いますし、話題になったAlphaZeroも今後1.の機能を実装することはないでしょう（予言）<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"><br>
+　2.の機能は昔からノウハウが蓄積されてる詰み判定ルーチン（学習によるものではなく力技の探索機能）を併用することで、程度の差こそあれ実現出来るような気がします。<br>
 　ということで、角不成の詰将棋が解けない最新のＡＩっていうのは、純粋に機械学習によるＡＩ機能だけで将棋を強くすることを目指していて、敢えて力技による先読み機能を実装していないソフトなのかも知れません、私の単なる憶測ですが。</p>
 
 <h3 id="追記">追記</h3>
@@ -287,31 +286,31 @@ MathJax.Hub.Config({
 <p>　５×５の将棋盤で特別な設定でテストするのではなく、なぜ９×９の通常の将棋盤で玉方の持ち駒は残りの駒全てという普通の詰将棋と同じ設定でテストしないのか、疑問に思った人がいると思います。やってみるとどうなるか、９×９のGUI環境を用意するのは面倒なのでCUI環境でやってみました。</p>
 
 <div style="width:320px; margin: 0 auto;">
-  <p><img src="/images/55shogi_test.png" alt="９×９将棋盤でのテスト" title="９×９将棋盤でのテスト" /></p>
+  <p><img src="/images/55shogi_test.png" alt="９×９将棋盤でのテスト" title="９×９将棋盤でのテスト"></p>
 </div>
 
-<p>　将棋盤の上部に<code>hmmxxxggggkkkkyyyffffffffffff</code>と表示されているのは玉方の持ち駒です（飛角角金金金銀銀銀銀…）。<br />
-　テスト1.のケースで試してみたところ、正解の初手を指すまでに約２週間（経過時間＝1208445383ミリ秒）かかりました<img class="emoji" title="sweat_smile" alt="sweat_smile" src="https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png" height="20" width="20" align="absmiddle" />この問題を解くには６手読みが必要で、５手読みだと初手を指すまでに約３時間掛かりましたが不正解（歩を成ってしまう）で、一手読みを深くするだけで約２週間に延びてしまう様はまさに指数爆発という表現がぴったりです。<br />
+<p>　将棋盤の上部に<code>hmmxxxggggkkkkyyyffffffffffff</code>と表示されているのは玉方の持ち駒です（飛角角金金金銀銀銀銀…）。<br>
+　テスト1.のケースで試してみたところ、正解の初手を指すまでに約２週間（経過時間＝1208445383ミリ秒）かかりました<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20">この問題を解くには６手読みが必要で、５手読みだと初手を指すまでに約３時間掛かりましたが不正解（歩を成ってしまう）で、一手読みを深くするだけで約２週間に延びてしまう様はまさに指数爆発という表現がぴったりです。<br>
 　最初は９×９の通常の将棋盤でテストをやりかけたのですが、時間が掛かり過ぎることが分かったので、５五将棋の形に修正するやり方でテストすることにしたということです。</p>
 
-<hr />
+<hr>
 
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>Windows用のまともなPCを持ってないので、Windows向けソフトをLinux上でWineを使って動かしてます。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p>Windows用のまともなPCを持ってないので、Windows向けソフトをLinux上でWineを使って動かしてます。 <a href="#fnref:1" class="reversefootnote">↩</a></p>
     </li>
     <li id="fn:2">
-      <p>誰かが作ったというより多くの人の手によって改良されてきているのかもしれませんし、もっと古くから実装されてそうな気もします。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+      <p>誰かが作ったというより多くの人の手によって改良されてきているのかもしれませんし、もっと古くから実装されてそうな気もします。 <a href="#fnref:2" class="reversefootnote">↩</a></p>
     </li>
     <li id="fn:3">
-      <p>「局面の静的評価を枝刈りするためのアルゴリズム＝αβ法」ということで、αβ法というのは全ての局面を読まずに端折ってるから読み抜けすることもあると勘違いしている方がいるので、敢えて「αβ法を使った全件探索」と書きました。αβ法は「ある静的評価関数を使って全ノードを探索した場合と同じ結果が得られる時間短縮のためのアルゴリズム」です。一つ一つの局面を全件探索して評価する場合と同じ結果が得られますので読み抜けはありません。自分のアプリでもやっていますが、「敢えて候補手を端折って評価する方法」はαβ法とは関係ありません。 <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+      <p>「局面の静的評価を枝刈りするためのアルゴリズム＝αβ法」ということで、αβ法というのは全ての局面を読まずに端折ってるから読み抜けすることもあると勘違いしている方がいるので、敢えて「αβ法を使った全件探索」と書きました。αβ法は「ある静的評価関数を使って全ノードを探索した場合と同じ結果が得られる時間短縮のためのアルゴリズム」です。一つ一つの局面を全件探索して評価する場合と同じ結果が得られますので読み抜けはありません。自分のアプリでもやっていますが、「敢えて候補手を端折って評価する方法」はαβ法とは関係ありません。 <a href="#fnref:3" class="reversefootnote">↩</a></p>
     </li>
     <li id="fn:4">
-      <p>詰将棋では同じ詰まされるにしても受ける側（玉方）が攻める側になるべく多くの駒を使わせるのが最善手。 <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+      <p>詰将棋では同じ詰まされるにしても受ける側（玉方）が攻める側になるべく多くの駒を使わせるのが最善手。 <a href="#fnref:4" class="reversefootnote">↩</a></p>
     </li>
     <li id="fn:5">
-      <p>ここで言っているのは連続王手の三手詰めが存在しているのに王手を掛けずに、同じく三手で勝つことがあるという意味です。三手で勝てるのに勝ちを逃して（手数を伸ばして）勝ってしまうという意味ではありません。「詰みより必至」という話とも違います。 <a href="#fnref:5" class="reversefootnote">&#8617;</a></p>
+      <p>ここで言っているのは連続王手の三手詰めが存在しているのに王手を掛けずに、同じく三手で勝つことがあるという意味です。三手で勝てるのに勝ちを逃して（手数を伸ばして）勝ってしまうという意味ではありません。「詰みより必至」という話とも違います。 <a href="#fnref:5" class="reversefootnote">↩</a></p>
     </li>
   </ol>
 </div>
@@ -363,11 +362,11 @@ MathJax.Hub.Config({
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/software/2018-08-18/puzzle" title="BFSで将棋パズルを解く">&larr; Previous</a></li>
+        <li class="prev"><a href="/software/2018-08-18/puzzle" title="BFSで将棋パズルを解く">← Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next"><a href="/software/2018-12-29/evaluate" title="７七将棋の評価関数">Next &rarr;</a></li>
+        <li class="next"><a href="/software/2018-12-29/evaluate" title="７七将棋の評価関数">Next →</a></li>
       
       </ul>
     </div>
@@ -387,7 +386,8 @@ MathJax.Hub.Config({
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
@@ -415,12 +415,13 @@ s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 
       </div>
       <hr>
       <footer>
-        <p>&copy; 2019 happyclam
+        <p>© 2019 happyclam
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>

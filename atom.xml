@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-02-16T08:51:06+09:00</updated>
+ <updated>2019-02-17T13:44:51+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -818,7 +818,7 @@
 &lt;/div&gt;
 
 &lt;p&gt;　&lt;ruby&gt;鵰&lt;rt&gt;くまたか&lt;/rt&gt;&lt;/ruby&gt;は斜め後方に二つだけ動けるのです。斜め後方に二つ動く時は、間に駒があっては駄目なので☆を使っては書けませんし、三つ以上動くことは出来ませんので直線で表すことも出来ません。やはり☆と◯は区別して表現する必要がありそうです。この&lt;ruby&gt;鵰&lt;rt&gt;くまたか&lt;/rt&gt;&lt;/ruby&gt;の斜め後方への動きは&lt;strong&gt;移動回数制限付きの直線&lt;/strong&gt;と言い換えることも出来ます。&lt;strong&gt;本将棋の駒にはない動き&lt;/strong&gt;ですね。&lt;br /&gt;
-　この動きがあるために汎用的に作っていた（と思っていた）プログラムを修正する必要がありました。連続移動かそうでないかの２値（Boolean型）で定義していたためです。ソフト開発って作り始めないと気づかないこと多いですね&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+　この動きがあるために汎用的に作っていた（と思っていた）プログラムを修正する必要がありました。連続移動かそうでないかの２値（Boolean型）で定義していたためです。ソフト開発って作り始めないと気づかないこと多いですね:sweat_smile:&lt;/p&gt;
 
 &lt;h3 id=&quot;禽将棋の手筋&quot;&gt;禽将棋の手筋&lt;/h3&gt;
 &lt;p&gt;　禽将棋初心者の自分が気づいた面白い手筋をここに追加していこうと思います。&lt;/p&gt;
@@ -852,7 +852,7 @@
   &lt;li&gt;
     &lt;p&gt;鷹は尻から狙う&lt;br /&gt;
 &lt;a href=&quot;/images/catch_taka.gif&quot;&gt;&lt;img src=&quot;/images/catch_taka.gif&quot; alt=&quot;鷹の弱点&quot; title=&quot;鷹の弱点&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
-　鷹の弱点は後ろ。禽将棋では鷹を持ち駒にして敵陣に打って鵰にすると優勢になると思います。チェスのクイーン並みに強力な駒？チェスに詳しいわけではありませんが&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+　鷹の弱点は後ろ。禽将棋では鷹を持ち駒にして敵陣に打って鵰にすると優勢になると思います。チェスのクイーン並みに強力な駒？チェスに詳しいわけではありませんが:sweat_smile:&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
@@ -995,7 +995,7 @@
 （解凍して&lt;code&gt;java -jar 55kifu_viewer.jar&lt;/code&gt;とコマンドを打てば使用出来ます）&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;　それにしても&lt;strong&gt;CSA形式の５五将棋の棋譜&lt;/strong&gt;が読み込めるAndroidアプリは探したけど無いようで、ミニ将棋の市場が如何にマイナーな市場なのか痛感しますね&lt;img class=&quot;emoji&quot; title=&quot;disappointed_relieved&quot; alt=&quot;disappointed_relieved&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/disappointed_relieved.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;　それにしても&lt;strong&gt;CSA形式の５五将棋の棋譜&lt;/strong&gt;が読み込めるAndroidアプリは探したけど無いようで、ミニ将棋の市場が如何にマイナーな市場なのか痛感しますね:disappointed_relieved:&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1018,10 +1018,10 @@
    <updated>2018-10-27T00:00:00+09:00</updated>
    <id>https://happyclam.github.io/software/2018-10-27/unpromote</id>
    <content type="html">&lt;h3 id=&quot;打ち歩詰めを回避するための不成&quot;&gt;打ち歩詰めを回避するための不成&lt;/h3&gt;
-&lt;p&gt;　真偽の程はわからないのですが、最新の将棋ソフトを以ってしても角不成を含む詰将棋を解くことが出来ないと小耳に挟みました。自分は最新の将棋ソフトの動向には疎くソフトも古いのしか持っていないので確認出来ませんが、有名な&lt;a href=&quot;https://shogi100.com/2018/03/14/1-13/&quot;&gt;「谷川九段の角不成」&lt;/a&gt;という実戦詰将棋があって、機械学習（おそらくディープラーニングを使ったもの）を用いた最新のソフトでも６七角引不成（&lt;a href=&quot;http://i2chmeijin.blog.fc2.com/blog-entry-1955.html&quot;&gt;参考記事&lt;/a&gt;）からの１９手詰めが解けないそうです。学習型の将棋ソフトは終盤が弱いとは聞いていました。でも自分が持っている相当古いソフト（１０年以上前に購入した「AI将棋 Version13」&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;）で試してみたところ、見事に詰め上げることが出来たので結局はソフトに依るということでしょう。ただ最新のソフトがなぜ解けないのか、なぜそうなっている（あるいはそうしている）のでしょう？もしかしたら結構難しいのでしょうか？データ構造によっては難しい処理を強いられるかもしれないなぁとは思います。原因というか不成を読まない？理由についてはもしかしてと思い当たることもあるのですが、想像の域を出ないので他人様のことは置いといて、とりあえず自分の作ったソフトが成りと不成をちゃんと区別出来るか確認することにしました。打ち歩詰めに関しても詰将棋に関しても成る・成らないに関しても一応テストはしてますが、&lt;strong&gt;打ち歩詰めを回避するために敢えて成らない&lt;/strong&gt;ということが出来るかどうかちょっと心配になったからです&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;　真偽の程はわからないのですが、最新の将棋ソフトを以ってしても角不成を含む詰将棋を解くことが出来ないと小耳に挟みました。自分は最新の将棋ソフトの動向には疎くソフトも古いのしか持っていないので確認出来ませんが、有名な&lt;a href=&quot;https://shogi100.com/2018/03/14/1-13/&quot;&gt;「谷川九段の角不成」&lt;/a&gt;という実戦詰将棋があって、機械学習（おそらくディープラーニングを使ったもの）を用いた最新のソフトでも６七角引不成（&lt;a href=&quot;http://i2chmeijin.blog.fc2.com/blog-entry-1955.html&quot;&gt;参考記事&lt;/a&gt;）からの１９手詰めが解けないそうです。学習型の将棋ソフトは終盤が弱いとは聞いていました。でも自分が持っている相当古いソフト（１０年以上前に購入した「AI将棋 Version13」&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;）で試してみたところ、見事に詰め上げることが出来たので結局はソフトに依るということでしょう。ただ最新のソフトがなぜ解けないのか、なぜそうなっている（あるいはそうしている）のでしょう？もしかしたら結構難しいのでしょうか？データ構造によっては難しい処理を強いられるかもしれないなぁとは思います。原因というか不成を読まない？理由についてはもしかしてと思い当たることもあるのですが、想像の域を出ないので他人様のことは置いといて、とりあえず自分の作ったソフトが成りと不成をちゃんと区別出来るか確認することにしました。打ち歩詰めに関しても詰将棋に関しても成る・成らないに関しても一応テストはしてますが、&lt;strong&gt;打ち歩詰めを回避するために敢えて成らない&lt;/strong&gt;ということが出来るかどうかちょっと心配になったからです:sweat_smile:&lt;/p&gt;
 
 &lt;h3 id=&quot;１９手詰めで確認したいけど&quot;&gt;１９手詰めで確認したいけど&lt;/h3&gt;
-&lt;p&gt;　有名な角不成の１９手詰の詰将棋をそのまま自分のソフトで試してみたいところですが、自分のソフトでは１９手詰めなんて出来ません。何度かこのブログでも書いていますが、有名な将棋ソフトは大抵、将棋盤をビットパターンで表現して高速に先読み出来るようになっています（BitBoardと呼ばれているようです）が、自分のソフトは通常の多次元配列データで将棋盤を表現しているので到底太刀打ち出来ません。将棋ソフトに革命をもたらしたボナンザ（Bonanza）は独自の評価関数や学習機能で有名ですが、BitBoardを最初に将棋ソフトに取り入れたのも同じ開発者（保木氏）なのでしょうか？よく知らないのですが、もしそうならそのことももっと評価されるべきだと思いますけどどうなのでしょう？&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;BitBoardをJavaScriptで作る人は…いないでしょうね&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
+&lt;p&gt;　有名な角不成の１９手詰の詰将棋をそのまま自分のソフトで試してみたいところですが、自分のソフトでは１９手詰めなんて出来ません。何度かこのブログでも書いていますが、有名な将棋ソフトは大抵、将棋盤をビットパターンで表現して高速に先読み出来るようになっています（BitBoardと呼ばれているようです）が、自分のソフトは通常の多次元配列データで将棋盤を表現しているので到底太刀打ち出来ません。将棋ソフトに革命をもたらしたボナンザ（Bonanza）は独自の評価関数や学習機能で有名ですが、BitBoardを最初に将棋ソフトに取り入れたのも同じ開発者（保木氏）なのでしょうか？よく知らないのですが、もしそうならそのことももっと評価されるべきだと思いますけどどうなのでしょう？&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;BitBoardをJavaScriptで作る人は…いないでしょうね:sweat_smile:&lt;br /&gt;
 　話が逸れましたが、長手数の詰将棋は無理なので、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋&lt;/a&gt;の形に修正した短手数の詰将棋問題で確認することにしました。９×９の本将棋のままでは時間が掛かり過ぎるからです。&lt;br /&gt;
 　&lt;strong&gt;以下のテストは５五将棋の盤面（５×５）ですが、通常の本将棋（９×９）と同じように先手は３段目で成ることが出来、後手は５段目だけで成ることが出来るよう特殊な設定にしています。また、詰みに影響を与えないように双玉の形にして後手（玉方）の持ち駒は時間短縮のため金一枚にしました。&lt;/strong&gt;&lt;/p&gt;
 
@@ -1068,7 +1068,7 @@
 &lt;h3 id=&quot;詰将棋を解くことと将棋に勝つことは別物&quot;&gt;詰将棋を解くことと将棋に勝つことは別物&lt;/h3&gt;
 &lt;p&gt;　ＡＩ同士で対戦させて上記のテストを実施したのですが、1.と5.のテストはＡＩ対人間でテストしています。1.は後手側、5.は先手側を人間が担当しています。ちなみに1.のケースで先手・後手ともにＡＩにしてＡＩ同士で対戦させると以下のように対局が進行します。&lt;br /&gt;
 &lt;a href=&quot;/images/tume_example.gif&quot;&gt;&lt;img src=&quot;/images/tume_example.gif&quot; alt=&quot;駒余り&quot; title=&quot;駒余り&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
-　ＡＩは特別な処理をしない限り駒が余ることに拘らないので駒余りの手順を選んでしまいました。受ける側（後手）が正確に駒が余らないように&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;応じないと、詰将棋として正解手順にならないので玉方（後手）は人間が指すことにしたわけです。「駒が余ってはいけない」という詰将棋独自のルールをソフトに実装するのは結構手間がかかりそうです。また、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋&lt;/a&gt;では王手が掛かっていなくても玉が自殺する手しか存在しない時がよくあります（&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋&lt;/a&gt;だともっと頻繁に現れます）。そのような時、ＡＩにとっては連続王手で綺麗に詰ますのも、相手の指す手を無くしてゲーム終了させるのも同じ&lt;strong&gt;「勝ち」&lt;/strong&gt;なので、綺麗な詰み手順があるのにそれを選ばない時がよくあります&lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;。そういう時に端から見ている開発者としてはがっかりするのですが、「駒が余ってはいけない」という詰将棋独自のルールも含めて、そうなるように作っていないので仕方がありません&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
+　ＡＩは特別な処理をしない限り駒が余ることに拘らないので駒余りの手順を選んでしまいました。受ける側（後手）が正確に駒が余らないように&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;応じないと、詰将棋として正解手順にならないので玉方（後手）は人間が指すことにしたわけです。「駒が余ってはいけない」という詰将棋独自のルールをソフトに実装するのは結構手間がかかりそうです。また、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋&lt;/a&gt;では王手が掛かっていなくても玉が自殺する手しか存在しない時がよくあります（&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋&lt;/a&gt;だともっと頻繁に現れます）。そのような時、ＡＩにとっては連続王手で綺麗に詰ますのも、相手の指す手を無くしてゲーム終了させるのも同じ&lt;strong&gt;「勝ち」&lt;/strong&gt;なので、綺麗な詰み手順があるのにそれを選ばない時がよくあります&lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;。そういう時に端から見ている開発者としてはがっかりするのですが、「駒が余ってはいけない」という詰将棋独自のルールも含めて、そうなるように作っていないので仕方がありません:sweat_smile:&lt;br /&gt;
 　言いたいことは、以下の３つは微妙に意味が異なるということです。&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;詰将棋を解く（駒を余らせない、無駄合いをしない等の詰将棋独自のルールにもしたがう）&lt;/li&gt;
@@ -1076,7 +1076,7 @@
   &lt;li&gt;将棋に勝つ（連続王手による詰み手順に拘らない）&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;　たぶん機械学習（ディープラーニング含む）によるＡＩだと1.と2.の機能を実装するのは難しいのだと思います。特に1.の機能は、勝手な想像ですが外国人の開発者が将棋ソフトを作ったらよほどの将棋好きでもない限り省く（実装しようとさえ思わない）と思いますし、話題になったAlphaZeroも今後1.の機能を実装することはないでしょう（予言）&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
+&lt;p&gt;　たぶん機械学習（ディープラーニング含む）によるＡＩだと1.と2.の機能を実装するのは難しいのだと思います。特に1.の機能は、勝手な想像ですが外国人の開発者が将棋ソフトを作ったらよほどの将棋好きでもない限り省く（実装しようとさえ思わない）と思いますし、話題になったAlphaZeroも今後1.の機能を実装することはないでしょう（予言）:sweat_smile:&lt;br /&gt;
 　2.の機能は昔からノウハウが蓄積されてる詰み判定ルーチン（学習によるものではなく力技の探索機能）を併用することで、程度の差こそあれ実現出来るような気がします。&lt;br /&gt;
 　ということで、角不成の詰将棋が解けない最新のＡＩっていうのは、純粋に機械学習によるＡＩ機能だけで将棋を強くすることを目指していて、敢えて力技による先読み機能を実装していないソフトなのかも知れません、私の単なる憶測ですが。&lt;/p&gt;
 
@@ -1091,7 +1091,7 @@
 &lt;/div&gt;
 
 &lt;p&gt;　将棋盤の上部に&lt;code&gt;hmmxxxggggkkkkyyyffffffffffff&lt;/code&gt;と表示されているのは玉方の持ち駒です（飛角角金金金銀銀銀銀…）。&lt;br /&gt;
-　テスト1.のケースで試してみたところ、正解の初手を指すまでに約２週間（経過時間＝1208445383ミリ秒）かかりました&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;この問題を解くには６手読みが必要で、５手読みだと初手を指すまでに約３時間掛かりましたが不正解（歩を成ってしまう）で、一手読みを深くするだけで約２週間に延びてしまう様はまさに指数爆発という表現がぴったりです。&lt;br /&gt;
+　テスト1.のケースで試してみたところ、正解の初手を指すまでに約２週間（経過時間＝1208445383ミリ秒）かかりました:sweat_smile:この問題を解くには６手読みが必要で、５手読みだと初手を指すまでに約３時間掛かりましたが不正解（歩を成ってしまう）で、一手読みを深くするだけで約２週間に延びてしまう様はまさに指数爆発という表現がぴったりです。&lt;br /&gt;
 　最初は９×９の通常の将棋盤でテストをやりかけたのですが、時間が掛かり過ぎることが分かったので、５五将棋の形に修正するやり方でテストすることにしたということです。&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -1390,7 +1390,7 @@ console.log &quot;経過時間: #{elapsed}ミリ秒&quot;
 &lt;/div&gt;
 
 &lt;p&gt;　手順は省略しますが上の局面から下の３つの局面に駒を移動させるには最短手数でも２５手必要で、上のスタート局面から出現し得る全ての局面のうち２５手かかるのは下の局面３つだけのようです。もちろん無理やり手数を伸ばして実現することは可能ですが、最短手順を選んでも２５手かかってしまうというところがミソです。&lt;br /&gt;
-　ちなみにスタート画面の「歩」を「と金」に変えると最長手順は３１手に伸びるようですが、長手順の難問を作るには適当に駒を配置するだけではダメなのかも知れません。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;を作った時に感じたのですが、「３三将棋（＝９マス将棋）」だと適当に駒を配置するだけだと一目で正解が分かるような簡単な配置になってしまうことも多くて、熱戦が期待出来るような初期配置パターンを探すのに苦労しました。「将棋パズル」の場合も正解手順を見つけることより、長手順になる問題を見つける方が、問題を解くより難しいのかもしれません。最近はソフトで詰将棋を解くのは当たり前になってしまって、芸術的な詰将棋をソフトで作る研究が行われていると聞いたことがありますが、その状況と似ていますね&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+　ちなみにスタート画面の「歩」を「と金」に変えると最長手順は３１手に伸びるようですが、長手順の難問を作るには適当に駒を配置するだけではダメなのかも知れません。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;を作った時に感じたのですが、「３三将棋（＝９マス将棋）」だと適当に駒を配置するだけだと一目で正解が分かるような簡単な配置になってしまうことも多くて、熱戦が期待出来るような初期配置パターンを探すのに苦労しました。「将棋パズル」の場合も正解手順を見つけることより、長手順になる問題を見つける方が、問題を解くより難しいのかもしれません。最近はソフトで詰将棋を解くのは当たり前になってしまって、芸術的な詰将棋をソフトで作る研究が行われていると聞いたことがありますが、その状況と似ていますね&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;:sweat_smile:&lt;/p&gt;
 
 &lt;h3 id=&quot;余談&quot;&gt;余談&lt;/h3&gt;
 &lt;p&gt;　自分のブログは「BFS DFS 違い」とか「BFS 用途」とかの検索ワードで来訪される人が偶にいるのですが、対戦ゲームに使用するとすればBFS（幅優先探索）の使い途は定跡データや学習データの格納・検索、DFS（深さ優先探索）の使い途は局面の先読み（MIN-MAX法を使った有利不利判定）ってことになるんじゃないでしょうか。&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;進化する三目並べ&lt;/a&gt;でも学習データの保存・検索にBFSを使用しています。&lt;/p&gt;
@@ -1414,7 +1414,7 @@ console.log &quot;経過時間: #{elapsed}ミリ秒&quot;
    <id>https://happyclam.github.io/project/2018-06-30/9masushogi_solver</id>
    <content type="html">&lt;h3 id=&quot;３三将棋アプリのソース公開しました&quot;&gt;３三将棋アプリのソース公開しました&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;もそろそろ安定してきたと思うのでソースを&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;githubに公開&lt;/a&gt;しました。Bonanzaを始めとする優秀な将棋ソフトをカスタマイズしようとは思わないけど、CoffeeScript(JavaScript)で将棋ソフトが作れるならやってみようと思う人はいるかも知れないと思ってます。また、プログラミングには興味ないけど９マス将棋の正解を知りたいと思う人は結構いるかもしれないと思ったので記事を書いてみました。ただ、詰みがある場合は別ですが、ここで示す方法で得られた解答が必ず最善手だとは言い切れないことには留意してください&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
-　ちなみに最近&lt;a href=&quot;https://play.google.com/store/apps/details?id=jp.co.roue.shogi&quot;&gt;９マス将棋オンライン&lt;/a&gt;というアプリで遊んでいるのですが、単純な配置でも未だに最善手が何か悩まされることがあります（特に入玉形の場合が難しい）。そういう時スクショを取ってこの記事の方法で何が最善手だったか検討したりしています&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;。&lt;/p&gt;
+　ちなみに最近&lt;a href=&quot;https://play.google.com/store/apps/details?id=jp.co.roue.shogi&quot;&gt;９マス将棋オンライン&lt;/a&gt;というアプリで遊んでいるのですが、単純な配置でも未だに最善手が何か悩まされることがあります（特に入玉形の場合が難しい）。そういう時スクショを取ってこの記事の方法で何が最善手だったか検討したりしています:sweat_smile:。&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;p&gt;　&lt;strong&gt;追記：&lt;/strong&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;はVersion1.0.5.0から&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式(*.csa)&lt;/a&gt;の棋譜の入出力に対応しましたので、CUI（コンソール画面）でコマンドを入力しなくてもアプリを使って自由に初期配置を編集出来ます。やり方については&lt;a href=&quot;/project/2018-01-01/33shogiapp#inout&quot;&gt;３三将棋アプリの記事&lt;/a&gt;を参照してください。&lt;/p&gt;
@@ -1661,7 +1661,7 @@ X
 X
 Second Win
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;　これじゃぁ分かりにくいという方も多いと思いますがすぐ慣れます&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;。それか、ある程度結論が得られたら初期配置のコードをgameGui.coffeeに移してトランスパイル（&lt;code&gt;webpack&lt;/code&gt;とコマンドを打つだけです）してブラウザで確認するのもいいかもしれません。但し、ブラウザであまり深読みさせると応答しなくなる可能性があります。&lt;/p&gt;
+&lt;p&gt;　これじゃぁ分かりにくいという方も多いと思いますがすぐ慣れます:sweat_smile:。それか、ある程度結論が得られたら初期配置のコードをgameGui.coffeeに移してトランスパイル（&lt;code&gt;webpack&lt;/code&gt;とコマンドを打つだけです）してブラウザで確認するのもいいかもしれません。但し、ブラウザであまり深読みさせると応答しなくなる可能性があります。&lt;/p&gt;
 
 &lt;h3 id=&quot;詰みが見つからなければ最善手は当てにならない&quot;&gt;詰みが見つからなければ、最善手は当てにならない&lt;/h3&gt;
 &lt;p&gt;　局面の先読みメソッド（Player.think）の戻り値は&lt;code&gt;[駒オブジェクト, 座標（筋、段）, 評価値, 成（不成）, 次善手情報]&lt;/code&gt;となっているので&lt;code&gt;temp = first.think(b, second, i, Const.MAX_VALUE)&lt;/code&gt;と呼び出した場合&lt;code&gt;temp[2]&lt;/code&gt;に評価値が入っています。temp[2]に最大値（50000）か最小値（-50000）が入っていれば勝ち（あるいは負け）を読み切った（詰みを発見した）ということです。前述の単純な静的評価関数によって指し手を選んだだけなのか、詰みを読み切った上でその手を選んだのかはここで判断出来ます。&lt;br /&gt;
@@ -1744,7 +1744,7 @@ Second Win
 &lt;/div&gt;
 
 &lt;p&gt;　先読みの支流に分岐して戻ってくるという無駄な読みが無いため、先ほどの図より読む局面の数が減ったのは明らかです。注意しないといけないのは、局面の先読みをする場合に何手先まで読むかの制限値を指定するのですが、図のように四手目まで読むと指定したとしても四手目で打ち歩による王手が指された場合には制限値を無視して少なくとも二手先（打ち歩を取った後にプラス一手）まで読むようにすることです。これでようやく従来のやり方より実行速度を速くすることが出来、GUI側で打ち歩詰めの再チェックをすることもなくなったので、僅かですがレスポンスも改善しました（Version1.0.0.8）。&lt;br /&gt;
-　今回の修正のために歩の手筋だけのテストコードを&lt;a href=&quot;https://github.com/mochajs/mocha&quot;&gt;mocha&lt;/a&gt;でたくさん書きましたが、こういった混みいったリファクタリング作業はTDD（テスト駆動開発）じゃないとやってられないですね&lt;img class=&quot;emoji&quot; title=&quot;smile&quot; alt=&quot;smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+　今回の修正のために歩の手筋だけのテストコードを&lt;a href=&quot;https://github.com/mochajs/mocha&quot;&gt;mocha&lt;/a&gt;でたくさん書きましたが、こういった混みいったリファクタリング作業はTDD（テスト駆動開発）じゃないとやってられないですね:smile:&lt;/p&gt;
 
 &lt;h3 id=&quot;一手詰めを解くためには三手読みが必要&quot;&gt;一手詰めを解くためには三手読みが必要&lt;/h3&gt;
 &lt;p&gt;　このブログの記事でよく◯◯手読みという表現を使いますが、読みの深さと詰み手数は違うので念のため書いておきます。自分のアプリだけでなく有名どころの将棋ソフトも多分事情は同じだと思います&lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;が、こういう条件とこういう条件を満たせば詰みと判定するより、先手あるいは後手の一方に王将が二つある状態になればゲーム終了（＝詰み）と判定していることが多いと思います&lt;sup id=&quot;fnref:6&quot;&gt;&lt;a href=&quot;#fn:6&quot; class=&quot;footnote&quot;&gt;6&lt;/a&gt;&lt;/sup&gt;。だから詰みの局面からさらに二手分先読みをしないとＡＩには詰んだかどうか判断できません。&lt;br /&gt;
@@ -1783,7 +1783,7 @@ Second Win
    <updated>2018-04-22T00:00:00+09:00</updated>
    <id>https://happyclam.github.io/project/2018-04-22/9masushogi</id>
    <content type="html">&lt;h3 id=&quot;３三将棋アプリで入門書の誤りを見つけた&quot;&gt;「３三将棋」アプリで入門書の誤りを見つけた&lt;/h3&gt;
-&lt;p&gt;　自作の&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;の開発も落ち着いてきたので放置していたのですが、小さなバグを見つけたのでどうせ新しいバージョンをリリースするなら、初期配置パターンを何種類か追加しようと思い、参考にするため&lt;a href=&quot;https://www.amazon.co.jp/９マス将棋の本-幻冬舎単行本-青野照市-ebook/dp/B072XCDPGZ/ref=tmm_kin_swatch_0?_encoding=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-1&quot;&gt;「９マス将棋の本 (幻冬舎単行本) Kindle版」&lt;/a&gt;を買いました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;a href=&quot;https://www.amazon.co.jp/9マス将棋-バラエティ-青野照市/dp/4344978757/ref=sr_1_2?s=books&amp;amp;ie=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-2&amp;amp;keywords=９マス将棋&quot;&gt;「９マス将棋」のゲーム本体&lt;/a&gt;は既に持っていて、そこで紹介されている初期配置パターンは開発時のテストにも使用していました。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;に用意している初期配置パターンはこの本に載っているものやTwitterで見かけたもの、自分で考えたものなどいろいろです&lt;sup id=&quot;fnref:1:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。今回も面白い配置パターンを探すために購入したのですが、読み進めていくと思わぬ発見がありました&lt;img class=&quot;emoji&quot; title=&quot;smile&quot; alt=&quot;smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;　自作の&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;の開発も落ち着いてきたので放置していたのですが、小さなバグを見つけたのでどうせ新しいバージョンをリリースするなら、初期配置パターンを何種類か追加しようと思い、参考にするため&lt;a href=&quot;https://www.amazon.co.jp/９マス将棋の本-幻冬舎単行本-青野照市-ebook/dp/B072XCDPGZ/ref=tmm_kin_swatch_0?_encoding=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-1&quot;&gt;「９マス将棋の本 (幻冬舎単行本) Kindle版」&lt;/a&gt;を買いました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;a href=&quot;https://www.amazon.co.jp/9マス将棋-バラエティ-青野照市/dp/4344978757/ref=sr_1_2?s=books&amp;amp;ie=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-2&amp;amp;keywords=９マス将棋&quot;&gt;「９マス将棋」のゲーム本体&lt;/a&gt;は既に持っていて、そこで紹介されている初期配置パターンは開発時のテストにも使用していました。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;に用意している初期配置パターンはこの本に載っているものやTwitterで見かけたもの、自分で考えたものなどいろいろです&lt;sup id=&quot;fnref:1:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。今回も面白い配置パターンを探すために購入したのですが、読み進めていくと思わぬ発見がありました:smile:&lt;/p&gt;
 
 &lt;h3 id=&quot;先手が勝てないことはない&quot;&gt;「先手が勝てない」ことはない&lt;/h3&gt;
 &lt;p&gt;　下の初期配置は&lt;a href=&quot;https://www.amazon.co.jp/９マス将棋の本-幻冬舎単行本-青野照市-ebook/dp/B072XCDPGZ/ref=tmm_kin_swatch_0?_encoding=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-1&quot;&gt;「９マス将棋の本 (幻冬舎単行本) Kindle版」&lt;/a&gt;の最初の方に、飛車と角を左右対称に置き換えた形で紹介されている配置です。&lt;/p&gt;
@@ -1819,8 +1819,8 @@ Second Win
 
 &lt;/div&gt;
 
-&lt;p&gt;　上の図のように先手が飛車を成らずに２三に歩を合わせると後手としては２三歩成としたくても飛車の利きがあるので歩を成れません。歩を成った瞬間に玉を素抜かれてしまいます。仕方なく後手は飛車の筋を逃れるために１三玉とかわしますが２二の歩をただで取られて後はどう変化しても先手勝ちです。是非&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;をダウンロードして試してみてください&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
-　殊更に本の間違いを責める気はありませんが、自作のAIはやはり良く出来ているなぁと嬉しくなりました&lt;img class=&quot;emoji&quot; title=&quot;smile&quot; alt=&quot;smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;。&lt;a href=&quot;https://www.amazon.co.jp/９マス将棋の本-幻冬舎単行本-青野照市-ebook/dp/B072XCDPGZ/ref=tmm_kin_swatch_0?_encoding=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-1&quot;&gt;「９マス将棋の本 (幻冬舎単行本) Kindle版」&lt;/a&gt;の内容は次の版で改訂されるのでしょうか&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;とりあえずブログネタを提供してくれた将棋連盟に感謝します&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;　上の図のように先手が飛車を成らずに２三に歩を合わせると後手としては２三歩成としたくても飛車の利きがあるので歩を成れません。歩を成った瞬間に玉を素抜かれてしまいます。仕方なく後手は飛車の筋を逃れるために１三玉とかわしますが２二の歩をただで取られて後はどう変化しても先手勝ちです。是非&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;をダウンロードして試してみてください:sweat_smile:&lt;br /&gt;
+　殊更に本の間違いを責める気はありませんが、自作のAIはやはり良く出来ているなぁと嬉しくなりました:smile:。&lt;a href=&quot;https://www.amazon.co.jp/９マス将棋の本-幻冬舎単行本-青野照市-ebook/dp/B072XCDPGZ/ref=tmm_kin_swatch_0?_encoding=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-1&quot;&gt;「９マス将棋の本 (幻冬舎単行本) Kindle版」&lt;/a&gt;の内容は次の版で改訂されるのでしょうか:sweat_smile:とりあえずブログネタを提供してくれた将棋連盟に感謝します:sweat_smile:&lt;/p&gt;
 
 &lt;h3 id=&quot;アタック９マス将棋&quot;&gt;アタック！９マス将棋&lt;/h3&gt;
 &lt;p&gt;　上記の例以外にも本の解説が本当かどうか納得出来ないケースがあるのですが、説明するのが大変なのでとりあえず触れずにおきます。それより&lt;a href=&quot;https://www.amazon.co.jp/９マス将棋の本-幻冬舎単行本-青野照市-ebook/dp/B072XCDPGZ/ref=tmm_kin_swatch_0?_encoding=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-1&quot;&gt;「９マス将棋の本 (幻冬舎単行本) Kindle版」&lt;/a&gt;の最後の方に、解説文はないのですがオリジナルの上級編の問題（「アタック！９マス将棋」）として下記の初期配置が紹介されていたので&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;に解かせてみました。&lt;/p&gt;
@@ -1897,7 +1897,7 @@ Second Win
 　詳しくないですが、一段目で駒が成れるルールの&lt;a href=&quot;https://ja.wikipedia.org/wiki/5五将棋&quot;&gt;本来の５五将棋&lt;/a&gt;に桂馬が使われていない理由は、もしかしたらこのことが理由かもしれません。たしかに全部で五段しかないのに敵陣が２段を占めるというのもバランスが悪い気がしますので、５五将棋では桂馬は使うべきではないのかもしれません。でも７七将棋ならちょうど良いバランスになるような気がしているので、次は先手が二段目、後手は六段目で成れるルールで７七将棋を作ってみようかと思っています。&lt;/p&gt;
 
 &lt;h3 id=&quot;読みの深さ&quot;&gt;読みの深さ&lt;/h3&gt;
-&lt;p&gt;　Version0.9.9.5で読む範囲を変更しました。「弱い」モードは３手読みで全ての手を読みます。「普通」「長考」モードでは、まず３手読みで候補手を１３手に絞った後、その候補手に対して「普通」モードで４手読み、「長考」モードで５手読みをしています。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;の「長考」モードが９手読み&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;であることを考えると性能が落ちてますが、３三将棋に比べると５五将棋の局面数が飛躍的に増えるためこうなってしまっています&lt;img class=&quot;emoji&quot; title=&quot;sweat&quot; alt=&quot;sweat&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;以前のバージョンは深読みする候補手を６手に絞っていたのですが、持ち駒が豊富な時には一局面で大体３０〜４０手の候補手があるので、たった６手に絞るのはあまりにも無理があると思い直して変更しました&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。「普通」「長考」モードでは候補手を絞って他の手は捨てているのに対して、「弱い」モードではすべての手を読んでいるので、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;に関しては「弱い」モードの方がいい手を指す可能性が高いかもしれません。&lt;/p&gt;
+&lt;p&gt;　Version0.9.9.5で読む範囲を変更しました。「弱い」モードは３手読みで全ての手を読みます。「普通」「長考」モードでは、まず３手読みで候補手を１３手に絞った後、その候補手に対して「普通」モードで４手読み、「長考」モードで５手読みをしています。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;の「長考」モードが９手読み&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;であることを考えると性能が落ちてますが、３三将棋に比べると５五将棋の局面数が飛躍的に増えるためこうなってしまっています:sweat:以前のバージョンは深読みする候補手を６手に絞っていたのですが、持ち駒が豊富な時には一局面で大体３０〜４０手の候補手があるので、たった６手に絞るのはあまりにも無理があると思い直して変更しました&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。「普通」「長考」モードでは候補手を絞って他の手は捨てているのに対して、「弱い」モードではすべての手を読んでいるので、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;に関しては「弱い」モードの方がいい手を指す可能性が高いかもしれません。&lt;/p&gt;
 
 &lt;h3 id=&quot;千日手回避&quot;&gt;千日手回避&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;では千日手回避のために特別な処理はしていません。あくまでも私の主観ですが、千日手になるのが当然の成り行きと思えるケースが多いためです&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。しかし&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;の場合は駒の損得が発生しない序盤の段階で千日手になってしまうケースがあまりにも多いので千日手回避のロジックを組み込んでいます。同じ局面が３回発生した場合にはＡＩの手を次善手（あくまでもアプリのＡＩが次善手と判断しているだけです）を指すようにして、なるべく千日手を回避するようにしています。但し次善手を指していても千日手になることもあるので、絶対千日手を避けるというわけではありません。&lt;/p&gt;
@@ -2043,7 +2043,7 @@ P5+HI+GI+OU+KI+HI
       &lt;p&gt;９手先を読んでいるから９手詰めの詰将棋が解けるかというと、そうではなく７手詰めしか解けません。詰み局面までの手数ではなく、相手の玉を取るところまでの手数を読まないといけないためです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:2&quot;&gt;
-      &lt;p&gt;読みの範囲を広げたことで強くなっているのですが、その分少し遅くなってます&lt;img class=&quot;emoji&quot; title=&quot;sweat&quot; alt=&quot;sweat&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;読みの範囲を広げたことで強くなっているのですが、その分少し遅くなってます:sweat: &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:3&quot;&gt;
       &lt;p&gt;千日手になって当然に見えると言ってもその局面を迎える前にもっといい手（最善手）を逃していると思われるケースが多いのですが、同一局面の繰り返しが始まってからでは時すでに遅しとなっていて千日手を避けられなくなっているという意味です。この辺りの事情はＡＩの出来の悪さなので仕方がありません。３三将棋の場合は無理に千日手を避けると致命的な悪手になるので敢えてそのままにしています。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
@@ -2065,7 +2065,7 @@ P5+HI+GI+OU+KI+HI
 &lt;p&gt;　趣味で長年将棋を指してますが、&lt;a href=&quot;https://www.shogi.or.jp/knowledge/shogi/05.html&quot;&gt;将棋連盟のサイト&lt;/a&gt;で王手放置が反則と規定されているとは知りませんでした、というか深く考えたことがありませんでした。相手が王手を放置したら相手玉を取ればいいだけの話と思っていたし、確か将棋連盟が運営している「将棋倶楽部24」でも、王手放置した段階では反則負けとはならず、投了するか玉が取られたらゲーム終了となっていたと思います。ただ、市販の将棋ソフトやスマホアプリでは王手を放置しようとするとなんらかのメッセージを表示して王手放置をさせないようにしているものが多いと思います。&lt;a href=&quot;https://happyclam.github.io/software/2018-01-27/utifudume&quot;&gt;前回の記事&lt;/a&gt;でも少し触れましたが、将棋が「相手の玉を取ったら終了」ではなく「相手玉を詰ましたら終了」となっているため、王手放置をさせないようにする方がソフト開発時にも整合性を保ちやすいという事情があるようです。&lt;/p&gt;
 
 &lt;h3 id=&quot;規制はできるだけ無い方がいいけどいろいろ問題が&quot;&gt;規制はできるだけ無い方がいいけど、いろいろ問題が…&lt;/h3&gt;
-&lt;p&gt;　下のような局面で先手が「勝った」と思い２一歩成りと指して相手に玉を取られて負けてしまうなんてことが将棋覚えたての人にはよくあることだと思います（後手も自分が勝ったと気づかなかったり&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;）。&lt;/p&gt;
+&lt;p&gt;　下のような局面で先手が「勝った」と思い２一歩成りと指して相手に玉を取られて負けてしまうなんてことが将棋覚えたての人にはよくあることだと思います（後手も自分が勝ったと気づかなかったり:sweat_smile:）。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/images/hochi1.png&quot; alt=&quot;王手放置１&quot; title=&quot;王手放置１&quot; /&gt;&lt;/p&gt;
@@ -2110,7 +2110,7 @@ P5+HI+GI+OU+KI+HI
 &lt;/div&gt;
 &lt;p&gt;&lt;span&gt;上の局面は後手が２二角と王手を掛けたところです。先手がここで持ち駒の歩を３一に打った場合「二歩」であり「王手放置」であり「行き場の無い駒を打つ」という反則でもあります。&lt;/span&gt;&lt;/p&gt;
 
-&lt;p&gt;　おそらく反則の優先順位は聞いた事ないし規定されていないでしょう。反則手を指した段階で反則負けとする場合、ソフトのメッセージにはいったいどのように出力すればいいのでしょうか？それに行き場のない駒を打った時も反則になるわけですから、それを突き詰めていくと、持ち駒を選択した後に盤面の外をタップした時も反則になるのではないのか？という意見も出てくるかもしれません（さすがにそれはないか&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;）。&lt;br /&gt;
+&lt;p&gt;　おそらく反則の優先順位は聞いた事ないし規定されていないでしょう。反則手を指した段階で反則負けとする場合、ソフトのメッセージにはいったいどのように出力すればいいのでしょうか？それに行き場のない駒を打った時も反則になるわけですから、それを突き詰めていくと、持ち駒を選択した後に盤面の外をタップした時も反則になるのではないのか？という意見も出てくるかもしれません（さすがにそれはないか:sweat_smile:）。&lt;br /&gt;
 　また、反則を厳格に適用すると勝負を続けたかったのにうっかりクリックミス（タップミス）しただけで中断されるのは嫌だという意見があるかもしれませんが、どうせマイナーなアプリだし、オリジナリティを出すためにもルールに厳格な「初心者に厳しい将棋アプリ」を目指すかもしれません。&lt;/p&gt;
 
 &lt;h3 id=&quot;開発者視点での王手放置&quot;&gt;開発者視点での王手放置&lt;/h3&gt;
@@ -2163,7 +2163,7 @@ P5+HI+GI+OU+KI+HI
 
 &lt;h3 id=&quot;まだ問題があった&quot;&gt;まだ問題があった&lt;/h3&gt;
 &lt;p&gt;　ＡＩの思考ルーチンを最善手と次善手の二つの候補手を返すようにしたのでとりあえず打ち歩詰めをしてしまうというバグは直ったと安心してアプリをリリースしていたのですが、人間側が指す場合は上記の打ち歩詰め判定のロジックを使っていたため、飛車や角の筋に相手玉がいる場合に人間側の打ち歩詰めを許してしまうケースが発生していたと思われます（ver0.9.1以前）。&lt;br /&gt;
-　リリースしてから２週間以上経ってそのことに気がついて、人間が歩を打つ手を選んだ場合は、そこから二手読みをして勝負が着いたら打ち歩詰めと判定して局面を元に戻して指し手をキャンセルさせるという、やや強引なやり方ではありますが打ち歩詰めをさせないようにしました。古いバージョンをお使いの方は、バージョン0.9.1.1以降のものにアプリを更新していただきたいと思います。それにしても自分が動作確認する時は打ち歩詰めなんてしないし、ＡＩの出来ばかり気にして人間側が打ち歩詰めをしてしまうことなんてすっかり頭の中から抜け落ちてました&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
+　リリースしてから２週間以上経ってそのことに気がついて、人間が歩を打つ手を選んだ場合は、そこから二手読みをして勝負が着いたら打ち歩詰めと判定して局面を元に戻して指し手をキャンセルさせるという、やや強引なやり方ではありますが打ち歩詰めをさせないようにしました。古いバージョンをお使いの方は、バージョン0.9.1.1以降のものにアプリを更新していただきたいと思います。それにしても自分が動作確認する時は打ち歩詰めなんてしないし、ＡＩの出来ばかり気にして人間側が打ち歩詰めをしてしまうことなんてすっかり頭の中から抜け落ちてました:sweat_smile:&lt;br /&gt;
 　最新の将棋ソフトではおそらくBonanza由来のソース（データ構造含む）とかライブラリを使ってるのでしょうけど、自前で打ち歩詰め対策を実装するのは結構面倒だったというお話でした。&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -3227,7 +3227,7 @@ P-00HI00FU
    <updated>2017-08-12T00:00:00+09:00</updated>
    <id>https://happyclam.github.io/programming/2017-08-12/hybrid_csp</id>
    <content type="html">&lt;h3 id=&quot;アプリ更新を強要されるよりかはマシだな&quot;&gt;アプリ更新を強要されるよりかはマシだな&lt;/h3&gt;
-&lt;p&gt;　以前&lt;a href=&quot;/programming/2016-02-14/cordova_update&quot;&gt;Google様からのお達し&lt;/a&gt;によりアプリのアップデートを強要されたことを書きましたが、今回は自分の都合で&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf&quot;&gt;自作のアプリ&lt;/a&gt;のアップデートをしようとした際にCordovaの仕様変更に対応する必要に迫られたので、誰かの役に立てばと思い記事を書きます。ハイブリッドアプリの脆弱性という意味では前回の件と似たようなものだと思うのですが、前回のように既にリリースされているアプリにまで対応を迫るということはなかったようです。CordovaにCSP（ContentSecurityPolicy）が導入されたのがいつかは知りませんが、とりあえず最近まで&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf&quot;&gt;このアプリ&lt;/a&gt;に関してはCSPを設定しないままでリリース出来ていました、ほとんどアクティブユーザーはいませんが&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;　以前&lt;a href=&quot;/programming/2016-02-14/cordova_update&quot;&gt;Google様からのお達し&lt;/a&gt;によりアプリのアップデートを強要されたことを書きましたが、今回は自分の都合で&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf&quot;&gt;自作のアプリ&lt;/a&gt;のアップデートをしようとした際にCordovaの仕様変更に対応する必要に迫られたので、誰かの役に立てばと思い記事を書きます。ハイブリッドアプリの脆弱性という意味では前回の件と似たようなものだと思うのですが、前回のように既にリリースされているアプリにまで対応を迫るということはなかったようです。CordovaにCSP（ContentSecurityPolicy）が導入されたのがいつかは知りませんが、とりあえず最近まで&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf&quot;&gt;このアプリ&lt;/a&gt;に関してはCSPを設定しないままでリリース出来ていました、ほとんどアクティブユーザーはいませんが:sweat_smile:&lt;/p&gt;
 
 &lt;h3 id=&quot;外部サーバーからのデータ取得jsonp&quot;&gt;外部サーバーからのデータ取得（JSONP）&lt;/h3&gt;
 &lt;p&gt;　アプリの中でJSONPを使ってherokuで運用している外部サーバーからデータ（ユーザーのランキングデータ）を取得する処理があるのですが、適切にCSPを書かなければ&lt;code&gt;Refused to connect to 'http://XXX.herokuapp.com/XXX'&lt;/code&gt;というエラーでデータが取得出来なくなったようです。Whitelistプラグインを使ってconfig.xmlに記載するだけではダメみたいです、通常のHTTPリクエストよりAjaxリクエストはさらに規制を強くするということでしょう。&lt;/p&gt;
@@ -3266,7 +3266,7 @@ P-00HI00FU
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;　今現在リリースしているアプリ（確かビルドに使用したCordovaのバージョンは6.5でした）はこの方法を使って動いているのですが、手元にある今使っているCordova（version7.0.1）では使えなくなっているようです。だから次にアプリをバージョンアップするときは他のやり方に変更する必要があります。&lt;br /&gt;
-　なんか自分がアプリをリリースする度に次のリリース時には改変を強いられるということが続くので、「またこんなことする奴が出て来たよ〜」と言われている気がするんですが考えすぎでしょうか&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
+　なんか自分がアプリをリリースする度に次のリリース時には改変を強いられるということが続くので、「またこんなことする奴が出て来たよ〜」と言われている気がするんですが考えすぎでしょうか:sweat_smile:&lt;br /&gt;
 　対策としてはデータを外部サーバーに置くかファイル操作を行うプラグインを使う必要が出て来そうですが、ファイル入出力操作はandroidアプリとiPhoneアプリの仕様の違い（ファイルの設置場所等）を考慮しないといけないので面倒です。となると外部サーバーに置くかということになりそうですが、もっと簡単な回避策があります。以下のように必要なデータをHTMLファイルに埋め込んで、それを読み込むようにすることで上のコードと同じことを実現出来ました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-CoffeeScript&quot;&gt;#CoffeeScriptファイル
@@ -3465,7 +3465,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
    <content type="html">&lt;p&gt;Project: 「&lt;strong&gt;三目並べ&lt;/strong&gt;」: &lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/neural&quot;&gt;neural&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;aiの学習は信賞必罰が必要&quot;&gt;AIの学習は信賞必罰が必要？&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/project/2017-07-01/neuralnw&quot;&gt;前回記事&lt;/a&gt;の訂正のための記事です。前回の内容がすべて間違っているわけじゃないので、比較のために前回の記事も残してます。合わせて読んでいただければと思います。前回の記事で「勝っても負けても勝った方の指し手を教師データとして、勝った方の手番の局面データの重みを勾配法を使って誤差修正する」というやり方を試したことを書きました。そして、それっぽいテスト結果が得られたので、現在作成中の「消える三目並べ」（３手前に打った自分の駒が消えるルールの三目並べ）に適応して遊んでみたところ、何度も同じパターンの負け方をして学習が進んでいる気配を感じられなかったのです。ゲームの特性上負けを避けられないケースもありますし、AIは最善手を選ぶ確率を上げるように学習するだけで必ず最善手を選ぶわけではないのでAI側が負けたからと言って必ずしもバグではないのですが、初手から数手で単純に負ける酷い負け方が何回も続くのです。テストのためにかなりの回数「消える三目並べ」の対戦をしてきて自分も強くなっている&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;ので、これは「弱すぎる」「おかしい」と分かります。何が悪かったのでしょうか？&lt;br /&gt;
+&lt;p&gt;　&lt;a href=&quot;/project/2017-07-01/neuralnw&quot;&gt;前回記事&lt;/a&gt;の訂正のための記事です。前回の内容がすべて間違っているわけじゃないので、比較のために前回の記事も残してます。合わせて読んでいただければと思います。前回の記事で「勝っても負けても勝った方の指し手を教師データとして、勝った方の手番の局面データの重みを勾配法を使って誤差修正する」というやり方を試したことを書きました。そして、それっぽいテスト結果が得られたので、現在作成中の「消える三目並べ」（３手前に打った自分の駒が消えるルールの三目並べ）に適応して遊んでみたところ、何度も同じパターンの負け方をして学習が進んでいる気配を感じられなかったのです。ゲームの特性上負けを避けられないケースもありますし、AIは最善手を選ぶ確率を上げるように学習するだけで必ず最善手を選ぶわけではないのでAI側が負けたからと言って必ずしもバグではないのですが、初手から数手で単純に負ける酷い負け方が何回も続くのです。テストのためにかなりの回数「消える三目並べ」の対戦をしてきて自分も強くなっている:sweat_smile:ので、これは「弱すぎる」「おかしい」と分かります。何が悪かったのでしょうか？&lt;br /&gt;
 　どうやら「どちらが勝っても勝った方の指し手を教師データとした」ところが良くなかったようです。勝った方の手を教師データとしてばかりいると、相手がリーチを掛けた局面（あと一手で相手のラインが揃う局面）で相手のラインが揃うのを防がなかった場合に、それが原因でAIが負けたとしてもそれが悪いことだと学習する機会がありません（勝った側の手だけを学習するため）。相手がリーチを掛けた局面がAIの手番であればラインを揃える手（勝つ手）を逃すことはなくなりますが、自分が（AIが）負けた時に相手が揃うことを防がなかった手が悪い手だということを教える必要があります。つまり負けたら罰を与えないといけなかったようです。&lt;br /&gt;
 　ということで、結局、勝てば＋３、負ければ−１、引分は＋１というマジックナンバーを復活させることにしました。&lt;/p&gt;
 
@@ -3705,7 +3705,7 @@ window.onload = function() {
 
 &lt;h3 id=&quot;消える三目並べの学習効率を上げるには&quot;&gt;消える三目並べの学習効率を上げるには&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;/programming/2017-05-27/vanishing-tictactoe3&quot;&gt;前回の記事&lt;/a&gt;で現在作成中の「消える三目並べ」（３手前に打った自分の駒が消えるルールの三目並べ）の学習に時間が掛ることを書きましたが、&lt;a href=&quot;https://www.amazon.co.jp/ゼロから作るDeep-Learning-Pythonで学ぶディープラーニングの理論と実装-斎藤-康毅/dp/4873117585/ref=sr_1_2?ie=UTF8&amp;amp;qid=1498438151&amp;amp;sr=8-2&amp;amp;keywords=ディープラーニング&quot;&gt;「ゼロから作るDeep Learning」&lt;/a&gt;という本&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;に書いてあるニューラルネットワークのアルゴリズムを適用すれば学習効率が上がるのではないかと思い試すことにしました。ただ「消える三目並べ」のアプリに組み込む前に例のごとく「通常の三目並べ」でどうなるか試してみました。ディープラーニング（多層構造のニューラルネットワーク）を組み入れたわけではなく、指し手を決める「推論」部分は今まで通りで、対戦毎に学習データを更新する「学習」部分をニューラルネットワークに変更したということです。&lt;a href=&quot;https://www.amazon.co.jp/ゼロから作るDeep-Learning-Pythonで学ぶディープラーニングの理論と実装-斎藤-康毅/dp/4873117585/ref=sr_1_2?ie=UTF8&amp;amp;qid=1498438151&amp;amp;sr=8-2&amp;amp;keywords=ディープラーニング&quot;&gt;前述の本&lt;/a&gt;の中で”simpleNet”クラスとして紹介されているものに当たると思います。&lt;br /&gt;
-　汎用的なAIライブラリもいろいろあるようですが、既存ライブラリの使い方を覚えるだけでは面白くないので自前（スクラッチ開発）でやってます&lt;img class=&quot;emoji&quot; title=&quot;smiley&quot; alt=&quot;smiley&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/smiley.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;と言っても&lt;a href=&quot;https://www.amazon.co.jp/ゼロから作るDeep-Learning-Pythonで学ぶディープラーニングの理論と実装-斎藤-康毅/dp/4873117585/ref=sr_1_2?ie=UTF8&amp;amp;qid=1498438151&amp;amp;sr=8-2&amp;amp;keywords=ディープラーニング&quot;&gt;前述の本&lt;/a&gt;に書いてある通りやっただけですが&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+　汎用的なAIライブラリもいろいろあるようですが、既存ライブラリの使い方を覚えるだけでは面白くないので自前（スクラッチ開発）でやってます:smiley:と言っても&lt;a href=&quot;https://www.amazon.co.jp/ゼロから作るDeep-Learning-Pythonで学ぶディープラーニングの理論と実装-斎藤-康毅/dp/4873117585/ref=sr_1_2?ie=UTF8&amp;amp;qid=1498438151&amp;amp;sr=8-2&amp;amp;keywords=ディープラーニング&quot;&gt;前述の本&lt;/a&gt;に書いてある通りやっただけですが:sweat_smile:&lt;/p&gt;
 
 &lt;h3 id=&quot;修正内容&quot;&gt;修正内容&lt;/h3&gt;
 
@@ -3732,7 +3732,7 @@ window.onload = function() {
 &lt;p&gt;　乱数で指し手を決める弱いプログラム相手でも、今までより対戦回数が少ない段階で勝率が上がっていることがわかります。個人的には重みデータの総量が減ったことが学習速度がアップした大きな要因（&lt;a href=&quot;/software/2016-01-07/correlation&quot;&gt;過去記事参照&lt;/a&gt;）になった気がしてます。&lt;/p&gt;
 
 &lt;h3 id=&quot;学習速度アップは歴然&quot;&gt;&lt;del&gt;学習速度アップは歴然&lt;/del&gt;&lt;/h3&gt;
-&lt;p&gt;　&lt;del&gt;過学習という問題はあるものの、ニューラルネットワークを採用することでご褒美を上げたり取ったり（足したり引いたり）するより学習速度がアップすることは間違いないようです。&lt;/del&gt;でも現在リリース中の&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;は&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;に書かれている仕様に合わせて作っていることを謳っているので今のまま変更せずに、次アプリにする予定の「消える三目並べ」に採用してみようと思ってます。試してみたいと思うテーマが次々と出てきてなかなかリリース出来ないのですが、どこかでまず一度リリースしようと思ってます。本当は「５五将棋」アプリを作りたいのですが…&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;　&lt;del&gt;過学習という問題はあるものの、ニューラルネットワークを採用することでご褒美を上げたり取ったり（足したり引いたり）するより学習速度がアップすることは間違いないようです。&lt;/del&gt;でも現在リリース中の&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;は&lt;a href=&quot;http://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;に書かれている仕様に合わせて作っていることを謳っているので今のまま変更せずに、次アプリにする予定の「消える三目並べ」に採用してみようと思ってます。試してみたいと思うテーマが次々と出てきてなかなかリリース出来ないのですが、どこかでまず一度リリースしようと思ってます。本当は「５五将棋」アプリを作りたいのですが…:sweat_smile:&lt;/p&gt;
 
 &lt;script type=&quot;text/javascript&quot;&gt;
 function show_new_saikyo(){
@@ -3935,8 +3935,8 @@ window.onload = function() {
 　と、いうことでAIの成長を実感できないので前作のように進化する過程を画像で表現する機能はやめて、とりあえずもう少し強くする方法を試行錯誤しました。AIが思ったほど強くならないのは、やはり通常の三目並べの全局面数が6,046ノード（回転・対照形を省くと627ノード）&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;であるのに対して、「消える三目並べ」では79,210ノード&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;と２桁以上増える違いは大きかったようです。&lt;/p&gt;
 
 &lt;h3 id=&quot;なかなか強くならない原因&quot;&gt;なかなか強くならない原因&lt;/h3&gt;
-&lt;p&gt;　以前&lt;a href=&quot;/programming/2016-11-23/vanishing-tictactoe&quot;&gt;「「消える三目並べ」は、学習が速い」&lt;/a&gt;という記事で、MIN-MAX法を使った最強プログラムと1,500回程度対戦させると、勝ち負けがほぼ互角になることを書きました。最強のプログラムと互角なので十分強いだろうと思っていたのですが、最強プログラムの方はいつも同じ手を指すようになっていたので私がテストに使った自作の最強プログラムに対してだけ強くなっているだけのことでした&lt;img class=&quot;emoji&quot; title=&quot;sob&quot; alt=&quot;sob&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sob.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
-　ちょっと考えれば分かりそうなものですが、通常の三目並べならそれで上手くいっていたので深く考えてませんでした&lt;img class=&quot;emoji&quot; title=&quot;cold_sweat&quot; alt=&quot;cold_sweat&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/cold_sweat.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;もちろん通常の三目並べのテストで使用した最強プログラムも、いつも同じ手で勝つプログラム（プログラム内で乱数を使用していない）でしたが、通常の三目並べの場合ノード（局面のパターン）の数がたった627ノードだったので、数千回の対戦でほぼすべてのノードに対して何度も学習データが蓄積されていきますが、「消える三目並べ」で数千回対戦してもほとんどのノードの学習データは初期状態のままです。同じノードに対して何度も何度も学習データを蓄積していく必要があるため、例え数千回対戦させたとしても十分ではなさそうです。&lt;br /&gt;
+&lt;p&gt;　以前&lt;a href=&quot;/programming/2016-11-23/vanishing-tictactoe&quot;&gt;「「消える三目並べ」は、学習が速い」&lt;/a&gt;という記事で、MIN-MAX法を使った最強プログラムと1,500回程度対戦させると、勝ち負けがほぼ互角になることを書きました。最強のプログラムと互角なので十分強いだろうと思っていたのですが、最強プログラムの方はいつも同じ手を指すようになっていたので私がテストに使った自作の最強プログラムに対してだけ強くなっているだけのことでした:sob:&lt;br /&gt;
+　ちょっと考えれば分かりそうなものですが、通常の三目並べならそれで上手くいっていたので深く考えてませんでした:cold_sweat:もちろん通常の三目並べのテストで使用した最強プログラムも、いつも同じ手で勝つプログラム（プログラム内で乱数を使用していない）でしたが、通常の三目並べの場合ノード（局面のパターン）の数がたった627ノードだったので、数千回の対戦でほぼすべてのノードに対して何度も学習データが蓄積されていきますが、「消える三目並べ」で数千回対戦してもほとんどのノードの学習データは初期状態のままです。同じノードに対して何度も何度も学習データを蓄積していく必要があるため、例え数千回対戦させたとしても十分ではなさそうです。&lt;br /&gt;
 　前作（&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;）は、AIの成長過程を楽しんで貰うという意図もあったのですが、「消える三目並べ」では一回の対戦で得られる学習効果が非常に薄いため成長を楽しむのは無理そうだと思い、学習度合いを生物の進化に例えて表示する機能は取りやめることにしました。&lt;/p&gt;
 
 &lt;h3 id=&quot;弱すぎるアプリの改善方法&quot;&gt;弱すぎるアプリの改善方法&lt;/h3&gt;
@@ -3946,7 +3946,7 @@ window.onload = function() {
 
 &lt;p&gt;&lt;button id=&quot;unzoom&quot;&gt;元に戻す&lt;/button&gt;&lt;span&gt;　※範囲をドラッグすれば、グラフを zoom up 出来ます&lt;/span&gt;&lt;/p&gt;
 
-&lt;p&gt;　赤と黄色のグラフは&lt;a href=&quot;/programming/2016-11-23/vanishing-tictactoe&quot;&gt;以前の記事&lt;/a&gt;と同じものです。今回同じ評価値なら指し手をランダムに変更するように改良した最強プログラムとの対戦勝率（水色のグラフ）は5,000回対戦後でも３０％程度でまだまだ学習が足りないのがわかります。今まで同じ指し手しか選ばない最強プログラムでテストして、勝率５割になったから学習完了した（＝強くなった）と勘違いしていたわけです。本来なら最初からこのプログラムでテストするべきでした&lt;img class=&quot;emoji&quot; title=&quot;cold_sweat&quot; alt=&quot;cold_sweat&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/cold_sweat.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;。このプログラムを使って作った学習データをアプリの初期データとしてリリースしようかと思ってます。でも、以前にも書きましたが最強プログラムとの対戦テストは時間が掛るのが辛いところです。このわずか5,000回の対戦データを作成するためにCore i7-2600KのPCを約３日間稼働しっぱなしでした。&lt;br /&gt;
+&lt;p&gt;　赤と黄色のグラフは&lt;a href=&quot;/programming/2016-11-23/vanishing-tictactoe&quot;&gt;以前の記事&lt;/a&gt;と同じものです。今回同じ評価値なら指し手をランダムに変更するように改良した最強プログラムとの対戦勝率（水色のグラフ）は5,000回対戦後でも３０％程度でまだまだ学習が足りないのがわかります。今まで同じ指し手しか選ばない最強プログラムでテストして、勝率５割になったから学習完了した（＝強くなった）と勘違いしていたわけです。本来なら最初からこのプログラムでテストするべきでした:cold_sweat:。このプログラムを使って作った学習データをアプリの初期データとしてリリースしようかと思ってます。でも、以前にも書きましたが最強プログラムとの対戦テストは時間が掛るのが辛いところです。このわずか5,000回の対戦データを作成するためにCore i7-2600KのPCを約３日間稼働しっぱなしでした。&lt;br /&gt;
 　ちなみにグラフにはしませんでしたが、対乱数プログラムとの対戦テストなら対最強プログラムのように時間はかからないので100,000回まで試してみました。すると勝率（赤のグラフ）は９割以上まで伸びました&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;が、その学習データを使ってアプリにして遊んでみても全然強さを感じさせるものにはなっていませんでした。以前から書いてますが、いくら乱数プログラムとの対戦学習（モンテカルロ法を使った強化学習）を続けても効果は薄そうです。&lt;/p&gt;
 
 &lt;h3 id=&quot;その他の方法&quot;&gt;その他の方法&lt;/h3&gt;
@@ -4054,12 +4054,12 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;h3 id=&quot;対最強プログラム&quot;&gt;対最強プログラム&lt;/h3&gt;
 &lt;p&gt;　機械学習プログラムが先手で最強プログラムと対戦した黄色のグラフを見ると、６００回程度の対戦までは一度も勝てなかったのにその後急激に勝数を伸ばして先手なら必ず勝てることを学習した様子がよくわかります。この結果は前回と同じですが、&lt;a href=&quot;/programming/2016-11-23/vanishing-tictactoe&quot;&gt;前回の記事&lt;/a&gt;では、先手・後手をランダムに決めていたので勝率が約５０％にまでしか伸びませんでしたが、今回は先手番限定のテストなので１００％にまで勝率を伸ばしています。勝率１００％まで行ってから９０数％に何度か勝率を落としていますが、これは確率による指し手の選択をしている以上仕方がありません。MIN-MAX法で１１手先までの全局面を完全に読み切って常に最善手を選ぶ最強プログラムに対して、機械学習プログラムの方は経験（モンテカルロ法による強化学習）から最善手を選ぶ確率を上げているだけなのでこうなります。将棋や囲碁のように今のコンピュータでは全局面探索出来ないゲームに関して、機械学習が重宝されているのも頷けます。&lt;br /&gt;
-　今度は後手の時のグラフ（水色のグラフ）を見ると、最強プログラムに一度も勝てないままグラフでは見難いのですが０のまま横一直線のグラフになっています。先手必勝のゲームで後手番を持って最強プログラムと対戦しているわけですから一勝も出来ないのは当然の結果です。これはテストに使用している最強プログラムにバグがない（先手番では必ず勝つ）ということでもあるので安心しました&lt;img class=&quot;emoji&quot; title=&quot;smile&quot; alt=&quot;smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;あと、先手必勝のゲームをアプリにして楽しいのか？という問題もあるのですが、先手必勝と言っても１１手読みが必要なので人間ではなかなか難しいのではないかと思います。「どうぶつしょうぎ」も後手必勝のゲームだそうですが、人間が遊ぶ分にはそれなりに楽しめるのではないかと思ってます。自分が試している感じではとても先手番になったからと言って必ず勝てるとは思えない「消える三目並べ」ですが、それを極めるのも楽しみ方の一つかもしれません。&lt;br /&gt;
-　ところで、後手必勝らしい「どうぶつしょうぎ」で、「自分が後手なら必ず勝てる」と言い切れる人ってどれ位いるのでしょうか？興味があります&lt;img class=&quot;emoji&quot; title=&quot;smile&quot; alt=&quot;smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+　今度は後手の時のグラフ（水色のグラフ）を見ると、最強プログラムに一度も勝てないままグラフでは見難いのですが０のまま横一直線のグラフになっています。先手必勝のゲームで後手番を持って最強プログラムと対戦しているわけですから一勝も出来ないのは当然の結果です。これはテストに使用している最強プログラムにバグがない（先手番では必ず勝つ）ということでもあるので安心しました:smile:あと、先手必勝のゲームをアプリにして楽しいのか？という問題もあるのですが、先手必勝と言っても１１手読みが必要なので人間ではなかなか難しいのではないかと思います。「どうぶつしょうぎ」も後手必勝のゲームだそうですが、人間が遊ぶ分にはそれなりに楽しめるのではないかと思ってます。自分が試している感じではとても先手番になったからと言って必ず勝てるとは思えない「消える三目並べ」ですが、それを極めるのも楽しみ方の一つかもしれません。&lt;br /&gt;
+　ところで、後手必勝らしい「どうぶつしょうぎ」で、「自分が後手なら必ず勝てる」と言い切れる人ってどれ位いるのでしょうか？興味があります:smile:&lt;/p&gt;
 
 &lt;h3 id=&quot;対乱数プログラム&quot;&gt;対乱数プログラム&lt;/h3&gt;
-&lt;p&gt;　次に対乱数プログラムにおける勝率の推移を見てみると、先手番（赤色のグラフ）の方が明らかに後手番（緑色のグラフ）より速く学習が進んでいます（勝率の上がり方が速い）。これは機械学習プログラム自身が「消える三目並べ」というゲームの特徴を見出したと表現していいのでしょうか&lt;img class=&quot;emoji&quot; title=&quot;question&quot; alt=&quot;question&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/question.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;「どうやらこのゲームは先手の方が勝ち易いぞ」ということをAI自身が発見したと&lt;img class=&quot;emoji&quot; title=&quot;confused&quot; alt=&quot;confused&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/confused.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
-　機械学習プログラムが最強プログラムと対戦して、勝てるはずの先手の時に勝つことを学んでいくのはなんとなく分かるというか、最強プログラムという先生に教わっていくのだから強くなるのだろうと理解できます&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。でも先生でもない単にサイコロを振るように決めた手を選択する乱数プログラムと対戦させて、先手と後手で傾向の違いが出るというのがちょっと意外でした。「何を言ってるんだ、乱数を使うからモンテカルロ法による強化学習だろ」と言われるのかもしれませんが、先手と後手で学習度合いに違いが出るのであれば、もしかしてこれを将棋に応用したら将棋というゲームが先手必勝か、後手必勝か分かるのではないか&lt;img class=&quot;emoji&quot; title=&quot;flushed&quot; alt=&quot;flushed&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/flushed.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;と思ったわけです。将棋版の機械学習プログラムとランダムに指し手を決める将棋プログラムを用意して対戦させてみればいいだけです。そして先手の時の方が後手の時より勝率の上がり方が速ければ将棋は先手必勝のゲームと推測出来るように思えます。将棋で起こりうるすべてのパターンを確認しなくても、何万回か対戦させれば傾向がわかるのではないか？と。でもよく考えてみると将棋の場合はランダムに指し手を決めて対戦させてみてもゲームがなかなか終わってくれないので、囲碁やオセロのようにマス目が埋まれば必ず終わるゲームと違って難しいのでしょう&lt;img class=&quot;emoji&quot; title=&quot;disappointed&quot; alt=&quot;disappointed&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/disappointed.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;おそらく&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。「消える三目並べ」もマス目が埋まれば終了する類いのゲームと違う（長い対戦では２０手以上続きます）ので将棋と事情は同じなのですが、「消える三目並べ」程度の局面数ならなんとかなるということでしょう。最強プログラムで使用している先読みと評価関数を使ったやり方も機械学習を使ったやり方も、将棋というゲームの完全解析（先手or後手必勝定跡の発見等）は&lt;a href=&quot;https://ja.wikipedia.org/wiki/組合せ爆発&quot;&gt;指数爆発（組合せ爆発）&lt;/a&gt;の壁があるので難しいという事情は同じだということでしょう。&lt;br /&gt;
+&lt;p&gt;　次に対乱数プログラムにおける勝率の推移を見てみると、先手番（赤色のグラフ）の方が明らかに後手番（緑色のグラフ）より速く学習が進んでいます（勝率の上がり方が速い）。これは機械学習プログラム自身が「消える三目並べ」というゲームの特徴を見出したと表現していいのでしょうか:question:「どうやらこのゲームは先手の方が勝ち易いぞ」ということをAI自身が発見したと:confused:&lt;br /&gt;
+　機械学習プログラムが最強プログラムと対戦して、勝てるはずの先手の時に勝つことを学んでいくのはなんとなく分かるというか、最強プログラムという先生に教わっていくのだから強くなるのだろうと理解できます&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。でも先生でもない単にサイコロを振るように決めた手を選択する乱数プログラムと対戦させて、先手と後手で傾向の違いが出るというのがちょっと意外でした。「何を言ってるんだ、乱数を使うからモンテカルロ法による強化学習だろ」と言われるのかもしれませんが、先手と後手で学習度合いに違いが出るのであれば、もしかしてこれを将棋に応用したら将棋というゲームが先手必勝か、後手必勝か分かるのではないか:flushed:と思ったわけです。将棋版の機械学習プログラムとランダムに指し手を決める将棋プログラムを用意して対戦させてみればいいだけです。そして先手の時の方が後手の時より勝率の上がり方が速ければ将棋は先手必勝のゲームと推測出来るように思えます。将棋で起こりうるすべてのパターンを確認しなくても、何万回か対戦させれば傾向がわかるのではないか？と。でもよく考えてみると将棋の場合はランダムに指し手を決めて対戦させてみてもゲームがなかなか終わってくれないので、囲碁やオセロのようにマス目が埋まれば必ず終わるゲームと違って難しいのでしょう:disappointed:おそらく&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。「消える三目並べ」もマス目が埋まれば終了する類いのゲームと違う（長い対戦では２０手以上続きます）ので将棋と事情は同じなのですが、「消える三目並べ」程度の局面数ならなんとかなるということでしょう。最強プログラムで使用している先読みと評価関数を使ったやり方も機械学習を使ったやり方も、将棋というゲームの完全解析（先手or後手必勝定跡の発見等）は&lt;a href=&quot;https://ja.wikipedia.org/wiki/組合せ爆発&quot;&gt;指数爆発（組合せ爆発）&lt;/a&gt;の壁があるので難しいという事情は同じだということでしょう。&lt;br /&gt;
 　ただ、今回のテスト結果を見てもわかる通り、ソフトを学習させる場合にはヘボ将棋の棋譜（対乱数プログラム）を使うより、プロ棋士の棋譜（最強プログラム）を使うほうが速く学習するのは間違い無さそうです。&lt;/p&gt;
 
 &lt;script type=&quot;text/javascript&quot;&gt;
@@ -4154,7 +4154,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
    <content type="html">&lt;p&gt;Project: 「&lt;strong&gt;三目並べ&lt;/strong&gt;」: &lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/machinelearning&quot;&gt;machinelearning&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;ゲーム木から回転対照形を間引く&quot;&gt;ゲーム木から回転、対照形を間引く&lt;/h3&gt;
-&lt;p&gt;　以前から懸案だったプログラム内に保持している局面データの省略をやってみました。この件については以前から何度か記事を書いています（&lt;a href=&quot;/software/2015-10-19/multi_branched_tree&quot;&gt;「対戦型ソフトでの幅優先探索（BFS）の使い途」&lt;/a&gt;、&lt;a href=&quot;/software/2015-11-27/reinforcement&quot;&gt;「強化学習の修正」&lt;/a&gt;）が面倒そうなので放置してたのですが、手を付け始めたら案外すぐに出来ました&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;と言うのも勝ったら報酬を与えて負けたら罰するという強化学習の部分がうまく機能するのか心配だったので放置していたのですが、とりあえず作ってテストしてみると報酬の与え方の部分は変更せずに局面データの変換だけでうまく機能しているようです。&lt;/p&gt;
+&lt;p&gt;　以前から懸案だったプログラム内に保持している局面データの省略をやってみました。この件については以前から何度か記事を書いています（&lt;a href=&quot;/software/2015-10-19/multi_branched_tree&quot;&gt;「対戦型ソフトでの幅優先探索（BFS）の使い途」&lt;/a&gt;、&lt;a href=&quot;/software/2015-11-27/reinforcement&quot;&gt;「強化学習の修正」&lt;/a&gt;）が面倒そうなので放置してたのですが、手を付け始めたら案外すぐに出来ました:sweat_smile:と言うのも勝ったら報酬を与えて負けたら罰するという強化学習の部分がうまく機能するのか心配だったので放置していたのですが、とりあえず作ってテストしてみると報酬の与え方の部分は変更せずに局面データの変換だけでうまく機能しているようです。&lt;/p&gt;
 
 &lt;pre style=&quot;overflow:auto; white-space:nowrap&quot;&gt;
  |X|2|3| |1|X|3| |1|2|X| |1|2|3| |1|2|3| |1|2|3| |1|2|3| |1|2|3| |1|2|3|&lt;br /&gt;
@@ -4307,7 +4307,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;h3 id=&quot;消える三目並べに応用出来るか&quot;&gt;「消える三目並べ」に応用出来るか？&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;/programming/2016-11-23/vanishing-tictactoe&quot;&gt;前回の記事&lt;/a&gt;で「消える三目並べ」（３手前に打った自分の駒が消えるルールの三目並べ）はデータ量が増えすぎて、強化学習型のスマホアプリにするのは難しいと書きました。そこで今回の方法で回転・対照形を省けば保持する局面データ量が減って問題解決に繋がるかといえば残念ながらそうはいきません。これも以前書きましたが「消える三目並べ」は局面（と手番）だけでは最善手が決まりません。将棋、オセロ、囲碁など多くのテーブルゲームは局面と手番が決まれば最善手を決めることが出来ますが、「消える三目並べ」はその局面に至った経過が大事（順列データ）なので単純に今回のように局面データを省略しても駄目そうです&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。通常の配列データではなくもっと物理的に小さなデータ（ビットパターン）で局面を保持するしかないかなと考えてますが、これについてはもう少し模索しようと思います。「どうぶつしょうぎ」を完全解析したプログラムは一つの局面を整数データとして（ビットパターンで）保持していたそうですが、有名な将棋ソフトなどもソースコードを追ったことは無いのですが、すべてそうやっているのでしょう。&lt;br /&gt;
-　と、この記事を書いている最中にlibshogiというビットパターンで将棋盤を生成するライブラリがあることをTwitterで知りました。こういうライブラリの三目並べ用があればいいのですが、有るわけないですね&lt;img class=&quot;emoji&quot; title=&quot;smile&quot; alt=&quot;smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+　と、この記事を書いている最中にlibshogiというビットパターンで将棋盤を生成するライブラリがあることをTwitterで知りました。こういうライブラリの三目並べ用があればいいのですが、有るわけないですね:smile:&lt;/p&gt;
 
 &lt;script type=&quot;text/javascript&quot;&gt;
 function show_new_saikyo(){
@@ -4756,7 +4756,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 &lt;p&gt;　上の図は、手数がいくら増えたとしても６手目以降の局面は、６手目の局面60,480種類の中に手順が違う局面として必ず含まれていることを示しています。プログラムとの対戦テストでは手数は２０手を超えることもあるのですが、一局面に存在する駒の数は最大６個（×が３つ、○が３つ）までなのでいくら手数が増えてもデータが無制限に増える心配がないことは&lt;a href=&quot;/programming/2016-10-21/ml_miscellaneous&quot;&gt;前回の記事&lt;/a&gt;に書いた通りですが、アプリを作る場合思っていたより大幅にデータ量が増えてしまうことになりそうです。&lt;br /&gt;
 　試しにゲーム木データをPCで作成したところ12MB程度になりました。画像をいっぱい使用する昨今のアプリに比べればそれ程でもないかもしれませんが、現在の&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;の1MB程度に較べて大幅増量になりそうです。androidアプリもiosアプリも100MBまで大丈夫なようなので、サイズ的には問題ないのですが、スマホ標準のブラウザ（WebView）内のデータ制限（androidは2MB、iosは5MB）を超えるのでアプリの作りを変える必要がありそうです。自分としてはこれが一番面倒くさい、今までMacbookでブラウザ上で開発出来ていたのに、パワーの有るPCで実機やエミュレータを使いながらの開発作業が必要になりそうです。&lt;br /&gt;
 　また、データ量の問題はどうにかなるにしても、６手目以降の局面を検索する場合、上の図の限定した範囲のゲーム木に含まれているとはいっても、今までのように単純にツリーを辿るだけでは駄目で、６手目以降に関してはツリーのルートから再検索しなければいけませんし、上の図の６手目の局面の手番はすべて同じ先手番になっています（×○×○×○で次は先手の×の手番）が、実際には後手の手番で上の図の６手目の局面を迎えることもあるので、対戦結果を学習データとして格納する時の処理が複雑で煩わしい処理になりそうです。それにAIの学習が進んでいるかどうかの指標（どれだけ進化したか現在イラストで表示している機能）をどうやって実現するかも現在手探り中です。&lt;br /&gt;
-　乗りかかった船なので何とかリリースまで漕ぎ着けたいと思ってますが、思っていたより時間かかりそうです&lt;img class=&quot;emoji&quot; title=&quot;pensive&quot; alt=&quot;pensive&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/pensive.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;。&lt;/p&gt;
+　乗りかかった船なので何とかリリースまで漕ぎ着けたいと思ってますが、思っていたより時間かかりそうです:pensive:。&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -4766,7 +4766,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
       &lt;p&gt;ここで言う最強プログラムとは従来のMIN-MAX法（αβ法）を使って作ったプログラムです &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:2&quot;&gt;
-      &lt;p&gt;「消える三目並べ」の最強プログラムは最低でも１１手読みを必要とするため、テストするにも時間がかかって面倒なんです&lt;img class=&quot;emoji&quot; title=&quot;weary&quot; alt=&quot;weary&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/weary.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;「消える三目並べ」の最強プログラムは最低でも１１手読みを必要とするため、テストするにも時間がかかって面倒なんです:weary: &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:3&quot;&gt;
       &lt;p&gt;&lt;a href=&quot;/software/2014-10-04/arrange_line&quot;&gt;「三目並べ（tic tac toe）で遊んでみた（続き）」&lt;/a&gt;、&lt;a href=&quot;/programming/2016-07-23/33shogi&quot;&gt;「９マス将棋（３×３将棋）と三目並べの変化形」&lt;/a&gt;参照 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
@@ -4775,7 +4775,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
       &lt;p&gt;ここで言うAIとは&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;で使用している機械学習によるAIです。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:5&quot;&gt;
-      &lt;p&gt;オセロと将棋に関しても、オセロは指し手が進む毎に盤面を駒が埋めていき必ず終局に向かうのに対して、将棋は駒が全て盤上を埋め尽くすわけではないので、必ずしも手数が増える毎に終局が近づくわけではないという違いがあります。オセロ、将棋、消える三目並べ、３つのゲームはそれぞれ微妙に違うわけです。こんな違いを意識している人は世の中にどれぐらいいるでしょうか&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt; &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;オセロと将棋に関しても、オセロは指し手が進む毎に盤面を駒が埋めていき必ず終局に向かうのに対して、将棋は駒が全て盤上を埋め尽くすわけではないので、必ずしも手数が増える毎に終局が近づくわけではないという違いがあります。オセロ、将棋、消える三目並べ、３つのゲームはそれぞれ微妙に違うわけです。こんな違いを意識している人は世の中にどれぐらいいるでしょうか:sweat_smile: &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
@@ -4870,7 +4870,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;p&gt;　上の図の進行を見ていただければルールはすぐにわかると思いますが、５手目でダブルリーチを掛けている先手（X）が勝ちかと思いきや、次の手を打つと自分の３手前の駒が消えるのでダブルリーチを掛けたにも関わらず先手（X）が負けになっています。&lt;/p&gt;
 
-&lt;p&gt;　このゲームに関しては以前にも&lt;a href=&quot;/software/2014-09-23/tictactoe_arrange&quot;&gt;「ちょっと変わった三目並べ」というアプリ&lt;/a&gt;の記事として書きました。思いつきの汚いコードを晒しています&lt;img class=&quot;emoji&quot; title=&quot;grin&quot; alt=&quot;grin&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/grin.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;が、指し手をキュー（queue）に格納するようにコードを書き直して、どれぐらいの局面の数になるのか確認してみました。&lt;/p&gt;
+&lt;p&gt;　このゲームに関しては以前にも&lt;a href=&quot;/software/2014-09-23/tictactoe_arrange&quot;&gt;「ちょっと変わった三目並べ」というアプリ&lt;/a&gt;の記事として書きました。思いつきの汚いコードを晒しています:grin:が、指し手をキュー（queue）に格納するようにコードを書き直して、どれぐらいの局面の数になるのか確認してみました。&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -4961,7 +4961,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
    <updated>2016-10-04T00:00:00+09:00</updated>
    <id>https://happyclam.github.io/programming/2016-10-04/spritesheet</id>
    <content type="html">&lt;h3 id=&quot;せっかくtexturepackerのブロガーライセンスを取得したのでアプリに使ってみました&quot;&gt;せっかくTexturePackerのブロガーライセンスを取得したのでアプリに使ってみました&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/programming/2016-08-25/texturepacker&quot;&gt;以前の記事&lt;/a&gt;に書いたように、CEO直々にブロガーライセンスを認めてもらったので義理を果たすためにも記事を書いておくことにしました&lt;img class=&quot;emoji&quot; title=&quot;smile&quot; alt=&quot;smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;ただ単に画像ファイルをパックするだけでは意味が無いので簡単なアニメーションを表示しています。&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;androidアプリ&lt;/a&gt;で使用するので、ネットワークに繋がっていなくても使用できるようにCDNは使わずに&lt;a href=&quot;https://github.com/CreateJS/&quot;&gt;ここ&lt;/a&gt;から必要なファイルをダウンロードして使用します。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;/programming/2016-08-25/texturepacker&quot;&gt;以前の記事&lt;/a&gt;に書いたように、CEO直々にブロガーライセンスを認めてもらったので義理を果たすためにも記事を書いておくことにしました:smile:ただ単に画像ファイルをパックするだけでは意味が無いので簡単なアニメーションを表示しています。&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;androidアプリ&lt;/a&gt;で使用するので、ネットワークに繋がっていなくても使用できるようにCDNは使わずに&lt;a href=&quot;https://github.com/CreateJS/&quot;&gt;ここ&lt;/a&gt;から必要なファイルをダウンロードして使用します。&lt;/p&gt;
 
 &lt;h3 id=&quot;スプライトシートの作成&quot;&gt;スプライトシートの作成&lt;/h3&gt;
 &lt;p&gt;　まずはスプライトシートの作成ですが、右側のメニューから[Data] -&amp;gt; [Data Format] -&amp;gt; [EaselJS / CreateJS]を選んで、画像を画面中央にドラッグ＆ドロップするだけです。&lt;/p&gt;
@@ -5697,7 +5697,7 @@ Please let me know if you write a tutorial or review - we might link back from o
 Kind regards Andreas Loew&lt;br /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;　私はどうすればよかったのでしょうか？まず、私が少し誤解していたのが、前述の&lt;a href=&quot;https://oxosi.hatenablog.com/entry/2014/12/27/204407&quot;&gt;日本語の紹介記事&lt;/a&gt;や他の申請した人の記事を読んで、レビューや紹介記事を書くことは必須ではないと思い気軽に申請したのですが、向こうとしては記事を書いてそこにコードを埋め込むことを期待していたのかもしれません（それにしても誰もが見えるところに意味不明の認証コードを表示するの？）。確かに&lt;a href=&quot;https://www.codeandweb.com/request-free-license&quot;&gt;本家サイトの申請ページ&lt;/a&gt;にも必須ではないとは書かれていますが、運用方針が変わったのかもしれません。あまりにも売上に繋がらなくて嫌気が差してるとか&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;。ライセンスコードとともに送られてきたメールの「記事を書いたら連絡してね」という文言とともに付けられていた「tutorials page」のリンクも４０４エラーになっていました。&lt;br /&gt;
+&lt;p&gt;　私はどうすればよかったのでしょうか？まず、私が少し誤解していたのが、前述の&lt;a href=&quot;https://oxosi.hatenablog.com/entry/2014/12/27/204407&quot;&gt;日本語の紹介記事&lt;/a&gt;や他の申請した人の記事を読んで、レビューや紹介記事を書くことは必須ではないと思い気軽に申請したのですが、向こうとしては記事を書いてそこにコードを埋め込むことを期待していたのかもしれません（それにしても誰もが見えるところに意味不明の認証コードを表示するの？）。確かに&lt;a href=&quot;https://www.codeandweb.com/request-free-license&quot;&gt;本家サイトの申請ページ&lt;/a&gt;にも必須ではないとは書かれていますが、運用方針が変わったのかもしれません。あまりにも売上に繋がらなくて嫌気が差してるとか:sweat_smile:。ライセンスコードとともに送られてきたメールの「記事を書いたら連絡してね」という文言とともに付けられていた「tutorials page」のリンクも４０４エラーになっていました。&lt;br /&gt;
 　それとこういう手続は自動でスクリプトが処理していると思っていたので、サイトのページをパースして文字列検索でもしているのかな？とか勝手に想像していましたが、CEO自身が記事を読んでいるようですね。CEO自身からメールの返信が来たことにも驚きました。日本なら手作業で申請の対応をするにしても、若手の担当者にやらせていることでしょう。&lt;br /&gt;
 　厚かましいかもしれませんが、こちらとしてもTexturePackerがどうしても必要というわけでもなく、数種類の画像をドラッグ＆ドロップしてスプライトシートを作成するだけなので、非常に多くの機能は私にとっては持て余し気味で、レビュー記事を書くほど使い込んでもいないし現時点では購入する気にはなれないんですよねぇ。最終的には「感謝して使わせてもらいます」と返信しましたが、それほど多くの画像を使う予定もないし、そもそもが購入した本のサンプルコードでスプライトシートを使っていたから真似をしただけという状態ですから、もう少し使ってみてから購入するかどうか決めようと思います。&lt;br /&gt;
 　このAndreasっていうCEOはQ&amp;amp;Aサイトとかでも積極的に回答したりしているようで、未だにパソコン操作出来ないような人がIT企業の社長やってたりする日本とは大違いですね。&lt;/p&gt;
@@ -6106,10 +6106,10 @@ catch e
 
 &lt;h3 id=&quot;電池自体は７ヶ月もった&quot;&gt;電池自体は７ヶ月もった&lt;/h3&gt;
 &lt;p&gt;　去年の８月から使い始めて約５ヶ月後の今年の１月ぐらいにサイレントアラームが動かなくなりました。特にサイレントアラームが絶対必要というわけではなかったのでそのまま使用し続けて様子を見ていたのですが、先日ようやく電池が切れました。電池残量が少ないとサイレントアラームが機能しないようになっているのでしょう。多分そうだろうと思いながらも一度電池がなくなるまで使い続けてみようと思いながら使っていたのですが、アラームが動かなくなってからは時間も遅れ気味になって２、３日に一回ぐらいのペースで時刻合わせする羽目になっていたので、今度からはアラームが動かなくなるタイミングで電池交換しようと思っています。&lt;br /&gt;
-　今まで、電池が少ないからアラームが動かないのか、壊れたから動かなくなったのか、はっきりしない状態でドキドキ感を多少楽しみながら放置していたわけですが、壊れてなくてよかったです&lt;img class=&quot;emoji&quot; title=&quot;grin&quot; alt=&quot;grin&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/grin.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+　今まで、電池が少ないからアラームが動かないのか、壊れたから動かなくなったのか、はっきりしない状態でドキドキ感を多少楽しみながら放置していたわけですが、壊れてなくてよかったです:grin:&lt;/p&gt;
 
 &lt;h3 id=&quot;サイレントアラームの止め方&quot;&gt;サイレントアラームの止め方&lt;/h3&gt;
-&lt;p&gt;　これは&lt;a href=&quot;/project/2015-09-19/activite#withings-activit&quot;&gt;以前の記事&lt;/a&gt;にも書いたのですが、未だに気づいていない人が多いと思います。いろんなサイトに出来ないと書いてあるので試してみようと思わない人も多いと思います。以前記事を書いた時と違って今はサイレントアラームを止めるコツを掴みました。ブルブルが止まった瞬間に&lt;strong&gt;「カッカッカッ」という感じで本体右上辺りをつめ先で３回叩く&lt;/strong&gt;というものです。多分２回でもいいと思う（実際２回で止まることもあります）のですが本体のアラームが稼働している時（ブルブルしている時）はタップされたことが認識できないと思うので、念のために１回余計にタップしています。タイミングが大事なので失敗することもあるのですが、昔と違って今はだいたい３回目ぐらいのブルブルが来るまでには止めることが出来るようになりました。でもサイレントアラームは止めることが出来ないと書いてあるブログは見つけることはあるのですが、未だに止めることが出来ると書いてあるブログ等を見かけないので、&lt;a href=&quot;/project/2015-09-19/activite#withings-activit&quot;&gt;以前の記事&lt;/a&gt;に書いたように私の持っている個体が特別（故障している）なのかもしれません&lt;img class=&quot;emoji&quot; title=&quot;question&quot; alt=&quot;question&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/question.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;　これは&lt;a href=&quot;/project/2015-09-19/activite#withings-activit&quot;&gt;以前の記事&lt;/a&gt;にも書いたのですが、未だに気づいていない人が多いと思います。いろんなサイトに出来ないと書いてあるので試してみようと思わない人も多いと思います。以前記事を書いた時と違って今はサイレントアラームを止めるコツを掴みました。ブルブルが止まった瞬間に&lt;strong&gt;「カッカッカッ」という感じで本体右上辺りをつめ先で３回叩く&lt;/strong&gt;というものです。多分２回でもいいと思う（実際２回で止まることもあります）のですが本体のアラームが稼働している時（ブルブルしている時）はタップされたことが認識できないと思うので、念のために１回余計にタップしています。タイミングが大事なので失敗することもあるのですが、昔と違って今はだいたい３回目ぐらいのブルブルが来るまでには止めることが出来るようになりました。でもサイレントアラームは止めることが出来ないと書いてあるブログは見つけることはあるのですが、未だに止めることが出来ると書いてあるブログ等を見かけないので、&lt;a href=&quot;/project/2015-09-19/activite#withings-activit&quot;&gt;以前の記事&lt;/a&gt;に書いたように私の持っている個体が特別（故障している）なのかもしれません:question:&lt;/p&gt;
 
 &lt;h3 id=&quot;浸水防止の輪ゴム&quot;&gt;浸水防止の輪ゴム&lt;/h3&gt;
 &lt;p&gt;　電池交換しようと思い裏蓋を開けたらポロッと輪ゴムが落ちました。&lt;/p&gt;
@@ -6128,7 +6128,7 @@ catch e
 
 &lt;/div&gt;
 
-&lt;p&gt;　聞くところによるとビーズ用のゴムなら細いのが色々あるらしいのですが、輪ゴム上にはなっていない（ビーズを通すから当たり前）ので諦めました（ビーズ用のゴムの両端を縛って輪ゴムにして使ってみようかとも思いましたが、出っ張りが出来てかえって浸水し易くなるような気がします）。仕方なくヨレヨレのゴムをそのまま使って蓋を閉めましたが、代用になる輪ゴムはどこかで手に入らないものでしょうかねぇ&lt;img class=&quot;emoji&quot; title=&quot;persevere&quot; alt=&quot;persevere&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/persevere.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;　聞くところによるとビーズ用のゴムなら細いのが色々あるらしいのですが、輪ゴム上にはなっていない（ビーズを通すから当たり前）ので諦めました（ビーズ用のゴムの両端を縛って輪ゴムにして使ってみようかとも思いましたが、出っ張りが出来てかえって浸水し易くなるような気がします）。仕方なくヨレヨレのゴムをそのまま使って蓋を閉めましたが、代用になる輪ゴムはどこかで手に入らないものでしょうかねぇ:persevere:&lt;/p&gt;
 
 &lt;hr /&gt;
 </content>
@@ -6140,15 +6140,15 @@ catch e
    <updated>2016-04-02T00:00:00+09:00</updated>
    <id>https://happyclam.github.io/miscellaneous/2016-04-02/self-publishing</id>
    <content type="html">&lt;h3 id=&quot;html5coffeescriptで作る-最強の三目並べプログラムamazon楽天&quot;&gt;「HTML5+CoffeeScriptで作る 最強の三目並べプログラム」（&lt;a href=&quot;https://www.amazon.co.jp/dp/B01D1IJ0S0&quot;&gt;Amazon&lt;/a&gt;、&lt;a href=&quot;https://books.rakuten.co.jp/rk/8353a2085f33386d8fe9102c7b8eb4c3&quot;&gt;楽天&lt;/a&gt;）&lt;/h3&gt;
-&lt;p&gt;　個人出版してみた結果売れ行きはどうなのか、興味ある人いると思います。私自身も試しに出版してみたらどうなるだろうという好奇心で出版したようなものです。現在約２週間経ちましたが楽天で２冊、Amazonで１冊です。買っていただいた方ありがとうございました。&lt;img class=&quot;emoji&quot; title=&quot;bow&quot; alt=&quot;bow&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/bow.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
+&lt;p&gt;　個人出版してみた結果売れ行きはどうなのか、興味ある人いると思います。私自身も試しに出版してみたらどうなるだろうという好奇心で出版したようなものです。現在約２週間経ちましたが楽天で２冊、Amazonで１冊です。買っていただいた方ありがとうございました。:bow:&lt;br /&gt;
 　最初Amazonに出版して三日経っても反応無かったので楽天に出版したのですが、楽天に出してすぐに１部売れました。登録してすぐに売れたものですから、KWLの中の人が作者を励ます為に買ってくれたのか？もしかして知り合い？とかいろいろ想像してしまいました。一応匿名で出しているつもりですが、どこで身元がバレているかわかりませんから。それにしても全く宣伝せずに２週間で３部も売れたというのは自分では上出来だと思っていますが、新着ということで目にする機会があっただけで、このまま放っておいたら今後一切売れないような気もします。Twitterを使った販促や他のサイトでの販売もその効果に興味があるのでやってみるかもしれませんが、売れたかどうかより、買って読んでくれた人がどう思っているかの方が大事だと思っています。&lt;br /&gt;
-　でも、自費出版というのは昔からそういうものだと思うのですが、売れるかどうかなんてことより（もちろん売れたら嬉しいですが）自分が世に出したいから出すわけです。だからもっと言えば買って読んでくれた人がどう思ってようがそれさえも大きな関心はないという感じです。そういうわけですから出版し終えたばかりなのに、早速次の本を出す構想を練っています。なんか使命感に駆られるという感じです、たとえ誰も待ち望んでいなくても&lt;img class=&quot;emoji&quot; title=&quot;sweat_smile&quot; alt=&quot;sweat_smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/sweat_smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+　でも、自費出版というのは昔からそういうものだと思うのですが、売れるかどうかなんてことより（もちろん売れたら嬉しいですが）自分が世に出したいから出すわけです。だからもっと言えば買って読んでくれた人がどう思ってようがそれさえも大きな関心はないという感じです。そういうわけですから出版し終えたばかりなのに、早速次の本を出す構想を練っています。なんか使命感に駆られるという感じです、たとえ誰も待ち望んでいなくても:sweat_smile:&lt;/p&gt;
 
 &lt;h3 id=&quot;epubの作成方法&quot;&gt;epubの作成方法&lt;/h3&gt;
 &lt;p&gt;　以前にも&lt;a href=&quot;/miscellaneous/2015-06-09/pandoc_epub&quot;&gt;電子出版に関して&lt;/a&gt;記事を書きましたが、そこではこのブログを書いているやり方と同じmarkdown形式で文章を書いてそれを何らかの方法でPDFかepubに変換して出版したいと書きました。でも、最新のpandocコマンド（1.16.0.2）で試してみても細々な不満があったのでmarkdownからepubを生成するのは諦めて、使い方を覚えるのは面倒臭くて嫌だったのですが結局MacのPagesを使って一から書くことにしました。本を書くということに不慣れなこともあって、文章だけでなく何度も構成や図表を変更するので、そういう細々とした作業は市販のソフトを使った方が楽になると感じました。&lt;a href=&quot;/miscellaneous/2015-06-09/pandoc_epub&quot;&gt;以前の記事&lt;/a&gt;に書いたような自前でepubを作るやり方はもうこれで絶対変更しないと言い切れるぐらい文章が確定してからでないとやってられないと思います。でもそうは言ってもepubに変換してから修正したくなることが多いのですが、Pagesなら出力形式をepubに指定すれば何度でも出力できるので、ちょっと修正してはまたepubに出力するという作業が非常に楽でした。ブログ書いている分にはmarkdownの方が楽なんですけど、結局その違いは、最終出力をすぐに確認出来る状態で入力作業を進められるかどうかが大事なことだということでしょう。&lt;/p&gt;
 
 &lt;h3 id=&quot;ゴールドラッシュにはスコップを売るべし&quot;&gt;「ゴールドラッシュにはスコップを売るべし」&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/miscellaneous/2015-06-09/pandoc_epub&quot;&gt;以前の記事&lt;/a&gt;にも書きましたが最初はどこに出版するのかいろいろ迷っていたので、個人出版のノウハウ本みたいな電子書籍も何冊か買ってみましたが、役に立ったと思ったのは、この１冊（&lt;a href=&quot;https://selfpublishing.jimdo.com&quot;&gt;「電子書籍の個人作家でも、３年かければ１０００冊売れる！　セルフパブリッシングを楽しむ方法」&lt;/a&gt;）だけでした。それ以外は買って損したと思うものばかり（こんなこと言うと自分に返ってくるものですが、言わずにはいられないほど酷いものがあるんです。タイトルは伏せておきますので許して下さい）でした。今となっては特にこの本を他人にお勧めしようとは思いませんが、この本のタイトルにあるように３年で１０００冊売れたそうで、宣伝費用をかけずにこれだけ売れるのは凄いことだろうなとは思います。本を売ることが目的ならこういう類の本を書くのが一番手っ取り早いような気がします。私もそうでしたが、やっぱりみんな実際にやってみた人の体験談を知りたいんだと思います。今、ゴールドラッシュと言えるほど個人出版が流行っているのかどうか知りませんが、昔に較べて気軽に出版出来るので増えていくことは間違いないと思います。ゴールドラッシュでは自分で金鉱を見つけ出すより、そういう夢を見ている人達を相手にスコップやデニムを売った方が確実にお金になるでしょう。だから今のところ考えていませんが、私も将来体験談をまとめてノウハウ本を出すかもしれません。その時は「使命感に駆られて」とか言っていたくせに小遣い稼ぎに走ったぞと私を罵倒してください。&lt;img class=&quot;emoji&quot; title=&quot;grin&quot; alt=&quot;grin&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/grin.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;/miscellaneous/2015-06-09/pandoc_epub&quot;&gt;以前の記事&lt;/a&gt;にも書きましたが最初はどこに出版するのかいろいろ迷っていたので、個人出版のノウハウ本みたいな電子書籍も何冊か買ってみましたが、役に立ったと思ったのは、この１冊（&lt;a href=&quot;https://selfpublishing.jimdo.com&quot;&gt;「電子書籍の個人作家でも、３年かければ１０００冊売れる！　セルフパブリッシングを楽しむ方法」&lt;/a&gt;）だけでした。それ以外は買って損したと思うものばかり（こんなこと言うと自分に返ってくるものですが、言わずにはいられないほど酷いものがあるんです。タイトルは伏せておきますので許して下さい）でした。今となっては特にこの本を他人にお勧めしようとは思いませんが、この本のタイトルにあるように３年で１０００冊売れたそうで、宣伝費用をかけずにこれだけ売れるのは凄いことだろうなとは思います。本を売ることが目的ならこういう類の本を書くのが一番手っ取り早いような気がします。私もそうでしたが、やっぱりみんな実際にやってみた人の体験談を知りたいんだと思います。今、ゴールドラッシュと言えるほど個人出版が流行っているのかどうか知りませんが、昔に較べて気軽に出版出来るので増えていくことは間違いないと思います。ゴールドラッシュでは自分で金鉱を見つけ出すより、そういう夢を見ている人達を相手にスコップやデニムを売った方が確実にお金になるでしょう。だから今のところ考えていませんが、私も将来体験談をまとめてノウハウ本を出すかもしれません。その時は「使命感に駆られて」とか言っていたくせに小遣い稼ぎに走ったぞと私を罵倒してください。:grin:&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -6226,8 +6226,8 @@ HTTPS https://app.rakuten.co.jp/services/api/Kobo/EbookSearch/20140811?applicati
 
 &lt;/div&gt;
 
-&lt;p&gt;　エプソンの製品を使ったことがなかったので「またMACアドレスの記載が無いのかよ」と勝手に決めつけて&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;作業していたのですが、後から気づいたのですが外箱にちゃんとMACアドレスが記載されていました&lt;img class=&quot;emoji&quot; title=&quot;cold_sweat&quot; alt=&quot;cold_sweat&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/cold_sweat.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
-　さすがエプソンさんは物を売ってるだけの業者じゃなくてメーカーだから、抜かりは無いですね&lt;img class=&quot;emoji&quot; title=&quot;smile&quot; alt=&quot;smile&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/smile.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;　エプソンの製品を使ったことがなかったので「またMACアドレスの記載が無いのかよ」と勝手に決めつけて&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;作業していたのですが、後から気づいたのですが外箱にちゃんとMACアドレスが記載されていました:cold_sweat:&lt;br /&gt;
+　さすがエプソンさんは物を売ってるだけの業者じゃなくてメーカーだから、抜かりは無いですね:smile:&lt;/p&gt;
 
 &lt;h3 id=&quot;廃インク吸収体&quot;&gt;廃インク吸収体&lt;/h3&gt;
 &lt;p&gt;　このプリンターの売りの一つがエプソンがメンテナンスボックスと呼んでる廃インク吸収体という消耗品を自分で交換できる点だそうです。今まで廃インク吸収体がいっぱいになるとメーカーに送る必要があったのに、この機種は自分で交換可能だということです。この廃インク吸収体というのはインクジェットプリンターには必ずあるらしいのですが、私は長年インクジェットプリンターを使ってきたのにその存在を知りませんでしたし、メーカーに送った経験もありません。それは今までプライベートではブラザー製のインクジェットしか購入したことがなく、それらしきエラーに見舞われたことはあったのですが、ブラザーの場合ネットで検索すれば今でも見つかりますが、廃インク吸収体の交換時期を示すカウンターを自分でリセットする方法があって、リセットしながらそのまま使い続けることが出来たからです。私がプリンターを使う頻度がそれほど多くなかったのでこのやり方でやっていけたのだと思いますが、こんな私にとって廃インク吸収体を自分で交換出来るなんて言われても全然メリットに感じません。ヨドバシの定員に廃インク吸収体の説明を受けながら、あの時のプリンターのエラーはそういうことだったのかと昔の経験を思い出しながら、ブラザーってオープンというか緩いというか改めてブラザーという会社が好きになったのでした。それとともにブラザー製のインクジェットが全てそうなのかどうか知りませんが、自分以外の普通の人は廃インク吸収体がいっぱいになる度にメーカーに送ってお金も取られる使い方をしていたのかと思うとなんか得した気分になりました。それにカウンターをリセットするだけで特に不都合なく使用できるのならそもそも廃インク吸収体の交換自体が必須というわけでもなさそうですが、プリンター業界の闇に関しては詳しく知らないのでこれ以上は言及しないことにします。&lt;br /&gt;
@@ -6359,7 +6359,7 @@ $adb install -r ./Release/android/Tictactoe-release1-3-2.apk
 
 &lt;/div&gt;
 
-&lt;p&gt;　↑バージョン（android:versionCode）が６桁の数字（103028）になってしまっていますが、なぜか私の環境からGooglePlayのサイトにパッケージファイルをアップロードするとAndroidManifest.xmlに記載した数値（10302）に一桁追加されてしまうのです。以前のものより数値が小さいとアップロード出来ないらしいので、１桁でいいはずの数字なのに今は６桁になってしまっています。う〜ん不思議だ&lt;img class=&quot;emoji&quot; title=&quot;confused&quot; alt=&quot;confused&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/confused.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;　↑バージョン（android:versionCode）が６桁の数字（103028）になってしまっていますが、なぜか私の環境からGooglePlayのサイトにパッケージファイルをアップロードするとAndroidManifest.xmlに記載した数値（10302）に一桁追加されてしまうのです。以前のものより数値が小さいとアップロード出来ないらしいので、１桁でいいはずの数字なのに今は６桁になってしまっています。う〜ん不思議だ:confused:&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -8844,7 +8844,7 @@ pp result
 　それとフリーのepubリーダーを何種類か試した時、リーダーソフトによってこれほど本の表示のされ方が違うのかって驚いてその混沌とした世界を垣間見た気がしたので、もしかしたらepubリーダーの世界ではこれぐらいの不具合は小さなことって感じかも知れません。&lt;/p&gt;
 
 &lt;h3 id=&quot;まとめ&quot;&gt;まとめ&lt;/h3&gt;
-&lt;p&gt;　購入後ちょっと弄っただけで複数のブログネタを提供してくれるあたりポテンシャルを感じます&lt;img class=&quot;emoji&quot; title=&quot;grin&quot; alt=&quot;grin&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/grin.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;ネットでkoboの情報を漁っているとユーザの不満の声をあちこちで見かけるので、Amazonに偏り過ぎているなんて考えずに今後も楽天とは関わらない方が幸せになれるのかもとか考えてしまいました。&lt;br /&gt;
+&lt;p&gt;　購入後ちょっと弄っただけで複数のブログネタを提供してくれるあたりポテンシャルを感じます:grin:ネットでkoboの情報を漁っているとユーザの不満の声をあちこちで見かけるので、Amazonに偏り過ぎているなんて考えずに今後も楽天とは関わらない方が幸せになれるのかもとか考えてしまいました。&lt;br /&gt;
 　それと、技術書のリファレンスとしても使おうとか思っていましたが、検索等の操作は遅いし調べ物はやっぱりPCの大画面で参照する方が効率的だし、本のサンプルコードを見ながらプログラミングとかするときもPCの大画面の方が便利で、やっぱり読書専用というかじっくり集中して本を読むための道具かなって感じです。本当は目に優しいE-Ink端末でいろんなことをしたいのですが、動作が遅いので用途が限られます（これでも速くなったそうなので、発売当時に手を出さなくてよかったと思います）。&lt;br /&gt;
 　購入前は専門書はkoboのSDにまとめていこうかとか考えていましたが、新書や小説や、専門書でもプログラムコードが載っていない本の読書専用端末になりそうです。というか私が遅れて体験しただけで、世間ではすでにそういう評価になっているのかも知れませんが。&lt;/p&gt;
 
@@ -9297,7 +9297,7 @@ exports.mypage = function(req, res){
 &lt;p&gt;　HTML5でアニメーションを実現する方法を調べてみたら、タイマーを使う必要が無くなったらしい（タイマー間隔をブラウザ任せに出来る）のでやってみました。それぞれのブラウザ用にAPIが分かれているようで今後どうなるかわかりません（HTML5自体がまだまだ流動的だと思いますが）が、結構以前（HTML5リリース当初）からこのやり方は定着しているらしいです。手元のAndroid4.1.2の端末（GL07S）でも問題なく動きました。IEでHTML5を利用するにはIE9以上が必要です。&lt;/p&gt;
 
 &lt;h3 id=&quot;二点の座標をクリックして直線を引くサンプル&quot;&gt;二点の座標をクリックして直線を引くサンプル&lt;/h3&gt;
-&lt;p&gt;　要するにRequestAnimationFrameというAPIを使えばいいという話なのですがネットでandroidの対応状況は4.1以上でも全滅という書き込みをちらほら見かけます。でも、実際にやってみると以下のCoffeeScriptをコンパイルしたanimation.jsとanimation.htmlをandroid端末（GL07s）にコピーしてURL指定すれば標準ブラウザでふつうに動作しました。ネットではjQueryといっしょに使用することで問題が出るという書き込みも見かけましたが無視することにしました。知らないうちに解決されたのでしょう&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;img class=&quot;emoji&quot; title=&quot;grin&quot; alt=&quot;grin&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/grin.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;br /&gt;
+&lt;p&gt;　要するにRequestAnimationFrameというAPIを使えばいいという話なのですがネットでandroidの対応状況は4.1以上でも全滅という書き込みをちらほら見かけます。でも、実際にやってみると以下のCoffeeScriptをコンパイルしたanimation.jsとanimation.htmlをandroid端末（GL07s）にコピーしてURL指定すれば標準ブラウザでふつうに動作しました。ネットではjQueryといっしょに使用することで問題が出るという書き込みも見かけましたが無視することにしました。知らないうちに解決されたのでしょう&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;:grin:&lt;br /&gt;
 　実際にアニメーションを駆使するスマホアプリを作るときは、既存のいろんなライブラリを使うことが多いのかもしれませんがHTML5だけで出来るほうがシンプルでいいですね。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-CoffeeScript&quot;&gt;#animation.coffee
@@ -9881,7 +9881,7 @@ jQuery ($) -&amp;gt;
    <content type="html">&lt;h3 id=&quot;当面は無料で提供されるらしいのでやってみて損はないかな&quot;&gt;当面は無料で提供されるらしいのでやってみて損はないかな？&lt;/h3&gt;
 &lt;p&gt;　セキュリティホールをふせぐという謳い文句に惹かれて&lt;a href=&quot;https://jp.techcrunch.com/2014/04/30/%E3%82%A2%E3%82%AF%E3%83%88%E3%82%AD%E3%83%A3%E3%83%83%E3%83%88%E3%81%AE%E3%80%8Csideci%E3%80%8D%E3%81%AF%E3%80%81%E3%82%B3%E3%83%BC%E3%83%89%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E3%82%92%E8%87%AA/&quot;&gt;「SideCI」&lt;/a&gt;使ってみました。レビューの対象に使ったプロジェクトは&lt;a href=&quot;/programming/2014-10-27/my-posi-chart&quot;&gt;前回の記事&lt;/a&gt;でRails4にバージョンアップしたばかりの&lt;a href=&quot;https://github.com/happyclam/my-posi&quot;&gt;これ&lt;/a&gt;です。&lt;br /&gt;
 　使っている人の感想とか探せばもっと見つかると思いますが自分が参考にしたのは&lt;a href=&quot;https://blog.mah-lab.com/2014/05/14/rails-side-ci/&quot;&gt;ここ&lt;/a&gt;です。中身は&lt;a href=&quot;https://brakemanscanner.org/&quot;&gt;Brakeman&lt;/a&gt;や&lt;a href=&quot;https://github.com/railsbp/rails_best_practices&quot;&gt;Rails Best Practice&lt;/a&gt;などのツールを組み合わせたものらしいけど、統合メニューで操作できるのは確かに有難いかも。色々メニュー項目がありますが自分が使ってみたものについて感想と、指摘された改善点についてざっと書きます。&lt;br /&gt;
-　自分が書いたプログラムにどのような難癖を付けられるのか気になる人もいると思いますので参考にしてください&lt;img class=&quot;emoji&quot; title=&quot;grin&quot; alt=&quot;grin&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/grin.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+　自分が書いたプログラムにどのような難癖を付けられるのか気になる人もいると思いますので参考にしてください:grin:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -10009,10 +10009,10 @@ end
    <updated>2014-10-27T00:00:00+09:00</updated>
    <id>https://happyclam.github.io/programming/2014-10-27/my-posi-chart</id>
    <content type="html">&lt;h3 id=&quot;rails3からrails4への移行&quot;&gt;Rails3からRails4への移行&lt;/h3&gt;
-&lt;p&gt;　一応&lt;a href=&quot;https://my-posi.herokuapp.com/&quot;&gt;herokuで公開&lt;/a&gt;してますがほとんど誰も使っていないようだし&lt;img class=&quot;emoji&quot; title=&quot;grin&quot; alt=&quot;grin&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/grin.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;自分が使うときはローカル環境で動かすだけなのでRails4に移行する必要も無いのですが、&lt;a href=&quot;/project/2014-05-30/tweetwatch&quot;&gt;TweetWatch&lt;/a&gt;を作ったときにLazyHighChartが気に入ったのでグラフ描画機能を変更する目的でついでにRailsもバージョンアップしました。Rails3からRails4への以降に関しては特に大きな変更は必要なかったのでgruffからlazy_high_chartへの移行に関して書きます。&lt;/p&gt;
+&lt;p&gt;　一応&lt;a href=&quot;https://my-posi.herokuapp.com/&quot;&gt;herokuで公開&lt;/a&gt;してますがほとんど誰も使っていないようだし:grin:自分が使うときはローカル環境で動かすだけなのでRails4に移行する必要も無いのですが、&lt;a href=&quot;/project/2014-05-30/tweetwatch&quot;&gt;TweetWatch&lt;/a&gt;を作ったときにLazyHighChartが気に入ったのでグラフ描画機能を変更する目的でついでにRailsもバージョンアップしました。Rails3からRails4への以降に関しては特に大きな変更は必要なかったのでgruffからlazy_high_chartへの移行に関して書きます。&lt;/p&gt;
 
 &lt;h3 id=&quot;使い方&quot;&gt;使い方&lt;/h3&gt;
-&lt;p&gt;　その前に&lt;a href=&quot;https://www.ruby-toolbox.com/categories/graphing&quot;&gt;ここのサイト&lt;/a&gt;でいろんなグラフ描画ツールが紹介されています。以前googlechartsは試したことがあるのですが、何か気に入らないことがあってgruffに戻しました。でも、その理由が何であったのか忘れてしまいました&lt;img class=&quot;emoji&quot; title=&quot;grin&quot; alt=&quot;grin&quot; src=&quot;https://github.global.ssl.fastly.net/images/icons/emoji/grin.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;　その前に&lt;a href=&quot;https://www.ruby-toolbox.com/categories/graphing&quot;&gt;ここのサイト&lt;/a&gt;でいろんなグラフ描画ツールが紹介されています。以前googlechartsは試したことがあるのですが、何か気に入らないことがあってgruffに戻しました。でも、その理由が何であったのか忘れてしまいました:grin:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;

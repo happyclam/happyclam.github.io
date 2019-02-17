@@ -182,11 +182,10 @@ MathJax.Hub.Config({
     <div class="container-narrow">
       <div class="row-fluid">
         <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
-        <div class="span9"
-             <!-- Html Elements for Search -->
+        <div class="span9" html elements for search>
              <div id="search-container" align="right">
                <input type="text" id="search-input" placeholder="search...">
                <ul id="results-container"></ul>
@@ -221,11 +220,11 @@ MathJax.Hub.Config({
 <p>　前々から試してみたかった E-Ink端末を買ってみました。Kindleではなく<a href="https://books.rakuten.co.jp/event/e-book/ereaders/koboaura/">Kobo</a>を買ったのは、日用品や書籍の購入は昔からAmazonばかり利用しているので少しAmazonに偏りすぎている気がしていたのと、koboはKindleと違ってSDカードが使えることや個人出版する場合Amazonのkindle direct publishing（KDP）から出版するより<a href="https://books.rakuten.co.jp/e-book/rakutenkwl/">koboライティングライフ(KWL)</a>から出版した方が<a href="https://internet.watch.impress.co.jp/docs/news/20150430_700205.html">ロイヤルティが高い</a>と聞いたので、楽天のことも少しは使って知っておこうと思ったのが動機です。まぁ電子出版に関して今後どうするか決めていませんが、とりあえずkobo auraを使ってみた感想を書いてみたいと思います。</p>
 
 <h3 id="セットアップ">セットアップ</h3>
-<p>　本体を取り出してWi-Fiでセットアップしようと思いましたが、自宅のフレッツ光のルーターはMACアドレスフィルタリングを設定しているので、まずはkoboのMACアドレスを知りたいのですが取説にシールが貼ってある気配もないし、外箱にもそれらしい値は書いてありません。セットアップの途中でキャンセルして設定を見ることが出来るかもと思いながらメニューを進めたり戻ったりしましたがどうもセットアップを完了するまで何も操作できないようになっているようで、MACアドレスを確認することはできませんでした。仕方がないのでUSBで接続してセットアップを完了させましたが、先々月購入したMacBookは外箱にちゃんとMACアドレスが記載されていたことを思うと、さすがAppleは抜かりないなって感じです。<br />
+<p>　本体を取り出してWi-Fiでセットアップしようと思いましたが、自宅のフレッツ光のルーターはMACアドレスフィルタリングを設定しているので、まずはkoboのMACアドレスを知りたいのですが取説にシールが貼ってある気配もないし、外箱にもそれらしい値は書いてありません。セットアップの途中でキャンセルして設定を見ることが出来るかもと思いながらメニューを進めたり戻ったりしましたがどうもセットアップを完了するまで何も操作できないようになっているようで、MACアドレスを確認することはできませんでした。仕方がないのでUSBで接続してセットアップを完了させましたが、先々月購入したMacBookは外箱にちゃんとMACアドレスが記載されていたことを思うと、さすがAppleは抜かりないなって感じです。<br>
 　ちなみにUSB接続してセットアップ完了後は、koboの設定メニューからMACアドレスを確認することは出来たので問題なくWi-Fi接続も出来ました。</p>
 
 <h3 id="自分で作成したepubファイルをkoboで読んでみる">自分で作成したepubファイルをkoboで読んでみる</h3>
-<p>　DVDや音楽データと違ってAmazonで購入した電子書籍のDRMを解除してkoboで読むことに現時点では法的な問題はないもののAmazonとの契約上は問題があるようです<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。<br />
+<p>　DVDや音楽データと違ってAmazonで購入した電子書籍のDRMを解除してkoboで読むことに現時点では法的な問題はないもののAmazonとの契約上は問題があるようです<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。<br>
 　ということで、まず自分で作成したepubファイルをkoboにコピーして動作確認してみました。USBで接続したらkoboがストレージとして認識されるので、そこに自作のepubファイルをコピーするだけでkoboで読むことができました。コピー後初めて開いた時は日本語が文字化けしていたのですが<a href="https://iphone.f-tools.net/Book-Reader/EPUB-MojiBake.html">このサイト</a>に書いてある通り「ドキュメントデフォルト」となっているフォントを別のものに指定し直せば問題なく表示されました。</p>
 
 <div style="width:320px; margin: 0 auto;">
@@ -233,54 +232,54 @@ MathJax.Hub.Config({
   <table rules="groups">
     <tbody>
       <tr>
-        <td><a href="/images/defaultfont_img.png" target="_blank"><img src="/images/defaultfont_img.png" alt="ドキュメントデフォルト" title="ドキュメントデフォルトの文字化け状態" /></a></td>
-        <td><a href="/images/fixedfont_img.png" target="_blank"><img src="/images/fixedfont_img.png" alt="モリサワゴシック" title="モリサワゴシックフォント選択後" /></a></td>
+        <td><a href="/images/defaultfont_img.png" target="_blank"><img src="/images/defaultfont_img.png" alt="ドキュメントデフォルト" title="ドキュメントデフォルトの文字化け状態"></a></td>
+        <td><a href="/images/fixedfont_img.png" target="_blank"><img src="/images/fixedfont_img.png" alt="モリサワゴシック" title="モリサワゴシックフォント選択後"></a></td>
       </tr>
     </tbody>
   </table>
 
 </div>
 
-<p>　epub上のリンクをクリックするとブラウザが起動してWebサイトも見れるようですし、思ったより動作も速いし、E-Ink端末初体験の自分にとってはこんなものかと納得していましたが、ネットで検索してみると他のE-Ink端末の方がいいという意見もいろいろあるようで、特に文字の表示が薄い<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>という指摘は確かにその通りだと思うし残念です。<br />
+<p>　epub上のリンクをクリックするとブラウザが起動してWebサイトも見れるようですし、思ったより動作も速いし、E-Ink端末初体験の自分にとってはこんなものかと納得していましたが、ネットで検索してみると他のE-Ink端末の方がいいという意見もいろいろあるようで、特に文字の表示が薄い<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>という指摘は確かにその通りだと思うし残念です。<br>
 　一つ気になったのが、自作のepub内でWikipediaへのリンクを記述している部分があるのですが、タップすると「指定されたページ名が無効な文字を含んでいます」とエラーページに飛ばされました。PC上でこのepubファイルを開いてクリックすれば正常に表示されるのにkoboで操作するとダメです。</p>
 
 <div style="width:320px; margin: 0 auto;">
 
-  <p><a href="/images/encoding_error.png" target="_blank"><img src="/images/encoding_error.png" alt="Wikipediaのエラーページ" title="koboで表示されたWikipediaのエラーページ" /></a></p>
+  <p><a href="/images/encoding_error.png" target="_blank"><img src="/images/encoding_error.png" alt="Wikipediaのエラーページ" title="koboで表示されたWikipediaのエラーページ"></a></p>
 
 </div>
 
-<p>　メッセージに「無効な文字”%E4”を含んでいます」と書かれています。<br />
-　元のリンクのソースは<code>&lt;a href="http://ja.wikipedia.org/wiki/二人零和有限確定完全情報ゲーム"&gt;Wikipedia&lt;/a&gt;</code>なのですが、”%E4”ってのはこれをURLエスケープ（<a href="http://ja.wikipedia.org/wiki/パーセントエンコーディング">パーセントエンコーディング</a>、URLエンコード）した後の日本語部分の最初の文字です。ブラウザを起動する前の、koboでリンクをタップした時に出るダイアログは以下のように既にエスケープされています。</p>
+<p>　メッセージに「無効な文字”%E4”を含んでいます」と書かれています。<br>
+　元のリンクのソースは<code>&lt;a href="http://ja.wikipedia.org/wiki/二人零和有限確定完全情報ゲーム"&gt;Wikipedia&lt;/a&gt;</code>なのですが、”%E4”ってのはこれをURLエスケープ（<a href="http://ja.wikipedia.org/wiki/%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0">パーセントエンコーディング</a>、URLエンコード）した後の日本語部分の最初の文字です。ブラウザを起動する前の、koboでリンクをタップした時に出るダイアログは以下のように既にエスケープされています。</p>
 
 <div style="width:320px; margin: 0 auto;">
 
-  <p><a href="/images/browser_launch.png" target="_blank"><img src="/images/browser_launch.png" alt="リンクをタップした時のダイアログ" title="koboでリンクをタップした時のダイアログ" /></a></p>
+  <p><a href="/images/browser_launch.png" target="_blank"><img src="/images/browser_launch.png" alt="リンクをタップした時のダイアログ" title="koboでリンクをタップした時のダイアログ"></a></p>
 
 </div>
 
-<p>　つまりkoboのepubリーダーでURLエスケープした後、koboのブラウザでもさらに二重にエスケープしてWikipediaにリクエストしたものだから、Wikipediaサーバー側でunescapeしても”%”が入ってきちゃってるよ、オイオイってことです。<br />
-　ちなみに元のURL文字列を手動で二重にエスケープしてPCで試してみたところ、koboと同じ画面をPCでも出すことが出来ました。<br />
-<a href="https://ja.wikipedia.org/wiki/%25E4%25BA%258C%25E4%25BA%25BA%25E9%259B%25B6%25E5%2592%258C%25E6%259C%2589%25E9%2599%2590%25E7%25A2%25BA%25E5%25AE%259A%25E5%25AE%258C%25E5%2585%25A8%25E6%2583%2585%25E5%25A0%25B1%25E3%2582%25B2%25E3%2583%25BC%25E3%2583%25A0" target="_blank">このリンク</a>です。<br />
-　これって問題になっていないのでしょうか？URLに２バイト文字を使っているところは少ないかもしれませんが、Wikipediaを参照するepub本って結構あると思うのですがそうでも無いのでしょうか？<br />
-　ちなみにもともとエンコードしてaタグに書いていたのものをエラーになったから日本語直書きで試したわけですが、FirefoxでもiBooksでもフリーのandroidアプリ数種類でも、そしてaタグは日本語直書きでもエンコード済みでも正常にリンク出来ました。おまけに楽天koboのandroidアプリでも問題なくリンクが動作しました。koboのepubリーダーソフトの方はブラウザを起動する際に表示するダイアログを見る限り二重にエンコードするわけでは無いようなので、koboのブラウザがエンコード済みかどうかに関わらずURLエンコードしてサーバーにリクエストするようになっているのが問題のようです。<br />
-　う〜む、発売から一年以上経っているのでこのバグが知られていないとは思えないのですが、ネットで検索してもそれらしい書き込みは見当たりませんでした。不具合を指摘しているこちらが不安になるぐらいです。とりあえず自作のepub本以外で日本語URLを参照しているepub本を見つけたらkoboで動作確認をしてみようと思います。たとえ自作epub本じゃなくても、kobo側が対応してくれないとどうしようも無いと思うので、私のepubの作成の仕方が悪いってことでは無いと思いますが、電子書籍の世界は思っていたより奥が深そうなので私が知らない仕掛け（ルール）があるのかも知れません。あっ一応epubcheckでもエラーは出ていません。<br />
+<p>　つまりkoboのepubリーダーでURLエスケープした後、koboのブラウザでもさらに二重にエスケープしてWikipediaにリクエストしたものだから、Wikipediaサーバー側でunescapeしても”%”が入ってきちゃってるよ、オイオイってことです。<br>
+　ちなみに元のURL文字列を手動で二重にエスケープしてPCで試してみたところ、koboと同じ画面をPCでも出すことが出来ました。<br>
+<a href="https://ja.wikipedia.org/wiki/%25E4%25BA%258C%25E4%25BA%25BA%25E9%259B%25B6%25E5%2592%258C%25E6%259C%2589%25E9%2599%2590%25E7%25A2%25BA%25E5%25AE%259A%25E5%25AE%258C%25E5%2585%25A8%25E6%2583%2585%25E5%25A0%25B1%25E3%2582%25B2%25E3%2583%25BC%25E3%2583%25A0" target="_blank">このリンク</a>です。<br>
+　これって問題になっていないのでしょうか？URLに２バイト文字を使っているところは少ないかもしれませんが、Wikipediaを参照するepub本って結構あると思うのですがそうでも無いのでしょうか？<br>
+　ちなみにもともとエンコードしてaタグに書いていたのものをエラーになったから日本語直書きで試したわけですが、FirefoxでもiBooksでもフリーのandroidアプリ数種類でも、そしてaタグは日本語直書きでもエンコード済みでも正常にリンク出来ました。おまけに楽天koboのandroidアプリでも問題なくリンクが動作しました。koboのepubリーダーソフトの方はブラウザを起動する際に表示するダイアログを見る限り二重にエンコードするわけでは無いようなので、koboのブラウザがエンコード済みかどうかに関わらずURLエンコードしてサーバーにリクエストするようになっているのが問題のようです。<br>
+　う〜む、発売から一年以上経っているのでこのバグが知られていないとは思えないのですが、ネットで検索してもそれらしい書き込みは見当たりませんでした。不具合を指摘しているこちらが不安になるぐらいです。とりあえず自作のepub本以外で日本語URLを参照しているepub本を見つけたらkoboで動作確認をしてみようと思います。たとえ自作epub本じゃなくても、kobo側が対応してくれないとどうしようも無いと思うので、私のepubの作成の仕方が悪いってことでは無いと思いますが、電子書籍の世界は思っていたより奥が深そうなので私が知らない仕掛け（ルール）があるのかも知れません。あっ一応epubcheckでもエラーは出ていません。<br>
 　それとフリーのepubリーダーを何種類か試した時、リーダーソフトによってこれほど本の表示のされ方が違うのかって驚いてその混沌とした世界を垣間見た気がしたので、もしかしたらepubリーダーの世界ではこれぐらいの不具合は小さなことって感じかも知れません。</p>
 
 <h3 id="まとめ">まとめ</h3>
-<p>　購入後ちょっと弄っただけで複数のブログネタを提供してくれるあたりポテンシャルを感じます<img class="emoji" title="grin" alt="grin" src="https://github.global.ssl.fastly.net/images/icons/emoji/grin.png" height="20" width="20" align="absmiddle" />ネットでkoboの情報を漁っているとユーザの不満の声をあちこちで見かけるので、Amazonに偏り過ぎているなんて考えずに今後も楽天とは関わらない方が幸せになれるのかもとか考えてしまいました。<br />
-　それと、技術書のリファレンスとしても使おうとか思っていましたが、検索等の操作は遅いし調べ物はやっぱりPCの大画面で参照する方が効率的だし、本のサンプルコードを見ながらプログラミングとかするときもPCの大画面の方が便利で、やっぱり読書専用というかじっくり集中して本を読むための道具かなって感じです。本当は目に優しいE-Ink端末でいろんなことをしたいのですが、動作が遅いので用途が限られます（これでも速くなったそうなので、発売当時に手を出さなくてよかったと思います）。<br />
+<p>　購入後ちょっと弄っただけで複数のブログネタを提供してくれるあたりポテンシャルを感じます<img class="emoji" title=":grin:" alt=":grin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f601.png" height="20" width="20">ネットでkoboの情報を漁っているとユーザの不満の声をあちこちで見かけるので、Amazonに偏り過ぎているなんて考えずに今後も楽天とは関わらない方が幸せになれるのかもとか考えてしまいました。<br>
+　それと、技術書のリファレンスとしても使おうとか思っていましたが、検索等の操作は遅いし調べ物はやっぱりPCの大画面で参照する方が効率的だし、本のサンプルコードを見ながらプログラミングとかするときもPCの大画面の方が便利で、やっぱり読書専用というかじっくり集中して本を読むための道具かなって感じです。本当は目に優しいE-Ink端末でいろんなことをしたいのですが、動作が遅いので用途が限られます（これでも速くなったそうなので、発売当時に手を出さなくてよかったと思います）。<br>
 　購入前は専門書はkoboのSDにまとめていこうかとか考えていましたが、新書や小説や、専門書でもプログラムコードが載っていない本の読書専用端末になりそうです。というか私が遅れて体験しただけで、世間ではすでにそういう評価になっているのかも知れませんが。</p>
 
-<hr />
+<hr>
 
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p><a href="https://herooftheday.net/backup-and-epub-converting-on-kindle-for-mac">「Kindle for Mac日本語版が出たのでePub変換とかバックアップとかイロイロ試してみた」</a>に詳しく書かれています。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p><a href="https://herooftheday.net/backup-and-epub-converting-on-kindle-for-mac">「Kindle for Mac日本語版が出たのでePub変換とかバックアップとかイロイロ試してみた」</a>に詳しく書かれています。 <a href="#fnref:1" class="reversefootnote">↩</a></p>
     </li>
     <li id="fn:2">
-      <p><a href="https://blog.livedoor.jp/harpsichord1980/archives/51900585.html">Kobo AuraのWebブラウザを触ってきたよ！</a> <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+      <p><a href="https://blog.livedoor.jp/harpsichord1980/archives/51900585.html">Kobo AuraのWebブラウザを触ってきたよ！</a> <a href="#fnref:2" class="reversefootnote">↩</a></p>
     </li>
   </ol>
 </div>
@@ -330,11 +329,11 @@ MathJax.Hub.Config({
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/miscellaneous/2015-06-09/pandoc_epub" title="markdownファイルを元に電子出版">&larr; Previous</a></li>
+        <li class="prev"><a href="/miscellaneous/2015-06-09/pandoc_epub" title="markdownファイルを元に電子出版">← Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next"><a href="/hardware/2015-08-16/withings" title="Withings Activité購入">Next &rarr;</a></li>
+        <li class="next"><a href="/hardware/2015-08-16/withings" title="Withings Activité購入">Next →</a></li>
       
       </ul>
     </div>
@@ -354,7 +353,8 @@ MathJax.Hub.Config({
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
@@ -382,12 +382,13 @@ s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 
       </div>
       <hr>
       <footer>
-        <p>&copy; 2019 happyclam
+        <p>© 2019 happyclam
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>

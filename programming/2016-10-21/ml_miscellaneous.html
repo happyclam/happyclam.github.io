@@ -182,11 +182,10 @@ MathJax.Hub.Config({
     <div class="container-narrow">
       <div class="row-fluid">
         <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
-        <div class="span9"
-             <!-- Html Elements for Search -->
+        <div class="span9" html elements for search>
              <div id="search-container" align="right">
                <input type="text" id="search-input" placeholder="search...">
                <ul id="results-container"></ul>
@@ -287,8 +286,8 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 
-<p>　三目並べだからこそ比較的容易に作れたってことです<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。三目並べでは重複局面を省けばわずか6,046通りの局面データを保持すれば済みます。100,000回対戦テスト後の手元の学習ファイル（ゲーム木データを保存したファイル）のサイズを見ると重複チェック用のデータと合わせて約800KBですので、<code>一局面分のデータ（約130バイト）× 6,046局面 ＝ ８００KB</code>って感じでしょうか。もしオセロの全局面を保存しようとすると、１テラバイトが<script type="math/tex">2^{40}</script>（=約<script type="math/tex">10^{12}</script>）なので<script type="math/tex">10^{60}</script>というオセロの局面数（重複局面を省けばもっと減ると思いますが）を保存するためには、とんでもないディスク容量が必要です。スマホでは全然容量が足りませんし、局面の検索の時間もかかるでしょうし、今のやり方そのままではオセロや将棋のアプリを作るのは現実的ではないということです。<br />
-　でも、<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">「進化する三目並べ（Tic-tac-toe Evo）」</a>はゲーム木（全局面の分岐を木構造で表現したデータ）を動的に生成するので、オセロの局面がいくら多いといっても１ゲームごとに少しずつノード（局面データ）を追加していくのであればとりあえずディスク容量に余裕があるPCで動かすソフトは作れるんじゃないか、なんて考えてとりあえず試しに作ってみようかと思ったりしたのですが、ゲーム木のノードの数が多いと一回のゲームで得られる学習効果が非常に薄まるのでいくら対戦しても全然強くならない（学習効果が実感できない）ものになるでしょう。プログラム同士で対戦させて予め学習を進めてからリリースするという方法も考えられますが、それにしてもデータを小さくしなければならないという問題は解決する必要があります。<br />
+<p>　三目並べだからこそ比較的容易に作れたってことです<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。三目並べでは重複局面を省けばわずか6,046通りの局面データを保持すれば済みます。100,000回対戦テスト後の手元の学習ファイル（ゲーム木データを保存したファイル）のサイズを見ると重複チェック用のデータと合わせて約800KBですので、<code>一局面分のデータ（約130バイト）× 6,046局面 ＝ ８００KB</code>って感じでしょうか。もしオセロの全局面を保存しようとすると、１テラバイトが<script type="math/tex">2^{40}</script>（=約<script type="math/tex">10^{12}</script>）なので<script type="math/tex">10^{60}</script>というオセロの局面数（重複局面を省けばもっと減ると思いますが）を保存するためには、とんでもないディスク容量が必要です。スマホでは全然容量が足りませんし、局面の検索の時間もかかるでしょうし、今のやり方そのままではオセロや将棋のアプリを作るのは現実的ではないということです。<br>
+　でも、<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">「進化する三目並べ（Tic-tac-toe Evo）」</a>はゲーム木（全局面の分岐を木構造で表現したデータ）を動的に生成するので、オセロの局面がいくら多いといっても１ゲームごとに少しずつノード（局面データ）を追加していくのであればとりあえずディスク容量に余裕があるPCで動かすソフトは作れるんじゃないか、なんて考えてとりあえず試しに作ってみようかと思ったりしたのですが、ゲーム木のノードの数が多いと一回のゲームで得られる学習効果が非常に薄まるのでいくら対戦しても全然強くならない（学習効果が実感できない）ものになるでしょう。プログラム同士で対戦させて予め学習を進めてからリリースするという方法も考えられますが、それにしてもデータを小さくしなければならないという問題は解決する必要があります。<br>
 　データを小さくする（ゲーム木を小さくする）ために回転・対照形を同一局面と見做して省略する<a href="/software/2015-11-27/reinforcement">記事</a>は以前も書きましたが、この時は局面の数を求めるためだけに力技でプログラムを改変したのですが、AIに組み込むとなると、処理に手間取って操作性に影響が出るのも嫌なので手付かず状態です。機種にもよりますが現状でもAI側が指し手を決める時に動作が少し重いのを感じると思いますが、これは局面の先読みをする必要がない代わりに、検索と数値計算処理に手間がかかっているからです。</p>
 
 <h3 id="消える三目並べなら何とかなりそう">「消える三目並べ」なら何とかなりそう</h3>
@@ -296,11 +295,11 @@ MathJax.Hub.Config({
 
 <h4 id="消える三目並べのゲーム進行の一例">「消える三目並べ」のゲーム進行の一例</h4>
 
-<p><img src="/images/battle_sample.png" alt="例１" /></p>
+<p><img src="/images/battle_sample.png" alt="例１"></p>
 
 <p>　上の図の進行を見ていただければルールはすぐにわかると思いますが、５手目でダブルリーチを掛けている先手（X）が勝ちかと思いきや、次の手を打つと自分の３手前の駒が消えるのでダブルリーチを掛けたにも関わらず先手（X）が負けになっています。</p>
 
-<p>　このゲームに関しては以前にも<a href="/software/2014-09-23/tictactoe_arrange">「ちょっと変わった三目並べ」というアプリ</a>の記事として書きました。思いつきの汚いコードを晒しています<img class="emoji" title="grin" alt="grin" src="https://github.global.ssl.fastly.net/images/icons/emoji/grin.png" height="20" width="20" align="absmiddle" />が、指し手をキュー（queue）に格納するようにコードを書き直して、どれぐらいの局面の数になるのか確認してみました。</p>
+<p>　このゲームに関しては以前にも<a href="/software/2014-09-23/tictactoe_arrange">「ちょっと変わった三目並べ」というアプリ</a>の記事として書きました。思いつきの汚いコードを晒しています<img class="emoji" title=":grin:" alt=":grin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f601.png" height="20" width="20">が、指し手をキュー（queue）に格納するようにコードを書き直して、どれぐらいの局面の数になるのか確認してみました。</p>
 
 <table>
   <thead>
@@ -369,16 +368,16 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 
-<p>　そうすると、思惑通りというか予想通りというか当たり前というか、Xが３手Oが３手の計６手進んだあとは、局面の数は増えることがありません。重複チェック無しだとカウント処理が終わらないので<code>-</code>としましたが、<del>上の表でわかる通り、通常の三目並べよりデータ量は少なくて済みます。</del>ゲーム終了までの手数は増えていきますが、AIに報酬や罰を与えるのはゲーム終了時の１回だけなので、局面の重複チェックさえしていればデータが無制限に増えることもありません。<br />
-　おまけにAIに勝つためには通常の三目並べより頭を使うので、三目並べじゃ物足りないという人にとっても楽しめそうな気がします。初めのうちは簡単に勝てていたのにだんだん勝てなくなるというのがAI（人工知能）の醍醐味だと思うので自分の思惑通りのアプリが出来そうです。それともう一つ、通常の三目並べはお互い最善手を選択し続けると引分になりますが、このゲームは引分にはならない（千日手はあり得る）ので、その点も良さそうです。<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">「進化する三目並べ（Tic-tac-toe Evo）」</a>をプレイしていて、「人」に進化するまでやってみようと思ってますが、引分ばかりでは辛いなと思っていたところなので、まずこれを作ってリリースしようかなと思っています。<br />
+<p>　そうすると、思惑通りというか予想通りというか当たり前というか、Xが３手Oが３手の計６手進んだあとは、局面の数は増えることがありません。重複チェック無しだとカウント処理が終わらないので<code>-</code>としましたが、<del>上の表でわかる通り、通常の三目並べよりデータ量は少なくて済みます。</del>ゲーム終了までの手数は増えていきますが、AIに報酬や罰を与えるのはゲーム終了時の１回だけなので、局面の重複チェックさえしていればデータが無制限に増えることもありません。<br>
+　おまけにAIに勝つためには通常の三目並べより頭を使うので、三目並べじゃ物足りないという人にとっても楽しめそうな気がします。初めのうちは簡単に勝てていたのにだんだん勝てなくなるというのがAI（人工知能）の醍醐味だと思うので自分の思惑通りのアプリが出来そうです。それともう一つ、通常の三目並べはお互い最善手を選択し続けると引分になりますが、このゲームは引分にはならない（千日手はあり得る）ので、その点も良さそうです。<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">「進化する三目並べ（Tic-tac-toe Evo）」</a>をプレイしていて、「人」に進化するまでやってみようと思ってますが、引分ばかりでは辛いなと思っていたところなので、まずこれを作ってリリースしようかなと思っています。<br>
 　これが完成すれば次はミニ将棋（３X３将棋、５X５将棋、９マス将棋）辺りに挑戦しようかと思ってます。</p>
 
-<hr />
+<hr>
 
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>名前を忘れてしまったのですが、２０年以上前に対戦する度に強くなると謳った将棋ソフト（シェアウェア）があったと思うのですが、どのような仕組みだったのかよく知りません。今でもあるのでしょうか？ <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p>名前を忘れてしまったのですが、２０年以上前に対戦する度に強くなると謳った将棋ソフト（シェアウェア）があったと思うのですが、どのような仕組みだったのかよく知りません。今でもあるのでしょうか？ <a href="#fnref:1" class="reversefootnote">↩</a></p>
     </li>
   </ol>
 </div>
@@ -438,11 +437,11 @@ MathJax.Hub.Config({
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/programming/2016-10-04/spritesheet" title="JavaScriptでスプライトシートを使う">&larr; Previous</a></li>
+        <li class="prev"><a href="/programming/2016-10-04/spritesheet" title="JavaScriptでスプライトシートを使う">← Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next"><a href="/programming/2016-11-03/ml_miscellaneous2" title="「消える三目並べ」、思ったより大変">Next &rarr;</a></li>
+        <li class="next"><a href="/programming/2016-11-03/ml_miscellaneous2" title="「消える三目並べ」、思ったより大変">Next →</a></li>
       
       </ul>
     </div>
@@ -462,7 +461,8 @@ MathJax.Hub.Config({
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
@@ -490,12 +490,13 @@ s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 
       </div>
       <hr>
       <footer>
-        <p>&copy; 2019 happyclam
+        <p>© 2019 happyclam
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>
