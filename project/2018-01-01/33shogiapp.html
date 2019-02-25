@@ -262,7 +262,7 @@ MathJax.Hub.Config({
   <li>ＡＩレベル</li>
 </ul>
 
-<p><span>駒に重みを設定してその合計値で局面を評価する評価関数を使い先読みを行う、よくある思考ルーチン（MIN-MAX法＋αβ法による全件探索）です。JavaScript製ということもあり、<del>非常に遅いのであまり深く読めません。</del>今後、候補手を事前に絞るなどして速度アップをしていく予定です。</span></p>
+<p><span>駒に重みを設定してその合計値で局面を評価する評価関数を使い先読みを行う、よくある思考ルーチン（MIN-MAX法＋αβ法）です。JavaScript製ということもあり、<del>非常に遅いのであまり深く読めません。</del>今後、候補手を事前に絞るなどして速度アップをしていく予定です。</span></p>
 
 <div style="width:320px; margin: 0 auto;">
   <p><img src="/images/33shogi_ailevel.png" alt="Menu - ＡＩレベル" title="Menu - ＡＩレベル" /></p>
@@ -315,6 +315,41 @@ MathJax.Hub.Config({
 
 <p>瞑想モード:<br />
 　Version0.9.9.0から瞑想モード追加しました。長考モードより一手深く読みます。</p>
+
+<p>反復深化探索:<br />
+　Version1.0.7.0から探索部が大幅に変わりました。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">AIモード\ Version</th>
+      <th style="text-align: left">　1.0.6.2まで　　</th>
+      <th style="text-align: left">　1.0.7.0以降</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">弱い</td>
+      <td style="text-align: left">全件探索、４手読み(depth = 3)</td>
+      <td style="text-align: left">全件探索、５手読み(depth = 4)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">普通</td>
+      <td style="text-align: left">全件探索、５手読み(depth = 4)</td>
+      <td style="text-align: left">反復深化部分探索、７手読み(depth = 6)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">長考</td>
+      <td style="text-align: left">候補手選択後、７手読み(depth = 6)</td>
+      <td style="text-align: left">反復深化部分探索、９手読み(depth = 8)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">瞑想</td>
+      <td style="text-align: left">候補手選択後、８手読み(depth = 7)</td>
+      <td style="text-align: left">反復深化部分探索、１０手読み(depth = 9)</td>
+    </tr>
+  </tbody>
+</table>
 
 <hr />
 
