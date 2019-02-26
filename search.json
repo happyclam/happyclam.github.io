@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "反復深化？を工夫してより深く読む",
+      "category" : "project",
+      "tags"     : "coffeescript, cordova, android, javascript, shogi",
+      "url"      : "https://happyclam.github.io/project/2019-02-26/iterativedeeping",
+      "date"     : "2019-02-26 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "「禽将棋」アプリについて",
       "category" : "project",
       "tags"     : "coffeescript, cordova, android, javascript, shogi",

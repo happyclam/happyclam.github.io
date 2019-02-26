@@ -10,6 +10,7 @@ https://happyclam.github.io/search.json
 https://happyclam.github.io/sitemap.txt
 https://happyclam.github.io/tags
 
+https://happyclam.github.io/project/2019-02-26/iterativedeeping
 https://happyclam.github.io/project/2019-01-03/torishogiapp
 https://happyclam.github.io/software/2019-01-02/torishogi
 https://happyclam.github.io/software/2018-12-29/evaluate

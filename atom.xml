@@ -4,13 +4,54 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-02-26T07:11:17+09:00</updated>
+ <updated>2019-02-26T18:09:56+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>反復深化？を工夫してより深く読む</title>
+   <link href="https://happyclam.github.io/project/2019-02-26/iterativedeeping"/>
+   <updated>2019-02-26T00:00:00+09:00</updated>
+   <id>https://happyclam.github.io/project/2019-02-26/iterativedeeping</id>
+   <content type="html">&lt;h3 id=&quot;常に２段階で先読みする&quot;&gt;常に２段階で先読みする&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;の「長考モード」と「瞑想モード」では、まず４手読み(depth=3)で候補手を５手に絞って、その５手に関して８手読み（depth=7）をするという仕様になっていますが、候補手を絞る作業は最初の一回だけでした。一度候補手を絞った後はその候補手に関してαβ法で枝刈りをしながら全件探索するというやり方です。この候補手を絞る作業を最初の一回だけではなく、全ての先読みの過程（再帰呼び出しの都度）で行えるようにコードを修正しました。その結果同じ時間でより深く読むことが出来るようになりました。&lt;br /&gt;
+　候補手を絞って評価値の低い手は意図的に読まない（αβ法の枝刈りとは意味合いが違います）ので、最善手が読み抜けてしまう可能性はありますが、より深く読むことを優先したということです。テストスクリプトの実行時間で比較したところ&lt;strong&gt;約３０％&lt;/strong&gt;時間短縮出来ました。&lt;/p&gt;
+
+&lt;h3 id=&quot;以前解けなかった問題&quot;&gt;以前解けなかった問題&lt;/h3&gt;
+&lt;p&gt;　解けなかったというより解ける深さまで読ませるとアプリで実行するには時間がかかり過ぎるので、最善手（正解）を諦めていた初期配置です。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/9masu_case5.png&quot;&gt;&lt;img src=&quot;/images/9masu_case5.png&quot; alt=&quot;上級編の問題の初期配置&quot; title=&quot;上級編の問題の初期配置&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　この初期配置は&lt;a href=&quot;/project/2018-04-22/9masushogi&quot;&gt;以前の記事（「９マス将棋の本」買ってみました）&lt;/a&gt;で紹介した本（&lt;a href=&quot;https://www.amazon.co.jp/９マス将棋の本-幻冬舎単行本-青野照市-ebook/dp/B072XCDPGZ/ref=tmm_kin_swatch_0?_encoding=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-1&quot;&gt;９マス将棋の本&lt;/a&gt;）に載っていた問題で、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;では初期配置リストのNo.41番にあるものです。この配置は初手が肝心なのですが、以前の&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;でAIに指させてみると一番深く読む「瞑想」モードでも初手１三角と相手の角を取ってしまい先手が勝てません。本に出題されている通り先手が勝つためには初手に２三玉と指さないといけないのですが、Version1.0.7.0からは初手２三玉が指せるようになりました。&lt;br /&gt;
+　しかし、その後の変化はいろいろあるようでアプリでは後手が勝つケースもあるようです。&lt;a href=&quot;/project/2018-04-22/9masushogi&quot;&gt;以前の記事（「９マス将棋の本」買ってみました）&lt;/a&gt;で紹介した手順（２三玉、２一玉、１三角、同歩成、同玉、３三角、２三歩、１一角成、３一歩成、同玉、２二角、同馬、同歩、１一歩、２三玉、１二角、３三玉、２一角、同歩成、同玉、３二角、１二玉、３一角、２一歩、２三角）の２５手で「先手が勝ち」という手順も以前のバージョンの設定を一時的に深く読む設定にして導いた一例に過ぎません。ちなみに、候補手を絞るという作業を入れずに全件探索で調べてみると４３手で先手が勝ちという変化になりました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;、奥が深いです。&lt;br /&gt;
+　この初期配置以外にも今まで間違ってるなぁと思いながらもそのままにしていた初期配置に関して、今回の修正で正解が出せるようになった（と自分が思っている）初期配置があったり、先手勝ち、後手勝ち、千日手の結論は置いといて、この変化は筋悪過ぎるだろうと思う手順が改善されたものもあります。また、逆に深く読めるのはいいけど、全件探索の「弱い」モードなら正解手順を示せるのに、最善手が初期の段階で候補手から漏れてしまい「瞑想」モードだと間違えるという初期配置もあると思います。と言うことで、局面の検討をするときは、&lt;strong&gt;まず「弱い」モードで試してから、他のモードを試してみることをお勧めします。&lt;/strong&gt;&lt;br /&gt;
+　ちなみに何手先まで読むかを指定するパラメータ(depthの値)が今回の修正で７から９になっています。２手深く読めるようになったということです。&lt;/p&gt;
+
+&lt;h3 id=&quot;反復深化について&quot;&gt;反復深化について&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/software/2014-09-23/tictactoe_arrange&quot;&gt;以前の記事&lt;/a&gt;で特殊な三目並べを例にして、最も単純な評価関数（勝ち、負け、それ以外の３つの値を返す関数）を使って９手読み、１０手読み、１１手読みと徐々に先読みの手数を伸ばしていって解を求めるやり方について書きました。これが一番単純な反復深化探索だと思いますが、このやり方だと同じ経路を何度も探索しているので重複チェックを組み入れるのが普通だと思います。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;では、短い手数で読んで候補手リストを作って評価値でソート後、さらに深く読むときに候補手リストに無い手は読まないようにしているのですが、これは重複を避けるというより、見込みがないと思われる手をバッサリと読みから外していますので&lt;strong&gt;反復深化探索とは呼ばないのかもしれません&lt;/strong&gt;。少なくともこの方法で迷路やパズルを解くと解答が得られないことがあるでしょう。その辺りのアルゴリズムの分類についてはよく分かりませんが、どう呼べばいいのか分からなかったので反復深化と表題につけました。２段階深化とでも言うべきでしょうか？&lt;br /&gt;
+　また、一般的に反復深化探索で迷路やパズル等の問題を解くときは、重複チェックにコストがかかり過ぎて重複チェックを省略した方が速く解けるケースもあるようで、たしかに再帰呼び出しの度に候補手リストを作成する作業も結構コストがかかるやり方なので、３三将棋の変更を試しに&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;に適用してもそれほど速度アップの効果はありませんでした。コードの中身は変わったのですが、評価関数を変えたわけではないので指し手もあまり変わりませんでした。再帰の度に候補手リストを作って読む指し手を省略すると言っても、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;では元々深く読めてない（５手読み）ので、読む手を省略する効果もそれ程ありません。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;は８手（depth=7）読んでいたからこそ、指し手の省略の効果が大きく出たのだと思います。&lt;br /&gt;
+　でも、候補手リストに含める手の数、候補手リスト作成時の読みの深さ、最終的に制限する読みの深さ、全件探索に切り替える手数など、パラメータが増えたので&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;や&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;にも取り入れて試行錯誤してみようと思ってます。&lt;/p&gt;
+
+&lt;h3 id=&quot;検討モード&quot;&gt;検討モード&lt;/h3&gt;
+&lt;p&gt;　アプリの中で設定しているパラメータや読みの深さ、全件探索にするかどうか、評価関数の種類等の設定をユーザが指定出来るようにして、検討モードのようなメニューがあった方がいいかなとも思っていますが、そこまで３三将棋（９マス将棋）の検討を熱心にやりたいというニーズがあるのかどうかが問題です:sweat_smile:&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;２三玉、２一玉、１三角、同歩成、同玉、３三角、２三歩、１一角成、３一歩成、同玉、２二角、同馬、同歩、１一角、３一角、３二玉、１二玉、３三玉、１一玉、２三角、２一歩成、３二角成、３一角、３一馬、同と、２二角、２一玉、１三角成、３二と、２三玉、２二角、１二馬、３一玉、１三馬、同角、同玉、１一角、２一歩、３三角成、１二玉、２二と、同歩、同馬まで４３手で先手勝ち。全件探索で読んでいると言っても初手から詰みを読んでいるわけではないのでこの手順が正解とは限りません。３７手目１一角を打つ時に初めて先手勝ちを読みきっています。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>「禽将棋」アプリについて</title>
@@ -2325,6 +2366,9 @@ P5+HI+GI+OU+KI+HI
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;p&gt;※深くは読めませんが、全件探索の「弱い」モードが最善手を指すケースもありますのでご留意下さい。&lt;br /&gt;
+&lt;strong&gt;まず「弱い」モードで試してから、他のモードを試してみることをお勧めします。&lt;/strong&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
