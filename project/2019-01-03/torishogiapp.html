@@ -839,6 +839,38 @@ MathJax.Hub.Config({
 </div>
 <p><br clear="all" /></p>
 
+<h3 id="読みの深さ">読みの深さ</h3>
+<p>　Version1.0.4.0から探索アルゴリズムを変更し、読みの深さも変更しました。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">AIモード\ Version</th>
+      <th style="text-align: left">　1.0.6.2まで　　</th>
+      <th style="text-align: left">　1.0.7.0以降</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">弱い</td>
+      <td style="text-align: left">候補手１５手選択後、３手読み(depth = 2)</td>
+      <td style="text-align: left">反復深化部分探索（１５手）、３手読み(depth = 2)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">普通</td>
+      <td style="text-align: left">候補手１５手選択後、４手読み(depth = 3)</td>
+      <td style="text-align: left">反復深化部分探索（１５手）、４手読み(depth = 3)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">長考</td>
+      <td style="text-align: left">候補手１５手選択後、４手読み(depth = 3)</td>
+      <td style="text-align: left">反復深化部分探索（２０手）、５手読み(depth = 4)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>※アルゴリズムの詳しい内容は<a href="/software/2019-02-26/iterativedeeping">この記事</a>を参照してください。</p>
+
 <hr />
 
 <div class="footnotes">
@@ -867,7 +899,7 @@ MathJax.Hub.Config({
   
      
     	<li><a href="/categories.html#project-ref">
-    		project <span>20</span>
+    		project <span>19</span>
     	</a></li>
     
   
@@ -910,7 +942,7 @@ MathJax.Hub.Config({
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next"><a href="/project/2019-02-26/iterativedeeping" title="反復深化？を工夫してより深く読む">Next &rarr;</a></li>
+        <li class="next"><a href="/software/2019-02-26/iterativedeeping" title="反復深化？を工夫してより深く読む">Next &rarr;</a></li>
       
       </ul>
     </div>

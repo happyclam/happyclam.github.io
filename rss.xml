@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-02-26T18:09:56+09:00</lastBuildDate>
-        <pubDate>2019-02-26T18:09:56+09:00</pubDate>
+        <lastBuildDate>2019-03-04T11:10:07+09:00</lastBuildDate>
+        <pubDate>2019-03-04T11:10:07+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -17,7 +17,7 @@
 　候補手を絞って評価値の低い手は意図的に読まない（αβ法の枝刈りとは意味合いが違います）ので、最善手が読み抜けてしまう可能性はありますが、より深く読むことを優先したということです。テストスクリプトの実行時間で比較したところ&lt;strong&gt;約３０％&lt;/strong&gt;時間短縮出来ました。&lt;/p&gt;
 
 &lt;h3 id=&quot;以前解けなかった問題&quot;&gt;以前解けなかった問題&lt;/h3&gt;
-&lt;p&gt;　解けなかったというより解ける深さまで読ませるとアプリで実行するには時間がかかり過ぎるので、最善手（正解）を諦めていた初期配置です。&lt;/p&gt;
+&lt;p&gt;　解けなかったというより解ける深さまで読ませるとアプリで実行するには時間がかかり過ぎるので、最善手（おそらく正解）を諦めていた初期配置です。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;a href=&quot;/images/9masu_case5.png&quot;&gt;&lt;img src=&quot;/images/9masu_case5.png&quot; alt=&quot;上級編の問題の初期配置&quot; title=&quot;上級編の問題の初期配置&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
@@ -30,7 +30,7 @@
 
 &lt;h3 id=&quot;反復深化について&quot;&gt;反復深化について&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;/software/2014-09-23/tictactoe_arrange&quot;&gt;以前の記事&lt;/a&gt;で特殊な三目並べを例にして、最も単純な評価関数（勝ち、負け、それ以外の３つの値を返す関数）を使って９手読み、１０手読み、１１手読みと徐々に先読みの手数を伸ばしていって解を求めるやり方について書きました。これが一番単純な反復深化探索だと思いますが、このやり方だと同じ経路を何度も探索しているので重複チェックを組み入れるのが普通だと思います。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;では、短い手数で読んで候補手リストを作って評価値でソート後、さらに深く読むときに候補手リストに無い手は読まないようにしているのですが、これは重複を避けるというより、見込みがないと思われる手をバッサリと読みから外していますので&lt;strong&gt;反復深化探索とは呼ばないのかもしれません&lt;/strong&gt;。少なくともこの方法で迷路やパズルを解くと解答が得られないことがあるでしょう。その辺りのアルゴリズムの分類についてはよく分かりませんが、どう呼べばいいのか分からなかったので反復深化と表題につけました。２段階深化とでも言うべきでしょうか？&lt;br /&gt;
-　また、一般的に反復深化探索で迷路やパズル等の問題を解くときは、重複チェックにコストがかかり過ぎて重複チェックを省略した方が速く解けるケースもあるようで、たしかに再帰呼び出しの度に候補手リストを作成する作業も結構コストがかかるやり方なので、３三将棋の変更を試しに&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;に適用してもそれほど速度アップの効果はありませんでした。コードの中身は変わったのですが、評価関数を変えたわけではないので指し手もあまり変わりませんでした。再帰の度に候補手リストを作って読む指し手を省略すると言っても、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;では元々深く読めてない（５手読み）ので、読む手を省略する効果もそれ程ありません。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;は８手（depth=7）読んでいたからこそ、指し手の省略の効果が大きく出たのだと思います。&lt;br /&gt;
+　また、一般的に反復深化探索で迷路やパズル等の問題を解くときは、重複チェックにコストがかかり過ぎて重複チェックを省略した方が速く解けるケースもあるようで、たしかに再帰呼び出しの度に候補手リストを作成する作業も結構コストがかかるやり方なので、３三将棋の変更を試しに&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;に適用してもそれほど速度アップの効果はありませんでした。コードの中身は変わったのですが、評価関数を変えたわけではないので指し手もあまり変わりませんでした。再帰の度に候補手リストを作って読む指し手を省略すると言っても、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;では元々深く読めてない（５手読み）ので、読む手を省略する効果もそれ程ありません&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;は８手（depth=7）読んでいたからこそ、指し手の省略の効果が大きく出たのだと思います。&lt;br /&gt;
 　でも、候補手リストに含める手の数、候補手リスト作成時の読みの深さ、最終的に制限する読みの深さ、全件探索に切り替える手数など、パラメータが増えたので&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;や&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;にも取り入れて試行錯誤してみようと思ってます。&lt;/p&gt;
 
 &lt;h3 id=&quot;検討モード&quot;&gt;検討モード&lt;/h3&gt;
@@ -43,11 +43,14 @@
     &lt;li id=&quot;fn:1&quot;&gt;
       &lt;p&gt;２三玉、２一玉、１三角、同歩成、同玉、３三角、２三歩、１一角成、３一歩成、同玉、２二角、同馬、同歩、１一角、３一角、３二玉、１二玉、３三玉、１一玉、２三角、２一歩成、３二角成、３一角、３一馬、同と、２二角、２一玉、１三角成、３二と、２三玉、２二角、１二馬、３一玉、１三馬、同角、同玉、１一角、２一歩、３三角成、１二玉、２二と、同歩、同馬まで４３手で先手勝ち。全件探索で読んでいると言っても初手から詰みを読んでいるわけではないのでこの手順が正解とは限りません。３７手目１一角を打つ時に初めて先手勝ちを読みきっています。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;２段階深化の方法だけだと一手詰みさえ逃す恐れがあるので、残り４手（depth=3）からは全件探索に切り替えているという事情があります。５手読み（depth=4）だと今までの「最初に一回だけ候補手リストを作成する方法」と同じ効果しかないわけです。残り何手から切り替えるのが良いのかは今後試行錯誤してみる予定です。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
 </description>
-                <link>https://happyclam.github.io/project/2019-02-26/iterativedeeping</link>
-                <guid>https://happyclam.github.io/project/2019-02-26/iterativedeeping</guid>
+                <link>https://happyclam.github.io/software/2019-02-26/iterativedeeping</link>
+                <guid>https://happyclam.github.io/software/2019-02-26/iterativedeeping</guid>
                 <pubDate>2019-02-26T00:00:00+09:00</pubDate>
         </item>
 
@@ -674,6 +677,38 @@
     &lt;/table&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;br clear=&quot;all&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;読みの深さ&quot;&gt;読みの深さ&lt;/h3&gt;
+&lt;p&gt;　Version1.0.4.0から探索アルゴリズムを変更し、読みの深さも変更しました。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;AIモード\ Version&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;　1.0.6.2まで　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;　1.0.7.0以降&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;弱い&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;候補手１５手選択後、３手読み(depth = 2)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;反復深化部分探索（１５手）、３手読み(depth = 2)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;普通&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;候補手１５手選択後、４手読み(depth = 3)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;反復深化部分探索（１５手）、４手読み(depth = 3)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;長考&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;候補手１５手選択後、４手読み(depth = 3)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;反復深化部分探索（２０手）、５手読み(depth = 4)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;※アルゴリズムの詳しい内容は&lt;a href=&quot;/software/2019-02-26/iterativedeeping&quot;&gt;この記事&lt;/a&gt;を参照してください。&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -2363,7 +2398,7 @@ P5+HI+GI+OU+KI+HI
 &lt;/table&gt;
 
 &lt;p&gt;※深くは読めませんが、全件探索の「弱い」モードが最善手を指すケースもありますのでご留意下さい。&lt;br /&gt;
-&lt;strong&gt;まず「弱い」モードで試してから、他のモードを試してみることをお勧めします。&lt;/strong&gt;&lt;/p&gt;
+&lt;strong&gt;局面を検討するときは、まず「弱い」モードで試してから、他のモードを試してみることをお勧めします。&lt;/strong&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
