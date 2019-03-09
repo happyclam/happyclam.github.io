@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-03-09T19:13:57+09:00</updated>
+ <updated>2019-03-09T19:26:04+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -2112,7 +2112,7 @@ P5+HI+GI+OU+KI+HI
 &lt;/table&gt;
 
 &lt;h3 id=&quot;駒に毛筆フォント&quot;&gt;駒に毛筆フォント&lt;/h3&gt;
-&lt;p&gt;　Version1.0.5.3から駒のフォントに毛筆フォントを選べるようになりました。無料フォントの中でも&lt;a href=&quot;http://fontfree.me/336&quot;&gt;「衡山毛筆フォント」&lt;/a&gt;のように再配布可能というものはなかなか無いと思います&lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;p&gt;　Version1.0.5.3から駒のフォントに毛筆フォントを選べるようになりました。無料フォントの中でも&lt;a href=&quot;http://today.izmaker.com/blog/technique/3154/&quot;&gt;「衡山毛筆フォント」&lt;/a&gt;のように再配布可能というものはなかなか無いと思います&lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/images/55shogi_menu_font.png&quot; alt=&quot;フォント選択メニュー&quot; title=&quot;フォント選択メニュー&quot; /&gt;&lt;/p&gt;
