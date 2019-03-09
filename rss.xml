@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-03-04T11:10:07+09:00</lastBuildDate>
-        <pubDate>2019-03-04T11:10:07+09:00</pubDate>
+        <lastBuildDate>2019-03-09T19:13:57+09:00</lastBuildDate>
+        <pubDate>2019-03-09T19:13:57+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -44,7 +44,7 @@
       &lt;p&gt;２三玉、２一玉、１三角、同歩成、同玉、３三角、２三歩、１一角成、３一歩成、同玉、２二角、同馬、同歩、１一角、３一角、３二玉、１二玉、３三玉、１一玉、２三角、２一歩成、３二角成、３一角、３一馬、同と、２二角、２一玉、１三角成、３二と、２三玉、２二角、１二馬、３一玉、１三馬、同角、同玉、１一角、２一歩、３三角成、１二玉、２二と、同歩、同馬まで４３手で先手勝ち。全件探索で読んでいると言っても初手から詰みを読んでいるわけではないのでこの手順が正解とは限りません。３７手目１一角を打つ時に初めて先手勝ちを読みきっています。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:2&quot;&gt;
-      &lt;p&gt;２段階深化の方法だけだと一手詰みさえ逃す恐れがあるので、残り４手（depth=3）からは全件探索に切り替えているという事情があります。５手読み（depth=4）だと今までの「最初に一回だけ候補手リストを作成する方法」と同じ効果しかないわけです。残り何手から切り替えるのが良いのかは今後試行錯誤してみる予定です。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;JavaScriptと言えども５五将棋で３手読みぐらいまでは一瞬で全件探索が完了します。２段階深化の方法だけだとかえって遅くなるので、残り４手（depth=3）からは全件探索に切り替えているという事情があります。５手読み（depth=4）だと今までの「最初に一回だけ候補手リストを作成する方法」と同じ効果しかないわけです。残り何手から切り替えるのが良いのかは今後試行錯誤してみる予定です。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
@@ -2106,6 +2106,21 @@ P5+HI+GI+OU+KI+HI
   &lt;/tbody&gt;
 &lt;/table&gt;
 
+&lt;h3 id=&quot;駒に毛筆フォント&quot;&gt;駒に毛筆フォント&lt;/h3&gt;
+&lt;p&gt;　Version1.0.5.3から駒のフォントに毛筆フォントを選べるようになりました。無料フォントの中でも&lt;a href=&quot;http://fontfree.me/336&quot;&gt;「衡山毛筆フォント」&lt;/a&gt;のように再配布可能というものはなかなか無いと思います&lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/55shogi_menu_font.png&quot; alt=&quot;フォント選択メニュー&quot; title=&quot;フォント選択メニュー&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/55shogi_font.png&quot; alt=&quot;衡山毛筆フォント&quot; title=&quot;衡山毛筆フォント&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　自分も幼稚園の頃に書道教室に通っていたことがありますが、お近くの方は&lt;a href=&quot;http://www7a.biglobe.ne.jp/~kouzan/&quot;&gt;「青二書道教室」&lt;/a&gt;に行きましょう:sweat_smile:&lt;/p&gt;
+
 &lt;hr /&gt;
 
 &lt;div class=&quot;footnotes&quot;&gt;
@@ -2121,6 +2136,9 @@ P5+HI+GI+OU+KI+HI
     &lt;/li&gt;
     &lt;li id=&quot;fn:4&quot;&gt;
       &lt;p&gt;&lt;a href=&quot;http://minerva.cs.uec.ac.jp/~uec55shogi/wiki.cgi?page=GPW%C7%D5%A5%B3%A5%F3%A5%D4%A5%E5%A1%BC%A5%BF%A3%B5%B8%DE%BE%AD%B4%FD%C2%E7%B2%F12018&quot;&gt;５五将棋大会の棋譜&lt;/a&gt;を読み込んでテストしていたら、成りを不成で出力していると思われる棋譜も混じっていました。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:5&quot;&gt;
+      &lt;p&gt;svgファイルにフォントデータを埋め込んでいるため、再配布可能なフォントが必要でした。将棋の駒に使用する文字分だけなので自作も考えられますが、当然有名な書家が書いた字の方がいいでしょう。また、アプリ内にリンクを貼ったほうがいいのかどうかわからなかったので、一応&lt;a href=&quot;http://www7a.biglobe.ne.jp/~kouzan/&quot;&gt;権利者&lt;/a&gt;にも確認しました。 &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
