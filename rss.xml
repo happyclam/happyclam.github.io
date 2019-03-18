@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-03-09T19:26:04+09:00</lastBuildDate>
-        <pubDate>2019-03-09T19:26:04+09:00</pubDate>
+        <lastBuildDate>2019-03-18T12:24:22+09:00</lastBuildDate>
+        <pubDate>2019-03-18T12:24:22+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -709,6 +709,21 @@
 &lt;/table&gt;
 
 &lt;p&gt;※アルゴリズムの詳しい内容は&lt;a href=&quot;/software/2019-02-26/iterativedeeping&quot;&gt;この記事&lt;/a&gt;を参照してください。&lt;/p&gt;
+
+&lt;h3 id=&quot;駒に毛筆フォント&quot;&gt;駒に毛筆フォント&lt;/h3&gt;
+&lt;p&gt;　Version1.0.4.1から駒のフォントに毛筆フォントを選べるようになりました。無料フォントの中でも&lt;a href=&quot;http://today.izmaker.com/blog/technique/3154/&quot;&gt;「衡山毛筆フォント」&lt;/a&gt;のように再配布可能というものはなかなか無いと思います。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/torishogi_menu_font.png&quot; alt=&quot;フォント選択メニュー&quot; title=&quot;フォント選択メニュー&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/torishogi_font.png&quot; alt=&quot;衡山毛筆フォント&quot; title=&quot;衡山毛筆フォント&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　自分も幼稚園の頃に書道教室に通っていたことがありますが、お近くの方は&lt;a href=&quot;http://www7a.biglobe.ne.jp/~kouzan/&quot;&gt;「青二書道教室」&lt;/a&gt;に行きましょう:sweat_smile:&lt;/p&gt;
 
 &lt;hr /&gt;
 
