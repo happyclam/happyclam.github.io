@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "３三将棋（９マス将棋）の難問たち",
+      "category" : "project",
+      "tags"     : "coffeescript, cordova, android, javascript, shogi",
+      "url"      : "https://happyclam.github.io/project/2019-03-21/33shogiquestions",
+      "date"     : "2019-03-21 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "反復深化？を工夫してより深く読む",
       "category" : "software",
       "tags"     : "coffeescript, cordova, android, javascript, shogi",

@@ -5,10 +5,161 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-03-18T12:24:22+09:00</lastBuildDate>
-        <pubDate>2019-03-18T12:24:22+09:00</pubDate>
+        <lastBuildDate>2019-03-21T16:43:42+09:00</lastBuildDate>
+        <pubDate>2019-03-21T16:43:42+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>３三将棋（９マス将棋）の難問たち</title>
+                <description>&lt;h3 id=&quot;より深く読むことで最善手が変わった例&quot;&gt;より深く読むことで最善手が変わった例&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/software/2019-02-26/iterativedeeping&quot;&gt;前回の記事&lt;/a&gt;で、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;をより深く読むようにしたことで正解（おそらく）に辿り着くことが出来た例を紹介しましたが、もう一つ変化があった例を紹介しようと思います。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_case1.png&quot;&gt;&lt;img src=&quot;/images/33shogi_case1.png&quot; alt=&quot;Arrange109&quot; title=&quot;Arrange109&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　上の初期配置は&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;のNo.109のものです。持ち駒は先手飛車１、後手飛車１です。&lt;/p&gt;
+
+&lt;h3 id=&quot;まずは自分で考えてみる&quot;&gt;まずは自分で考えてみる&lt;/h3&gt;
+&lt;p&gt;　やったことある人なら同意していただけると思うのですが、多くの９マス将棋の問題では２二の地点を自分の駒で埋めることが最善手になることが多いので、初手は２二飛を選択する人が多いのではないでしょうか？王手をかけて香車は取られるけどその後玉で香車を取り返して飛車を成れば楽勝だなっと、考える人が多いような気がします、自分もそうでした。&lt;br /&gt;
+　でも&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;で確認していただければわかりますが、２二飛、３三玉、１一玉、と進んだときに、後手に３一飛と打たれて困ります（下図）。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_case2.png&quot;&gt;&lt;img src=&quot;/images/33shogi_case2.png&quot; alt=&quot;Arrange109途中図&quot; title=&quot;Arrange109途中図&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　自分の場合はここで失敗したことに気付きました。後手の３一飛の王手をかわして１二玉と逃げれば後手に１一香と打たれて詰んでしまいます。ならば合い駒をしようと思っても２一に香車を打つことは出来ない（行き場のない駒は打てない）ので２一飛車（成っても成らなくても同じ）とするしかありません。２一飛車とすると後手はその飛車を取って、先手も同玉と応じるしかありませんが、その次に後手から２三飛車と打たれて合い効かずの詰みになります（下図）。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_case3.png&quot;&gt;&lt;img src=&quot;/images/33shogi_case3.png&quot; alt=&quot;Arrange109途中図&quot; title=&quot;Arrange109途中図&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　どこに逃げても２二飛車成りで後手勝ちです。&lt;/p&gt;
+
+&lt;h3 id=&quot;以前のバージョンでも後手勝ち&quot;&gt;以前のバージョンでも後手勝ち&lt;/h3&gt;
+&lt;p&gt;　以前のバージョン（1.0.7.0未満）の&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;の一番深く読む瞑想モードだと初手に３一飛と打ちます（下図）。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_case4.png&quot;&gt;&lt;img src=&quot;/images/33shogi_case4.png&quot; alt=&quot;Arrange109 AI初手&quot; title=&quot;Arrange109 AI初手&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　香車を守りながら次に３二飛成を見て納得のいく一手に見えますが、２手目に後手に１二飛と打たれると飛車交換は避けられず、後手に竜を作られて後手勝ちになります（下図）。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_oldversion.gif&quot;&gt;&lt;img src=&quot;/images/33shogi_oldversion.gif&quot; alt=&quot;Arrange109 旧バージョン&quot; title=&quot;Arrange109 旧バージョン&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　旧バージョンでは全ての強さ設定（モード）で後手が勝ちます。&lt;/p&gt;
+
+&lt;h3 id=&quot;新バージョンでは千日手に持ち込む&quot;&gt;新バージョンでは千日手に持ち込む&lt;/h3&gt;
+&lt;p&gt;　新バージョン（1.0.7.0以降 depth=9）では初手に３二飛と打ちます。後手が１二飛と合わせると先手から飛車交換されて飛車打ちから竜を作られて後手が負けます（下図）。前述の「以前のバージョン」の逆パターンです。飛車を先に打つことはやはり大事みたいです。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_new1.gif&quot;&gt;&lt;img src=&quot;/images/33shogi_new1.gif&quot; alt=&quot;Arrange109 変化例&quot; title=&quot;Arrange109 変化例&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　ということで、後手は飛車交換を避けるために１三飛と打つと（下図）。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_new2.png&quot;&gt;&lt;img src=&quot;/images/33shogi_new2.png&quot; alt=&quot;Arrange109 変化例&quot; title=&quot;Arrange109 変化例&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　ここで先手にいい手があって&lt;strong&gt;２二飛と王手するのではなく、３一玉と寄ります&lt;/strong&gt;（下図）。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_new3.png&quot;&gt;&lt;img src=&quot;/images/33shogi_new3.png&quot; alt=&quot;Arrange109 変化例&quot; title=&quot;Arrange109 変化例&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　すると後手は１二飛は先手に飛車交換から２一飛と打たれて負けるので、１二香しか指す手がないのですが、そこで先手がもう一度２一玉と寄ると後手の指す手がなくなって後手が負けてしまいます（下図）。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_new4.png&quot;&gt;&lt;img src=&quot;/images/33shogi_new4.png&quot; alt=&quot;Arrange109 変化例&quot; title=&quot;Arrange109 変化例&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　ということで、結局後手は２手目は１三香成りとするしかありませんが、先手は２二飛から千日手に持ち込むことが出来ます（下図）。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_new5.gif&quot;&gt;&lt;img src=&quot;/images/33shogi_new5.gif&quot; alt=&quot;Arrange109 新バージョン&quot; title=&quot;Arrange109 新バージョン&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　旧バージョンの後手勝ちの結論から、もっと深く読むことで先手が千日手に持ち込むことが出来そうだと分かりました。では、&lt;strong&gt;この初期配置は３二飛と打って千日手に持ち込むのが先手にとっての最善手&lt;/strong&gt;と言っていいのでしょうか&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;？&lt;br /&gt;
+　念のため全件探索で新バージョンと同じ深さまで読ませてみると、また違った変化が示されました🤔&lt;/p&gt;
+
+&lt;h3 id=&quot;全件探索で新バージョンと同じ深さまで読むと&quot;&gt;全件探索&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;で新バージョンと同じ深さまで読むと&lt;/h3&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_all2.gif&quot;&gt;&lt;img src=&quot;/images/33shogi_all2.gif&quot; alt=&quot;Arrange109 全件探索&quot; title=&quot;Arrange109 全件探索&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　初手は２二飛で後手の２手目３三玉に対して、&lt;strong&gt;取れる香を敢えて取らずに３一玉と寄る&lt;/strong&gt;のがいいみたいです。後手は飛車をどこかに打つと、今まで見てきたように飛車交換されて先手に竜を作られるので香を成るか１三に飛車を打つぐらいしか手がありません。その後は新バージョンの時と同じように千日手に持ち込めます。ということは自分の最初の直感通りの初手２二飛でも良かったということになるのですが、その後まさか香車を取ってはいけないとは思いませんでした。後手は４手目に自分の香車があるために飛車を打って王手することが出来ないのです。&lt;br /&gt;
+　ということで&lt;strong&gt;この初期配置は初手３二飛あるいは２二飛と打って千日手に持ち込むのが先手にとっての最善手&lt;/strong&gt;と言う結論でいいのではないでしょうか？&lt;br /&gt;
+　それにしてもこの初期配置を見て先手に勝ちはなさそうだから千日手に持ち込むのが最善だと読み切れる人がどれ程いるのか気になります🤔&lt;/p&gt;
+
+&lt;h3 id=&quot;おまけの変化&quot;&gt;おまけの変化&lt;/h3&gt;
+&lt;p&gt;　全件探索で調べれば必ず正解が得られるかのように誤解されると困るのでもう一つの変化例を挙げておきます。読む深さを変える（さらに深く）と以下のように先手が勝つ変化を示すこともあります。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_all.gif&quot;&gt;&lt;img src=&quot;/images/33shogi_all.gif&quot; alt=&quot;Arrange109 全件探索&quot; title=&quot;Arrange109 全件探索&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;p&gt;　２二飛、３三玉、３二飛、２三玉、３一玉、１二飛、同飛、同玉、２二飛、１三玉、３二玉、３三飛、同玉、３一香、３二飛打、同香、同玉、１二飛、同飛、同玉、１三香、同玉、２三飛、１二玉、２一飛成、１三玉、２二竜まで２７手で先手の勝ち&lt;br /&gt;
+　上の手順で２二飛、３三玉、３二飛、２三玉、３一玉と５手進んだ局面（下図）で&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_all1.png&quot;&gt;&lt;img src=&quot;/images/33shogi_all1.png&quot; alt=&quot;Arrange109 全件探索&quot; title=&quot;Arrange109 全件探索&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　後手が１二飛と打ってますが、これが後手にとっての悪手で先手からの飛車交換を許して不利になってます。全く同じプログラムを使っていても読む深さを変えると指し手が変わるわけで、なぜこうなるんだと聞かれても評価関数の出来が悪いからですかねぇとしか答えられません:sweat_smile:&lt;br /&gt;
+　それともう一つ&lt;strong&gt;はっきりしている原因は、後手が６手目を指すときに２０手以上先の詰みまで読めていないことです。&lt;/strong&gt;&lt;br /&gt;
+　今まで３三将棋程度なら簡単な評価関数で十分だろうと思っていたのですが、だんだん考えが変わってきました。かなり長手数の読みが必要な局面も結構あるので、評価関数の精度の高さも結構求められるようです。探索部分に関しては大きな問題はないと思っているので、今度は現在&lt;a href=&quot;/software/2018-12-29/evaluate&quot;&gt;５五将棋で使用している駒の働きも考慮した評価関数&lt;/a&gt;をとりあえず試してみようと思ってます。&lt;/p&gt;
+
+&lt;h3 id=&quot;まとめ&quot;&gt;まとめ&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/programming/2016-07-23/33shogi&quot;&gt;以前の記事&lt;/a&gt;でも書きましたが、最もシンプルな評価関数（先手勝ち+1、後手勝ち-1、それ以外0の３値を返す評価関数）を使って全件探索をした上でどちらかが勝ちという結論を得た（＝詰み有り）のでなければ、これが正解とはなかなか言い切れません。完全に読み切れないからこそ評価関数を工夫する必要があるわけで、評価関数を工夫することによって得た結論は絶対不変の最善手とは言い切れないのです。最新のソフトが人間の能力を超えているのは間違いないとしても、最新ソフトの示す手が正解だと言い切ることは出来ないのです。独自の評価関数を使っている限り、読む深さを変えると最善手も変わり得るということです。でも、自分のアプリでは確認出来ませんが、もっと深く読めば初期配置からの詰み手順が存在するかもしれませんので、その場合はそこでの初手が絶対不変の最善手です。&lt;br /&gt;
+　今回紹介したケース以外にも難しい初期配置はいっぱいありますのでまた紹介していこうと思います。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;今回の例を本将棋のルールに当てはめて連続王手の千日手で先手の負けという考え方もあると思います。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;アプリでは意図的に候補手を絞っているので、全ての変化を読んでいるわけではありません。&lt;a href=&quot;/project/2018-06-30/9masushogi_solver&quot;&gt;「CUIで９マス将棋を解く」&lt;/a&gt;で紹介したやり方で確認した手順です。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+                <link>https://happyclam.github.io/project/2019-03-21/33shogiquestions</link>
+                <guid>https://happyclam.github.io/project/2019-03-21/33shogiquestions</guid>
+                <pubDate>2019-03-21T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>反復深化？を工夫してより深く読む</title>
