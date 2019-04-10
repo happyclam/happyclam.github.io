@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-03-26T07:50:20+09:00</lastBuildDate>
-        <pubDate>2019-03-26T07:50:20+09:00</pubDate>
+        <lastBuildDate>2019-04-11T07:42:12+09:00</lastBuildDate>
+        <pubDate>2019-04-11T07:42:12+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -11382,19 +11382,34 @@ DBにデータを格納するシェルスクリプトは、&lt;a href=&quot;http
 
 &lt;h3 id=&quot;違いが分かる説明の仕方&quot;&gt;違いが分かる説明の仕方&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;https://ja.wikipedia.org/wiki/%E3%83%9C%E3%83%A9%E3%83%86%E3%82%A3%E3%83%AA%E3%83%86%E3%82%A3&quot;&gt;wikipediaによるボラティリティの説明&lt;/a&gt;は学問的で、これはこれでいいのかもしれません。それに「インプライド・ボラティリティとは&lt;strong&gt;現実のオプション市場でついたオプション価格から逆算されたボラティリティ&lt;/strong&gt;のことである」とこれ以上望めない簡潔な言葉で言い表されています。&lt;br /&gt;
-しかし、これ&lt;br /&gt;
-&lt;img src=&quot;https://upload.wikimedia.org/math/c/8/9/c89911f0951782890cbb855572aa9de7.png&quot; alt=&quot;wikipediaのHVの数式&quot; /&gt;&lt;br /&gt;
-とか、&lt;br /&gt;
-こういう&lt;br /&gt;
-&lt;img src=&quot;https://upload.wikimedia.org/math/1/9/b/19beb2fcdc78f6d56e3e16ad3f04c624.png&quot; alt=&quot;wikipediaのIVの数式&quot; /&gt;&lt;br /&gt;
-難しい数式が出てくるので、「要するにどちらも値動きの荒さ、変動率のことだろ？」と言う感じで思考を中断してしまいがちだと思うのです。オプションという商品を理解しているつもりだった自分も、&lt;a href=&quot;https://my-posi.herokuapp.com&quot;&gt;先物・オプション売買損益シミュレーションサイト&lt;/a&gt;を自分で作ってみるまではIVとHVの違いを明確に区別出来ていなくて、よく似たような物ぐらいに考えていました。２つの間には相関関係が非常に薄いにも関わらずです。&lt;br /&gt;
+しかし、これ&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/math/c/8/9/c89911f0951782890cbb855572aa9de7.png&quot; alt=&quot;wikipediaのHVの数式&quot; /&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;とか、&lt;br /&gt;
+こういう&lt;/p&gt;
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/math/1/9/b/19beb2fcdc78f6d56e3e16ad3f04c624.png&quot; alt=&quot;wikipediaのIVの数式&quot; /&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;難しい数式が出てくるので、「要するにどちらも値動きの荒さ、変動率のことだろ？」と言う感じで思考を中断してしまいがちだと思うのです。オプションという商品を理解しているつもりだった自分も、&lt;a href=&quot;https://my-posi.herokuapp.com&quot;&gt;先物・オプション売買損益シミュレーションサイト&lt;/a&gt;を自分で作ってみるまではIVとHVの違いを明確に区別出来ていなくて、よく似たような物ぐらいに考えていました。&lt;/p&gt;
+
+&lt;p&gt;そこで、&lt;br /&gt;
+ヒストリカル・ボラティリティ x とオプション理論価格 y は以下のように表すことが出来て、&lt;br /&gt;
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;
-ヒストリカル・ボラティリティxとオプション理論価格yは以下のように表すことが出来て、  \\
 y = ax\\
-オプションの実際の価格がy_1であった時に、導き出されるものがインプライド・ボラティリティx_1である。  \\
+&lt;/script&gt;
+オプションの実際の価格が&lt;script type=&quot;math/tex&quot;&gt;y_1&lt;/script&gt;であった時に、導き出されるものがインプライド・ボラティリティ&lt;script type=&quot;math/tex&quot;&gt;x_1&lt;/script&gt;である。&lt;br /&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;
 x_1 = \frac{y_1}{a}\\
 &lt;/script&gt;
-という感じで簡略化した数式を書いてくれれば２つのボラティリティの関係が分かりやすいと思うんですけど、どうでしょうか？&lt;/p&gt;
+という感じで簡略化した数式を書いてくれれば２つのボラティリティの関係が分かり易くなると思うんですけど、どうでしょうか？&lt;/p&gt;
 
 </description>
                 <link>https://happyclam.github.io/miscellaneous/2014-05-27/my-posi_vola</link>
