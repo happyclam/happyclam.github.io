@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-04-11T07:42:12+09:00</updated>
+ <updated>2019-04-13T15:37:03+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -841,20 +841,20 @@
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;AIモード\ Version&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;　1.0.6.2まで　　&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;　1.0.7.0以降&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;　1.0.4.0以前　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;　1.0.4.0以降&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;弱い&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;候補手１５手選択後、３手読み(depth = 2)&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;反復深化部分探索（１５手）、３手読み(depth = 2)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;全件探索、３手読み(depth = 2)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;全件探索、３手読み(depth = 2)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;普通&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;候補手１５手選択後、４手読み(depth = 3)&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;反復深化部分探索（１５手）、４手読み(depth = 3)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;反復深化部分探索（２０手）、４手読み(depth = 3)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;長考&lt;/td&gt;
