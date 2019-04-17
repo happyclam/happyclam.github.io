@@ -5,10 +5,92 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-04-16T12:53:00+09:00</lastBuildDate>
-        <pubDate>2019-04-16T12:53:00+09:00</pubDate>
+        <lastBuildDate>2019-04-17T09:22:24+09:00</lastBuildDate>
+        <pubDate>2019-04-17T09:22:24+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>「７七将棋」アプリリリースしました</title>
+                <description>&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;７七将棋&quot; title=&quot;７七将棋&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;７七将棋アプリについて&quot;&gt;「７七将棋」アプリについて&lt;/h3&gt;
+&lt;p&gt;　現在リリースしている&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;「５五将棋」アプリ&lt;/a&gt;とほとんど同じアプリです。以前&lt;a href=&quot;/project/2018-03-11/55shogiapp&quot;&gt;５五将棋アプリの記事&lt;/a&gt;で、５五将棋に桂馬を使用することに無理があることを書きましたが、７七将棋にしたことでバランス良く桂馬を使うことが出来ると思います。&lt;br /&gt;
+　５×５から７×７に盤面が広がって実行速度的に厳しいのですが、５五将棋アプリと同じハイブリッドアプリ（JavaScript+HTML5）としてとりあえずリリースすることにしました。アプリの仕様については&lt;a href=&quot;/project/2018-01-01/33shogiapp&quot;&gt;３三将棋アプリの記事&lt;/a&gt;、&lt;a href=&quot;/project/2018-03-11/55shogiapp&quot;&gt;５五将棋アプリの記事&lt;/a&gt;、&lt;a href=&quot;/project/2019-01-03/torishogiapp&quot;&gt;禽将棋アプリの記事&lt;/a&gt;も合わせて読んでいただきたいと思います。
+　&lt;/p&gt;
+&lt;h3 id=&quot;ルール&quot;&gt;ルール&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;駒の動きは将棋と同じです。&lt;/li&gt;
+  &lt;li&gt;打ち歩詰め、二歩、王手放置は出来ないようにしています。&lt;/li&gt;
+  &lt;li&gt;先手は二段目、後手は六段目に駒を移動すると成ることができます。&lt;/li&gt;
+  &lt;li&gt;同一局面（手番も同じ）が４回現れると千日手でゲーム終了としています。&lt;/li&gt;
+  &lt;li&gt;行き場の無い駒は打てません（先手が桂馬を二段目に打ったり歩を一段目に打ったり）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;駒の配置&quot;&gt;駒の配置&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;「５五将棋」アプリ&lt;/a&gt;と同様に数種類の初期配置パターンを用意しました。とりあえず下の初期配置をスタンダードとしてしていますが、思いつきで決めただけで深い意味はありません&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。アプリのメニューにあらかじめ用意しておいて欲しい初期配置案があればメールでご連絡ください、ご希望に添えるかもしれません。&lt;br /&gt;
+　ということで、ランダム配置機能も付加してみました。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/77shogi_standard.png&quot; alt=&quot;７七将棋初期配置&quot; title=&quot;７七将棋初期配置&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　ランダム配置では先後同型で一段目と七段目の駒がランダムに配置されます。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/77shogi_menu_random.png&quot; alt=&quot;ランダム初期配置メニュー&quot; title=&quot;ランダム初期配置メニュー&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　ランダム配置をチェックしていると、「新規対局」ボタンを押下する度に歩を除く駒がランダムに配置し直されます。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/77shogi_random.png&quot; alt=&quot;ランダム初期配置&quot; title=&quot;ランダム初期配置&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　初期配置の組み合わせは５,０４０通り（&lt;script type=&quot;math/tex&quot;&gt;7! = 7 * 6 * 5 * 4 * 3 * 2 * 1 = 5,040&lt;/script&gt;）ありますので、配置に合った戦略を練って楽しんで下さい:smile:&lt;br /&gt;
+　※同じ初期配置から続けて対戦を開始したい場合は、開始局面に戻して「再開」するか棋譜を保存しておいて初手に戻して「再開」してください。&lt;/p&gt;
+
+&lt;h3 id=&quot;読みの深さ&quot;&gt;読みの深さ&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;AIモード\ Version&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;　1.0.1.1　　&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;弱い&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;反復深化部分探索（８０手）、３手読み(depth = 2)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;普通&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;反復深化部分探索（４０手）、４手読み(depth = 3)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;長考&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;反復深化部分探索（１８手）、５手読み(depth = 4)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;※アルゴリズムの詳しい内容は&lt;a href=&quot;/software/2019-02-26/iterativedeeping&quot;&gt;この記事&lt;/a&gt;を参照してください。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;９×９の本将棋の盤上に占める駒の割合は４０枚／８１マス（＝約４９．３％）、５五将棋では１２枚／２５マス（＝４８％）なので、それに倣うと「７七将棋」では歩の数は先手・後手それぞれ５枚ずつとして２４枚／４９マス（約４８．９％）にするのがいいかもしれません。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+                <link>https://happyclam.github.io/project/2019-04-16/77shogiapp</link>
+                <guid>https://happyclam.github.io/project/2019-04-16/77shogiapp</guid>
+                <pubDate>2019-04-16T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>３三将棋（９マス将棋）の難問たち</title>

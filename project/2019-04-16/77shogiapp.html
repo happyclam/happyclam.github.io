@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>herokuのNode.jsプロジェクトでエラー</title>
+    <title>「７七将棋」アプリリリースしました</title>
 
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
@@ -40,19 +40,19 @@
   <meta name="twitter:site" content="@SappierBoy">
   <meta name="twitter:creator" content="@SappierBoy">
   
-  <meta name="twitter:title" content="herokuのNode.jsプロジェクトでエラー">
+  <meta name="twitter:title" content="「７七将棋」アプリリリースしました">
   
   
-  <meta name="twitter:url" content="https://happyclam.github.io/programming/2016-02-01/node_express">
+  <meta name="twitter:url" content="https://happyclam.github.io/project/2019-04-16/77shogiapp">
   
   
-  <meta name="twitter:description" content="herokuで稼働中のNode.jsプロジェクトでのトラブル顛末記">
+  <meta name="twitter:description" content="定跡は役に立たない、頼りは己の棋力のみ。">
   
   
-  <meta name="twitter:image:src" content="https://happyclam.github.io/images/screen_unbeaten.png">
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/77shogi_logo.png">
   
 
-  <link rel="canonical" href="https://happyclam.github.io/programming/2016-02-01/node_express" />
+  <link rel="canonical" href="https://happyclam.github.io/project/2019-04-16/77shogiapp" />
     <!-- atom & rss feed -->
     <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
     <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
@@ -182,11 +182,10 @@ MathJax.Hub.Config({
     <div class="container-narrow">
       <div class="row-fluid">
         <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
-        <div class="span9"
-             <!-- Html Elements for Search -->
+        <div class="span9" html elements for search>
              <div id="search-container" align="right">
                <input type="text" id="search-input" placeholder="search...">
                <ul id="results-container"></ul>
@@ -208,126 +207,86 @@ MathJax.Hub.Config({
       <div class="content">
         
 <div class="page-header">
-  <h1>herokuのNode.jsプロジェクトでエラー </h1>
+  <h1>「７七将棋」アプリリリースしました </h1>
 </div>
 
 <div class="row-fluid post-full">
   <div class="span12">
     <div class="date">
-      <span>01 February 2016</span>
+      <span>16 April 2019</span>
     </div>
     <div class="content">
-      <h3 id="久々にプロジェクトに変更を加えてherokuにアップしたらエラーに見舞われた">久々にプロジェクトに変更を加えてherokuにアップしたらエラーに見舞われた</h3>
-<p>　以前<a href="/programming/2015-04-25/mongo_upsert">記事</a>にも書きましたが、公開した<a href="https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf">androidアプリ</a>の<a href="https://tictactoe-cf.herokuapp.com/">ランキング表示用のサイト</a>で使用しているGoogle AnalyticsのトラッキングIDが間違えていたので<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>、トラッキングID（UA-XXXXXXXX-X）だけ書き換えて heroku にアップロードしたらエラーが出てランキング表示機能が使えなくなりました。全然プログラムコードと関係ない文字列を書き換えただけなのにです。<br />
-　Node.jsは最近はほとんど触ってなかったので何をどうすればいいのかすっかり忘れていたため復旧に手間取ったので顛末を記事にしておきます。本来はプロジェクト全体を網羅したドキュメントを残すべきでしょうけど…。</p>
+      <p><a href="https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam"><img src="/images/ja_badge_web_generic.png" alt="７七将棋" title="７七将棋" width="155" height="60"></a></p>
 
-<h3 id="原因不明">原因不明？</h3>
-<p>　herokuのログには</p>
+<h3 id="７七将棋アプリについて">「７七将棋」アプリについて</h3>
+<p>　現在リリースしている<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">「５五将棋」アプリ</a>とほとんど同じアプリです。以前<a href="/project/2018-03-11/55shogiapp">５五将棋アプリの記事</a>で、５五将棋に桂馬を使用することに無理があることを書きましたが、７七将棋にしたことでバランス良く桂馬を使うことが出来ると思います。<br>
+　５×５から７×７に盤面が広がって実行速度的に厳しいのですが、５五将棋アプリと同じハイブリッドアプリ（JavaScript+HTML5）としてとりあえずリリースすることにしました。アプリの仕様については<a href="/project/2018-01-01/33shogiapp">３三将棋アプリの記事</a>、<a href="/project/2018-03-11/55shogiapp">５五将棋アプリの記事</a>、<a href="/project/2019-01-03/torishogiapp">禽将棋アプリの記事</a>も合わせて読んでいただきたいと思います。
+　</p>
+<h3 id="ルール">ルール</h3>
+<ul>
+  <li>駒の動きは将棋と同じです。</li>
+  <li>打ち歩詰め、二歩、王手放置は出来ないようにしています。</li>
+  <li>先手は二段目、後手は六段目に駒を移動すると成ることができます。</li>
+  <li>同一局面（手番も同じ）が４回現れると千日手でゲーム終了としています。</li>
+  <li>行き場の無い駒は打てません（先手が桂馬を二段目に打ったり歩を一段目に打ったり）</li>
+</ul>
 
-<pre><code>Error: Most middleware (like errorHandler) is no longer bundled with Express and must be installed separately. Please see https://github.com/senchalabs/connect#middleware.
-</code></pre>
-
-<p>と出ていました。この時点ではよくわからなかったのですが、どうやらheroku上で実行モジュールをビルドする際に、何か仕様が変更されたパッケージを組み込んだためにエラーが発生したようです。とりあえずメッセージに沿って作業しました。</p>
-
-<h3 id="エラーの対処">エラーの対処</h3>
-
-<p>指定されたリンク先に書いてある通りapp.jsを書き換えます。</p>
-
-<pre><code>//app.js変更前
-if ('production' == app.get('env')) {
-    app.use(express.errorHandler());
-}
-</code></pre>
-
-<pre><code>//app.js変更後
-var errorhandler = require('errorhandler');
-
-if ('production' == app.get('env')) {
-    app.use(errorhandler());
-}
-</code></pre>
-
-<p>　herokuにpushした後、自分のスマホからアクセスしてみるとまだランキングが表示されません。herokuのログは以下です。</p>
-
-<pre><code>Error: Cannot find module 'errorhandler'
-</code></pre>
-
-<p>　そこで、まずローカル環境で動作させようとして<code>node app.js</code>とコマンドを打つと今度は以下のエラー</p>
-
-<pre><code>Error: Cannot find module 'express'
-</code></pre>
-
-<p>　よくあることですが、どんどん解決すべき問題がスタックに積み上げられて増えていきます。<br />
-Googleで検索したところ、上記エラーは<code>npm link express</code>と打つことで解決しました。<br />
-　で、再度<code>node app.js</code>と打つと</p>
-
-<pre><code>Error: Cannot find module 'errorhandler'
-</code></pre>
-
-<p>　目出度くherokuと同じエラーがローカル環境で再現しました。そして<code>npm install errorhandler</code>を実行した後、再度<code>node app</code>を実行すると無事にNodeが起動しました。でもこれをheroku上で実現するのはどうするのか？と一瞬考えた後、package.jsonというファイルで管理していたことを思い出し、以下のように一行書き加えました。</p>
-
-<pre><code>{
-//変更前
-  , "dependencies": {
-      "express": "4.12.1"
-    , "jade": "&gt;= 0.0.1"
-    , "less-middleware": "*"
-    , "mongodb": "2.0.27"
-  },
-}
-
-</code></pre>
-
-<pre><code>{
-//変更後
-  , "dependencies": {
-      "express": "4.12.1"
-    , "jade": "&gt;= 0.0.1"
-    , "less-middleware": "*"
-    , "mongodb": "2.0.27"
-    , "errorhandler": "&gt;=1.4.3"
-  },
-}
-
-</code></pre>
-
-<p>　これをherokuにpushしたところ無事にランキング表示機能が動作しました。</p>
+<h3 id="駒の配置">駒の配置</h3>
+<p>　<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">「５五将棋」アプリ</a>と同様に数種類の初期配置パターンを用意しました。とりあえず下の初期配置をスタンダードとしてしていますが、思いつきで決めただけで深い意味はありません<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。アプリのメニューにあらかじめ用意しておいて欲しい初期配置案があればメールでご連絡ください、ご希望に添えるかもしれません。<br>
+　ということで、ランダム配置機能も付加してみました。</p>
 
 <div style="width:320px; margin: 0 auto;">
-
-  <p><a href="/images/screenshot_unbeaten.png" target="_blank"><img src="/images/screenshot_unbeaten.png" alt="ランキング表示画面" title="三目並べ「無敗」ランキング表示画面" /></a></p>
-
+  <p><img src="/images/77shogi_standard.png" alt="７七将棋初期配置" title="７七将棋初期配置"></p>
 </div>
 
-<h3 id="エラーの原因">エラーの原因</h3>
-<p>　それにしてもソースファイルの文字列リテラルを書き換えただけでなぜ動かなくなったのか？使用するパッケージのバージョンは〜以上と指定していることが多いので、それが影響したのかと思っていたのですが、Expressのバージョンは<code>"express": "4.12.1"</code>となっており、リビジョン番号まで指定されています。<br />
-　どうやら.gitignoreファイルが以下のようになっていて</p>
+<p>　ランダム配置では先後同型で一段目と七段目の駒がランダムに配置されます。</p>
 
-<pre><code>#.gitignore変更前
-*.log
-node_modules
-</code></pre>
+<div style="width:480px; margin: 0 auto;">
+  <p><img src="/images/77shogi_menu_random.png" alt="ランダム初期配置メニュー" title="ランダム初期配置メニュー"></p>
+</div>
 
-<p>　node_modulesディレクトリ以下のファイルがgitの管理下に入っていたのがよくなかったようです。’node_module’行の最後にスラッシュが無いので、gitにディレクトリと判断されずnode_modulesディレクトリ以下のファイルがいつの間にか勝手に差し替えられてしまったようです。</p>
+<p>　ランダム配置をチェックしていると、「新規対局」ボタンを押下する度に歩を除く駒がランダムに配置し直されます。</p>
 
-<pre><code>#.gitignore変更後
-*.log
-node_modules/
-</code></pre>
+<div style="width:320px; margin: 0 auto;">
+  <p><img src="/images/77shogi_random.png" alt="ランダム初期配置" title="ランダム初期配置"></p>
+</div>
 
-<p>　以下のようにnode_modules以下のファイルをインデックスから削除してようやく作業完了です。</p>
+<p>　初期配置の組み合わせは５,０４０通り（<script type="math/tex">7! = 7 * 6 * 5 * 4 * 3 * 2 * 1 = 5,040</script>）ありますので、配置に合った戦略を練って楽しんで下さい<img class="emoji" title=":smile:" alt=":smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png" height="20" width="20"><br>
+　※同じ初期配置から続けて対戦を開始したい場合は、開始局面に戻して「再開」するか棋譜を保存しておいて初手に戻して「再開」してください。</p>
 
-<pre><code>git rm -r --cached node_modules
-git commit -av
-git push origin
-</code></pre>
+<h3 id="読みの深さ">読みの深さ</h3>
 
-<hr />
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">AIモード\ Version</th>
+      <th style="text-align: left">　1.0.1.1　　</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">弱い</td>
+      <td style="text-align: left">反復深化部分探索（８０手）、３手読み(depth = 2)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">普通</td>
+      <td style="text-align: left">反復深化部分探索（４０手）、４手読み(depth = 3)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">長考</td>
+      <td style="text-align: left">反復深化部分探索（１８手）、５手読み(depth = 4)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>※アルゴリズムの詳しい内容は<a href="/software/2019-02-26/iterativedeeping">この記事</a>を参照してください。</p>
+
+<hr>
 
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>androidアプリのAdMobとGoogle Adsenseを別々のgmailアドレスで利用しようとしたらエラーに見舞われて、それ以来ずっと放ったらかしにしていたのでした。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p>９×９の本将棋の盤上に占める駒の割合は４０枚／８１マス（＝約４９．３％）、５五将棋では１２枚／２５マス（＝４８％）なので、それに倣うと「７七将棋」では歩の数は先手・後手それぞれ５枚ずつとして２４枚／４９マス（約４８．９％）にするのがいいかもしれません。 <a href="#fnref:1" class="reversefootnote">↩</a></p>
     </li>
   </ol>
 </div>
@@ -343,8 +302,8 @@ git push origin
 
   
      
-    	<li><a href="/categories.html#programming-ref">
-    		programming <span>23</span>
+    	<li><a href="/categories.html#project-ref">
+    		project <span>21</span>
     	</a></li>
     
   
@@ -362,15 +321,15 @@ git push origin
 
   
      
-    	<li><a href="/tags.html#programming-ref">programming <span>15</span></a></li>
+    	<li><a href="/tags.html#coffeescript-ref">coffeescript <span>28</span></a></li>
      
-    	<li><a href="/tags.html#node-ref">node <span>2</span></a></li>
+    	<li><a href="/tags.html#cordova-ref">cordova <span>25</span></a></li>
+     
+    	<li><a href="/tags.html#android-ref">android <span>35</span></a></li>
      
     	<li><a href="/tags.html#javascript-ref">javascript <span>36</span></a></li>
      
-    	<li><a href="/tags.html#tictactoe-ref">tictactoe <span>29</span></a></li>
-     
-    	<li><a href="/tags.html#cordova-ref">cordova <span>25</span></a></li>
+    	<li><a href="/tags.html#shogi-ref">shogi <span>18</span></a></li>
     
   
 
@@ -383,13 +342,15 @@ git push origin
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/software/2016-01-17/flot_library" title="Flotライブラリで拡大表示可能なグラフ作成">&larr; Previous</a></li>
+        <li class="prev"><a href="/project/2019-03-21/33shogiquestions" title="３三将棋（９マス将棋）の難問たち">← Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next"><a href="/programming/2016-02-14/cordova_update" title="Apache Cordova のアップデート">Next &rarr;</a></li>
+        <li class="next disabled">
+<a>Next →</a>
       
-      </ul>
+      </li>
+</ul>
     </div>
     <hr>
     
@@ -407,7 +368,8 @@ git push origin
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
@@ -435,12 +397,13 @@ s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 
       </div>
       <hr>
       <footer>
-        <p>&copy; 2019 happyclam
+        <p>© 2019 happyclam
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>

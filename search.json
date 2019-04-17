@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "「７七将棋」アプリリリースしました",
+      "category" : "project",
+      "tags"     : "coffeescript, cordova, android, javascript, shogi",
+      "url"      : "https://happyclam.github.io/project/2019-04-16/77shogiapp",
+      "date"     : "2019-04-16 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "３三将棋（９マス将棋）の難問たち",
       "category" : "project",
       "tags"     : "coffeescript, cordova, android, javascript, shogi",
