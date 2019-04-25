@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-04-25T12:39:35+09:00</updated>
+ <updated>2019-04-26T08:11:56+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -2426,7 +2426,7 @@ P5+HI+GI+OU+KI+HI
       &lt;p&gt;読みの範囲を広げたことで強くなっているのですが、その分少し遅くなってます:sweat: &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:3&quot;&gt;
-      &lt;p&gt;互いに持ち駒が多い時には一局面で１００手近くの候補手があるケースもあり、たとえ「普通」モードの４手読みでも全件探索（１００の４乗＝１億手）だとメモリ不足でアプリがクラッシュ（固まる）するケースがあったようです。部分探索に変更したことでクラッシュすることはないと思いますし、候補手も６０手と豊富に確保しているので強さへの悪影響もないと思います。今回のアプリのクラッシュはgoogleのクラッシュレポートで知ることが出来ましたが、不具合に気付かないことも多いので何かあれば是非googleのレビューかメールで状況をお知らせください。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;互いに持ち駒が多い時には一局面で１００手近くの候補手があるケースもあり、たとえ「普通」モードの４手読みでも全件探索（１００の４乗＝１億手）だとメモリ不足でアプリがクラッシュ（固まる）するケースがあったようです。部分探索に変更したことで今後はおそらく大丈夫だと思います。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:4&quot;&gt;
       &lt;p&gt;千日手になって当然に見えると言ってもその局面を迎える前にもっといい手（最善手）を逃していると思われるケースが多いのですが、同一局面の繰り返しが始まってからでは時すでに遅しとなっていて千日手を避けられなくなっているという意味です。この辺りの事情はＡＩの出来の悪さなので仕方がありません。３三将棋の場合は無理に千日手を避けると致命的な悪手になるので敢えてそのままにしています。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
