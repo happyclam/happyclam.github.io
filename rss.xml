@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-05-04T09:06:41+09:00</lastBuildDate>
-        <pubDate>2019-05-04T09:06:41+09:00</pubDate>
+        <lastBuildDate>2019-05-04T09:22:41+09:00</lastBuildDate>
+        <pubDate>2019-05-04T09:22:41+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -71,10 +71,17 @@
 &lt;/div&gt;
 
 &lt;p&gt;　リリース時に初めてデプロイした時はMongoDB用のAdd-onをherokuにログインしてインストール作業をした記憶があるのですが、それらの作業も必要ありませんでした。&lt;br /&gt;
-　&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf&quot;&gt;このアプリ&lt;/a&gt;からMongoDBのデータ更新も確認出来ました。初めてNode.jsを使った思い出深いアプリが延命出来て良かったです:smile:&lt;/p&gt;
+　&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf&quot;&gt;このアプリ&lt;/a&gt;からMongoDBのデータ更新も確認出来ました。初めてNode.jsを使って作った思い出深い&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;アプリが延命出来て良かったです:smile:&lt;/p&gt;
 
 &lt;hr /&gt;
 
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;/programming/2015-04-25/mongo_upsert&quot;&gt;「HerokuでNodeとMongoDBを使う」&lt;/a&gt;参照。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
 </description>
                 <link>https://happyclam.github.io/programming/2019-05-04/heroku_upgrade</link>
                 <guid>https://happyclam.github.io/programming/2019-05-04/heroku_upgrade</guid>
