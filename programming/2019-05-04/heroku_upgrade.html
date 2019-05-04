@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>ボラティリティについて</title>
+    <title>Heroku環境をUpgrade</title>
 
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
@@ -40,19 +40,19 @@
   <meta name="twitter:site" content="@SappierBoy">
   <meta name="twitter:creator" content="@SappierBoy">
   
-  <meta name="twitter:title" content="ボラティリティについて">
+  <meta name="twitter:title" content="Heroku環境をUpgrade">
   
   
-  <meta name="twitter:url" content="https://happyclam.github.io/miscellaneous/2014-05-27/my-posi_vola">
+  <meta name="twitter:url" content="https://happyclam.github.io/programming/2019-05-04/heroku_upgrade">
   
   
-  <meta name="twitter:description" content="programming for enjoyment.">
+  <meta name="twitter:description" content="Herokuのサーバー移行は簡単だった、世の中進んでるなぁ。日本企業は遅れてるなぁ。">
   
   
   <meta name="twitter:image:src" content="https://happyclam.github.io/images/favicon.png">
   
 
-  <link rel="canonical" href="https://happyclam.github.io/miscellaneous/2014-05-27/my-posi_vola" />
+  <link rel="canonical" href="https://happyclam.github.io/programming/2019-05-04/heroku_upgrade" />
     <!-- atom & rss feed -->
     <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
     <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
@@ -182,11 +182,10 @@ MathJax.Hub.Config({
     <div class="container-narrow">
       <div class="row-fluid">
         <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
-        <div class="span9"
-             <!-- Html Elements for Search -->
+        <div class="span9" html elements for search>
              <div id="search-container" align="right">
                <input type="text" id="search-input" placeholder="search...">
                <ul id="results-container"></ul>
@@ -208,57 +207,77 @@ MathJax.Hub.Config({
       <div class="content">
         
 <div class="page-header">
-  <h1>ボラティリティについて </h1>
+  <h1>Heroku環境をUpgrade </h1>
 </div>
 
 <div class="row-fluid post-full">
   <div class="span12">
     <div class="date">
-      <span>27 May 2014</span>
+      <span>04 May 2019</span>
     </div>
     <div class="content">
-      <h3 id="インプライドボラティリティivとヒストリカルボラティリティhv">インプライド・ボラティリティ（IV）とヒストリカル・ボラティリティ（HV）</h3>
-<p>　ボラティリティには２種類ありますが、ニュースの記者や市況解説者が「ボラティリティ」という言葉を理解していないまま使っていることが多いと感じるので、以前から一言言っておきたいと思っていたことを書いておこうと思います。<br />
-　市況解説の中でも現物市場ではなく特に先物市場の解説をしている人が、先物価格の値動きが荒かった日などに「今日はボラの大きな一日でした」と解説しているのを聞くと「(・_・)……ン?」となることがあります、そういう日でもインプライドボラティリティ(IV)が低い日も結構あるからです。オプションの買いで勝負する時はボラが高い時が有利、逆に売りはボラが低い時が有利なのですが、IVが低い日に「今日は（オプション買いに）手出ししなくてよかった」と思っているところに、市況解説で「ボラの高い一日でした」なんて言われると「(‾△‾;)エッ・・そうだっけ？」となるわけです。実際にIVが高かったかどうかはスマイルチャートなどで確認できます。<br />
-　<a href="https://www.option-dojo.com/kn/225_latest.html">直近1年のボラティリティー</a>をみればよく分かりますが、ヒストリカル・ボラティリティ（HV）とインプライド・ボラティリティ（IV）の動きは必ずしも一致していません。原資産である先物の動きがそれ程なくても、オプションの値動きが激しい日もあるということです。それにオプションは先物と違い、満期(SQ)が近づくとボラ(IV)が高くなるという性質（時間価値の減少に伴うもの）もあります。また、日経２２５先物とそれを原資産とする派生商品である日経２２５オプションの関係だけでなく、現物株とそれを原資産とする派生商品（株オプ等）の間でも同じことが言えます。<br />
-　まぁIVとHVの違いは理解しているけど、ボラティリティと言う言葉は単に「値動き」とか「値幅」と同義で使っているだけなので、区別する必要はないと言われればそれまでなのですが。</p>
+      <h3 id="herokuからの催促">Herokuからの催促</h3>
+<p>　「Cedar-14 EOL window beginning; please upgrade to the latest stack」というタイトルのメールを受け取りました。「あなたが使っているHeroku Cedar-14スタックは廃止予定です、2018年5月3日に予告したでしょ、2019年5月1日からサポート終了期間に入ります。2020年5月1日以降はセキュリティアップデートもされなくなりますよ。最新のスタック（現在はHeroku-18）にアップグレードして下さい」という感じの内容です。まだ一年以上猶予があるし、もうサイトを構築した時の作業なんて忘れているので億劫だったのですが、ネットで調べてみると想像以上に移行は簡単でした。</p>
 
-<h3 id="誤解を生む説明の仕方">誤解を生む説明の仕方</h3>
-<p>　ネットや本ではよく<strong>「ボラティリティが高いとオプションのプレミアムが高くなる、ボラティリティが低いとオプションのプレミアムが低くなる」</strong>と説明されています。でもこの文を読んでいる人を騙そうとする悪意があるかどうかは別にして、非常に誤解を生みやすい説明だと思います。なぜなら、<strong>ボラティリティが高いと</strong>という前提条件がIVのことを指しているのかHVのことを指しているのかわかりません。<br />
-　もしIVのことを指しているとしたら、IVが高いとプレミアムが高くなるのはその通りですが、そのIVというものはオプションの価格から算出されているものだから当たり前のことを言っているに過ぎません。IVが高いとオプションのプレミアムが高くなるわけではなく、IVが高いってことはオプションが割高に買われているってことです。<br />
-　また、<strong>ボラティリティが高いと</strong>という前提条件がHVのことを指しているのだとすると、HVが高いとオプションの<strong>理論価格</strong>が高くなることは間違いないですが、オプションの<strong>実際の価格</strong>が理論価格通りに高くなるとは限りません。HVが高いとオプションの価格（プレミアム）が高くなるのではなく、HVが高いとオプションの<strong>理論価格</strong>が高くなると言うべきです。<br />
-　<strong>ボラティリティが高いと</strong>という表現がIVのことを指しているとしてもHVのことを指しているとしても、いずれも不正確な文章だと言えます。IVとHVの違いを理解している人でもつい説明する手間を省いて、こういう表現をしがちなんだと思いますが、説明する側がよく理解していないケースも多いと思います。</p>
+<h3 id="サーバー移行のためにやったこと">サーバー移行のためにやったこと</h3>
+<ul>
+  <li>Herokuのサイトで”Upgrade Stack”というボタンをクリック</li>
+  <li>開発環境から<code>git push heroku master</code>とコマンドを実行</li>
+</ul>
 
-<h3 id="違いが分かる説明の仕方">違いが分かる説明の仕方</h3>
-<p>　<a href="https://ja.wikipedia.org/wiki/%E3%83%9C%E3%83%A9%E3%83%86%E3%82%A3%E3%83%AA%E3%83%86%E3%82%A3">wikipediaによるボラティリティの説明</a>は学問的で、これはこれでいいのかもしれません。それに「インプライド・ボラティリティとは<strong>現実のオプション市場でついたオプション価格から逆算されたボラティリティ</strong>のことである」とこれ以上望めない簡潔な言葉で言い表されています。<br />
-しかし、これ</p>
+<p>　やったことはこれだけです。サーバー移行と聞くと自分の経験では相当面倒な作業を想像してしまったのですが、データベース絡みの作業もアプリケーションに必要な作業もやり直す必要はありませんでした。リリース当初にやったデプロイ作業を忘れていても問題ありません。世の中進んでますねぇ<img class="emoji" title=":smile:" alt=":smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png" height="20" width="20"><br>
+　一応公式の手順は<a href="https://devcenter.heroku.com/articles/upgrading-to-the-latest-stack">ここ</a>に書いてあるので、私の記事の内容の通りやって問題が起きても責任は持てませんが、以下に自分のケースを紹介します。</p>
+
+<h3 id="railsプロジェクトのケース">Railsプロジェクトのケース</h3>
+<p>　Herokuのサイトのダッジュボードから対象のプロジェクトを選んで、「Settings」タブを表示します。</p>
 
 <div style="width:480px; margin: 0 auto;">
 
-  <p><img src="https://upload.wikimedia.org/math/c/8/9/c89911f0951782890cbb855572aa9de7.png" alt="wikipediaのHVの数式" /></p>
+  <p><a href="/images/heroku01.png"><img src="/images/heroku01.png" alt="Settings画面1" title="Settings画面2"></a></p>
 
 </div>
 
-<p>とか、<br />
-こういう</p>
+<p>　「Upgrade Stack」と書かれたボタン（赤丸で囲んだ部分）をクリックするとダイアログが表示され</p>
+
 <div style="width:480px; margin: 0 auto;">
 
-  <p><img src="https://upload.wikimedia.org/math/1/9/b/19beb2fcdc78f6d56e3e16ad3f04c624.png" alt="wikipediaのIVの数式" /></p>
+  <p><a href="/images/heroku02.png"><img src="/images/heroku02.png" alt="Settings画面2" title="Settings画面2"></a></p>
 
 </div>
 
-<p>難しい数式が出てくるので、「要するにどちらも値動きの荒さ、変動率のことだろ？」と言う感じで思考を中断してしまいがちだと思うのです。オプションという商品を理解しているつもりだった自分も、<a href="https://my-posi.herokuapp.com">先物・オプション売買損益シミュレーションサイト</a>を自分で作ってみるまではIVとHVの違いを明確に区別出来ていなくて、よく似たような物ぐらいに考えていました。</p>
+<p>　「Comfirm」をクリックすると、Stackの部分が「heroku-18 will replace cedar-14 on the next deploy」に変わります。</p>
 
-<p>そこで、<br />
-ヒストリカル・ボラティリティ x とオプション理論価格 y は以下のように表すことが出来て、<br />
-<script type="math/tex; mode=display">
-y = ax\\
-</script>
-オプションの実際の価格が<script type="math/tex">y_1</script>であった時に、導き出されるものがインプライド・ボラティリティ<script type="math/tex">x_1</script>である。<br />
-<script type="math/tex; mode=display">
-x_1 = \frac{y_1}{a}\\
-</script>
-という感じで簡略化した数式を書いてくれれば２つのボラティリティの関係が分かり易くなると思うんですけど、どうでしょうか？</p>
+<div style="width:480px; margin: 0 auto;">
+
+  <p><a href="/images/heroku03.png"><img src="/images/heroku03.png" alt="Settings画面3" title="Settings画面3"></a></p>
+
+</div>
+
+<p>　次のデプロイで移行しますと書かれてます。特に変更する必要はなかったのですが、いい機会だと思ったのでサイトにAds広告のスクリプトを追加して<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"> commitした後、<code>git push heroku master</code>コマンドを実行（デプロイ）。</p>
+
+<div style="width:480px; margin: 0 auto;">
+
+  <p><a href="/images/heroku04.png"><img src="/images/heroku04.png" alt="Settings画面4" title="Settings画面4"></a></p>
+
+</div>
+
+<p>　CLIで更新処理がエラー無く終了した後、ブラウザの表示を更新すると上記のようにStack欄が「heroku 18」に無事更新されています。私はいきなりUpgradeしましたが、本当は公式サイトに書かれているようにデプロイが失敗しないことを確認してからやった方がいいのかもしれません。<br>
+　ネットを検索していると、「githubと連動する自動デプロイを設定しているサイトじゃないと簡単にはいかないかも」なんて書いてある記事を見つけたのですが、上記の<a href="http://kwl-books.herokuapp.com/">このサイト</a>はgithubと連動する自動デプロイを使ってません（昔使ったことはある）。HerokuのGUIはあまり使わないのですが、「GUIの操作＋gitコマンド」で全然問題ないようです。この他にもgithub連動を全く使用したことがないRails製のサイトを２つ更新しましたので間違いないでしょう。<br>
+　またTwitter認証を使うRailsプロジェクトをリリースした時はTwitter認証用のKeyを環境変数にセットした記憶があるのですが、それらも自動で移行されるようです。</p>
+
+<h3 id="nodejsプロジェクトのケース">Node.jsプロジェクトのケース</h3>
+<p>　Railsプロジェクトと全く同様の手順で更新出来ました。</p>
+
+<div style="width:480px; margin: 0 auto;">
+
+  <p><a href="/images/heroku05.png"><img src="/images/heroku05.png" alt="Settings画面5" title="Settings画面5"></a></p>
+
+</div>
+
+<p>　リリース時に初めてデプロイした時はMongoDB用のAdd-onをherokuにログインしてインストール作業をした記憶があるのですが、それらの作業も必要ありませんでした。<br>
+　<a href="https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf">このアプリ</a>からMongoDBのデータ更新も確認出来ました。初めてNode.jsを使った思い出深いアプリが延命出来て良かったです<img class="emoji" title=":smile:" alt=":smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png" height="20" width="20"></p>
+
+<hr>
 
 
     </div>
@@ -272,8 +291,8 @@ x_1 = \frac{y_1}{a}\\
 
   
      
-    	<li><a href="/categories.html#miscellaneous-ref">
-    		miscellaneous <span>3</span>
+    	<li><a href="/categories.html#programming-ref">
+    		programming <span>24</span>
     	</a></li>
     
   
@@ -293,7 +312,17 @@ x_1 = \frac{y_1}{a}\\
      
     	<li><a href="/tags.html#rails-ref">rails <span>13</span></a></li>
      
-    	<li><a href="/tags.html#my-posi-ref">my-posi <span>6</span></a></li>
+    	<li><a href="/tags.html#cordova-ref">cordova <span>26</span></a></li>
+     
+    	<li><a href="/tags.html#android-ref">android <span>36</span></a></li>
+     
+    	<li><a href="/tags.html#heroku-ref">heroku <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#node-ref">node <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#mongo-ref">mongo <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#tictactoe-ref">tictactoe <span>30</span></a></li>
     
   
 
@@ -306,13 +335,15 @@ x_1 = \frac{y_1}{a}\\
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/programming/2014-05-26/my-posi_tip1" title="DBのカラムに対応しないプロパティ">&larr; Previous</a></li>
+        <li class="prev"><a href="/project/2019-04-16/77shogiapp" title="「７七将棋」アプリリリースしました">← Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next"><a href="/project/2014-05-30/tweetwatch" title="ツイートを監視して集計する">Next &rarr;</a></li>
+        <li class="next disabled">
+<a>Next →</a>
       
-      </ul>
+      </li>
+</ul>
     </div>
     <hr>
     
@@ -330,7 +361,8 @@ x_1 = \frac{y_1}{a}\\
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
@@ -358,12 +390,13 @@ s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 
       </div>
       <hr>
       <footer>
-        <p>&copy; 2019 happyclam
+        <p>© 2019 happyclam
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>

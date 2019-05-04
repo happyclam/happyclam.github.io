@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Heroku環境をUpgrade",
+      "category" : "programming",
+      "tags"     : "rails, cordova, android, heroku, node, mongo, tictactoe",
+      "url"      : "https://happyclam.github.io/programming/2019-05-04/heroku_upgrade",
+      "date"     : "2019-05-04 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "「７七将棋」アプリリリースしました",
       "category" : "project",
       "tags"     : "coffeescript, cordova, android, javascript, shogi",

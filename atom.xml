@@ -4,13 +4,84 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-04-26T08:11:56+09:00</updated>
+ <updated>2019-05-04T09:06:41+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Heroku環境をUpgrade</title>
+   <link href="https://happyclam.github.io/programming/2019-05-04/heroku_upgrade"/>
+   <updated>2019-05-04T00:00:00+09:00</updated>
+   <id>https://happyclam.github.io/programming/2019-05-04/heroku_upgrade</id>
+   <content type="html">&lt;h3 id=&quot;herokuからの催促&quot;&gt;Herokuからの催促&lt;/h3&gt;
+&lt;p&gt;　「Cedar-14 EOL window beginning; please upgrade to the latest stack」というタイトルのメールを受け取りました。「あなたが使っているHeroku Cedar-14スタックは廃止予定です、2018年5月3日に予告したでしょ、2019年5月1日からサポート終了期間に入ります。2020年5月1日以降はセキュリティアップデートもされなくなりますよ。最新のスタック（現在はHeroku-18）にアップグレードして下さい」という感じの内容です。まだ一年以上猶予があるし、もうサイトを構築した時の作業なんて忘れているので億劫だったのですが、ネットで調べてみると想像以上に移行は簡単でした。&lt;/p&gt;
+
+&lt;h3 id=&quot;サーバー移行のためにやったこと&quot;&gt;サーバー移行のためにやったこと&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Herokuのサイトで”Upgrade Stack”というボタンをクリック&lt;/li&gt;
+  &lt;li&gt;開発環境から&lt;code&gt;git push heroku master&lt;/code&gt;とコマンドを実行&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;　やったことはこれだけです。サーバー移行と聞くと自分の経験では相当面倒な作業を想像してしまったのですが、データベース絡みの作業もアプリケーションに必要な作業もやり直す必要はありませんでした。リリース当初にやったデプロイ作業を忘れていても問題ありません。世の中進んでますねぇ:smile:&lt;br /&gt;
+　一応公式の手順は&lt;a href=&quot;https://devcenter.heroku.com/articles/upgrading-to-the-latest-stack&quot;&gt;ここ&lt;/a&gt;に書いてあるので、私の記事の内容の通りやって問題が起きても責任は持てませんが、以下に自分のケースを紹介します。&lt;/p&gt;
+
+&lt;h3 id=&quot;railsプロジェクトのケース&quot;&gt;Railsプロジェクトのケース&lt;/h3&gt;
+&lt;p&gt;　Herokuのサイトのダッジュボードから対象のプロジェクトを選んで、「Settings」タブを表示します。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/heroku01.png&quot;&gt;&lt;img src=&quot;/images/heroku01.png&quot; alt=&quot;Settings画面1&quot; title=&quot;Settings画面2&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　「Upgrade Stack」と書かれたボタン（赤丸で囲んだ部分）をクリックするとダイアログが表示され&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/heroku02.png&quot;&gt;&lt;img src=&quot;/images/heroku02.png&quot; alt=&quot;Settings画面2&quot; title=&quot;Settings画面2&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　「Comfirm」をクリックすると、Stackの部分が「heroku-18 will replace cedar-14 on the next deploy」に変わります。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/heroku03.png&quot;&gt;&lt;img src=&quot;/images/heroku03.png&quot; alt=&quot;Settings画面3&quot; title=&quot;Settings画面3&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　次のデプロイで移行しますと書かれてます。特に変更する必要はなかったのですが、いい機会だと思ったのでサイトにAds広告のスクリプトを追加して:sweat_smile: commitした後、&lt;code&gt;git push heroku master&lt;/code&gt;コマンドを実行（デプロイ）。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/heroku04.png&quot;&gt;&lt;img src=&quot;/images/heroku04.png&quot; alt=&quot;Settings画面4&quot; title=&quot;Settings画面4&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　CLIで更新処理がエラー無く終了した後、ブラウザの表示を更新すると上記のようにStack欄が「heroku 18」に無事更新されています。私はいきなりUpgradeしましたが、本当は公式サイトに書かれているようにデプロイが失敗しないことを確認してからやった方がいいのかもしれません。&lt;br /&gt;
+　ネットを検索していると、「githubと連動する自動デプロイを設定しているサイトじゃないと簡単にはいかないかも」なんて書いてある記事を見つけたのですが、上記の&lt;a href=&quot;http://kwl-books.herokuapp.com/&quot;&gt;このサイト&lt;/a&gt;はgithubと連動する自動デプロイを使ってません（昔使ったことはある）。HerokuのGUIはあまり使わないのですが、「GUIの操作＋gitコマンド」で全然問題ないようです。この他にもgithub連動を全く使用したことがないRails製のサイトを２つ更新しましたので間違いないでしょう。&lt;br /&gt;
+　またTwitter認証を使うRailsプロジェクトをリリースした時はTwitter認証用のKeyを環境変数にセットした記憶があるのですが、それらも自動で移行されるようです。&lt;/p&gt;
+
+&lt;h3 id=&quot;nodejsプロジェクトのケース&quot;&gt;Node.jsプロジェクトのケース&lt;/h3&gt;
+&lt;p&gt;　Railsプロジェクトと全く同様の手順で更新出来ました。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/heroku05.png&quot;&gt;&lt;img src=&quot;/images/heroku05.png&quot; alt=&quot;Settings画面5&quot; title=&quot;Settings画面5&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　リリース時に初めてデプロイした時はMongoDB用のAdd-onをherokuにログインしてインストール作業をした記憶があるのですが、それらの作業も必要ありませんでした。&lt;br /&gt;
+　&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf&quot;&gt;このアプリ&lt;/a&gt;からMongoDBのデータ更新も確認出来ました。初めてNode.jsを使った思い出深いアプリが延命出来て良かったです:smile:&lt;/p&gt;
+
+&lt;hr /&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>「７七将棋」アプリリリースしました</title>
