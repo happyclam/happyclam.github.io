@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-05-07T17:49:13+09:00</updated>
+ <updated>2019-05-07T18:08:50+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -1493,7 +1493,9 @@
 &lt;p&gt;　５×５の将棋盤で特別な設定でテストするのではなく、なぜ９×９の通常の将棋盤で玉方の持ち駒は残りの駒全てという普通の詰将棋と同じ設定でテストしないのか、疑問に思った人がいると思います。やってみるとどうなるか、９×９のGUI環境を用意するのは面倒なのでCUI環境でやってみました。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/55shogi_test.png&quot; alt=&quot;９×９将棋盤でのテスト&quot; title=&quot;９×９将棋盤でのテスト&quot; /&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/55shogi_test.png&quot;&gt;&lt;img src=&quot;/images/55shogi_test.png&quot; alt=&quot;９×９将棋盤でのテスト&quot; title=&quot;９×９将棋盤でのテスト&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
 &lt;/div&gt;
 
 &lt;p&gt;　将棋盤の上部に&lt;code&gt;hmmxxxggggkkkkyyyffffffffffff&lt;/code&gt;と表示されているのは玉方の持ち駒です（飛角角金金金銀銀銀銀…）。&lt;br /&gt;
