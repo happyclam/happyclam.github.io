@@ -12,4 +12,6 @@ gem 'pygments.rb'
 gem 'jekyll-extlinks'
 gem 'nokogiri'
 # gem "github-pages", group: :jekyll_plugins
+gem 'jekyll-sitemap'
+gem 'jekyll-last-modified-at'
 

@@ -171,6 +171,10 @@ MathJax.Hub.Config({
       
     
   
+    
+  
+    
+  
 
 
 
@@ -284,7 +288,7 @@ markdown-pdfコマンドを使用してPDFファイルに変換します。CSS�
 <h3 id="pdfかepubか">PDFかepubか</h3>
 <p>　出版するための形態をどちらにするか一般的にはepubの方が正式な出版物という扱いだと思いますが、自分としては最初<a href="https://gumroad.com">Gumroad</a>にPDFで公開するのが一番簡単そうだったのでそうしようと思っていたのです。でもpandocを使ってmarkdownからPDFに出力すると色々と不満が出てきたのでepubにも手を出してみたという経緯があります。pandocを使えばPDFにもepubにも出力出来るはずですが、一部の文字が化けたり、細かなトラブルに見舞われたのでPDF出力するならmarkdown-pdfを使った方が良さそうだとか、epub出力するならこのオプションが良さそうだとかいうノウハウが色々試行錯誤しているうちにわかってきました。そして、最終的には1.markdown-pdfを使ってPDF出力する、2.pandocを使ってepub出力する、3.epubの仕様に沿って自前で定義ファイルを書きepubを作成する、の３つの方法に絞りました。以下にそれぞれのメリットデメリットを書きます（不満点に書いている内容は、あくまで自分がうまく出来なかっただけで、よく理解している人がやれば可能なのかもしれません）。</p>
 
-<table rules="groups">
+<table>
   <thead>
     <tr>
       <th style="text-align: right"> </th>

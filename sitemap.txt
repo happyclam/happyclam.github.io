@@ -9,6 +9,8 @@ https://happyclam.github.io/rss.xml
 https://happyclam.github.io/search.json
 https://happyclam.github.io/sitemap.txt
 https://happyclam.github.io/tags
+https://happyclam.github.io/sitemap.xml
+https://happyclam.github.io/robots.txt
 
 https://happyclam.github.io/programming/2019-05-04/heroku_upgrade
 https://happyclam.github.io/project/2019-04-16/77shogiapp

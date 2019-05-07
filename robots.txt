@@ -1,4 +1,1 @@
-User-Agent: *
-Disallow: 
-
-Sitemap: https://happyclam.github.io/sitemap.txt
+Sitemap: http://localhost:4000/https://happyclam.github.io/sitemap.xml
