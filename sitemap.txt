@@ -1,4 +1,5 @@
 
+https://happyclam.github.io/404.html
 https://happyclam.github.io/archive
 https://happyclam.github.io/atom.xml
 https://happyclam.github.io/categories
