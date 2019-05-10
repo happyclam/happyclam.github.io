@@ -4,13 +4,125 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-05-08T21:45:39+09:00</updated>
+ <updated>2019-05-10T19:43:58+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>３三将棋（９マス将棋）の難問２</title>
+   <link href="https://happyclam.github.io/project/2019-05-10/33shogiquestions2"/>
+   <updated>2019-05-10T00:00:00+09:00</updated>
+   <id>https://happyclam.github.io/project/2019-05-10/33shogiquestions2</id>
+   <content type="html">&lt;h3 id=&quot;将棋ソフトは間違えないと思われている風潮&quot;&gt;将棋ソフトは間違えないと思われている風潮&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/project/2019-03-21/33shogiquestions&quot;&gt;以前の記事&lt;/a&gt;で、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;をより深く読むようにしたことで最善手が変わった例を紹介しました。今回もその続きで他の例を紹介しようと思います。&lt;br /&gt;
+　今まで&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;の初期配置パターンリストに載せる問題を選ぶときは、なるべくアプリで正解（と思われる手）を指せる問題を優先的に採用していました。アプリが間違えるとユーザーを失望させると思ったからです。世間的には「３三将棋程度なら将棋ソフトで正解を出すのは簡単だろう」と思われているでしょうから:pensive:。今回紹介するのはそういう採用を見送っていた（ボツにした）配置です&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;no141&quot;&gt;No.141&lt;/h3&gt;
+&lt;p&gt;（画像はクリックで拡大）&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/shogi33_141_1.png&quot;&gt;&lt;img src=&quot;/images/shogi33_141_1.png&quot; alt=&quot;No.141_1&quot; title=&quot;No.141&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　上の初期配置は&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;のNo.141のものです。これを以前のバージョン（1.0.7.0未満）の長考モード同士で対戦させると以下のように後手が勝ってしまいます。先手が千日手を打開しようとして負けている感じです（２４手）。&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/shogi33_141_2.gif&quot;&gt;&lt;img src=&quot;/images/shogi33_141_2.gif&quot; alt=&quot;No.141_2&quot; title=&quot;No.141&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　以前のバージョン（1.0.7.0未満）の瞑想モードだと以下の手順で千日手になります（２５手）。正解はおそらく千日手なのですが、上のように長考モードで間違えているのでボツにしました。&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/shogi33_141_3.gif&quot;&gt;&lt;img src=&quot;/images/shogi33_141_3.gif&quot; alt=&quot;No.141_3&quot; title=&quot;No.141&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　深く読めるように改良したバージョン（1.0.7.0以降）だと、長考モードでも瞑想モードでも千日手になります。&lt;br /&gt;
+　面白いのは３通りの千日手になる手順が全て異なっていることです。最新バージョン（1.0.8.0）の瞑想モードだと数手一組の手順が手番を変えて以下のように循環します（４８手）。&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/shogi33_141_4.gif&quot;&gt;&lt;img src=&quot;/images/shogi33_141_4.gif&quot; alt=&quot;No.141_4&quot; title=&quot;No.141&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　３三将棋（９マス将棋）では２一と２三の地点にお互い金がある以下のような形はほぼ千日手になるようですが、&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/shogi33_141_5.png&quot;&gt;&lt;img src=&quot;/images/shogi33_141_5.png&quot; alt=&quot;No.141_5&quot; title=&quot;No.141&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;駒の種類によっては変化があるみたいで、本当に千日手を打開することが出来ない（打開すると負ける）のかは分かりません。&lt;/p&gt;
+
+&lt;h3 id=&quot;no144&quot;&gt;No.144&lt;/h3&gt;
+&lt;p&gt;　下の配置の先手の最善手は何でしょうか？後手の玉は自分の駒（歩）が頭を押さえつけていて狭いので人間にとっては結構分かりやすい問題に思えるのですが、以前のバージョン（1.0.7.0未満）では正解出来ませんでした、初手に１二銀と指してしまいます。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/shogi33_144_1.png&quot;&gt;&lt;img src=&quot;/images/shogi33_144_1.png&quot; alt=&quot;No.144_1&quot; title=&quot;No.144&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　以下のように先手が負けるのでボツにしました。&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/shogi33_144_2.gif&quot;&gt;&lt;img src=&quot;/images/shogi33_144_2.gif&quot; alt=&quot;No.144_2&quot; title=&quot;No.144&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　初手の最善手は（おそらく）３二角と打つ手です。バージョン1.0.7.0以降だと以下の手順で先手が勝てます（１３手）。&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/shogi33_144_3.gif&quot;&gt;&lt;img src=&quot;/images/shogi33_144_3.gif&quot; alt=&quot;No.144_3&quot; title=&quot;No.144&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　初手３二角、同銀、同玉、２三角と進んだ以下の局面で、２三同玉と角を取ってしまうと（逃げれば大丈夫）１三歩成、同玉、１二銀で先手玉は詰んでしまいます。&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/shogi33_144_4.png&quot;&gt;&lt;img src=&quot;/images/shogi33_144_4.png&quot; alt=&quot;No.144_4&quot; title=&quot;No.144&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　上の局面まで誘導してあげれば以前のバージョン（1.0.7.0未満）でも先手が勝つのですが、初手に角を打つ手は指せませんでした。読みが深くなった新バージョン（1.0.7.0以降）だと長考モード（９手読み）でも瞑想モード（１０手読み）でも初手３二角が打てます。&lt;br /&gt;
+　新バージョンでは初期配置から３二角、同銀、同玉、１三歩成、２一歩成、１二玉、２二とと７手で詰む（９手読みが必要）手順が見えているからこそ初手に角を取られる手を指せるのですが、旧バージョンでは読む深さが足りずにその手順が見えていないため、初手で角を損する手は選べずに銀で歩を取ってしまいます。&lt;/p&gt;
+
+&lt;p&gt;　以前ボツにしたけど深く読むように改良してから正解が出せるようになった（と思っている）配置は他にもあるので、順次アプリに追加していこうと思います。但し今でも正解が分からないものやＡＩが示す手が正解と思えない初期配置もあります。&lt;strong&gt;ＡＩが最善手を指せる初期配置を開発者が選別している時点で、現在の&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;はまだまだ人間を超えていない&lt;/strong&gt;と言えそうです。&lt;/p&gt;
+
+&lt;h3 id=&quot;駒得しか考慮していない評価関数の限界&quot;&gt;駒得しか考慮していない評価関数の限界&lt;/h3&gt;
+&lt;p&gt;　旧バージョンでは深く読めないために初手を間違えたわけですが、深く読めなくても評価関数の出来が良ければ最善手を指せる可能性はあると思います&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。No.144の初期配置を見た時に、ある程度の棋力がある人なら後手玉が動けない状態だから銀で歩を取るのは相手玉を逃してしまうことになって損だと判断出来ると思います。しかし、現状の駒得しか考えていない評価関数だとそういう考え方が出来ません。「角を取らせてはいけない」「銀がただで取られる前に歩を取ろう」となってしまいます。機械学習の手法を使ってＡＩに学習させれば人間のように経験値を高めて「玉が狭い」なんていう概念をあたかも理解しているかのように振舞わせることが出来るかもしれません。&lt;br /&gt;
+　最新の将棋ソフトを３三将棋（９マス将棋）に対応させたら全問最善手を指せるのでしょうか？作業量の割にメリットがないので誰もやらないと思いますが、もしやってみても学習型のＡＩだと初期配置が違うパターン全てに対応させるのは大変だと思います。またアプリを強くするためには評価関数の出来は悪くても、データ構造を変えたりコンパイラ言語を使ったりしてより深く広く読むようにするアプローチもあると思います。そちらの方が現実的かもしれませんが、androidアプリにするには開発環境も制限されますし、どちらの方法が効果的かは難しいところです&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
+　自分は、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;のスタンダード配置に的を絞って学習型のＡＩを試してみたいと思っていて、三目並べで試していたモンテカルロ法&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;ではなくTD学習を使ったＡＩが良さそうだと思ってるのですが、それに関してはまた別の記事に書いてみたいと思います&lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;Version1.0.8.0で追加した初期配置パターンNo.141〜No.145です。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;でも本将棋ほどの精度は必要ないと思っています。いろんなケースを試してきて、やはり３三将棋（９マス将棋）は評価関数の出来より読みの深さだと思ってます。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;現状の思考ルーチンのCoffeeScriptのソースをKotlinに移植するのは容易なのですが、Kotlinは再帰関数の扱いに制限があってこのアプローチは止めました。C++で書いてandroidアプリにする方法はある？ &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;/programming/2016-10-21/ml_miscellaneous&quot;&gt;「三目並べと同じ方法でオセロや将棋を作れるか」&lt;/a&gt;、&lt;a href=&quot;/project/2017-07-07/neuralnw2&quot;&gt;「三目並べでニューラルネットワーク（正）」&lt;/a&gt;参照 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:5&quot;&gt;
+      &lt;p&gt;三目並べと違って教師データを作成する良い方法がわからないので、他のやり方も模索中です。 &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Heroku環境をUpgrade</title>
@@ -54,7 +166,7 @@
 
 &lt;/div&gt;
 
-&lt;p&gt;　次のデプロイで移行しますと書かれてます。特に変更する必要はなかったのですが、いい機会だと思ったのでサイトにAds広告のスクリプトを追加して:sweat_smile: commitした後、&lt;code&gt;git push heroku master&lt;/code&gt;コマンドを実行（デプロイ）。&lt;/p&gt;
+&lt;p&gt;　次のデプロイで移行しますと書かれてます。特に変更する必要はなかったのですが、いい機会だと思ったのでサイトにAds広告のスクリプトを追加&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;:sweat_smile:して commitした後、&lt;code&gt;git push heroku master&lt;/code&gt;コマンドを実行（デプロイ）。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
@@ -76,14 +188,17 @@
 &lt;/div&gt;
 
 &lt;p&gt;　リリース時に初めてデプロイした時はMongoDB用のAdd-onをherokuにログインしてインストール作業をした記憶があるのですが、それらの作業も必要ありませんでした。&lt;br /&gt;
-　&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf&quot;&gt;このアプリ&lt;/a&gt;からMongoDBのデータ更新も確認出来ました。初めてNode.jsを使って作った思い出深い&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;アプリが延命出来て良かったです:smile:&lt;/p&gt;
+　&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.herokuapp.tictactoe_cf&quot;&gt;このアプリ&lt;/a&gt;からMongoDBのデータ更新も確認出来ました。初めてNode.jsを使って作った思い出深い&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;アプリが延命出来て良かったです:smile:&lt;/p&gt;
 
 &lt;hr /&gt;
 
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;/programming/2015-04-25/mongo_upsert&quot;&gt;「HerokuでNodeとMongoDBを使う」&lt;/a&gt;参照。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;丁度この時にgoogleから「あなたのサイトが検索されています」というメールが来ていたから、ほとんどアクセスがないことは知りつつも怪訝に思いながらAdSenseを追加したのですが、見事に審査に落ちました。google広告って手当たり次第営業メール送ってくるんですね。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;/programming/2015-04-25/mongo_upsert&quot;&gt;「HerokuでNodeとMongoDBを使う」&lt;/a&gt;参照。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;

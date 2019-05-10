@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "３三将棋（９マス将棋）の難問２",
+      "category" : "project",
+      "tags"     : "coffeescript, cordova, android, javascript, shogi",
+      "url"      : "/project/2019-05-10/33shogiquestions2",
+      "date"     : "2019-05-10 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "Heroku環境をUpgrade",
       "category" : "programming",
       "tags"     : "rails, cordova, android, heroku, node, mongo, tictactoe",
