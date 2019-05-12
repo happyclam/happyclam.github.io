@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-05-10T19:43:58+09:00</updated>
+ <updated>2019-05-12T12:34:35+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -91,12 +91,12 @@
 &lt;/div&gt;
 
 &lt;p&gt;　上の局面まで誘導してあげれば以前のバージョン（1.0.7.0未満）でも先手が勝つのですが、初手に角を打つ手は指せませんでした。読みが深くなった新バージョン（1.0.7.0以降）だと長考モード（９手読み）でも瞑想モード（１０手読み）でも初手３二角が打てます。&lt;br /&gt;
-　新バージョンでは初期配置から３二角、同銀、同玉、１三歩成、２一歩成、１二玉、２二とと７手で詰む（９手読みが必要）手順が見えているからこそ初手に角を取られる手を指せるのですが、旧バージョンでは読む深さが足りずにその手順が見えていないため、初手で角を損する手は選べずに銀で歩を取ってしまいます。&lt;/p&gt;
+　新バージョンでは初期配置から３二角、同銀、同玉、１三歩成、２一歩成、１二玉、２二とと７手で詰む（９手読みが必要）手順が見えているからこそ初手に角を取らせる手を指せるのですが、旧バージョンでは読む深さが足りずにその手順が見えていないため、初手で角を損する手は選べずに銀で歩を取ってしまいます。&lt;/p&gt;
 
 &lt;p&gt;　以前ボツにしたけど深く読むように改良してから正解が出せるようになった（と思っている）配置は他にもあるので、順次アプリに追加していこうと思います。但し今でも正解が分からないものやＡＩが示す手が正解と思えない初期配置もあります。&lt;strong&gt;ＡＩが最善手を指せる初期配置を開発者が選別している時点で、現在の&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;はまだまだ人間を超えていない&lt;/strong&gt;と言えそうです。&lt;/p&gt;
 
 &lt;h3 id=&quot;駒得しか考慮していない評価関数の限界&quot;&gt;駒得しか考慮していない評価関数の限界&lt;/h3&gt;
-&lt;p&gt;　旧バージョンでは深く読めないために初手を間違えたわけですが、深く読めなくても評価関数の出来が良ければ最善手を指せる可能性はあると思います&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。No.144の初期配置を見た時に、ある程度の棋力がある人なら後手玉が動けない状態だから銀で歩を取るのは相手玉を逃してしまうことになって損だと判断出来ると思います。しかし、現状の駒得しか考えていない評価関数だとそういう考え方が出来ません。「角を取らせてはいけない」「銀がただで取られる前に歩を取ろう」となってしまいます。機械学習の手法を使ってＡＩに学習させれば人間のように経験値を高めて「玉が狭い」なんていう概念をあたかも理解しているかのように振舞わせることが出来るかもしれません。&lt;br /&gt;
+&lt;p&gt;　旧バージョンでは深く読めないために初手を間違えたわけですが、深く読めなくても評価関数の出来が良ければ最善手を指せる可能性はあると思います&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。No.144の初期配置を見た時に、ある程度の棋力がある人なら後手玉が動けない状態だから銀で歩を取るのは相手玉を逃してしまうことになって損だと判断出来ると思います。しかし、現状の駒得しか考えていない評価関数だとそういう考え方が出来ません。「角を捨てるわけにはいかない」「銀がただで取られる前に歩を取ろう」となってしまいます。機械学習の手法を使ってＡＩに学習させれば人間のように経験値を高めて「玉が狭い」なんていう概念をあたかも理解しているかのように振舞わせることが出来るかもしれません。&lt;br /&gt;
 　最新の将棋ソフトを３三将棋（９マス将棋）に対応させたら全問最善手を指せるのでしょうか？作業量の割にメリットがないので誰もやらないと思いますが、もしやってみても学習型のＡＩだと初期配置が違うパターン全てに対応させるのは大変だと思います。またアプリを強くするためには評価関数の出来は悪くても、データ構造を変えたりコンパイラ言語を使ったりしてより深く広く読むようにするアプローチもあると思います。そちらの方が現実的かもしれませんが、androidアプリにするには開発環境も制限されますし、どちらの方法が効果的かは難しいところです&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
 　自分は、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;のスタンダード配置に的を絞って学習型のＡＩを試してみたいと思っていて、三目並べで試していたモンテカルロ法&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;ではなくTD学習を使ったＡＩが良さそうだと思ってるのですが、それに関してはまた別の記事に書いてみたいと思います&lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 
@@ -108,7 +108,7 @@
       &lt;p&gt;Version1.0.8.0で追加した初期配置パターンNo.141〜No.145です。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:2&quot;&gt;
-      &lt;p&gt;でも本将棋ほどの精度は必要ないと思っています。いろんなケースを試してきて、やはり３三将棋（９マス将棋）は評価関数の出来より読みの深さだと思ってます。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;でも本将棋ほどの精度は必要ないと思っています。いろんなケースを試してきて、やはり３三将棋（９マス将棋）は評価関数の出来より読みの深さだと思います。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:3&quot;&gt;
       &lt;p&gt;現状の思考ルーチンのCoffeeScriptのソースをKotlinに移植するのは容易なのですが、Kotlinは再帰関数の扱いに制限があってこのアプローチは止めました。C++で書いてandroidアプリにする方法はある？ &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
