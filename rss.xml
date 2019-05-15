@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-05-12T12:34:35+09:00</lastBuildDate>
-        <pubDate>2019-05-12T12:34:35+09:00</pubDate>
+        <lastBuildDate>2019-05-16T08:43:36+09:00</lastBuildDate>
+        <pubDate>2019-05-16T08:43:36+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -106,7 +106,7 @@
       &lt;p&gt;でも本将棋ほどの精度は必要ないと思っています。いろんなケースを試してきて、やはり３三将棋（９マス将棋）は評価関数の出来より読みの深さだと思います。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:3&quot;&gt;
-      &lt;p&gt;現状の思考ルーチンのCoffeeScriptのソースをKotlinに移植するのは容易なのですが、Kotlinは再帰関数の扱いに制限があってこのアプローチは止めました。C++で書いてandroidアプリにする方法はある？ &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;現状の思考ルーチンのCoffeeScriptのソースをKotlinに移植するのは容易なのですが、Kotlin(Java)は再帰関数の扱いに制限があってこのアプローチは止めました。C++でライブラリ書いてandroidアプリから呼び出せば可能？ &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:4&quot;&gt;
       &lt;p&gt;&lt;a href=&quot;/programming/2016-10-21/ml_miscellaneous&quot;&gt;「三目並べと同じ方法でオセロや将棋を作れるか」&lt;/a&gt;、&lt;a href=&quot;/project/2017-07-07/neuralnw2&quot;&gt;「三目並べでニューラルネットワーク（正）」&lt;/a&gt;参照 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
