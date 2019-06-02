@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-05-23T19:35:38+09:00</updated>
+ <updated>2019-06-02T18:29:14+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -2821,7 +2821,7 @@ P5+HI+GI+OU+KI+HI
       &lt;p&gt;アプリでは相手玉を取るまで指さなくても詰みの局面になればゲーム終了とさせていますが、詰み判定ルーチンを使わずにどうやって詰み局面かどうか判断させているかというと、ＡＩに二手読みをさせて最善手を選んでも負けになる（自玉が取られる）ならゲーム終了にするという方法で実現しています。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:4&quot;&gt;
-      &lt;p&gt;これは暫定的な解決方法で、最新版のアプリでは上記の打ち歩詰め判定メソッドは使用しない方法で解決しています。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;これは暫定的な解決方法で、最新版のアプリや&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;githubのコード&lt;/a&gt;では次善手に置き換える処理は不要になっています。&lt;a href=&quot;/project/2018-06-30/9masushogi_solver&quot;&gt;「CUIで９マス将棋を解く」&lt;/a&gt;、&lt;a href=&quot;/software/2018-06-10/droppawncheck&quot;&gt;「打ち歩詰め判定は必要なのか」&lt;/a&gt;参照。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
