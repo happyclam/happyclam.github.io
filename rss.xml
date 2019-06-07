@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-06-07T12:04:22+09:00</lastBuildDate>
-        <pubDate>2019-06-07T12:04:22+09:00</pubDate>
+        <lastBuildDate>2019-06-07T14:28:46+09:00</lastBuildDate>
+        <pubDate>2019-06-07T14:28:46+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -1657,7 +1657,7 @@
 　ということで、角不成の詰将棋が解けない最新のＡＩっていうのは、純粋に機械学習によるＡＩ機能だけで将棋を強くすることを目指していて、敢えて力技による先読み機能を実装していないソフトなのかも知れません、私の単なる憶測ですが。&lt;/p&gt;
 
 &lt;h3 id=&quot;追記&quot;&gt;追記&lt;/h3&gt;
-&lt;p&gt;　この記事を書いた時点では「最新の将棋ソフト」と聞いただけで特定のソフトを想定して書いていたわけではないのですが、最新の将棋ソフトの一つで最も有名？な&lt;a href=&quot;https://book.mynavi.jp/yaneura/&quot;&gt;「将棋神やねうら王」&lt;/a&gt;はオプションで不成の指し手を読むように変更出来るそうです（&lt;a href=&quot;https://twitter.com/yaneuraou/status/1060264215175299074&quot;&gt;開発者のTweet&lt;/a&gt;）。オプション設定で簡単に変更出来るということは、「やねうら王」に関しては不成の指し手を敢えて読んでいなかっただけみたいです。「やねうら王」はLinuxでも動作させることが可能だと聞いたので、いつか製品版にこの機能が組み込まれたら購入して試してみようと思ってます。&lt;/p&gt;
+&lt;p&gt;　この記事を書いた時点では「最新の将棋ソフト」と聞いただけで特定のソフトを想定して書いていたわけではないのですが、最新の将棋ソフトの一つで最も有名？な&lt;a href=&quot;https://www.amazon.co.jp/gp/product/B07DL34R4W/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=B07DL34R4W&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=ccf35b1648832ec2f31bf5deccb5e1a0&quot;&gt;「将棋神やねうら王」&lt;/a&gt;はオプションで不成の指し手を読むように変更出来るそうです（&lt;a href=&quot;https://twitter.com/yaneuraou/status/1060264215175299074&quot;&gt;開発者のTweet&lt;/a&gt;）。オプション設定で簡単に変更出来るということは、「やねうら王」に関しては不成の指し手を敢えて読んでいなかっただけみたいです。「やねうら王」はLinuxでも動作させることが可能だと聞いたので、いつか製品版にこの機能が組み込まれたら購入して試してみようと思ってます。&lt;/p&gt;
 
 &lt;h3 id=&quot;おまけ&quot;&gt;おまけ&lt;/h3&gt;
 &lt;p&gt;　５×５の将棋盤で特別な設定でテストするのではなく、なぜ９×９の通常の将棋盤で玉方の持ち駒は残りの駒全てという普通の詰将棋と同じ設定でテストしないのか、疑問に思った人がいると思います。やってみるとどうなるか、９×９のGUI環境を用意するのは面倒なのでCUI環境でやってみました。&lt;/p&gt;
@@ -1702,7 +1702,7 @@
         <item>
                 <title>BFSで将棋パズルを解く</title>
                 <description>&lt;h3 id=&quot;将棋パズルとは&quot;&gt;将棋パズルとは&lt;/h3&gt;
-&lt;p&gt;　数年前にTwitterで女流棋士の中倉彰子さんの呟きを見てその存在を知りました、最近&lt;a href=&quot;https://www.amazon.co.jp/脳がぐんぐん成長する-将棋パズル-中倉-彰子/dp/486280604X&quot;&gt;書籍&lt;/a&gt;を出されたようです。子供の頃４×４の１６マスのケースに１〜１５までの数字が書かれたバラバラのピースを数字の順に並べ直すというパズルをやったことがありますが、それの将棋版と思えばいいと思います。但し盤面は３×３で先手番の駒だけを自由に配置し、スタートの局面から将棋の駒を動かしてゴールの局面に変化させるというもので、まず将棋の駒の動きを覚えないと出来ません。パズルの存在を知った時は解答を得るためのプログラムを作ろうなんて思いませんでしたが、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;を作った直後なので、プログラムに必要な部品が全て揃っているので作ってみました。&lt;/p&gt;
+&lt;p&gt;　数年前にTwitterで女流棋士の中倉彰子さんの呟きを見てその存在を知りました、最近&lt;a href=&quot;https://www.amazon.co.jp/gp/product/486280604X/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=486280604X&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=cec26f88f1a4879b1d1bdd7d10cfd842&quot;&gt;書籍&lt;/a&gt;を出されたようです。子供の頃４×４の１６マスのケースに１〜１５までの数字が書かれたバラバラのピースを数字の順に並べ直すというパズルをやったことがありますが、それの将棋版と思えばいいと思います。但し盤面は３×３で先手番の駒だけを自由に配置し、スタートの局面から将棋の駒を動かしてゴールの局面に変化させるというもので、まず将棋の駒の動きを覚えないと出来ません。パズルの存在を知った時は解答を得るためのプログラムを作ろうなんて思いませんでしたが、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;を作った直後なので、プログラムに必要な部品が全て揃っているので作ってみました。&lt;/p&gt;
 
 &lt;h3 id=&quot;必要な作業&quot;&gt;必要な作業&lt;/h3&gt;
 
@@ -2361,10 +2361,10 @@ Second Win
         <item>
                 <title>「９マス将棋の本」買ってみました</title>
                 <description>&lt;h3 id=&quot;３三将棋アプリで入門書の誤りを見つけた&quot;&gt;「３三将棋」アプリで入門書の誤りを見つけた&lt;/h3&gt;
-&lt;p&gt;　自作の&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;の開発も落ち着いてきたので放置していたのですが、小さなバグを見つけたのでどうせ新しいバージョンをリリースするなら、初期配置パターンを何種類か追加しようと思い、参考にするため&lt;a href=&quot;https://www.amazon.co.jp/９マス将棋の本-幻冬舎単行本-青野照市-ebook/dp/B072XCDPGZ/ref=tmm_kin_swatch_0?_encoding=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-1&quot;&gt;「９マス将棋の本 (幻冬舎単行本) Kindle版」&lt;/a&gt;を買いました。&lt;a href=&quot;https://www.amazon.co.jp/9マス将棋-バラエティ-青野照市/dp/4344978757/ref=sr_1_2?s=books&amp;amp;ie=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-2&amp;amp;keywords=９マス将棋&quot;&gt;「９マス将棋」のゲーム本体&lt;/a&gt;は既に持っていて、そこで紹介されている初期配置パターンは開発時のテストにも使用していました。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;に用意している初期配置パターンはこの本に載っているものやTwitterで見かけたもの、自分で考えたものなどいろいろです&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。今回も面白い配置パターンを探すために購入したのですが、読み進めていくと思わぬ発見がありました:smile:&lt;/p&gt;
+&lt;p&gt;　自作の&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;の開発も落ち着いてきたので放置していたのですが、小さなバグを見つけたのでどうせ新しいバージョンをリリースするなら、初期配置パターンを何種類か追加しようと思い、参考にするため&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4344979168/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4344979168&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=4359f00ab547c842e57f85e79e90e998&quot;&gt;「９マス将棋の本 (幻冬舎単行本) Kindle版」&lt;/a&gt;を買いました。&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4344978757/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4344978757&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=35949b76b47efbb915af82ce3b3257ed&quot;&gt;「９マス将棋」のゲーム本体&lt;/a&gt;は既に持っていて、そこで紹介されている初期配置パターンは開発時のテストにも使用していました。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;に用意している初期配置パターンはこの本に載っているものやTwitterで見かけたもの、自分で考えたものなどいろいろです&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。今回も面白い配置パターンを探すために購入したのですが、読み進めていくと思わぬ発見がありました:smile:&lt;/p&gt;
 
 &lt;h3 id=&quot;先手が勝てないことはない&quot;&gt;「先手が勝てない」ことはない&lt;/h3&gt;
-&lt;p&gt;　下の初期配置は&lt;a href=&quot;https://www.amazon.co.jp/９マス将棋の本-幻冬舎単行本-青野照市-ebook/dp/B072XCDPGZ/ref=tmm_kin_swatch_0?_encoding=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-1&quot;&gt;「９マス将棋の本 (幻冬舎単行本) Kindle版」&lt;/a&gt;の最初の方に、飛車と角を左右対称に置き換えた形で紹介されている配置です。&lt;/p&gt;
+&lt;p&gt;　下の初期配置は&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4344979168/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4344979168&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=4359f00ab547c842e57f85e79e90e998&quot;&gt;「９マス将棋の本 (幻冬舎単行本) Kindle版」&lt;/a&gt;の最初の方に、飛車と角を左右対称に置き換えた形で紹介されている配置です。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
@@ -2398,10 +2398,10 @@ Second Win
 &lt;/div&gt;
 
 &lt;p&gt;　上の図のように先手が飛車を成らずに２三に歩を合わせると後手としては２三歩成としたくても飛車の利きがあるので歩を成れません。歩を成った瞬間に玉を素抜かれてしまいます。仕方なく後手は飛車の筋を逃れるために１三玉とかわしますが２二の歩をただで取られて後はどう変化しても先手勝ちです。是非&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;をダウンロードして試してみてください:sweat_smile:&lt;br /&gt;
-　殊更に本の間違いを責める気はありませんが、自作のAIはやはり良く出来ているなぁと嬉しくなりました:smile:。&lt;a href=&quot;https://www.amazon.co.jp/９マス将棋の本-幻冬舎単行本-青野照市-ebook/dp/B072XCDPGZ/ref=tmm_kin_swatch_0?_encoding=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-1&quot;&gt;「９マス将棋の本 (幻冬舎単行本) Kindle版」&lt;/a&gt;の内容は次の版で改訂されるのでしょうか:sweat_smile:とりあえずブログネタを提供してくれた将棋連盟に感謝します:sweat_smile:&lt;/p&gt;
+　殊更に本の間違いを責める気はありませんが、自作のAIはやはり良く出来ているなぁと嬉しくなりました:smile:。&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4344979168/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4344979168&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=4359f00ab547c842e57f85e79e90e998&quot;&gt;「９マス将棋の本 (幻冬舎単行本) Kindle版」&lt;/a&gt;の内容は次の版で改訂されるのでしょうか:sweat_smile:とりあえずブログネタを提供してくれた将棋連盟に感謝します:sweat_smile:&lt;/p&gt;
 
 &lt;h3 id=&quot;アタック９マス将棋&quot;&gt;アタック！９マス将棋&lt;/h3&gt;
-&lt;p&gt;　上記の例以外にも本の解説が本当かどうか納得出来ないケースがあるのですが、説明するのが大変なのでとりあえず触れずにおきます。それより&lt;a href=&quot;https://www.amazon.co.jp/９マス将棋の本-幻冬舎単行本-青野照市-ebook/dp/B072XCDPGZ/ref=tmm_kin_swatch_0?_encoding=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-1&quot;&gt;「９マス将棋の本 (幻冬舎単行本) Kindle版」&lt;/a&gt;の最後の方に、解説文はないのですがオリジナルの上級編の問題（「アタック！９マス将棋」）として下記の初期配置が紹介されていたので&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;に解かせてみました。&lt;/p&gt;
+&lt;p&gt;　上記の例以外にも本の解説が本当かどうか納得出来ないケースがあるのですが、説明するのが大変なのでとりあえず触れずにおきます。それより&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4344979168/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4344979168&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=4359f00ab547c842e57f85e79e90e998&quot;&gt;「９マス将棋の本 (幻冬舎単行本) Kindle版」&lt;/a&gt;の最後の方に、解説文はないのですがオリジナルの上級編の問題（「アタック！９マス将棋」）として下記の初期配置が紹介されていたので&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;に解かせてみました。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
@@ -2430,7 +2430,7 @@ Second Win
 　読みを深くすれば正解に辿り着くというのは先読みルーチンにバグがないということでもあるのでとりあえず安心しました。３三将棋（９マス将棋）の場合、盤面が狭いので本将棋のように玉の囲いの固さとか駒の働きとかの局面の静的評価関数の出来はあまり関係なく、いかに深く読むかが大事です。その点詰将棋に似ていますが、必ず王手を続けなければいけないわけでもないので、気づきにくい手を含めて有り得る全ての手を読む力を鍛えるという点では非常にいい教材になると思います。&lt;/p&gt;
 
 &lt;h3 id=&quot;アプリの今後&quot;&gt;アプリの今後&lt;/h3&gt;
-&lt;p&gt;　他にも本の解説が正しいとして、解説通りではないけど遠回りしながら本と同じ結果になる変わった手をAIが指すケースとかがあって、いろんな変化を確認する意味で本に紹介されている局面をソフトで試すのも面白いものです。自分は知らなかったのですが、&lt;a href=&quot;https://www.amazon.co.jp/9マス将棋カード-バラエティ-青野照市/dp/4344978943/ref=sr_1_3?s=books&amp;amp;ie=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-3&amp;amp;keywords=９マス将棋&quot;&gt;9マス将棋カード&lt;/a&gt;という９マス将棋用の初期配置だけを紹介した商品もあるようです。解説の内容は知りませんが、ソフトに指させてみるとどうなるか興味がある人もいるんじゃないでしょうか？本に紹介されている初期配置をそのままアプリに組み込むのも問題ありそうだし&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;、&lt;a href=&quot;https://www.amazon.co.jp/9マス将棋カード-バラエティ-青野照市/dp/4344978943/ref=sr_1_3?s=books&amp;amp;ie=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-3&amp;amp;keywords=９マス将棋&quot;&gt;こういう商品&lt;/a&gt;が出るのであれば、開発当初予定していたように初期配置を自由に編集出来るような機能もあった方がいいよなぁとは思っています。ユーザーが自由に初期配置を設定出来るのなら何の問題もありません。&lt;br /&gt;
+&lt;p&gt;　他にも本の解説が正しいとして、解説通りではないけど遠回りしながら本と同じ結果になる変わった手をAIが指すケースとかがあって、いろんな変化を確認する意味で本に紹介されている局面をソフトで試すのも面白いものです。自分は知らなかったのですが、&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4344978943/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4344978943&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=c51f59109b54428c64fadc2b11c769e7&quot;&gt;9マス将棋カード&lt;/a&gt;という９マス将棋用の初期配置だけを紹介した商品もあるようです。解説の内容は知りませんが、ソフトに指させてみるとどうなるか興味がある人もいるんじゃないでしょうか？本に紹介されている初期配置をそのままアプリに組み込むのも問題ありそうだし&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;、&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4344978943/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4344978943&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=c51f59109b54428c64fadc2b11c769e7&quot;&gt;こういう商品&lt;/a&gt;が出るのであれば、開発当初予定していたように初期配置を自由に編集出来るような機能もあった方がいいよなぁとは思っています。ユーザーが自由に初期配置を設定出来るのなら何の問題もありません。&lt;br /&gt;
 　で、結局どうするか、ソースはいずれ公開するつもりですが、編集機能を追加してからにするか、もうちょっと様子見します。&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -4171,7 +4171,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
  引分の場合の教師データ
  [0, 0, 1.0, 0, 0, 0, 0, 0, 0]
 &lt;/pre&gt;
-&lt;p&gt;　&lt;a href=&quot;https://www.amazon.co.jp/ゼロから作るDeep-Learning-Pythonで学ぶディープラーニングの理論と実装-斎藤-康毅/dp/4873117585/ref=sr_1_2?ie=UTF8&amp;amp;qid=1498438151&amp;amp;sr=8-2&amp;amp;keywords=ディープラーニング&quot;&gt;「ゼロから作るDeep Learning」&lt;/a&gt;に記載されているsoftmax関数が合計1.0になるように按分してくれるので修正はこれだけです。&lt;br /&gt;
+&lt;p&gt;　&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873117585/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873117585&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=ee2058c36d523f2bb6cdb157cd418f30&quot;&gt;「ゼロから作るDeep Learning」&lt;/a&gt;に記載されているsoftmax関数が合計1.0になるように按分してくれるので修正はこれだけです。&lt;br /&gt;
 　但し、勝ちが３で負けが−１と落差が激しいために発散するのか、良い結果が得られなかったので&lt;strong&gt;学習率&lt;/strong&gt;を前回の&lt;strong&gt;0.1&lt;/strong&gt;から&lt;strong&gt;0.03&lt;/strong&gt;に大幅に下げました。&lt;/p&gt;
 
 &lt;h5 id=&quot;-最強プログラムとの対戦結果-&quot;&gt;– 最強プログラムとの対戦結果 –&lt;/h5&gt;
@@ -4391,8 +4391,8 @@ window.onload = function() {
                 <description>&lt;p&gt;Project: 「&lt;strong&gt;三目並べ&lt;/strong&gt;」: &lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/neural&quot;&gt;neural&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;消える三目並べの学習効率を上げるには&quot;&gt;消える三目並べの学習効率を上げるには&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/programming/2017-05-27/vanishing-tictactoe3&quot;&gt;前回の記事&lt;/a&gt;で現在作成中の「消える三目並べ」（３手前に打った自分の駒が消えるルールの三目並べ）の学習に時間が掛ることを書きましたが、&lt;a href=&quot;https://www.amazon.co.jp/ゼロから作るDeep-Learning-Pythonで学ぶディープラーニングの理論と実装-斎藤-康毅/dp/4873117585/ref=sr_1_2?ie=UTF8&amp;amp;qid=1498438151&amp;amp;sr=8-2&amp;amp;keywords=ディープラーニング&quot;&gt;「ゼロから作るDeep Learning」&lt;/a&gt;という本&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;に書いてあるニューラルネットワークのアルゴリズムを適用すれば学習効率が上がるのではないかと思い試すことにしました。ただ「消える三目並べ」のアプリに組み込む前に例のごとく「通常の三目並べ」でどうなるか試してみました。ディープラーニング（多層構造のニューラルネットワーク）を組み入れたわけではなく、指し手を決める「推論」部分は今まで通りで、対戦毎に学習データを更新する「学習」部分をニューラルネットワークに変更したということです。&lt;a href=&quot;https://www.amazon.co.jp/ゼロから作るDeep-Learning-Pythonで学ぶディープラーニングの理論と実装-斎藤-康毅/dp/4873117585/ref=sr_1_2?ie=UTF8&amp;amp;qid=1498438151&amp;amp;sr=8-2&amp;amp;keywords=ディープラーニング&quot;&gt;前述の本&lt;/a&gt;の中で”simpleNet”クラスとして紹介されているものに当たると思います。&lt;br /&gt;
-　汎用的なAIライブラリもいろいろあるようですが、既存ライブラリの使い方を覚えるだけでは面白くないので自前（スクラッチ開発）でやってます:smiley:と言っても&lt;a href=&quot;https://www.amazon.co.jp/ゼロから作るDeep-Learning-Pythonで学ぶディープラーニングの理論と実装-斎藤-康毅/dp/4873117585/ref=sr_1_2?ie=UTF8&amp;amp;qid=1498438151&amp;amp;sr=8-2&amp;amp;keywords=ディープラーニング&quot;&gt;前述の本&lt;/a&gt;に書いてある通りやっただけですが:sweat_smile:&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;/programming/2017-05-27/vanishing-tictactoe3&quot;&gt;前回の記事&lt;/a&gt;で現在作成中の「消える三目並べ」（３手前に打った自分の駒が消えるルールの三目並べ）の学習に時間が掛ることを書きましたが、&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873117585/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873117585&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=ee2058c36d523f2bb6cdb157cd418f30&quot;&gt;「ゼロから作るDeep Learning」&lt;/a&gt;という本&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;に書いてあるニューラルネットワークのアルゴリズムを適用すれば学習効率が上がるのではないかと思い試すことにしました。ただ「消える三目並べ」のアプリに組み込む前に例のごとく「通常の三目並べ」でどうなるか試してみました。ディープラーニング（多層構造のニューラルネットワーク）を組み入れたわけではなく、指し手を決める「推論」部分は今まで通りで、対戦毎に学習データを更新する「学習」部分をニューラルネットワークに変更したということです。&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873117585/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873117585&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=ee2058c36d523f2bb6cdb157cd418f30&quot;&gt;前述の本&lt;/a&gt;の中で”simpleNet”クラスとして紹介されているものに当たると思います。&lt;br /&gt;
+　汎用的なAIライブラリもいろいろあるようですが、既存ライブラリの使い方を覚えるだけでは面白くないので自前（スクラッチ開発）でやってます:smiley:と言っても&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873117585/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873117585&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=ee2058c36d523f2bb6cdb157cd418f30&quot;&gt;前述の本&lt;/a&gt;に書いてある通りやっただけですが:sweat_smile:&lt;/p&gt;
 
 &lt;h3 id=&quot;修正内容&quot;&gt;修正内容&lt;/h3&gt;
 
@@ -4401,7 +4401,7 @@ window.onload = function() {
   &lt;li&gt;重みデータを更新する際に勾配法（確率的勾配降下法）を使う（学習率＝0.1）&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;　変更したのは主に上記２点だけです。１．に関しては本に紹介されていたsoftmax関数を使いました。ニューラルネットワークで学習するための準備です。２．に関しては、今までは勝ったら＋３、負けたら−１、引き分けなら＋１、という報酬＆罰を与えていた（重みデータの加減算）わけですが、その数値を使う必要がなくなります。根拠がはっきりしないマジックナンバーが無くなることはいいことでしょう。元々&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;という本にこの数値（勝ち＋３、負け−１、引分＋１）を使うのがいいと書いてあったからそうしただけなので&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;以前から気になってました。また今回の修正で、ゲーム序盤の指し手よりゲーム終盤の指し手を重視するというロジックはとりあえず取り外すことにしました。&lt;br /&gt;
+&lt;p&gt;　変更したのは主に上記２点だけです。１．に関しては本に紹介されていたsoftmax関数を使いました。ニューラルネットワークで学習するための準備です。２．に関しては、今までは勝ったら＋３、負けたら−１、引き分けなら＋１、という報酬＆罰を与えていた（重みデータの加減算）わけですが、その数値を使う必要がなくなります。根拠がはっきりしないマジックナンバーが無くなることはいいことでしょう。元々&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873113350&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=3ab5ff4f321fd95aeb433caedf687537&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;という本にこの数値（勝ち＋３、負け−１、引分＋１）を使うのがいいと書いてあったからそうしただけなので&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;以前から気になってました。また今回の修正で、ゲーム序盤の指し手よりゲーム終盤の指し手を重視するというロジックはとりあえず取り外すことにしました。&lt;br /&gt;
 　２.の修正を行う際には、MIN-MAX法を使った最強プログラムと対戦させて最強プログラムの指し手を教師データとして一手毎に重みを修正するようにすれば、とりあえず学習データを作成することが出来て、後述するグラフデータと同様の結果が得られました。普通はこの学習済みのデータを使えば強いプログラムが完成したということになります。でもこのままだと乱数で指し手を決める弱いプログラムと対戦させた時に勝率が上がりません。弱いプログラムの指し手を教師データとして学習してしまうので、勝率グラフはほぼ５割の横ばい状態になってしまいます（実際に試しました）。どんな対戦相手でも対戦する度に強くなるようにするために、勝った方の指し手を教師データとして重みを更新するように修正しました。簡単に言うと今までは「AI側の指し手を元に勝ったらAIの手番の局面データの重みを加算、負けたら減算」&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;としていたのを「勝っても負けても勝った方の指し手を教師データとして、勝った方の手番の局面データの重みを勾配法を使って誤差修正する」というやり方に変えたということです。実際に取り組んでみないと分かりづらいかもしれませんが、学習済みデータを作ることと、対戦しながら強くなるプログラムを作ることは少し違うってことです。興味のある方はソースのPlayer.learningメソッドを参照して下さい。&lt;br /&gt;
 　あと、引き分けの時はどうするかという問題もあったのですが、相手のデータを教師データとして誤差修正するようにしました。学習中のAI側が最強プログラムに対して偶然引き分けに持ち込んだ時でも最強プログラムの指し手を教師データとして学習するようにするためです。&lt;/p&gt;
 
@@ -4419,7 +4419,7 @@ window.onload = function() {
 &lt;p&gt;　乱数で指し手を決める弱いプログラム相手でも、今までより対戦回数が少ない段階で勝率が上がっていることがわかります。個人的には重みデータの総量が減ったことが学習速度がアップした大きな要因（&lt;a href=&quot;/software/2016-01-07/correlation&quot;&gt;過去記事参照&lt;/a&gt;）になった気がしてます。&lt;/p&gt;
 
 &lt;h3 id=&quot;学習速度アップは歴然&quot;&gt;&lt;del&gt;学習速度アップは歴然&lt;/del&gt;&lt;/h3&gt;
-&lt;p&gt;　&lt;del&gt;過学習という問題はあるものの、ニューラルネットワークを採用することでご褒美を上げたり取ったり（足したり引いたり）するより学習速度がアップすることは間違いないようです。&lt;/del&gt;でも現在リリース中の&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;は&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;に書かれている仕様に合わせて作っていることを謳っているので今のまま変更せずに、次アプリにする予定の「消える三目並べ」に採用してみようと思ってます。試してみたいと思うテーマが次々と出てきてなかなかリリース出来ないのですが、どこかでまず一度リリースしようと思ってます。本当は「５五将棋」アプリを作りたいのですが…:sweat_smile:&lt;/p&gt;
+&lt;p&gt;　&lt;del&gt;過学習という問題はあるものの、ニューラルネットワークを採用することでご褒美を上げたり取ったり（足したり引いたり）するより学習速度がアップすることは間違いないようです。&lt;/del&gt;でも現在リリース中の&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;は&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873113350&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=3ab5ff4f321fd95aeb433caedf687537&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;に書かれている仕様に合わせて作っていることを謳っているので今のまま変更せずに、次アプリにする予定の「消える三目並べ」に採用してみようと思ってます。試してみたいと思うテーマが次々と出てきてなかなかリリース出来ないのですが、どこかでまず一度リリースしようと思ってます。本当は「５五将棋」アプリを作りたいのですが…:sweat_smile:&lt;/p&gt;
 
 &lt;script type=&quot;text/javascript&quot;&gt;
 function show_new_saikyo(){
@@ -4602,7 +4602,7 @@ window.onload = function() {
       &lt;p&gt;ディープラーニングやニューラルネットワークに関する本をいろいろ読みましたが、個人的にはこの本が一番実践に役立つ気がします。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:2&quot;&gt;
-      &lt;p&gt;なぜ勝ちは＋３，引き分けは＋１，負けは−１がいいのかという根拠は&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;にも明確には書かれていません。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;なぜ勝ちは＋３，引き分けは＋１，負けは−１がいいのかという根拠は&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873113350&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=3ab5ff4f321fd95aeb433caedf687537&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;にも明確には書かれていません。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:3&quot;&gt;
       &lt;p&gt;今までのやり方だと最強プログラムと対戦した場合には引き分けに持ち込んだ時にしか重みの加算が行われない状態でした（最強プログラムには絶対勝てないので＋３を得る機会はない）。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
@@ -7052,8 +7052,6 @@ $adb install -r ./Release/android/Tictactoe-release1-3-2.apk
 
 &lt;/div&gt;
 
-&lt;p&gt;　↑バージョン（android:versionCode）が６桁の数字（103028）になってしまっていますが、なぜか私の環境からGooglePlayのサイトにパッケージファイルをアップロードするとAndroidManifest.xmlに記載した数値（10302）に一桁追加されてしまうのです。以前のものより数値が小さいとアップロード出来ないらしいので、１桁でいいはずの数字なのに今は６桁になってしまっています。う〜ん不思議だ:confused:&lt;/p&gt;
-
 &lt;hr /&gt;
 
 </description>
@@ -7188,7 +7186,7 @@ git push origin
                 <title>Flotライブラリで拡大表示可能なグラフ作成</title>
                 <description>&lt;h3 id=&quot;ブログgithub-pagesでグラフ描画flot&quot;&gt;ブログ（&lt;a href=&quot;https://jekyllrb-ja.github.io/docs/github-pages&quot;&gt;Github Pages&lt;/a&gt;）でグラフ描画（&lt;a href=&quot;https://www.flotcharts.org&quot;&gt;Flot&lt;/a&gt;）&lt;/h3&gt;
 &lt;p&gt;　以前&lt;a href=&quot;/programming/2014-10-27/my-posi-chart&quot;&gt;lazy-high-chartの記事&lt;/a&gt;を書いたことがありましたが、RailsのようなWebアプリではなくこのブログ（Jekyllで生成）のような静的サイトでグラフを描画する必要性を感じた経験はなかったのですが、&lt;a href=&quot;/software/2016-01-16/flotr2&quot;&gt;前回の記事&lt;/a&gt;のようなグラフばかりのページを作る時は便利だと実感しました。LibreやExcelにデータを貼り付けてグラフ化してそれを画像ファイルに変換してページに貼り付けるより手間が省けます。それだけじゃなくインタラクティブなグラフにすることでより情報を伝えやすくなるというのが今回のお話です。&lt;br /&gt;
-　前回は&lt;a href=&quot;https://www.amazon.co.jp/本-JavaScriptによるデータビジュアライゼーション入門-Stephen-Thomas/dp/4873117461/ref=sr_1_1?ie=UTF8&amp;amp;qid=1452166533&amp;amp;sr=8-1&amp;amp;keywords=javascript+ビジュアライゼーション&quot;&gt;「JavaScriptによるデータビジュアライゼーション入門」&lt;/a&gt;に紹介されていた&lt;a href=&quot;https://www.humblesoftware.com/flotr2&quot;&gt;Flotr2&lt;/a&gt;を使ってグラフを描画していたのですが、インタラクティブなグラフにする際には同じ本に紹介されているjQuery版の&lt;a href=&quot;https://www.flotcharts.org&quot;&gt;Flotライブラリ&lt;/a&gt;を使いました。同じものだと思っていたのですが、結構違いがあるようです。&lt;br /&gt;
+　前回は&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873117461/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873117461&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=9fbb452763db325d2201c31a44ab10cc&quot;&gt;「JavaScriptによるデータビジュアライゼーション入門」&lt;/a&gt;に紹介されていた&lt;a href=&quot;https://www.humblesoftware.com/flotr2&quot;&gt;Flotr2&lt;/a&gt;を使ってグラフを描画していたのですが、インタラクティブなグラフにする際には同じ本に紹介されているjQuery版の&lt;a href=&quot;https://www.flotcharts.org&quot;&gt;Flotライブラリ&lt;/a&gt;を使いました。同じものだと思っていたのですが、結構違いがあるようです。&lt;br /&gt;
 　&lt;a href=&quot;/software/2016-01-16/flotr2#dfs-regression&quot;&gt;前回の記事の最後に描画したグラフ&lt;/a&gt;と同じパラメータを渡して描画したものが以下のグラフです。マウスでドラッグした範囲を拡大表示することが出来ます。&lt;/p&gt;
 
 &lt;div id=&quot;dfs-regression&quot; style=&quot;width:600px;height:300px;&quot;&gt;&lt;/div&gt;
@@ -7198,7 +7196,7 @@ git push origin
 &lt;p&gt;　&lt;a href=&quot;https://www.humblesoftware.com/flotr2&quot;&gt;Flotr2&lt;/a&gt;の時と同じパラメータを指定して描画しているにも関わらず、&lt;a href=&quot;/software/2016-01-16/flotr2#dfs-regression&quot;&gt;前回の記事&lt;/a&gt;と比較すればグラフの見た目に結構違いがあることがわかると思います。グラフの色の違いは色指定していないためデフォルトの色が違うだけなのですが、グリッドの線が表示されていたりグラフの凡例が表示されていなかったり、いくつかのパラメータが無視されています。JavaScript製なので「ページのソースの表示」でコードそのものを見ることも出来ます。&lt;/p&gt;
 
 &lt;h3 id=&quot;flotライブラリを使うために必要だった作業&quot;&gt;Flotライブラリを使うために必要だった作業&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;https://jekyllrb-ja.github.io/docs/github-pages&quot;&gt;Github Pages&lt;/a&gt;の使い方もいろいろあると思いますが、私の場合自宅でgitサーバを運用して、Jekyllで静的ファイルを出力しgithubに保存しています。だからローカル環境で完結させたいので、&lt;a href=&quot;https://www.flotcharts.org&quot;&gt;Flotライブラリ&lt;/a&gt;をダウンロードして使用しています。&lt;a href=&quot;https://www.amazon.co.jp/本-JavaScriptによるデータビジュアライゼーション入門-Stephen-Thomas/dp/4873117461/ref=sr_1_1?ie=UTF8&amp;amp;qid=1452166533&amp;amp;sr=8-1&amp;amp;keywords=javascript+ビジュアライゼーション&quot;&gt;「JavaScriptによるデータビジュアライゼーション入門」&lt;/a&gt;の中で紹介されているCDN(Contents Delivery Network)を使用した方法でも動きましたが、以下の２つのファイルをJekyll環境にコピーすれば上記のグラフは動作しました。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;https://jekyllrb-ja.github.io/docs/github-pages&quot;&gt;Github Pages&lt;/a&gt;の使い方もいろいろあると思いますが、私の場合自宅でgitサーバを運用して、Jekyllで静的ファイルを出力しgithubに保存しています。だからローカル環境で完結させたいので、&lt;a href=&quot;https://www.flotcharts.org&quot;&gt;Flotライブラリ&lt;/a&gt;をダウンロードして使用しています。&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873117461/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873117461&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=9fbb452763db325d2201c31a44ab10cc&quot;&gt;「JavaScriptによるデータビジュアライゼーション入門」&lt;/a&gt;の中で紹介されているCDN(Contents Delivery Network)を使用した方法でも動きましたが、以下の２つのファイルをJekyll環境にコピーすれば上記のグラフは動作しました。&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;jquery.min.js&lt;/li&gt;
@@ -7328,7 +7326,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
         <item>
                 <title>学習効果をグラフ化してみる</title>
                 <description>&lt;h3 id=&quot;ブログgithub-pagesでグラフ描画flotr2&quot;&gt;ブログ（&lt;a href=&quot;https://jekyllrb-ja.github.io&quot;&gt;Github Pages&lt;/a&gt;）でグラフ描画（&lt;a href=&quot;https://www.humblesoftware.com/flotr2&quot;&gt;Flotr2&lt;/a&gt;）&lt;/h3&gt;
-&lt;p&gt;　ジュンク堂書店でオライリーのカレンダーを入手するために&lt;a href=&quot;https://www.amazon.co.jp/本-JavaScriptによるデータビジュアライゼーション入門-Stephen-Thomas/dp/4873117461/ref=sr_1_1?ie=UTF8&amp;amp;qid=1452166533&amp;amp;sr=8-1&amp;amp;keywords=javascript+ビジュアライゼーション&quot;&gt;「JavaScriptによるデータビジュアライゼーション入門」&lt;/a&gt;という本を買ってしまいました。前回まで三目並べプログラムの学習効果の記事を書いていましたが、１０万回対戦（学習）後の最終結果だけではなく、推移をグラフ化してみたいと思っていながらも面倒なのでやってなかったのですが、本を買ったことでやる気が出たので、awkやemacsのキーボードマクロを駆使してグラフ用データを編集してみました。今回はとりあえず買った本の内容は置いといて、グラフ化した学習効果の結果について書きます。&lt;/p&gt;
+&lt;p&gt;　ジュンク堂書店でオライリーのカレンダーを入手するために&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873117461/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873117461&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=9fbb452763db325d2201c31a44ab10cc&quot;&gt;「JavaScriptによるデータビジュアライゼーション入門」&lt;/a&gt;という本を買ってしまいました。前回まで三目並べプログラムの学習効果の記事を書いていましたが、１０万回対戦（学習）後の最終結果だけではなく、推移をグラフ化してみたいと思っていながらも面倒なのでやってなかったのですが、本を買ったことでやる気が出たので、awkやemacsのキーボードマクロを駆使してグラフ用データを編集してみました。今回はとりあえず買った本の内容は置いといて、グラフ化した学習効果の結果について書きます。&lt;/p&gt;
 
 &lt;h3 id=&quot;小石の数を減らしたことの影響&quot;&gt;小石の数を減らしたことの影響&lt;/h3&gt;
 &lt;p&gt;　前回までのテストで小石の初期値や補充数を少なくすることが一番効果的だということがわかったので、まずは小石の初期値と補充分を１０個にしていた「従来の強化学習」と、「１０個から１個に修正した」分と、全てのテストを通して一番学習効果が高かった線形関数（&lt;script type=&quot;math/tex&quot;&gt;y = \frac{1}{総手数} x&lt;/script&gt;）を使った「終盤の手ほど重要視」するパターンの３つのグラフを比較してみます。&lt;br /&gt;
@@ -7809,7 +7807,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 
 &lt;h3 id=&quot;終盤の一手の価値を上げる&quot;&gt;終盤の一手の価値を上げる？&lt;/h3&gt;
 &lt;p&gt;　前回の記事で終盤の手ほど重要視して報酬や罰を増やす方法を試しましたが、今回は報酬や罰は変えずに終盤ほど小石（score配列）の総数を減らすという方法を試してみます。&lt;br /&gt;
-　&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;には以下のように書かれています。&lt;/p&gt;
+　&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873113350&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=3ab5ff4f321fd95aeb433caedf687537&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;には以下のように書かれています。&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;３目並べのケースでは、すぐに負けにつながるミスを効率的に処分し、罰するべきだ。ゲーム終盤の手で使うビーズの総量が少なければ、より短期間で学習されていくはずだ。&lt;/p&gt;
@@ -8039,7 +8037,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 　小石を浮動小数点数で扱うように変更した甲斐がありました&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 
 &lt;h3 id=&quot;人間並みに強くするにはどれぐらい学習が必要か&quot;&gt;人間並みに強くするにはどれぐらい学習が必要か？&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;の仕様に沿いながらこの三目並べ機械学習プログラムを&lt;a href=&quot;/software/2015-10-25/machine_learning&quot;&gt;初めて作った時点&lt;/a&gt;では、完全読み切りの最強プログラムとの対戦成績は８割の引き分け率でしたが、いろいろ弄って９割７分まで上げることが出来ました。三目並べを人間同士で対戦すればほぼ１００％引き分けになると思いますが、うっかりミスもあるので、９割７分の引き分け率というのはほぼ人間並みになったと言えるのではないでしょうか？&lt;br /&gt;
+&lt;p&gt;　&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873113350&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=3ab5ff4f321fd95aeb433caedf687537&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;の仕様に沿いながらこの三目並べ機械学習プログラムを&lt;a href=&quot;/software/2015-10-25/machine_learning&quot;&gt;初めて作った時点&lt;/a&gt;では、完全読み切りの最強プログラムとの対戦成績は８割の引き分け率でしたが、いろいろ弄って９割７分まで上げることが出来ました。三目並べを人間同士で対戦すればほぼ１００％引き分けになると思いますが、うっかりミスもあるので、９割７分の引き分け率というのはほぼ人間並みになったと言えるのではないでしょうか？&lt;br /&gt;
 　でも、三目並べで１０万回も対戦（学習）させてようやく９割７分になる&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;というのは、機械学習プログラムの出来としてどれほどのものなのかわかりません。学習効率を数値化して競う大会なんかがあっても面白いかなと思いました。ただ、麻雀ソフトなんかでもそうですが、三目並べだとズルをすれば簡単に強く出来るのでチェックが大変かもしれません。&lt;br /&gt;
 　結局、ソフトウェアとしての出来の良さを競うのであれば、将棋や囲碁のように完全読み切りが不可能なゲーム（ズルが出来ないゲーム）を題材にして、強さを競うという形が分かり易く現実的なのかもしれません。&lt;/p&gt;
 
@@ -8068,10 +8066,10 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
                 <title>曲線回帰で強化を試みる</title>
                 <description>&lt;h3 id=&quot;闇雲ってこういうことかも&quot;&gt;闇雲ってこういうことかも&lt;/h3&gt;
 &lt;p&gt;　次に記事を書く時は別の話題にしようと思っていたのですが、三目並べの強化学習に関して試さずにはいられなかったので、闇雲と言われようが思いつくままにやってみたことを書いておきます。&lt;br /&gt;
-　以前、&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;の中で序盤より終盤の手を重視する方法について記述されていることに触れました、そして今まで試した方法は報酬を与えるにしても罰するにしても選択した全ての局面で同じ値を加算したり減算したりしていましたが、今回は手数毎に違う値を加減算する方法を試してみました。&lt;/p&gt;
+　以前、&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873113350&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=3ab5ff4f321fd95aeb433caedf687537&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;の中で序盤より終盤の手を重視する方法について記述されていることに触れました、そして今まで試した方法は報酬を与えるにしても罰するにしても選択した全ての局面で同じ値を加算したり減算したりしていましたが、今回は手数毎に違う値を加減算する方法を試してみました。&lt;/p&gt;
 
 &lt;h3 id=&quot;終盤の手ほど重要視すべきpart-1&quot;&gt;終盤の手ほど重要視すべき？Part 1&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;には以下のように書かれています。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873113350&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=3ab5ff4f321fd95aeb433caedf687537&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;には以下のように書かれています。&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;　動物が学習する手法をまねたい場合、ゲーム終盤近くの手が、ゲーム序盤よりも重大であるようなシステムに調整してもよい。これは行動が適切な時期に近いほど、その行動を強化する効果が最大になるという観察結果を反映することを意図したものだ。&lt;/p&gt;
@@ -8428,7 +8426,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
   &lt;p&gt;　&lt;script type=&quot;math/tex&quot;&gt;y = \frac{1}{総手数} + \log{x} 総手数 \hspace{3.5em}\tag{方程式 4}&lt;/script&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;　根拠がある、無いの話をしだすと、勝ちの時は３を掛けて引き分けは１を掛けるというのはどういう根拠なの？となりますが、これは&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;に書いていたのと、Jリーグなどの多くのスポーツで勝てば勝ち点３、引き分けで勝ち点１となっているので何か（経験則的な？）根拠があるのだろうと思います。&lt;br /&gt;
+&lt;p&gt;　根拠がある、無いの話をしだすと、勝ちの時は３を掛けて引き分けは１を掛けるというのはどういう根拠なの？となりますが、これは&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873113350&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=3ab5ff4f321fd95aeb433caedf687537&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;に書いていたのと、Jリーグなどの多くのスポーツで勝てば勝ち点３、引き分けで勝ち点１となっているので何か（経験則的な？）根拠があるのだろうと思います。&lt;br /&gt;
 　で、対戦結果は以下のようになりました。&lt;/p&gt;
 
 &lt;table&gt;
@@ -8498,7 +8496,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 　各マッチ箱には、小さい引き出しがあり、開けることができる。Michieは、各マッチ箱にラベルを貼った。このラベルには、３目並べで考えられる２８７の異なる盤面が描かれている。実際はもっと多くのパターンがあることになるが、３行×３列構成の標準的な３目並べのレイアウトは上下左右を入れ替えても同じ内容なので、４つの異なるパターンを１つに集約できる。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;　&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;には上記のように書かれているので多分木データとして保持する必要がある局面の数は回転・対称形をとことん省いていけば6,046から287に絞れるのかと思って縦・横・斜めの対称形とそれぞれの局面を90度ずつ回転させた局面を省いてみても626局面までにしか絞れませんでした。どうすればいいのか見当がつかなかったのでネットで検索してみたところ&lt;a href=&quot;https://www.gensu.co.jp/saito/puzzle/a15hissho1.html&quot;&gt;「数学パズルにトドメをさす？！」&lt;/a&gt;と称するサイトを見つけました。そのサイトからダウンロードできる「三目並べの局面一覧」というファイルを確認してみると、すべての局面の数は447になるとのことです。私が計算した数とどこで食い違うのかを確認してみたのですが、どうやらこのデータはお互いに最善手を打つことを前提にしているようです。このサイトの注意書きに「自分や相手のリーチを見逃さない」と書いてありますが、局面を数えるときに先手・後手のお互いが最善手を選択することを前提にして（おそらく&lt;a href=&quot;/software/2014-09-16/ab_method&quot;&gt;MIN−MAX法&lt;/a&gt;を使った深さ優先探索を使って）数えているのでしょう。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873113350&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=3ab5ff4f321fd95aeb433caedf687537&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;には上記のように書かれているので多分木データとして保持する必要がある局面の数は回転・対称形をとことん省いていけば6,046から287に絞れるのかと思って縦・横・斜めの対称形とそれぞれの局面を90度ずつ回転させた局面を省いてみても626局面までにしか絞れませんでした。どうすればいいのか見当がつかなかったのでネットで検索してみたところ&lt;a href=&quot;https://www.gensu.co.jp/saito/puzzle/a15hissho1.html&quot;&gt;「数学パズルにトドメをさす？！」&lt;/a&gt;と称するサイトを見つけました。そのサイトからダウンロードできる「三目並べの局面一覧」というファイルを確認してみると、すべての局面の数は447になるとのことです。私が計算した数とどこで食い違うのかを確認してみたのですが、どうやらこのデータはお互いに最善手を打つことを前提にしているようです。このサイトの注意書きに「自分や相手のリーチを見逃さない」と書いてありますが、局面を数えるときに先手・後手のお互いが最善手を選択することを前提にして（おそらく&lt;a href=&quot;/software/2014-09-16/ab_method&quot;&gt;MIN−MAX法&lt;/a&gt;を使った深さ優先探索を使って）数えているのでしょう。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt; |X|O|3|
  |X|O|6|
@@ -8507,9 +8505,9 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 
 &lt;p&gt;　例えば上のような局面は相手のリーチ（あと一手で駒が揃う状態）を防がなかった時にしか発生しません。お互いが最善手を選択することを前提にすると、絶対現れない局面として省いているようです。&lt;br /&gt;
 　でも機械学習プログラムの多分木データとして用意する局面データは発生し得るすべての局面を用意しておく必要があります。例えば乱数プログラムと対戦するときなどは、あと一手で一列揃うような時でも見逃すことはよくあるので、そういう時に最善手を打つことを前提にした局面しか用意していないと、まさに打つ手が無くなってしまいます。&lt;br /&gt;
-　だから本に書いてある２８７個の局面というのは、おそらく&lt;a href=&quot;https://www.gensu.co.jp/saito/puzzle/a15hissho1.html&quot;&gt;上記サイト&lt;/a&gt;のように局面の先読みすることを考慮すれば２８７個にまで省略出来るということだと思います。&lt;a href=&quot;https://www.gensu.co.jp/saito/puzzle/a15hissho1.html&quot;&gt;上記サイト&lt;/a&gt;では特に局面の数を減らすことを目的にしていないと思いますが、探せば「ここまで局面が進行すれば、相手がどう応じても引き分けに持ち込める」という感じの局面が相当数存在するのだと思います。例えば「自分がダブルリーチをかけたら勝ちが確定する」からそれ以後の局面は用意しなくてもいいというのも一つの例として挙げることができます。そういった手法で先読みを考慮してとことん局面を絞ればまだまだ省略可能な局面が存在するということでしょう。でも、そこまで考慮して事前に用意する局面を絞って学習プログラムを作ると前述したように指し手が選択できないケースが生じてしまいます。&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;に例え話で書かれているように、無人島で人間が判断して局面を省略する分には問題ありませんが…。&lt;br /&gt;
-　と、いうことで苦労して多分木データに格納する局面数を絞っても学習プログラムには使えないので追求するのはここまでにしました。&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;この本&lt;/a&gt;は結構根拠を示さずに結論を書いているところがあるので、２８７という数字が、ちゃんと裏を取った根拠のある数字じゃない可能性もありますが私には何とも言えません。&lt;br /&gt;
-　根拠がある数字と言えば、&lt;a href=&quot;/project/2015-10-10/tictactoe_bfs&quot;&gt;以前の記事&lt;/a&gt;で、３手目までを重みによる評価関数を使いそれ以降はDFSによる読み切り関数を使ったことを書きましたが、３手目までなら重みによる評価関数を使用しても負けないことを確認したからそうしたわけですが、４手目まで重みによる評価関数を使えば負けてしまうことがあるが、３手目までなら負けないようにすることが出来ることを、根拠を示して証明するのは結構大変です。&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;件の本&lt;/a&gt;も、いちいち根拠を示していたら紙面が足りなくなるという事情があるのかもしれません。たかが三目並べでも突き詰めていくと奥が深いということでしょう。&lt;br /&gt;
+　だから本に書いてある２８７個の局面というのは、おそらく&lt;a href=&quot;https://www.gensu.co.jp/saito/puzzle/a15hissho1.html&quot;&gt;上記サイト&lt;/a&gt;のように局面の先読みすることを考慮すれば２８７個にまで省略出来るということだと思います。&lt;a href=&quot;https://www.gensu.co.jp/saito/puzzle/a15hissho1.html&quot;&gt;上記サイト&lt;/a&gt;では特に局面の数を減らすことを目的にしていないと思いますが、探せば「ここまで局面が進行すれば、相手がどう応じても引き分けに持ち込める」という感じの局面が相当数存在するのだと思います。例えば「自分がダブルリーチをかけたら勝ちが確定する」からそれ以後の局面は用意しなくてもいいというのも一つの例として挙げることができます。そういった手法で先読みを考慮してとことん局面を絞ればまだまだ省略可能な局面が存在するということでしょう。でも、そこまで考慮して事前に用意する局面を絞って学習プログラムを作ると前述したように指し手が選択できないケースが生じてしまいます。&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873113350&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=3ab5ff4f321fd95aeb433caedf687537&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;に例え話で書かれているように、無人島で人間が判断して局面を省略する分には問題ありませんが…。&lt;br /&gt;
+　と、いうことで苦労して多分木データに格納する局面数を絞っても学習プログラムには使えないので追求するのはここまでにしました。&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873113350&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=3ab5ff4f321fd95aeb433caedf687537&quot;&gt;この本&lt;/a&gt;は結構根拠を示さずに結論を書いているところがあるので、２８７という数字が、ちゃんと裏を取った根拠のある数字じゃない可能性もありますが私には何とも言えません。&lt;br /&gt;
+　根拠がある数字と言えば、&lt;a href=&quot;/project/2015-10-10/tictactoe_bfs&quot;&gt;以前の記事&lt;/a&gt;で、３手目までを重みによる評価関数を使いそれ以降はDFSによる読み切り関数を使ったことを書きましたが、３手目までなら重みによる評価関数を使用しても負けないことを確認したからそうしたわけですが、４手目まで重みによる評価関数を使えば負けてしまうことがあるが、３手目までなら負けないようにすることが出来ることを、根拠を示して証明するのは結構大変です。&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873113350&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=3ab5ff4f321fd95aeb433caedf687537&quot;&gt;件の本&lt;/a&gt;も、いちいち根拠を示していたら紙面が足りなくなるという事情があるのかもしれません。たかが三目並べでも突き詰めていくと奥が深いということでしょう。&lt;br /&gt;
 　&lt;a href=&quot;https://www.gensu.co.jp/saito/puzzle/a15hissho1.html&quot;&gt;件のサイト&lt;/a&gt;では「３目並べず&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;」のデータとして最善手を選択することを前提としていないデータも用意してあって、そのファイルでは私が数えた626に近い数になっています（以下に比較表を用意しました）。でも私が数えたときの前提条件は「既に勝負がついた局面は省く」というものなので、微妙に数値が異なっています。私は機械学習プログラムで使用する多分木データに必要なデータということで考えているので、例えば９箇所すべてが埋まっている局面のデータはすでに勝ちか負けか引き分けかの勝負がついた局面なので、必要がないため９手目の局面は０になっています。&lt;/p&gt;
 
 &lt;table&gt;
@@ -8603,7 +8601,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 
 &lt;p&gt;　でも負けても石を減らさない仕様だと、初期値でセットした石は永遠に残り続けるので理想の状態には絶対になりません。長い期間学習が強化され続けて、最善手（相手の石が揃うのを防ぐ手）を選ぶ確率がどんどん高くなっていっても石が残っている限り絶対１００％にはならないわけで、これは良くないと考えたわけです。&lt;br /&gt;
 　しかし、よくよく考えてみると「この局面ではこの一手」というような手を指させたいのならその局面のscore配列を最初から上記のようにセットしておけばよい話で、なぜ学習させる必要があるのだろうという話になってきます。多分木データを生成する段階で、「次の一手で相手が石を揃えることが出来る」局面ではその箇所だけ１以上の値をセットしてそれ以外の箇所は０をセットしておけばいい話です。&lt;br /&gt;
-　&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;には以下のように書かれています。&lt;/p&gt;
+　&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873113350&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=3ab5ff4f321fd95aeb433caedf687537&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;には以下のように書かれています。&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;　明確な改善は、間違った手を許さないことで、コンピュータを賢くする。つまり、ココナッツの中に、すぐに負けにつながるような小石を入れないことだ。この方法は、使用開始当初のコンピュータの弱さを改善できるが、実際は動物の学習方法を反映していない。よって、この方法で強い対戦相手が生まれても、教授は、このコンピュータの開発者が科学的な精密さを欠くことに失望するだろう。&lt;/p&gt;
@@ -8666,13 +8664,13 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
         <item>
                 <title>算数で作る機械学習プログラム</title>
                 <description>&lt;h3 id=&quot;新たに必要になった機能&quot;&gt;新たに必要になった機能&lt;/h3&gt;
-&lt;p&gt;　前回の続きです。&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;の内容に沿って機械学習機能を付加した三目並べプログラムを作成したのですが、元々あった三目並べ対戦プログラムに対してどんな作業が必要だったのか、新たに付加した機能を列挙してみます。&lt;/p&gt;
+&lt;p&gt;　前回の続きです。&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873113350&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=3ab5ff4f321fd95aeb433caedf687537&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;の内容に沿って機械学習機能を付加した三目並べプログラムを作成したのですが、元々あった三目並べ対戦プログラムに対してどんな作業が必要だったのか、新たに付加した機能を列挙してみます。&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;多分木データ&lt;/strong&gt;（Player.trees）&lt;br /&gt;
 　&lt;a href=&quot;/software/2015-10-19/multi_branched_tree&quot;&gt;前回の記事&lt;/a&gt;で用意した全局面分のデータです。学習データを利用して手を決めることになるので評価関数は不要になりました。&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;学習機能&lt;/strong&gt;（Player.learning）&lt;br /&gt;
-　勝った時は報酬を与えて（石の数を増やす）負けたら罰を与える（石の数を減らす）ことで学習効果を上げていくわけですが、&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;には勝ちと引き分けに差をつけて、勝ちは＋３、引き分けは＋１がいいと書いてありますのでその通りにしています。そして、そこには負けた場合どうすればいいのか書いてありませんが、負けたら石を海に投げ込むという描写もあるので−１でいいだろうと思い負けは−１にしています。もしかしたら±０でいいのかもしれませんし、逆に負けを−３にする方法もありそうですがこの辺りは評価関数の調整と同じでキリがないのでとりあえずの値です。&lt;br /&gt;
+　勝った時は報酬を与えて（石の数を増やす）負けたら罰を与える（石の数を減らす）ことで学習効果を上げていくわけですが、&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873113350&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=3ab5ff4f321fd95aeb433caedf687537&quot;&gt;「STATISTICS HACKS」&lt;/a&gt;には勝ちと引き分けに差をつけて、勝ちは＋３、引き分けは＋１がいいと書いてありますのでその通りにしています。そして、そこには負けた場合どうすればいいのか書いてありませんが、負けたら石を海に投げ込むという描写もあるので−１でいいだろうと思い負けは−１にしています。もしかしたら±０でいいのかもしれませんし、逆に負けを−３にする方法もありそうですがこの辺りは評価関数の調整と同じでキリがないのでとりあえずの値です。&lt;br /&gt;
 　それと、実際に着手した局面の一手前の石の数（score配列）を操作するということに注意が必要です。&lt;br /&gt;
 &lt;img src=&quot;/images/battle_ex1.png&quot; alt=&quot;例１&quot; /&gt;&lt;br /&gt;
 　各局面が持っている石の数（score配列）はその局面で打てる場所に存在し次の手を決めるためにあるので、ソフト側が先手（X）で上記のような経過を辿って負けた場合、５手目の局面でOが揃うのを防がなかったのが悪かったということで、一つ前の４手目の局面の石（score配列）を−１します。４手目の局面で先手（X）が”2”（配列の添え字は1）を選ばずに”6”を選んだことが負けの原因なので”6”の位置のscore配列の値を−１します。score配列の初期値は[10,10,10,10,10,10,10,10,10]なので、４手目の局面のscore配列を[10,10,10,10,10,9,10,10,10]にするということです。同様に２手目で”7”を選んだことが悪かった、０手目（初期盤面）で”5”を選んだことが悪かったと評価して２手目のscore配列を[10,10,10,10,10,10,9,10,10]、０手目のscore配列を[10,10,10,10,9,10,10,10,10]にして次回からその局面でその手が選ばれにくくなるようにします。&lt;/li&gt;
@@ -8913,7 +8911,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 &lt;p&gt;で真ん中は３番目で、なぜか上辺（２の位置）が一番大きな値になっていたのですが、理由はよくわかりません。&lt;/p&gt;
 
 &lt;h3 id=&quot;最後に&quot;&gt;最後に&lt;/h3&gt;
-&lt;p&gt;　石が無くならないようにするために、出現頻度の高い初期盤面（１局面）と一手目の局面（９局面）の石の数を５０にしたわけですが、５０という値には根拠がないですし、なんとなくすっきりしないので、負けたら−１という仕様を変更して、&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;本&lt;/a&gt;の主張とは少し違ってきますが、負けても罰しない仕様（勝ちは＋３、引き分けは＋１、負けたら±０）で試してみました。これなら石が無くなる心配もないしマジックナンバーが減ります。初期値は一応１０で試しましたが、石が無くなる心配がないので１以上ならなんでもいいと思います。デスクトップPCで一晩かけて１０万回対戦させてみました（もちろんtrees.dumpファイルを削除してから開始しています）。&lt;/p&gt;
+&lt;p&gt;　石が無くならないようにするために、出現頻度の高い初期盤面（１局面）と一手目の局面（９局面）の石の数を５０にしたわけですが、５０という値には根拠がないですし、なんとなくすっきりしないので、負けたら−１という仕様を変更して、&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873113350&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=3ab5ff4f321fd95aeb433caedf687537&quot;&gt;本&lt;/a&gt;の主張とは少し違ってきますが、負けても罰しない仕様（勝ちは＋３、引き分けは＋１、負けたら±０）で試してみました。これなら石が無くなる心配もないしマジックナンバーが減ります。初期値は一応１０で試しましたが、石が無くなる心配がないので１以上ならなんでもいいと思います。デスクトップPCで一晩かけて１０万回対戦させてみました（もちろんtrees.dumpファイルを削除してから開始しています）。&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -8938,7 +8936,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 &lt;/table&gt;
 
 &lt;p&gt;　最強プログラムとの対戦成績は８割以上引き分けるようになりました。負けを−１しなくても学習効果は今までのプログラムと同様の効果が出ているように見えます。乱数プログラムとの対戦成績も６割近くに伸びているのでもっと回数を増やせばいいのかもしれません。&lt;br /&gt;
-　学習機能の説明のところで勝負に負けたからといって一律に全ての局面から減点（石を減らす）していくという仕様に違和感を感じた人もいると思いますが、私も&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;本&lt;/a&gt;に書いていたから最初はそうしてみたけど勝負に負けたからといって初手にどれほどの影響力があるのか疑問です。その意味でも負けた時は±０というのは理にかなっていると思います。但し、直接負けに繋がった一手は罰するべきかもしれません。&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;本&lt;/a&gt;にも序盤より終盤の手を重視する方法が紹介されています。まだまだ学習効果を上げる方法も学習機能の仕様を変える余地も大きく、検証方法もいろいろ考えられるので、また何かアイデアを思いつけばこのプログラムを使って記事を書くかもしれません。&lt;br /&gt;
+　学習機能の説明のところで勝負に負けたからといって一律に全ての局面から減点（石を減らす）していくという仕様に違和感を感じた人もいると思いますが、私も&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873113350&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=3ab5ff4f321fd95aeb433caedf687537&quot;&gt;本&lt;/a&gt;に書いていたから最初はそうしてみたけど勝負に負けたからといって初手にどれほどの影響力があるのか疑問です。その意味でも負けた時は±０というのは理にかなっていると思います。但し、直接負けに繋がった一手は罰するべきかもしれません。&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873113350&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=3ab5ff4f321fd95aeb433caedf687537&quot;&gt;本&lt;/a&gt;にも序盤より終盤の手を重視する方法が紹介されています。まだまだ学習効果を上げる方法も学習機能の仕様を変える余地も大きく、検証方法もいろいろ考えられるので、また何かアイデアを思いつけばこのプログラムを使って記事を書くかもしれません。&lt;br /&gt;
 　今回のソースは別ブランチ（machinelearning）を作りました。以下のコマンドでブランチ指定してソースを取得することが出来ます。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;git clone -b machinelearning https://github.com/happyclam/tictactoe_ruby
@@ -8962,11 +8960,11 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
         <item>
                 <title>対戦型ソフトでの幅優先探索（BFS）の使い途</title>
                 <description>&lt;h3 id=&quot;無作為選択を人工知能に&quot;&gt;無作為選択を人工知能に&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「Statistics Hacks」&lt;/a&gt;という本の中でココナッツの殻と石ころを使って、学習機能を持つ三目並べプログラムが作れるという話が書かれていました。無人島に漂流して何もすることがない人の暇つぶしのためにどうぞという感じで、非常に砕けた調子で書かれているのです（この本全体がそんな感じです）が、一応裏を取った根拠のある話が書かれている真面目な本だと思います。そして&lt;a href=&quot;/project/2015-10-10/tictactoe_bfs&quot;&gt;前回の記事&lt;/a&gt;で書いたようにBFSアルゴリズムの使い途を考えていた私は「これは使える」と思いました。この本で三目並べについてに書かれている部分はほんの数ページだけなのですが、難しい数式を使っていないので、書かれている内容（アイデア）だけでプログラム作成に必要な情報は十分にあると自分には思われました。但し、その結果強いプログラムが完成するかどうかはやってみないとわからないし、強くなるとしてもどの程度強くなるのか興味が湧いてきたので試してみることにしました。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873113350&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=3ab5ff4f321fd95aeb433caedf687537&quot;&gt;「Statistics Hacks」&lt;/a&gt;という本の中でココナッツの殻と石ころを使って、学習機能を持つ三目並べプログラムが作れるという話が書かれていました。無人島に漂流して何もすることがない人の暇つぶしのためにどうぞという感じで、非常に砕けた調子で書かれているのです（この本全体がそんな感じです）が、一応裏を取った根拠のある話が書かれている真面目な本だと思います。そして&lt;a href=&quot;/project/2015-10-10/tictactoe_bfs&quot;&gt;前回の記事&lt;/a&gt;で書いたようにBFSアルゴリズムの使い途を考えていた私は「これは使える」と思いました。この本で三目並べについてに書かれている部分はほんの数ページだけなのですが、難しい数式を使っていないので、書かれている内容（アイデア）だけでプログラム作成に必要な情報は十分にあると自分には思われました。但し、その結果強いプログラムが完成するかどうかはやってみないとわからないし、強くなるとしてもどの程度強くなるのか興味が湧いてきたので試してみることにしました。&lt;/p&gt;
 
 &lt;h3 id=&quot;多分木構造に全局面データを格納&quot;&gt;多分木構造に全局面データを格納&lt;/h3&gt;
 &lt;p&gt;　とりあえずBFSで全局面を探索しながら多分木構造のデータを生成し、DBは使わずそのデータをシリアライズして保存（RubyのMarshal.dump）して利用するという方針だけ決めて作業にかかりました。&lt;br /&gt;
-　以下のようなTreeクラスを用意して既に使っているBoardオブジェクト（１局面分のデータ）を格納していきます。メンバー変数valueにデータ（今回はBoardオブジェクト）を格納して、分岐する局面をメンバー変数childに格納していきます。メンバー変数scoreというのは手の良し悪しを評価する得点のことで、&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;上記の本&lt;/a&gt;に書いてある石ころの報酬にあたります。それぞれの局面で三目並べの９個のマスに得点（石ころの数）をつけて初期値としてとりあえず１０をセットしています。そして勝ち負けに応じて数（石ころの数）を増やしたり減らしたりして良い手悪い手を学習させるつもりです。&lt;/p&gt;
+　以下のようなTreeクラスを用意して既に使っているBoardオブジェクト（１局面分のデータ）を格納していきます。メンバー変数valueにデータ（今回はBoardオブジェクト）を格納して、分岐する局面をメンバー変数childに格納していきます。メンバー変数scoreというのは手の良し悪しを評価する得点のことで、&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873113350&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=3ab5ff4f321fd95aeb433caedf687537&quot;&gt;上記の本&lt;/a&gt;に書いてある石ころの報酬にあたります。それぞれの局面で三目並べの９個のマスに得点（石ころの数）をつけて初期値としてとりあえず１０をセットしています。そして勝ち負けに応じて数（石ころの数）を増やしたり減らしたりして良い手悪い手を学習させるつもりです。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;class Tree
   attr_reader :value, :child, :score
@@ -9126,7 +9124,7 @@ end
 
 &lt;p&gt;それにしても986,410から6,046に減るというのもかなりの差で、かなり歪な形のツリー構造になっている感じです。それと下膨れのピラミッド型にならずに手数が増えると空いているマス目が減って重複局面が増えるので、中膨れ状態になるのもやってみなければわからないなぁって感じでした。&lt;br /&gt;
 　世界中で調べ尽くされているであろうゲームなので、いろんなケースの数値を導き出しているサイト&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;と同じ数値が出せれば検証終了ってことにしようと思ったのですが、なかなかピッタリくるサイトがありませんでした。でも上の表の数値と「tictactoe」という単語で検索するとかなりの数のサイトが引っかかるのでおそらく問題ないでしょう^^;&lt;br /&gt;
-　それと&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;上記の本&lt;/a&gt;には２８７個のココナッツを用意すれば足りると書いてあり、上下左右の対称形を省けばゲームの局面の数は６０４６ではなくその数にまで絞れるのかもしれませんが、そこまでやるとプログラムが追いにくくなると思ったのでやってません。但し、その数字を出すためにはどうすればいいのか、どうやればその数字で収まることを検証できるか興味はあるので、気が向けば挑戦するかもしれませんが、とりあえず今はまず学習機能作成を進めていこうと思います。&lt;/p&gt;
+　それと&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873113350&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=3ab5ff4f321fd95aeb433caedf687537&quot;&gt;上記の本&lt;/a&gt;には２８７個のココナッツを用意すれば足りると書いてあり、上下左右の対称形を省けばゲームの局面の数は６０４６ではなくその数にまで絞れるのかもしれませんが、そこまでやるとプログラムが追いにくくなると思ったのでやってません。但し、その数字を出すためにはどうすればいいのか、どうやればその数字で収まることを検証できるか興味はあるので、気が向けば挑戦するかもしれませんが、とりあえず今はまず学習機能作成を進めていこうと思います。&lt;/p&gt;
 
 &lt;h3 id=&quot;局面を遡るメソッド&quot;&gt;局面を遡るメソッド&lt;/h3&gt;
 &lt;p&gt;　本来のBFSの使い途というか迷路の解法の際には、出口に到達した時に入り口まで遡る方法を用意しておかなくてはいけないので、この三目並べのツリーでも最終局面から初手まで遡れるように自分の親を辿るparentメソッドを用意しました。&lt;/p&gt;
@@ -9269,7 +9267,7 @@ end until buf == nil
       &lt;p&gt;&lt;a href=&quot;https://uguisu.skr.jp/othello/5-3.html&quot;&gt;オセロ（リバーシ）の作り方&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:3&quot;&gt;
-      &lt;p&gt;経験上、タイトルに「人工知能」「ＡＩ」という単語が含まれる本の多くが、単にDFSアルゴリズムの説明しかしていないものが多かったです。但し最近は事情が違ってきているようで&lt;a href=&quot;https://www.amazon.co.jp/gp/product/B00UAAK07S?psc=1&amp;amp;redirect=true&amp;amp;ref_=oh_aui_d_detailpage_o02_&quot;&gt;この本&lt;/a&gt;は参考になりました。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;経験上、タイトルに「人工知能」「ＡＩ」という単語が含まれる本の多くが、単にDFSアルゴリズムの説明しかしていないものが多かったです。但し最近は事情が違ってきているようで&lt;a href=&quot;https://www.amazon.co.jp/gp/product/B00UAAK07S/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=B00UAAK07S&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=18d70d912ac5c3941d4cb54622184d10&quot;&gt;この本&lt;/a&gt;は参考になりました。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
@@ -9795,7 +9793,7 @@ markdown-pdfコマンドを使用してPDFファイルに変換します。CSS�
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&quot;出来るだけ新しいバージョンで開発環境を作る&quot;&gt;出来るだけ新しいバージョンで開発環境を作る&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;https://www.oreilly.co.jp/books/9784873116068/&quot;&gt;Nodeクックブック&lt;/a&gt;という本を参考にしていたのですが、ネット上に転がっていた古いコードから書き始めたのが間違いの元で、本のサンプルコードが動かない環境で一通り作った後に何度も同じ箇所を書き換えなければいけない羽目に陥りました。古いバージョンのままでも動けばいいのですが、何かトラブルに見舞われた時に「もしかしてバージョンが古いせいか？新しくしてみよう」となって直接トラブルとは関係ないのに書き直す羽目に陥ったということです。皆さんも気をつけて下さい。特にExpressはバージョンによって書式（構文）の変化が激しくて、バージョンが変わるともうそれは必要がなくなったというコードが多かったです。依存関係で深刻なものは無かったのですが、自分が使っているパッケージのバージョンは把握しておいた方が右往左往しなくて済みそうです。以下が現時点で使っているパッケージ（package.json）ファイルの一部です。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4873116066/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4873116066&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=a85c2f9927b7aced7686dc86bdab6349&quot;&gt;Nodeクックブック&lt;/a&gt;という本を参考にしていたのですが、ネット上に転がっていた古いコードから書き始めたのが間違いの元で、本のサンプルコードが動かない環境で一通り作った後に何度も同じ箇所を書き換えなければいけない羽目に陥りました。古いバージョンのままでも動けばいいのですが、何かトラブルに見舞われた時に「もしかしてバージョンが古いせいか？新しくしてみよう」となって直接トラブルとは関係ないのに書き直す羽目に陥ったということです。皆さんも気をつけて下さい。特にExpressはバージョンによって書式（構文）の変化が激しくて、バージョンが変わるともうそれは必要がなくなったというコードが多かったです。依存関係で深刻なものは無かったのですが、自分が使っているパッケージのバージョンは把握しておいた方が右往左往しなくて済みそうです。以下が現時点で使っているパッケージ（package.json）ファイルの一部です。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;  , &quot;dependencies&quot;: {
       &quot;express&quot;: &quot;4.12.1&quot;
@@ -11798,6 +11796,9 @@ x_1 = \frac{y_1}{a}\\
 &lt;/script&gt;
 という感じで簡略化した数式を書いてくれれば２つのボラティリティの関係が分かり易くなると思うんですけど、どうでしょうか？&lt;/p&gt;
 
+&lt;iframe style=&quot;width:120px;height:240px;&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; src=&quot;https://rcm-fe.amazon-adsystem.com/e/cm?ref=tf_til&amp;amp;t=happyclam-22&amp;amp;m=amazon&amp;amp;o=9&amp;amp;p=8&amp;amp;l=as1&amp;amp;IS1=1&amp;amp;detail=1&amp;amp;asins=4534040512&amp;amp;linkId=70f757055fc392d543a83ad5835182c4&amp;amp;bc1=ffffff&amp;amp;lt1=_top&amp;amp;fc1=333333&amp;amp;lc1=0066c0&amp;amp;bg1=ffffff&amp;amp;f=ifr&quot;&gt;    &lt;/iframe&gt;
+
+&lt;hr /&gt;
 </description>
                 <link>https://happyclam.github.io/miscellaneous/2014-05-27/my-posi_vola</link>
                 <guid>https://happyclam.github.io/miscellaneous/2014-05-27/my-posi_vola</guid>
@@ -12023,7 +12024,7 @@ Viewでは入出力用に追加したym_expirationプロパティだけを使う
 &lt;h3 id=&quot;参考文献&quot;&gt;参考文献&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.amazon.co.jp/%E4%B8%96%E7%95%8C%E4%B8%80%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E9%87%91%E8%9E%8D%E5%B7%A5%E5%AD%A6%E3%81%AE%E6%9C%AC%E3%81%A7%E3%81%99-%E7%94%B0%E6%B8%95-%E7%9B%B4%E4%B9%9F/dp/4534040512/ref=sr_1_1?ie=UTF8&amp;amp;qid=1413415898&amp;amp;sr=8-1&amp;amp;keywords=%E3%80%8C%E4%B8%96%E7%95%8C%E4%B8%80%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E9%87%91%E8%9E%8D%E5%B7%A5%E5%AD%A6%E3%81%AE%E6%9C%AC%E3%81%A7%E3%81%99%E3%80%8D&quot;&gt;「世界一やさしい金融工学の本です」&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.amazon.co.jp/gp/product/4534040512/ref=as_li_tl?ie=UTF8&amp;amp;camp=247&amp;amp;creative=1211&amp;amp;creativeASIN=4534040512&amp;amp;linkCode=as2&amp;amp;tag=happyclam-22&amp;amp;linkId=c04933de799b8d83e3ea13d200b71a89&quot;&gt;「世界一やさしい金融工学の本です」&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
