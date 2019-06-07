@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-06-07T11:16:35+09:00</updated>
+ <updated>2019-06-07T12:04:22+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -6839,6 +6839,9 @@ catch e
 &lt;h3 id=&quot;epubの作成方法&quot;&gt;epubの作成方法&lt;/h3&gt;
 &lt;p&gt;　以前にも&lt;a href=&quot;/miscellaneous/2015-06-09/pandoc_epub&quot;&gt;電子出版に関して&lt;/a&gt;記事を書きましたが、そこではこのブログを書いているやり方と同じmarkdown形式で文章を書いてそれを何らかの方法でPDFかepubに変換して出版したいと書きました。でも、最新のpandocコマンド（1.16.0.2）で試してみても細々な不満があったのでmarkdownからepubを生成するのは諦めて、使い方を覚えるのは面倒臭くて嫌だったのですが結局MacのPagesを使って一から書くことにしました。本を書くということに不慣れなこともあって、文章だけでなく何度も構成や図表を変更するので、そういう細々とした作業は市販のソフトを使った方が楽になると感じました。&lt;a href=&quot;/miscellaneous/2015-06-09/pandoc_epub&quot;&gt;以前の記事&lt;/a&gt;に書いたような自前でepubを作るやり方はもうこれで絶対変更しないと言い切れるぐらい文章が確定してからでないとやってられないと思います。でもそうは言ってもepubに変換してから修正したくなることが多いのですが、Pagesなら出力形式をepubに指定すれば何度でも出力できるので、ちょっと修正してはまたepubに出力するという作業が非常に楽でした。ブログ書いている分にはmarkdownの方が楽なんですけど、結局その違いは、最終出力をすぐに確認出来る状態で入力作業を進められるかどうかが大事なことだということでしょう。&lt;/p&gt;
 
+&lt;script language=&quot;javascript&quot; src=&quot;//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3216166&amp;amp;pid=885863892&quot;&gt;&lt;/script&gt;
+&lt;noscript&gt;&lt;a href=&quot;//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3216166&amp;amp;pid=885863892&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;&lt;img src=&quot;//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3216166&amp;amp;pid=885863892&quot; border=&quot;0&quot; /&gt;&lt;/a&gt;&lt;/noscript&gt;
+
 &lt;h3 id=&quot;ゴールドラッシュにはスコップを売るべし&quot;&gt;「ゴールドラッシュにはスコップを売るべし」&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;/miscellaneous/2015-06-09/pandoc_epub&quot;&gt;以前の記事&lt;/a&gt;にも書きましたが最初はどこに出版するのかいろいろ迷っていたので、個人出版のノウハウ本みたいな電子書籍も何冊か買ってみましたが、役に立ったと思ったのは、この１冊（&lt;a href=&quot;https://selfpublishing.jimdo.com&quot;&gt;「電子書籍の個人作家でも、３年かければ１０００冊売れる！　セルフパブリッシングを楽しむ方法」&lt;/a&gt;）だけでした。それ以外は買って損したと思うものばかり（こんなこと言うと自分に返ってくるものですが、言わずにはいられないほど酷いものがあるんです。タイトルは伏せておきますので許して下さい）でした。今となっては特にこの本を他人にお勧めしようとは思いませんが、この本のタイトルにあるように３年で１０００冊売れたそうで、宣伝費用をかけずにこれだけ売れるのは凄いことだろうなとは思います。本を売ることが目的ならこういう類の本を書くのが一番手っ取り早いような気がします。私もそうでしたが、やっぱりみんな実際にやってみた人の体験談を知りたいんだと思います。今、ゴールドラッシュと言えるほど個人出版が流行っているのかどうか知りませんが、昔に較べて気軽に出版出来るので増えていくことは間違いないと思います。ゴールドラッシュでは自分で金鉱を見つけ出すより、そういう夢を見ている人達を相手にスコップやデニムを売った方が確実にお金になるでしょう。だから今のところ考えていませんが、私も将来体験談をまとめてノウハウ本を出すかもしれません。その時は「使命感に駆られて」とか言っていたくせに小遣い稼ぎに走ったぞと私を罵倒してください。:grin:&lt;/p&gt;
 
@@ -6890,6 +6893,9 @@ HTTPS https://app.rakuten.co.jp/services/api/Kobo/EbookSearch/20140811?applicati
   &lt;p&gt;&lt;a href=&quot;/images/kwlchecker.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/kwlchecker.png&quot; alt=&quot;kwl-checker&quot; title=&quot;KWL新着チェッカー&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
+
+&lt;script language=&quot;javascript&quot; src=&quot;//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3216166&amp;amp;pid=885863892&quot;&gt;&lt;/script&gt;
+&lt;noscript&gt;&lt;a href=&quot;//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3216166&amp;amp;pid=885863892&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;&lt;img src=&quot;//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3216166&amp;amp;pid=885863892&quot; border=&quot;0&quot; /&gt;&lt;/a&gt;&lt;/noscript&gt;
 
 &lt;h3 id=&quot;er図&quot;&gt;ER図&lt;/h3&gt;
 &lt;object data=&quot;/pdf/koboapi.pdf&quot; width=&quot;760&quot; height=&quot;900&quot;&gt;
