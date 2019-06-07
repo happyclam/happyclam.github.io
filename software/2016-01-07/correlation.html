@@ -293,7 +293,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 
 <h3 id="終盤の一手の価値を上げる">終盤の一手の価値を上げる？</h3>
 <p>　前回の記事で終盤の手ほど重要視して報酬や罰を増やす方法を試しましたが、今回は報酬や罰は変えずに終盤ほど小石（score配列）の総数を減らすという方法を試してみます。<br />
-　<a href="https://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tl?ie=UTF8&amp;camp=247&amp;creative=1211&amp;creativeASIN=4873113350&amp;linkCode=as2&amp;tag=happyclam-22&amp;linkId=3ab5ff4f321fd95aeb433caedf687537">「STATISTICS HACKS」</a>には以下のように書かれています。</p>
+　<a href="https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1444873224&amp;sr=1-1&amp;keywords=statistics+hacks">「STATISTICS HACKS」</a>には以下のように書かれています。</p>
 
 <blockquote>
   <p>３目並べのケースでは、すぐに負けにつながるミスを効率的に処分し、罰するべきだ。ゲーム終盤の手で使うビーズの総量が少なければ、より短期間で学習されていくはずだ。</p>
@@ -523,7 +523,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 　小石を浮動小数点数で扱うように変更した甲斐がありました<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。</p>
 
 <h3 id="人間並みに強くするにはどれぐらい学習が必要か">人間並みに強くするにはどれぐらい学習が必要か？</h3>
-<p>　<a href="https://www.amazon.co.jp/gp/product/4873113350/ref=as_li_tl?ie=UTF8&amp;camp=247&amp;creative=1211&amp;creativeASIN=4873113350&amp;linkCode=as2&amp;tag=happyclam-22&amp;linkId=3ab5ff4f321fd95aeb433caedf687537">「STATISTICS HACKS」</a>の仕様に沿いながらこの三目並べ機械学習プログラムを<a href="/software/2015-10-25/machine_learning">初めて作った時点</a>では、完全読み切りの最強プログラムとの対戦成績は８割の引き分け率でしたが、いろいろ弄って９割７分まで上げることが出来ました。三目並べを人間同士で対戦すればほぼ１００％引き分けになると思いますが、うっかりミスもあるので、９割７分の引き分け率というのはほぼ人間並みになったと言えるのではないでしょうか？<br />
+<p>　<a href="https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1444873224&amp;sr=1-1&amp;keywords=statistics+hacks">「STATISTICS HACKS」</a>の仕様に沿いながらこの三目並べ機械学習プログラムを<a href="/software/2015-10-25/machine_learning">初めて作った時点</a>では、完全読み切りの最強プログラムとの対戦成績は８割の引き分け率でしたが、いろいろ弄って９割７分まで上げることが出来ました。三目並べを人間同士で対戦すればほぼ１００％引き分けになると思いますが、うっかりミスもあるので、９割７分の引き分け率というのはほぼ人間並みになったと言えるのではないでしょうか？<br />
 　でも、三目並べで１０万回も対戦（学習）させてようやく９割７分になる<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>というのは、機械学習プログラムの出来としてどれほどのものなのかわかりません。学習効率を数値化して競う大会なんかがあっても面白いかなと思いました。ただ、麻雀ソフトなんかでもそうですが、三目並べだとズルをすれば簡単に強く出来るのでチェックが大変かもしれません。<br />
 　結局、ソフトウェアとしての出来の良さを競うのであれば、将棋や囲碁のように完全読み切りが不可能なゲーム（ズルが出来ないゲーム）を題材にして、強さを競うという形が分かり易く現実的なのかもしれません。</p>
 
