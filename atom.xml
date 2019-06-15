@@ -4,13 +4,184 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-06-14T19:21:18+09:00</updated>
+ <updated>2019-06-15T19:07:32+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Firebase使ってみました</title>
+   <link href="https://happyclam.github.io/programming/2019-06-15/firebase"/>
+   <updated>2019-06-15T00:00:00+09:00</updated>
+   <id>https://happyclam.github.io/programming/2019-06-15/firebase</id>
+   <content type="html">&lt;h3 id=&quot;admobからのオススメ&quot;&gt;AdMobからのオススメ&lt;/h3&gt;
+&lt;p&gt;　Google AdMobから「Firebaseと&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;をリンクすればユーザー分析に役立ちますよ」的なメールをもらったので導入してみました。でもFirebaseを導入するとAdMob広告が表示されなくなりました（何故かテスト広告だけは表示される）。以前も「あなたのサイトが検索されていますよ」というメールを貰ったので、Google Adsenseに申し込むと審査に落とされたことがあります&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。Googleはいつもツンデレです、振り回されないようにしたいものです。&lt;br /&gt;
+　でも今回はなんとかFirebaseを導入して尚且つAdMob広告も出すことが出来たのでその手順を紹介しようと思います。ついでに以前から気になっていたPush通知も実装してみました。&lt;/p&gt;
+
+&lt;h3 id=&quot;admobとリンク&quot;&gt;AdMobとリンク&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;AdMobのサイトからアプリを選択して「Firebaseにリンク」を選んでFirebaseとリンク（「新しいFirebaseプロジェクトを作成する」を選ぶ）&lt;/li&gt;
+  &lt;li&gt;Firebaseのサイトから新しく作成したプロジェクトを選んで歯車アイコンから「プロジェクトの設定」メニューを選んで&lt;code&gt;google-services.json&lt;/code&gt;をダウンロードしておく&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;firebaseプラグイン&quot;&gt;Firebaseプラグイン&lt;/h3&gt;
+&lt;p&gt;　&lt;code&gt;cordova-plugin-firebase&lt;/code&gt;を普通にインストールするとビルドで苦労すると思います。&lt;br /&gt;
+　先にダウンロード済みの&lt;code&gt;google-services.json&lt;/code&gt;をCordovaプロジェクト直下にコピーしておいて、&lt;code&gt;cordova plugin add cordova-plugin-firebase&lt;/code&gt;ではなく&lt;code&gt;cordova plugin add https://github.com/dpa99c/cordova-plugin-firebase#GH-1057-April-05-android-build-issue&lt;/code&gt;で修正済みのプラグインをインストールすれば、Firebaseの構成ファイル（google-services.json）を読み込んでAndroidManifest.xmlやproject.propertiesに必要なものを追記してくれます。アプリがPush通知を受信する際に必要な設定もAndroidManifest.xmlに書き込まれていました。Firebaseに関してネットで検索すると&lt;code&gt;build.gradle&lt;/code&gt;を書き換える例が多いと思いますが、Cordovaの場合は&lt;code&gt;project.properties&lt;/code&gt;の内容で上書きされるので、&lt;code&gt;project.properties&lt;/code&gt;ファイルを書き換える必要があります。&lt;code&gt;google-services.json&lt;/code&gt;の情報を元に自動でFirebase用のgradleファイルも生成してくれるようです。以下が自分の場合の&lt;code&gt;project.properties&lt;/code&gt;ファイルの内容です。&lt;/p&gt;
+
+&lt;p&gt;Firebaseプラグイン導入前 project.properties&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;target=android-26
+android.library.reference.1=CordovaLib
+android.library.reference.2=app
+cordova.system.library.1=com.google.android.gms:play-services-ads:11.0.4
+cordova.system.library.2=com.android.support:support-v4:25.+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Firebaseプラグイン導入後 project.properties&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;target=android-26
+android.library.reference.1=CordovaLib
+android.library.reference.2=app
+cordova.system.library.1=com.google.android.gms:play-services-ads:+
+cordova.system.library.2=com.android.support:support-v4:25.+
+cordova.gradle.include.1=cordova-plugin-firebase/happyclam-build.gradle
+cordova.system.library.3=com.google.android.gms:play-services-tagmanager:+
+cordova.system.library.4=com.google.firebase:firebase-core:+
+cordova.system.library.5=com.google.firebase:firebase-messaging:+
+cordova.system.library.6=com.google.firebase:firebase-config:+
+cordova.system.library.7=com.google.firebase:firebase-perf:+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;　この段階で&lt;code&gt;cordova build android&lt;/code&gt;でビルドすると&lt;code&gt;com.google.android.gms:play-services-basement&lt;/code&gt;とバージョンが合っていないとかいうメッセージが出てエラーになったので、&lt;code&gt;com.google.android.gms:play-services-ads&lt;/code&gt;のバージョン指定を手動で&lt;code&gt;+&lt;/code&gt;に書き換えたら成功しました。-&amp;gt; &lt;code&gt;com.google.android.gms:play-services-ads:+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;firebase対応admobプラグイン&quot;&gt;Firebase対応AdMobプラグイン&lt;/h3&gt;
+&lt;p&gt;　Firebaseを使う前はAdMob広告表示のために&lt;code&gt;cordova-plugin-admob&lt;/code&gt;プラグインを使っていました。Firebase導入後もそのままでテスト広告は表示されるのですが、実機では表示されないという状態になったので、以下のようにFirebase用のAdMobプラグイン（&lt;code&gt;cordova-plugin-admob-free&lt;/code&gt;）に置き換えます。&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;cordova plugin remove cordova-plugin-admob&lt;/li&gt;
+  &lt;li&gt;cordova plugin add cordova-plugin-admob-free –save –variable ADMOB_APP_ID=”ca-app-pub-xxxxxxxxxxxxxxxx~xxxxxxxxxx”&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;　ca-app-pub-xxxxの部分はアプリ毎のAdMobのアプリケーションIDです。-&amp;gt;&lt;a href=&quot;https://android.benigumo.com/20181017/androidmanifest-xml-に-admob-application-id-の記述が必須になったとさ/&quot;&gt;参考記事&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;AdMobプラグイン導入後 project.properties&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;target=android-26
+android.library.reference.1=CordovaLib
+android.library.reference.2=app
+cordova.system.library.1=com.google.android.gms:play-services-ads:+
+cordova.system.library.2=com.android.support:support-v4:25.+
+cordova.gradle.include.1=cordova-plugin-firebase/happyclam-build.gradle
+cordova.system.library.3=com.google.android.gms:play-services-tagmanager:+
+cordova.system.library.4=com.google.firebase:firebase-core:+
+cordova.system.library.5=com.google.firebase:firebase-messaging:+
+cordova.system.library.6=com.google.firebase:firebase-config:+
+cordova.system.library.7=com.google.firebase:firebase-perf:+
+cordova.system.library.8=com.google.android.gms:play-services-base:11.0.4
+cordova.system.library.9=com.google.android.gms:play-services-ads:11.0.4
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;　&lt;code&gt;play-services-ads&lt;/code&gt;のバージョンが&lt;code&gt;+&lt;/code&gt;から&lt;code&gt;11.0.4&lt;/code&gt;に書き換わっています。&lt;code&gt;play-services-base&lt;/code&gt;のバージョン指定と揃っていることが大事なようです。&lt;/p&gt;
+
+&lt;h3 id=&quot;admob表示スクリプト&quot;&gt;AdMob表示スクリプト&lt;/h3&gt;
+&lt;p&gt;　自分の場合、凝った使い方はしていないので、&lt;code&gt;cordova-plugin-admob&lt;/code&gt;プラグインを使った場合とほとんどコードは同じです。-&amp;gt;&lt;a href=&quot;https://github.com/ratson/cordova-plugin-admob-free&quot;&gt;参考&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Javascript&quot;&gt;    onAdLoaded: function() {
+        console.log(&quot;=== onAdLoaded ============================&quot;)
+        admob.interstitial.show();
+    },
+    onAdFailed: function() {
+        console.log(&quot;=== onAdFailed ============================&quot;)
+    },
+    onAdClosed: function() {
+        console.log(&quot;=== onAdClosed ============================&quot;)
+    },
+    onDeviceReady: function() {
+        admob.banner.config({
+            id: admobid.banner,
+            isTesting: false,
+            autoShow: true,
+        });
+        admob.banner.prepare();
+        admob.interstitial.config({
+            id: admobid.interstitial,
+            isTesting: false,
+            autoShow: true,
+        });
+        admob.interstitial.prepare();
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;push通知&quot;&gt;Push通知&lt;/h3&gt;
+&lt;p&gt;　&lt;code&gt;cordova-plugin-firebase&lt;/code&gt;プラグインだけあれば、受信が可能です。Firebaseサイトの「Cloud Messaging」メニューから「通知の作成」が出来ます。&lt;/p&gt;
+
+&lt;p&gt;受信部:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-JavaScript&quot;&gt;    onDeviceReady: function() {
+        window.FirebasePlugin.hasPermission(function(data){
+            console.log('hasPermission: ' + data.isEnabled);
+        });
+        window.FirebasePlugin.getToken(function(token) {
+            localStorage.setItem(&quot;FCMtoken&quot;, token);
+        }, function(error) {
+            console.log('token: ' + error);
+        });
+        window.FirebasePlugin.onTokenRefresh(function(token) {
+            localStorage.setItem(&quot;FCMtoken&quot;, token);
+        }, function(error) {
+            console.log('tokenRefresh: ' + error);
+        });
+        window.FirebasePlugin.onNotificationOpen(function(data) {
+            if (data.wasTapped) {
+                localStorage.setItem(&quot;serverMessage&quot;,JSON.stringify(data));
+            } else {
+                localStorage.setItem(&quot;serverMessage&quot;,JSON.stringify(data));
+                window.plugins.toast.showWithOptions({
+                    message: data[lng.slice(0,2)],
+                    duration: '15000',
+                    position: 'center',
+                    styling: {
+                        opacity: 0.75,
+                        backgroundColor: '#E6E6E6',
+                        textColor: '#000000',
+                        textSize: 40,
+                        cornerRadius: 16
+                    }
+                });
+            }
+        }, function(msg) {
+            console.log(msg);
+        }, function(err) {
+            console.log(err);
+        });
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Firebase通知作成画面:&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/firebase_push.png&quot;&gt;&lt;img src=&quot;/images/firebase_push.png&quot; alt=&quot;Push通知作成画面&quot; title=&quot;Push通知作成画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;アプリでの通知受信時:&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/push_notification.png&quot;&gt;&lt;img src=&quot;/images/push_notification.png&quot; alt=&quot;Push通知サンプル&quot; title=&quot;Push通知サンプル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　アプリを立ち上げている人に通知内容をtoast表示しているだけです。アプリを立ち上げていない場合はスマホの通知欄にメッセージが届きます。いろいろ使い道はありそうですが、何をするにも運用コストがかかるので難しいところです。&lt;/p&gt;
+
+&lt;h3 id=&quot;プライバシーポリシー&quot;&gt;プライバシーポリシー&lt;/h3&gt;
+&lt;p&gt;　Firebaseをアプリに導入するとポリシー違反でアプリが削除されるケースがあると聞いたので、一応プライバシーポリシーにFirebase利用している旨を明記しました。自分のアプリの場合全てのアプリのAndroidManifest.xmlに&lt;code&gt;&amp;lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot; tools:node=&quot;remove&quot; /&amp;gt;&lt;/code&gt;の一行を入れてる&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;ので問題ないと思っていますが、しばらく様子見です。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;有料のgoogle広告のお誘いだったようです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;以前GDPR問題の際に追記したと思います。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>「歩なし将棋」アプリリリースしました</title>

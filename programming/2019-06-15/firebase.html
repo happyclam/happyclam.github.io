@@ -1,0 +1,514 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Firebase使ってみました</title>
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'UA-1752720-7');
+    </script>
+    <meta name="author" content="happyclam">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="Firebase使ってみました">
+  
+  
+  <meta name="twitter:url" content="/programming/2019-06-15/firebase">
+  
+  
+  <meta name="twitter:description" content="CordovaでPush通知。">
+  
+  
+  <meta name="twitter:image:src" content="/images/33shogi_logo.png">
+  
+
+  <link rel="canonical" href="/programming/2019-06-15/firebase" />
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script language="JavaScript">
+$(document).ready( function () {
+    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
+<script src="/assets/themes/twitter/js/jquery.min.js"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
+<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
+<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-1752720-7', 'happyclam.github.io');
+      ga('send', 'pageview');
+    </script>
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div style="text-align: center;">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-9018029357773039",
+        enable_page_level_ads: true
+        });
+      </script>
+    </div>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">自己満足プログラミング</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/policy">Policy</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/profile">About</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="row-fluid">
+        <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+        <div class="span9"
+             <!-- Html Elements for Search -->
+             <div id="search-container" align="right">
+               <input type="text" id="search-input" placeholder="search...">
+               <ul id="results-container"></ul>
+             </div>
+             <div class="results"></div>
+        </div>
+      </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Firebase使ってみました </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>15 June 2019</span>
+    </div>
+    <div class="content">
+      <h3 id="admobからのオススメ">AdMobからのオススメ</h3>
+<p>　Google AdMobから「Firebaseと<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>をリンクすればユーザー分析に役立ちますよ」的なメールをもらったので導入してみました。でもFirebaseを導入するとAdMob広告が表示されなくなりました（何故かテスト広告だけは表示される）。以前も「あなたのサイトが検索されていますよ」というメールを貰ったので、Google Adsenseに申し込むと審査に落とされたことがあります<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。Googleはいつもツンデレです、振り回されないようにしたいものです。<br />
+　でも今回はなんとかFirebaseを導入して尚且つAdMob広告も出すことが出来たのでその手順を紹介しようと思います。ついでに以前から気になっていたPush通知も実装してみました。</p>
+
+<h3 id="admobとリンク">AdMobとリンク</h3>
+<ul>
+  <li>AdMobのサイトからアプリを選択して「Firebaseにリンク」を選んでFirebaseとリンク（「新しいFirebaseプロジェクトを作成する」を選ぶ）</li>
+  <li>Firebaseのサイトから新しく作成したプロジェクトを選んで歯車アイコンから「プロジェクトの設定」メニューを選んで<code>google-services.json</code>をダウンロードしておく</li>
+</ul>
+
+<h3 id="firebaseプラグイン">Firebaseプラグイン</h3>
+<p>　<code>cordova-plugin-firebase</code>を普通にインストールするとビルドで苦労すると思います。<br />
+　先にダウンロード済みの<code>google-services.json</code>をCordovaプロジェクト直下にコピーしておいて、<code>cordova plugin add cordova-plugin-firebase</code>ではなく<code>cordova plugin add https://github.com/dpa99c/cordova-plugin-firebase#GH-1057-April-05-android-build-issue</code>で修正済みのプラグインをインストールすれば、Firebaseの構成ファイル（google-services.json）を読み込んでAndroidManifest.xmlやproject.propertiesに必要なものを追記してくれます。アプリがPush通知を受信する際に必要な設定もAndroidManifest.xmlに書き込まれていました。Firebaseに関してネットで検索すると<code>build.gradle</code>を書き換える例が多いと思いますが、Cordovaの場合は<code>project.properties</code>の内容で上書きされるので、<code>project.properties</code>ファイルを書き換える必要があります。<code>google-services.json</code>の情報を元に自動でFirebase用のgradleファイルも生成してくれるようです。以下が自分の場合の<code>project.properties</code>ファイルの内容です。</p>
+
+<p>Firebaseプラグイン導入前 project.properties</p>
+<pre><code>target=android-26
+android.library.reference.1=CordovaLib
+android.library.reference.2=app
+cordova.system.library.1=com.google.android.gms:play-services-ads:11.0.4
+cordova.system.library.2=com.android.support:support-v4:25.+
+</code></pre>
+
+<p>Firebaseプラグイン導入後 project.properties</p>
+<pre><code>target=android-26
+android.library.reference.1=CordovaLib
+android.library.reference.2=app
+cordova.system.library.1=com.google.android.gms:play-services-ads:+
+cordova.system.library.2=com.android.support:support-v4:25.+
+cordova.gradle.include.1=cordova-plugin-firebase/happyclam-build.gradle
+cordova.system.library.3=com.google.android.gms:play-services-tagmanager:+
+cordova.system.library.4=com.google.firebase:firebase-core:+
+cordova.system.library.5=com.google.firebase:firebase-messaging:+
+cordova.system.library.6=com.google.firebase:firebase-config:+
+cordova.system.library.7=com.google.firebase:firebase-perf:+
+</code></pre>
+<p>　この段階で<code>cordova build android</code>でビルドすると<code>com.google.android.gms:play-services-basement</code>とバージョンが合っていないとかいうメッセージが出てエラーになったので、<code>com.google.android.gms:play-services-ads</code>のバージョン指定を手動で<code>+</code>に書き換えたら成功しました。-&gt; <code>com.google.android.gms:play-services-ads:+</code></p>
+
+<h3 id="firebase対応admobプラグイン">Firebase対応AdMobプラグイン</h3>
+<p>　Firebaseを使う前はAdMob広告表示のために<code>cordova-plugin-admob</code>プラグインを使っていました。Firebase導入後もそのままでテスト広告は表示されるのですが、実機では表示されないという状態になったので、以下のようにFirebase用のAdMobプラグイン（<code>cordova-plugin-admob-free</code>）に置き換えます。</p>
+<ul>
+  <li>cordova plugin remove cordova-plugin-admob</li>
+  <li>cordova plugin add cordova-plugin-admob-free –save –variable ADMOB_APP_ID=”ca-app-pub-xxxxxxxxxxxxxxxx~xxxxxxxxxx”</li>
+</ul>
+
+<p>　ca-app-pub-xxxxの部分はアプリ毎のAdMobのアプリケーションIDです。-&gt;<a href="https://android.benigumo.com/20181017/androidmanifest-xml-に-admob-application-id-の記述が必須になったとさ/">参考記事</a></p>
+
+<p>AdMobプラグイン導入後 project.properties</p>
+<pre><code>target=android-26
+android.library.reference.1=CordovaLib
+android.library.reference.2=app
+cordova.system.library.1=com.google.android.gms:play-services-ads:+
+cordova.system.library.2=com.android.support:support-v4:25.+
+cordova.gradle.include.1=cordova-plugin-firebase/happyclam-build.gradle
+cordova.system.library.3=com.google.android.gms:play-services-tagmanager:+
+cordova.system.library.4=com.google.firebase:firebase-core:+
+cordova.system.library.5=com.google.firebase:firebase-messaging:+
+cordova.system.library.6=com.google.firebase:firebase-config:+
+cordova.system.library.7=com.google.firebase:firebase-perf:+
+cordova.system.library.8=com.google.android.gms:play-services-base:11.0.4
+cordova.system.library.9=com.google.android.gms:play-services-ads:11.0.4
+</code></pre>
+<p>　<code>play-services-ads</code>のバージョンが<code>+</code>から<code>11.0.4</code>に書き換わっています。<code>play-services-base</code>のバージョン指定と揃っていることが大事なようです。</p>
+
+<h3 id="admob表示スクリプト">AdMob表示スクリプト</h3>
+<p>　自分の場合、凝った使い方はしていないので、<code>cordova-plugin-admob</code>プラグインを使った場合とほとんどコードは同じです。-&gt;<a href="https://github.com/ratson/cordova-plugin-admob-free">参考</a></p>
+
+<pre><code class="language-Javascript">    onAdLoaded: function() {
+        console.log("=== onAdLoaded ============================")
+        admob.interstitial.show();
+    },
+    onAdFailed: function() {
+        console.log("=== onAdFailed ============================")
+    },
+    onAdClosed: function() {
+        console.log("=== onAdClosed ============================")
+    },
+    onDeviceReady: function() {
+        admob.banner.config({
+            id: admobid.banner,
+            isTesting: false,
+            autoShow: true,
+        });
+        admob.banner.prepare();
+        admob.interstitial.config({
+            id: admobid.interstitial,
+            isTesting: false,
+            autoShow: true,
+        });
+        admob.interstitial.prepare();
+    }
+</code></pre>
+
+<h3 id="push通知">Push通知</h3>
+<p>　<code>cordova-plugin-firebase</code>プラグインだけあれば、受信が可能です。Firebaseサイトの「Cloud Messaging」メニューから「通知の作成」が出来ます。</p>
+
+<p>受信部:</p>
+<pre><code class="language-JavaScript">    onDeviceReady: function() {
+        window.FirebasePlugin.hasPermission(function(data){
+            console.log('hasPermission: ' + data.isEnabled);
+        });
+        window.FirebasePlugin.getToken(function(token) {
+            localStorage.setItem("FCMtoken", token);
+        }, function(error) {
+            console.log('token: ' + error);
+        });
+        window.FirebasePlugin.onTokenRefresh(function(token) {
+            localStorage.setItem("FCMtoken", token);
+        }, function(error) {
+            console.log('tokenRefresh: ' + error);
+        });
+        window.FirebasePlugin.onNotificationOpen(function(data) {
+            if (data.wasTapped) {
+                localStorage.setItem("serverMessage",JSON.stringify(data));
+            } else {
+                localStorage.setItem("serverMessage",JSON.stringify(data));
+                window.plugins.toast.showWithOptions({
+                    message: data[lng.slice(0,2)],
+                    duration: '15000',
+                    position: 'center',
+                    styling: {
+                        opacity: 0.75,
+                        backgroundColor: '#E6E6E6',
+                        textColor: '#000000',
+                        textSize: 40,
+                        cornerRadius: 16
+                    }
+                });
+            }
+        }, function(msg) {
+            console.log(msg);
+        }, function(err) {
+            console.log(err);
+        });
+    }
+</code></pre>
+
+<p>Firebase通知作成画面:</p>
+<div style="width:320px; margin: 0 auto;">
+  <p><a href="/images/firebase_push.png"><img src="/images/firebase_push.png" alt="Push通知作成画面" title="Push通知作成画面" /></a></p>
+</div>
+
+<p>アプリでの通知受信時:</p>
+<div style="width:320px; margin: 0 auto;">
+  <p><a href="/images/push_notification.png"><img src="/images/push_notification.png" alt="Push通知サンプル" title="Push通知サンプル" /></a></p>
+</div>
+
+<p>　アプリを立ち上げている人に通知内容をtoast表示しているだけです。アプリを立ち上げていない場合はスマホの通知欄にメッセージが届きます。いろいろ使い道はありそうですが、何をするにも運用コストがかかるので難しいところです。</p>
+
+<h3 id="プライバシーポリシー">プライバシーポリシー</h3>
+<p>　Firebaseをアプリに導入するとポリシー違反でアプリが削除されるケースがあると聞いたので、一応プライバシーポリシーにFirebase利用している旨を明記しました。自分のアプリの場合全てのアプリのAndroidManifest.xmlに<code>&lt;uses-permission android:name="android.permission.READ_PHONE_STATE" tools:node="remove" /&gt;</code>の一行を入れてる<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>ので問題ないと思っていますが、しばらく様子見です。</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>有料のgoogle広告のお誘いだったようです。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>以前GDPR問題の際に追記したと思います。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#programming-ref">
+    		programming <span>25</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#firebase-ref">firebase <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#cordova-ref">cordova <span>29</span></a></li>
+     
+    	<li><a href="/tags.html#android-ref">android <span>39</span></a></li>
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>39</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/project/2019-05-21/funashishogiapp" title="「歩なし将棋」アプリリリースしました">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled"><a>Next &rarr;</a>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'hello-my-world'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';        
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hello-my-world.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2019 happyclam
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

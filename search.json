@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Firebase使ってみました",
+      "category" : "programming",
+      "tags"     : "firebase, cordova, android, javascript",
+      "url"      : "/programming/2019-06-15/firebase",
+      "date"     : "2019-06-15 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "「歩なし将棋」アプリリリースしました",
       "category" : "project",
       "tags"     : "coffeescript, cordova, android, javascript, shogi",
