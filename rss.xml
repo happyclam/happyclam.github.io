@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-06-16T09:18:43+09:00</lastBuildDate>
-        <pubDate>2019-06-16T09:18:43+09:00</pubDate>
+        <lastBuildDate>2019-06-16T09:33:10+09:00</lastBuildDate>
+        <pubDate>2019-06-16T09:33:10+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -500,6 +500,13 @@ cordova.system.library.9=com.google.android.gms:play-services-ads:11.0.4
 &lt;/table&gt;
 
 &lt;p&gt;※アルゴリズムの詳しい内容は&lt;a href=&quot;/software/2019-02-26/iterativedeeping&quot;&gt;この記事&lt;/a&gt;を参照してください。&lt;/p&gt;
+
+&lt;h3 id=&quot;push通知対応&quot;&gt;Push通知対応&lt;/h3&gt;
+&lt;p&gt;　Version1.0.2.1から運営からのPush通知を受信できます。左上右側にあるアイコンをタップすると受信した最新のメッセージを再度表示します。受信したメッセージがないときは何も表示されません。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/push_notification_shogi77.png&quot;&gt;&lt;img src=&quot;/images/push_notification_shogi77.png&quot; alt=&quot;Push通知サンプル&quot; title=&quot;Push通知サンプル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;hr /&gt;
 
