@@ -271,6 +271,34 @@ MathJax.Hub.Config({
 
 <p>※アルゴリズムの詳しい内容は<a href="/software/2019-02-26/iterativedeeping">この記事</a>を参照してください。</p>
 
+<h3 id="クリップボードを使った棋譜の入出力対応">クリップボードを使った棋譜の入出力対応</h3>
+<p>　他のアプリ（<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>、<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>、<a href="https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam">禽将棋アプリ</a>、<a href="https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam">７七将棋アプリ</a>）同様、棋譜の入出力に対応しています。<br />
+　Twitterで知ったのですが、「全部角」対「全部飛車」で戦う遊び方があるようで、９×９の将棋盤を使用する「歩なし将棋アプリ」では、以下のような棋譜ファイルを読み込ませれば「全部角」対「全部飛車」で遊ぶことも出来ます。</p>
+
+<pre><code>' #歩なし将棋 https://play.google.com/store/apps/details?id=funashishogi.io.github.happyclam 
+'
+V2.2
+N+AI
+N-AI
+P1-HI-HI-HI-HI-OU-HI-HI-HI-HI
+P2 * -HI *  *  *  *  * -HI * 
+P3-HI-HI-HI-HI-HI-HI-HI-HI-HI
+P4 *  *  *  *  *  *  *  *  * 
+P5 *  *  *  *  *  *  *  *  * 
+P6 *  *  *  *  *  *  *  *  * 
+P7+KA+KA+KA+KA+KA+KA+KA+KA+KA
+P8 * +KA *  *  *  *  * +KA * 
+P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
++
+</code></pre>
+
+<div style="width:320px; margin: 0 auto;">
+  <p><a href="/images/kaku_hisya_only.png"><img src="/images/kaku_hisya_only.png" alt="全部角対全部飛車" title="全部角対全部飛車" /></a></p>
+</div>
+
+<p>　棋譜を読み込んだ後、「再開」ボタンをタップすればゲーム開始されます。誤って「新規対局」ボタンをタップすると読み込んだ棋譜ではなく、歩なし将棋の初期配置からゲーム開始されますので注意してください。<br />
+　但し、歩なし将棋アプリでは想定していなかった遊び方なので、「歩」を使うことが出来ません。今後、駒を自由に配置出来る別アプリを作るかもしれません。</p>
+
 <h3 id="ａｉの強さ">ＡＩの強さ</h3>
 <p>　ＡＩの強さは２段階です。</p>
 
