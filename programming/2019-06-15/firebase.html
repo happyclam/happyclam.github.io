@@ -296,7 +296,11 @@ cordova.system.library.9=com.google.android.gms:play-services-ads:11.0.4
 <h3 id="admob表示スクリプト">AdMob表示スクリプト</h3>
 <p>　自分の場合、凝った使い方はしていないので、<code>cordova-plugin-admob</code>プラグインを使った場合とほとんどコードは同じです。-&gt;<a href="https://github.com/ratson/cordova-plugin-admob-free">参考</a></p>
 
-<pre><code class="language-Javascript">    onAdLoaded: function() {
+<pre><code class="language-Javascript">    document.addEventListener('admob.interstitial.events.LOAD', this.onAdLoaded, false);
+    document.addEventListener('admob.interstitial.events.LOAD_FAIL', this.onAdFailed, false);
+    document.addEventListener('admob.interstitial.events.CLOSE', this.onAdClosed, false);
+
+    onAdLoaded: function() {
         console.log("=== onAdLoaded ============================")
         admob.interstitial.show();
     },
@@ -323,7 +327,7 @@ cordova.system.library.9=com.google.android.gms:play-services-ads:11.0.4
 </code></pre>
 
 <h3 id="push通知">Push通知</h3>
-<p>　<code>cordova-plugin-firebase</code>プラグインだけあれば、受信が可能です。Firebaseサイトの「Cloud Messaging」メニューから「通知の作成」が出来ます。</p>
+<p>　<code>cordova-plugin-firebase</code>プラグインだけあれば、受信が可能です。Firebaseサイトの「Cloud Messaging」メニューから「通知の作成」も出来ます。</p>
 
 <p>受信部:</p>
 <pre><code class="language-JavaScript">    onDeviceReady: function() {
@@ -379,7 +383,7 @@ cordova.system.library.9=com.google.android.gms:play-services-ads:11.0.4
 <p>　アプリを立ち上げている人に通知内容をtoast表示しているだけです。アプリを立ち上げていない場合はスマホの通知欄にメッセージが届きます。いろいろ使い道はありそうですが、何をするにも運用コストがかかるので難しいところです。</p>
 
 <h3 id="プライバシーポリシー">プライバシーポリシー</h3>
-<p>　Firebaseをアプリに導入するとポリシー違反でアプリが削除されるケースがあると聞いたので、一応プライバシーポリシーにFirebase利用している旨を明記しました。自分のアプリの場合全てのアプリのAndroidManifest.xmlに<code>&lt;uses-permission android:name="android.permission.READ_PHONE_STATE" tools:node="remove" /&gt;</code>の一行を入れてる<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>ので問題ないと思っていますが、しばらく様子見です。</p>
+<p>　Firebaseをアプリに導入するとポリシー違反でアプリが削除されるケースがあると聞いたので、一応プライバシーポリシーにFirebase利用している旨を明記しました。自分のアプリの場合全てのアプリのAndroidManifest.xmlに<code>&lt;uses-permission android:name="android.permission.READ_PHONE_STATE" tools:node="remove" /&gt;</code>の一行を入れてる<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>ので問題ないと思っています。</p>
 
 <hr />
 
@@ -389,7 +393,7 @@ cordova.system.library.9=com.google.android.gms:play-services-ads:11.0.4
       <p>有料のgoogle広告のお誘いだったようです。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
     </li>
     <li id="fn:2">
-      <p>以前GDPR問題の際に追記したと思います。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+      <p>元々個人情報にはアクセスしていないのですが、それを明示するために以前GDPR問題の際に追記したと思います。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>
