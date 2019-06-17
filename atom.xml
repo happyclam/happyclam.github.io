@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-06-17T19:27:34+09:00</updated>
+ <updated>2019-06-17T19:32:48+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -94,7 +94,7 @@ cordova.system.library.6=com.google.firebase:firebase-perf:+
 cordova.system.library.7=com.google.android.gms:play-services-base:+
 cordova.system.library.8=com.google.android.gms:play-services-ads:+
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;　本当は&lt;a href=&quot;https://developers.google.com/android/guides/setup&quot;&gt;このリンク先&lt;/a&gt;を見てバージョンを指定する方がいいのかもしれませんが、自分が確認した限りでは&lt;code&gt;+&lt;/code&gt;の時よりエラーの種類が増えたので結局全部&lt;code&gt;+&lt;/code&gt;に揃えました。&lt;/p&gt;
+&lt;p&gt;　本当は&lt;a href=&quot;https://developers.google.com/android/guides/setup&quot;&gt;このリンク先&lt;/a&gt;を見てバージョンを指定する方がいいのかもしれませんが、自分が確認した限りでは&lt;code&gt;+&lt;/code&gt;の時よりWarningの種類が増えたので結局全部&lt;code&gt;+&lt;/code&gt;に揃えました。&lt;/p&gt;
 
 &lt;h3 id=&quot;admob表示スクリプト&quot;&gt;AdMob表示スクリプト&lt;/h3&gt;
 &lt;p&gt;　自分の場合、凝った使い方はしていないので、&lt;code&gt;cordova-plugin-admob&lt;/code&gt;プラグインを使った場合とほとんどコードは同じです。-&amp;gt;&lt;a href=&quot;https://github.com/ratson/cordova-plugin-admob-free&quot;&gt;参考&lt;/a&gt;&lt;/p&gt;
