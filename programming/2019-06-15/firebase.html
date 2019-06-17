@@ -291,7 +291,22 @@ cordova.system.library.7=com.google.firebase:firebase-perf:+
 cordova.system.library.8=com.google.android.gms:play-services-base:11.0.4
 cordova.system.library.9=com.google.android.gms:play-services-ads:11.0.4
 </code></pre>
-<p>　<code>play-services-ads</code>のバージョンが<code>+</code>から<code>11.0.4</code>に書き換わっています。<code>play-services-base</code>のバージョン指定と揃っていることが大事なようです。</p>
+<p>　下二行が追加されたものです。<code>play-services-ads</code>が重複しています。これでビルドは通ったのですが、最終的には重複行を削除して<a href="https://developers.google.com/android/guides/setup">このリンク先</a>を見てバージョンを指定し直しました。最終的に出来上がった<code>project.properties</code>ファイルは以下のものです。</p>
+
+<p>最終的に使用している project.properties</p>
+<pre><code>target=android-26
+android.library.reference.1=CordovaLib
+android.library.reference.2=app
+cordova.system.library.1=com.android.support:support-v4:25.+
+cordova.gradle.include.1=cordova-plugin-firebase/happyclam-build.gradle
+cordova.system.library.2=com.google.android.gms:play-services-tagmanager:+
+cordova.system.library.3=com.google.firebase:firebase-core:+
+cordova.system.library.4=com.google.firebase:firebase-messaging:+
+cordova.system.library.5=com.google.firebase:firebase-config:+
+cordova.system.library.6=com.google.firebase:firebase-perf:+
+cordova.system.library.7=com.google.android.gms:play-services-base:16.1.0
+cordova.system.library.8=com.google.android.gms:play-services-ads:17.2.0
+</code></pre>
 
 <h3 id="admob表示スクリプト">AdMob表示スクリプト</h3>
 <p>　自分の場合、凝った使い方はしていないので、<code>cordova-plugin-admob</code>プラグインを使った場合とほとんどコードは同じです。-&gt;<a href="https://github.com/ratson/cordova-plugin-admob-free">参考</a></p>

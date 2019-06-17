@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-06-17T11:24:13+09:00</lastBuildDate>
-        <pubDate>2019-06-17T11:24:13+09:00</pubDate>
+        <lastBuildDate>2019-06-17T17:50:31+09:00</lastBuildDate>
+        <pubDate>2019-06-17T17:50:31+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -73,7 +73,22 @@ cordova.system.library.7=com.google.firebase:firebase-perf:+
 cordova.system.library.8=com.google.android.gms:play-services-base:11.0.4
 cordova.system.library.9=com.google.android.gms:play-services-ads:11.0.4
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;　&lt;code&gt;play-services-ads&lt;/code&gt;のバージョンが&lt;code&gt;+&lt;/code&gt;から&lt;code&gt;11.0.4&lt;/code&gt;に書き換わっています。&lt;code&gt;play-services-base&lt;/code&gt;のバージョン指定と揃っていることが大事なようです。&lt;/p&gt;
+&lt;p&gt;　下二行が追加されたものです。&lt;code&gt;play-services-ads&lt;/code&gt;が重複しています。これでビルドは通ったのですが、最終的には重複行を削除して&lt;a href=&quot;https://developers.google.com/android/guides/setup&quot;&gt;このリンク先&lt;/a&gt;を見てバージョンを指定し直しました。最終的に出来上がった&lt;code&gt;project.properties&lt;/code&gt;ファイルは以下のものです。&lt;/p&gt;
+
+&lt;p&gt;最終的に使用している project.properties&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;target=android-26
+android.library.reference.1=CordovaLib
+android.library.reference.2=app
+cordova.system.library.1=com.android.support:support-v4:25.+
+cordova.gradle.include.1=cordova-plugin-firebase/happyclam-build.gradle
+cordova.system.library.2=com.google.android.gms:play-services-tagmanager:+
+cordova.system.library.3=com.google.firebase:firebase-core:+
+cordova.system.library.4=com.google.firebase:firebase-messaging:+
+cordova.system.library.5=com.google.firebase:firebase-config:+
+cordova.system.library.6=com.google.firebase:firebase-perf:+
+cordova.system.library.7=com.google.android.gms:play-services-base:16.1.0
+cordova.system.library.8=com.google.android.gms:play-services-ads:17.2.0
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&quot;admob表示スクリプト&quot;&gt;AdMob表示スクリプト&lt;/h3&gt;
 &lt;p&gt;　自分の場合、凝った使い方はしていないので、&lt;code&gt;cordova-plugin-admob&lt;/code&gt;プラグインを使った場合とほとんどコードは同じです。-&amp;gt;&lt;a href=&quot;https://github.com/ratson/cordova-plugin-admob-free&quot;&gt;参考&lt;/a&gt;&lt;/p&gt;
