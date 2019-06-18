@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-06-17T19:32:48+09:00</updated>
+ <updated>2019-06-18T20:52:47+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -187,6 +187,32 @@ cordova.system.library.8=com.google.android.gms:play-services-ads:+
 
 &lt;h3 id=&quot;プライバシーポリシー&quot;&gt;プライバシーポリシー&lt;/h3&gt;
 &lt;p&gt;　Firebaseをアプリに導入するとポリシー違反でアプリが削除されるケースがあると聞いたので、一応プライバシーポリシーにFirebase利用している旨を明記しました。自分のアプリの場合全てのアプリのAndroidManifest.xmlに&lt;code&gt;&amp;lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot; tools:node=&quot;remove&quot; /&amp;gt;&lt;/code&gt;の一行を入れてる&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;ので問題ないと思っています。&lt;/p&gt;
+
+&lt;h3 id=&quot;追記実施環境&quot;&gt;追記：実施環境&lt;/h3&gt;
+&lt;p&gt;　上記手順は以下の環境で実施しました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$cordova -v
+8.1.2 (cordova-lib@8.1.1)
+
+$cordova platform ls
+Installed platforms:
+  android 7.1.0
+Available platforms: 
+  browser ~5.0.1
+  ios ~4.5.4
+  osx ~4.0.1
+  windows ~6.0.0
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　android@7.1.0の環境だと３つのプロジェクトですんなりFirebase導入出来ましたが、android@7.1.4の別プロジェクトでやってみるとFirebaseライブラリのバージョンによるConflictが発生して上記のようにすんなりとは出来ませんでした。&lt;br /&gt;
+　うまくビルド出来ても、Firebase導入後ダッシュボードを眺めていると、以下のようにステータスが&lt;code&gt;調査が必要&lt;/code&gt;となって「クラッシュに遭遇していないユーザー数」が&lt;code&gt;100%&lt;/code&gt;になりません。問題のない他のアプリのステータスは&lt;code&gt;成功&lt;/code&gt;と出力され、「クラッシュに遭遇していないユーザー数」が&lt;code&gt;100%&lt;/code&gt;になります。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/firebase_crash.png&quot;&gt;&lt;img src=&quot;/images/firebase_crash.png&quot; alt=&quot;リリース直後のステータス&quot; title=&quot;リリース直後のステータス&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　やはり環境によっては苦労が伴いそうです。&lt;/p&gt;
 
 &lt;hr /&gt;
 

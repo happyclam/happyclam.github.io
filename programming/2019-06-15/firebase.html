@@ -401,6 +401,32 @@ cordova.system.library.8=com.google.android.gms:play-services-ads:+
 <h3 id="プライバシーポリシー">プライバシーポリシー</h3>
 <p>　Firebaseをアプリに導入するとポリシー違反でアプリが削除されるケースがあると聞いたので、一応プライバシーポリシーにFirebase利用している旨を明記しました。自分のアプリの場合全てのアプリのAndroidManifest.xmlに<code>&lt;uses-permission android:name="android.permission.READ_PHONE_STATE" tools:node="remove" /&gt;</code>の一行を入れてる<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>ので問題ないと思っています。</p>
 
+<h3 id="追記実施環境">追記：実施環境</h3>
+<p>　上記手順は以下の環境で実施しました。</p>
+
+<pre><code>$cordova -v
+8.1.2 (cordova-lib@8.1.1)
+
+$cordova platform ls
+Installed platforms:
+  android 7.1.0
+Available platforms: 
+  browser ~5.0.1
+  ios ~4.5.4
+  osx ~4.0.1
+  windows ~6.0.0
+
+</code></pre>
+
+<p>　android@7.1.0の環境だと３つのプロジェクトですんなりFirebase導入出来ましたが、android@7.1.4の別プロジェクトでやってみるとFirebaseライブラリのバージョンによるConflictが発生して上記のようにすんなりとは出来ませんでした。<br />
+　うまくビルド出来ても、Firebase導入後ダッシュボードを眺めていると、以下のようにステータスが<code>調査が必要</code>となって「クラッシュに遭遇していないユーザー数」が<code>100%</code>になりません。問題のない他のアプリのステータスは<code>成功</code>と出力され、「クラッシュに遭遇していないユーザー数」が<code>100%</code>になります。</p>
+
+<div style="width:320px; margin: 0 auto;">
+  <p><a href="/images/firebase_crash.png"><img src="/images/firebase_crash.png" alt="リリース直後のステータス" title="リリース直後のステータス" /></a></p>
+</div>
+
+<p>　やはり環境によっては苦労が伴いそうです。</p>
+
 <hr />
 
 <div class="footnotes">
