@@ -427,6 +427,63 @@ Available platforms:
 
 <p>　やはり環境によっては苦労が伴いそうです。</p>
 
+<h3 id="追記androidxに移行">追記：AndroidXに移行</h3>
+<p>　android@7.1.4だとバージョンに違いによるConflictが起きたと書きましたが、cordovaのandroid環境を8.0.0にバージョンアップした後、以下の手順で<a href="https://developer.android.com/jetpack/androidx/migrate">androidxライブラリ</a>に移行することで簡単にビルド出来ました。</p>
+
+<ol>
+  <li>Android Studioを使ってCordovaプロジェクトをAndroidXに移行（[Refactor] -&gt; [Migrate to AndroidX…] -&gt; [Do Refactor]）</li>
+  <li>Cordova環境でビルド後、既に紹介済みの手順で<code>cordova-plugin-firebase 2.0.5</code>を導入。</li>
+  <li>ビルドエラーが出る状態でも構わず<code>cordova-plugin-androidx</code>プラグインと<code>cordova-plugin-androidx-adapter</code>プラグインをインストール</li>
+</ol>
+
+<pre><code>$cordova -v
+8.1.2 (cordova-lib@8.1.1)
+
+$cordova platform ls
+Installed platforms:
+  android 8.0.0
+Available platforms: 
+  browser ~5.0.1
+  ios ~4.5.4
+  osx ~4.0.1
+  windows ~6.0.0
+
+$cordova plugin list
+cordova-admob-sdk 0.24.1 "AdMob SDK"
+cordova-plugin-admob-free 0.27.0 "Cordova AdMob Plugin"
+cordova-plugin-androidx 1.0.2 "cordova-plugin-androidx"
+cordova-plugin-androidx-adapter 1.1.0 "cordova-plugin-androidx-adapter"
+cordova-plugin-console 1.1.0 "Console"
+cordova-plugin-crypt-file 1.3.3 "CordovaCrypt"
+cordova-plugin-device 1.1.7 "Device"
+cordova-plugin-dialogs 1.3.4 "Notification"
+cordova-plugin-firebase 2.0.5 "Google Firebase Plugin"
+cordova-plugin-globalization 1.11.0 "Globalization"
+cordova-plugin-splashscreen 4.1.0 "Splashscreen"
+cordova-plugin-whitelist 1.3.3 "Whitelist"
+cordova-plugin-x-socialsharing 5.2.1 "SocialSharing"
+cordova-plugin-x-toast 2.7.2 "Toast"
+cordova-promise-polyfill 0.0.2 "cordova-promise-polyfill"
+es6-promise-plugin 4.1.0 "Promise"
+
+</code></pre>
+
+<p>Cordova android@8.0.0環境で最終的に使用している project.properties</p>
+<pre><code>target=android-28
+android.library.reference.1=CordovaLib
+android.library.reference.2=app
+cordova.system.library.1=androidx.legacy:legacy-support-v4:1.0.0
+cordova.system.library.2=com.google.android.gms:play-services-base:+
+cordova.system.library.3=com.google.android.gms:play-services-ads:+
+cordova.gradle.include.1=cordova-plugin-firebase/happyclam-build.gradle
+cordova.system.library.4=com.google.android.gms:play-services-tagmanager:+
+cordova.system.library.5=com.google.firebase:firebase-core:+
+cordova.system.library.6=com.google.firebase:firebase-messaging:+
+cordova.system.library.7=com.google.firebase:firebase-config:+
+cordova.system.library.8=com.google.firebase:firebase-perf:+
+</code></pre>
+<p>　<code>cordova-plugin-androidx-adapter</code>をインストールしたことで、androidサポートライブラリの部分が<code>com.android.support:support-v4:25.+</code>から<code>androidx.legacy:legacy-support-v4:1.0.0</code>に書き換わっているところがミソです。</p>
+
 <hr />
 
 <div class="footnotes">
