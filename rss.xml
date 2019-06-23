@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-06-22T18:21:24+09:00</lastBuildDate>
-        <pubDate>2019-06-22T18:21:24+09:00</pubDate>
+        <lastBuildDate>2019-06-23T20:46:37+09:00</lastBuildDate>
+        <pubDate>2019-06-23T20:46:37+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -633,7 +633,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 &lt;p&gt;※アルゴリズムの詳しい内容は&lt;a href=&quot;/software/2019-02-26/iterativedeeping&quot;&gt;この記事&lt;/a&gt;を参照してください。&lt;/p&gt;
 
 &lt;h3 id=&quot;push通知対応&quot;&gt;Push通知対応&lt;/h3&gt;
-&lt;p&gt;　Version1.0.2.1から運営からのPush通知を受信できます。左上右側にあるアイコンをタップすると受信した最新のメッセージを再度表示します。受信したメッセージがないときは何も表示されません。&lt;/p&gt;
+&lt;p&gt;　Version1.0.2.1からPush通知を受信できます。左上右側にあるアイコンをタップすると受信した最新のメッセージを再度表示します。受信したメッセージがないときは何も表示されません。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;a href=&quot;/images/push_notification_shogi77.png&quot;&gt;&lt;img src=&quot;/images/push_notification_shogi77.png&quot; alt=&quot;Push通知サンプル&quot; title=&quot;Push通知サンプル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
@@ -2972,7 +2972,14 @@ P5+HI+GI+OU+KI+HI
   &lt;p&gt;&lt;img src=&quot;/images/55shogi_font.png&quot; alt=&quot;衡山毛筆フォント&quot; title=&quot;衡山毛筆フォント&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;　自分も幼稚園の頃に書道教室に通っていたことがありますが、お近くの方は&lt;a href=&quot;http://www7a.biglobe.ne.jp/~kouzan/&quot;&gt;「青二書道教室」&lt;/a&gt;に行きましょう:sweat_smile:&lt;/p&gt;
+&lt;p&gt;　自分も幼稚園の頃に書道教室に通っていたことがありますが、お近くの方は&lt;a href=&quot;http://www7a.biglobe.ne.jp/~kouzan/&quot;&gt;「青二書道教室」&lt;/a&gt;に行きましょう。&lt;/p&gt;
+
+&lt;h3 id=&quot;push通知対応&quot;&gt;Push通知対応&lt;/h3&gt;
+&lt;p&gt;　Version1.0.7.2からPush通知を受信できます。左上右側にあるアイコンをタップすると受信した最新のメッセージを再度表示します。受信したメッセージがないときは何も表示されません。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/push_notification_shogi55.png&quot;&gt;&lt;img src=&quot;/images/push_notification_shogi55.png&quot; alt=&quot;Push通知サンプル&quot; title=&quot;Push通知サンプル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;hr /&gt;
 
@@ -4166,7 +4173,7 @@ P-00HI00FU
 &lt;/div&gt;
 
 &lt;h3 id=&quot;push通知対応&quot;&gt;Push通知対応&lt;/h3&gt;
-&lt;p&gt;　Version1.0.9.2から運営からのPush通知を受信できます。左上右側にあるアイコンをタップすると受信した最新のメッセージを再度表示します。受信したメッセージがないときは何も表示されません。&lt;/p&gt;
+&lt;p&gt;　Version1.0.9.2からPush通知を受信できます。左上右側にあるアイコンをタップすると受信した最新のメッセージを再度表示します。受信したメッセージがないときは何も表示されません。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;a href=&quot;/images/push_notification.png&quot;&gt;&lt;img src=&quot;/images/push_notification.png&quot; alt=&quot;Push通知サンプル&quot; title=&quot;Push通知サンプル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
