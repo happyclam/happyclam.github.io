@@ -47,7 +47,7 @@
   <meta name="twitter:url" content="/miscellaneous/2019-06-28/appdeleted">
   
   
-  <meta name="twitter:description" content="programming for enjoyment.">
+  <meta name="twitter:description" content="インタースティシャル広告のautoShowは危険？">
   
   
   <meta name="twitter:image:src" content="/images/55shogi_logo.png">
@@ -247,7 +247,7 @@ MathJax.Hub.Config({
 　「広告目的のアプリ」と判断されたと言うことは最初のメールにも既に書かれていたのですが、自分のアプリの広告は寧ろ控えめにしているつもりだったので、全然納得出来ませんでした。でも、違反の例に「インタースティシャル」と書いてあったので、冷静になって考えてみるとAdMobプラグインを変更したことを思い出しました。<a href="/programming/2019-06-15/firebase">前回書いた記事</a>に書きましたが、Firebase導入+AndroidX移行に伴って広告表示するプラグインを<code>cordova-plugin-admob</code>から<code>cordova-plugin-admob-free</code>に置き換えました。そしてそれまではインタースティシャル広告は使っていなかったのですが、ソースを修正するついでに<code>autoShow = true</code>の設定でインタースティシャル広告も出すように変更していたことを思い出しました。でも、変更後も自分のスマホで動作確認していますので、インタースティシャル広告の表示頻度も体感しています。自分のスマホやエミュレータで確認している限りでは、起動時に一回表示されるだけだったので「これぐらいならユーザーに我慢して貰えるだろう」と判断してリリースしました<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。<code>autoShow = true</code>という設定がどの程度の頻度で広告が表示されるかについては深く考えてなくて、<code>autoShow</code>という設定の方が作るのが楽だからやっていただけです。</p>
 
 <h3 id="そう言えば思い当たる節が">そう言えば思い当たる節が…</h3>
-<p>　自分で試している限りでは起動時に一回表示されるだけなのですが、google playの「リリース前テスト」の結果を見て「海外製の端末は結構な頻度でインタースティシャル広告が表示されているなぁ」と日頃感じていたことを思い出しました。ここに来てようやく「これがまずかったのかも」と思い至って、<code>autoShow = false</code>の設定でアプリをビルドし直してapkファイルを送信したら、翌日にはサポートとのやり取りもなく勝手に<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">アプリのページ</a>が復活していました。google play consoleの「アプリの掲載情報」に書かれている内容やgoogle playに登録している<a href="/policy">プライバシーポリシーのページ</a>の内容も一切変更していません。ビルドファイル（*.apk）を更新しただけです。</p>
+<p>　自分でテストしている限りでは起動時に一回表示されるだけなのですが、以前google playの「リリース前テスト」の結果を見て「海外製の端末は結構な頻度でインタースティシャル広告が表示されているなぁ」と感じたことを思い出しました。ここに来てようやく「これがまずかったのかも」と思い至って、<code>autoShow = false</code>の設定でアプリをビルドし直してapkファイルを送信したら、翌日にはサポートとのやり取りもなく勝手に<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">アプリのページ</a>が復活していました。google play consoleの「アプリの掲載情報」に書かれている内容やgoogle playに登録している<a href="/policy">プライバシーポリシーのページ</a>の内容も一切変更していません。ビルドファイル（*.apk）を更新しただけです。</p>
 
 <h3 id="結局原因ははっきりしない">結局、原因ははっきりしない</h3>
 <p>　ビルドファイル（*.apk）を更新しただけで復活したということは、やはり<code>cordova-plugin-admob-free</code>プラグインの<code>autoShow = true</code>設定が悪かったのだと思っているのですが、私の他のアプリ（<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>、<a href="https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam">７七将棋アプリ</a>、<a href="https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam">禽将棋アプリ</a>、<a href="https://play.google.com/store/apps/details?id=funashishogi.io.github.happyclam">歩なし将棋アプリ</a>）は<code>autoShow = true</code>のままで同じプラグインを使っていても審査には引っかかっていないので、結局はっきりとした原因は分かりません<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>。ただ、広告の表示頻度をプラグイン任せにしているのは確かによくないので、ゲームが一回終了する毎に表示するとか、自分で制御するべきだったと思います。<br />
@@ -261,7 +261,7 @@ MathJax.Hub.Config({
       <p>実際には「先に削除した理由を教えてください」だったと思います。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
     </li>
     <li id="fn:2">
-      <p>今でもそうですが、インタースティシャル広告（全画面広告）に関しては、自分で試している限り起動時に一回表示されるだけです。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+      <p>今でも違反とされたバージョンで試しているのですが、自分の端末や複数のエミュレータで試している限りインタースティシャル広告（全画面広告）に関しては、起動時に一回表示されるだけです。国によって何か広告に関するネットワーク規制でもあるのでしょうか？ <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
     </li>
     <li id="fn:3">
       <p>次回のバージョンアップ時には全てのアプリで<code>autoShow = false</code>にしていくつもりです。 <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
