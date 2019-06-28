@@ -4,13 +4,59 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-06-23T20:46:37+09:00</updated>
+ <updated>2019-06-28T23:02:10+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Google Play からアプリが削除された話</title>
+   <link href="https://happyclam.github.io/miscellaneous/2019-06-28/appdeleted"/>
+   <updated>2019-06-28T00:00:00+09:00</updated>
+   <id>https://happyclam.github.io/miscellaneous/2019-06-28/appdeleted</id>
+   <content type="html">&lt;h3 id=&quot;なんで自分のアプリが&quot;&gt;なんで自分のアプリが？&lt;/h3&gt;
+&lt;p&gt;　２０１９年６月某日の早朝に「５五将棋 についてのご連絡」というタイトルでgoogle playからメールが来ました。なんと&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;をgoogle playから削除したと言うのです。理由がわからなかったので、すぐにメールにあったリンクから異議申し立てしました。異議申し立てのページには異議申し立ての理由（「アプリを再度有効にすべきとお考えの理由」）を書く欄があったのですが、「有効にすべき理由じゃないだろ？まず削除した理由を言え(#ﾟДﾟ)ｺﾞﾙｧ!!」&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;と書いて送信しました。&lt;/p&gt;
+
+&lt;h3 id=&quot;削除理由は書いてあるけどわからん&quot;&gt;削除理由は書いてあるけど、わからん&lt;/h3&gt;
+&lt;p&gt;　サポートからの返信には「広告目的のアプリ」と判断されたと書かれていて、そのリンク先に&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;広告表示を主目的とするアプリは認められません。&lt;/p&gt;
+
+  &lt;p&gt;　違反の例:
+ ユーザーがクリックやスワイプなどの操作を行うたびにインタースティシャル広告を表示するアプリ&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;　と書かれています。&lt;br /&gt;
+　「広告目的のアプリ」と判断されたと言うことは最初のメールにも既に書かれていたのですが、自分のアプリの広告は寧ろ控えめにしているつもりだったので、全然納得出来ませんでした。でも、違反の例に「インタースティシャル」と書いてあったので、冷静になって考えてみるとAdMobプラグインを変更したことを思い出しました。&lt;a href=&quot;/programming/2019-06-15/firebase&quot;&gt;前回書いた記事&lt;/a&gt;に書きましたが、Firebase導入+AndroidX移行に伴って広告表示するプラグインを&lt;code&gt;cordova-plugin-admob&lt;/code&gt;から&lt;code&gt;cordova-plugin-admob-free&lt;/code&gt;に置き換えました。そしてそれまではインタースティシャル広告は使っていなかったのですが、ソースを修正するついでに&lt;code&gt;autoShow = true&lt;/code&gt;の設定でインタースティシャル広告も出すように変更していたことを思い出しました。でも、変更後も自分のスマホで動作確認していますので、インタースティシャル広告の表示頻度も体感しています。自分のスマホやエミュレータで確認している限りでは、起動時に一回表示されるだけだったので「これぐらいならユーザーに我慢して貰えるだろう」と判断してリリースしました&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;code&gt;autoShow = true&lt;/code&gt;という設定がどの程度の頻度で広告が表示されるかについては深く考えてなくて、&lt;code&gt;autoShow&lt;/code&gt;という設定の方が作るのが楽だからやっていただけです。&lt;/p&gt;
+
+&lt;h3 id=&quot;そう言えば思い当たる節が&quot;&gt;そう言えば思い当たる節が…&lt;/h3&gt;
+&lt;p&gt;　自分で試している限りでは起動時に一回表示されるだけなのですが、google playの「リリース前テスト」の結果を見て「海外製の端末は結構な頻度でインタースティシャル広告が表示されているなぁ」と日頃感じていたことを思い出しました。ここに来てようやく「これがまずかったのかも」と思い至って、&lt;code&gt;autoShow = false&lt;/code&gt;の設定でアプリをビルドし直してapkファイルを送信したら、翌日にはサポートとのやり取りもなく勝手に&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;アプリのページ&lt;/a&gt;が復活していました。google play consoleの「アプリの掲載情報」に書かれている内容やgoogle playに登録している&lt;a href=&quot;/policy&quot;&gt;プライバシーポリシーのページ&lt;/a&gt;の内容も一切変更していません。ビルドファイル（*.apk）を更新しただけです。&lt;/p&gt;
+
+&lt;h3 id=&quot;結局原因ははっきりしない&quot;&gt;結局、原因ははっきりしない&lt;/h3&gt;
+&lt;p&gt;　ビルドファイル（*.apk）を更新しただけで復活したということは、やはり&lt;code&gt;cordova-plugin-admob-free&lt;/code&gt;プラグインの&lt;code&gt;autoShow = true&lt;/code&gt;設定が悪かったのだと思っているのですが、私の他のアプリ（&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;７七将棋アプリ&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=funashishogi.io.github.happyclam&quot;&gt;歩なし将棋アプリ&lt;/a&gt;）は&lt;code&gt;autoShow = true&lt;/code&gt;のままで同じプラグインを使っていても審査には引っかかっていないので、結局はっきりとした原因は分かりません&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。ただ、広告の表示頻度をプラグイン任せにしているのは確かによくないので、ゲームが一回終了する毎に表示するとか、自分で制御するべきだったと思います。&lt;br /&gt;
+　&lt;a href=&quot;/project/2016-09-19/tictactoe_evo&quot;&gt;以前の記事&lt;/a&gt;で「デリケートなカテゴリに分類される広告」をブロック設定していなくて慌てたことを書きましたが、こういう自分が気づいていないことが原因でアプリを削除される人も多いんでしょうね。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;実際には「先に削除した理由を教えてください」だったと思います。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;今でもそうですが、インタースティシャル広告（全画面広告）に関しては、自分で試している限り起動時に一回表示されるだけです。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;次回のバージョンアップ時には全てのアプリで&lt;code&gt;autoShow = false&lt;/code&gt;にしていくつもりです。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Firebase使ってみました</title>

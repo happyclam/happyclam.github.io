@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Google Play からアプリが削除された話",
+      "category" : "miscellaneous",
+      "tags"     : "cordova, android, coffeescript",
+      "url"      : "/miscellaneous/2019-06-28/appdeleted",
+      "date"     : "2019-06-28 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "Firebase使ってみました",
       "category" : "programming",
       "tags"     : "firebase, cordova, android, javascript",
