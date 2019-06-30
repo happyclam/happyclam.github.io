@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-06-29T07:59:30+09:00</lastBuildDate>
-        <pubDate>2019-06-29T07:59:30+09:00</pubDate>
+        <lastBuildDate>2019-06-30T10:12:03+09:00</lastBuildDate>
+        <pubDate>2019-06-30T10:12:03+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -34,6 +34,10 @@
 &lt;h3 id=&quot;結局原因ははっきりしない&quot;&gt;結局、原因ははっきりしない&lt;/h3&gt;
 &lt;p&gt;　ビルドファイル（*.apk）を更新しただけで復活したということは、やはり&lt;code&gt;cordova-plugin-admob-free&lt;/code&gt;プラグインの&lt;code&gt;autoShow = true&lt;/code&gt;設定が悪かったのだと思っているのですが、私の他のアプリ（&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;７七将棋アプリ&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=funashishogi.io.github.happyclam&quot;&gt;歩なし将棋アプリ&lt;/a&gt;）は&lt;code&gt;autoShow = true&lt;/code&gt;のままで同じプラグインを使っていても審査には引っかかっていないので、結局はっきりとした原因は分かりません&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。ただ、広告の表示頻度をプラグイン任せにしているのは確かによくないので、ゲームが一回終了する毎に表示するとか、自分で制御するべきだったと思います。&lt;br /&gt;
 　&lt;a href=&quot;/project/2016-09-19/tictactoe_evo&quot;&gt;以前の記事&lt;/a&gt;で「デリケートなカテゴリに分類される広告」をブロック設定していなくて慌てたことを書きましたが、こういう自分が気づいていないことが原因でアプリを削除される人も多いんでしょうね。&lt;/p&gt;
+
+&lt;h3 id=&quot;まだ続きます&quot;&gt;まだ続きます&lt;/h3&gt;
+&lt;p&gt;　この記事を書いた後、今度はAdMobから警告が来ました。&lt;a href=&quot;https://support.google.com/admob/answer/6201362?hl=ja&quot;&gt;ここ&lt;/a&gt;に書いてあるようにアプリの起動時や終了時にインタースティシャル広告を出してはいけないそうです。&lt;a href=&quot;https://support.google.com/admob/answer/6201362?hl=ja&quot;&gt;このページ&lt;/a&gt;には画面が切り替わるタイミングでしかインタースティシャル広告を出してはいけないと書いてあります。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;で言えば右上のボタンをタップして将棋盤面からメニュー画面に切り替え時になると思いますが、起動時に一回だけ表示するよりメニュー画面に切り替える時に広告表示される方がユーザーにとってウザいと思うのですがどうなんでしょう？&lt;br /&gt;
+　とりあえず起動時に出すのは止めて、棋譜出力時に出すようにして様子見ることにしました。他のアプリも順次変更していく予定です。棋譜出力機能にも開発に時間かかったのでご了承ください。&lt;/p&gt;
 
 &lt;hr /&gt;
 

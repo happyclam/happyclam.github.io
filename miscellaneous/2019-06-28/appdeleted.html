@@ -253,6 +253,10 @@ MathJax.Hub.Config({
 <p>　ビルドファイル（*.apk）を更新しただけで復活したということは、やはり<code>cordova-plugin-admob-free</code>プラグインの<code>autoShow = true</code>設定が悪かったのだと思っているのですが、私の他のアプリ（<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>、<a href="https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam">７七将棋アプリ</a>、<a href="https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam">禽将棋アプリ</a>、<a href="https://play.google.com/store/apps/details?id=funashishogi.io.github.happyclam">歩なし将棋アプリ</a>）は<code>autoShow = true</code>のままで同じプラグインを使っていても審査には引っかかっていないので、結局はっきりとした原因は分かりません<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>。ただ、広告の表示頻度をプラグイン任せにしているのは確かによくないので、ゲームが一回終了する毎に表示するとか、自分で制御するべきだったと思います。<br />
 　<a href="/project/2016-09-19/tictactoe_evo">以前の記事</a>で「デリケートなカテゴリに分類される広告」をブロック設定していなくて慌てたことを書きましたが、こういう自分が気づいていないことが原因でアプリを削除される人も多いんでしょうね。</p>
 
+<h3 id="まだ続きます">まだ続きます</h3>
+<p>　この記事を書いた後、今度はAdMobから警告が来ました。<a href="https://support.google.com/admob/answer/6201362?hl=ja">ここ</a>に書いてあるようにアプリの起動時や終了時にインタースティシャル広告を出してはいけないそうです。<a href="https://support.google.com/admob/answer/6201362?hl=ja">このページ</a>には画面が切り替わるタイミングでしかインタースティシャル広告を出してはいけないと書いてあります。<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>で言えば右上のボタンをタップして将棋盤面からメニュー画面に切り替え時になると思いますが、起動時に一回だけ表示するよりメニュー画面に切り替える時に広告表示される方がユーザーにとってウザいと思うのですがどうなんでしょう？<br />
+　とりあえず起動時に出すのは止めて、棋譜出力時に出すようにして様子見ることにしました。他のアプリも順次変更していく予定です。棋譜出力機能にも開発に時間かかったのでご了承ください。</p>
+
 <hr />
 
 <div class="footnotes">
