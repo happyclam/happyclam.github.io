@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "自己対戦でも強くなるのか？",
+      "category" : "software",
+      "tags"     : "coffeescript, tictactoe, android, javascript",
+      "url"      : "/software/2019-07-19/self-play",
+      "date"     : "2019-07-19 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "Google Play からアプリが削除された話",
       "category" : "miscellaneous",
       "tags"     : "cordova, android, coffeescript",
