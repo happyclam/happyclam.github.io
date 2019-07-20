@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-07-20T10:59:34+09:00</updated>
+ <updated>2019-07-20T15:08:59+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -432,7 +432,8 @@ window.onload = function() {
 
 &lt;h3 id=&quot;まだ続きます&quot;&gt;まだ続きます&lt;/h3&gt;
 &lt;p&gt;　この記事を書いた後、今度はAdMobから警告が来ました。&lt;a href=&quot;https://support.google.com/admob/answer/6201362?hl=ja&quot;&gt;ここ&lt;/a&gt;に書いてあるようにアプリの起動時や終了時にインタースティシャル広告を出してはいけないそうです。&lt;a href=&quot;https://support.google.com/admob/answer/6201362?hl=ja&quot;&gt;このページ&lt;/a&gt;には画面が切り替わるタイミングでしかインタースティシャル広告を出してはいけないと書いてあります。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;で言えば右上のボタンをタップして将棋盤面からメニュー画面に切り替える時になると思いますが、起動時に一回だけ表示するよりメニュー画面に切り替わる時に広告表示される方がユーザーにとってはウザいし誤クリックを誘発すると思うのですがどうなんでしょう？&lt;br /&gt;
-　とりあえず起動時に出すのは止めて、棋譜出力時に出すようにして様子見ることにしました。他のアプリも順次変更していく予定です。棋譜出力機能にも開発に時間かかったのでご了承ください。&lt;/p&gt;
+　とりあえず起動時に出すのは止めて、&lt;del&gt;棋譜出力時に出すように&lt;/del&gt;して様子見ることにしました。他のアプリも順次変更していく予定です。棋譜出力機能にも開発に時間かかったのでご了承ください。&lt;br /&gt;
+　※棋譜をクリップボードや他のアプリに送信するときに操作の邪魔をすることがあるので、棋譜入力時に変更しました。&lt;/p&gt;
 
 &lt;hr /&gt;
 
