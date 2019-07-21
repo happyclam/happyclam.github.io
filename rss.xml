@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-07-21T09:57:00+09:00</lastBuildDate>
-        <pubDate>2019-07-21T09:57:00+09:00</pubDate>
+        <lastBuildDate>2019-07-21T14:42:05+09:00</lastBuildDate>
+        <pubDate>2019-07-21T14:42:05+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -146,8 +146,8 @@
 [nil, -0.6426669303657259, -0.6367678042990683, -0.6383926721743185, 5.4310677151704265, -0.6327334824829767, -0.6424836060305146, -0.616752627068463, -0.6212705675723019]
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;　二手目に関しては空いていれば必ず真ん中を選ぶのが最善だと学習したということです。&lt;br /&gt;
-　&lt;a href=&quot;/software/2014-09-23/tictactoe_arrange&quot;&gt;昔の記事&lt;/a&gt;に書きましたが三目並べでは初手にどこを選んでも引き分けになります。先手・後手お互い最善手を選べば引き分けになるのですから、真ん中が最善手とは言えないという正しい結論を導いているように思えるのですが、一方で初手に真ん中を選ぶことはラインが揃う期待値がもっとも高いのも確かなので、どう解釈すべきなのでしょうか。一般的に機械学習では最も期待値が高い手を選ぶようになるはずですが、三目並べの場合は規模が小さいので完全読み切りと同じ結論を得ることが出来たと解釈できるかもしれません&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
-　また、αβ法を使った三目並べプログラム（の指し手）という教師（データ）を使って学習するより、自己対戦で学習したデータの方が正しいという見方も出来そうです。大雑把な考察になりますが、プロ棋士の指し手を学習した将棋ＡＩより自己対戦で学んだAlphaZeroの方が強いのもそういうことかもしれません&lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+　&lt;a href=&quot;/software/2014-09-23/tictactoe_arrange&quot;&gt;昔の記事&lt;/a&gt;に書きましたが三目並べでは初手にどこを選んでも引き分けになります。先手・後手お互い最善手を選べば引き分けになるのですから、真ん中が最善手とは言えないという正しい結論を導いているように思えるのですが、一方で初手に真ん中を選ぶことはラインが揃う期待値がもっとも高いのも確か？なので、どう解釈すべきなのでしょうか。一般的に機械学習では最も期待値が高い手を選ぶようになるはずですが、三目並べの場合は規模が小さいので完全読み切りと同じ結論を得ることが出来たと解釈できるのかもしれません&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
+　また、αβ法を使った三目並べプログラム（の指し手）という教師（データ）を使って学習するより、自己対戦で学習したデータの方が正しいという見方も出来そうです。プロ棋士の指し手を学習した将棋ＡＩより自己対戦で学んだAlphaZeroの方が強いのもそういうことでしょうか&lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 
 &lt;h3 id=&quot;サンプルコード&quot;&gt;サンプルコード&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/neural&quot;&gt;公開しているRubyのコード（neural branch）&lt;/a&gt;は、必要に応じて、必要な箇所をコメントにしたりアンコメントしたりしないといけない形になっていて分かりにくいと思いますが、興味があれば今回の作業を再現出来ます。&lt;/p&gt;
