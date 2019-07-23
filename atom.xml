@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-07-21T14:42:05+09:00</updated>
+ <updated>2019-07-23T17:46:13+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -1957,7 +1957,8 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;※アルゴリズムの詳しい内容は&lt;a href=&quot;/software/2019-02-26/iterativedeeping&quot;&gt;この記事&lt;/a&gt;を参照してください。&lt;/p&gt;
+&lt;p&gt;※アルゴリズムの詳しい内容は&lt;a href=&quot;/software/2019-02-26/iterativedeeping&quot;&gt;この記事&lt;/a&gt;を参照してください。&lt;br /&gt;
+※Version1.0.6.5で読みの深さを１ずつ減らして、ユーザーレスポンス優先することにしました&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 
 &lt;h3 id=&quot;駒に毛筆フォント&quot;&gt;駒に毛筆フォント&lt;/h3&gt;
 &lt;p&gt;　Version1.0.4.1から駒のフォントに毛筆フォントを選べるようになりました。無料フォントの中でも&lt;a href=&quot;http://today.izmaker.com/blog/technique/3154/&quot;&gt;「衡山毛筆フォント」&lt;/a&gt;のように再配布可能というものはなかなか無いと思います。&lt;/p&gt;
@@ -1986,6 +1987,9 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
     &lt;/li&gt;
     &lt;li id=&quot;fn:3&quot;&gt;
       &lt;p&gt;鷹も鶉も盤上に配置した時の最大の移動箇所数は７で同じです。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot;&gt;
+      &lt;p&gt;他のアプリを使用していると知らぬ間にアプリが終了するケースが多い（メモリ逼迫によりシステムによって強制終了される）ので、読みの深さを減らしました。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
