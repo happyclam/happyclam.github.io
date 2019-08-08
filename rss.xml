@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-07-31T17:13:37+09:00</lastBuildDate>
-        <pubDate>2019-07-31T17:13:37+09:00</pubDate>
+        <lastBuildDate>2019-08-08T16:32:49+09:00</lastBuildDate>
+        <pubDate>2019-08-08T16:32:49+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -170,7 +170,7 @@ function show_self_play(){
         ],
         {
             title: &quot;推論部分修正後、自己対戦&quot;,
-            subtitle: &quot;対最強プログラム&quot;,
+            subtitle: &quot;自己対戦&quot;,
             HtmlText: false,
             bars:{show: true, stacked: true, horizontal:false},
             xaxis:{
