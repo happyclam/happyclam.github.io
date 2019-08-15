@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-08-15T20:42:55+09:00</updated>
+ <updated>2019-08-15T20:51:46+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -18,7 +18,7 @@
    <updated>2019-07-19T00:00:00+09:00</updated>
    <id>https://happyclam.github.io/software/2019-07-19/self-play</id>
    <content type="html">&lt;h3 id=&quot;自己対戦でも強くなるはずなって欲しい&quot;&gt;自己対戦でも強くなるはず、なって欲しい…&lt;/h3&gt;
-&lt;p&gt;　以前&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「統計の基本と世界を測るテクニック」&lt;/a&gt;という本に書かれていた方法（加減算を使った強化学習）で作った三目並べプログラムを&lt;a href=&quot;https://www.amazon.co.jp/ゼロから作るDeep-Learning-Pythonで学ぶディープラーニングの理論と実装-斎藤-康毅/dp/4873117585/ref=sr_1_2?ie=UTF8&amp;amp;qid=1498438151&amp;amp;sr=8-2&amp;amp;keywords=ディープラーニング&quot;&gt;「ゼロから作るDeep-Learning-Pythonで学ぶディープラーニングの理論と実装」&lt;/a&gt;に書かれていた方法（勾配法を使った誤差修正）に置き換えて比較した&lt;a href=&quot;/project/2017-07-07/neuralnw2&quot;&gt;記事&lt;/a&gt;を書きましたが、この時は学習部分を書き換えただけで、学習データから指し手を決める部分（推論部分）は両方同じものを使いました。そして、MIN-MAX法（+αβ法）で作成した最強の三目並べプログラム（絶対負けない）にほぼ100%引き分けるようになるという学習効果が出たので良しとしました。今回は、自己対戦での学習です。&lt;br /&gt;
+&lt;p&gt;　以前&lt;a href=&quot;https://hb.afl.rakuten.co.jp/hgc/18980d66.5ec24871.18980d67.e8ecef93/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F5271872%2F&amp;amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F12693001%2F&amp;amp;link_type=text&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJ0ZXh0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImxlZnQiLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjF9&quot;&gt;「統計の基本と世界を測るテクニック」&lt;/a&gt;という本に書かれていた方法（加減算を使った強化学習）で作った三目並べプログラムを&lt;a href=&quot;https://hb.afl.rakuten.co.jp/hgc/19032b03.6c2d03ea.19032b04.c502cee5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdorama%2Fn33498857%2F&amp;amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fdorama%2Fi%2F12771022%2F&amp;amp;link_type=text&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJ0ZXh0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjF9&quot;&gt;「ゼロから作るDeep-Learning-Pythonで学ぶディープラーニングの理論と実装」&lt;/a&gt;に書かれていた方法（勾配法を使った誤差修正）に置き換えて比較した&lt;a href=&quot;/project/2017-07-07/neuralnw2&quot;&gt;記事&lt;/a&gt;を書きましたが、この時は学習部分を書き換えただけで、学習データから指し手を決める部分（推論部分）は両方同じものを使いました。そして、MIN-MAX法（+αβ法）で作成した最強の三目並べプログラム（絶対負けない）にほぼ100%引き分けるようになるという学習効果が出たので良しとしました。今回は、自己対戦での学習です。&lt;br /&gt;
 　同じプログラムで自己対戦を進めてみると、学習の経過を観察している限りはうまくいっているように見えるのですが、ある程度進んだところからお互いに示し合わせたような手順で引き分けに持ち込むようになり、学習が進まなくなりました。何が不足していたのか書いていきます。&lt;/p&gt;
 
 &lt;h3 id=&quot;学習データを使って指し手を決める部分&quot;&gt;学習データを使って指し手を決める部分&lt;/h3&gt;
