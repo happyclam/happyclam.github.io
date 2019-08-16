@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-08-15T20:51:46+09:00</updated>
+ <updated>2019-08-16T12:00:53+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -1267,7 +1267,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
   &lt;p&gt;&lt;a href=&quot;/images/9masu_case5.png&quot;&gt;&lt;img src=&quot;/images/9masu_case5.png&quot; alt=&quot;上級編の問題の初期配置&quot; title=&quot;上級編の問題の初期配置&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;　この初期配置は&lt;a href=&quot;/project/2018-04-22/9masushogi&quot;&gt;以前の記事（「９マス将棋の本」買ってみました）&lt;/a&gt;で紹介した本（&lt;a href=&quot;https://www.amazon.co.jp/９マス将棋の本-幻冬舎単行本-青野照市-ebook/dp/B072XCDPGZ/ref=tmm_kin_swatch_0?_encoding=UTF8&amp;amp;qid=1524311385&amp;amp;sr=1-1&quot;&gt;９マス将棋の本&lt;/a&gt;）に載っていた問題で、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;では初期配置リストのNo.41番にあるものです。この配置は初手が肝心なのですが、以前の&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;でAIに指させてみると一番深く読む「瞑想」モードでも初手１三角と相手の角を取ってしまい先手が勝てません。本に出題されている通り先手が勝つためには初手に２三玉と指さないといけないのですが、Version1.0.7.0からは初手２三玉が指せるようになりました。&lt;br /&gt;
+&lt;p&gt;　この初期配置は&lt;a href=&quot;/project/2018-04-22/9masushogi&quot;&gt;以前の記事（「９マス将棋の本」買ってみました）&lt;/a&gt;で紹介した本（&lt;a href=&quot;https://hb.afl.rakuten.co.jp/hgc/1898184c.61df42d5.1898184d.aee9e867/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenkobo-ebooks%2Fa9b8e0edfad33fbcb089d3786912dae2%2F&amp;amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenkobo-ebooks%2Fi%2F16530252%2F&amp;amp;link_type=text&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJ0ZXh0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImxlZnQiLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjF9&quot;&gt;９マス将棋の本&lt;/a&gt;）に載っていた問題で、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;では初期配置リストのNo.41番にあるものです。この配置は初手が肝心なのですが、以前の&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;でAIに指させてみると一番深く読む「瞑想」モードでも初手１三角と相手の角を取ってしまい先手が勝てません。本に出題されている通り先手が勝つためには初手に２三玉と指さないといけないのですが、Version1.0.7.0からは初手２三玉が指せるようになりました。&lt;br /&gt;
 　しかし、その後の変化はいろいろあるようでアプリでは後手が勝つケースもあるようです。&lt;a href=&quot;/project/2018-04-22/9masushogi&quot;&gt;以前の記事（「９マス将棋の本」買ってみました）&lt;/a&gt;で紹介した手順（２三玉、２一玉、１三角、同歩成、同玉、３三角、２三歩、１一角成、３一歩成、同玉、２二角、同馬、同歩、１一歩、２三玉、１二角、３三玉、２一角、同歩成、同玉、３二角、１二玉、３一角、２一歩、２三角）の２５手で「先手が勝ち」という手順も以前のバージョンの設定を一時的に深く読む設定にして導いた一例に過ぎません。ちなみに、候補手を絞るという作業を入れずに全件探索で調べてみると４３手で先手が勝ちという変化になりました&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;、奥が深いです。&lt;br /&gt;
 　この初期配置以外にも今まで間違ってるなぁと思いながらもそのままにしていた初期配置に関して、今回の修正で正解が出せるようになった（と自分が思っている）初期配置があったり、先手勝ち、後手勝ち、千日手の結論は置いといて、この変化は筋悪過ぎるだろうと思う手順が改善されたものもあります。また、逆に深く読めるのはいいけど、全件探索の「弱い」モードなら正解手順を示せるのに、最善手が初期の段階で候補手から漏れてしまい「瞑想」モードだと間違えるという初期配置もあると思います。と言うことで、局面の検討をするときは、&lt;strong&gt;まず「弱い」モードで試してから、他のモードを試してみることをお勧めします。&lt;/strong&gt;&lt;br /&gt;
 　ちなみに何手先まで読むかを指定するパラメータ(depthの値)が今回の修正で７から９になっています。２手深く読めるようになったということです。&lt;/p&gt;
@@ -6662,7 +6662,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 &lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/machinelearning&quot;&gt;Ruby版のソース&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;進化する三目並べtic-tac-toe-evoについて&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」について&lt;/h3&gt;
-&lt;p&gt;　「進化する三目並べ（Tic-tac-toe Evo）」は、&lt;a href=&quot;https://www.amazon.co.jp/Statistics-Hacks-―統計の基本と世界を測るテクニック-Bruce-Frey/dp/4873113350/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1444873224&amp;amp;sr=1-1&amp;amp;keywords=statistics+hacks&quot;&gt;「Statistics Hacks」&lt;/a&gt;という統計学の本に紹介されていた強化学習の内容に興味を持った私が自作したRubyのPC用のプログラム（&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;github&lt;/a&gt;に公開している）を、せっかく作ったのだからスマホアプリにして公開してみようと考えて、CoffeeScript（JavaScript）に書き換えてCordovaを使ってスマホアプリに作り変えたものです。&lt;br /&gt;
+&lt;p&gt;　「進化する三目並べ（Tic-tac-toe Evo）」は、&lt;a href=&quot;https://hb.afl.rakuten.co.jp/hgc/18980d66.5ec24871.18980d67.e8ecef93/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F5271872%2F&amp;amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F12693001%2F&amp;amp;link_type=text&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJ0ZXh0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImxlZnQiLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjF9&quot;&gt;「Statistics Hacks」&lt;/a&gt;という統計学の本に紹介されていた強化学習の内容に興味を持った私が自作したRubyのPC用のプログラム（&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;github&lt;/a&gt;に公開している）を、せっかく作ったのだからスマホアプリにして公開してみようと考えて、CoffeeScript（JavaScript）に書き換えてCordovaを使ってスマホアプリに作り変えたものです。&lt;br /&gt;
 　詳しくは&lt;a href=&quot;https://happyclam.github.io/software/2015-10-25/machine_learning&quot;&gt;「算数で作る機械学習プログラム」&lt;/a&gt;というタイトルから始まる一連の記事を読んでいただきたいのですが、ここではスマホアプリに関する内容に限定して特有の機能などについて補足していきたいと思います。プログラミングに興味の有る方はソースコード（&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby&quot;&gt;github&lt;/a&gt;）も見て下さい。&lt;br /&gt;
 　アプリにもこの記事のリンクを追加していますので、サポートページとして使っていくつもりです。&lt;/p&gt;
 
