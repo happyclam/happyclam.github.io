@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-08-19T20:27:48+09:00</lastBuildDate>
-        <pubDate>2019-08-19T20:27:48+09:00</pubDate>
+        <lastBuildDate>2019-08-28T20:53:41+09:00</lastBuildDate>
+        <pubDate>2019-08-28T20:53:41+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -79,6 +79,7 @@
 &lt;h3 id=&quot;試しに&quot;&gt;試しに&lt;/h3&gt;
 &lt;p&gt;　新しいアプリではＡＩ対ＡＩの&lt;strong&gt;自己対戦時だけ&lt;/strong&gt;学習フェーズと看做して修正後の指し手選択機能（&lt;code&gt;正の値に再正規化してルーレット選択&lt;/code&gt;）を使い、人との対戦時には修正前の方法（&lt;code&gt;学習データからそのままルーレット選択&lt;/code&gt;）で指し手を決めるようにしようかと思い、自己対戦で10,000回対戦（学習）させて(=グラフ１と同じことをやって)、その学習データを使ってMIN-MAX法（+αβ法）で作成した最強の三目並べプログラムと対戦させた結果が以下のグラフです。&lt;/p&gt;
 
+&lt;h4 id=&quot;グラフ３&quot;&gt;グラフ３&lt;/h4&gt;
 &lt;div id=&quot;saikyo_after_self&quot; style=&quot;width:600px;height:300px;&quot;&gt;&lt;/div&gt;
 &lt;!-- &lt;div id=&quot;saikyo_after_saikyo&quot; style=&quot;width:600px;height:300px;&quot;&gt;&lt;/div&gt;     --&gt;
 
