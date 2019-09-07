@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "強化学習と先読みを組み合わせる",
+      "category" : "software",
+      "tags"     : "coffeescript, tictactoe, android, javascript, ruby",
+      "url"      : "/software/2019-09-07/lookahead",
+      "date"     : "2019-09-07 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "自己対戦でも強くなるのか？",
       "category" : "software",
       "tags"     : "coffeescript, tictactoe, android, javascript, ruby",

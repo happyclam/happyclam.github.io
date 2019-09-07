@@ -1,0 +1,506 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    
+    <title>強化学習と先読みを組み合わせる</title>
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'UA-1752720-7');
+    </script>
+    <meta name="author" content="happyclam">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="強化学習と先読みを組み合わせる">
+  
+  
+  <meta name="twitter:url" content="/software/2019-09-07/lookahead">
+  
+  
+  <meta name="twitter:description" content="programming for enjoyment.">
+  
+  
+  <meta name="twitter:image:src" content="/images/logo_114.png">
+  
+
+  <link rel="canonical" href="/software/2019-09-07/lookahead" />
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script language="JavaScript">
+$(document).ready( function () {
+    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
+<script src="/assets/themes/twitter/js/jquery.min.js"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
+<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
+<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-1752720-7', 'happyclam.github.io');
+      ga('send', 'pageview');
+    </script>
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div style="text-align: center;">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-9018029357773039",
+        enable_page_level_ads: true
+        });
+      </script>
+    </div>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">自己満足プログラミング</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/policy">Policy</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/profile">About</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="row-fluid">
+        <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+        <div class="span9" html elements for search>
+             <div id="search-container" align="right">
+               <input type="text" id="search-input" placeholder="search...">
+               <ul id="results-container"></ul>
+             </div>
+             <div class="results"></div>
+        </div>
+      </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+      <div class="content">
+        
+<div class="page-header">
+  <h1>強化学習と先読みを組み合わせる </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>07 September 2019</span>
+    </div>
+    <div class="content">
+      <h3 id="学習速度を上げたい">学習速度を上げたい</h3>
+<p>　<a href="/software/2019-07-19/self-play">前回の記事</a>の続きです。自己対戦で大体10,000回ぐらい対戦して学習させると、ほぼ負けないようになることがわかりました。<a href="https://qiita.com/kaityo256/items/50155365323aaaaa3b3a">この記事</a>によると三目並べで10,000回の自己対戦回数というのは特に遅いというわけでもなくこれぐらいは必要みたいです。とすると<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">現在リリースしている三目並べアプリ</a>は「人間」まで進化するためには大体3,000回ぐらいの対戦が必要なのですが、難しい数式を使わずに足し算、引き算だけで強化学習しているにも関わらずなかなか健闘していると思います<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。<br>
+　もともと強化学習に関する好奇心から作ったアプリですが、今後将棋アプリに応用するためにももう少し学習効率をアップしたいと思いながら、リニューアル予定の三目並べアプリをちまちまテストしながら学習効率を上げるために試したことを書いてみます。</p>
+
+<h3 id="学習時間の多くは学習する必要のない局面に費やされている">学習時間の多くは学習する必要のない局面に費やされている</h3>
+<p>　<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">三目並べアプリ</a>をポチポチとやっていると、徐々にＡＩが強くなっていくのは感じるのですが、極短手数で負けることがあることに気付きます。先手で相手の手など気にせずに横一直線、縦一直線にラインを揃えに行くとＡＩはリーチを防ごうとせずに最短手数（５手）で負けることが結構あります。どうやらゲーム木の内の末端に近いノードの局面（手数が長くなる）の学習ばかり先に進んで、ゲーム木内の上の方のノード（短い手数で現れる局面）はなかなか学習が進みません。<br>
+　例えば以下のような局面では次に先手（×）にラインを揃えられるの防ぐために、後手（○）は真ん中下部を選ぶしかありません。</p>
+
+<div style="width:320px; margin: 0 auto;">
+  <p>局面１：
+<a href="/images/tictactoe_sample1.png"><img src="/images/tictactoe_sample1.png" alt="序盤画面１" title="序盤画面１"></a></p>
+</div>
+
+<p>　しかし、ＡＩを自己対戦させると地道に全ての局面を学習していきます。</p>
+
+<div style="width:320px; margin: 0 auto;">
+  <p>局面２：
+<a href="/images/tictactoe_sample2.png"><img src="/images/tictactoe_sample2.png" alt="序盤画面２" title="序盤画面２"></a></p>
+</div>
+
+<p>　そして、仮に上図のように後手（○）が左上を選択した時に、まだ学習が十分でないＡＩ（先手×）が下段真ん中を選ばずに後手（○）が最終的に勝ったりすると、後手が報酬を受け取って「局面１」で左上を選んだのが良い手だったと学習してしまいます。こういうことが何回も繰り返されているわけです。ただ、「局面２」のようにあと一手で勝てる局面では、下段真ん中に打ちさえすればその時点でゲーム終了して勝ち点３の報酬を貰えるので、比較的早い段階で学習できるようです。問題は「局面１」の段階で相手のラインが揃うのを防ぐ手がなかなか学習出来ないことで、「局面１」で下段真ん中を選ばなかった後の展開も非常に多岐に渡りますし、後手が偶々下段真ん中を選んだとしてもそのあとの展開で後手が負けたりすると、結局下段真ん中に打った手が悪い手だったと学習してしまい、それを修正するのにまた多くの対戦を必要とし学習効率が非常に悪くなります<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。</p>
+
+<h3 id="実戦には現れない局面を先に学習している">実戦には現れない局面を先に学習している</h3>
+<p>　下の図は<a href="/software/2019-07-19/self-play">前回の記事</a>のプログラムを自己対戦で５００局程度対戦させた後の「局面１」と「局面２」での重みデータを表示しているものですが、</p>
+<div style="width:480px; margin: 0 auto;">
+  <p><a href="/images/tictactoe_sample3.png"><img src="/images/tictactoe_sample3.png" alt="重みデータ画面" title="重みデータ画面"></a></p>
+</div>
+
+<p>　局面２では下段真ん中が<code>0.6815</code>と一番大きな値となっていて、最善手だと学習していることがわかりますが、局面１の学習データは値がバラついていて、まだどこが選ばれるかわからない、学習が十分に進んでいない状況です。「局面２」のようにあと一手で勝ちという局面に関しては比較的早い段階で最善手を学習するのですが、その前の段階で間違えるために非常に無駄な学習を続けることになります。「局面１」で最善手を選べれば「局面２」とそれ以後の局面はお互いに最善手を選ぶ実戦では現れない局面で、学習しなくていいとは言いませんが、後回しにしたいところです<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>。<br>
+　「局面１」は将棋で言えば王手を掛けられている状態で、将棋なら玉を逃げるか合い駒するか王手をかけている相手の駒を取るかいろいろ選択肢がありますが、三目並べだと相手のラインが揃うのを防ぐ手一択です。こういう<strong>絶対手</strong>が存在する局面の重みデータだけあらかじめ大きな値に書き換えるのも一つの方法かもしれません。<br>
+　特定の局面の重みデータを恣意的に操作するのは将棋ＡＩで言えば定跡データを利用することに一見似ていますが、将棋で言う定跡は主に序盤で使われるもので、絶対正しいとは言い切れないものですし頻繁に変わります<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup>。それに対してここで言っているケースは、その一手を選ばなければ負けると言う<strong>絶対手が存在する局面</strong>のことを言っているので定跡とは違い、終盤に生じる限定手に当たります。三目並べでは三手後の局面がすでに終盤なんですね。絶対に正しいとは言い切れない定跡データを使うケースとは違い、絶対正しい手だけを対象にするのであれば重みデータを恣意的に操作してもいいのでは？と考えました。</p>
+
+<h3 id="一手の読みを入れる">一手の読みを入れる</h3>
+<p>　<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">三目並べアプリ</a>と同じモンテカルロ法を使っているAlphaZeroでも一部で先読みを行なっている（<a href="http://blog.brainpad.co.jp/entry/2018/04/05/163000">参照</a>）と聞いて、最初どういうことだ？と思ったのですが、ゲーム木をプログラム内に保持しているわけですから、子ノードを辿っていくことが先読みに繋がります。先読みといっても、MIN-MAX法（αβ法）等を使って先読みするわけではなくツリー構造のノードを辿る処理をしているのだと想像します。←実際どうやっているかは知りません。<br>
+　先ほどの例で言えば、「局面１」から一手進んだ「局面２」は「局面１」の子ノードにあるので、そのデータを参照すれば一手先を読んでいることになります。「局面２」には既に学習が進んだ重みデータがあるわけですから、「局面１」で指し手を決める時にその子ノードを参照して、その子ノードで保持している重みデータの最大値が十分に大きな値(<code>&gt; 0.9</code>)であればその手を優先して採用するようにして見ました。上の図で言えば、「局面１」で左上のマス目を選択したとしても、一度子ノードである「局面２」の重みデータを参照してその最大値（<code>0.6815</code>）が格納されている下段真ん中に変更するというやり方です（上の図の例では、最大値がまだ<code>0.6815</code>で<code>&gt; 0.9</code>という条件を満たさないので置き換えません）。子ノードの最大値が相手のラインが揃うのを防ぐ手であるのか、自分のラインが揃う手であるのか分かりませんが、先手または後手の手番におけるその局面での最善手であることを示しているのですから、その値が他のマス目に比べて著しく大きな値であれば十分に学習済みの局面と考えて指し手を変更するという方法です。ある局面から先の局面が全て現局面の子ノードにぶら下がっているわけではないので、このやり方を厳密にやろうとすると親ノードから辿る必要があるのですが、とりあえず学習速度を上げるための効果を試したかっただけなので、現在参照中の局面データ（ノード）にぶら下がっている子ノードだけを調べる方法で、<a href="/software/2019-07-19/self-play">前回記事</a>と同様に10,000回の自己対戦をして見ました。</p>
+
+<h4 id="グラフ１">グラフ１</h4>
+<div id="self_play" style="width:600px;height:300px;"></div>
+
+<h3 id="まずまずの結果">まずまずの結果</h3>
+<p>　<a href="/software/2019-07-19/self-play">前回記事</a>のグラフ１と比較していただければ明白ですが、効果はあるみたいですが重みデータを恣意的に変更することで何か悪影響があるかもしれません。まだよく検証していません。<br>
+　この方法を将棋ＡＩに当てはめることを考えてみましたが、三目並べと違って将棋の場合は詰めろを受ける方法も複数存在することが多いので「この一手」じゃないと負けてしまうという<strong>絶対手</strong>が存在する局面っていうのはあまり無さそうなので、将棋の場合は候補手を絞るために先読みを使うのがいいかもしれません。将棋ＡＩを作る前に取り敢えず三目並べで色々試しているのですが、試してみたいアイデアや疑問がいっぱい出てきて、学習型の将棋ＡＩの作成がなかなか進みません<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20">。</p>
+
+<script type="text/javascript">
+function show_self_play(){
+    var old_lose = [[1, 34],[2, 50],[3, 40],[4, 39],[5, 38],[6, 36],[7, 42],[8, 45],[9, 47],[10, 49],[11, 43],[12, 40],[13, 36],[14, 39],[15, 36],[16, 29],[17, 25],[18, 29],[19, 30],[20, 32],[21, 31],[22, 22],[23, 35],[24, 28],[25, 31],[26, 26],[27, 29],[28, 31],[29, 29],[30, 30],[31, 25],[32, 39],[33, 22],[34, 35],[35, 35],[36, 35],[37, 25],[38, 21],[39, 17],[40, 23],[41, 18],[42, 14],[43, 12],[44, 9],[45, 16],[46, 15],[47, 14],[48, 10],[49, 10],[50, 12],[51, 17],[52, 10],[53, 10],[54, 12],[55, 11],[56, 8],[57, 14],[58, 8],[59, 6],[60, 3],[61, 8],[62, 7],[63, 7],[64, 2],[65, 2],[66, 7],[67, 3],[68, 6],[69, 3],[70, 3],[71, 4],[72, 1],[73, 3],[74, 3],[75, 6],[76, 2],[77, 5],[78, 1],[79, 2],[80, 1],[81, 2],[82, 3],[83, 0],[84, 1],[85, 5],[86, 1],[87, 1],[88, 1],[89, 0],[90, 2],[91, 1],[92, 3],[93, 4],[94, 2],[95, 0],[96, 1],[97, 0],[98, 0],[99, 1],[100, 0]];
+    var old_win = [[1, 52],[2, 40],[3, 48],[4, 45],[5, 49],[6, 48],[7, 43],[8, 40],[9, 36],[10, 37],[11, 31],[12, 30],[13, 52],[14, 40],[15, 37],[16, 27],[17, 21],[18, 19],[19, 18],[20, 19],[21, 26],[22, 30],[23, 21],[24, 31],[25, 19],[26, 27],[27, 27],[28, 31],[29, 23],[30, 27],[31, 27],[32, 17],[33, 22],[34, 26],[35, 27],[36, 17],[37, 27],[38, 27],[39, 19],[40, 22],[41, 26],[42, 17],[43, 13],[44, 15],[45, 10],[46, 13],[47, 10],[48, 12],[49, 13],[50, 12],[51, 10],[52, 7],[53, 11],[54, 8],[55, 6],[56, 16],[57, 13],[58, 11],[59, 4],[60, 6],[61, 6],[62, 9],[63, 8],[64, 7],[65, 7],[66, 4],[67, 4],[68, 1],[69, 2],[70, 3],[71, 4],[72, 2],[73, 1],[74, 4],[75, 5],[76, 3],[77, 2],[78, 3],[79, 0],[80, 0],[81, 0],[82, 3],[83, 4],[84, 6],[85, 1],[86, 4],[87, 1],[88, 0],[89, 3],[90, 1],[91, 1],[92, 0],[93, 0],[94, 0],[95, 1],[96, 1],[97, 1],[98, 1],[99, 0],[100, 1]];
+    var old_draw = [[1 ,14],[2, 10],[3 ,12],[4 ,16],[5 ,13],[6 ,16],[7, 15],[8 ,15],[9 ,17],[10, 14],[11, 26],[12, 30],[13, 12],[14, 21],[15, 27],[16, 44],[17, 54],[18, 52],[19, 52],[20, 49],[21, 43],[22, 48],[23, 44],[24, 41],[25, 50],[26, 47],[27, 44],[28, 38],[29, 48],[30, 43],[31, 48],[32, 44],[33, 56],[34, 39],[35, 38],[36, 48],[37, 48],[38, 52],[39, 64],[40, 55],[41, 56],[42, 69],[43, 75],[44, 76],[45, 74],[46, 72],[47, 76],[48, 78],[49, 77],[50, 76],[51, 73],[52, 83],[53, 79],[54, 80],[55, 83],[56, 78],[57, 73],[58, 81],[59, 90],[60, 91],[61, 86],[62, 84],[63, 85],[64, 91],[65, 91],[66 , 89],[67, 93],[68, 93],[69, 95],[70, 94],[71, 92],[72, 97],[73, 96],[74, 93],[75, 89],[76, 95],[77, 93],[78, 96],[79, 98],[80, 99],[81, 98],[82, 94],[83, 96],[84, 93],[85, 94],[86, 95],[87, 98],[88, 99],[89, 97],[90, 97],[91, 98],[92, 97],[93, 96],[94, 98],[95, 99],[96, 98],[97, 99],[98, 99],[99, 99],[100, 99]];
+
+    Flotr.draw(
+        document.getElementById("self_play"),
+        [
+            {data: old_lose, label: "勝ち"},
+            {data: old_win, label: "負け"},
+            {data: old_draw, label: "引分"}
+        ],
+        {
+            title: "子ノードの最善手を参照（一手読み）",
+            subtitle: "自己対戦",
+            HtmlText: false,
+            bars:{show: true, stacked: true, horizontal:false},
+            xaxis:{
+                title: "対戦回数（×１００）",
+                max: 110,
+                noTicks: 10
+            },
+            yaxis:{
+                title: "対戦結果（勝ち／負け／引き分け）",
+                titleAngle: 90,
+                max: 100,
+                noTicks: 10
+            },
+            grid: {
+                verticalLines: true,
+                horizontalLines: true,
+                outline: "ws"
+            },
+            mouse: {
+                track:true,
+                trackDecimals: 0
+            }
+        }
+    );
+}
+
+function show_self_play_addsub(){
+    var old_lose = [[1, 49],[2, 49],[3, 42],[4, 48],[5, 39],[6, 43],[7, 54],[8, 38],[9, 39],[10, 29],[11, 22],[12, 18],[13, 31],[14, 22],[15, 20],[16, 11],[17, 16],[18, 13],[19, 9],[20, 13],[21, 7],[22, 7],[23, 7],[24, 6],[25, 2],[26, 4],[27, 2],[28, 2],[29, 0],[30, 1],[31, 3],[32, 3],[33, 7],[34, 6],[35, 0],[36, 0],[37, 2],[38, 5],[39, 4],[40, 11],[41, 15],[42, 12],[43, 4],[44, 8],[45, 12],[46, 4],[47, 6],[48, 11],[49, 9],[50, 18],[51, 6],[52, 4],[53, 4],[54, 8],[55, 5],[56, 1],[57, 1],[58, 6],[59, 6],[60, 4],[61, 3],[62, 3],[63, 4],[64, 0],[65, 1],[66, 4],[67, 1],[68, 0],[69, 2],[70, 0],[71, 0],[72, 0],[73, 0],[74, 0],[75, 0],[76, 0],[77, 0],[78, 0],[79, 3],[80, 1],[81, 2],[82, 0],[83, 2],[84, 1],[85, 2],[86, 1],[87, 6],[88, 4],[89, 6],[90, 3],[91, 2],[92, 2],[93, 4],[94, 6],[95, 9],[96, 7],[97, 5],[98, 3],[99, 0],[100, 2]];
+    var old_win = [[1, 41],[2, 41],[3, 39],[4, 47],[5, 46],[6, 45],[7, 30],[8, 36],[9, 35],[10, 42],[11, 38],[12, 34],[13, 27],[14, 15],[15, 15],[16, 13],[17, 10],[18, 11],[19, 9],[20, 10],[21, 13],[22, 8],[23, 4],[24, 14],[25, 6],[26, 2],[27, 3],[28, 5],[29, 4],[30, 3],[31, 4],[32, 1],[33, 4],[34, 3],[35, 3],[36, 1],[37, 1],[38, 4],[39, 2],[40, 10],[41, 10],[42, 8],[43, 10],[44, 9],[45, 17],[46, 4],[47, 2],[48, 11],[49, 13],[50, 13],[51, 13],[52, 7],[53, 8],[54, 5],[55, 2],[56, 3],[57, 3],[58, 5],[59, 7],[60, 3],[61, 4],[62, 3],[63, 1],[64, 3],[65, 1],[66, 3],[67, 0],[68, 4],[69, 0],[70, 1],[71, 0],[72, 0],[73, 0],[74, 0],[75, 1],[76, 0],[77, 1],[78, 1],[79, 0],[80, 1],[81, 2],[82, 3],[83, 1],[84, 2],[85, 5],[86, 6],[87, 6],[88, 4],[89, 5],[90, 3],[91, 0],[92, 1],[93, 3],[94, 15],[95, 6],[96, 9],[97, 4],[98, 0],[99, 2],[100, 1]];
+    var old_draw = [[1, 10],[2, 10],[3, 19],[4, 5],[5, 15],[6, 12],[7, 16],[8, 26],[9, 26],[10, 29],[11, 40],[12, 48],[13, 42],[14, 63],[15, 65],[16, 76],[17, 74],[18, 74],[19, 82],[20, 77],[21, 80],[22, 85],[23, 89],[24, 80],[25, 92],[26, 94],[27, 95],[28, 93],[29, 96],[30, 96],[31, 93],[32, 96],[33, 89],[34, 91],[35, 97],[36, 99],[37, 97],[38, 91],[39, 94],[40, 79],[41, 75],[42, 80],[43, 86],[44, 83],[45, 71],[46, 92],[47, 92],[48, 78],[49, 78],[50, 69],[51, 81],[52, 89],[53, 88],[54, 87],[55, 93],[56, 96],[57, 96],[58, 89],[59, 87],[60, 93],[61, 93],[62, 94],[63, 95],[64, 97],[65, 98],[66 , 93],[67, 99],[68, 96],[69, 98],[70, 99],[71, 100],[72, 100],[73, 100],[74, 100],[75, 99],[76, 100],[77, 99],[78, 99],[79, 97],[80, 98],[81, 96],[82, 97],[83, 97],[84, 97],[85, 93],[86, 93],[87, 88],[88, 92],[89, 89],[90, 94],[91, 98],[92, 97],[93, 93],[94, 79],[95, 85],[96, 84],[97, 91],[98, 97],[99, 98],[100, 97]];
+
+    Flotr.draw(
+        document.getElementById("self_play_addsub"),
+        [
+            {data: old_lose, label: "勝ち"},
+            {data: old_win, label: "負け"},
+            {data: old_draw, label: "引分"}
+        ],
+        {
+            title: "アプリで採用している方法（重みを加減算）",
+            subtitle: "自己対戦",
+            HtmlText: false,
+            bars:{show: true, stacked: true, horizontal:false},
+            xaxis:{
+                title: "対戦回数（×１００）",
+                max: 110,
+                noTicks: 10
+            },
+            yaxis:{
+                title: "対戦結果（勝ち／負け／引き分け）",
+                titleAngle: 90,
+                max: 100,
+                noTicks: 10
+            },
+            grid: {
+                verticalLines: true,
+                horizontalLines: true,
+                outline: "ws"
+            },
+            mouse: {
+                track:true,
+                trackDecimals: 0
+            }
+        }
+    );
+}
+
+window.onload = function() {
+    show_self_play();
+    show_self_play_addsub();
+};
+</script>
+
+<hr>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>但し「人間」にまで進化した後も５％ぐらいはＡＩが負けて（間違った手を選ぶ）しまいます。詳しい仕様は<a href="https://hb.afl.rakuten.co.jp/hgc/18980d66.5ec24871.18980d67.e8ecef93/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F5271872%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F12693001%2F&amp;link_type=text&amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJ0ZXh0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImxlZnQiLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjF9">「統計の基本と世界を測るテクニック」</a>という本に書かれています。 <a href="#fnref:1" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:2">
+      <p>三目並べの場合は局面と手番が同じなら最善手はいつも同じなので、間違った学習が他の局面の学習結果に波及するわけではないですが、学習が完了するまでの対戦回数が増える要因ではあります。 <a href="#fnref:2" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:3">
+      <p>お互いに最善手を選ぶことを前提にしているわけではなく、全てのノードの学習を進めることを前提に作っているので、学習しなくていいとは言い切れないのですが、最初から全ての変化（ノード）を扱うつもりがない場合や、扱うことが出来ない将棋プログラムなどを作る場合は「学習しなくていい局面」と言い切れると思います。 <a href="#fnref:3" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:4">
+      <p>たとえ最新の将棋ＡＩで導き出した定跡手順と言えども、序盤の定跡手順と言うものは、そのソフト独自の評価関数で導き出したと言うだけで絶対正しいとは言えません。将棋において<strong>絶対手</strong>と言えるのは、終盤の「この手以外詰まされるという手」になると思います。 <a href="#fnref:4" class="reversefootnote">↩</a></p>
+    </li>
+  </ol>
+</div>
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#software-ref">
+    		software <span>21</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#coffeescript-ref">coffeescript <span>33</span></a></li>
+     
+    	<li><a href="/tags.html#tictactoe-ref">tictactoe <span>32</span></a></li>
+     
+    	<li><a href="/tags.html#android-ref">android <span>42</span></a></li>
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>41</span></a></li>
+     
+    	<li><a href="/tags.html#ruby-ref">ruby <span>34</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/software/2019-07-19/self-play" title="自己対戦でも強くなるのか？">← Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled">
+<a>Next →</a>
+      
+      </li>
+</ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'hello-my-world'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';        
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hello-my-world.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      <hr>
+      <footer>
+        <p>© 2019 happyclam
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
