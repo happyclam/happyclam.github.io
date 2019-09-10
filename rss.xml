@@ -5,10 +5,246 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-09-07T15:53:53+09:00</lastBuildDate>
-        <pubDate>2019-09-07T15:53:53+09:00</pubDate>
+        <lastBuildDate>2019-09-10T20:00:31+09:00</lastBuildDate>
+        <pubDate>2019-09-10T20:00:31+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Tic-tac-toe Evoリニューアルしました</title>
+                <description>&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=tictactoe_evo.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;Tic-tac-toe Evo&quot; title=&quot;Tic-tac-toe Evo&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;tic-tac-toe-evoについて&quot;&gt;「Tic-tac-toe Evo」について&lt;/h3&gt;
+&lt;p&gt;　今まで&lt;a href=&quot;https://play.google.com/store/apps/details?id=tictactoe_evo.io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;として公開していたアプリを&lt;a href=&quot;https://forest.watch.impress.co.jp/docs/news/1171267.html&quot;&gt;Google Playがアプリ公開の要件を強化&lt;/a&gt;するのに伴ってリニューアルしました。新機能も追加しデータの互換性もない&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;ので新しい別アプリとして公開しています。&lt;br /&gt;
+　モンテカルロ法を使った強化学習によって対戦する毎に強くなります。対局終了時に「勝てばそれまでの指し手に加点、負ければ減点」することによって学習していきます。&lt;br /&gt;
+　&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;旧アプリ&lt;/a&gt;は近々削除する予定です。&lt;/p&gt;
+
+&lt;h5 id=&quot;-進化の過程について&quot;&gt;※ 進化の過程について&lt;/h5&gt;
+&lt;p&gt;　三目並べプログラムの学習度合いによって「ピロリ菌」から「人」まで、学習度合いをいろんな生物に例えて画像を表示しています。「系統樹」「進化」等をキーワードにしてネットで調べながら自分なりに選んだ生物の画像を表示しています。必ずしも人類の進化の過程を正しく表現しているわけではありません。&lt;a href=&quot;https://kagakubar.com/mandala/mandala01.html&quot;&gt;「僕たちの祖先をめぐる15億年の旅」&lt;/a&gt;というサイトを参考にさせていただきました。&lt;/p&gt;
+
+&lt;h3 id=&quot;旧アプリとの違い追加機能&quot;&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;旧アプリ&lt;/a&gt;との違い、追加機能&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;二ヶ国語対応（日本語、英語）&lt;/li&gt;
+  &lt;li&gt;今までの画像による進化度合いの表現に加えて重みデータを数値で視覚化&lt;/li&gt;
+  &lt;li&gt;自己対戦機能追加&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;使い方&quot;&gt;使い方&lt;/h3&gt;
+&lt;p&gt;　先手は×、後手は○で縦、横、斜めに三目並べたら勝ちです。ＡＩと対戦した場合、対戦終了毎に学習データを更新し、ＡＩが徐々に強くなっていきます。最初の内は簡単に勝てますが、徐々に勝てなくなるでしょう。&lt;/p&gt;
+
+&lt;h4 id=&quot;先手後手&quot;&gt;先手・後手：&lt;/h4&gt;
+&lt;p&gt;　先手・後手それぞれ&lt;code&gt;人&lt;/code&gt;と&lt;code&gt;AI&lt;/code&gt;が選択できます。ＡＩ同士の対戦では一瞬で勝負が付きますので、対局画面下の&lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;,&lt;code&gt;&amp;lt;&lt;/code&gt;,&lt;code&gt;&amp;gt;&lt;/code&gt;,&lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt;マークをタップしてゲーム終了後に手順を確認出来ます。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/screen_turn.png&quot;&gt;&lt;img src=&quot;/images/screen_turn.png&quot; alt=&quot;先手・後手&quot; title=&quot;先手・後手&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h4 id=&quot;ａｉの対戦成績&quot;&gt;ＡＩの対戦成績：&lt;/h4&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/screen_record.png&quot;&gt;&lt;img src=&quot;/images/screen_record.png&quot; alt=&quot;ＡＩの対戦成績&quot; title=&quot;ＡＩの対戦成績&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h4 id=&quot;重みデータ表示&quot;&gt;重みデータ表示：&lt;/h4&gt;
+&lt;p&gt;　ゲーム中でもゲーム終了後でも画面左上のチェックマークアイコンをタップすると現在の局面での重みデータを表示します。５秒経つと消えるのでもっと長く表示したい場合はチェックマークアイコンを複数回タップしてください。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/value_display0.png&quot;&gt;&lt;img src=&quot;/images/value_display0.png&quot; alt=&quot;重みデータ確認&quot; title=&quot;重みデータ確認&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　重みデータは既に駒が置かれているマス目は&lt;code&gt;_______&lt;/code&gt;で、それ以外のマス目は合計が&lt;code&gt;1&lt;/code&gt;になる値で表示します。初期状態では均等に重みが割り振られていますが、学習が進むにつれてこの値が変動し、&lt;code&gt;マス目の値／合計値（＝１）&lt;/code&gt;の確率でＡＩが指し手を選択します。一番大きな値の箇所を選択するのが最善だとＡＩが学習しているということです。&lt;/p&gt;
+
+&lt;h4 id=&quot;学習データの初期化&quot;&gt;学習データの初期化：&lt;/h4&gt;
+&lt;p&gt;　アイコンを長押しして表示される「アプリ情報」メニューから「データを消去」を選べば、Androidの機能を使って学習データの初期化が出来ます。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/screen_initialize.png&quot;&gt;&lt;img src=&quot;/images/screen_initialize.png&quot; alt=&quot;データの初期化&quot; title=&quot;データの初期化画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h4 id=&quot;進化の度合いの数値について&quot;&gt;「進化の度合い」の数値（％）について：&lt;/h4&gt;
+&lt;p&gt;　すべての局面データから「あと一手でラインが揃う局面」を検索して「どれぐらいの確率で相手が三目揃うのを防ぐか（期待値）」を計算して「進化の度合い」としてアプリに表示しています。100%にはなりません、学習の進捗度合いを表す一つの目安と考えてください。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/screen_degree.png&quot;&gt;&lt;img src=&quot;/images/screen_degree.png&quot; alt=&quot;進化度合い&quot; title=&quot;進化度合い&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h3 id=&quot;学習過程を観察&quot;&gt;学習過程を観察&lt;/h3&gt;
+&lt;h4 id=&quot;例１&quot;&gt;例１：&lt;/h4&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/value_display1.png&quot;&gt;&lt;img src=&quot;/images/value_display1.png&quot; alt=&quot;初期状態１&quot; title=&quot;初期状態１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;p&gt;　インストール直後でＡＩとの対戦をしていない初期状態ではすべての空いているマス目の重みが合計１になるように割り当てられています。上の図では&lt;code&gt;0.1111 * 9 = 1.0&lt;/code&gt;（切り捨てて表示）&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/value_display2.png&quot;&gt;&lt;img src=&quot;/images/value_display2.png&quot; alt=&quot;初期状態２&quot; title=&quot;初期状態２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　一手進んだ上の図では&lt;code&gt;0.1250 * 8 = 1.0&lt;/code&gt;。ＡＩは次の手を数値の確率で選びます。学習が進んで表示上&lt;code&gt;0.00000&lt;/code&gt;や&lt;code&gt;1.00000&lt;/code&gt;になることがありますが、小数点以下６桁目を四捨五入して表示していますので内部の数値は&lt;code&gt;0&lt;/code&gt;や&lt;code&gt;1&lt;/code&gt;にはなりません。&lt;code&gt;0.00000&lt;/code&gt;と表示されていてもそのマス目を選ぶ可能性がありますし、&lt;code&gt;1.00000&lt;/code&gt;と表示されていてもそのマス目以外の箇所を選ぶこともあります。&lt;/p&gt;
+
+&lt;h4 id=&quot;例２&quot;&gt;例２：&lt;/h4&gt;
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/game1.gif&quot;&gt;&lt;img src=&quot;/images/game1.gif&quot; alt=&quot;ゲーム例１&quot; title=&quot;ゲーム例１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　インストール直後の初期状態から上記のようにゲームが進行した後に&lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;マークで初手の局面に戻して画面左上のチェックマークをタップすると、以下のように真ん中のマス目の重みが増加しています。初手に真ん中を選んだ先手（×）が勝ったので真ん中を選んだ手が良い手だったと判断し報酬を得ました（重みが増加）。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/game1_value0.png&quot;&gt;&lt;img src=&quot;/images/game1_value0.png&quot; alt=&quot;ゲーム例１、初手&quot; title=&quot;ゲーム例１、初手&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　二手目の局面でチェックマークをタップすると以下のように右上のマス目の値（重みデータ）が減少しています。後手（○）はこの局面で右上を選んで負けたので罰を与えられました（重みが減少）。こういう作業を繰り返すことでどの局面でどの手が最善かを学習していきます。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/game1_value1.png&quot;&gt;&lt;img src=&quot;/images/game1_value1.png&quot; alt=&quot;ゲーム例１、二手目&quot; title=&quot;ゲーム例１、二手目&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　このようにゲーム終了後に勝った方の手を良い手、負けた方の手を悪い手と判断し、全ての局面の重みデータを修正していくことで学習し、徐々に強くなっていきます（&lt;strong&gt;モンテカルロ法による強化学習&lt;/strong&gt;）。&lt;/p&gt;
+
+&lt;h4 id=&quot;例３&quot;&gt;例３：&lt;/h4&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/game2_value0.png&quot;&gt;&lt;img src=&quot;/images/game2_value0.png&quot; alt=&quot;ゲーム例２&quot; title=&quot;ゲーム例２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　上の局面では次に後手（○）が中央下部分を選ばなければ負けてしまいますが、重みデータは&lt;code&gt;0.52858&lt;/code&gt;となっていて&lt;code&gt;約53%&lt;/code&gt;の確率でしか選ばない状態です。学習が進むにつれてこの値が&lt;code&gt;1.00000&lt;/code&gt;に近づいていきます。&lt;/p&gt;
+
+&lt;h3 id=&quot;ａｉの学習の進捗進化の進捗例&quot;&gt;ＡＩの学習の進捗（進化の進捗）例&lt;/h3&gt;
+&lt;p&gt;　おおよそ3,000回ぐらいの対戦をすると学習が完了（「人」にまで進化）します。&lt;/p&gt;
+&lt;h4 id=&quot;自己対戦のみ&quot;&gt;自己対戦のみ：&lt;/h4&gt;
+&lt;p&gt;　下のグラフはＡＩの自己対戦機能を使って10,000回対戦した場合のゲーム結果（勝ち・負け・引き分け）の推移を表しています。&lt;/p&gt;
+&lt;div id=&quot;self_play_addsub&quot; style=&quot;width:600px;height:300px;&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;　三目並べはお互いに最善手を選ぶと引き分けになりますので、ＡＩの学習が進めば進むほど引き分けの割合が高くなります。自己対戦のみだと現れにくい局面が生じて、若干学習が遅くなります。&lt;/p&gt;
+
+&lt;h4 id=&quot;最強プログラムとの対戦人間との対戦&quot;&gt;最強プログラムとの対戦（≈人間との対戦）：&lt;/h4&gt;
+&lt;p&gt;　下のグラフはこのアプリとは別の方法で作成した絶対負けない最強プログラム（人間との対戦に近いと思われます）との対戦経過です。&lt;/p&gt;
+&lt;div id=&quot;saikyo_addsub&quot; style=&quot;width:600px;height:300px;&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;　最強プログラムとの対戦なのでアプリ側が勝つことはないのですが、学習が進むにつれて引き分けに持ち込む可能性が高くなっていきます（間違った手を選ばなくなる）。自己対戦だけの時より若干速く学習が進むようです。&lt;br /&gt;
+　出来るだけ考えられるすべての手順を使ってＡＩに対して厳しく勝ち続けることが進化を速めます。&lt;/p&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+function show_self_play_addsub(){
+    var old_lose = [[1, 49],[2, 49],[3, 42],[4, 48],[5, 39],[6, 43],[7, 54],[8, 38],[9, 39],[10, 29],[11, 22],[12, 18],[13, 31],[14, 22],[15, 20],[16, 11],[17, 16],[18, 13],[19, 9],[20, 13],[21, 7],[22, 7],[23, 7],[24, 6],[25, 2],[26, 4],[27, 2],[28, 2],[29, 0],[30, 1],[31, 3],[32, 3],[33, 7],[34, 6],[35, 0],[36, 0],[37, 2],[38, 5],[39, 4],[40, 11],[41, 15],[42, 12],[43, 4],[44, 8],[45, 12],[46, 4],[47, 6],[48, 11],[49, 9],[50, 18],[51, 6],[52, 4],[53, 4],[54, 8],[55, 5],[56, 1],[57, 1],[58, 6],[59, 6],[60, 4],[61, 3],[62, 3],[63, 4],[64, 0],[65, 1],[66, 4],[67, 1],[68, 0],[69, 2],[70, 0],[71, 0],[72, 0],[73, 0],[74, 0],[75, 0],[76, 0],[77, 0],[78, 0],[79, 3],[80, 1],[81, 2],[82, 0],[83, 2],[84, 1],[85, 2],[86, 1],[87, 6],[88, 4],[89, 6],[90, 3],[91, 2],[92, 2],[93, 4],[94, 6],[95, 9],[96, 7],[97, 5],[98, 3],[99, 0],[100, 2]];
+    var old_win = [[1, 41],[2, 41],[3, 39],[4, 47],[5, 46],[6, 45],[7, 30],[8, 36],[9, 35],[10, 42],[11, 38],[12, 34],[13, 27],[14, 15],[15, 15],[16, 13],[17, 10],[18, 11],[19, 9],[20, 10],[21, 13],[22, 8],[23, 4],[24, 14],[25, 6],[26, 2],[27, 3],[28, 5],[29, 4],[30, 3],[31, 4],[32, 1],[33, 4],[34, 3],[35, 3],[36, 1],[37, 1],[38, 4],[39, 2],[40, 10],[41, 10],[42, 8],[43, 10],[44, 9],[45, 17],[46, 4],[47, 2],[48, 11],[49, 13],[50, 13],[51, 13],[52, 7],[53, 8],[54, 5],[55, 2],[56, 3],[57, 3],[58, 5],[59, 7],[60, 3],[61, 4],[62, 3],[63, 1],[64, 3],[65, 1],[66, 3],[67, 0],[68, 4],[69, 0],[70, 1],[71, 0],[72, 0],[73, 0],[74, 0],[75, 1],[76, 0],[77, 1],[78, 1],[79, 0],[80, 1],[81, 2],[82, 3],[83, 1],[84, 2],[85, 5],[86, 6],[87, 6],[88, 4],[89, 5],[90, 3],[91, 0],[92, 1],[93, 3],[94, 15],[95, 6],[96, 9],[97, 4],[98, 0],[99, 2],[100, 1]];
+    var old_draw = [[1, 10],[2, 10],[3, 19],[4, 5],[5, 15],[6, 12],[7, 16],[8, 26],[9, 26],[10, 29],[11, 40],[12, 48],[13, 42],[14, 63],[15, 65],[16, 76],[17, 74],[18, 74],[19, 82],[20, 77],[21, 80],[22, 85],[23, 89],[24, 80],[25, 92],[26, 94],[27, 95],[28, 93],[29, 96],[30, 96],[31, 93],[32, 96],[33, 89],[34, 91],[35, 97],[36, 99],[37, 97],[38, 91],[39, 94],[40, 79],[41, 75],[42, 80],[43, 86],[44, 83],[45, 71],[46, 92],[47, 92],[48, 78],[49, 78],[50, 69],[51, 81],[52, 89],[53, 88],[54, 87],[55, 93],[56, 96],[57, 96],[58, 89],[59, 87],[60, 93],[61, 93],[62, 94],[63, 95],[64, 97],[65, 98],[66, 93],[67, 99],[68, 96],[69, 98],[70, 99],[71, 100],[72, 100],[73, 100],[74, 100],[75, 99],[76, 100],[77, 99],[78, 99],[79, 97],[80, 98],[81, 96],[82, 97],[83, 97],[84, 97],[85, 93],[86, 93],[87, 88],[88, 92],[89, 89],[90, 94],[91, 98],[92, 97],[93, 93],[94, 79],[95, 85],[96, 84],[97, 91],[98, 97],[99, 98],[100, 97]];
+
+    Flotr.draw(
+        document.getElementById(&quot;self_play_addsub&quot;),
+        [
+            {data: old_lose, label: &quot;勝ち&quot;},
+            {data: old_win, label: &quot;負け&quot;},
+            {data: old_draw, label: &quot;引分&quot;}
+        ],
+        {
+            title: &quot;自己対戦による学習の進捗例&quot;,
+            subtitle: &quot;自己対戦&quot;,
+            HtmlText: false,
+            bars:{show: true, stacked: true, horizontal:false},
+            xaxis:{
+                title: &quot;対戦回数（×１００）&quot;,
+                max: 110,
+                noTicks: 10
+            },
+            yaxis:{
+                title: &quot;対戦結果（勝ち／負け／引き分け）&quot;,
+                titleAngle: 90,
+                max: 100,
+                noTicks: 10
+            },
+            grid: {
+                verticalLines: true,
+                horizontalLines: true,
+                outline: &quot;ws&quot;
+            },
+            mouse: {
+                track:true,
+                trackDecimals: 0
+            }
+        }
+    );
+}
+function show_saikyo_addsub(){
+    var old_lose = [[1, 0],[2, 0],[3, 0],[4, 0],[5, 0],[6, 0],[7, 0],[8, 0],[9, 0],[10, 0],[11, 0],[12, 0],[13, 0],[14, 00],[15, 0],[16, 0],[17, 0],[18, 0],[19, 0],[20, 0],[21, 0],[22, 0],[23, 0],[24, 0],[25, 0],[26, 0],[27, 0],[28, 0],[29, 0],[30, 0],[31, 0],[32, 0],[33, 0],[34, 0],[35, 0],[36, 0],[37, 0],[38, 0],[39, 0],[40, 0],[41, 0],[42, 0],[43, 0],[44, 0],[45, 0],[46, 0],[47, 0],[48, 0],[49, 0],[50, 0],[51, 0],[52, 0],[53, 0],[54, 0],[55, 0],[56, 0],[57, 0],[58, 0],[59, 0],[60, 0],[61, 0],[62, 0],[63, 0],[64, 0],[65, 0],[66, 0],[67, 0],[68, 0],[69, 0],[70, 0],[71, 0],[72, 0],[73, 0],[74, 0],[75, 0],[76, 0],[77, 0],[78, 0],[79, 0],[80, 0],[81, 0],[82, 0],[83, 0],[84, 0],[85, 0],[86, 0],[87, 0],[88, 0],[89, 0],[90, 0],[91, 0],[92, 0],[93, 0],[94, 0],[95, 0],[96, 0],[97, 0],[98, 0],[99, 0],[100, 0]];
+    var old_win = [[1, 86],[2, 78],[3, 81],[4, 53],[5, 53],[6, 50],[7, 48],[8, 39],[9, 28],[10, 37],[11, 19],[12, 28],[13, 21],[14, 29],[15, 18],[16, 14],[17, 14],[18, 14],[19, 19],[20, 16],[21, 7],[22, 6],[23, 6],[24, 9],[25, 6],[26, 7],[27, 6],[28, 14],[29, 9],[30, 11],[31, 4],[32, 8],[33, 6],[34, 8],[35, 9],[36, 8],[37, 5],[38, 3],[39, 6],[40, 4],[41, 1],[42, 4],[43, 4],[44, 6],[45, 7],[46, 4],[47, 7],[48, 2],[49, 4],[50, 3],[51, 2],[52, 3],[53, 7],[54, 4],[55, 3],[56, 4],[57, 6],[58, 4],[59, 6],[60, 11],[61, 6],[62, 4],[63, 6],[64, 5],[65, 5],[66, 2],[67, 5],[68, 5],[69, 10],[70, 5],[71, 5],[72, 6],[73, 5],[74, 2],[75, 3],[76, 1],[77, 7],[78, 8],[79, 6],[80, 3],[81, 11],[82, 5],[83, 5],[84, 3],[85, 5],[86, 3],[87, 2],[88, 6],[89, 2],[90, 3],[91, 4],[92, 1],[93, 2],[94, 1],[95, 2],[96, 6],[97, 3],[98, 10],[99, 6],[100, 1]];
+    var old_draw = [[1, 14],[2, 22],[3, 19],[4, 47],[5, 47],[6, 50],[7, 52],[8, 61],[9, 72],[10, 63],[11, 81],[12, 72],[13, 79],[14, 71],[15, 82],[16, 86],[17, 86],[18, 86],[19, 81],[20, 84],[21, 93],[22, 94],[23, 94],[24, 91],[25, 94],[26, 93],[27, 94],[28, 86],[29, 91],[30, 89],[31, 96],[32, 92],[33, 94],[34, 92],[35, 91],[36, 92],[37, 95],[38, 97],[39, 94],[40, 96],[41, 99],[42, 96],[43, 96],[44, 94],[45, 93],[46, 96],[47, 93],[48, 98],[49, 96],[50, 97],[51, 98],[52, 97],[53, 93],[54, 96],[55, 97],[56, 96],[57, 94],[58, 96],[59, 94],[60, 89],[61, 94],[62, 96],[63, 94],[64, 95],[65, 95],[66, 98],[67, 95],[68, 95],[69, 90],[70, 95],[71, 95],[72, 94],[73, 95],[74, 98],[75, 97],[76, 99],[77, 93],[78, 92],[79, 94],[80, 97],[81, 89],[82, 95],[83, 95],[84, 97],[85, 95],[86, 97],[87, 98],[88, 94],[89, 98],[90, 97],[91, 96],[92, 99],[93, 98],[94, 99],[95, 98],[96, 94],[97, 97],[98, 90],[99, 94],[100, 99]];
+
+    Flotr.draw(
+        document.getElementById(&quot;saikyo_addsub&quot;),
+        [
+            {data: old_lose, label: &quot;勝ち&quot;},
+            {data: old_win, label: &quot;負け&quot;},
+            {data: old_draw, label: &quot;引分&quot;}
+        ],
+        {
+            title: &quot;最強プログラムとの対戦による学習の進捗例&quot;,
+            subtitle: &quot;対最強プログラム&quot;,
+            HtmlText: false,
+            bars:{show: true, stacked: true, horizontal:false},
+            xaxis:{
+                title: &quot;対戦回数（×１００）&quot;,
+                max: 110,
+                noTicks: 10
+            },
+            yaxis:{
+                title: &quot;対戦結果（勝ち／負け／引き分け）&quot;,
+                titleAngle: 90,
+                max: 100,
+                noTicks: 10
+            },
+            grid: {
+                verticalLines: true,
+                horizontalLines: true,
+                outline: &quot;ws&quot;
+            },
+            mouse: {
+                track:true,
+                trackDecimals: 0
+            }
+        }
+    );
+}
+
+window.onload = function() {
+    show_self_play_addsub();
+    show_saikyo_addsub();
+};
+&lt;/script&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;データの互換性がないのはCoffeeScript1.xxからCoffeeScript2に変えたことによるものです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+                <link>https://happyclam.github.io/project/2019-09-12/new_tictactoe</link>
+                <guid>https://happyclam.github.io/project/2019-09-12/new_tictactoe</guid>
+                <pubDate>2019-09-12T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>強化学習と先読みを組み合わせる</title>
