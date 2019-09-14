@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-09-10T20:00:31+09:00</updated>
+ <updated>2019-09-14T09:05:21+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -79,6 +79,16 @@
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
   &lt;p&gt;&lt;a href=&quot;/images/screen_degree.png&quot;&gt;&lt;img src=&quot;/images/screen_degree.png&quot; alt=&quot;進化度合い&quot; title=&quot;進化度合い&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h4 id=&quot;過去のイラスト表示&quot;&gt;過去のイラスト表示&lt;/h4&gt;
+&lt;p&gt;　スワイプ操作で過去に表示されていた画像を再度表示できます。画像の上に指をおいて左または上にスワイプすると「戻る」右または下にスワイプすると「進む」です。&lt;br /&gt;
+　過去の画像が見れるだけで、この先どんな動物に進化するのかは見ることは出来ません。「人」まで進化したらすべて見ることが出来ます。「人」の先はどうなるのか、それはやってみてからのお楽しみということにしておきます。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/screen_swipe.png&quot;&gt;&lt;img src=&quot;/images/screen_swipe.png&quot; alt=&quot;スワイプで画像の移動&quot; title=&quot;スワイプで画像の移動&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
