@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-09-14T09:05:21+09:00</lastBuildDate>
-        <pubDate>2019-09-14T09:05:21+09:00</pubDate>
+        <lastBuildDate>2019-09-23T20:06:19+09:00</lastBuildDate>
+        <pubDate>2019-09-23T20:06:19+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -1115,6 +1115,41 @@ cordova.system.library.8=com.google.firebase:firebase-perf:+
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;　&lt;code&gt;cordova-plugin-androidx-adapter&lt;/code&gt;をインストールしたことで、androidサポートライブラリの部分が&lt;code&gt;com.android.support:support-v4:25.+&lt;/code&gt;から&lt;code&gt;androidx.legacy:legacy-support-v4:1.0.0&lt;/code&gt;に書き換わっているところがミソです。&lt;/p&gt;
 
+&lt;h3 id=&quot;追記cordova90にすれば簡単&quot;&gt;追記：Cordova9.0にすれば簡単&lt;/h3&gt;
+&lt;p&gt;　上で紹介した修正済みのfirebase用プラグイン（&lt;code&gt;https://github.com/dpa99c/cordova-plugin-firebase#GH-1057-April-05-android-build-issue&lt;/code&gt;）は現在は公開されていないようです。既存のプロジェクトなら上記方法で問題ありませんが、今から新規プロジェクトでFirebaseを使うなら、Cordovaを9.0にバージョンアップしてプラグインもそれに対応したものを使用するのが一番簡単なようです。Cordova 9.0で&lt;code&gt;cordova-plugin-firebasex&lt;/code&gt;（&lt;strong&gt;末尾にxがついていることに注意&lt;/strong&gt;）をインストールすれば、すでに説明した&lt;code&gt;cordova-plugin-androidx&lt;/code&gt;と&lt;code&gt;cordova-plugin-androidx-adapter&lt;/code&gt;が自動でインストールされて簡単にFirebase導入が完了しました。&lt;br /&gt;
+　但し、使用しているプラグインによってはCordova 9.0に対応していないものもあるようなので注意が必要です。私の場合&lt;code&gt;cordova-plugin-crypt-file&lt;/code&gt;を使用していたのですが、これが対応していなくて対応済みの&lt;code&gt;cordova-plugin-crypto-file&lt;/code&gt;（&lt;strong&gt;cryptではなくcrypto&lt;/strong&gt;）に差し替えて一応ビルド出来ました。このプラグインも少し問題があったのですが&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;、実行時エラーが発生する場合は、まずプラグインを疑うのが余計な時間を取られないと思います。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cordova -v
+9.0.0 (cordova-lib@9.0.1)
+$ cordova platform ls
+Installed platforms:
+  android 8.1.0
+Available platforms: 
+  browser ^6.0.0
+  electron ^1.0.0
+  ios ^5.0.0
+  osx ^5.0.0
+  windows ^7.0.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;$cordova plugin list
+cordova-admob-sdk 0.24.1 &quot;AdMob SDK&quot;
+cordova-plugin-admob-free 0.27.0 &quot;Cordova AdMob Plugin&quot;
+cordova-plugin-androidx 1.0.2 &quot;cordova-plugin-androidx&quot;
+cordova-plugin-androidx-adapter 1.1.0 &quot;cordova-plugin-androidx-adapter&quot;
+cordova-plugin-crypto-file 1.2.1 &quot;Crypt File&quot;
+cordova-plugin-device 2.0.3 &quot;Device&quot;
+cordova-plugin-dialogs 2.0.2 &quot;Notification&quot;
+cordova-plugin-firebasex 6.1.0 &quot;Google Firebase Plugin&quot;
+cordova-plugin-globalization 1.11.0 &quot;Globalization&quot;
+cordova-plugin-splashscreen 5.0.3 &quot;Splashscreen&quot;
+cordova-plugin-whitelist 1.3.4 &quot;Whitelist&quot;
+cordova-plugin-x-socialsharing 5.6.0 &quot;SocialSharing&quot;
+cordova-plugin-x-toast 2.7.2 &quot;Toast&quot;
+cordova-promise-polyfill 0.0.2 &quot;cordova-promise-polyfill&quot;
+es6-promise-plugin 4.2.2 &quot;Promise&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;hr /&gt;
 
 &lt;div class=&quot;footnotes&quot;&gt;
@@ -1124,6 +1159,9 @@ cordova.system.library.8=com.google.firebase:firebase-perf:+
     &lt;/li&gt;
     &lt;li id=&quot;fn:2&quot;&gt;
       &lt;p&gt;元々個人情報にはアクセスしていないのですが、それを明示するために以前GDPR問題の際に追記したと思います。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;cordova-plugin-crypto-fileは元のcordova-plugin-crypt-fileと全く同じものでは無いようで、plugin.xmlを編集して独自の使い方をしていると原因不明のエラーに悩まされました。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
