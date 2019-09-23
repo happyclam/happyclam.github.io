@@ -431,7 +431,7 @@ Available platforms:
 <p>　android@7.1.4だとバージョンに違いによるConflictが起きたと書きましたが、cordovaのandroid環境を8.0.0にバージョンアップした後、以下の手順で<a href="https://developer.android.com/jetpack/androidx/migrate">androidxライブラリ</a>に移行することで簡単にビルド出来ました。</p>
 
 <ol>
-  <li>Android Studioを使ってCordovaプロジェクトをAndroidXに移行（[Refactor] -&gt; [Migrate to AndroidX…] -&gt; [Do Refactor]）</li>
+  <li><del>Android Studioを使ってCordovaプロジェクトをAndroidXに移行（[Refactor] -&gt; [Migrate to AndroidX…] -&gt; [Do Refactor]）</del> →　不要？</li>
   <li>Cordova環境でビルド後、既に紹介済みの手順で<code>cordova-plugin-firebase 2.0.5</code>を導入。</li>
   <li>ビルドエラーが出る状態でも構わず<code>cordova-plugin-androidx</code>プラグインと<code>cordova-plugin-androidx-adapter</code>プラグインをインストール</li>
 </ol>
@@ -485,7 +485,7 @@ cordova.system.library.8=com.google.firebase:firebase-perf:+
 <p>　<code>cordova-plugin-androidx-adapter</code>をインストールしたことで、androidサポートライブラリの部分が<code>com.android.support:support-v4:25.+</code>から<code>androidx.legacy:legacy-support-v4:1.0.0</code>に書き換わっているところがミソです。</p>
 
 <h3 id="追記cordova90にすれば簡単">追記：Cordova9.0にすれば簡単</h3>
-<p>　上で紹介した修正済みのfirebase用プラグイン（<code>https://github.com/dpa99c/cordova-plugin-firebase#GH-1057-April-05-android-build-issue</code>）は現在は公開されていないようです。既存のプロジェクトなら上記方法で問題ありませんが、今から新規プロジェクトでFirebaseを使うなら、Cordovaを9.0にバージョンアップしてプラグインもそれに対応したものを使用するのが一番簡単なようです。Cordova 9.0で<code>cordova-plugin-firebasex</code>（<strong>末尾にxがついていることに注意</strong>）をインストールすれば、すでに説明した<code>cordova-plugin-androidx</code>と<code>cordova-plugin-androidx-adapter</code>が自動でインストールされて簡単にFirebase導入が完了しました。<br />
+<p>　上で紹介した修正済みのfirebase用プラグイン（<code>https://github.com/dpa99c/cordova-plugin-firebase#GH-1057-April-05-android-build-issue</code>）は現在は公開されていないようです。既存のプロジェクトなら上記方法で問題ありませんが、今から新規プロジェクトでFirebaseを使うなら、Cordovaを9.0にバージョンアップしてプラグインもそれに対応したものを使用するのが一番簡単なようです。Cordova 9.0で<code>cordova-plugin-firebasex</code>（<strong>末尾にxがついていることに注意</strong>）をインストールすれば、すでに説明した<code>cordova-plugin-androidx</code>と<code>cordova-plugin-androidx-adapter</code>が自動でインストールされて簡単にFirebase導入が完了しました。Android Studioを使った作業も不要でした。<br />
 　但し、使用しているプラグインによってはCordova 9.0に対応していないものもあるようなので注意が必要です。私の場合<code>cordova-plugin-crypt-file</code>を使用していたのですが、これが対応していなくて対応済みの<code>cordova-plugin-crypto-file</code>（<strong>cryptではなくcrypto</strong>）に差し替えて一応ビルド出来ました。このプラグインも少し問題があったのですが<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>、実行時エラーが発生する場合は、まずプラグインを疑うのが余計な時間を取られないと思います。</p>
 
 <pre><code>$ cordova -v
@@ -530,7 +530,7 @@ es6-promise-plugin 4.2.2 "Promise"
       <p>元々個人情報にはアクセスしていないのですが、それを明示するために以前GDPR問題の際に追記したと思います。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
     </li>
     <li id="fn:3">
-      <p>cordova-plugin-crypto-fileは元のcordova-plugin-crypt-fileと全く同じものでは無いようで、plugin.xmlを編集して独自の使い方をしていると原因不明のエラーに悩まされました。 <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+      <p>cordova-plugin-crypto-fileは元のcordova-plugin-crypt-fileと全く同じものでは無いようで、plugin.xmlを編集して独自の使い方をしていると原因不明のアプリ起動時のエラーに悩まされました。 <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>
