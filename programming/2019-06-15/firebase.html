@@ -484,7 +484,7 @@ cordova.system.library.8=com.google.firebase:firebase-perf:+
 </code></pre>
 <p>　<code>cordova-plugin-androidx-adapter</code>をインストールしたことで、androidサポートライブラリの部分が<code>com.android.support:support-v4:25.+</code>から<code>androidx.legacy:legacy-support-v4:1.0.0</code>に書き換わっているところがミソです。</p>
 
-<h3 id="追記cordova90にすれば簡単">追記：Cordova9.0にすれば簡単</h3>
+<h3 id="追記cordova90にすれば簡単">追記：Cordova9.0にすれば簡単？</h3>
 <p>　上で紹介した修正済みのfirebase用プラグイン（<code>https://github.com/dpa99c/cordova-plugin-firebase#GH-1057-April-05-android-build-issue</code>）は現在は公開されていないようです（<a href="https://github.com/dpa99c/cordova-plugin-firebasex/issues/53">参照</a>）。なので既存のプロジェクトなら上記方法で問題ありませんが、今から新規プロジェクトでFirebaseを使うなら、Cordovaを9.0にバージョンアップしてプラグインもそれに対応したものを使用するのが一番簡単なようです。Cordova 9.0で<code>cordova-plugin-firebasex</code>（<strong>末尾にxがついていることに注意</strong>）をインストールすれば、すでに説明した<code>cordova-plugin-androidx</code>と<code>cordova-plugin-androidx-adapter</code>が自動でインストールされて簡単にFirebase導入が完了しました。Android Studioを使った作業も不要でした。<br />
 　但し、使用しているプラグインによってはCordova 9.0に対応していないものもあるようなので注意が必要です。私の場合<code>cordova-plugin-crypt-file</code>を使用していたのですが、これが対応していなくて対応済みの<code>cordova-plugin-crypto-file</code>（<strong>cryptではなくcrypto</strong>）に差し替えて一応ビルド出来ました。このプラグインも少し問題があったのですが<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>、実行時エラーが発生する場合は、まずプラグインを疑うのが余計な時間を取られないと思います。</p>
 
@@ -518,6 +518,37 @@ cordova-plugin-x-toast 2.7.2 "Toast"
 cordova-promise-polyfill 0.0.2 "cordova-promise-polyfill"
 es6-promise-plugin 4.2.2 "Promise"
 </code></pre>
+
+<h3 id="追記-2019-09-25">追記 2019-09-25</h3>
+<p>　上記環境でビルドが出来てとりあえずgoogle playにリリース（<a href="https://play.google.com/store/apps/details?id=tictactoe_evo.io.github.happyclam">Tic-tac-toe Evo</a>）したのですが、googleからリジェクト食らいました。このアプリで新しい環境を試す意味もあったのですが、やはりまだ急いで最新環境にしないほうがいいかもしれません。google からのメールには「ポリシー違反がある」としか書かれていないのでリジェクトの理由はいつものようにはっきりしないのですが、cordova-plugin-crypto-fileに原因があるのではと疑っています。Cordovaのバージョンを下げて以下の環境でビルドしたらすぐに承認されました。</p>
+<pre><code>$ cordova -v
+8.1.2 (cordova-lib@8.1.1)
+$ cordova platform ls
+Installed platforms:
+  android 8.0.0
+Available platforms: 
+  browser ~5.0.1
+  ios ~4.5.4
+  osx ~4.0.1
+  windows ~6.0.0
+$ cordova plugin list
+cordova-admob-sdk 0.24.1 "AdMob SDK"
+cordova-plugin-admob-free 0.27.0 "Cordova AdMob Plugin"
+cordova-plugin-androidx 1.0.2 "cordova-plugin-androidx"
+cordova-plugin-androidx-adapter 1.1.0 "cordova-plugin-androidx-adapter"
+cordova-plugin-crypt-file 1.3.3 "CordovaCrypt"
+cordova-plugin-device 2.0.3 "Device"
+cordova-plugin-dialogs 2.0.2 "Notification"
+cordova-plugin-globalization 1.11.0 "Globalization"
+cordova-plugin-splashscreen 4.0.3 "Splashscreen"
+cordova-plugin-whitelist 1.3.4 "Whitelist"
+cordova-plugin-x-socialsharing 5.4.7 "SocialSharing"
+cordova-plugin-x-toast 2.7.2 "Toast"
+cordova-promise-polyfill 0.0.2 "cordova-promise-polyfill"
+es6-promise-plugin 4.2.2 "Promise"
+
+</code></pre>
+<p>　リジェクトされた内容と違うのは主にCordovaのバージョンとcordova-plugin-crypto-fileを使わなくしたことです。Cordova 9.0に問題があるとは思えないので、cordova-plugin-crypto-fileプラグインに問題があったのだと思います。AdMob関連のプラグインでも裏で怪しい動きをするものがあるようですし、サードパーティ製のプラグインを使うときは今回のように様子見ながらのほうが良さそうです。</p>
 
 <hr />
 
