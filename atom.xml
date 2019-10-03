@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-09-27T08:26:54+09:00</updated>
+ <updated>2019-10-03T12:33:58+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -4102,6 +4102,15 @@ P5+HI+GI+OU+KI+HI
 &lt;p&gt;&lt;span&gt;対局が終了するか、対局を中断すると閲覧画面に切り替わって、初手からの手順を確認することが出来ます。&lt;/span&gt;
 &lt;span&gt;Version0.9.9.0から中断後レベルや対局者を変更して再開することが出来ます&lt;/span&gt;&lt;/p&gt;
 
+&lt;h4 id=&quot;盤面反転機能追加&quot;&gt;盤面反転機能追加&lt;/h4&gt;
+&lt;p&gt;　Version1.1.2.0から盤面の反転（先手・後手を上下逆さま）表示機能追加しました。画面右上の回転矢印アイコンをタップすると後手を手前にして将棋盤を表示出来ます。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/33shogi_reverse.png&quot; alt=&quot;盤面反転機能&quot; title=&quot;盤面反転機能&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　この機能追加により今までAndroid4.4以上が動作対象機種でしたが、Android5.0以上が必要になります&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+
 &lt;h3 id=&quot;メニュー&quot;&gt;メニュー&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;先手・後手&lt;/li&gt;
@@ -4162,9 +4171,9 @@ P5+HI+GI+OU+KI+HI
 　長考モードは最初に４手読みをした結果から候補手を５手に絞っているので、その候補手を絞る段階で最善手が候補手から漏れてしまうこともあります。特に４手読みの結果上位５位、６位、７位の３手の評価値が全く同じであっても常に６位、７位の手は捨てられるのがもったいないので、評価値が同じだった場合はランダムに指し手を選ぶようにしました。あくまでも４手読み時の評価値が同じだった場合だけなので、指し手に大きな変化はありませんが長考モードに関しては常に同じ手を指すとは限らなくなりました。&lt;/p&gt;
 
 &lt;p&gt;・パフォーマンス大幅改善（Version0.9.8.0）:&lt;br /&gt;
-　前回のチューニング（Version0.9.4.6）はプログラムコードを速度重視のものに置き換える方法、今回のチューニング（Version0.9.8.0）は局面の枝刈りの無駄を省くアルゴリズムの修正によるものです&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+　前回のチューニング（Version0.9.4.6）はプログラムコードを速度重視のものに置き換える方法、今回のチューニング（Version0.9.8.0）は局面の枝刈りの無駄を省くアルゴリズムの修正によるものです&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 
-&lt;p&gt;・三手以内の詰み&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;は逃さないように変更（Version1.0.0.0）:&lt;br /&gt;
+&lt;p&gt;・三手以内の詰み&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;は逃さないように変更（Version1.0.0.0）:&lt;br /&gt;
 　「弱い」モードの時も含めて全てのモードで三手以内の詰みは逃さないようにしました。勝ちを読みきった後でも無駄に手数を伸ばすことがあったので、全てのモードで三手以内の詰みがあるときは常にその手順を選択するように変更しました。&lt;br /&gt;
 　今までから「瞑想」モードでは五手以内の詰みを逃さないようになっていますが、最初に候補手を絞る段階で好手を逃す可能性があるため、五手詰め以上に関しては絶対逃さないとは言い切れません。&lt;/p&gt;
 
@@ -4296,7 +4305,7 @@ P5+HI+GI+OU+KI+HI
   &lt;p&gt;&lt;img src=&quot;/images/menu_search1.png&quot; alt=&quot;Menu - 初期配置検索&quot; title=&quot;Menu - 初期配置検索&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;　駒を選択して検索ボタンを押下すると、持ち駒あるいは盤上にその駒を使用している初期配置がリストアップされます&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。駒の選択条件はアンド（＆）検索になっているので、例えば「角」と「香」を選んで検索すると「角」も「香」も使用されている初期配置だけが検索結果に表示されます。&lt;/p&gt;
+&lt;p&gt;　駒を選択して検索ボタンを押下すると、持ち駒あるいは盤上にその駒を使用している初期配置がリストアップされます&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;。駒の選択条件はアンド（＆）検索になっているので、例えば「角」と「香」を選んで検索すると「角」も「香」も使用されている初期配置だけが検索結果に表示されます。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/images/menu_search2.png&quot; alt=&quot;Menu - 初期配置検索結果&quot; title=&quot;Menu - 初期配置検索結果&quot; /&gt;&lt;/p&gt;
@@ -5146,13 +5155,16 @@ P-00HI00FU
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;具体的にはtoString()関数を徹底的に排除して数値のまま処理したことと、末端ノードに達する前に局面の静的評価をして先読み再帰関数の終了条件を増やしたことです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;他の将棋アプリなら当たり前のように実装されている機能だと思いますが、このアプリは将棋盤をアプリで描画しているのではなく、駒（ベクターデータ、*.svg）やボタンのオブジェクトを配置することで将棋盤を形成しているため簡単ではありませんでした（HTML製のWebページを反転させることを想像していただくと分かり易いと思います）。また、svgファイルを上下左右反転させるためにAndroidのバージョンの必要要件を上げる必要がありました。他のアプリ（&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;７七将棋アプリ&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=funashishogi.io.github.happyclam&quot;&gt;歩なし将棋アプリ&lt;/a&gt;）も順次変更していく予定です。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:2&quot;&gt;
-      &lt;p&gt;三手詰めと書くと誤解を与えるので「三手以内の詰み」としています。詰将棋のように王手の連続で詰ますわけではなく、相手が指す手がなくなるような状態も含めて三手以内で勝つという意味です。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;具体的にはtoString()関数を徹底的に排除して数値のまま処理したことと、末端ノードに達する前に局面の静的評価をして先読み再帰関数の終了条件を増やしたことです。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:3&quot;&gt;
-      &lt;p&gt;今後初期配置パターンが増えてきたら、持ち駒は含めずに盤上の駒だけを検索するように変更するかもしれません。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;三手詰めと書くと誤解を与えるので「三手以内の詰み」としています。詰将棋のように王手の連続で詰ますわけではなく、相手が指す手がなくなるような状態も含めて三手以内で勝つという意味です。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot;&gt;
+      &lt;p&gt;今後初期配置パターンが増えてきたら、持ち駒は含めずに盤上の駒だけを検索するように変更するかもしれません。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
