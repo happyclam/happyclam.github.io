@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-10-03T12:33:58+09:00</updated>
+ <updated>2019-10-05T17:01:03+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -1529,6 +1529,15 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 &lt;p&gt;　初期配置の組み合わせは５,０４０通り（&lt;script type=&quot;math/tex&quot;&gt;7! = 7 * 6 * 5 * 4 * 3 * 2 * 1 = 5,040&lt;/script&gt;）ありますので、配置に合った戦略を練って楽しんで下さい:smile:&lt;br /&gt;
 　※同じ初期配置から続けて対戦を開始したい場合は、開始局面に戻して「再開」するか棋譜を保存しておいて初手に戻して「再開」してください。&lt;/p&gt;
 
+&lt;h4 id=&quot;盤面反転機能追加&quot;&gt;盤面反転機能追加&lt;/h4&gt;
+&lt;p&gt;　Version1.0.3.0から盤面の反転（先手・後手を上下逆さま）表示機能追加しました。画面右上の回転矢印アイコンをタップすると後手を手前にして将棋盤を表示出来ます。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/77shogi_reverse.png&quot; alt=&quot;盤面反転機能&quot; title=&quot;盤面反転機能&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　この機能追加により今までAndroid4.4以上が動作対象機種でしたが、Android5.0以上が必要になります。&lt;/p&gt;
+
 &lt;h3 id=&quot;読みの深さ&quot;&gt;読みの深さ&lt;/h3&gt;
 
 &lt;table&gt;
@@ -2204,6 +2213,15 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
   &lt;p&gt;&lt;img src=&quot;/images/torishogi_standard.png&quot; alt=&quot;禽将棋初期配置&quot; title=&quot;禽将棋初期配置&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
+&lt;h4 id=&quot;盤面反転機能追加&quot;&gt;盤面反転機能追加&lt;/h4&gt;
+&lt;p&gt;　Version1.0.7.0から盤面の反転（先手・後手を上下逆さま）表示機能追加しました。画面右上の回転矢印アイコンをタップすると後手を手前にして将棋盤を表示出来ます。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/torishogi_reverse.png&quot; alt=&quot;盤面反転機能&quot; title=&quot;盤面反転機能&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　この機能追加により今までAndroid4.4以上が動作対象機種でしたが、Android5.0以上が必要になります。&lt;/p&gt;
+
 &lt;h3 id=&quot;ａｉレベル&quot;&gt;ＡＩレベル&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/images/torishogi_ai.png&quot; alt=&quot;禽将棋ＡＩメニュー&quot; title=&quot;禽将棋ＡＩメニュー&quot; /&gt;&lt;/p&gt;
@@ -2454,7 +2472,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;裏に書かれているだけだと対局するときに分かりにくいので、人間同士の実際の対局時は「左」「右」と書かれている面を表に向けて対局するようです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;裏に書かれているだけだと対局するときに分かりにくいので、人間同士の実際の対局時は「左」「右」と書かれている面を表に向けて対局するようです。鶉は成ることはないのでこの使い方で支障は無いようです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:2&quot;&gt;
       &lt;p&gt;初期のバージョンは鶴は本将棋の金相当、雉は桂馬相当かなって感じで直感でなんとなく重みを決めていただけです。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
