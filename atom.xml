@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-10-05T17:01:03+09:00</updated>
+ <updated>2019-10-06T12:07:15+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -1226,6 +1226,15 @@ es6-promise-plugin 4.2.2 &quot;Promise&quot;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;a href=&quot;/images/funashishogi.png&quot;&gt;&lt;img src=&quot;/images/funashishogi.png&quot; alt=&quot;歩なし将棋初期配置&quot; title=&quot;歩なし将棋初期配置&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
+
+&lt;h4 id=&quot;盤面反転機能追加&quot;&gt;盤面反転機能追加&lt;/h4&gt;
+&lt;p&gt;　Version1.0.2.0から盤面の反転（先手・後手を上下逆さま）表示機能追加しました。画面右上の回転矢印アイコンをタップすると後手を手前にして将棋盤を表示出来ます。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/funashi_reverse.png&quot; alt=&quot;盤面反転機能&quot; title=&quot;盤面反転機能&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　この機能追加により今までAndroid4.4以上が動作対象機種でしたが、Android5.0以上が必要になります。&lt;/p&gt;
 
 &lt;h3 id=&quot;読みの深さ&quot;&gt;読みの深さ&lt;/h3&gt;
 
@@ -3918,7 +3927,14 @@ P5+HI+GI+OU+KI+HI
   &lt;p&gt;&lt;img src=&quot;/images/55shogi_font.png&quot; alt=&quot;衡山毛筆フォント&quot; title=&quot;衡山毛筆フォント&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;　自分も幼稚園の頃に書道教室に通っていたことがありますが、お近くの方は&lt;a href=&quot;http://www7a.biglobe.ne.jp/~kouzan/&quot;&gt;「青二書道教室」&lt;/a&gt;に行きましょう。&lt;/p&gt;
+&lt;h3 id=&quot;盤面反転機能追加&quot;&gt;盤面反転機能追加&lt;/h3&gt;
+&lt;p&gt;　Version1.0.9.0から盤面の反転（先手・後手を上下逆さま）表示機能追加しました。画面右上の回転矢印アイコンをタップすると後手を手前にして将棋盤を表示出来ます。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/55shogi_reverse.png&quot; alt=&quot;盤面反転機能&quot; title=&quot;盤面反転機能&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　この機能追加により今までAndroid4.4以上が動作対象機種でしたが、Android5.0以上が必要になります。&lt;/p&gt;
 
 &lt;h3 id=&quot;push通知対応&quot;&gt;Push通知対応&lt;/h3&gt;
 &lt;p&gt;　Version1.0.7.2からPush通知を受信できます。左上右側にあるアイコンをタップすると受信した最新のメッセージを再度表示します。受信したメッセージがないときは何も表示されません。&lt;/p&gt;
