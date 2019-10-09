@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Cordova 9 移行で少しハマった",
+      "category" : "programming",
+      "tags"     : "firebase, cordova, android, javascript",
+      "url"      : "/programming/2019-10-09/cordova9",
+      "date"     : "2019-10-09 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "Tic-tac-toe Evoリニューアルしました",
       "category" : "project",
       "tags"     : "coffeescript, javascript, android, cordova, tictactoe",
