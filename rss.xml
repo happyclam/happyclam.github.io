@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-10-09T20:43:35+09:00</lastBuildDate>
-        <pubDate>2019-10-09T20:43:35+09:00</pubDate>
+        <lastBuildDate>2019-10-10T07:57:32+09:00</lastBuildDate>
+        <pubDate>2019-10-10T07:57:32+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -129,13 +129,14 @@ android.enableJetifier=true
   &lt;li&gt;旧プロジェクトで使用していたCordova9対応済みのプラグインを一つずつ&lt;code&gt;cordova plugin add&lt;/code&gt;する&lt;/li&gt;
   &lt;li&gt;アプリのアイコン等に使用するリソースファイル（string.xml等）を旧プロジェクトからコピー&lt;/li&gt;
   &lt;li&gt;wwwディレクトリを旧プロジェクトからコピー&lt;/li&gt;
+  &lt;li&gt;AndroidManifest.xmlをマージ&lt;/li&gt;
   &lt;li&gt;&lt;code&gt;cordova build android&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;Android Studioでsyncしてチェック、gradleプラグインの更新、build.gradle等修正&lt;/li&gt;
   &lt;li&gt;&lt;code&gt;cordova build android --release --prod&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;META-INF/内の不要なファイルを削除して再パッケージ化して署名してgoogle playにアップロード&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;　自分は主にCLIでビルドしているのですが、今回は10.のAndroidStudioを使った作業が余計なトラブルを招いたようです。&lt;/p&gt;
+&lt;p&gt;　自分は主にCLIでビルドしているのですが、今回は11.のAndroidStudioを使った作業が余計なトラブルを招いたようです。&lt;/p&gt;
 
 &lt;hr /&gt;
 

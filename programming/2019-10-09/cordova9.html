@@ -347,13 +347,14 @@ android.enableJetifier=true
   <li>旧プロジェクトで使用していたCordova9対応済みのプラグインを一つずつ<code>cordova plugin add</code>する</li>
   <li>アプリのアイコン等に使用するリソースファイル（string.xml等）を旧プロジェクトからコピー</li>
   <li>wwwディレクトリを旧プロジェクトからコピー</li>
+  <li>AndroidManifest.xmlをマージ</li>
   <li><code>cordova build android</code></li>
   <li>Android Studioでsyncしてチェック、gradleプラグインの更新、build.gradle等修正</li>
   <li><code>cordova build android --release --prod</code></li>
   <li>META-INF/内の不要なファイルを削除して再パッケージ化して署名してgoogle playにアップロード</li>
 </ol>
 
-<p>　自分は主にCLIでビルドしているのですが、今回は10.のAndroidStudioを使った作業が余計なトラブルを招いたようです。</p>
+<p>　自分は主にCLIでビルドしているのですが、今回は11.のAndroidStudioを使った作業が余計なトラブルを招いたようです。</p>
 
 <hr>
 
