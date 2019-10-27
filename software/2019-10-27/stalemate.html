@@ -1,0 +1,416 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    
+    <title>将棋の評価関数とチェスの評価関数−１</title>
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'UA-1752720-7');
+    </script>
+    <meta name="author" content="happyclam">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="将棋の評価関数とチェスの評価関数−１">
+  
+  
+  <meta name="twitter:url" content="/software/2019-10-27/stalemate">
+  
+  
+  <meta name="twitter:description" content="将棋アプリをチェスアプリに変更するのは、ステイルメイト対応が面倒">
+  
+  
+  <meta name="twitter:image:src" content="/images/chess_icon.png">
+  
+
+  <link rel="canonical" href="/software/2019-10-27/stalemate" />
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script language="JavaScript">
+$(document).ready( function () {
+    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
+<script src="/assets/themes/twitter/js/jquery.min.js"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
+<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
+<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-1752720-7', 'happyclam.github.io');
+      ga('send', 'pageview');
+    </script>
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div style="text-align: center;">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-9018029357773039",
+        enable_page_level_ads: true
+        });
+      </script>
+    </div>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">自己満足プログラミング</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/policy">Policy</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/profile">About</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="row-fluid">
+        <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+        <div class="span9" html elements for search>
+             <div id="search-container" align="right">
+               <input type="text" id="search-input" placeholder="search...">
+               <ul id="results-container"></ul>
+             </div>
+             <div class="results"></div>
+        </div>
+      </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+      <div class="content">
+        
+<div class="page-header">
+  <h1>将棋の評価関数とチェスの評価関数−１ </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>27 October 2019</span>
+    </div>
+    <div class="content">
+      <h3 id="持ち駒が使えないチェスなら強いａｉが作れるかも">持ち駒が使えないチェスなら強いＡＩが作れるかも</h3>
+<p>　チェスに関してはルールもよく理解しないままネットやアプリで少し遊んだことはあるのですが、チェス盤を使った実戦経験もない初心者です。ゲームに詳しくなくても初心者の自分が楽しめる程度の対戦ＡＩなら開発することは出来ると思って、今の将棋アプリを流用してチェスアプリを作って見ることにしました。チェスは持ち駒が使えないので読む手の数も大幅に減るので、たとえJavaScript製のアプリであってもそこそこ強いＡＩが作れるだろうという目論見もあります。<br>
+　今リリースしている<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>（=５×５の盤面）はそこそこ強いのですが、局面の数が増える<a href="https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam">禽将棋アプリ</a>、<a href="https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam">７七将棋アプリ</a>（=７×７の盤面）は自分が低レベル（マシン語に近いという意味）のプログラミング経験が少ないこともあって非常に弱いです。でも持ち駒が使えないチェスなら読むべき局面数が減るのでそこそこ強いものが作れそうな気がしています。</p>
+
+<h3 id="今まで深く考えたことがなかったステイルメイト">今まで深く考えたことがなかったステイルメイト</h3>
+<p>　アンパッサン、キャスリング、ポーンの成りが４種類（クイーン、ビショップ、ナイト、ルーク）になることなど、チェス独特のルールをなんとか実装出来て、将棋アプリをチェスアプリに変更するのは思ったより順調だなと思っていたところ、思わぬ問題にぶつかりました。</p>
+
+<div style="width:480px; margin: 0 auto;">
+
+  <p><a href="/images/screen_chess01.png"><img src="/images/screen_chess01.png" alt="チェスの一局面" title="チェスの一局面"></a></p>
+
+</div>
+
+<p>　プログラムにチェスのルールを反映して、上の局面でＡＩに指させると、ビショップ（♗）をe7からf6に移動します。</p>
+
+<div style="width:480px; margin: 0 auto;">
+
+  <p><a href="/images/screen_chess02.png"><img src="/images/screen_chess02.png" alt="チェスの一局面" title="チェスの一局面"></a></p>
+
+</div>
+
+<p>　上の局面は斜めに動くビショップ（♗）がh8の相手のキング（♚）を睨んでいて、将棋でいうなら準王手飛車です。将棋なら当然の一手のように思います。<br>
+　上の局面は将棋で表すと以下のようになります。</p>
+
+<div style="width:480px; margin: 0 auto;">
+
+  <p><a href="/images/screen_shogi01.png"><img src="/images/screen_shogi01.png" alt="チェスの一局面を将棋で現す" title="チェスの一局面を将棋で現す"></a></p>
+
+</div>
+
+<p>　持ち駒が使えないチェスではここで後手の受け方がありません。桂馬（チェスの場合はナイト♘）が利いていて後手玉は動けませんし、角が後手玉を睨んでいて飛車も動かせないので後手の指す手がありません、必至の状態です。将棋なら後手の指す手がないので後手は投了するしかないのですが、<strong>チェスのルールでは、なんと！ステイルメイトとなって引き分けになります。</strong>チェスでは後手に合法手がない状態になると先手の勝ちになるのではなく、<strong>引き分け</strong>になるのです。<br>
+　将棋道場とかで先手が３三角（成りでも不成でも同じ）と指した時に、後手の人が「はい、ステイルメイトで引き分けね( ´,_ゝ｀)プッ」なんて言ったら喧嘩になるのではないでしょうか<br>
+　この局面から指し進めたら必ず先手が後手玉を取ることが出来るので先手の勝ちというのが将棋のルールですが、チェスでは後手の指す手がない（合法手がない）場合は引き分けとなるそうです。</p>
+
+<h3 id="将棋の評価関数">将棋の評価関数</h3>
+<p>　<a href="https://github.com/happyclam/shogi33simple">githubに公開</a>しているソースもそうですが、自分の将棋アプリの評価関数は大体以下のような構造になっています。</p>
+
+<pre><code>    check_tumi = (board) -&gt;
+        first = 0; second = 0
+        kings = (v for v in board.pieces when v.kind() == 'Ou' &amp;&amp; v.turn == Const.FIRST)
+        switch kings.length
+            when 2
+                return Const.MAX_VALUE
+            when 0
+                return Const.MIN_VALUE
+            else
+                for v in board.pieces
+                    first += v.omomi() if v.turn == Const.FIRST
+                    second += v.omomi() if v.turn == Const.SECOND
+                return (first - second)
+</code></pre>
+<p>　先手の玉が２枚あれば先手の勝ち、０枚なら後手が勝ち、それ以外は局面の静的評価値を計算するという感じです。つまり相手玉を取ることが最善、相手玉を取れば勝ちとなっています。ステイルメイトの上図のような局面では、その後ゲームを続ければ必ず先手が後手の玉を取れるので、先手勝ちと判断してしまいます。<br>
+　学習機能を持ったＡＩはまた違ったものになると思いますが、MIN-MAX法（+αβ法）を使った探索部分と静的評価関数を使っているものは大体似たような構造になっていると思います。特に、相手玉を取れるとこまで対戦を続けることが出来るようになっている将棋ＡＩはこんな感じで作られているはずです。評価関数というのは先読みの過程で最も呼び出し回数が多いものの一つで、出来るだけ軽い処理（玉の数を数えれば済む）になるように考えて、このようにしたことは<a href="/software/2018-01-27/utifudume">以前の記事</a>にも書きました。<br>
+　でもステイルメイト（合法手が無い時）は引き分けと判定するには、玉が取られていない状態でも勝ちか負けか引き分けかの判断をする必要があるので、このままでは局面を正確に判断出来ません。将棋の場合も相手玉を取るまで指し続けることは稀で、相手玉が詰んだらゲームを終了しますが、将棋ＡＩは相手玉を取ることを前提に局面を先読みし、その先ゲームを続けても玉が取られることが確定しているので詰みの段階でゲームを終了させているだけに過ぎません。でもステイルメイトの局面の場合は、王手が掛かっていない（＝詰みではない）とは言え、その先ゲームを進めたらキングが取られることは確定しているのは同じなのに、別の判断（引き分け）をしなければいけないので評価関数を修正する必要が出てきます。自分の玉が取られることは確定しているのに、その時王手が掛かっていなければ<strong>引き分け</strong>という大逆転と言ってもいい評価をしなければなりません、納得できません。</p>
+
+<h3 id="不合理なルール">不合理なルール</h3>
+<p>　将棋やチェスを「相手の王様を取るゲーム」と考えるとステイルメイトというルールは筋が通らない不合理なルールに感じます。ステイルメイトというのは自分の駒がほとんど取られて圧倒的に劣勢になっている時に生じるのだと思いますが、どこかの権力者が強いチェスプレイヤーと対戦して劣勢になって、「指す手が無い（合法手が無い）状態にしたお前が悪い」と言いがかりをつけたことがルールの起源だったりするのでしょうか（適当）<br>
+　←適当に書いたのですが、<a href="https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%86%E3%82%A4%E3%83%AB%E3%83%A1%E3%82%A4%E3%83%88">wikipedia</a>にもそれに近いことが書いてありました<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"><br>
+　評価関数をどのように修正したかは次の記事に書こうと思います。</p>
+
+<hr>
+
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#software-ref">
+    		software <span>22</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#coffeescript-ref">coffeescript <span>35</span></a></li>
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>44</span></a></li>
+     
+    	<li><a href="/tags.html#shogi-ref">shogi <span>21</span></a></li>
+     
+    	<li><a href="/tags.html#chess-ref">chess <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/programming/2019-10-09/cordova9" title="Cordova 9 移行で少しハマった">← Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled">
+<a>Next →</a>
+      
+      </li>
+</ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'hello-my-world'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';        
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hello-my-world.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      <hr>
+      <footer>
+        <p>© 2019 happyclam
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

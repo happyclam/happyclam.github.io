@@ -5,10 +5,80 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-10-10T07:57:32+09:00</lastBuildDate>
-        <pubDate>2019-10-10T07:57:32+09:00</pubDate>
+        <lastBuildDate>2019-10-27T14:09:19+09:00</lastBuildDate>
+        <pubDate>2019-10-27T14:09:19+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>将棋の評価関数とチェスの評価関数−１</title>
+                <description>&lt;h3 id=&quot;持ち駒が使えないチェスなら強いａｉが作れるかも&quot;&gt;持ち駒が使えないチェスなら強いＡＩが作れるかも&lt;/h3&gt;
+&lt;p&gt;　チェスに関してはルールもよく理解しないままネットやアプリで少し遊んだことはあるのですが、チェス盤を使った実戦経験もない初心者です。ゲームに詳しくなくても初心者の自分が楽しめる程度の対戦ＡＩなら開発することは出来ると思って、今の将棋アプリを流用してチェスアプリを作って見ることにしました。チェスは持ち駒が使えないので読む手の数も大幅に減るので、たとえJavaScript製のアプリであってもそこそこ強いＡＩが作れるだろうという目論見もあります。&lt;br /&gt;
+　今リリースしている&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;（=５×５の盤面）はそこそこ強いのですが、局面の数が増える&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;７七将棋アプリ&lt;/a&gt;（=７×７の盤面）は自分が低レベル（マシン語に近いという意味）のプログラミング経験が少ないこともあって非常に弱いです。でも持ち駒が使えないチェスなら読むべき局面数が減るのでそこそこ強いものが作れそうな気がしています。&lt;/p&gt;
+
+&lt;h3 id=&quot;今まで深く考えたことがなかったステイルメイト&quot;&gt;今まで深く考えたことがなかったステイルメイト&lt;/h3&gt;
+&lt;p&gt;　アンパッサン、キャスリング、ポーンの成りが４種類（クイーン、ビショップ、ナイト、ルーク）になることなど、チェス独特のルールをなんとか実装出来て、将棋アプリをチェスアプリに変更するのは思ったより順調だなと思っていたところ、思わぬ問題にぶつかりました。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/screen_chess01.png&quot;&gt;&lt;img src=&quot;/images/screen_chess01.png&quot; alt=&quot;チェスの一局面&quot; title=&quot;チェスの一局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　プログラムにチェスのルールを反映して、上の局面でＡＩに指させると、ビショップ（♗）をe7からf6に移動します。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/screen_chess02.png&quot;&gt;&lt;img src=&quot;/images/screen_chess02.png&quot; alt=&quot;チェスの一局面&quot; title=&quot;チェスの一局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　上の局面は斜めに動くビショップ（♗）がh8の相手のキング（♚）を睨んでいて、将棋でいうなら準王手飛車です。将棋なら当然の一手のように思います。&lt;br /&gt;
+　上の局面は将棋で表すと以下のようになります。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/screen_shogi01.png&quot;&gt;&lt;img src=&quot;/images/screen_shogi01.png&quot; alt=&quot;チェスの一局面を将棋で現す&quot; title=&quot;チェスの一局面を将棋で現す&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　持ち駒が使えないチェスではここで後手の受け方がありません。桂馬（チェスの場合はナイト♘）が利いていて後手玉は動けませんし、角が後手玉を睨んでいて飛車も動かせないので後手の指す手がありません、必至の状態です。将棋なら後手の指す手がないので後手は投了するしかないのですが、&lt;strong&gt;チェスのルールでは、なんと！ステイルメイトとなって引き分けになります。&lt;/strong&gt;チェスでは後手に合法手がない状態になると先手の勝ちになるのではなく、&lt;strong&gt;引き分け&lt;/strong&gt;になるのです。&lt;br /&gt;
+　将棋道場とかで先手が３三角（成りでも不成でも同じ）と指した時に、後手の人が「はい、ステイルメイトで引き分けね( ´,_ゝ｀)プッ」なんて言ったら喧嘩になるのではないでしょうか&lt;br /&gt;
+　この局面から指し進めたら必ず先手が後手玉を取ることが出来るので先手の勝ちというのが将棋のルールですが、チェスでは後手の指す手がない（合法手がない）場合は引き分けとなるそうです。&lt;/p&gt;
+
+&lt;h3 id=&quot;将棋の評価関数&quot;&gt;将棋の評価関数&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;githubに公開&lt;/a&gt;しているソースもそうですが、自分の将棋アプリの評価関数は大体以下のような構造になっています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    check_tumi = (board) -&amp;gt;
+        first = 0; second = 0
+        kings = (v for v in board.pieces when v.kind() == 'Ou' &amp;amp;&amp;amp; v.turn == Const.FIRST)
+        switch kings.length
+            when 2
+                return Const.MAX_VALUE
+            when 0
+                return Const.MIN_VALUE
+            else
+                for v in board.pieces
+                    first += v.omomi() if v.turn == Const.FIRST
+                    second += v.omomi() if v.turn == Const.SECOND
+                return (first - second)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;　先手の玉が２枚あれば先手の勝ち、０枚なら後手が勝ち、それ以外は局面の静的評価値を計算するという感じです。つまり相手玉を取ることが最善、相手玉を取れば勝ちとなっています。ステイルメイトの上図のような局面では、その後ゲームを続ければ必ず先手が後手の玉を取れるので、先手勝ちと判断してしまいます。&lt;br /&gt;
+　学習機能を持ったＡＩはまた違ったものになると思いますが、MIN-MAX法（+αβ法）を使った探索部分と静的評価関数を使っているものは大体似たような構造になっていると思います。特に、相手玉を取れるとこまで対戦を続けることが出来るようになっている将棋ＡＩはこんな感じで作られているはずです。評価関数というのは先読みの過程で最も呼び出し回数が多いものの一つで、出来るだけ軽い処理（玉の数を数えれば済む）になるように考えて、このようにしたことは&lt;a href=&quot;/software/2018-01-27/utifudume&quot;&gt;以前の記事&lt;/a&gt;にも書きました。&lt;br /&gt;
+　でもステイルメイト（合法手が無い時）は引き分けと判定するには、玉が取られていない状態でも勝ちか負けか引き分けかの判断をする必要があるので、このままでは局面を正確に判断出来ません。将棋の場合も相手玉を取るまで指し続けることは稀で、相手玉が詰んだらゲームを終了しますが、将棋ＡＩは相手玉を取ることを前提に局面を先読みし、その先ゲームを続けても玉が取られることが確定しているので詰みの段階でゲームを終了させているだけに過ぎません。でもステイルメイトの局面の場合は、王手が掛かっていない（＝詰みではない）とは言え、その先ゲームを進めたらキングが取られることは確定しているのは同じなのに、別の判断（引き分け）をしなければいけないので評価関数を修正する必要が出てきます。自分の玉が取られることは確定しているのに、その時王手が掛かっていなければ&lt;strong&gt;引き分け&lt;/strong&gt;という大逆転と言ってもいい評価をしなければなりません、納得できません。&lt;/p&gt;
+
+&lt;h3 id=&quot;不合理なルール&quot;&gt;不合理なルール&lt;/h3&gt;
+&lt;p&gt;　将棋やチェスを「相手の王様を取るゲーム」と考えるとステイルメイトというルールは筋が通らない不合理なルールに感じます。ステイルメイトというのは自分の駒がほとんど取られて圧倒的に劣勢になっている時に生じるのだと思いますが、どこかの権力者が強いチェスプレイヤーと対戦して劣勢になって、「指す手が無い（合法手が無い）状態にしたお前が悪い」と言いがかりをつけたことがルールの起源だったりするのでしょうか（適当）&lt;br /&gt;
+　←適当に書いたのですが、&lt;a href=&quot;https://ja.wikipedia.org/wiki/ステイルメイト&quot;&gt;wikipedia&lt;/a&gt;にもそれに近いことが書いてありました:sweat_smile:&lt;br /&gt;
+　評価関数をどのように修正したかは次の記事に書こうと思います。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+</description>
+                <link>https://happyclam.github.io/software/2019-10-27/stalemate</link>
+                <guid>https://happyclam.github.io/software/2019-10-27/stalemate</guid>
+                <pubDate>2019-10-27T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>Cordova 9 移行で少しハマった</title>
