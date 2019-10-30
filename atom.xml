@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-10-29T12:23:34+09:00</updated>
+ <updated>2019-10-31T08:29:00+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -3940,7 +3940,7 @@ Second Win
 &lt;p&gt;　&lt;a href=&quot;https://ja.wikipedia.org/wiki/5五将棋&quot;&gt;本来の５五将棋？&lt;/a&gt;では敵陣一段目（後手は５段目）に駒が進むと駒が成れますが、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;では初期配置によって駒が成れる段が変わる仕様にしています。使用する駒に桂馬が含まれている場合に一段目（後手は五段目）でしか駒を成れないとすると不都合が生じるからです。&lt;br /&gt;
 　例えば以下の局面は持ち駒の桂馬を２四に打ったところですが、&lt;/p&gt;
 
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
   &lt;p&gt;&lt;a href=&quot;/images/55shogi_ex1.png&quot;&gt;&lt;img src=&quot;/images/55shogi_ex1.png&quot; alt=&quot;桂馬を打った局面&quot; title=&quot;桂馬を打った局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
