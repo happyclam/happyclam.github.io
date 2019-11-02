@@ -1,0 +1,547 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    
+    <title>将棋の評価関数とチェスの評価関数−２</title>
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'UA-1752720-7');
+    </script>
+    <meta name="author" content="happyclam">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="将棋の評価関数とチェスの評価関数−２">
+  
+  
+  <meta name="twitter:url" content="/software/2019-11-02/stalemate2">
+  
+  
+  <meta name="twitter:description" content="ステイルメイトに対応する２つのやり方">
+  
+  
+  <meta name="twitter:image:src" content="/images/chess_icon.png">
+  
+
+  <link rel="canonical" href="/software/2019-11-02/stalemate2" />
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script language="JavaScript">
+$(document).ready( function () {
+    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
+<script src="/assets/themes/twitter/js/jquery.min.js"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
+<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
+<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-1752720-7', 'happyclam.github.io');
+      ga('send', 'pageview');
+    </script>
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div style="text-align: center;">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-9018029357773039",
+        enable_page_level_ads: true
+        });
+      </script>
+    </div>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">自己満足プログラミング</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/policy">Policy</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/profile">About</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="row-fluid">
+        <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+        <div class="span9"
+             <!-- Html Elements for Search -->
+             <div id="search-container" align="right">
+               <input type="text" id="search-input" placeholder="search...">
+               <ul id="results-container"></ul>
+             </div>
+             <div class="results"></div>
+        </div>
+      </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+      <div class="content">
+        
+<div class="page-header">
+  <h1>将棋の評価関数とチェスの評価関数−２ </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>02 November 2019</span>
+    </div>
+    <div class="content">
+      <h3 id="打ち歩詰めのチェックに比べたら簡単">打ち歩詰めのチェックに比べたら簡単</h3>
+<p>　<a href="/software/2019-10-27/stalemate">前回の記事</a>で将棋アプリの静的評価関数内で玉を２枚持っていれば勝ち（玉を取れば勝ち）と判定していて、ステイルメイト＝引き分けというチェスのルールに対応出来ないことを書きましたが、ステイルメイトに対応するために２つのやり方を試してみました。</p>
+
+<h3 id="方法１詰み判定ゲーム終了判定処理を追加する">方法１：詰み判定（ゲーム終了判定）処理を追加する</h3>
+<p>　王様が取られていたらゲーム終了とするのではなく、手番と駒の利きと王手（チェック）の有無などの情報を駆使して現時点の局面が詰んでいる（チェックメイト状態）かどうかの判断を含めて評価関数内で評価するやり方です。王様（キング）が取られているかどうかだけを見て判断するより処理は複雑で重い処理になります。こういう場合は先手勝ち、こういう場合は王手放置で後手負け、こういう場合はステイルメイトで引き分け、と詰み判定関数内でいちいち定義していくのでif文、case文だらけになり重たい処理になります。でも、その分先読みの深さを一手から二手省略できるのでメリットもあります。<br />
+　じつは以前にも将棋アプリで思考時間短縮になるかと思い試してみたことがあったのですが、思ったほど効果が上がらなかったのでリリース版には採用しませんでした。それに一つ一つのケースについて勝ち負けの判定をするので漏れが生じてバグが発生し易いのも採用を見送った理由です。<br />
+　あと、この方法で作ると王様を取る以前の段階で評価しますので、ユーザーに相手玉を取るところまで指し手を進めることは出来なくなりますが、チェスの場合もチェックメイト（詰み）の段階でゲームを終えるのが一般的なようなので問題ないと思います。</p>
+
+<h3 id="方法２一定条件下で追加で先読みする">方法２：一定条件下で追加で先読みする</h3>
+<p>　王様（キング）を二つ持っていれば勝ちという評価関数は変更せずに、先読みの過程で<strong>キングがチェックされていなくてキングを動かせない局面の場合には</strong>指定されている先読みの深さを無視して、さらに一手余計に先読みするという方法です。以前の記事に書いた<a href="/software/2018-06-10/droppawncheck">打ち歩詰めチェックの方法</a>と同じです。<strong>ステイルメイトの局面である可能性がある時は、先読み時に指定する何手先まで読むかを制限する引数を無視してさらに一手読むようにするところがミソです。</strong>打ち歩詰めと違って２手読む必要はなく、次にキングが取られるかどうかだけを見ればいいので追加で先読みするのは一手（チェス流に言えば0.5手読み）で済みますし、引数を追加する必要もありません。打ち歩詰めチェックよりは楽だし、十分実績のある既存のコードなので新たなバグが発生する可能性も低いと思って、まずこの方法で実装しました。<br />
+　<a href="http://www.chess-lovers.com/rule/stalemate.html">このサイト</a>によるとステイルメイトの定義は以下のようになっています。</p>
+
+<ol>
+  <li>チェックされていない</li>
+  <li>キング以外に動かせる駒がない。</li>
+  <li>キングをどこに動かしても取られてしまう。（自殺行為でルール上そのようなマスには移動できない）</li>
+</ol>
+
+<p>　条件１．と３．は軽い処理で済みますが、２．の条件をチェックするには結局全ての駒の動きを調べる必要があるので、それをするぐらいならもう一手余分に先読みさせて済まそうという考え方です。条件１．と３．を満たす局面が現れた時だけ条件２．を調べて、ステイルメイトが成立していたら評価値をDraw(評価値 = 0)にするということです。</p>
+
+<h3 id="とりあえず方法２で実装">とりあえず「方法２」で実装</h3>
+<h4 id="例１bf6のステイルメイトを避ける">例１：Bf6のステイルメイトを避ける</h4>
+<p>（クリックで画像拡大）</p>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/test_chess01.png"><img src="/images/test_chess01.png" alt="テスト１" title="テスト１" /></a></p>
+
+</div>
+
+<p>　<a href="/software/2019-10-27/stalemate">前回の記事</a>で挙げた例ではとりあえずステイルメイトを避けるようになりました。但しNf7がこの局面での最善手かどうかは分かりません。</p>
+
+<h4 id="例２c8qのステイルメイトを避ける">例２：c8=Qのステイルメイトを避ける</h4>
+<p>（クリックで画像拡大）</p>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/test_chess02.png"><img src="/images/test_chess02.png" alt="テスト２" title="テスト２" /></a></p>
+
+</div>
+
+<p>　修正前はポーンがc8に移動してQueenに成っていた（＝ステイルメイト）のですが、修正後はBishopに成ってステイルメイトを避けるようになりました。以下Kb8,Qb7と進んでチェックメイトで白の勝ちです。</p>
+
+<h3 id="打ち歩詰めやステイルメイトの負担">打ち歩詰めやステイルメイトの負担</h3>
+<p>　以下のコードは<a href="https://github.com/happyclam/shogi33simple">githubの将棋アプリ</a>の先読み探索部分のコードですが、全コードの<strong>２５％（青い部分）</strong>が打ち歩詰めチェックのためだけのコードになっています。今回のチェスプログラムのコードも同様にステイルメイトチェックのために随分プログラムのレスポンスが悪くなってしまいました。仕方がないこととは言えこの特殊なルールのためにパフォーマンスが低下してしまいます。</p>
+
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+<style>
+em {
+  font-style: normal;
+  background-color: #A9CEEC;
+  display: inline-block;
+  width: 100%;
+}
+</style>
+
+<pre>
+<code class="prettyprint" style="font-size: 80%;">
+    think: (board, oppo, limit, preValue, utifudume = null) -&gt;
+        spare = {}
+        lastscore = if @turn == Const.FIRST then Const.MIN_VALUE else Const.MAX_VALUE
+        lastposi = null
+        lastkoma = null
+        laststatus = null
+        score = 0
+        kinds = []
+        move_piece = null
+<em>
+        utifudume_flg = null
+</em>
+        for koma in board.pieces when koma.turn == @turn
+            if koma.status == Const.Status.MOTIGOMA
+                continue if koma.kind() in kinds
+                kinds.push(koma.kind())
+                for col in [1..board.cols]
+                    for row in [1..board.rows]
+                        dest = (v for v in board.pieces when v.posi? &amp;&amp; v.posi[0] == row &amp;&amp; v.posi[1] == col)
+                        continue if dest.length != 0
+<em>
+                        if koma.kind() == 'Fu' &amp;&amp; is_utifuOute.call @, board, koma, [row, col]
+                            if board.check_utifudume(koma, [row, col])
+                                utifudume_flg = null
+                                continue
+                            else
+                                utifudume_flg = koma
+                        else
+                            utifudume_flg = null
+</em>
+                        move_piece = new Piece.Piece(koma.turn, koma.status, koma.posi)
+                        if board.check_move(koma, [row, col])
+                            board.move_capture(koma, [row, col])
+                            result = board.gameover()
+                            if limit &gt; 0 &amp;&amp; !result
+                                ret = oppo.think(board, @, limit - 1, lastscore, utifudume_flg)
+                                score = ret[2]
+                            else
+                                score = check_tumi.call @, board
+                            shortCut = false
+                            if (score &gt; lastscore &amp;&amp; @turn == Const.FIRST) || (score &lt; lastscore &amp;&amp; @turn == Const.SECOND)
+                                spare["koma"] = lastkoma
+                                spare["posi"] = [].concat(lastposi)
+                                spare["score"] = lastscore
+                                spare["status"] = laststatus
+                                lastkoma = koma
+                                lastscore = score
+                                lastposi = [].concat([row, col])
+                                laststatus = koma.status
+                                if ((preValue &lt; score &amp;&amp; @turn == Const.FIRST) || (preValue &gt; score &amp;&amp; @turn == Const.SECOND))
+                                    shortCut = true
+                        koma.turn = move_piece.turn
+                        koma.status = move_piece.status
+                        koma.posi = move_piece.posi
+                        return [lastkoma, lastposi, lastscore, laststatus, spare] if (score &gt;= Const.MAX_VALUE &amp;&amp; @turn == Const.FIRST) || (score &lt;= Const.MIN_VALUE &amp;&amp; @turn == Const.SECOND)
+                        return [lastkoma, lastposi, lastscore, laststatus, spare] if shortCut
+            else
+                for v in eval("Piece." + koma.kind()).getD(koma.turn, koma.status)
+                    buf = [].concat(koma.posi)
+                    loop
+                        break unless ((buf[0] + v.xd in [1..board.cols]) &amp;&amp; (buf[1] + v.yd in [1..board.rows]))
+                        promotion = false
+                        buf[0] += v.xd; buf[1] += v.yd
+                        dest = (o for o in board.pieces when o.posi? &amp;&amp; o.posi[0] == buf[0] &amp;&amp; o.posi[1] == buf[1])
+                        break if dest.length != 0 &amp;&amp; dest[0].turn == koma.turn
+                        move_piece = new Piece.Piece(koma.turn, koma.status, koma.posi)
+                        if dest.length != 0
+                            dest_piece = new Piece.Piece(dest[0].turn, dest[0].status, dest[0].posi)
+                        if board.check_move(koma, buf)
+                            promotion = true if board.check_promotion(koma, buf)
+                            board.move_capture(koma, buf)
+                            loop
+                                result = board.gameover()
+<em>
+                                if utifudume? &amp;&amp; !result &amp;&amp; dest.length != 0 &amp;&amp; dest[0].id == utifudume.id &amp;&amp; koma.kind() != 'Ou'
+                                    ret = oppo.think(board, @, 0, lastscore, null)
+                                    if ret[2] &gt;= Const.MAX_VALUE || ret[2] &lt;= Const.MIN_VALUE
+                                        score = ret[2] * -1
+                                    else
+                                        if limit &gt; 0
+                                            ret = oppo.think(board, @, limit - 1, lastscore, null)
+                                            score = ret[2]
+                                        else
+                                            score = check_tumi.call @, board
+                                else
+</em>    
+                                    if limit &gt; 0 &amp;&amp; !result
+                                        ret = oppo.think(board, @, limit - 1, lastscore, null)
+                                        score = ret[2]
+                                    else
+                                        score = check_tumi.call @, board
+                                shortCut = false
+                                if (score &gt; lastscore &amp;&amp; @turn == Const.FIRST) || (score &lt; lastscore &amp;&amp; @turn == Const.SECOND)
+                                    spare["koma"] = lastkoma
+                                    spare["posi"] = [].concat(lastposi)
+                                    spare["score"] = lastscore
+                                    spare["status"] = laststatus
+                                    lastkoma = koma
+                                    lastscore = score
+                                    lastposi = [].concat(buf)
+                                    laststatus = koma.status
+                                    if ((preValue &lt; score &amp;&amp; @turn == Const.FIRST) || (preValue &gt; score &amp;&amp; @turn == Const.SECOND))
+                                        shortCut = true
+                                # 駒が成れる場合は成ってからもう一度評価する
+                                if promotion
+                                    promotion = false
+                                    koma.status = Const.Status.URA
+                                else
+                                    break
+                        koma.turn = move_piece.turn
+                        koma.status = move_piece.status
+                        koma.posi = move_piece.posi
+                        if dest.length != 0
+                            dest[0].turn = dest_piece.turn
+                            dest[0].status = dest_piece.status
+                            dest[0].posi = dest_piece.posi
+                        return [lastkoma, lastposi, lastscore, laststatus, spare] if (score &gt;= Const.MAX_VALUE &amp;&amp; @turn == Const.FIRST) || (score &lt;= Const.MIN_VALUE &amp;&amp; @turn == Const.SECOND)
+                        return [lastkoma, lastposi, lastscore, laststatus, spare] if shortCut
+                        break unless (dest.length == 0 &amp;&amp; v.series)
+        return [lastkoma, lastposi, lastscore, laststatus, spare]
+<em>
+    is_utifuOute = (board, piece, d_posi) -&gt;
+        oppo = if piece.turn == Const.FIRST then Const.SECOND else Const.FIRST
+        oppo_king = (v for v in board.pieces when v.turn == oppo &amp;&amp; v.kind() == 'Ou')[0]
+        buf = [].concat(d_posi)
+        buf[0] += Piece.Fu.getD(piece.turn, piece.status)[0].xd
+        buf[1] += Piece.Fu.getD(piece.turn, piece.status)[0].yd
+        return (oppo_king.posi[0] == buf[0] &amp;&amp; oppo_king.posi[1] == buf[1])
+</em>
+</code></pre>
+
+<p>　今回は方法２でステイルメイト対策をしましたが、方法１のやり方も検討中です。</p>
+
+<h3 id="ステイルメイトも打ち歩詰めもゲームを面白くする要素かも">ステイルメイトも打ち歩詰めもゲームを面白くする要素かも</h3>
+<p>　チェスプログラムのテストをしている際に<a href="http://www.jca-chess.com/question.htm">「引き分けがチェスを面白くしている」という意見を見かけました（質問１に対する回答）</a>。<br />
+　<a href="/software/2019-10-27/stalemate">前回の記事</a>でステイルメイトは合理的でないと貶しましたが、いろいろなケースをテストしている内に「ステイルメイト（引き分け）がチェスを面白くしている」という意見の意味が少し分かってきました。将棋の打ち歩詰め同様ゲームを面白くしている要素なのかもしれません。次の記事ではプログラムのテストを兼ねながら、もう少し難しいケースを紹介しようと思います。</p>
+
+<hr />
+
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#software-ref">
+    		software <span>23</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#coffeescript-ref">coffeescript <span>36</span></a></li>
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>45</span></a></li>
+     
+    	<li><a href="/tags.html#shogi-ref">shogi <span>22</span></a></li>
+     
+    	<li><a href="/tags.html#chess-ref">chess <span>2</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/software/2019-10-27/stalemate" title="将棋の評価関数とチェスの評価関数−１">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled"><a>Next &rarr;</a>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'hello-my-world'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';        
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hello-my-world.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2019 happyclam
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

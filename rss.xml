@@ -5,10 +5,214 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-10-31T08:29:00+09:00</lastBuildDate>
-        <pubDate>2019-10-31T08:29:00+09:00</pubDate>
+        <lastBuildDate>2019-11-02T21:47:07+09:00</lastBuildDate>
+        <pubDate>2019-11-02T21:47:07+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>将棋の評価関数とチェスの評価関数−２</title>
+                <description>&lt;h3 id=&quot;打ち歩詰めのチェックに比べたら簡単&quot;&gt;打ち歩詰めのチェックに比べたら簡単&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/software/2019-10-27/stalemate&quot;&gt;前回の記事&lt;/a&gt;で将棋アプリの静的評価関数内で玉を２枚持っていれば勝ち（玉を取れば勝ち）と判定していて、ステイルメイト＝引き分けというチェスのルールに対応出来ないことを書きましたが、ステイルメイトに対応するために２つのやり方を試してみました。&lt;/p&gt;
+
+&lt;h3 id=&quot;方法１詰み判定ゲーム終了判定処理を追加する&quot;&gt;方法１：詰み判定（ゲーム終了判定）処理を追加する&lt;/h3&gt;
+&lt;p&gt;　王様が取られていたらゲーム終了とするのではなく、手番と駒の利きと王手（チェック）の有無などの情報を駆使して現時点の局面が詰んでいる（チェックメイト状態）かどうかの判断を含めて評価関数内で評価するやり方です。王様（キング）が取られているかどうかだけを見て判断するより処理は複雑で重い処理になります。こういう場合は先手勝ち、こういう場合は王手放置で後手負け、こういう場合はステイルメイトで引き分け、と詰み判定関数内でいちいち定義していくのでif文、case文だらけになり重たい処理になります。でも、その分先読みの深さを一手から二手省略できるのでメリットもあります。&lt;br /&gt;
+　じつは以前にも将棋アプリで思考時間短縮になるかと思い試してみたことがあったのですが、思ったほど効果が上がらなかったのでリリース版には採用しませんでした。それに一つ一つのケースについて勝ち負けの判定をするので漏れが生じてバグが発生し易いのも採用を見送った理由です。&lt;br /&gt;
+　あと、この方法で作ると王様を取る以前の段階で評価しますので、ユーザーに相手玉を取るところまで指し手を進めることは出来なくなりますが、チェスの場合もチェックメイト（詰み）の段階でゲームを終えるのが一般的なようなので問題ないと思います。&lt;/p&gt;
+
+&lt;h3 id=&quot;方法２一定条件下で追加で先読みする&quot;&gt;方法２：一定条件下で追加で先読みする&lt;/h3&gt;
+&lt;p&gt;　王様（キング）を二つ持っていれば勝ちという評価関数は変更せずに、先読みの過程で&lt;strong&gt;キングがチェックされていなくてキングを動かせない局面の場合には&lt;/strong&gt;指定されている先読みの深さを無視して、さらに一手余計に先読みするという方法です。以前の記事に書いた&lt;a href=&quot;/software/2018-06-10/droppawncheck&quot;&gt;打ち歩詰めチェックの方法&lt;/a&gt;と同じです。&lt;strong&gt;ステイルメイトの局面である可能性がある時は、先読み時に指定する何手先まで読むかを制限する引数を無視してさらに一手読むようにするところがミソです。&lt;/strong&gt;打ち歩詰めと違って２手読む必要はなく、次にキングが取られるかどうかだけを見ればいいので追加で先読みするのは一手（チェス流に言えば0.5手読み）で済みますし、引数を追加する必要もありません。打ち歩詰めチェックよりは楽だし、十分実績のある既存のコードなので新たなバグが発生する可能性も低いと思って、まずこの方法で実装しました。&lt;br /&gt;
+　&lt;a href=&quot;http://www.chess-lovers.com/rule/stalemate.html&quot;&gt;このサイト&lt;/a&gt;によるとステイルメイトの定義は以下のようになっています。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;チェックされていない&lt;/li&gt;
+  &lt;li&gt;キング以外に動かせる駒がない。&lt;/li&gt;
+  &lt;li&gt;キングをどこに動かしても取られてしまう。（自殺行為でルール上そのようなマスには移動できない）&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;　条件１．と３．は軽い処理で済みますが、２．の条件をチェックするには結局全ての駒の動きを調べる必要があるので、それをするぐらいならもう一手余分に先読みさせて済まそうという考え方です。条件１．と３．を満たす局面が現れた時だけ条件２．を調べて、ステイルメイトが成立していたら評価値をDraw(評価値 = 0)にするということです。&lt;/p&gt;
+
+&lt;h3 id=&quot;とりあえず方法２で実装&quot;&gt;とりあえず「方法２」で実装&lt;/h3&gt;
+&lt;h4 id=&quot;例１bf6のステイルメイトを避ける&quot;&gt;例１：Bf6のステイルメイトを避ける&lt;/h4&gt;
+&lt;p&gt;（クリックで画像拡大）&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/test_chess01.png&quot;&gt;&lt;img src=&quot;/images/test_chess01.png&quot; alt=&quot;テスト１&quot; title=&quot;テスト１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　&lt;a href=&quot;/software/2019-10-27/stalemate&quot;&gt;前回の記事&lt;/a&gt;で挙げた例ではとりあえずステイルメイトを避けるようになりました。但しNf7がこの局面での最善手かどうかは分かりません。&lt;/p&gt;
+
+&lt;h4 id=&quot;例２c8qのステイルメイトを避ける&quot;&gt;例２：c8=Qのステイルメイトを避ける&lt;/h4&gt;
+&lt;p&gt;（クリックで画像拡大）&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/test_chess02.png&quot;&gt;&lt;img src=&quot;/images/test_chess02.png&quot; alt=&quot;テスト２&quot; title=&quot;テスト２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　修正前はポーンがc8に移動してQueenに成っていた（＝ステイルメイト）のですが、修正後はBishopに成ってステイルメイトを避けるようになりました。以下Kb8,Qb7と進んでチェックメイトで白の勝ちです。&lt;/p&gt;
+
+&lt;h3 id=&quot;打ち歩詰めやステイルメイトの負担&quot;&gt;打ち歩詰めやステイルメイトの負担&lt;/h3&gt;
+&lt;p&gt;　以下のコードは&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;githubの将棋アプリ&lt;/a&gt;の先読み探索部分のコードですが、全コードの&lt;strong&gt;２５％（青い部分）&lt;/strong&gt;が打ち歩詰めチェックのためだけのコードになっています。今回のチェスプログラムのコードも同様にステイルメイトチェックのために随分プログラムのレスポンスが悪くなってしまいました。仕方がないこととは言えこの特殊なルールのためにパフォーマンスが低下してしまいます。&lt;/p&gt;
+
+&lt;script src=&quot;https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js&quot;&gt;&lt;/script&gt;
+
+&lt;style&gt;
+em {
+  font-style: normal;
+  background-color: #A9CEEC;
+  display: inline-block;
+  width: 100%;
+}
+&lt;/style&gt;
+
+&lt;pre&gt;
+&lt;code class=&quot;prettyprint&quot; style=&quot;font-size: 80%;&quot;&gt;
+    think: (board, oppo, limit, preValue, utifudume = null) -&amp;gt;
+        spare = {}
+        lastscore = if @turn == Const.FIRST then Const.MIN_VALUE else Const.MAX_VALUE
+        lastposi = null
+        lastkoma = null
+        laststatus = null
+        score = 0
+        kinds = []
+        move_piece = null
+&lt;em&gt;
+        utifudume_flg = null
+&lt;/em&gt;
+        for koma in board.pieces when koma.turn == @turn
+            if koma.status == Const.Status.MOTIGOMA
+                continue if koma.kind() in kinds
+                kinds.push(koma.kind())
+                for col in [1..board.cols]
+                    for row in [1..board.rows]
+                        dest = (v for v in board.pieces when v.posi? &amp;amp;&amp;amp; v.posi[0] == row &amp;amp;&amp;amp; v.posi[1] == col)
+                        continue if dest.length != 0
+&lt;em&gt;
+                        if koma.kind() == 'Fu' &amp;amp;&amp;amp; is_utifuOute.call @, board, koma, [row, col]
+                            if board.check_utifudume(koma, [row, col])
+                                utifudume_flg = null
+                                continue
+                            else
+                                utifudume_flg = koma
+                        else
+                            utifudume_flg = null
+&lt;/em&gt;
+                        move_piece = new Piece.Piece(koma.turn, koma.status, koma.posi)
+                        if board.check_move(koma, [row, col])
+                            board.move_capture(koma, [row, col])
+                            result = board.gameover()
+                            if limit &amp;gt; 0 &amp;amp;&amp;amp; !result
+                                ret = oppo.think(board, @, limit - 1, lastscore, utifudume_flg)
+                                score = ret[2]
+                            else
+                                score = check_tumi.call @, board
+                            shortCut = false
+                            if (score &amp;gt; lastscore &amp;amp;&amp;amp; @turn == Const.FIRST) || (score &amp;lt; lastscore &amp;amp;&amp;amp; @turn == Const.SECOND)
+                                spare[&quot;koma&quot;] = lastkoma
+                                spare[&quot;posi&quot;] = [].concat(lastposi)
+                                spare[&quot;score&quot;] = lastscore
+                                spare[&quot;status&quot;] = laststatus
+                                lastkoma = koma
+                                lastscore = score
+                                lastposi = [].concat([row, col])
+                                laststatus = koma.status
+                                if ((preValue &amp;lt; score &amp;amp;&amp;amp; @turn == Const.FIRST) || (preValue &amp;gt; score &amp;amp;&amp;amp; @turn == Const.SECOND))
+                                    shortCut = true
+                        koma.turn = move_piece.turn
+                        koma.status = move_piece.status
+                        koma.posi = move_piece.posi
+                        return [lastkoma, lastposi, lastscore, laststatus, spare] if (score &amp;gt;= Const.MAX_VALUE &amp;amp;&amp;amp; @turn == Const.FIRST) || (score &amp;lt;= Const.MIN_VALUE &amp;amp;&amp;amp; @turn == Const.SECOND)
+                        return [lastkoma, lastposi, lastscore, laststatus, spare] if shortCut
+            else
+                for v in eval(&quot;Piece.&quot; + koma.kind()).getD(koma.turn, koma.status)
+                    buf = [].concat(koma.posi)
+                    loop
+                        break unless ((buf[0] + v.xd in [1..board.cols]) &amp;amp;&amp;amp; (buf[1] + v.yd in [1..board.rows]))
+                        promotion = false
+                        buf[0] += v.xd; buf[1] += v.yd
+                        dest = (o for o in board.pieces when o.posi? &amp;amp;&amp;amp; o.posi[0] == buf[0] &amp;amp;&amp;amp; o.posi[1] == buf[1])
+                        break if dest.length != 0 &amp;amp;&amp;amp; dest[0].turn == koma.turn
+                        move_piece = new Piece.Piece(koma.turn, koma.status, koma.posi)
+                        if dest.length != 0
+                            dest_piece = new Piece.Piece(dest[0].turn, dest[0].status, dest[0].posi)
+                        if board.check_move(koma, buf)
+                            promotion = true if board.check_promotion(koma, buf)
+                            board.move_capture(koma, buf)
+                            loop
+                                result = board.gameover()
+&lt;em&gt;
+                                if utifudume? &amp;amp;&amp;amp; !result &amp;amp;&amp;amp; dest.length != 0 &amp;amp;&amp;amp; dest[0].id == utifudume.id &amp;amp;&amp;amp; koma.kind() != 'Ou'
+                                    ret = oppo.think(board, @, 0, lastscore, null)
+                                    if ret[2] &amp;gt;= Const.MAX_VALUE || ret[2] &amp;lt;= Const.MIN_VALUE
+                                        score = ret[2] * -1
+                                    else
+                                        if limit &amp;gt; 0
+                                            ret = oppo.think(board, @, limit - 1, lastscore, null)
+                                            score = ret[2]
+                                        else
+                                            score = check_tumi.call @, board
+                                else
+&lt;/em&gt;    
+                                    if limit &amp;gt; 0 &amp;amp;&amp;amp; !result
+                                        ret = oppo.think(board, @, limit - 1, lastscore, null)
+                                        score = ret[2]
+                                    else
+                                        score = check_tumi.call @, board
+                                shortCut = false
+                                if (score &amp;gt; lastscore &amp;amp;&amp;amp; @turn == Const.FIRST) || (score &amp;lt; lastscore &amp;amp;&amp;amp; @turn == Const.SECOND)
+                                    spare[&quot;koma&quot;] = lastkoma
+                                    spare[&quot;posi&quot;] = [].concat(lastposi)
+                                    spare[&quot;score&quot;] = lastscore
+                                    spare[&quot;status&quot;] = laststatus
+                                    lastkoma = koma
+                                    lastscore = score
+                                    lastposi = [].concat(buf)
+                                    laststatus = koma.status
+                                    if ((preValue &amp;lt; score &amp;amp;&amp;amp; @turn == Const.FIRST) || (preValue &amp;gt; score &amp;amp;&amp;amp; @turn == Const.SECOND))
+                                        shortCut = true
+                                # 駒が成れる場合は成ってからもう一度評価する
+                                if promotion
+                                    promotion = false
+                                    koma.status = Const.Status.URA
+                                else
+                                    break
+                        koma.turn = move_piece.turn
+                        koma.status = move_piece.status
+                        koma.posi = move_piece.posi
+                        if dest.length != 0
+                            dest[0].turn = dest_piece.turn
+                            dest[0].status = dest_piece.status
+                            dest[0].posi = dest_piece.posi
+                        return [lastkoma, lastposi, lastscore, laststatus, spare] if (score &amp;gt;= Const.MAX_VALUE &amp;amp;&amp;amp; @turn == Const.FIRST) || (score &amp;lt;= Const.MIN_VALUE &amp;amp;&amp;amp; @turn == Const.SECOND)
+                        return [lastkoma, lastposi, lastscore, laststatus, spare] if shortCut
+                        break unless (dest.length == 0 &amp;amp;&amp;amp; v.series)
+        return [lastkoma, lastposi, lastscore, laststatus, spare]
+&lt;em&gt;
+    is_utifuOute = (board, piece, d_posi) -&amp;gt;
+        oppo = if piece.turn == Const.FIRST then Const.SECOND else Const.FIRST
+        oppo_king = (v for v in board.pieces when v.turn == oppo &amp;amp;&amp;amp; v.kind() == 'Ou')[0]
+        buf = [].concat(d_posi)
+        buf[0] += Piece.Fu.getD(piece.turn, piece.status)[0].xd
+        buf[1] += Piece.Fu.getD(piece.turn, piece.status)[0].yd
+        return (oppo_king.posi[0] == buf[0] &amp;amp;&amp;amp; oppo_king.posi[1] == buf[1])
+&lt;/em&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　今回は方法２でステイルメイト対策をしましたが、方法１のやり方も検討中です。&lt;/p&gt;
+
+&lt;h3 id=&quot;ステイルメイトも打ち歩詰めもゲームを面白くする要素かも&quot;&gt;ステイルメイトも打ち歩詰めもゲームを面白くする要素かも&lt;/h3&gt;
+&lt;p&gt;　チェスプログラムのテストをしている際に&lt;a href=&quot;http://www.jca-chess.com/question.htm&quot;&gt;「引き分けがチェスを面白くしている」という意見を見かけました（質問１に対する回答）&lt;/a&gt;。&lt;br /&gt;
+　&lt;a href=&quot;/software/2019-10-27/stalemate&quot;&gt;前回の記事&lt;/a&gt;でステイルメイトは合理的でないと貶しましたが、いろいろなケースをテストしている内に「ステイルメイト（引き分け）がチェスを面白くしている」という意見の意味が少し分かってきました。将棋の打ち歩詰め同様ゲームを面白くしている要素なのかもしれません。次の記事ではプログラムのテストを兼ねながら、もう少し難しいケースを紹介しようと思います。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+</description>
+                <link>https://happyclam.github.io/software/2019-11-02/stalemate2</link>
+                <guid>https://happyclam.github.io/software/2019-11-02/stalemate2</guid>
+                <pubDate>2019-11-02T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>将棋の評価関数とチェスの評価関数−１</title>
