@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-11-06T18:37:18+09:00</lastBuildDate>
-        <pubDate>2019-11-06T18:37:18+09:00</pubDate>
+        <lastBuildDate>2019-11-06T23:07:03+09:00</lastBuildDate>
+        <pubDate>2019-11-06T23:07:03+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -204,7 +204,7 @@ em {
 
 &lt;h3 id=&quot;ステイルメイトも打ち歩詰めもゲームを面白くする要素かも&quot;&gt;ステイルメイトも打ち歩詰めもゲームを面白くする要素かも&lt;/h3&gt;
 &lt;p&gt;　チェスプログラムのテストをしている際に&lt;a href=&quot;http://www.jca-chess.com/question.htm&quot;&gt;「引き分けがチェスを面白くしている」という意見を見かけました（質問１に対する回答）&lt;/a&gt;。&lt;br /&gt;
-　&lt;a href=&quot;/software/2019-10-27/stalemate&quot;&gt;前回の記事&lt;/a&gt;でステイルメイトは合理的でないと貶しましたが、いろいろなケースをテストしている内に「ステイルメイト（引き分け）がチェスを面白くしている」という意見の意味が少し分かってきました。将棋の打ち歩詰め同様ゲームを面白くしている要素なのかもしれません。次の記事ではプログラムのテストを兼ねながら、もう少し難しいケースを紹介しようと思います。&lt;/p&gt;
+　&lt;a href=&quot;/software/2019-10-27/stalemate&quot;&gt;前回の記事&lt;/a&gt;でステイルメイトは合理的でないと貶しましたが、いろいろなケースをテストしている内に「ステイルメイト（引き分け）がチェスを面白くしている」という意見の意味が少し分かってきました。将棋の打ち歩詰め同様ゲームを面白くしている要素なのかもしれません。&lt;/p&gt;
 
 &lt;hr /&gt;
 
