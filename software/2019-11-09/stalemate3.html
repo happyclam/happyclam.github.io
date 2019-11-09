@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    
+    <title>将棋の評価関数とチェスの評価関数−３</title>
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'UA-1752720-7');
+    </script>
+    <meta name="author" content="happyclam">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="将棋の評価関数とチェスの評価関数−３">
+  
+  
+  <meta name="twitter:url" content="/software/2019-11-09/stalemate3">
+  
+  
+  <meta name="twitter:description" content="ステイルメイト（引き分け）の評価値は０ではない？詰み判定（終了判定）導入でレスポンス改善。">
+  
+  
+  <meta name="twitter:image:src" content="/images/chess_icon.png">
+  
+
+  <link rel="canonical" href="/software/2019-11-09/stalemate3" />
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script language="JavaScript">
+$(document).ready( function () {
+    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
+<script src="/assets/themes/twitter/js/jquery.min.js"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
+<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
+<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-1752720-7', 'happyclam.github.io');
+      ga('send', 'pageview');
+    </script>
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div style="text-align: center;">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-9018029357773039",
+        enable_page_level_ads: true
+        });
+      </script>
+    </div>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">自己満足プログラミング</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/policy">Policy</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/profile">About</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="row-fluid">
+        <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+        <div class="span9"
+             <!-- Html Elements for Search -->
+             <div id="search-container" align="right">
+               <input type="text" id="search-input" placeholder="search...">
+               <ul id="results-container"></ul>
+             </div>
+             <div class="results"></div>
+        </div>
+      </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+      <div class="content">
+        
+<div class="page-header">
+  <h1>将棋の評価関数とチェスの評価関数−３ </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>09 November 2019</span>
+    </div>
+    <div class="content">
+      <h3 id="詰み判定処理導入でレスポンス改善">詰み判定処理導入でレスポンス改善</h3>
+<p>　今回は<a href="/software/2019-11-02/stalemate2">前回の記事</a>で紹介したもう一つの方法、詰み判定処理を導入したやり方（<a href="/software/2019-11-02/stalemate2">前回の記事</a>の「方法１」）で試した結果について書いてみます。既存のアプリ（<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋</a>、<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋</a>、<a href="https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam">７七将棋</a>、<a href="https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam">禽将棋</a>）は全て相手玉を取れば勝ちという簡潔な評価関数（「方法２」）を使っていて特別な詰み判定処理を行っていなかったのですが、今回チェスアプリで二つの方法を試してなかなか有用だということがわかったので、今後<a href="https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam">７七将棋</a>、<a href="https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam">禽将棋</a>にも採用しようと思っています。詰み判定処理を使うと何が良いかというと、一つは全体的に読みの深さを浅く出来る（玉、キングを取るところまで読む必要がない）ことで、テストスクリプト内の読みの深さのパラメータを全て一手少ない値にしたのに、テスト結果が同じなんてことになります。もう一つの利点は局面の評価をする際に細かく制御出来る点です。</p>
+
+<h3 id="詰み判定導入で局面に依って読みの深さが変わる">詰み判定導入で局面に依って読みの深さが変わる</h3>
+<p>　例えば評価関数内でこういう条件が成立すれば王手放置で先手の勝ちと結論が出たとします、結論が出たらすぐに評価関数からreturnするのですが、そうじゃない場合（if〜else文のelseの場合）には新たに読みの深さを指定して先読みを継続するという形になります。評価値を計算する計算式は同じでも、局面評価のタイミングの違いによって指し手が変わるようです。今までは何手先まで読むと指定すれば全局面を一律に評価して効率的な枝刈りはαβ法に任せていた<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>わけですが、評価関数内で詰み判定（終了判定）することでより細かく制御できます。巷の将棋ソフトで「局面に依って読みの深さを変える」という機能を耳にしたことはあるのですが、こういうことなのかもしれません。他の人の将棋ソフトのソースコードを追ったことはないのであくまで想像ですが…。<br />
+　言葉で説明しても違いがよく伝わらないと思うので、いずれ安定したら<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>同様に何らかの形で公開したいと思います。</p>
+
+<h3 id="前回の問題で指し手が変わった">前回の問題で指し手が変わった</h3>
+<h4 id="例１bf6のステイルメイトを避ける">例１：Bf6のステイルメイトを避ける</h4>
+<p>（クリックで画像拡大）</p>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/stalemate_chess01.png"><img src="/images/stalemate_chess01.png" alt="テスト１" title="テスト１" /></a></p>
+
+</div>
+
+<p>　ステイルメイトに対応しているはずなのに、ステイルメイトになる手（Bf6）を選んでしまいました。<br />
+　調べてみるとこれは<a href="/software/2019-10-27/stalemate">前々回の記事</a>のようにステイルメイトの局面を勝ちの局面と誤って評価したわけではなく、ステイルメイト（引き分け）にした方が先手にとって良いと判断したようです。<a href="/software/2019-11-02/stalemate2">前回の記事</a>でステイルメイトの場合はDraw（評価値＝０）を返すようにしたわけですが、この局面は評価値０よりも先手（White）にとって悪い局面で、引き分けにした方がいいと判断されたようです。評価値を計算する数式は変更していないのですが、評価関数に詰み判定を導入した（前回記事の「方法１」）ことで指し手が変わりました。<br />
+　ところでステイルメイトの局面の評価値は一体どのように計算すればいいのでしょうか？打ち歩詰めの評価値は「打ち歩詰めをした方が負け」相手玉を詰めたら勝ちの将棋だけど「打ち歩詰め」の場合は相手玉を詰めた方が負けという分かり易いルールなので、局面の静的評価値に−１を掛けました。しかしステイルメイトの場合はステイルメイトの局面にした方が負けというわけではないので−１を掛けるのはやり過ぎだと思います。<strong>単純に引き分けだから０としたのですが、多くの場合ステイルメイトは劣勢な側が何とか引き分けに持ち込んで負けを逃れる類のものなので、優勢な側は出来れば避けたい局面だと思います。</strong>かと言ってステイルメイトでいきなり負けになるわけでもないので−１を掛けるのではなく、<code>−0.7</code>を掛けることにしました。<br />
+　すると以下のように指し手が変わりました。
+（クリックで画像拡大）</p>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/stalemate_chess02.png"><img src="/images/stalemate_chess02.png" alt="テスト２" title="テスト２" /></a></p>
+
+</div>
+
+<p>　ナイト（♘）をe6に移動（Ne6）として見事にステイルメイトを避けました。<a href="/software/2019-11-02/stalemate2">前回の記事</a>の指し手（Nf7）より良い手のような気がします。<br />
+　あと、実行時間が大幅に短縮されているところも見逃せないところです<code>4277ms</code> -&gt; <code>70ms</code>。<br />
+　ちなみに<a href="/software/2019-11-02/stalemate2">前回の記事</a>の「方法２」でもステイルメイトの局面に<code>-0.7</code>を掛ける処理に変更したところ、今回と同じ手（Ne6）を指すようになりました。<code>-0.7</code>という数値が妥当かどうかは不明ですし、評価値計算部分の方を修正すべきなのかもしれません。</p>
+
+<h4 id="例２c8qのステイルメイトを避ける">例２：c8=Qのステイルメイトを避ける</h4>
+<p>（クリックで画像拡大）</p>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/stalemate_chess03.png"><img src="/images/stalemate_chess03.png" alt="テスト３" title="テスト３" /></a></p>
+
+</div>
+
+<p>　<a href="/software/2019-11-02/stalemate2">前回記事</a>の例題２では、ステイルメイトの局面の評価値を０にしても<code>-0.7</code>を掛けても同じ指し手（c8=B）でした。先手（White）が圧倒的に有利なので当然こうなるべきでしょう。</p>
+
+<h3 id="２種類の評価関数の比較">２種類の評価関数の比較</h3>
+<p>　方法１（詰み判定処理有り）と方法２（玉を取るまで読む）では、上記の例以外にもいろいろ指し手の違いが出てきます。既存のアプリで採用している「方法２」の方が<a href="/software/2018-10-27/unpromote">以前の記事</a>で紹介したように<strong>詰みを読むこと</strong>に関しては正確だと思いますが、この方法を使っていると言っても、実際のアプリではレスポンス改善のために候補手を削っていますので最善手を逃しているケースも多いと思います。<a href="https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam">７七将棋アプリ</a>や<a href="https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam">禽将棋アプリ</a>では時間短縮のために２０％ぐらいの手しか読んでいません。結局時間との兼ね合いで妥協せざるを得ないのであるのなら「方法１」のやり方に移行していこうと考えています。<br />
+　また、<a href="/software/2018-12-29/evaluate">以前の記事</a>で「駒の働き（モビリティ）」について書いたことがありますが、詰み判定処理をする際に王手（チェック）が掛かっているか、相手の駒の利きに入っているかなどをチェックする必要が出てくるのですが、その処理を評価値計算の処理に流用して効率的に評価値計算が出来るのも「方法１」の有用な点です。</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>評価値順にソートして評価値の低い手は読まない等の処理はやっています。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#software-ref">
+    		software <span>24</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#coffeescript-ref">coffeescript <span>37</span></a></li>
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>46</span></a></li>
+     
+    	<li><a href="/tags.html#shogi-ref">shogi <span>23</span></a></li>
+     
+    	<li><a href="/tags.html#chess-ref">chess <span>3</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/software/2019-11-02/stalemate2" title="将棋の評価関数とチェスの評価関数−２">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled"><a>Next &rarr;</a>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'hello-my-world'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';        
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hello-my-world.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2019 happyclam
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

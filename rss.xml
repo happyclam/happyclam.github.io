@@ -5,10 +5,72 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-11-06T23:07:03+09:00</lastBuildDate>
-        <pubDate>2019-11-06T23:07:03+09:00</pubDate>
+        <lastBuildDate>2019-11-09T14:09:48+09:00</lastBuildDate>
+        <pubDate>2019-11-09T14:09:48+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>将棋の評価関数とチェスの評価関数−３</title>
+                <description>&lt;h3 id=&quot;詰み判定処理導入でレスポンス改善&quot;&gt;詰み判定処理導入でレスポンス改善&lt;/h3&gt;
+&lt;p&gt;　今回は&lt;a href=&quot;/software/2019-11-02/stalemate2&quot;&gt;前回の記事&lt;/a&gt;で紹介したもう一つの方法、詰み判定処理を導入したやり方（&lt;a href=&quot;/software/2019-11-02/stalemate2&quot;&gt;前回の記事&lt;/a&gt;の「方法１」）で試した結果について書いてみます。既存のアプリ（&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;７七将棋&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋&lt;/a&gt;）は全て相手玉を取れば勝ちという簡潔な評価関数（「方法２」）を使っていて特別な詰み判定処理を行っていなかったのですが、今回チェスアプリで二つの方法を試してなかなか有用だということがわかったので、今後&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;７七将棋&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋&lt;/a&gt;にも採用しようと思っています。詰み判定処理を使うと何が良いかというと、一つは全体的に読みの深さを浅く出来る（玉、キングを取るところまで読む必要がない）ことで、テストスクリプト内の読みの深さのパラメータを全て一手少ない値にしたのに、テスト結果が同じなんてことになります。もう一つの利点は局面の評価をする際に細かく制御出来る点です。&lt;/p&gt;
+
+&lt;h3 id=&quot;詰み判定導入で局面に依って読みの深さが変わる&quot;&gt;詰み判定導入で局面に依って読みの深さが変わる&lt;/h3&gt;
+&lt;p&gt;　例えば評価関数内でこういう条件が成立すれば王手放置で先手の勝ちと結論が出たとします、結論が出たらすぐに評価関数からreturnするのですが、そうじゃない場合（if〜else文のelseの場合）には新たに読みの深さを指定して先読みを継続するという形になります。評価値を計算する計算式は同じでも、局面評価のタイミングの違いによって指し手が変わるようです。今までは何手先まで読むと指定すれば全局面を一律に評価して効率的な枝刈りはαβ法に任せていた&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;わけですが、評価関数内で詰み判定（終了判定）することでより細かく制御できます。巷の将棋ソフトで「局面に依って読みの深さを変える」という機能を耳にしたことはあるのですが、こういうことなのかもしれません。他の人の将棋ソフトのソースコードを追ったことはないのであくまで想像ですが…。&lt;br /&gt;
+　言葉で説明しても違いがよく伝わらないと思うので、いずれ安定したら&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;同様に何らかの形で公開したいと思います。&lt;/p&gt;
+
+&lt;h3 id=&quot;前回の問題で指し手が変わった&quot;&gt;前回の問題で指し手が変わった&lt;/h3&gt;
+&lt;h4 id=&quot;例１bf6のステイルメイトを避ける&quot;&gt;例１：Bf6のステイルメイトを避ける&lt;/h4&gt;
+&lt;p&gt;（クリックで画像拡大）&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/stalemate_chess01.png&quot;&gt;&lt;img src=&quot;/images/stalemate_chess01.png&quot; alt=&quot;テスト１&quot; title=&quot;テスト１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　ステイルメイトに対応しているはずなのに、ステイルメイトになる手（Bf6）を選んでしまいました。&lt;br /&gt;
+　調べてみるとこれは&lt;a href=&quot;/software/2019-10-27/stalemate&quot;&gt;前々回の記事&lt;/a&gt;のようにステイルメイトの局面を勝ちの局面と誤って評価したわけではなく、ステイルメイト（引き分け）にした方が先手にとって良いと判断したようです。&lt;a href=&quot;/software/2019-11-02/stalemate2&quot;&gt;前回の記事&lt;/a&gt;でステイルメイトの場合はDraw（評価値＝０）を返すようにしたわけですが、この局面は評価値０よりも先手（White）にとって悪い局面で、引き分けにした方がいいと判断されたようです。評価値を計算する数式は変更していないのですが、評価関数に詰み判定を導入した（前回記事の「方法１」）ことで指し手が変わりました。&lt;br /&gt;
+　ところでステイルメイトの局面の評価値は一体どのように計算すればいいのでしょうか？打ち歩詰めの評価値は「打ち歩詰めをした方が負け」相手玉を詰めたら勝ちの将棋だけど「打ち歩詰め」の場合は相手玉を詰めた方が負けという分かり易いルールなので、局面の静的評価値に−１を掛けました。しかしステイルメイトの場合はステイルメイトの局面にした方が負けというわけではないので−１を掛けるのはやり過ぎだと思います。&lt;strong&gt;単純に引き分けだから０としたのですが、多くの場合ステイルメイトは劣勢な側が何とか引き分けに持ち込んで負けを逃れる類のものなので、優勢な側は出来れば避けたい局面だと思います。&lt;/strong&gt;かと言ってステイルメイトでいきなり負けになるわけでもないので−１を掛けるのではなく、&lt;code&gt;−0.7&lt;/code&gt;を掛けることにしました。&lt;br /&gt;
+　すると以下のように指し手が変わりました。
+（クリックで画像拡大）&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/stalemate_chess02.png&quot;&gt;&lt;img src=&quot;/images/stalemate_chess02.png&quot; alt=&quot;テスト２&quot; title=&quot;テスト２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　ナイト（♘）をe6に移動（Ne6）として見事にステイルメイトを避けました。&lt;a href=&quot;/software/2019-11-02/stalemate2&quot;&gt;前回の記事&lt;/a&gt;の指し手（Nf7）より良い手のような気がします。&lt;br /&gt;
+　あと、実行時間が大幅に短縮されているところも見逃せないところです&lt;code&gt;4277ms&lt;/code&gt; -&amp;gt; &lt;code&gt;70ms&lt;/code&gt;。&lt;br /&gt;
+　ちなみに&lt;a href=&quot;/software/2019-11-02/stalemate2&quot;&gt;前回の記事&lt;/a&gt;の「方法２」でもステイルメイトの局面に&lt;code&gt;-0.7&lt;/code&gt;を掛ける処理に変更したところ、今回と同じ手（Ne6）を指すようになりました。&lt;code&gt;-0.7&lt;/code&gt;という数値が妥当かどうかは不明ですし、評価値計算部分の方を修正すべきなのかもしれません。&lt;/p&gt;
+
+&lt;h4 id=&quot;例２c8qのステイルメイトを避ける&quot;&gt;例２：c8=Qのステイルメイトを避ける&lt;/h4&gt;
+&lt;p&gt;（クリックで画像拡大）&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/stalemate_chess03.png&quot;&gt;&lt;img src=&quot;/images/stalemate_chess03.png&quot; alt=&quot;テスト３&quot; title=&quot;テスト３&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　&lt;a href=&quot;/software/2019-11-02/stalemate2&quot;&gt;前回記事&lt;/a&gt;の例題２では、ステイルメイトの局面の評価値を０にしても&lt;code&gt;-0.7&lt;/code&gt;を掛けても同じ指し手（c8=B）でした。先手（White）が圧倒的に有利なので当然こうなるべきでしょう。&lt;/p&gt;
+
+&lt;h3 id=&quot;２種類の評価関数の比較&quot;&gt;２種類の評価関数の比較&lt;/h3&gt;
+&lt;p&gt;　方法１（詰み判定処理有り）と方法２（玉を取るまで読む）では、上記の例以外にもいろいろ指し手の違いが出てきます。既存のアプリで採用している「方法２」の方が&lt;a href=&quot;/software/2018-10-27/unpromote&quot;&gt;以前の記事&lt;/a&gt;で紹介したように&lt;strong&gt;詰みを読むこと&lt;/strong&gt;に関しては正確だと思いますが、この方法を使っていると言っても、実際のアプリではレスポンス改善のために候補手を削っていますので最善手を逃しているケースも多いと思います。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;７七将棋アプリ&lt;/a&gt;や&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;では時間短縮のために２０％ぐらいの手しか読んでいません。結局時間との兼ね合いで妥協せざるを得ないのであるのなら「方法１」のやり方に移行していこうと考えています。&lt;br /&gt;
+　また、&lt;a href=&quot;/software/2018-12-29/evaluate&quot;&gt;以前の記事&lt;/a&gt;で「駒の働き（モビリティ）」について書いたことがありますが、詰み判定処理をする際に王手（チェック）が掛かっているか、相手の駒の利きに入っているかなどをチェックする必要が出てくるのですが、その処理を評価値計算の処理に流用して効率的に評価値計算が出来るのも「方法１」の有用な点です。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;評価値順にソートして評価値の低い手は読まない等の処理はやっています。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+                <link>https://happyclam.github.io/software/2019-11-09/stalemate3</link>
+                <guid>https://happyclam.github.io/software/2019-11-09/stalemate3</guid>
+                <pubDate>2019-11-09T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>将棋の評価関数とチェスの評価関数−２</title>
