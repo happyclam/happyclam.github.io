@@ -4,13 +4,195 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-11-09T19:52:00+09:00</updated>
+ <updated>2019-11-13T19:33:57+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>「お気楽チェス」アプリリリース</title>
+   <link href="https://happyclam.github.io/project/2019-11-16/chessapp"/>
+   <updated>2019-11-16T00:00:00+09:00</updated>
+   <id>https://happyclam.github.io/project/2019-11-16/chessapp</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;お気楽チェス&quot; title=&quot;お気楽チェス&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;お気楽チェスアプリについて&quot;&gt;「お気楽チェス」アプリについて&lt;/h3&gt;
+&lt;p&gt;　チェス初心者がチェスを楽しむために作りました。チェスに自信のある方は他のチェスアプリでは味わえない奇抜な手を楽しんでください。&lt;br /&gt;
+　まだまだ機能は少ないですが、今後、既存の将棋関連アプリ（&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;７七将棋&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋&lt;/a&gt;）と同様の機能を追加していく予定です。&lt;br /&gt;
+　&lt;/p&gt;
+&lt;h3 id=&quot;機能&quot;&gt;機能&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;３つのＡＩレベル選択&lt;/li&gt;
+  &lt;li&gt;ＡＩ対ＡＩ、人対ＡＩ、人対人の対戦&lt;/li&gt;
+  &lt;li&gt;駒の可動箇所ガイド機能&lt;/li&gt;
+  &lt;li&gt;ゲーム中断、途中再開機能&lt;/li&gt;
+  &lt;li&gt;二ヶ国語対応（日本語、英語）&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;盤面&quot;&gt;盤面&lt;/h3&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/chessapp_board01.png&quot;&gt;&lt;img src=&quot;/images/chessapp_board01.png&quot; alt=&quot;チェス盤面１&quot; title=&quot;チェス盤面１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;駒の表示にはUnicodeフォントを使用しています。機種によって表示が変わるかもしれません。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/cool_pieces.png&quot;&gt;&lt;img src=&quot;/images/cool_pieces.png&quot; alt=&quot;米国製端末例&quot; title=&quot;米国製端末例&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;↑Galaxy S9 - Android 8.0（Samsung,米国製）では上のように表示されるようです。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/chessapp_board02.png&quot;&gt;&lt;img src=&quot;/images/chessapp_board02.png&quot; alt=&quot;チェス盤面２&quot; title=&quot;チェス盤面２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;※同一局面が３回で千日手でゲーム終了としています&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ゲームを中断して前の局面に戻って再開することも出来ます。&lt;/li&gt;
+  &lt;li&gt;ゲーム中に歯車のアイコンをタップすると強制的にゲームを中断して設定メニュー画面に移行します。ゲーム盤面に戻って再開ボタンをタップすれば続きからゲームを再開出来ます。&lt;/li&gt;
+  &lt;li&gt;右上の矢印アイコンをタップすると盤面を回転表示します。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;ａｉレベル&quot;&gt;ＡＩレベル&lt;/h3&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/chessapp_menu01.png&quot;&gt;&lt;img src=&quot;/images/chessapp_menu01.png&quot; alt=&quot;ＡＩレベル&quot; title=&quot;ＡＩレベル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ＡＩのレベルは３段階。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;　&lt;a href=&quot;https://www.chess.com&quot;&gt;chess.com&lt;/a&gt;でコンピュータと対戦させてみたところ、アプリ側の強さを最強（「長考」）にして現状ではLevel3と勝ったり負けたり、Level4には勝てないぐらいの強さです。&lt;/p&gt;
+
+&lt;h3 id=&quot;駒の動き&quot;&gt;駒の動き&lt;/h3&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/chessapp_menu02.png&quot;&gt;&lt;img src=&quot;/images/chessapp_menu02.png&quot; alt=&quot;移動ガイド&quot; title=&quot;移動ガイド&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;駒の略号のアルファベットは棋譜に使用します。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/chessapp_board03.png&quot;&gt;&lt;img src=&quot;/images/chessapp_board03.png&quot; alt=&quot;チェス盤面３&quot; title=&quot;チェス盤面３&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;駒をタップすると移動可能なマス目を表示します。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;評価値表示&quot;&gt;評価値表示&lt;/h3&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/chessapp_board04.png&quot;&gt;&lt;img src=&quot;/images/chessapp_board04.png&quot; alt=&quot;チェス盤面４&quot; title=&quot;チェス盤面４&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;対戦相手にＡＩを選択すると、対戦中に局面の評価値を表示します。先手（White）が有利な場合は正の方向、後手（Black）が有利な場合は負の方向に評価値が変動します。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;評価関数&quot;&gt;評価関数&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Piece \ Weight&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;　Standard　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;　Promote　&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;♔, ♚&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;9999&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;♕, ♛&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;90&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;♖, ♜&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;50&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;♗, ♝&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;30&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;♘, ♞&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;30&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;♙, ♟&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;10&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;♕, ♛ 90&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;♖, ♜ 50&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;♗, ♝ 30&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;♘, ♞ 30&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　上記表の駒の重みに、可動割合（モビリティ）を掛けて局面を評価しています&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
+&lt;code&gt;駒の価値＝駒の重み（固定値） ×（１+ 現時点での駒の可動箇所数／駒の最大可動箇所数）&lt;/code&gt;という式で駒の価値を計算し、局面の静的評価値＝（先手の駒の価値の合計 ー 後手の駒の価値の合計）とすることで先手が有利な場合は正の方向、後手が有利な時は負の方向に評価値が変動します。&lt;br /&gt;
+　詳しい仕様に興味ある方は&lt;a href=&quot;/software/2018-12-29/evaluate&quot;&gt;この記事&lt;/a&gt;や&lt;a href=&quot;/software/2019-10-27/stalemate&quot;&gt;この記事&lt;/a&gt;も参照してください。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;可動割合を掛けるのはキング（♔, ♚）を除く駒だけで、キングの重みは常に固定値です。キング（♔, ♚）の可動性を重視するとキング自ら危険地帯（敵陣）に向かっていき弱くなります。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>将棋の評価関数とチェスの評価関数−３</title>
@@ -22,7 +204,7 @@
 
 &lt;h3 id=&quot;詰み判定導入で局面に依って読みの深さが変わる&quot;&gt;詰み判定導入で局面に依って読みの深さが変わる&lt;/h3&gt;
 &lt;p&gt;　例えば評価関数内でこういう条件が成立すれば王手放置で先手の勝ちと結論が出たとします、結論が出たらすぐに評価関数からreturnするのですが、そうじゃない場合（if〜else文のelseの場合）には新たに読みの深さを指定して先読みを継続するという形になります。評価値を計算する計算式は同じでも、局面評価のタイミングの違いによって指し手が変わるようです。今までは何手先まで読むと指定すれば全局面を一律に評価して効率的な枝刈りはαβ法に任せていた&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;わけですが、評価関数内で詰み判定（終了判定）することでより細かく制御できます。巷の将棋ソフトで「局面に依って読みの深さを変える」という機能を耳にしたことはあるのですが、こういうことなのかもしれません。他の人の将棋ソフトのソースコードを追ったことはないのであくまで想像ですが…。&lt;br /&gt;
-　言葉で説明しても違いがよく伝わらないと思うので、いずれ安定したら&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;同様に何らかの形で公開したいと思います。&lt;/p&gt;
+　言葉で説明しても違いがよく伝わらないと思うので、いずれ安定したら&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;同様に何らかの形（CLI版だけとか）で公開したいと思います。&lt;/p&gt;
 
 &lt;h3 id=&quot;前回の問題で指し手が変わった&quot;&gt;前回の問題で指し手が変わった&lt;/h3&gt;
 &lt;h4 id=&quot;例１bf6のステイルメイトを避ける&quot;&gt;例１：Bf6のステイルメイトを避ける&lt;/h4&gt;
@@ -33,9 +215,9 @@
 
 &lt;/div&gt;
 
-&lt;p&gt;　ステイルメイトに対応しているはずなのに、ステイルメイトになる手（Bf6）を選んでしまいました。&lt;br /&gt;
+&lt;p&gt;　評価方法を変えたらステイルメイトに対応しているはずなのに、ステイルメイトになる手（Bf6）を選んでしまいました。&lt;br /&gt;
 　調べてみるとこれは&lt;a href=&quot;/software/2019-10-27/stalemate&quot;&gt;前々回の記事&lt;/a&gt;のようにステイルメイトの局面を勝ちの局面と誤って評価したわけではなく、ステイルメイト（引き分け）にした方が先手にとって良いと判断したようです。&lt;a href=&quot;/software/2019-11-02/stalemate2&quot;&gt;前回の記事&lt;/a&gt;でステイルメイトの場合はDraw（評価値＝０）を返すようにしたわけですが、この局面は評価値０よりも先手（White）にとって悪い局面で、引き分けにした方がいいと判断されたようです。評価値を計算する数式は変更していないのですが、評価関数に詰み判定を導入した（前回記事の「方法１」）ことで指し手が変わりました。&lt;br /&gt;
-　ところでステイルメイトの局面の評価値は一体どのように計算すればいいのでしょうか？打ち歩詰めの評価値は「打ち歩詰めをした方が負け」相手玉を詰めたら勝ちの将棋だけど「打ち歩詰め」の場合は相手玉を詰めた方が負けという分かり易いルールなので、局面の静的評価値に−１を掛けて評価を真逆にしました。しかしステイルメイトの場合はステイルメイトの局面にした方が負けというわけではないので−１を掛けるのはやり過ぎだと思います。&lt;strong&gt;単純に引き分けだから０がいいだろうと思ってそうしたのですが、多くの場合ステイルメイトは劣勢な側が何とか引き分けに持ち込んで負けを逃れる類のものなので、優勢な側は出来ればステイルメイトを避けたいと思います。&lt;/strong&gt;かと言ってステイルメイトでいきなり負けになるわけでもないので−１を掛けるのではなく、&lt;code&gt;−0.7&lt;/code&gt;を掛けることにしました。&lt;br /&gt;
+　ところでステイルメイトの局面の評価値は一体どのように計算すればいいのでしょうか？打ち歩詰めの評価値は「打ち歩詰めをした方が負け」相手玉を詰めたら勝ちの将棋だけど「打ち歩詰め」の場合は相手玉を詰めた方が負けという分かり易いルールなので、局面の静的評価値に−１を掛けて評価を真逆にしました。しかしステイルメイトの場合はステイルメイトの局面にした方が負けというわけではないので−１を掛けるのはやり過ぎだと思います。&lt;strong&gt;単純に引き分けだから０がいいだろうと思ってそうしたのですが、多くの場合ステイルメイトは劣勢な側が何とか引き分けに持ち込んで負けを逃れる類のものなので、優勢な側は出来ればステイルメイトを避けたいはずです。&lt;/strong&gt;かと言ってステイルメイトでいきなり負けになるわけでもないので−１を掛けるのではなく、&lt;code&gt;−0.7&lt;/code&gt;を掛けることにしました。&lt;br /&gt;
 　すると以下のように指し手が変わりました。
 （クリックで画像拡大）&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
@@ -46,7 +228,7 @@
 
 &lt;p&gt;　ナイト（♘）をe6に移動（Ne6）として見事にステイルメイトを避けました。&lt;a href=&quot;/software/2019-11-02/stalemate2&quot;&gt;前回の記事&lt;/a&gt;の指し手（Nf7）より良い手のような気がします。&lt;br /&gt;
 　あと、実行時間が大幅に短縮されているところも見逃せないところです&lt;code&gt;4277ms&lt;/code&gt; -&amp;gt; &lt;code&gt;70ms&lt;/code&gt;。&lt;br /&gt;
-　ちなみに&lt;a href=&quot;/software/2019-11-02/stalemate2&quot;&gt;前回の記事&lt;/a&gt;の「方法２」でもステイルメイトの局面に&lt;code&gt;-0.7&lt;/code&gt;を掛ける処理に変更したところ、今回と同じ手（Ne6）を指すようになりました。&lt;code&gt;-0.7&lt;/code&gt;という数値が妥当かどうかは不明ですし、評価値計算部分の方に問題があるのかもしれませんが、取り敢えずこのやり方にしました。&lt;/p&gt;
+　ちなみに&lt;a href=&quot;/software/2019-11-02/stalemate2&quot;&gt;前回の記事&lt;/a&gt;の「方法２」でもステイルメイトの局面に&lt;code&gt;-0.7&lt;/code&gt;を掛ける処理に変更したところ、今回と同じ手（Ne6）を指すようになりました。&lt;code&gt;-0.7&lt;/code&gt;という数値が妥当かどうかは不明ですし、評価値自体に問題があるのかもしれませんが、取り敢えずこのやり方にしました。&lt;/p&gt;
 
 &lt;h4 id=&quot;例２c8qのステイルメイトを避ける&quot;&gt;例２：c8=Qのステイルメイトを避ける&lt;/h4&gt;
 &lt;p&gt;（クリックで画像拡大）&lt;/p&gt;
@@ -56,18 +238,18 @@
 
 &lt;/div&gt;
 
-&lt;p&gt;　&lt;a href=&quot;/software/2019-11-02/stalemate2&quot;&gt;前回記事&lt;/a&gt;の例題２では、ステイルメイトの局面の評価値を０にしても&lt;code&gt;-0.7&lt;/code&gt;を掛けても同じ指し手（c8=B）でした。先手（White）が圧倒的に有利なので当然こうなるべきでしょう。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;/software/2019-11-02/stalemate2&quot;&gt;前回記事&lt;/a&gt;の例題２では、ステイルメイトの局面の評価値を０にしても&lt;code&gt;-0.7&lt;/code&gt;を掛けても同じ指し手（c8=B）でした。例題１と違い、先手（White）が圧倒的に有利なので当然こうなるべきでしょう。&lt;/p&gt;
 
 &lt;h3 id=&quot;２種類の評価関数の比較&quot;&gt;２種類の評価関数の比較&lt;/h3&gt;
-&lt;p&gt;　方法１（詰み判定処理有り）と方法２（玉を取るまで読む）では、上記の例以外にもいろいろ指し手の違いが出てきます。既存のアプリで採用している「方法２」の方が&lt;a href=&quot;/software/2018-10-27/unpromote&quot;&gt;以前の記事&lt;/a&gt;で紹介したように&lt;strong&gt;詰みを読むこと&lt;/strong&gt;に関しては正確だと思いますが、いくら正確に読んでいると言っても、実際のアプリではレスポンス改善のために候補手を削っていますので最善手を逃しているケースも多いと思います。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;７七将棋アプリ&lt;/a&gt;や&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;では時間短縮のために２０％ぐらいの手しか読んでいません。結局時間との兼ね合いで妥協せざるを得ないのなら「方法１」のやり方に移行してもいいだろうと考えています。&lt;br /&gt;
-　また、&lt;a href=&quot;/software/2018-12-29/evaluate&quot;&gt;以前の記事&lt;/a&gt;で「駒の働き（モビリティ）」について書いたことがありますが、詰み判定処理をする際に王手（チェック）が掛かっているか、相手の駒の利きに入っているかなどをチェックする必要が出てくるのですが、その処理を評価値計算の処理に流用して効率的に評価値計算が出来るのも「方法１」の有用な点です。&lt;/p&gt;
+&lt;p&gt;　方法１（詰み判定処理有り）と方法２（玉を取るまで読む）では、上記の例以外にもいろいろ指し手の違いが出てきます。既存のアプリで採用している「方法２」の方が&lt;a href=&quot;/software/2018-10-27/unpromote&quot;&gt;以前の記事&lt;/a&gt;で紹介したように&lt;strong&gt;詰みを読むこと&lt;/strong&gt;に関しては正確だと思いますが、いくら正確に読んでいると言っても、実際のアプリではレスポンス改善のために候補手を削っていますので最善手を逃しているケースも多いと思います。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;７七将棋アプリ&lt;/a&gt;や&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;では時間短縮のために全ての指し手の２０％も読んでいないと思います。結局時間との兼ね合いで妥協せざるを得ないのなら「方法１」のやり方に移行してもいいだろうと考えています。&lt;br /&gt;
+　また、&lt;a href=&quot;/software/2018-12-29/evaluate&quot;&gt;以前の記事&lt;/a&gt;で「駒の働き（モビリティ）」について書いたことがありますが、詰み判定処理をする際に王手（チェック）が掛かっているか、相手の駒の利きに入っているかなどを検証する必要が出てくるのですが、その処理を評価値計算の処理に流用して、より複雑な評価値計算を効果的に出来るのも「方法１」の有用な点です。&lt;/p&gt;
 
 &lt;hr /&gt;
 
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;評価値順にソートして評価値の低い手は読まない等の処理はやっています。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;全局面を一律に評価していると言っても、評価値順にソートして評価値の低い手は読まない等の独自の枝刈り処理は行っています。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;

@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     
-    <title>ツイートを監視して集計する（client側）</title>
+    <title>「お気楽チェス」アプリリリース</title>
 
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
@@ -41,19 +41,19 @@
   <meta name="twitter:site" content="@SappierBoy">
   <meta name="twitter:creator" content="@SappierBoy">
   
-  <meta name="twitter:title" content="ツイートを監視して集計する（client側）">
+  <meta name="twitter:title" content="「お気楽チェス」アプリリリース">
   
   
-  <meta name="twitter:url" content="/project/2014-06-07/tweetwatch_client">
+  <meta name="twitter:url" content="/project/2019-11-16/chessapp">
   
   
-  <meta name="twitter:description" content="programming for enjoyment.">
+  <meta name="twitter:description" content="初心者なら十分楽しめる強さだと思います">
   
   
-  <meta name="twitter:image:src" content="/images/favicon.png">
+  <meta name="twitter:image:src" content="/images/chess_icon.png">
   
 
-  <link rel="canonical" href="/project/2014-06-07/tweetwatch_client" />
+  <link rel="canonical" href="/project/2019-11-16/chessapp" />
     <!-- atom & rss feed -->
     <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
     <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
@@ -221,89 +221,189 @@ MathJax.Hub.Config({
       <div class="content">
         
 <div class="page-header">
-  <h1>ツイートを監視して集計する（client側） </h1>
+  <h1>「お気楽チェス」アプリリリース </h1>
 </div>
 
 <div class="row-fluid post-full">
   <div class="span12">
     <div class="date">
-      <span>07 June 2014</span>
+      <span>16 November 2019</span>
     </div>
     <div class="content">
-      <h3 id="サーバースクリプトの状態遷移">サーバースクリプトの状態遷移</h3>
-<p>　言うまでもなくclient側と言ってもWebサーバ上で動いているわけなのでユーザから見ればサーバーとして機能しているわけですが、TwitterAPIを使ってデータをDBに保存するサーバースクリプトに対してclient側ということです。<br />
-state_machine gemを利用してサーバースクリプトの状態を管理しています。
-<img src="/images/tweetwatch.png" alt="状態遷移図" /></p>
+      <p><a href="https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam"><img src="/images/ja_badge_web_generic.png" alt="お気楽チェス" title="お気楽チェス" width="155" height="60" /></a></p>
 
-<ul>
-  <li>
-    <p><em>状態遷移表</em></p>
-
-    <table>
-      <thead>
-        <tr>
-          <th style="text-align: left">status\method</th>
-          <th style="text-align: center">start</th>
-          <th style="text-align: center">store</th>
-          <th style="text-align: center">stop</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="text-align: left">停止中(down)</td>
-          <td style="text-align: center">待機中(prepared)</td>
-          <td style="text-align: center">-</td>
-          <td style="text-align: center">-</td>
-        </tr>
-        <tr>
-          <td style="text-align: left">待機中(prepared)</td>
-          <td style="text-align: center">-</td>
-          <td style="text-align: center">集計中(storing)</td>
-          <td style="text-align: center">停止中(down)</td>
-        </tr>
-        <tr>
-          <td style="text-align: left">集計中(storing)</td>
-          <td style="text-align: center">-</td>
-          <td style="text-align: center">-</td>
-          <td style="text-align: center">停止中(down)</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
-  <li><em>サーバー停止中のユーザー画面</em><br />
-<img src="/images/state1.png" alt="サーバー停止中" /></li>
-  <li><em>サーバー集計中のユーザー画面</em><br />
-<img src="/images/state2.png" alt="サーバー集計中" /><br />
-　ユーザ向け画面では「停止中」と「集計中」の２つの状態しかないのですが、EventMachineを使用しているサーバースクリプトでは、接続確立が完了した状態（post_initイベントが発生後）にならないとコマンドラインで渡したパラメータが有効にならないので、サーバースクリプトを起動した直後の状態を「待機中」として管理しています。<br />
-<!-- other list --></li>
-  <li>停止中 —– サーバースクリプト停止中</li>
-  <li>待機中 —– サーバースクリプトが起動しているが、TwitterAPIを呼び出していない状態</li>
-  <li>集計中 —– TwitterAPIを呼び出しツイートデータをDBに保存している状態<br />
-※「集計中」から「待機中」には遷移できません（停止して再起動）。</li>
-</ul>
-
+<h3 id="お気楽チェスアプリについて">「お気楽チェス」アプリについて</h3>
+<p>　チェス初心者がチェスを楽しむために作りました。チェスに自信のある方は他のチェスアプリでは味わえない奇抜な手を楽しんでください。<br />
+　まだまだ機能は少ないですが、今後、既存の将棋関連アプリ（<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋</a>、<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋</a>、<a href="https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam">７七将棋</a>、<a href="https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam">禽将棋</a>）と同様の機能を追加していく予定です。<br />
+　</p>
 <h3 id="機能">機能</h3>
+<ol>
+  <li>３つのＡＩレベル選択</li>
+  <li>ＡＩ対ＡＩ、人対ＡＩ、人対人の対戦</li>
+  <li>駒の可動箇所ガイド機能</li>
+  <li>ゲーム中断、途中再開機能</li>
+  <li>二ヶ国語対応（日本語、英語）</li>
+</ol>
+
+<h3 id="盤面">盤面</h3>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/chessapp_board01.png"><img src="/images/chessapp_board01.png" alt="チェス盤面１" title="チェス盤面１" /></a></p>
+
+</div>
 
 <ul>
-  <li>server側スクリプトの制御（起動、終了、状態確認）<br />
-※遅いノートPC（Atom機）で試したところserver側スクリプト起動に時間がかかり、接続がタイムアウトすることがあったので５秒のsleepを入れています。</li>
-  <li>server側のスクリプトがDBに保存したツイートデータを集計してグラフ表示する。<br />
-※Twitterのデータ構造はハッシュタグを本文とは別に保持しているようですが、SQLで集計する際にハッシュタグで集計するのはコストがかかるので、本文の内容でgroup byするという単純なやり方で妥協しています。詳細は別記事にするつもりです。</li>
+  <li>駒の表示にはUnicodeフォントを使用しています。機種によって表示が変わるかもしれません。</li>
 </ul>
 
-<h3 id="er図">ER図</h3>
-<object data="/pdf/struct_tweetwatch.pdf" width="600" height="600">
-<p>ご覧の環境では、object要素がサポートされていないようです。<a href="/pdf/struct_tweetwatch.pdf">PDFファイルをダウンロードしてください</a></p>
-</object>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/cool_pieces.png"><img src="/images/cool_pieces.png" alt="米国製端末例" title="米国製端末例" /></a></p>
+
+</div>
 
 <ul>
-  <li>Tweetテーブルへの書き込みはサーバースクリプトのみで、client側のRailsアプリからTweetテーブルへのアクセスはRead onlyです。</li>
-  <li>Servモデルはユーザがサーバースクリプトを起動する時に指定したTwitter検索タグとサーバースクリプトの状態を管理します。</li>
-  <li>ユーザは複数のTrackモデル（検索タグ）を保存できますが、サーバースクリプト起動時に指定出来るタグは一つだけです。</li>
+  <li>↑Galaxy S9 - Android 8.0（Samsung,米国製）では上のように表示されるようです。</li>
 </ul>
 
-<p>　</p>
+<div style="width:320px; margin: 0 auto;">
 
+  <p><a href="/images/chessapp_board02.png"><img src="/images/chessapp_board02.png" alt="チェス盤面２" title="チェス盤面２" /></a></p>
+
+</div>
+
+<p>※同一局面が３回で千日手でゲーム終了としています</p>
+
+<ul>
+  <li>ゲームを中断して前の局面に戻って再開することも出来ます。</li>
+  <li>ゲーム中に歯車のアイコンをタップすると強制的にゲームを中断して設定メニュー画面に移行します。ゲーム盤面に戻って再開ボタンをタップすれば続きからゲームを再開出来ます。</li>
+  <li>右上の矢印アイコンをタップすると盤面を回転表示します。</li>
+</ul>
+
+<h3 id="ａｉレベル">ＡＩレベル</h3>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/chessapp_menu01.png"><img src="/images/chessapp_menu01.png" alt="ＡＩレベル" title="ＡＩレベル" /></a></p>
+
+</div>
+
+<ul>
+  <li>ＡＩのレベルは３段階。</li>
+</ul>
+
+<p>　<a href="https://www.chess.com">chess.com</a>でコンピュータと対戦させてみたところ、アプリ側の強さを最強（「長考」）にして現状ではLevel3と勝ったり負けたり、Level4には勝てないぐらいの強さです。</p>
+
+<h3 id="駒の動き">駒の動き</h3>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/chessapp_menu02.png"><img src="/images/chessapp_menu02.png" alt="移動ガイド" title="移動ガイド" /></a></p>
+
+</div>
+
+<ul>
+  <li>駒の略号のアルファベットは棋譜に使用します。</li>
+</ul>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/chessapp_board03.png"><img src="/images/chessapp_board03.png" alt="チェス盤面３" title="チェス盤面３" /></a></p>
+
+</div>
+
+<ul>
+  <li>駒をタップすると移動可能なマス目を表示します。</li>
+</ul>
+
+<h3 id="評価値表示">評価値表示</h3>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/chessapp_board04.png"><img src="/images/chessapp_board04.png" alt="チェス盤面４" title="チェス盤面４" /></a></p>
+
+</div>
+
+<ul>
+  <li>対戦相手にＡＩを選択すると、対戦中に局面の評価値を表示します。先手（White）が有利な場合は正の方向、後手（Black）が有利な場合は負の方向に評価値が変動します。</li>
+</ul>
+
+<h4 id="評価関数">評価関数</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Piece \ Weight</th>
+      <th style="text-align: right">　Standard　　</th>
+      <th style="text-align: center">　Promote　</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">♔, ♚</td>
+      <td style="text-align: right">9999</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">♕, ♛</td>
+      <td style="text-align: right">90</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">♖, ♜</td>
+      <td style="text-align: right">50</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">♗, ♝</td>
+      <td style="text-align: right">30</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">♘, ♞</td>
+      <td style="text-align: right">30</td>
+      <td style="text-align: center">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">♙, ♟</td>
+      <td style="text-align: right">10</td>
+      <td style="text-align: center">-</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: center">♕, ♛ 90</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: center">♖, ♜ 50</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: center">♗, ♝ 30</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: center">♘, ♞ 30</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>　上記表の駒の重みに、可動割合（モビリティ）を掛けて局面を評価しています<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。<br />
+<code>駒の価値＝駒の重み（固定値） ×（１+ 現時点での駒の可動箇所数／駒の最大可動箇所数）</code>という式で駒の価値を計算し、局面の静的評価値＝（先手の駒の価値の合計 ー 後手の駒の価値の合計）とすることで先手が有利な場合は正の方向、後手が有利な時は負の方向に評価値が変動します。<br />
+　詳しい仕様に興味ある方は<a href="/software/2018-12-29/evaluate">この記事</a>や<a href="/software/2019-10-27/stalemate">この記事</a>も参照してください。</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>可動割合を掛けるのはキング（♔, ♚）を除く駒だけで、キングの重みは常に固定値です。キング（♔, ♚）の可動性を重視するとキング自ら危険地帯（敵陣）に向かっていき弱くなります。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
 
     </div>
 
@@ -335,11 +435,15 @@ state_machine gemを利用してサーバースクリプトの状態を管理し
 
   
      
-    	<li><a href="/tags.html#rails-ref">rails <span>13</span></a></li>
+    	<li><a href="/tags.html#coffeescript-ref">coffeescript <span>38</span></a></li>
      
-    	<li><a href="/tags.html#ruby-ref">ruby <span>34</span></a></li>
+    	<li><a href="/tags.html#cordova-ref">cordova <span>33</span></a></li>
      
-    	<li><a href="/tags.html#tweetwatch-ref">tweetwatch <span>4</span></a></li>
+    	<li><a href="/tags.html#android-ref">android <span>45</span></a></li>
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>47</span></a></li>
+     
+    	<li><a href="/tags.html#chess-ref">chess <span>4</span></a></li>
     
   
 
@@ -352,11 +456,11 @@ state_machine gemを利用してサーバースクリプトの状態を管理し
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/project/2014-06-06/tweetwatch_server" title="ツイートを監視して集計する（server側）">&larr; Previous</a></li>
+        <li class="prev"><a href="/software/2019-11-09/stalemate3" title="将棋の評価関数とチェスの評価関数−３">&larr; Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next"><a href="/programming/2014-07-07/rails_env" title="production環境でjQueryが発動しない">Next &rarr;</a></li>
+        <li class="next disabled"><a>Next &rarr;</a>
       
       </ul>
     </div>
