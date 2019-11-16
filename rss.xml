@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-11-13T19:33:57+09:00</lastBuildDate>
-        <pubDate>2019-11-13T19:33:57+09:00</pubDate>
+        <lastBuildDate>2019-11-16T21:52:12+09:00</lastBuildDate>
+        <pubDate>2019-11-16T21:52:12+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -73,7 +73,33 @@
   &lt;li&gt;ＡＩのレベルは３段階。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;　&lt;a href=&quot;https://www.chess.com&quot;&gt;chess.com&lt;/a&gt;でコンピュータと対戦させてみたところ、アプリ側の強さを最強（「長考」）にして現状ではLevel3と勝ったり負けたり、Level4には勝てないぐらいの強さです。&lt;/p&gt;
+&lt;p&gt;　アプリ側の強さを最強（「長考」）にして&lt;a href=&quot;https://www.chess.com&quot;&gt;chess.com&lt;/a&gt;でコンピュータと対戦させてみたところ、現状では&lt;a href=&quot;https://www.chess.com&quot;&gt;chess.com&lt;/a&gt;のLevel3と勝ったり負けたり、Level4に偶に勝てるぐらいの強さのようです。&lt;br /&gt;
+　&lt;a href=&quot;https://www.chess.com/ja/analysis&quot;&gt;このページ&lt;/a&gt;で以下のPGNファイルの内容を読み込めば棋譜が再現できます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{先手（White）でchess.comのレベル４と対戦してアプリが勝った棋譜}
+1. e3 Nf6 2. Qe2 d6 3. Qc4 e6 4. Nc3 Nbd7 5. a4 Rb8 6. Nf3 b6 7. b4 Be7 8. Bb2
+Bb7 9. Nb5 h5 10. Nxc7+ Kf8 11. Ng5 Ne5 12. Ncxe6+ fxe6 13. Nxe6+ Kg8 14. Bxe5
+d5 15. Nxd8 dxc4 16. Bxb8 Bd5 17. Bxc4 Kh7 18. Bxd5 Bxb4 19. Nf7 Re8 20. Bc6
+Rxb8 21. Ke2 Kg8 22. Rab1 Kxf7 23. Rxb4 Ke7 24. Rhb1 Rf8 25. Rf4 Ke6 26. e4 Ke7
+27. e5 Nd7 28. Rxf8 Nxf8 29. Bd5 Kd7 30. h4 Ng6 31. e6+ Kd6 32. Bc4 Kc5 33. Ba2
+Kc6 34. e7 Kd7 35. Be6+ Ke8 36. Bc4 Kd7 37. e8=Q+ Kxe8 38. Bb5+ Ke7 39. Bc6 Kf7
+40. Bd5+ Kf6 41. g3 Ne7 42. Bf3 Kf7 43. Bxh5+ Kf6 44. Bf3 Kf7 45. g4 Kf8 46. Be4
+Nc8 47. a5 Kf7 48. Bd5+ Kf8 49. axb6 axb6 50. Be4 Ke7 51. Bd5 Kd6 52. Bf7 Kc7
+53. Be6 Nd6 54. Bd5 Ne8 55. Rb3 Kd8 56. Rxb6 Kc7 57. Rb5 Kd8 58. Rb6 Kd7 59. Ra6
+g6 60. Rxg6 Kd8 61. Rb6 Kc8 62. Be6+ Kc7 63. Rb1 Nf6 64. g5 Nh7 65. Bg8 Kd7 66.
+Bxh7 Kc6 67. Be4+ Kd7 68. h5 Ke8 69. c4 Kf8 70. c5 Ke7 71. Bd5 Kf8 72. f4 Ke7
+73. h6 Kf8 74. f5 Ke7 75. h7 Kf8 76. h8=Q+ Ke7 77. Rb7# 1-0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;{後手（Black）でchess.comのレベル３と対戦してアプリが勝った棋譜}
+1. e3 e5 2. Nc3 Qg5 3. h4 Qf5 4. d3 Bb4 5. Qd2 Nf6 6. a3 Ba5 7. Nf3 d5 8. Qe2
+Bxc3+ 9. Kd1 Ba5 10. Ra2 Ke7 11. h5 Bd7 12. c3 Na6 13. Ra1 Nc5 14. Ke1 Bb5 15.
+Nd4 Nxd3+ 16. Qxd3 Bxd3 17. Nxf5+ Bxf5 18. h6 g5 19. Be2 Rhg8 20. Bd1 Bb6 21. b3
+a5 22. g3 a4 23. c4 axb3 24. Kf1 dxc4 25. a4 Bc5 26. Kg2 Rgd8 27. Re1 Bb4 28.
+Rf1 Bc5 29. Kg1 Bh3 30. Bxb3 Bxf1 31. Ba2 Rxa4 32. f4 Bh3 33. Bb2 c3 34. Bc1
+exf4 35. Kh2 fxe3 36. g4 Bxg4 37. Kg3 Bf5 38. Bb2 cxb2 39. Bb1 Rg4+ 40. Kf3
+bxa1=Q 41. Bc2 Qf1# 0-1
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&quot;駒の動き&quot;&gt;駒の動き&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
