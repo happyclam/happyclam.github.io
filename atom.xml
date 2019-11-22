@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-11-16T21:52:12+09:00</updated>
+ <updated>2019-11-22T21:47:57+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -2232,32 +2232,12 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;p&gt;　この機能追加により今までAndroid4.4以上が動作対象機種でしたが、Android5.0以上が必要になります。&lt;/p&gt;
 
-&lt;h3 id=&quot;読みの深さ&quot;&gt;読みの深さ&lt;/h3&gt;
+&lt;h3 id=&quot;局面の評価方法変更&quot;&gt;局面の評価方法変更&lt;/h3&gt;
+&lt;p&gt;　Version1.0.5.0から詰み判定（ゲーム終了判定）処理を導入し、局面の評価方法を変更することによってユーザーレスポンスを改善しました。変化の多い中盤では相変わらず指し手が遅いですがお試しください。どのように変更したかアルゴリズムに興味ある方は以下の記事を参照してください。&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;AIモード\ Version&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;　1.0.1.1　　&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;弱い&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;反復深化部分探索（８０手）、３手読み(depth = 2)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;普通&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;反復深化部分探索（４０手）、４手読み(depth = 3)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;長考&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;反復深化部分探索（１８手）、５手読み(depth = 4)&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;※アルゴリズムの詳しい内容は&lt;a href=&quot;/software/2019-02-26/iterativedeeping&quot;&gt;この記事&lt;/a&gt;を参照してください。&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/software/2019-11-09/stalemate3&quot;&gt;将棋の評価関数とチェスの評価関数−３&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;push通知対応&quot;&gt;Push通知対応&lt;/h3&gt;
 &lt;p&gt;　Version1.0.2.1からPush通知を受信できます。左上右側にあるアイコンをタップすると受信した最新のメッセージを再度表示します。受信したメッセージがないときは何も表示されません。&lt;/p&gt;
@@ -3109,42 +3089,12 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 &lt;/div&gt;
 &lt;p&gt;&lt;br clear=&quot;all&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;読みの深さ&quot;&gt;読みの深さ&lt;/h3&gt;
-&lt;p&gt;　Version1.0.4.0から探索アルゴリズムを変更し、読みの深さも変更しました。&lt;/p&gt;
+&lt;h3 id=&quot;局面の評価方法変更&quot;&gt;局面の評価方法変更&lt;/h3&gt;
+&lt;p&gt;　Version1.0.9.0から詰み判定（ゲーム終了判定）処理を導入し、局面の評価方法を変更することによってユーザーレスポンスを改善しました。変化の多い中盤では相変わらず指し手が遅いですがお試しください。どのように変更したかアルゴリズムに興味ある方は以下の記事を参照してください。&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;AIモード\ Version&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;　1.0.4.0以前　　&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;　1.0.4.4以前&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;　1.0.5.0以降&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;弱い&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;全件探索、３手読み(depth = 2)&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;全件探索、３手読み(depth = 2)&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;反復深化部分探索（８０手）、３手読み(depth = 2)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;普通&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;候補手１５手選択後、４手読み(depth = 3)&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;反復深化部分探索（２０手）、４手読み(depth = 3)&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;反復深化部分探索（４０手）、４手読み(depth = 3)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;長考&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;候補手１５手選択後、４手読み(depth = 3)&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;反復深化部分探索（２０手）、５手読み(depth = 4)&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;反復深化部分探索（１８手）、５手読み(depth = 4)&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;※アルゴリズムの詳しい内容は&lt;a href=&quot;/software/2019-02-26/iterativedeeping&quot;&gt;この記事&lt;/a&gt;を参照してください。&lt;br /&gt;
-※Version1.0.6.5で読みの深さを１ずつ減らして、ユーザーレスポンス優先することにしました&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/software/2019-11-09/stalemate3&quot;&gt;将棋の評価関数とチェスの評価関数−３&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;駒に毛筆フォント&quot;&gt;駒に毛筆フォント&lt;/h3&gt;
 &lt;p&gt;　Version1.0.4.1から駒のフォントに毛筆フォントを選べるようになりました。無料フォントの中でも&lt;a href=&quot;http://today.izmaker.com/blog/technique/3154/&quot;&gt;「衡山毛筆フォント」&lt;/a&gt;のように再配布可能というものはなかなか無いと思います。&lt;/p&gt;
@@ -3173,9 +3123,6 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
     &lt;/li&gt;
     &lt;li id=&quot;fn:3&quot;&gt;
       &lt;p&gt;鷹も鶉も盤上に配置した時の最大の移動箇所数は７で同じです。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:4&quot;&gt;
-      &lt;p&gt;他のアプリを使用していると知らぬ間にアプリが終了するケースが多い（メモリ逼迫によりシステムによって強制終了される）ので、読みの深さを減らしました。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;

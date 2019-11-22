@@ -276,32 +276,12 @@ MathJax.Hub.Config({
 
 <p>　この機能追加により今までAndroid4.4以上が動作対象機種でしたが、Android5.0以上が必要になります。</p>
 
-<h3 id="読みの深さ">読みの深さ</h3>
+<h3 id="局面の評価方法変更">局面の評価方法変更</h3>
+<p>　Version1.0.5.0から詰み判定（ゲーム終了判定）処理を導入し、局面の評価方法を変更することによってユーザーレスポンスを改善しました。変化の多い中盤では相変わらず指し手が遅いですがお試しください。どのように変更したかアルゴリズムに興味ある方は以下の記事を参照してください。</p>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">AIモード\ Version</th>
-      <th style="text-align: left">　1.0.1.1　　</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">弱い</td>
-      <td style="text-align: left">反復深化部分探索（８０手）、３手読み(depth = 2)</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">普通</td>
-      <td style="text-align: left">反復深化部分探索（４０手）、４手読み(depth = 3)</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">長考</td>
-      <td style="text-align: left">反復深化部分探索（１８手）、５手読み(depth = 4)</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>※アルゴリズムの詳しい内容は<a href="/software/2019-02-26/iterativedeeping">この記事</a>を参照してください。</p>
+<ul>
+  <li><a href="/software/2019-11-09/stalemate3">将棋の評価関数とチェスの評価関数−３</a></li>
+</ul>
 
 <h3 id="push通知対応">Push通知対応</h3>
 <p>　Version1.0.2.1からPush通知を受信できます。左上右側にあるアイコンをタップすると受信した最新のメッセージを再度表示します。受信したメッセージがないときは何も表示されません。</p>
