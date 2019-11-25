@@ -243,6 +243,7 @@ MathJax.Hub.Config({
   <li>駒の可動箇所ガイド機能</li>
   <li>ゲーム中断、途中再開機能</li>
   <li>二ヶ国語対応（日本語、英語）</li>
+  <li>棋譜の入出力機能</li>
 </ol>
 
 <h3 id="盤面">盤面</h3>
@@ -292,7 +293,7 @@ MathJax.Hub.Config({
 </ul>
 
 <p>　アプリ側の強さを最強（「長考」）にして<a href="https://www.chess.com">chess.com</a>でコンピュータと対戦させてみたところ、現状では<a href="https://www.chess.com">chess.com</a>のLevel3と勝ったり負けたり、Level4やLevel5に偶に勝てるぐらいの強さのようです。<br />
-　<a href="https://www.chess.com/ja/analysis">このページ</a>で以下のPGNファイルの内容を読み込めば棋譜が再現できます。</p>
+　以下のPGNファイルの内容をアプリで読み込めば棋譜が再現できます。</p>
 
 <pre><code>{先手（White）でchess.comのレベル５と対戦してアプリが勝った棋譜}
 1. e3 d5 2. Qh5 h6 3. Bb5+ Nc6 4. Ne2 a6 5. Bxc6+ bxc6 6. d3 g5 7. Nd2 e5 8. O-O
@@ -355,6 +356,16 @@ bxa1=Q 41. Bc2 Qf1# 0-1
 <ul>
   <li>駒をタップすると移動可能なマス目を表示します。</li>
 </ul>
+
+<h3 id="棋譜の入出力">棋譜の入出力</h3>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/chessapp_menu03.png"><img src="/images/chessapp_menu03.png" alt="棋譜入出力" title="棋譜入出力" /></a></p>
+
+</div>
+
+<p>　テキストボックスにPGN形式の棋譜ファイルをペーストして棋譜を読み込んでゲームを再開出来ます。棋譜を出力する時は左上のチェックマークボタンをタップすれば、テキストファイルを扱えるアプリやクリップボードに棋譜データを送信することが出来ます。<br />
+　棋譜の入出力には<a href="https://github.com/jhlywa/chess.js/blob/master/README.md">チェス用ライブラリ（chess.js）</a>を使用しています。このライブラリはドキュメントにも書いてあるように、チェスに関するＡＩ以外の機能はほぼ全て網羅していて非常に便利です<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。<a href="https://www.chess.com">chess.com</a>でも使用されているそうです。</p>
 
 <h3 id="評価値表示">評価値表示</h3>
 <div style="width:320px; margin: 0 auto;">
@@ -433,7 +444,7 @@ bxa1=Q 41. Bc2 Qf1# 0-1
   </tbody>
 </table>
 
-<p>　上記表の駒の重みに、可動割合（モビリティ）を掛けて局面を評価しています<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。<br />
+<p>　上記表の駒の重みに、可動割合（モビリティ）を掛けて局面を評価しています<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。<br />
 <code>駒の価値＝駒の重み（固定値） ×（１+ 現時点での駒の可動箇所数／駒の最大可動箇所数）</code>という式で駒の価値を計算し、局面の静的評価値＝（先手の駒の価値の合計 ー 後手の駒の価値の合計）とすることで先手が有利な場合は正の方向、後手が有利な時は負の方向に評価値が変動します。<br />
 　詳しい仕様に興味ある方は<a href="/software/2018-12-29/evaluate">この記事</a>や<a href="/software/2019-10-27/stalemate">この記事</a>も参照してください。</p>
 
@@ -442,7 +453,10 @@ bxa1=Q 41. Bc2 Qf1# 0-1
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>可動割合を掛けるのはキング（♔, ♚）を除く駒だけで、キングの重みは常に固定値です。キング（♔, ♚）の可動性を重視するとキング自ら危険地帯（敵陣）に向かっていき弱くなります。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p>自分の場合は自作の将棋アプリを改変してチェスアプリを作りましたが、新規にチェスアプリを作ってみようと思う人は、最初からchess.jsを使用することを前提にＡＩを作成すれば、効率的に作成出来ると思います。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>可動割合を掛けるのはキング（♔, ♚）を除く駒だけで、キングの重みは常に固定値です。キング（♔, ♚）の可動性を重視するとキング自ら危険地帯（敵陣）に向かっていき弱くなります。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>
