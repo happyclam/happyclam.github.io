@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-11-30T13:50:22+09:00</updated>
+ <updated>2019-12-03T18:15:27+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -57,6 +57,7 @@
   &lt;li&gt;ゲームを中断して前の局面に戻って再開することも出来ます。&lt;/li&gt;
   &lt;li&gt;ゲーム中に歯車のアイコンをタップすると強制的にゲームを中断して設定メニュー画面に移行します。ゲーム盤面に戻って再開ボタンをタップすれば続きからゲームを再開出来ます。&lt;/li&gt;
   &lt;li&gt;右上の矢印アイコンをタップすると盤面を回転表示します。&lt;/li&gt;
+  &lt;li&gt;右上のキャレット（∧、∨）アイコンをタップすると取った駒の数と手数を表示します。もう一度タップすると非表示にします。端末の画面サイズに合わせてご利用ください。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;ａｉレベル&quot;&gt;ＡＩレベル&lt;/h3&gt;
@@ -108,7 +109,7 @@
 &lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;対戦相手にＡＩを選択すると、対戦中に局面の評価値を表示します。先手（White）が有利な場合は正の方向、後手（Black）が有利な場合は負の方向に評価値が変動します。&lt;/li&gt;
+  &lt;li&gt;対戦相手にＡＩを選択すると、対戦中に局面の評価値を赤字で表示します。先手（White）が有利な場合は正の方向、後手（Black）が有利な場合は負の方向に評価値が変動します。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;評価関数&quot;&gt;評価関数&lt;/h4&gt;
