@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-12-03T18:15:27+09:00</lastBuildDate>
-        <pubDate>2019-12-03T18:15:27+09:00</pubDate>
+        <lastBuildDate>2019-12-03T19:12:11+09:00</lastBuildDate>
+        <pubDate>2019-12-03T19:12:11+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -237,7 +237,8 @@
 
 &lt;h3 id=&quot;２種類の評価関数の比較&quot;&gt;２種類の評価関数の比較&lt;/h3&gt;
 &lt;p&gt;　方法１（詰み判定処理有り）と方法２（玉を取るまで読む）では、上記の例以外にもいろいろ指し手の違いが出てきます。既存のアプリで採用している「方法２」の方が&lt;a href=&quot;/software/2018-10-27/unpromote&quot;&gt;以前の記事&lt;/a&gt;で紹介したように&lt;strong&gt;詰みを読むこと&lt;/strong&gt;に関しては正確だと思いますが、いくら正確に読んでいると言っても、実際のアプリではレスポンス改善のために候補手を削っていますので最善手を逃しているケースも多いと思います。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;７七将棋アプリ&lt;/a&gt;や&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;では時間短縮のために全ての指し手の２０％も読んでいないと思います。結局時間との兼ね合いで妥協せざるを得ないのなら「方法１」のやり方に移行してもいいだろうと考えています。&lt;br /&gt;
-　また、&lt;a href=&quot;/software/2018-12-29/evaluate&quot;&gt;以前の記事&lt;/a&gt;で「駒の働き（モビリティ）」について書いたことがありますが、詰み判定処理をする際に王手（チェック）が掛かっているか、相手の駒の利きに入っているかなどを検証する必要が出てくるのですが、その処理を評価値計算の処理に流用して、より複雑な評価値計算を効果的に出来るのも「方法１」の有用な点です。&lt;/p&gt;
+　また、&lt;a href=&quot;/software/2018-12-29/evaluate&quot;&gt;以前の記事&lt;/a&gt;で「駒の働き（モビリティ）」について書いたことがありますが、詰み判定処理をする際に王手（チェック）が掛かっているか、相手の駒の利きに入っているかなどを検証する必要が出てくるのですが、その処理を評価値計算の処理に流用して、より複雑な評価値計算を効果的に出来るのも「方法１」の有用な点です。&lt;br /&gt;
+　あと、このブログでは「何手先まで先読みするかを指定するパラメータを５にすると３手詰めが解ける」、「１手詰めの詰将棋を解くには、先読みの深さ（depth）に３を指定しなければいけない」と書いてきましたが、「方法１」のやり方を採用することによって先読みの深さと詰み手数が同じになって３手詰めの詰将棋を解く為には先読みの深さ（depth）に同じ値の３を指定すればいいようになります。&lt;/p&gt;
 
 &lt;hr /&gt;
 
