@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-12-12T10:34:00+09:00</lastBuildDate>
-        <pubDate>2019-12-12T10:34:00+09:00</pubDate>
+        <lastBuildDate>2019-12-12T21:56:11+09:00</lastBuildDate>
+        <pubDate>2019-12-12T21:56:11+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -38,6 +38,16 @@
 
 &lt;ul&gt;
   &lt;li&gt;駒の表示にはUnicodeフォントを使用しています。機種によって表示が変わる可能性があります。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/cool_pieces.png&quot;&gt;&lt;img src=&quot;/images/cool_pieces.png&quot; alt=&quot;米国製端末例&quot; title=&quot;米国製端末例&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;↑Galaxy S9 - Android 8.0（Samsung）では上のように表示されるようです。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
