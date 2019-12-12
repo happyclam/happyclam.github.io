@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-12-08T09:21:37+09:00</lastBuildDate>
-        <pubDate>2019-12-08T09:21:37+09:00</pubDate>
+        <lastBuildDate>2019-12-12T10:34:00+09:00</lastBuildDate>
+        <pubDate>2019-12-12T10:34:00+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -66,6 +66,50 @@
   &lt;li&gt;ＡＩのレベルは３段階。&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;　アプリ側の強さを最強（「長考」）にして&lt;a href=&quot;https://www.chess.com&quot;&gt;chess.com&lt;/a&gt;でコンピュータと対戦させてみたところ、現状では&lt;a href=&quot;https://www.chess.com&quot;&gt;chess.com&lt;/a&gt;のLevel3と勝ったり負けたり、Level4やLevel5に偶に勝てるぐらいの強さのようです。&lt;br /&gt;
+　以下のPGNファイルの内容をアプリで読み込めば棋譜が再現できます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{先手（White）でchess.comのレベル５と対戦してアプリが勝った棋譜}
+1. e3 d5 2. Qh5 h6 3. Bb5+ Nc6 4. Ne2 a6 5. Bxc6+ bxc6 6. d3 g5 7. Nd2 e5 8. O-O
+Nf6 9. Qf3 Bg7 10. Nc3 Rb8 11. h3 g4 12. Qg3 e4 13. Qe5+ Qe7 14. d4 Qxe5 15.
+dxe5 Nd7 16. f4 exf3 17. hxg4 fxg2 18. Kxg2 h5 19. b4 Nxe5 20. Bb2 a5 21. Ne2
+hxg4 22. a3 axb4 23. axb4 Be6 24. Rh1 Kd7 25. Bxe5 Bxe5 26. Rxh8 Bxh8 27. Rh1
+Bg7 28. Rh7 Bh8 29. Nb3 Bf5 30. Rxf7+ Ke6 31. Rxc7 Be4+ 32. Kg1 Kd6 33. Rf7 Be5
+34. Nc5 Rxb4 35. Nb7+ Rxb7 36. Rxb7 Kc5 37. Nd4 Bh8 38. Ne6+ Kc4 39. Rc7 Kc3 40.
+Rxc6+ Kb4 41. Nc7 Ba1 42. Ra6 Bg7 43. Rc6 Bb2 44. Kf1 g3 45. Kg1 Bg7 46. Ra6 Bh8
+47. Ra8 Be5 48. c3+ Kc5 49. Ne6+ Kc4 50. Rc8+ Kd3 51. Nc5+ Kxe3 52. Rg8 Kf3 53.
+Rf8+ Kg4 54. Rg8+ Kh4 55. Rf8 Kg4 56. Rg8+ Kf4 57. Rf8+ Bf5 58. Ne6+ Ke4 59.
+Nc5+ Kf4 60. Nb7 Bg7 61. Ra8 d4 62. Nd6 d3 63. Ra4+ Kg5 64. Ra5 Kg4 65. Nxf5 d2
+66. Ne3+ Kf3 67. Nd1 Bf6 68. Rf5+ Ke4 69. Rxf6 Kd3 70. Kf1 Kc2 71. Ke2 Kb3 72.
+Kxd2 g2 73. Rg6 Kc4 74. Ne3+ Kb3 75. Nxg2 Kc4 76. Nf4 Kb3 77. Ne6 Ka3 78. Ng7
+Kb3 79. Ne6 Ka2 80. Ng7 Ka1 81. Kc2 Ka2 82. Ra6# 1-0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;{先手（White）でchess.comのレベル４と対戦してアプリが勝った棋譜}
+1. e3 Nf6 2. Qe2 d6 3. Qc4 e6 4. Nc3 Nbd7 5. a4 Rb8 6. Nf3 b6 7. b4 Be7 8. Bb2
+Bb7 9. Nb5 h5 10. Nxc7+ Kf8 11. Ng5 Ne5 12. Ncxe6+ fxe6 13. Nxe6+ Kg8 14. Bxe5
+d5 15. Nxd8 dxc4 16. Bxb8 Bd5 17. Bxc4 Kh7 18. Bxd5 Bxb4 19. Nf7 Re8 20. Bc6
+Rxb8 21. Ke2 Kg8 22. Rab1 Kxf7 23. Rxb4 Ke7 24. Rhb1 Rf8 25. Rf4 Ke6 26. e4 Ke7
+27. e5 Nd7 28. Rxf8 Nxf8 29. Bd5 Kd7 30. h4 Ng6 31. e6+ Kd6 32. Bc4 Kc5 33. Ba2
+Kc6 34. e7 Kd7 35. Be6+ Ke8 36. Bc4 Kd7 37. e8=Q+ Kxe8 38. Bb5+ Ke7 39. Bc6 Kf7
+40. Bd5+ Kf6 41. g3 Ne7 42. Bf3 Kf7 43. Bxh5+ Kf6 44. Bf3 Kf7 45. g4 Kf8 46. Be4
+Nc8 47. a5 Kf7 48. Bd5+ Kf8 49. axb6 axb6 50. Be4 Ke7 51. Bd5 Kd6 52. Bf7 Kc7
+53. Be6 Nd6 54. Bd5 Ne8 55. Rb3 Kd8 56. Rxb6 Kc7 57. Rb5 Kd8 58. Rb6 Kd7 59. Ra6
+g6 60. Rxg6 Kd8 61. Rb6 Kc8 62. Be6+ Kc7 63. Rb1 Nf6 64. g5 Nh7 65. Bg8 Kd7 66.
+Bxh7 Kc6 67. Be4+ Kd7 68. h5 Ke8 69. c4 Kf8 70. c5 Ke7 71. Bd5 Kf8 72. f4 Ke7
+73. h6 Kf8 74. f5 Ke7 75. h7 Kf8 76. h8=Q+ Ke7 77. Rb7# 1-0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;{後手（Black）でchess.comのレベル３と対戦してアプリが勝った棋譜}
+1. e3 e5 2. Nc3 Qg5 3. h4 Qf5 4. d3 Bb4 5. Qd2 Nf6 6. a3 Ba5 7. Nf3 d5 8. Qe2
+Bxc3+ 9. Kd1 Ba5 10. Ra2 Ke7 11. h5 Bd7 12. c3 Na6 13. Ra1 Nc5 14. Ke1 Bb5 15.
+Nd4 Nxd3+ 16. Qxd3 Bxd3 17. Nxf5+ Bxf5 18. h6 g5 19. Be2 Rhg8 20. Bd1 Bb6 21. b3
+a5 22. g3 a4 23. c4 axb3 24. Kf1 dxc4 25. a4 Bc5 26. Kg2 Rgd8 27. Re1 Bb4 28.
+Rf1 Bc5 29. Kg1 Bh3 30. Bxb3 Bxf1 31. Ba2 Rxa4 32. f4 Bh3 33. Bb2 c3 34. Bc1
+exf4 35. Kh2 fxe3 36. g4 Bxg4 37. Kg3 Bf5 38. Bb2 cxb2 39. Bb1 Rg4+ 40. Kf3
+bxa1=Q 41. Bc2 Qf1# 0-1
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h3 id=&quot;駒の動き&quot;&gt;駒の動き&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
@@ -94,7 +138,8 @@
 
 &lt;/div&gt;
 
-&lt;p&gt;　テキストボックスにPGN形式の棋譜ファイルをペーストして棋譜を読み込んでゲームを再開出来ます。棋譜を出力する時は左上のチェックマークボタンをタップすれば、テキストファイルを扱えるアプリやクリップボードに棋譜データ（*.pgn）を送信することが出来ます。&lt;/p&gt;
+&lt;p&gt;　テキストボックスにPGN形式の棋譜ファイルをペーストして棋譜を読み込んでゲームを再開出来ます。棋譜を出力する時は左上のチェックマークボタンをタップすれば、テキストファイルを扱えるアプリやクリップボードに棋譜データ（*.pgn）を送信することが出来ます。&lt;br /&gt;
+　棋譜の入出力には&lt;a href=&quot;https://github.com/jhlywa/chess.js/blob/master/README.md&quot;&gt;チェス用ライブラリ（chess.js）&lt;/a&gt;を使用しています。このライブラリはドキュメントにも書いてあるように、チェスに関するＡＩ以外の機能はほぼ全て網羅していて非常に便利です&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;a href=&quot;https://www.chess.com&quot;&gt;chess.com&lt;/a&gt;でも使用されているそうです。&lt;/p&gt;
 
 &lt;h3 id=&quot;評価値表示&quot;&gt;評価値表示&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
@@ -173,7 +218,7 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;　上記表の駒の重みに、可動割合（モビリティ）を掛けて局面を評価しています&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
+&lt;p&gt;　上記表の駒の重みに、可動割合（モビリティ）を掛けて局面を評価しています&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
 &lt;code&gt;駒の価値＝駒の重み（固定値） ×（１+ 現時点での駒の可動箇所数／駒の最大可動箇所数）&lt;/code&gt;という式で駒の価値を計算し、局面の静的評価値＝（先手の駒の価値の合計 ー 後手の駒の価値の合計）とすることで先手が有利な場合は正の方向、後手が有利な時は負の方向に評価値が変動します。&lt;br /&gt;
 　詳しい仕様に興味ある方は&lt;a href=&quot;/software/2018-12-29/evaluate&quot;&gt;この記事&lt;/a&gt;や&lt;a href=&quot;/software/2019-10-27/stalemate&quot;&gt;この記事&lt;/a&gt;も参照してください。&lt;/p&gt;
 
@@ -182,7 +227,10 @@
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;可動割合を掛けるのはキング（♔, ♚）を除く駒だけで、キングの重みは常に固定値です。キング（♔, ♚）の可動性を重視するとキング自ら危険地帯（敵陣）に向かっていき弱くなります。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;自分の場合は自作の将棋アプリを改変してチェスアプリを作りましたが、新規にチェスアプリを作ってみようと思う人は、最初からchess.jsを使用することを前提にＡＩを作成すれば、効率的に作成出来ると思います。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;可動割合を掛けるのはキング（♔, ♚）を除く駒だけで、キングの重みは常に固定値です。キング（♔, ♚）の可動性を重視するとキング自ら危険地帯（敵陣）に向かっていき弱くなります。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
