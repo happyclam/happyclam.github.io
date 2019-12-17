@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-12-12T21:56:11+09:00</updated>
+ <updated>2019-12-18T08:46:33+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -42,17 +42,7 @@
 &lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;駒の表示にはUnicodeフォントを使用しています。機種によって表示が変わる可能性があります。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/cool_pieces.png&quot;&gt;&lt;img src=&quot;/images/cool_pieces.png&quot; alt=&quot;米国製端末例&quot; title=&quot;米国製端末例&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;↑Galaxy S9 - Android 8.0（Samsung）では上のように表示されるようです。&lt;/li&gt;
+  &lt;li&gt;駒は二種類から選べます。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
@@ -61,7 +51,7 @@
 
 &lt;/div&gt;
 
-&lt;p&gt;※同一局面が３回で千日手でゲーム終了としています&lt;/p&gt;
+&lt;p&gt;※同一局面が３回で千日手でゲーム終了としています。ＡＩはなるべく千日手を避ける仕様になっていますが、絶対千日手にならないとは言えません。&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;ゲームを中断して前の局面に戻って再開することも出来ます。&lt;/li&gt;
