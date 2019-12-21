@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2019-12-18T18:57:42+09:00</lastBuildDate>
-        <pubDate>2019-12-18T18:57:42+09:00</pubDate>
+        <lastBuildDate>2019-12-21T16:11:43+09:00</lastBuildDate>
+        <pubDate>2019-12-21T16:11:43+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -2254,6 +2254,13 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;p&gt;　この機能追加により今までAndroid4.4以上が動作対象機種でしたが、Android5.0以上が必要になります。&lt;/p&gt;
 
+&lt;h3 id=&quot;push通知対応&quot;&gt;Push通知対応&lt;/h3&gt;
+&lt;p&gt;　Version1.0.2.1からPush通知を受信できます。左上右側にあるアイコンをタップすると受信した最新のメッセージを再度表示します。受信したメッセージがないときは何も表示されません。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/push_notification_shogi77.png&quot;&gt;&lt;img src=&quot;/images/push_notification_shogi77.png&quot; alt=&quot;Push通知サンプル&quot; title=&quot;Push通知サンプル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
 &lt;h3 id=&quot;局面の評価方法変更&quot;&gt;局面の評価方法変更&lt;/h3&gt;
 &lt;p&gt;　Version1.0.5.0から詰み判定（ゲーム終了判定）処理を導入し、局面の評価方法を変更することによってユーザーレスポンスを改善しました。変化の多い中盤では相変わらず指し手が遅いですがお試しください。どのように変更したかアルゴリズムに興味ある方は以下の記事を参照してください。&lt;/p&gt;
 
@@ -2261,12 +2268,10 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
   &lt;li&gt;&lt;a href=&quot;/software/2019-11-09/stalemate3&quot;&gt;将棋の評価関数とチェスの評価関数−３&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;push通知対応&quot;&gt;Push通知対応&lt;/h3&gt;
-&lt;p&gt;　Version1.0.2.1からPush通知を受信できます。左上右側にあるアイコンをタップすると受信した最新のメッセージを再度表示します。受信したメッセージがないときは何も表示されません。&lt;/p&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/push_notification_shogi77.png&quot;&gt;&lt;img src=&quot;/images/push_notification_shogi77.png&quot; alt=&quot;Push通知サンプル&quot; title=&quot;Push通知サンプル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
+&lt;h3 id=&quot;自動保存機能追加&quot;&gt;自動保存機能追加&lt;/h3&gt;
+&lt;p&gt;　メモリ逼迫時にAndroidによってアプリが強制終了されるケースが多いので、Version1.0.6.0から一手指す毎に棋譜を自動保存する機能を追加しました。&lt;br /&gt;
+不意にアプリが落ちても起動後「再開」ボタンをタップすることで対局の続きが可能です。他のアプリにも追加していく予定です。&lt;br /&gt;
+　※万が一自動保存に失敗して何らかのエラーが発生した場合は、「アプリ情報」メニューから「ストレージ」を選んで「ストレージを消去」の操作をしてください。その際には対局データは消失し各種設定も初期化されますがご了承ください。&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -3585,7 +3590,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 &lt;/div&gt;
 
 &lt;p&gt;　将棋盤の上部に&lt;code&gt;hmmxxxggggkkkkyyyffffffffffff&lt;/code&gt;と表示されているのは玉方の持ち駒です（飛角角金金金銀銀銀銀…）。&lt;br /&gt;
-　テスト1.のケースで試してみたところ、正解の初手を指すまでに約２週間（経過時間＝1208445383ミリ秒）かかりました:sweat_smile:この問題を解くには６手読みが必要で、５手読みだと初手を指すまでに約３時間掛かりましたが不正解（歩を成ってしまう）で、一手読みを深くするだけで約２週間に延びてしまう様はまさに指数爆発という表現がぴったりです。&lt;br /&gt;
+　テスト2.のケースで試してみたところ、正解の初手を指すまでに約２週間（経過時間＝1208445383ミリ秒）かかりました:sweat_smile:この問題を解くには６手読みが必要で、５手読みだと初手を指すまでに約３時間掛かりましたが不正解（歩を成ってしまう）で、一手読みを深くするだけで約２週間に延びてしまう様はまさに指数爆発という表現がぴったりです。&lt;br /&gt;
 　最初は９×９の通常の将棋盤でテストをやりかけたのですが、時間が掛かり過ぎることが分かったので、５五将棋の形に修正するやり方でテストすることにしたということです。&lt;/p&gt;
 
 &lt;hr /&gt;
