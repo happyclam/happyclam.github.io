@@ -356,6 +356,18 @@ android.enableJetifier=true
 
 <p>　自分は主にCLIでビルドしているのですが、今回は11.のAndroidStudioを使った作業が余計なトラブルを招いたようです。</p>
 
+<h3 id="追記">追記</h3>
+<p>　結構この記事へのアクセスがあるので追記しておきます。<br>
+<a href="https://developer.android.com/studio/releases/gradle-plugin.html">このサイト</a>に書かれているように、gradleのバージョンとAndroid Studioで使うgradleプラグインのバージョンを合わせておかないとビルドに失敗するということです。<br>
+　先日もgradleのバージョンを上げて（6.0.1）ビルドすると以下のエラーが出ましたが、</p>
+
+<pre><code>A problem occurred configuring project ':app'.
+&gt; Failed to notify project evaluation listener.
+   &gt; org.gradle.api.file.ProjectLayout.directoryProperty(Lorg/gradle/api/provider/Provider;)Lorg/gradle/api/file/DirectoryProperty;
+</code></pre>
+
+<p>　AndroidStudioを立ち上げて[File] -&gt; [Project Structure] -&gt; [Android Gradle Plugin Version]でgradleプラグインのバージョンを<code>3.3.0</code>から<code>3.5.3</code>に上げると、エラーは消えてCLI上でのgradleを使ったビルドにも成功しました。</p>
+
 <hr>
 
 

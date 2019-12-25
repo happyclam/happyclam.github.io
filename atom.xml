@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2019-12-23T20:22:48+09:00</updated>
+ <updated>2019-12-25T13:29:52+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -21,8 +21,7 @@
 &lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;&lt;img src=&quot;/images/amazon-appstore-badge-jp-white.png&quot; alt=&quot;お気楽チェス&quot; title=&quot;お気楽チェス&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;お気楽チェスアプリについて&quot;&gt;「お気楽チェス」アプリについて&lt;/h3&gt;
-&lt;p&gt;　チェス初心者がチェスを楽しむために作りました。チェスに自信のある方は他のチェスアプリでは味わえない奇抜な手を楽しんでください。&lt;br /&gt;
-　まだまだ機能は少ないですが、今後、既存の将棋関連アプリ（&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;７七将棋&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋&lt;/a&gt;）と同様の機能を追加していく予定です。&lt;br /&gt;
+&lt;p&gt;　チェス初心者がチェスを楽しむために作りました。チェスに自信のある方にとっても終盤は手強いと思います。他のチェスアプリでは味わえない奇抜な手を楽しんでください。&lt;br /&gt;
 　&lt;/p&gt;
 &lt;h3 id=&quot;機能&quot;&gt;機能&lt;/h3&gt;
 &lt;ol&gt;
@@ -723,6 +722,18 @@ android.enableJetifier=true
 &lt;/ol&gt;
 
 &lt;p&gt;　自分は主にCLIでビルドしているのですが、今回は11.のAndroidStudioを使った作業が余計なトラブルを招いたようです。&lt;/p&gt;
+
+&lt;h3 id=&quot;追記&quot;&gt;追記&lt;/h3&gt;
+&lt;p&gt;　結構この記事へのアクセスがあるので追記しておきます。&lt;br /&gt;
+&lt;a href=&quot;https://developer.android.com/studio/releases/gradle-plugin.html&quot;&gt;このサイト&lt;/a&gt;に書かれているように、gradleのバージョンとAndroid Studioで使うgradleプラグインのバージョンを合わせておかないとビルドに失敗するということです。&lt;br /&gt;
+　先日もgradleのバージョンを上げて（6.0.1）ビルドすると以下のエラーが出ましたが、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;A problem occurred configuring project ':app'.
+&amp;gt; Failed to notify project evaluation listener.
+   &amp;gt; org.gradle.api.file.ProjectLayout.directoryProperty(Lorg/gradle/api/provider/Provider;)Lorg/gradle/api/file/DirectoryProperty;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　AndroidStudioを立ち上げて[File] -&amp;gt; [Project Structure] -&amp;gt; [Android Gradle Plugin Version]でgradleプラグインのバージョンを&lt;code&gt;3.3.0&lt;/code&gt;から&lt;code&gt;3.5.3&lt;/code&gt;に上げると、エラーは消えてCLI上でのgradleを使ったビルドにも成功しました。&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -5790,6 +5801,11 @@ P-00HI00FU
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;a href=&quot;/images/push_notification.png&quot;&gt;&lt;img src=&quot;/images/push_notification.png&quot; alt=&quot;Push通知サンプル&quot; title=&quot;Push通知サンプル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
+
+&lt;h3 id=&quot;自動保存機能追加&quot;&gt;自動保存機能追加&lt;/h3&gt;
+&lt;p&gt;　メモリ逼迫時にAndroidによってアプリが強制終了されるケースがあるので、Version1.1.5.0から一手指す毎に棋譜を自動保存する機能を追加しました。&lt;br /&gt;
+不意にアプリが落ちても起動後「再開」ボタンをタップすることで対局の続きが可能です。&lt;br /&gt;
+　※万が一自動保存に失敗して何らかのエラーが発生した場合は、「アプリ情報」メニューから「ストレージ」を選んで「ストレージを消去」の操作をしてください。その際には対局データは消失し各種設定も初期化されますがご了承ください。&lt;/p&gt;
 
 &lt;h3 id=&quot;ソースファイル&quot;&gt;ソースファイル&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;github&lt;/a&gt;でCoffeeScriptのソースファイルを公開しました。GUI部分にはまだバグが潜んでいるかもしれませんが、思考ルーチン部分はほぼ落ち着いていると思っています。実際のアプリの先読みメソッド（思考ルーチン）は、浅い先読みを行い候補手のリストを作成しその候補手リストからさらに深読みするという方法を取っているのですが、混みいったコードになるのでその部分は省いています。リリースしてからバグを発生させていたのはほとんどこの候補手を絞り込む部分に関するもので、基本的なところはリリース当初からほとんど変わっていません。対戦型将棋ソフトを作る上で必要最低限なコードになっていると思います。このコードを元に３三将棋だけでなく９×９の本将棋に移行するのも容易だと思います、というか元々Rubyで作った自作の将棋ソフトのコードをスマホアプリにするためにCoffeeScript（JavaScript）に書き換えたものです。&lt;br /&gt;
