@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-01-02T16:13:37+09:00</updated>
+ <updated>2020-01-02T16:41:26+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -25,7 +25,7 @@
 &lt;p&gt;　「将棋の評価関数とチェスの評価関数」と題した&lt;a href=&quot;/software/2019-10-27/stalemate&quot;&gt;一連の記事&lt;/a&gt;で書いたように、詰み判定処理を導入することで読みの深さを減らしても同じ評価が出来るようになったわけですが、評価関数が重くなるので読む局面が増えるに連れて時間がかかるようになります。大抵は評価関数の精度と読みの深さはトレードオフの関係にありますので、７×７の盤面を使う&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;や&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;７七将棋アプリ&lt;/a&gt;では評価関数の精度は上がった（と思う）のですが、若干のレスポンス改善にしか繋がっていません。&lt;br /&gt;
 　評価方法を変えたことによってもっとも効果が出たのが&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;で、駒の働きを考慮した精度の高い評価関数を使いながらも応答時間も今までより短くすることが出来ました。その短縮された時間を利用して今までより一手深く読めるようにしたので、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;では４つの強さ設定（「弱い」、「普通」、「長考」、「瞑想」）で一段階ずつレベルアップしたイメージで捉えてもらえばいいと思います。&lt;br /&gt;
 　&lt;a href=&quot;/software/2018-12-29/evaluate&quot;&gt;昔の記事&lt;/a&gt;で&lt;a href=&quot;http://sdin.jp/browser/board/55shogi/&quot;&gt;SDINの５五将棋サイト&lt;/a&gt;のCPU対戦で９割勝つと書きましたが、今では１ランク弱い「長考」モードでもSDINサイトのCPUには負けることはないと思います。&lt;br /&gt;
-　ということで今度はもっと強いPC用の&lt;a href=&quot;http://hgm.nubati.net/miniShogi.html&quot;&gt;５五将棋ソフト&lt;/a&gt;と対戦させて見ました。思考エンジンにはオープンソースのGNU mini-Shogiを選びました。&lt;/p&gt;
+　ということで今度はもっと強いPC用の&lt;a href=&quot;http://hgm.nubati.net/miniShogi.html&quot;&gt;５五将棋ソフト&lt;/a&gt;と対戦させて見ました。思考エンジンには各方面に差し障りの無いようオープンソースのGNU mini-Shogiを選びました。&lt;/p&gt;
 
 &lt;h3 id=&quot;gnu-mini-shogiとの対戦棋譜&quot;&gt;GNU mini-Shogiとの対戦棋譜&lt;/h3&gt;
 &lt;p&gt;　先手、後手１０局ずつ２０戦対戦したアプリから出力した棋譜（CSA形式）です。アプリにコピペすれば再現出来ます。&lt;/p&gt;
@@ -1117,8 +1117,8 @@ P5+OU+KI+GI+KA+HI
     &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;p&gt;　結果はアプリの１２勝８敗で最初のうちは喜んでいました。でも棋譜を追ってもらえばわかりますが、GNUのエンジンは必勝の局面になってから自滅するような手を指してくる時があって自分が思っていたより弱いようです。&lt;a href=&quot;http://hgm.nubati.net/miniShogi.html&quot;&gt;GNU mini-Shogi&lt;/a&gt;のサイトにも「the classic, but rather weak open-source engine」と紹介されていて、その筋の人達には広く知られていることなのかも知れません。他のエンジンでも試してみましたが、他のエンジンに関しては相変わらず勝てないようです。&lt;br /&gt;
-　興味本位でアプリの読む手をあと一手深く読むように設定して他のエンジンとの対戦も試してみようと思っているのですが、そうすると今よりさらに指し手が遅くなりますし、メモリ不足で頻繁にアプリが落ちる状況になる&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;ので、そのままではとてもアプリに採用出来そうにありません。&lt;/p&gt;
+&lt;p&gt;　結果はアプリの１２勝８敗で最初のうちは喜んでいました。でも棋譜を追ってもらえばわかりますが、GNUのエンジンは必勝の局面になってから自滅するような手を指してくる時があって自分が思っていたより弱いようです。&lt;a href=&quot;http://hgm.nubati.net/miniShogi.html&quot;&gt;GNU mini-Shogi&lt;/a&gt;のサイトにも「the classic, but rather weak open-source engine」と紹介されていて、その筋の人達には広く知られていることなのかも知れません。他のエンジンでも試してみましたが、他のエンジンに関しては相変わらず勝てないようです。やはり多少評価関数の精度が上がっても読みの深さが勝る方が勝つような気がします。&lt;br /&gt;
+　興味本位でアプリの読む手をあと一手深く読むように設定して他のエンジンとの対戦も試してみようと思っているのですが、そうすると今よりさらに指し手が遅くなりますし、メモリ不足で頻繁にアプリが落ちる状況になる&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;ので、そのままではとてもアプリに適用出来そうにありません。&lt;/p&gt;
 
 &lt;h3 id=&quot;酷い負けパターン&quot;&gt;酷い負けパターン&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
