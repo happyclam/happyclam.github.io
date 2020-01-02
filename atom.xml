@@ -4,13 +4,1149 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-01-01T14:45:33+09:00</updated>
+ <updated>2020-01-02T16:13:37+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>GNU mini-Shogiに挑戦</title>
+   <link href="https://happyclam.github.io/project/2020-01-02/minishogi"/>
+   <updated>2020-01-02T00:00:00+09:00</updated>
+   <id>https://happyclam.github.io/project/2020-01-02/minishogi</id>
+   <content type="html">&lt;h3 id=&quot;評価方法を変えたことによる効果が知りたい&quot;&gt;評価方法を変えたことによる効果が知りたい&lt;/h3&gt;
+&lt;p&gt;　「将棋の評価関数とチェスの評価関数」と題した&lt;a href=&quot;/software/2019-10-27/stalemate&quot;&gt;一連の記事&lt;/a&gt;で書いたように、&lt;a href=&quot;https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam&quot;&gt;チェスアプリ&lt;/a&gt;で導入した局面の評価方法を将棋関連アプリ（&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;を除く）にも採用したので、もっとも効果が高かった&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;の強さがどの程度変わったか試してみました。評価関数内の駒の重み等細かなところは変えていないのですが、今回のアップデートで全てのアプリの評価関数を駒の働き（モビリティ）を考慮する形に変更しています&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
+　また、なぜ&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;は変更しなかったかと言うと、駒の働きも考慮するようにすると評価関数が重くなるので、同じ時間で較べた場合深く読めなくなるからです。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;は深く読むことを優先して軽い評価関数（駒の重みだけを考慮）のままにしています。&lt;/p&gt;
+
+&lt;h3 id=&quot;評価関数の精度を上げると深く読めない&quot;&gt;評価関数の精度を上げると深く読めない&lt;/h3&gt;
+&lt;p&gt;　「将棋の評価関数とチェスの評価関数」と題した&lt;a href=&quot;/software/2019-10-27/stalemate&quot;&gt;一連の記事&lt;/a&gt;で書いたように、詰み判定処理を導入することで読みの深さを減らしても同じ評価が出来るようになったわけですが、評価関数が重くなるので読む局面が増えるに連れて時間がかかるようになります。大抵は評価関数の精度と読みの深さはトレードオフの関係にありますので、７×７の盤面を使う&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;や&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;７七将棋アプリ&lt;/a&gt;では評価関数の精度は上がった（と思う）のですが、若干のレスポンス改善にしか繋がっていません。&lt;br /&gt;
+　評価方法を変えたことによってもっとも効果が出たのが&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;で、駒の働きを考慮した精度の高い評価関数を使いながらも応答時間も今までより短くすることが出来ました。その短縮された時間を利用して今までより一手深く読めるようにしたので、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;では４つの強さ設定（「弱い」、「普通」、「長考」、「瞑想」）で一段階ずつレベルアップしたイメージで捉えてもらえばいいと思います。&lt;br /&gt;
+　&lt;a href=&quot;/software/2018-12-29/evaluate&quot;&gt;昔の記事&lt;/a&gt;で&lt;a href=&quot;http://sdin.jp/browser/board/55shogi/&quot;&gt;SDINの５五将棋サイト&lt;/a&gt;のCPU対戦で９割勝つと書きましたが、今では１ランク弱い「長考」モードでもSDINサイトのCPUには負けることはないと思います。&lt;br /&gt;
+　ということで今度はもっと強いPC用の&lt;a href=&quot;http://hgm.nubati.net/miniShogi.html&quot;&gt;５五将棋ソフト&lt;/a&gt;と対戦させて見ました。思考エンジンにはオープンソースのGNU mini-Shogiを選びました。&lt;/p&gt;
+
+&lt;h3 id=&quot;gnu-mini-shogiとの対戦棋譜&quot;&gt;GNU mini-Shogiとの対戦棋譜&lt;/h3&gt;
+&lt;p&gt;　先手、後手１０局ずつ２０戦対戦したアプリから出力した棋譜（CSA形式）です。アプリにコピペすれば再現出来ます。&lt;/p&gt;
+
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu01&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu01&quot;&gt;01. 先手:アプリ　後手:GNU　４７手までアプリ勝ち&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-3132GI
++5453FU
+-2122KI
++3524GI
+-3223GI
++2423GI
+-2223KI
++0042GI
+-0033GI
++4233GI
+-2333KI
++4433KI
+-5153HI
++5544OU
+-5333HI
++0042GI
+-3323HI
++0034KI
+-0043FU
++4455OU
+-0024GI
++4241NG
+-2415NG
++0044KA
+-4344FU
++3423KI
+-0053HI
++5544OU
+-0035KA
++4435OU
+-1525NG
++3525OU
+-5323HI
++0024GI
+-2324HI
++2524OU
+-0035KA
++2435OU
+-0034GI
++3534OU
+-0033KI
++3433OU
+-0032KI
++3332OU
+-1213FU
++0022KI
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu02&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu02&quot;&gt;02. 先手:アプリ　後手:GNU　２７手までアプリ勝ち&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-3132GI
++5453FU
+-3233GI
++4433KI
+-5153HI
++5544OU
+-5333HI
++0042GI
+-0043FU
++4433OU
+-2132KI
++3334OU
+-3242KI
++0031HI
+-1122OU
++3141HI
+-4233KI
++3445OU
+-0034GI
++4554OU
+-2223OU
++4121RY
+-0022KI
++2514KA
+-2313OU
++1432KA
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu03&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu03&quot;&gt;03. 先手:アプリ　後手:GNU　４７手までアプリ勝ち&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-3132GI
++5453FU
+-3223GI
++4443KI
+-2332GI
++4344KI
+-3223GI
++4443KI
+-2332GI
++4344KI
+-2122KI
++3524GI
+-3223GI
++2423GI
+-4123KA
++0024GI
+-2341KA
++4443KI
+-2223KI
++5352FU
+-2324KI
++5251TO
+-2415KI
++0031HI
+-0021GI
++5141TO
+-1525KI
++0044KA
+-0033KA
++3133RY
+-0022GI
++3323RY
+-0024HI
++0034KA
+-2423HI
++3423KA
+-0035HI
++0045HI
+-3545RY
++2345KA
+-0023HI
++4523KA
+-2132GI
++4332KI
+-2233GI
++0021HI
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu04&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu04&quot;&gt;04. 先手:アプリ　後手:GNU　２３手までアプリ勝ち&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-3132GI
++5453FU
+-3233GI
++4433KI
+-5153HI
++5544OU
+-5333HI
++0042GI
+-0043FU
++4433OU
+-2132KI
++3334OU
+-3242KI
++0031HI
+-1122OU
++3141HI
+-4233KI
++3445OU
+-3334KI
++2534KA
+-0013GI
++0023KI
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu05&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu05&quot;&gt;05. 先手:アプリ　後手:GNU　１８手までアプリ負け&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-1122OU
++2543KA
+-3132GI
++1525HI
+-2211OU
++4433KI
+-4152KA
++4352KA
+-3233GI
++0015KA
+-3342GI
++5234KA
+-5154HI
++5554OU
+-0053FU
++5455OU
+-0054KI
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu06&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu06&quot;&gt;06. 先手:アプリ　後手:GNU　２２手までアプリ負け&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
++
++4544KI
+-3132GI
++5453FU
+-2131KI
++3524GI
+-3142KI
++2534KA
+-3221GI
++2423GI
+-4123KA
++3423KA
+-0043GI
++0035KA
+-4253KI
++1512HI
+-2112GI
++4453KI
+-5153HI
++0054KI
+-4354GI
++5544OU
+-0043KI
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu07&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu07&quot;&gt;07. 先手:アプリ　後手:GNU　２３手までアプリ勝ち&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-3132GI
++5453FU
+-3233GI
++4433KI
+-5153HI
++5544OU
+-5333HI
++0042GI
+-0043FU
++4433OU
+-2132KI
++3334OU
+-3242KI
++0031HI
+-1122OU
++3141HI
+-4233KI
++3445OU
+-1213FU
++0031KA
+-2212OU
++3113UM
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu08&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu08&quot;&gt;08. 先手:アプリ　後手:GNU　３４手までアプリ負け&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
++
++4544KI
+-3132GI
++5453FU
+-3223GI
++4443KI
+-2332GI
++4344KI
+-3223GI
++4443KI
+-2332GI
++4344KI
+-3233GI
++4433KI
+-2122KI
++5352FU
+-4152KA
++3322KI
+-1122OU
++0023GI
+-2223OU
++0033KI
+-2333OU
++3544GI
+-3324OU
++2552KA
+-5152HI
++0054KA
+-2415OU
++4435GI
+-0043KI
++3524GI
+-1525OU
++2423GI
+-4354KI
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu09&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu09&quot;&gt;09. 先手:アプリ　後手:GNU　５１手までアプリ勝ち&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-2122KI
++5453FU
+-3142GI
++5352FU
+-4152KA
++2552KA
+-5152HI
++0054KA
+-0043FU
++4434KI
+-0033KA
++3433KI
+-2233KI
++1514HI
+-5254HI
++1454HI
+-0045KI
++5545OU
+-0022KA
++0041HI
+-4231GI
++0051KA
+-3344KI
++3544GI
+-4344FU
++5444HI
+-0032GI
++0033KI
+-3233GI
++4131HI
+-2231KA
++5133UM
+-0022KI
++3324UM
+-0021HI
++4441RY
+-3153KA
++4152RY
+-5331KA
++0014KI
+-3153KA
++5253RY
+-2141HI
++0042GI
+-4142HI
++5342RY
+-0053GI
++4241RY
+-2221KI
++2433UM
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu10&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu10&quot;&gt;10. 先手:アプリ　後手:GNU　７１手までアプリ勝ち&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-3132GI
++5453FU
+-3233GI
++4433KI
+-5153HI
++5544OU
+-5333HI
++0042GI
+-3335RY
++4435OU
+-0023KI
++0054HI
+-4132KA
++5444HI
+-0033GI
++4233GI
+-2333KI
++0053GI
+-2122KI
++2552KA
+-2223KI
++1525HI
+-0043FU
++5243KA
+-3243KA
++2524HI
+-3344KI
++3544OU
+-0045HI
++4445OU
+-4334KA
++2434HI
+-2334KI
++4534OU
+-0031HI
++0032FU
+-3132HI
++3443OU
+-0021KA
++0033KI
+-3222HI
++0032KI
+-2232HI
++3332KI
+-2132KA
++4332OU
+-0021KI
++3242OU
+-0032GI
++0052KA
+-0041FU
++4251OU
+-0054KI
++0035KA
+-2131KI
++0034HI
+-5453KI
++3553KA
+-0042GI
++5342KA
+-3142KI
++0031HI
+-0021KA
++0044KI
+-4252KI
++5152OU
+-1213FU
++3424HI
+-0051KA
++0022KI
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu11&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu11&quot;&gt;11. 先手:GNU　後手:アプリ　１７手までアプリ負け&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++3524GI
+-4132KA
++2433GI
+-3241KA
++2543KA
+-3132GI
++1525HI
+-2131KI
++4332KA
+-1213FU
++2521RY
+-3121KI
++3221UM
+-1121OU
++0032GI
+-4132KA
++0022KI
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu12&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu12&quot;&gt;12. 先手:GNU　後手:アプリ　１１手までアプリ負け&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++3524GI
+-4132KA
++2534KA
+-2122KI
++3412KA
+-2212KI
++1512HI
+-1112OU
++0013FU
+-1211OU
++0012KI
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu13&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu13&quot;&gt;13. 先手:GNU　後手:アプリ　３０手までアプリ勝ち&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
++
++3524GI
+-4132KA
++2433GI
+-3241KA
++2534KA
+-3132GI
++3342GI
+-5152HI
++4241NG
+-3241GI
++0044KA
+-0022GI
++3452KA
+-4152GI
++4534KI
+-0042KA
++1525HI
+-1213FU
++2522HI
+-2122KI
++4422KA
+-1121OU
++0031HI
+-4231KA
++0011KI
+-2122OU
++3443KI
+-5243GI
++0021GI
+-0015HI
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu14&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu14&quot;&gt;14. 先手:GNU　後手:アプリ　３０手までアプリ勝ち&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
++
++3524GI
+-4132KA
++2433GI
+-3241KA
++5544OU
+-4123KA
++4534KI
+-2132KI
++3423KI
+-3223KI
++2543KA
+-2333KI
++4433OU
+-3122GI
++3344OU
+-0033KI
++4435OU
+-0024GI
++3545OU
+-3343KI
++1512HI
+-1112OU
++0013FU
+-1213OU
++0053KA
+-0012KA
++0023KI
+-1223KA
++4555OU
+-0045HI
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu15&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu15&quot;&gt;15. 先手:GNU　後手:アプリ　１６手までアプリ勝ち&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
++
++3524GI
+-4132KA
++2433GI
+-3241KA
++5544OU
+-4123KA
++4534KI
+-2132KI
++3423KI
+-3223KI
++2543KA
+-2333KI
++4433OU
+-3122GI
++3332OU
+-0031GI
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu16&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu16&quot;&gt;16. 先手:GNU　後手:アプリ　３８手までアプリ勝ち&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
++
++3534GI
+-2122KI
++5544OU
+-3142GI
++4555KI
+-1213FU
++4435OU
+-4132KA
++5544KI
+-1112OU
++4443KI
+-4243GI
++3443GI
+-2233KI
++2534KA
+-0023KI
++3423KA
+-3223KA
++0024GI
+-0044KA
++3525OU
+-3324KI
++2524OU
+-0033GI
++2425OU
+-5121HI
++0022KI
+-1222OU
++0012KI
+-2312KA
++1514HI
+-0023KI
++1434HI
+-2324KI
++3424HI
+-3324GI
++2524OU
+-0014KI
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu17&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu17&quot;&gt;17. 先手:GNU　後手:アプリ　２３手までアプリ負け&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++3524GI
+-4132KA
++2433GI
+-3241KA
++5544OU
+-4123KA
++2534KA
+-2334KA
++4534KI
+-5141HI
++4435OU
+-0013KA
++3324GI
+-1322KA
++2423GI
+-2255UM
++1512HI
+-2112KI
++2312GI
+-1112OU
++0023KA
+-1213OU
++0012KI
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu18&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu18&quot;&gt;18. 先手:GNU　後手:アプリ　５３手までアプリ負け&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-4132KA
++2534KA
+-3142GI
++3524GI
+-2122KI
++1545HI
+-4233GI
++2433GI
+-2233KI
++0043GI
+-3334KI
++4332GI
+-3445KI
++4445KI
+-0022KA
++0044KA
+-2244KA
++5544OU
+-0042HI
++0043KI
+-0022KA
++4435OU
+-4243HI
++3243GI
+-0023KI
++0015KA
+-5131HI
++0032HI
+-0024GI
++1524KA
+-2324KI
++3524OU
+-3132HI
++4332GI
+-0051KA
++2435OU
+-2213KA
++3544OU
+-1322KA
++4453OU
+-0033HI
++0043GI
+-3332HI
++4332GI
+-0042GI
++5352OU
+-4243GI
++5243OU
+-1213FU
++0021HI
+-1112OU
++0023GI
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu19&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu19&quot;&gt;19. 先手:GNU　後手:アプリ　６０手までアプリ勝ち&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
++
++3524GI
+-4132KA
++2433GI
+-3241KA
++2534KA
+-3132GI
++3342GI
+-5152HI
++4241GI
+-3241GI
++0044KA
+-0022GI
++3452KA
+-4152GI
++1525HI
+-0042KA
++4534KI
+-1213FU
++2522HI
+-2122KI
++4422KA
+-1121OU
++2213KA
+-0015HI
++1335KA
+-1535HI
++3435KI
+-0022KA
++0044FU
+-4215KA
++0031HI
+-2131OU
++0021KI
+-3121OU
++0023HI
+-0031HI
++3545KI
+-0012KI
++0024GI
+-1223KI
++2423GI
+-2244KA
++4544KI
+-0025HI
++0045KA
+-2523HI
++4523KA
+-3135HI
++0045HI
+-3545HI
++2345KA
+-0042HI
++0031KI
+-2131OU
++4534KA
+-1533UM
++0051HI
+-0041FU
++3452KA
+-3344UM
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu20&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu20&quot;&gt;20. 先手:GNU　後手:アプリ　２５手までアプリ負け&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++3524GI
+-4132KA
++2433GI
+-3241KA
++5544OU
+-4123KA
++2543KA
+-3132GI
++4332KA
+-2132KI
++3332GI
+-2332KA
++0033KI
+-0043GI
++3343KI
+-3243KA
++0023GI
+-0032KI
++1512HI
+-1121OU
++2332GI
+-2112OU
++0023KI
+-1211OU
++0022GI
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　結果はアプリの１２勝８敗で最初のうちは喜んでいました。でも棋譜を追ってもらえばわかりますが、GNUのエンジンは必勝の局面になってから自滅するような手を指してくる時があって自分が思っていたより弱いようです。&lt;a href=&quot;http://hgm.nubati.net/miniShogi.html&quot;&gt;GNU mini-Shogi&lt;/a&gt;のサイトにも「the classic, but rather weak open-source engine」と紹介されていて、その筋の人達には広く知られていることなのかも知れません。他のエンジンでも試してみましたが、他のエンジンに関しては相変わらず勝てないようです。&lt;br /&gt;
+　興味本位でアプリの読む手をあと一手深く読むように設定して他のエンジンとの対戦も試してみようと思っているのですが、そうすると今よりさらに指し手が遅くなりますし、メモリ不足で頻繁にアプリが落ちる状況になる&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;ので、そのままではとてもアプリに採用出来そうにありません。&lt;/p&gt;
+
+&lt;h3 id=&quot;酷い負けパターン&quot;&gt;酷い負けパターン&lt;/h3&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/lost_pattern.png&quot;&gt;&lt;img src=&quot;/images/lost_pattern.png&quot; alt=&quot;酷い負けパターン&quot; title=&quot;酷い負けパターン&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　上の局面は棋譜のNo.12の一局面ですが、ここでアプリは２二金（先後反転表示）と上がってしまいます。この棋譜に限らずこの駒の配置になるケースが結構あって、この局面になった時に現状のアプリは２二金や４一飛と指してしまいます。すると相手から１二角と切って来られて以下同金、同飛、同玉、１三歩と打たれて玉がどこに逃げても金打ちまでの詰みとなり負けてしまいます。この局面ではおそらく玉の懐を広げる４二銀がいい手&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;だと思うのです（アプリの読みを今の「瞑想」モードより一手深くするとこの手を指します）が、読みが足りなくて現状ではよくこのパターンで負けます。&lt;br /&gt;
+　最近の強い将棋ソフトでも自分が不利になるおかしな角打ちをすることがあるそうですが、このケースに対応するだけのその場凌ぎの改変はしたくないので、何かいいアイデアが思いつくまでは当面このままにするしかないかと思っています。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;強さの設定にもよりますが、今まではほとんど駒の重みしか考慮していない評価関数を使っていました。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;仕方がないのでCLI（Comannd Line Interface）でテストしています。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;４二銀と上がれば玉の逃げ道が出来て詰みが生じません。本文で説明した大駒を切る手順は無理攻めとなりアプリ側が優勢になります。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>「お気楽チェス」アプリリリース</title>
@@ -150,7 +1286,7 @@ bxa1=Q 41. Bc2 Qf1# 0-1
 &lt;h3 id=&quot;自動保存機能&quot;&gt;自動保存機能&lt;/h3&gt;
 &lt;p&gt;　メモリ逼迫時にAndroidによってアプリが強制終了されるケースがあるので、一手指す毎に棋譜を自動保存する機能を追加しました。&lt;br /&gt;
 不意にアプリが落ちても起動後「再開」ボタンをタップすることで対局の続きが可能です。&lt;br /&gt;
-　※万が一自動保存に失敗して何らかのエラーが発生した場合は、「アプリ情報」メニューから「ストレージ」を選んで「ストレージを消去」の操作をしてください。その際には対局データは消失し各種設定も初期化されますがご了承ください。&lt;/p&gt;
+　※万が一自動保存に失敗して何らかのエラーが発生しても、「新規開始」すれば新たにファイルが作成されるので問題ありません。それでもエラーが表示される場合は、「アプリ情報」メニューから「ストレージ」を選んで「ストレージを消去」の操作をしてください。その際には対局データは消失し各種設定も初期化されますがご了承ください。&lt;/p&gt;
 
 &lt;h3 id=&quot;評価値表示&quot;&gt;評価値表示&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;

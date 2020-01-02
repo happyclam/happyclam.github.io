@@ -1,0 +1,1481 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    
+    <title>GNU mini-Shogiに挑戦</title>
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'UA-1752720-7');
+    </script>
+    <meta name="author" content="happyclam">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="GNU mini-Shogiに挑戦">
+  
+  
+  <meta name="twitter:url" content="/project/2020-01-02/minishogi">
+  
+  
+  <meta name="twitter:description" content="評価関数の巧拙で読みの浅さをどこまでカバー出来るのか？">
+  
+  
+  <meta name="twitter:image:src" content="/images/55shogi_logo.png">
+  
+
+  <link rel="canonical" href="/project/2020-01-02/minishogi" />
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script language="JavaScript">
+$(document).ready( function () {
+    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
+<script src="/assets/themes/twitter/js/jquery.min.js"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
+<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
+<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-1752720-7', 'happyclam.github.io');
+      ga('send', 'pageview');
+    </script>
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div style="text-align: center;">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-9018029357773039",
+        enable_page_level_ads: true
+        });
+      </script>
+    </div>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">自己満足プログラミング</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/policy">Policy</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/profile">About</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="row-fluid">
+        <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+        <div class="span9"
+             <!-- Html Elements for Search -->
+             <div id="search-container" align="right">
+               <input type="text" id="search-input" placeholder="search...">
+               <ul id="results-container"></ul>
+             </div>
+             <div class="results"></div>
+        </div>
+      </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+      <div class="content">
+        
+<div class="page-header">
+  <h1>GNU mini-Shogiに挑戦 </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>02 January 2020</span>
+    </div>
+    <div class="content">
+      <h3 id="評価方法を変えたことによる効果が知りたい">評価方法を変えたことによる効果が知りたい</h3>
+<p>　「将棋の評価関数とチェスの評価関数」と題した<a href="/software/2019-10-27/stalemate">一連の記事</a>で書いたように、<a href="https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam">チェスアプリ</a>で導入した局面の評価方法を将棋関連アプリ（<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>を除く）にも採用したので、もっとも効果が高かった<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>の強さがどの程度変わったか試してみました。評価関数内の駒の重み等細かなところは変えていないのですが、今回のアップデートで全てのアプリの評価関数を駒の働き（モビリティ）を考慮する形に変更しています<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。<br />
+　また、なぜ<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>は変更しなかったかと言うと、駒の働きも考慮するようにすると評価関数が重くなるので、同じ時間で較べた場合深く読めなくなるからです。<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>は深く読むことを優先して軽い評価関数（駒の重みだけを考慮）のままにしています。</p>
+
+<h3 id="評価関数の精度を上げると深く読めない">評価関数の精度を上げると深く読めない</h3>
+<p>　「将棋の評価関数とチェスの評価関数」と題した<a href="/software/2019-10-27/stalemate">一連の記事</a>で書いたように、詰み判定処理を導入することで読みの深さを減らしても同じ評価が出来るようになったわけですが、評価関数が重くなるので読む局面が増えるに連れて時間がかかるようになります。大抵は評価関数の精度と読みの深さはトレードオフの関係にありますので、７×７の盤面を使う<a href="https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam">禽将棋アプリ</a>や<a href="https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam">７七将棋アプリ</a>では評価関数の精度は上がった（と思う）のですが、若干のレスポンス改善にしか繋がっていません。<br />
+　評価方法を変えたことによってもっとも効果が出たのが<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>で、駒の働きを考慮した精度の高い評価関数を使いながらも応答時間も今までより短くすることが出来ました。その短縮された時間を利用して今までより一手深く読めるようにしたので、<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>では４つの強さ設定（「弱い」、「普通」、「長考」、「瞑想」）で一段階ずつレベルアップしたイメージで捉えてもらえばいいと思います。<br />
+　<a href="/software/2018-12-29/evaluate">昔の記事</a>で<a href="http://sdin.jp/browser/board/55shogi/">SDINの５五将棋サイト</a>のCPU対戦で９割勝つと書きましたが、今では１ランク弱い「長考」モードでもSDINサイトのCPUには負けることはないと思います。<br />
+　ということで今度はもっと強いPC用の<a href="http://hgm.nubati.net/miniShogi.html">５五将棋ソフト</a>と対戦させて見ました。思考エンジンにはオープンソースのGNU mini-Shogiを選びました。</p>
+
+<h3 id="gnu-mini-shogiとの対戦棋譜">GNU mini-Shogiとの対戦棋譜</h3>
+<p>　先手、後手１０局ずつ２０戦対戦したアプリから出力した棋譜（CSA形式）です。アプリにコピペすれば再現出来ます。</p>
+
+<div class="cp_actab">
+    <input id="kifu01" type="radio" name="kifu" />
+    <label for="kifu01">01. 先手:アプリ　後手:GNU　４７手までアプリ勝ち</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-3132GI
++5453FU
+-2122KI
++3524GI
+-3223GI
++2423GI
+-2223KI
++0042GI
+-0033GI
++4233GI
+-2333KI
++4433KI
+-5153HI
++5544OU
+-5333HI
++0042GI
+-3323HI
++0034KI
+-0043FU
++4455OU
+-0024GI
++4241NG
+-2415NG
++0044KA
+-4344FU
++3423KI
+-0053HI
++5544OU
+-0035KA
++4435OU
+-1525NG
++3525OU
+-5323HI
++0024GI
+-2324HI
++2524OU
+-0035KA
++2435OU
+-0034GI
++3534OU
+-0033KI
++3433OU
+-0032KI
++3332OU
+-1213FU
++0022KI
+        </code></pre>
+    </p>
+    </div>
+</div>
+<div class="cp_actab">
+    <input id="kifu02" type="radio" name="kifu" />
+    <label for="kifu02">02. 先手:アプリ　後手:GNU　２７手までアプリ勝ち</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-3132GI
++5453FU
+-3233GI
++4433KI
+-5153HI
++5544OU
+-5333HI
++0042GI
+-0043FU
++4433OU
+-2132KI
++3334OU
+-3242KI
++0031HI
+-1122OU
++3141HI
+-4233KI
++3445OU
+-0034GI
++4554OU
+-2223OU
++4121RY
+-0022KI
++2514KA
+-2313OU
++1432KA
+        </code></pre>
+    </p>
+    </div>
+</div>
+<div class="cp_actab">
+    <input id="kifu03" type="radio" name="kifu" />
+    <label for="kifu03">03. 先手:アプリ　後手:GNU　４７手までアプリ勝ち</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-3132GI
++5453FU
+-3223GI
++4443KI
+-2332GI
++4344KI
+-3223GI
++4443KI
+-2332GI
++4344KI
+-2122KI
++3524GI
+-3223GI
++2423GI
+-4123KA
++0024GI
+-2341KA
++4443KI
+-2223KI
++5352FU
+-2324KI
++5251TO
+-2415KI
++0031HI
+-0021GI
++5141TO
+-1525KI
++0044KA
+-0033KA
++3133RY
+-0022GI
++3323RY
+-0024HI
++0034KA
+-2423HI
++3423KA
+-0035HI
++0045HI
+-3545RY
++2345KA
+-0023HI
++4523KA
+-2132GI
++4332KI
+-2233GI
++0021HI
+        </code></pre>
+    </p>
+    </div>
+</div>
+<div class="cp_actab">
+    <input id="kifu04" type="radio" name="kifu" />
+    <label for="kifu04">04. 先手:アプリ　後手:GNU　２３手までアプリ勝ち</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-3132GI
++5453FU
+-3233GI
++4433KI
+-5153HI
++5544OU
+-5333HI
++0042GI
+-0043FU
++4433OU
+-2132KI
++3334OU
+-3242KI
++0031HI
+-1122OU
++3141HI
+-4233KI
++3445OU
+-3334KI
++2534KA
+-0013GI
++0023KI
+        </code></pre>
+    </p>
+    </div>
+</div>
+<div class="cp_actab">
+    <input id="kifu05" type="radio" name="kifu" />
+    <label for="kifu05">05. 先手:アプリ　後手:GNU　１８手までアプリ負け</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-1122OU
++2543KA
+-3132GI
++1525HI
+-2211OU
++4433KI
+-4152KA
++4352KA
+-3233GI
++0015KA
+-3342GI
++5234KA
+-5154HI
++5554OU
+-0053FU
++5455OU
+-0054KI
+        </code></pre>
+    </p>
+    </div>
+</div>
+<div class="cp_actab">
+    <input id="kifu06" type="radio" name="kifu" />
+    <label for="kifu06">06. 先手:アプリ　後手:GNU　２２手までアプリ負け</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
++
++4544KI
+-3132GI
++5453FU
+-2131KI
++3524GI
+-3142KI
++2534KA
+-3221GI
++2423GI
+-4123KA
++3423KA
+-0043GI
++0035KA
+-4253KI
++1512HI
+-2112GI
++4453KI
+-5153HI
++0054KI
+-4354GI
++5544OU
+-0043KI
+        </code></pre>
+    </p>
+    </div>
+</div>
+<div class="cp_actab">
+    <input id="kifu07" type="radio" name="kifu" />
+    <label for="kifu07">07. 先手:アプリ　後手:GNU　２３手までアプリ勝ち</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-3132GI
++5453FU
+-3233GI
++4433KI
+-5153HI
++5544OU
+-5333HI
++0042GI
+-0043FU
++4433OU
+-2132KI
++3334OU
+-3242KI
++0031HI
+-1122OU
++3141HI
+-4233KI
++3445OU
+-1213FU
++0031KA
+-2212OU
++3113UM
+        </code></pre>
+    </p>
+    </div>
+</div>
+<div class="cp_actab">
+    <input id="kifu08" type="radio" name="kifu" />
+    <label for="kifu08">08. 先手:アプリ　後手:GNU　３４手までアプリ負け</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
++
++4544KI
+-3132GI
++5453FU
+-3223GI
++4443KI
+-2332GI
++4344KI
+-3223GI
++4443KI
+-2332GI
++4344KI
+-3233GI
++4433KI
+-2122KI
++5352FU
+-4152KA
++3322KI
+-1122OU
++0023GI
+-2223OU
++0033KI
+-2333OU
++3544GI
+-3324OU
++2552KA
+-5152HI
++0054KA
+-2415OU
++4435GI
+-0043KI
++3524GI
+-1525OU
++2423GI
+-4354KI
+        </code></pre>
+    </p>
+    </div>
+</div>
+<div class="cp_actab">
+    <input id="kifu09" type="radio" name="kifu" />
+    <label for="kifu09">09. 先手:アプリ　後手:GNU　５１手までアプリ勝ち</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-2122KI
++5453FU
+-3142GI
++5352FU
+-4152KA
++2552KA
+-5152HI
++0054KA
+-0043FU
++4434KI
+-0033KA
++3433KI
+-2233KI
++1514HI
+-5254HI
++1454HI
+-0045KI
++5545OU
+-0022KA
++0041HI
+-4231GI
++0051KA
+-3344KI
++3544GI
+-4344FU
++5444HI
+-0032GI
++0033KI
+-3233GI
++4131HI
+-2231KA
++5133UM
+-0022KI
++3324UM
+-0021HI
++4441RY
+-3153KA
++4152RY
+-5331KA
++0014KI
+-3153KA
++5253RY
+-2141HI
++0042GI
+-4142HI
++5342RY
+-0053GI
++4241RY
+-2221KI
++2433UM
+        </code></pre>
+    </p>
+    </div>
+</div>
+<div class="cp_actab">
+    <input id="kifu10" type="radio" name="kifu" />
+    <label for="kifu10">10. 先手:アプリ　後手:GNU　７１手までアプリ勝ち</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-3132GI
++5453FU
+-3233GI
++4433KI
+-5153HI
++5544OU
+-5333HI
++0042GI
+-3335RY
++4435OU
+-0023KI
++0054HI
+-4132KA
++5444HI
+-0033GI
++4233GI
+-2333KI
++0053GI
+-2122KI
++2552KA
+-2223KI
++1525HI
+-0043FU
++5243KA
+-3243KA
++2524HI
+-3344KI
++3544OU
+-0045HI
++4445OU
+-4334KA
++2434HI
+-2334KI
++4534OU
+-0031HI
++0032FU
+-3132HI
++3443OU
+-0021KA
++0033KI
+-3222HI
++0032KI
+-2232HI
++3332KI
+-2132KA
++4332OU
+-0021KI
++3242OU
+-0032GI
++0052KA
+-0041FU
++4251OU
+-0054KI
++0035KA
+-2131KI
++0034HI
+-5453KI
++3553KA
+-0042GI
++5342KA
+-3142KI
++0031HI
+-0021KA
++0044KI
+-4252KI
++5152OU
+-1213FU
++3424HI
+-0051KA
++0022KI
+        </code></pre>
+    </p>
+    </div>
+</div>
+<div class="cp_actab">
+    <input id="kifu11" type="radio" name="kifu" />
+    <label for="kifu11">11. 先手:GNU　後手:アプリ　１７手までアプリ負け</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++3524GI
+-4132KA
++2433GI
+-3241KA
++2543KA
+-3132GI
++1525HI
+-2131KI
++4332KA
+-1213FU
++2521RY
+-3121KI
++3221UM
+-1121OU
++0032GI
+-4132KA
++0022KI
+        </code></pre>
+    </p>
+    </div>
+</div>
+<div class="cp_actab">
+    <input id="kifu12" type="radio" name="kifu" />
+    <label for="kifu12">12. 先手:GNU　後手:アプリ　１１手までアプリ負け</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++3524GI
+-4132KA
++2534KA
+-2122KI
++3412KA
+-2212KI
++1512HI
+-1112OU
++0013FU
+-1211OU
++0012KI
+        </code></pre>
+    </p>
+    </div>
+</div>
+<div class="cp_actab">
+    <input id="kifu13" type="radio" name="kifu" />
+    <label for="kifu13">13. 先手:GNU　後手:アプリ　３０手までアプリ勝ち</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
++
++3524GI
+-4132KA
++2433GI
+-3241KA
++2534KA
+-3132GI
++3342GI
+-5152HI
++4241NG
+-3241GI
++0044KA
+-0022GI
++3452KA
+-4152GI
++4534KI
+-0042KA
++1525HI
+-1213FU
++2522HI
+-2122KI
++4422KA
+-1121OU
++0031HI
+-4231KA
++0011KI
+-2122OU
++3443KI
+-5243GI
++0021GI
+-0015HI
+        </code></pre>
+    </p>
+    </div>
+</div>
+<div class="cp_actab">
+    <input id="kifu14" type="radio" name="kifu" />
+    <label for="kifu14">14. 先手:GNU　後手:アプリ　３０手までアプリ勝ち</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
++
++3524GI
+-4132KA
++2433GI
+-3241KA
++5544OU
+-4123KA
++4534KI
+-2132KI
++3423KI
+-3223KI
++2543KA
+-2333KI
++4433OU
+-3122GI
++3344OU
+-0033KI
++4435OU
+-0024GI
++3545OU
+-3343KI
++1512HI
+-1112OU
++0013FU
+-1213OU
++0053KA
+-0012KA
++0023KI
+-1223KA
++4555OU
+-0045HI
+        </code></pre>
+    </p>
+    </div>
+</div>
+<div class="cp_actab">
+    <input id="kifu15" type="radio" name="kifu" />
+    <label for="kifu15">15. 先手:GNU　後手:アプリ　１６手までアプリ勝ち</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
++
++3524GI
+-4132KA
++2433GI
+-3241KA
++5544OU
+-4123KA
++4534KI
+-2132KI
++3423KI
+-3223KI
++2543KA
+-2333KI
++4433OU
+-3122GI
++3332OU
+-0031GI
+        </code></pre>
+    </p>
+    </div>
+</div>
+<div class="cp_actab">
+    <input id="kifu16" type="radio" name="kifu" />
+    <label for="kifu16">16. 先手:GNU　後手:アプリ　３８手までアプリ勝ち</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
++
++3534GI
+-2122KI
++5544OU
+-3142GI
++4555KI
+-1213FU
++4435OU
+-4132KA
++5544KI
+-1112OU
++4443KI
+-4243GI
++3443GI
+-2233KI
++2534KA
+-0023KI
++3423KA
+-3223KA
++0024GI
+-0044KA
++3525OU
+-3324KI
++2524OU
+-0033GI
++2425OU
+-5121HI
++0022KI
+-1222OU
++0012KI
+-2312KA
++1514HI
+-0023KI
++1434HI
+-2324KI
++3424HI
+-3324GI
++2524OU
+-0014KI
+        </code></pre>
+    </p>
+    </div>
+</div>
+<div class="cp_actab">
+    <input id="kifu17" type="radio" name="kifu" />
+    <label for="kifu17">17. 先手:GNU　後手:アプリ　２３手までアプリ負け</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++3524GI
+-4132KA
++2433GI
+-3241KA
++5544OU
+-4123KA
++2534KA
+-2334KA
++4534KI
+-5141HI
++4435OU
+-0013KA
++3324GI
+-1322KA
++2423GI
+-2255UM
++1512HI
+-2112KI
++2312GI
+-1112OU
++0023KA
+-1213OU
++0012KI
+        </code></pre>
+    </p>
+    </div>
+</div>
+<div class="cp_actab">
+    <input id="kifu18" type="radio" name="kifu" />
+    <label for="kifu18">18. 先手:GNU　後手:アプリ　５３手までアプリ負け</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'No. 0
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-4132KA
++2534KA
+-3142GI
++3524GI
+-2122KI
++1545HI
+-4233GI
++2433GI
+-2233KI
++0043GI
+-3334KI
++4332GI
+-3445KI
++4445KI
+-0022KA
++0044KA
+-2244KA
++5544OU
+-0042HI
++0043KI
+-0022KA
++4435OU
+-4243HI
++3243GI
+-0023KI
++0015KA
+-5131HI
++0032HI
+-0024GI
++1524KA
+-2324KI
++3524OU
+-3132HI
++4332GI
+-0051KA
++2435OU
+-2213KA
++3544OU
+-1322KA
++4453OU
+-0033HI
++0043GI
+-3332HI
++4332GI
+-0042GI
++5352OU
+-4243GI
++5243OU
+-1213FU
++0021HI
+-1112OU
++0023GI
+        </code></pre>
+    </p>
+    </div>
+</div>
+<div class="cp_actab">
+    <input id="kifu19" type="radio" name="kifu" />
+    <label for="kifu19">19. 先手:GNU　後手:アプリ　６０手までアプリ勝ち</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
++
++3524GI
+-4132KA
++2433GI
+-3241KA
++2534KA
+-3132GI
++3342GI
+-5152HI
++4241GI
+-3241GI
++0044KA
+-0022GI
++3452KA
+-4152GI
++1525HI
+-0042KA
++4534KI
+-1213FU
++2522HI
+-2122KI
++4422KA
+-1121OU
++2213KA
+-0015HI
++1335KA
+-1535HI
++3435KI
+-0022KA
++0044FU
+-4215KA
++0031HI
+-2131OU
++0021KI
+-3121OU
++0023HI
+-0031HI
++3545KI
+-0012KI
++0024GI
+-1223KI
++2423GI
+-2244KA
++4544KI
+-0025HI
++0045KA
+-2523HI
++4523KA
+-3135HI
++0045HI
+-3545HI
++2345KA
+-0042HI
++0031KI
+-2131OU
++4534KA
+-1533UM
++0051HI
+-0041FU
++3452KA
+-3344UM
+        </code></pre>
+    </p>
+    </div>
+</div>
+<div class="cp_actab">
+    <input id="kifu20" type="radio" name="kifu" />
+    <label for="kifu20">20. 先手:GNU　後手:アプリ　２５手までアプリ負け</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+'
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  *
+P4+FU *  *  *  *
+P5+OU+KI+GI+KA+HI
+-
++3524GI
+-4132KA
++2433GI
+-3241KA
++5544OU
+-4123KA
++2543KA
+-3132GI
++4332KA
+-2132KI
++3332GI
+-2332KA
++0033KI
+-0043GI
++3343KI
+-3243KA
++0023GI
+-0032KI
++1512HI
+-1121OU
++2332GI
+-2112OU
++0023KI
+-1211OU
++0022GI
+        </code></pre>
+    </p>
+    </div>
+</div>
+
+<p>　結果はアプリの１２勝８敗で最初のうちは喜んでいました。でも棋譜を追ってもらえばわかりますが、GNUのエンジンは必勝の局面になってから自滅するような手を指してくる時があって自分が思っていたより弱いようです。<a href="http://hgm.nubati.net/miniShogi.html">GNU mini-Shogi</a>のサイトにも「the classic, but rather weak open-source engine」と紹介されていて、その筋の人達には広く知られていることなのかも知れません。他のエンジンでも試してみましたが、他のエンジンに関しては相変わらず勝てないようです。<br />
+　興味本位でアプリの読む手をあと一手深く読むように設定して他のエンジンとの対戦も試してみようと思っているのですが、そうすると今よりさらに指し手が遅くなりますし、メモリ不足で頻繁にアプリが落ちる状況になる<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>ので、そのままではとてもアプリに採用出来そうにありません。</p>
+
+<h3 id="酷い負けパターン">酷い負けパターン</h3>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/lost_pattern.png"><img src="/images/lost_pattern.png" alt="酷い負けパターン" title="酷い負けパターン" /></a></p>
+
+</div>
+
+<p>　上の局面は棋譜のNo.12の一局面ですが、ここでアプリは２二金（先後反転表示）と上がってしまいます。この棋譜に限らずこの駒の配置になるケースが結構あって、この局面になった時に現状のアプリは２二金や４一飛と指してしまいます。すると相手から１二角と切って来られて以下同金、同飛、同玉、１三歩と打たれて玉がどこに逃げても金打ちまでの詰みとなり負けてしまいます。この局面ではおそらく玉の懐を広げる４二銀がいい手<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>だと思うのです（アプリの読みを今の「瞑想」モードより一手深くするとこの手を指します）が、読みが足りなくて現状ではよくこのパターンで負けます。<br />
+　最近の強い将棋ソフトでも自分が不利になるおかしな角打ちをすることがあるそうですが、このケースに対応するだけのその場凌ぎの改変はしたくないので、何かいいアイデアが思いつくまでは当面このままにするしかないかと思っています。</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>強さの設定にもよりますが、今まではほとんど駒の重みしか考慮していない評価関数を使っていました。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>仕方がないのでCLI（Comannd Line Interface）でテストしています。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>４二銀と上がれば玉の逃げ道が出来て詰みが生じません。本文で説明した大駒を切る手順は無理攻めとなりアプリ側が優勢になります。 <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#project-ref">
+    		project <span>26</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#coffeescript-ref">coffeescript <span>39</span></a></li>
+     
+    	<li><a href="/tags.html#cordova-ref">cordova <span>34</span></a></li>
+     
+    	<li><a href="/tags.html#android-ref">android <span>46</span></a></li>
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>48</span></a></li>
+     
+    	<li><a href="/tags.html#shogi-ref">shogi <span>24</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/project/2019-11-16/chessapp" title="「お気楽チェス」アプリリリース">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled"><a>Next &rarr;</a>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'hello-my-world'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';        
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hello-my-world.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2020 happyclam
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
