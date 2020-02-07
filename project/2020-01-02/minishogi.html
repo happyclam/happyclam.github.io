@@ -195,11 +195,10 @@ MathJax.Hub.Config({
     <div class="container-narrow">
       <div class="row-fluid">
         <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
-        <div class="span9"
-             <!-- Html Elements for Search -->
+        <div class="span9" html elements for search>
              <div id="search-container" align="right">
                <input type="text" id="search-input" placeholder="search...">
                <ul id="results-container"></ul>
@@ -231,24 +230,25 @@ MathJax.Hub.Config({
     </div>
     <div class="content">
       <h3 id="評価方法を変えたことによる効果が知りたい">評価方法を変えたことによる効果が知りたい</h3>
-<p>　「将棋の評価関数とチェスの評価関数」と題した<a href="/software/2019-10-27/stalemate">一連の記事</a>で書いたように、<a href="https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam">チェスアプリ</a>で導入した局面の評価方法を将棋関連アプリ（<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>を除く）にも採用したので、もっとも効果が高かった<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>の強さがどの程度変わったか試してみました。評価関数内の駒の重み等細かなところは変えていないのですが、今回のアップデートで全てのアプリの評価関数を駒の働き（モビリティ）を考慮する形に変更しています<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。<br />
+<p>　「将棋の評価関数とチェスの評価関数」と題した<a href="/software/2019-10-27/stalemate">一連の記事</a>で書いたように、<a href="https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam">チェスアプリ</a>で導入した局面の評価方法を将棋関連アプリ（<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>を除く）にも採用したので、もっとも効果が高かった<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>の強さがどの程度変わったか試してみました。評価関数内の駒の重み等細かなところは変えていないのですが、今回のアップデートで全てのアプリの評価関数を駒の働き（モビリティ）を考慮する形に変更しています<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。<br>
 　また、なぜ<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>は変更しなかったかと言うと、駒の働きも考慮するようにすると評価関数が重くなるので、同じ時間で較べた場合深く読めなくなるからです。<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>は深く読むことを優先して軽い評価関数（駒の重みだけを考慮）のままにしています。</p>
 
 <h3 id="評価関数の精度を上げると深く読めない">評価関数の精度を上げると深く読めない</h3>
-<p>　「将棋の評価関数とチェスの評価関数」と題した<a href="/software/2019-10-27/stalemate">一連の記事</a>で書いたように、詰み判定処理を導入することで読みの深さを減らしても同じ評価が出来るようになったわけですが、評価関数が重くなるので読む局面が増えるに連れて時間がかかるようになります。大抵は評価関数の精度と読みの深さはトレードオフの関係にありますので、７×７の盤面を使う<a href="https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam">禽将棋アプリ</a>や<a href="https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam">７七将棋アプリ</a>では評価関数の精度は上がった（と思う）のですが、若干のレスポンス改善にしか繋がっていません。<br />
-　評価方法を変えたことによってもっとも効果が出たのが<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>で、駒の働きを考慮した精度の高い評価関数を使いながらも応答時間も今までより短くすることが出来ました。その短縮された時間を利用して今までより一手深く読めるようにしたので、<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>では４つの強さ設定（「弱い」、「普通」、「長考」、「瞑想」）で一段階ずつレベルアップしたイメージで捉えてもらえばいいと思います。<br />
-　<a href="/software/2018-12-29/evaluate">昔の記事</a>で<a href="http://sdin.jp/browser/board/55shogi/">SDINの５五将棋サイト</a>のCPU対戦で９割勝つと書きましたが、今では１ランク弱い「長考」モードでもSDINサイトのCPUには<del>負けることはないと思います。</del> →いくつか負けパターンがあるようです🙇🏻<br />
+<p>　「将棋の評価関数とチェスの評価関数」と題した<a href="/software/2019-10-27/stalemate">一連の記事</a>で書いたように、詰み判定処理を導入することで読みの深さを減らしても同じ評価が出来るようになったわけですが、評価関数が重くなるので読む局面が増えるに連れて時間がかかるようになります。大抵は評価関数の精度と読みの深さはトレードオフの関係にありますので、７×７の盤面を使う<a href="https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam">禽将棋アプリ</a>や<a href="https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam">７七将棋アプリ</a>では評価関数の精度は上がった（と思う）のですが、若干のレスポンス改善にしか繋がっていません。<br>
+　評価方法を変えたことによってもっとも効果が出たのが<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>で、駒の働きを考慮した精度の高い評価関数を使いながらも応答時間も今までより短くすることが出来ました。その短縮された時間を利用して今までより一手深く読めるようにしたので、<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>では４つの強さ設定（「弱い」、「普通」、「長考」、「瞑想」）で一段階ずつレベルアップしたイメージで捉えてもらえばいいと思います。<br>
+　<a href="/software/2018-12-29/evaluate">昔の記事</a>で<a href="http://sdin.jp/browser/board/55shogi/">SDINの５五将棋サイト</a>のCPU対戦で９割勝つと書きましたが、今では１ランク弱い「長考」モードでもSDINサイトのCPUには<del>負けることはないと思います。</del> →いくつか負けパターンがあるようです<img class="emoji" title=":bow:" alt=":bow:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f647.png" height="20" width="20"><br>
 　ということで今度はもっと強いPC用の<a href="http://hgm.nubati.net/miniShogi.html">５五将棋ソフト</a>と対戦させて見ました。思考エンジンには各方面に差し障りの無いようオープンソースのGNU mini-Shogiを選びました。</p>
 
 <h3 id="gnu-mini-shogiとの対戦棋譜">GNU mini-Shogiとの対戦棋譜</h3>
 <p>　先手、後手１０局ずつ２０戦対戦したアプリから出力した棋譜（CSA形式）です。アプリにコピペすれば再現出来ます。</p>
 
 <div class="cp_actab">
-    <input id="kifu01" type="radio" name="kifu" />
+    <input id="kifu01" type="radio" name="kifu">
     <label for="kifu01">01. 先手:アプリ　後手:GNU　４７手までアプリ勝ち</label>
     <div class="cp_actab-content">
     <p>
-        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+        </p>
+<pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
 'No. 0
 '
 V2.2
@@ -308,15 +308,16 @@ P5+OU+KI+GI+KA+HI
 -1213FU
 +0022KI
         </code></pre>
-    </p>
+    
     </div>
 </div>
 <div class="cp_actab">
-    <input id="kifu02" type="radio" name="kifu" />
+    <input id="kifu02" type="radio" name="kifu">
     <label for="kifu02">02. 先手:アプリ　後手:GNU　２７手までアプリ勝ち</label>
     <div class="cp_actab-content">
     <p>
-        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+        </p>
+<pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
 'No. 0
 '
 V2.2
@@ -356,15 +357,16 @@ P5+OU+KI+GI+KA+HI
 -2313OU
 +1432KA
         </code></pre>
-    </p>
+    
     </div>
 </div>
 <div class="cp_actab">
-    <input id="kifu03" type="radio" name="kifu" />
+    <input id="kifu03" type="radio" name="kifu">
     <label for="kifu03">03. 先手:アプリ　後手:GNU　４７手までアプリ勝ち</label>
     <div class="cp_actab-content">
     <p>
-        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+        </p>
+<pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
 'No. 0
 '
 V2.2
@@ -424,15 +426,16 @@ P5+OU+KI+GI+KA+HI
 -2233GI
 +0021HI
         </code></pre>
-    </p>
+    
     </div>
 </div>
 <div class="cp_actab">
-    <input id="kifu04" type="radio" name="kifu" />
+    <input id="kifu04" type="radio" name="kifu">
     <label for="kifu04">04. 先手:アプリ　後手:GNU　２３手までアプリ勝ち</label>
     <div class="cp_actab-content">
     <p>
-        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+        </p>
+<pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
 'No. 0
 '
 V2.2
@@ -468,15 +471,16 @@ P5+OU+KI+GI+KA+HI
 -0013GI
 +0023KI
         </code></pre>
-    </p>
+    
     </div>
 </div>
 <div class="cp_actab">
-    <input id="kifu05" type="radio" name="kifu" />
+    <input id="kifu05" type="radio" name="kifu">
     <label for="kifu05">05. 先手:アプリ　後手:GNU　１８手までアプリ負け</label>
     <div class="cp_actab-content">
     <p>
-        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+        </p>
+<pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
 'No. 0
 '
 V2.2
@@ -507,15 +511,16 @@ P5+OU+KI+GI+KA+HI
 +5455OU
 -0054KI
         </code></pre>
-    </p>
+    
     </div>
 </div>
 <div class="cp_actab">
-    <input id="kifu06" type="radio" name="kifu" />
+    <input id="kifu06" type="radio" name="kifu">
     <label for="kifu06">06. 先手:アプリ　後手:GNU　２２手までアプリ負け</label>
     <div class="cp_actab-content">
     <p>
-        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+        </p>
+<pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
 'No. 0
 '
 V2.2
@@ -550,15 +555,16 @@ P5+OU+KI+GI+KA+HI
 +5544OU
 -0043KI
         </code></pre>
-    </p>
+    
     </div>
 </div>
 <div class="cp_actab">
-    <input id="kifu07" type="radio" name="kifu" />
+    <input id="kifu07" type="radio" name="kifu">
     <label for="kifu07">07. 先手:アプリ　後手:GNU　２３手までアプリ勝ち</label>
     <div class="cp_actab-content">
     <p>
-        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+        </p>
+<pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
 'No. 0
 '
 V2.2
@@ -594,15 +600,16 @@ P5+OU+KI+GI+KA+HI
 -2212OU
 +3113UM
         </code></pre>
-    </p>
+    
     </div>
 </div>
 <div class="cp_actab">
-    <input id="kifu08" type="radio" name="kifu" />
+    <input id="kifu08" type="radio" name="kifu">
     <label for="kifu08">08. 先手:アプリ　後手:GNU　３４手までアプリ負け</label>
     <div class="cp_actab-content">
     <p>
-        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+        </p>
+<pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
 'No. 0
 '
 V2.2
@@ -649,15 +656,16 @@ P5+OU+KI+GI+KA+HI
 +2423GI
 -4354KI
         </code></pre>
-    </p>
+    
     </div>
 </div>
 <div class="cp_actab">
-    <input id="kifu09" type="radio" name="kifu" />
+    <input id="kifu09" type="radio" name="kifu">
     <label for="kifu09">09. 先手:アプリ　後手:GNU　５１手までアプリ勝ち</label>
     <div class="cp_actab-content">
     <p>
-        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+        </p>
+<pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
 'No. 0
 '
 V2.2
@@ -721,15 +729,16 @@ P5+OU+KI+GI+KA+HI
 -2221KI
 +2433UM
         </code></pre>
-    </p>
+    
     </div>
 </div>
 <div class="cp_actab">
-    <input id="kifu10" type="radio" name="kifu" />
+    <input id="kifu10" type="radio" name="kifu">
     <label for="kifu10">10. 先手:アプリ　後手:GNU　７１手までアプリ勝ち</label>
     <div class="cp_actab-content">
     <p>
-        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+        </p>
+<pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
 'No. 0
 '
 V2.2
@@ -813,15 +822,16 @@ P5+OU+KI+GI+KA+HI
 -0051KA
 +0022KI
         </code></pre>
-    </p>
+    
     </div>
 </div>
 <div class="cp_actab">
-    <input id="kifu11" type="radio" name="kifu" />
+    <input id="kifu11" type="radio" name="kifu">
     <label for="kifu11">11. 先手:GNU　後手:アプリ　１７手までアプリ負け</label>
     <div class="cp_actab-content">
     <p>
-        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+        </p>
+<pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
 'No. 0
 '
 V2.2
@@ -851,15 +861,16 @@ P5+OU+KI+GI+KA+HI
 -4132KA
 +0022KI
         </code></pre>
-    </p>
+    
     </div>
 </div>
 <div class="cp_actab">
-    <input id="kifu12" type="radio" name="kifu" />
+    <input id="kifu12" type="radio" name="kifu">
     <label for="kifu12">12. 先手:GNU　後手:アプリ　１１手までアプリ負け</label>
     <div class="cp_actab-content">
     <p>
-        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+        </p>
+<pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
 'No. 0
 '
 V2.2
@@ -883,15 +894,16 @@ P5+OU+KI+GI+KA+HI
 -1211OU
 +0012KI
         </code></pre>
-    </p>
+    
     </div>
 </div>
 <div class="cp_actab">
-    <input id="kifu13" type="radio" name="kifu" />
+    <input id="kifu13" type="radio" name="kifu">
     <label for="kifu13">13. 先手:GNU　後手:アプリ　３０手までアプリ勝ち</label>
     <div class="cp_actab-content">
     <p>
-        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+        </p>
+<pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
 'No. 0
 '
 V2.2
@@ -934,15 +946,16 @@ P5+OU+KI+GI+KA+HI
 +0021GI
 -0015HI
         </code></pre>
-    </p>
+    
     </div>
 </div>
 <div class="cp_actab">
-    <input id="kifu14" type="radio" name="kifu" />
+    <input id="kifu14" type="radio" name="kifu">
     <label for="kifu14">14. 先手:GNU　後手:アプリ　３０手までアプリ勝ち</label>
     <div class="cp_actab-content">
     <p>
-        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+        </p>
+<pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
 'No. 0
 '
 V2.2
@@ -985,15 +998,16 @@ P5+OU+KI+GI+KA+HI
 +4555OU
 -0045HI
         </code></pre>
-    </p>
+    
     </div>
 </div>
 <div class="cp_actab">
-    <input id="kifu15" type="radio" name="kifu" />
+    <input id="kifu15" type="radio" name="kifu">
     <label for="kifu15">15. 先手:GNU　後手:アプリ　１６手までアプリ勝ち</label>
     <div class="cp_actab-content">
     <p>
-        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+        </p>
+<pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
 '
 '
 V2.2
@@ -1022,15 +1036,16 @@ P5+OU+KI+GI+KA+HI
 +3332OU
 -0031GI
         </code></pre>
-    </p>
+    
     </div>
 </div>
 <div class="cp_actab">
-    <input id="kifu16" type="radio" name="kifu" />
+    <input id="kifu16" type="radio" name="kifu">
     <label for="kifu16">16. 先手:GNU　後手:アプリ　３８手までアプリ勝ち</label>
     <div class="cp_actab-content">
     <p>
-        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+        </p>
+<pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
 'No. 0
 '
 V2.2
@@ -1081,15 +1096,16 @@ P5+OU+KI+GI+KA+HI
 +2524OU
 -0014KI
         </code></pre>
-    </p>
+    
     </div>
 </div>
 <div class="cp_actab">
-    <input id="kifu17" type="radio" name="kifu" />
+    <input id="kifu17" type="radio" name="kifu">
     <label for="kifu17">17. 先手:GNU　後手:アプリ　２３手までアプリ負け</label>
     <div class="cp_actab-content">
     <p>
-        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+        </p>
+<pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
 '
 '
 V2.2
@@ -1125,15 +1141,16 @@ P5+OU+KI+GI+KA+HI
 -1213OU
 +0012KI
         </code></pre>
-    </p>
+    
     </div>
 </div>
 <div class="cp_actab">
-    <input id="kifu18" type="radio" name="kifu" />
+    <input id="kifu18" type="radio" name="kifu">
     <label for="kifu18">18. 先手:GNU　後手:アプリ　５３手までアプリ負け</label>
     <div class="cp_actab-content">
     <p>
-        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+        </p>
+<pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
 'No. 0
 '
 V2.2
@@ -1199,15 +1216,16 @@ P5+OU+KI+GI+KA+HI
 -1112OU
 +0023GI
         </code></pre>
-    </p>
+    
     </div>
 </div>
 <div class="cp_actab">
-    <input id="kifu19" type="radio" name="kifu" />
+    <input id="kifu19" type="radio" name="kifu">
     <label for="kifu19">19. 先手:GNU　後手:アプリ　６０手までアプリ勝ち</label>
     <div class="cp_actab-content">
     <p>
-        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+        </p>
+<pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
 '
 '
 V2.2
@@ -1280,15 +1298,16 @@ P5+OU+KI+GI+KA+HI
 +3452KA
 -3344UM
         </code></pre>
-    </p>
+    
     </div>
 </div>
 <div class="cp_actab">
-    <input id="kifu20" type="radio" name="kifu" />
+    <input id="kifu20" type="radio" name="kifu">
     <label for="kifu20">20. 先手:GNU　後手:アプリ　２５手までアプリ負け</label>
     <div class="cp_actab-content">
     <p>
-        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
+        </p>
+<pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam
 '
 '
 V2.2
@@ -1326,35 +1345,35 @@ P5+OU+KI+GI+KA+HI
 -1211OU
 +0022GI
         </code></pre>
-    </p>
+    
     </div>
 </div>
 
-<p>　結果はアプリの１２勝８敗で最初のうちは喜んでいました。でも棋譜を追ってもらえばわかりますが、GNUのエンジンは必勝の局面になってから自滅するような手を指してくる時があって自分が思っていたより弱いようです。<a href="http://hgm.nubati.net/miniShogi.html">GNU mini-Shogi</a>のサイトにも「the classic, but rather weak open-source engine」と紹介されていて、その筋の人達には広く知られていることなのかも知れません。他のエンジンでも試してみましたが、他のエンジンに関しては相変わらず勝てないようです。やはり多少評価関数の精度が上がっても読みの深さが勝る方が勝つような気がします。<br />
+<p>　結果はアプリの１２勝８敗で最初のうちは喜んでいました。でも棋譜を追ってもらえばわかりますが、GNUのエンジンは必勝の局面になってから自滅するような手を指してくる時があって自分が思っていたより弱いようです。<a href="http://hgm.nubati.net/miniShogi.html">GNU mini-Shogi</a>のサイトにも「the classic, but rather weak open-source engine」と紹介されていて、その筋の人達には広く知られていることなのかも知れません。他のエンジンでも試してみましたが、他のエンジンに関しては相変わらず勝てないようです。やはり多少評価関数の精度が上がっても読みの深さが勝る方が勝つような気がします。<br>
 　興味本位でアプリの読む手をあと一手深く読むように設定して他のエンジンとの対戦も試してみようと思っているのですが、そうすると今よりさらに指し手が遅くなりますし、メモリ不足で頻繁にアプリが落ちる状況になる<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>ので、そのままではとてもアプリに適用出来そうにありません。</p>
 
 <h3 id="酷い負けパターン">酷い負けパターン</h3>
 <div style="width:320px; margin: 0 auto;">
 
-  <p><a href="/images/lost_pattern.png"><img src="/images/lost_pattern.png" alt="酷い負けパターン" title="酷い負けパターン" /></a></p>
+  <p><a href="/images/lost_pattern.png"><img src="/images/lost_pattern.png" alt="酷い負けパターン" title="酷い負けパターン"></a></p>
 
 </div>
 
-<p>　上の局面は棋譜のNo.12の一局面ですが、ここでアプリは２二金（先後反転表示）と上がってしまいます。この棋譜に限らずこの駒の配置になるケースが結構あって、この局面になった時に現状のアプリは２二金や４一飛と指してしまいます。すると相手から１二角と切って来られて以下同金、同飛、同玉、１三歩と打たれて玉がどこに逃げても金打ちまでの詰みとなり負けてしまいます。この局面ではおそらく玉の懐を広げる４二銀がいい手<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>だと思うのです（アプリの読みを今の「瞑想」モードより一手深くするとこの手を指します）が、読みが足りなくて現状ではよくこのパターンで負けます。<br />
+<p>　上の局面は棋譜のNo.12の一局面ですが、ここでアプリは２二金（先後反転表示）と上がってしまいます。この棋譜に限らずこの駒の配置になるケースが結構あって、この局面になった時に現状のアプリは２二金や４一飛と指してしまいます。すると相手から１二角と切って来られて以下同金、同飛、同玉、１三歩と打たれて玉がどこに逃げても金打ちまでの詰みとなり負けてしまいます。この局面ではおそらく玉の懐を広げる４二銀がいい手<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>だと思うのです（アプリの読みを今の「瞑想」モードより一手深くするとこの手を指します）が、読みが足りなくて現状ではよくこのパターンで負けます。<br>
 　最近の強い将棋ソフトでも自分が不利になるおかしな角打ちをすることがあるそうですが、このケースに対応するだけのその場凌ぎの改変はしたくないので、何かいいアイデアが思いつくまでは当面このままにするしかないかと思っています。</p>
 
-<hr />
+<hr>
 
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>強さの設定にもよりますが、今まではほとんど駒の重みしか考慮していない評価関数を使っていました。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p>強さの設定にもよりますが、今まではほとんど駒の重みしか考慮していない評価関数を使っていました。 <a href="#fnref:1" class="reversefootnote">↩</a></p>
     </li>
     <li id="fn:2">
-      <p>仕方がないのでCLI（Comannd Line Interface）でテストしています。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+      <p>仕方がないのでCLI（Comannd Line Interface）でテストしています。 <a href="#fnref:2" class="reversefootnote">↩</a></p>
     </li>
     <li id="fn:3">
-      <p>４二銀と上がれば玉の逃げ道が出来て詰みが生じません。本文で説明した大駒を切る手順は無理攻めとなりアプリ側が優勢になります。 <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+      <p>４二銀と上がれば玉の逃げ道が出来て詰みが生じません。本文で説明した大駒を切る手順は無理攻めとなりアプリ側が優勢になります。 <a href="#fnref:3" class="reversefootnote">↩</a></p>
     </li>
   </ol>
 </div>
@@ -1410,13 +1429,15 @@ P5+OU+KI+GI+KA+HI
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/project/2019-11-16/chessapp" title="「お気楽チェス」アプリリリース">&larr; Previous</a></li>
+        <li class="prev"><a href="/project/2019-11-16/chessapp" title="「お気楽チェス」アプリリリース">← Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next disabled"><a>Next &rarr;</a>
+        <li class="next disabled">
+<a>Next →</a>
       
-      </ul>
+      </li>
+</ul>
     </div>
     <hr>
     
@@ -1434,7 +1455,8 @@ P5+OU+KI+GI+KA+HI
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
@@ -1462,12 +1484,13 @@ s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 
       </div>
       <hr>
       <footer>
-        <p>&copy; 2020 happyclam
+        <p>© 2020 happyclam
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>
