@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-01-21T10:37:19+09:00</updated>
+ <updated>2020-02-07T19:53:42+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -24,7 +24,7 @@
 &lt;h3 id=&quot;評価関数の精度を上げると深く読めない&quot;&gt;評価関数の精度を上げると深く読めない&lt;/h3&gt;
 &lt;p&gt;　「将棋の評価関数とチェスの評価関数」と題した&lt;a href=&quot;/software/2019-10-27/stalemate&quot;&gt;一連の記事&lt;/a&gt;で書いたように、詰み判定処理を導入することで読みの深さを減らしても同じ評価が出来るようになったわけですが、評価関数が重くなるので読む局面が増えるに連れて時間がかかるようになります。大抵は評価関数の精度と読みの深さはトレードオフの関係にありますので、７×７の盤面を使う&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;や&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;７七将棋アプリ&lt;/a&gt;では評価関数の精度は上がった（と思う）のですが、若干のレスポンス改善にしか繋がっていません。&lt;br /&gt;
 　評価方法を変えたことによってもっとも効果が出たのが&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;で、駒の働きを考慮した精度の高い評価関数を使いながらも応答時間も今までより短くすることが出来ました。その短縮された時間を利用して今までより一手深く読めるようにしたので、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;では４つの強さ設定（「弱い」、「普通」、「長考」、「瞑想」）で一段階ずつレベルアップしたイメージで捉えてもらえばいいと思います。&lt;br /&gt;
-　&lt;a href=&quot;/software/2018-12-29/evaluate&quot;&gt;昔の記事&lt;/a&gt;で&lt;a href=&quot;http://sdin.jp/browser/board/55shogi/&quot;&gt;SDINの５五将棋サイト&lt;/a&gt;のCPU対戦で９割勝つと書きましたが、今では１ランク弱い「長考」モードでもSDINサイトのCPUには負けることはないと思います。&lt;br /&gt;
+　&lt;a href=&quot;/software/2018-12-29/evaluate&quot;&gt;昔の記事&lt;/a&gt;で&lt;a href=&quot;http://sdin.jp/browser/board/55shogi/&quot;&gt;SDINの５五将棋サイト&lt;/a&gt;のCPU対戦で９割勝つと書きましたが、今では１ランク弱い「長考」モードでもSDINサイトのCPUには&lt;del&gt;負けることはないと思います。&lt;/del&gt; →いくつか負けパターンがあるようです🙇🏻&lt;br /&gt;
 　ということで今度はもっと強いPC用の&lt;a href=&quot;http://hgm.nubati.net/miniShogi.html&quot;&gt;５五将棋ソフト&lt;/a&gt;と対戦させて見ました。思考エンジンには各方面に差し障りの無いようオープンソースのGNU mini-Shogiを選びました。&lt;/p&gt;
 
 &lt;h3 id=&quot;gnu-mini-shogiとの対戦棋譜&quot;&gt;GNU mini-Shogiとの対戦棋譜&lt;/h3&gt;
