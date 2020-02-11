@@ -5,21 +5,28 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2020-02-11T12:00:57+09:00</lastBuildDate>
-        <pubDate>2020-02-11T12:00:57+09:00</pubDate>
+        <lastBuildDate>2020-02-11T12:16:45+09:00</lastBuildDate>
+        <pubDate>2020-02-11T12:16:45+09:00</pubDate>
         <ttl>1800</ttl>
 
 
         <item>
                 <title>チェスだけに必要な局面評価属性</title>
-                <description>&lt;h3 id=&quot;将棋と同じにしているといろいろ不都合が&quot;&gt;将棋と同じにしていると、いろいろ不都合が&lt;/h3&gt;
+                <description>&lt;style&gt;
+    pre, pre * {
+        font-family : monospace !important;
+    }
+&lt;/style&gt;
+
+&lt;h3 id=&quot;将棋と同じにしているといろいろ不都合が&quot;&gt;将棋と同じにしていると、いろいろ不都合が&lt;/h3&gt;
 &lt;p&gt;　将棋関連のアプリ（&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;７七将棋アプリ&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;）と同じ評価関数で&lt;a href=&quot;https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam&quot;&gt;チェスアプリ&lt;/a&gt;をリリースしましたが、いろいろ不都合が出てきたのでチェスアプリの評価関数に将棋アプリには無い独自の属性を追加していろいろ試しました。最終的には不採用にしたものもあるのですが、どんなことを試行錯誤していたのか紹介します。&lt;/p&gt;
 
 &lt;h3 id=&quot;１キャスリングに加点する&quot;&gt;１．キャスリングに加点する&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam&quot;&gt;チェスアプリ&lt;/a&gt;をリリースした当初は、ここはキャスリングする一手だろうと思われるテストケースを用意して、その局面でキャスリングの手を選ぶように評価値を加減していました。先読みの過程で、キャスリングしていない局面からキャスリングした直後の局面の評価値に下駄を履かせて、無理やりキャスリングするようにするわけです。&lt;br /&gt;
 　例えば以下のような局面です。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;局面1:白番。最善手はキングサイドキャスリング？
+&lt;pre&gt;&lt;code&gt;
+局面1:白番。最善手はキングサイドキャスリング？
 
 8|♜|　|♝|　|♚|♝|♞|♜|
 7|　|♟|♟|♟|　|♟|♟|　|
@@ -43,10 +50,12 @@
 1|♖|♘|♗|♕|　|♖|♔|　|
  　a　b　c　d　e　f　g　h
 &lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;　キャスリングが最善手と思われる局面を適当に用意して、キャスリングの手を選ぶように評価値を加減していたのですが、こういう付け焼き刃なやり方はどこかで歪みが出てくるのが常で、&lt;a href=&quot;https://www.chess.com&quot;&gt;chess.com&lt;/a&gt;のコンピュータ対戦テスト中にアプリがかなり優勢な局面で悪手と言えるキャスリングを選んだのをきっかけに採用するのを止めました。&lt;br /&gt;
 　&lt;a href=&quot;https://www.chess.com&quot;&gt;chess.com&lt;/a&gt;でコンピュータとの対戦テスト中に出現した一例が以下の局面です。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;局面3:黒番。キャスリングは悪手
+&lt;pre&gt;&lt;code&gt;
+局面3:黒番。キャスリングは悪手
 
 8|♜|　|　|　|♚|♝|　|♜|
 7|　|♝|♟|♟|　|♟|♟|♟|
@@ -58,9 +67,11 @@
 1|♖|　|♗|♔|　|　|　|　|
  　a　b　c　d　e　f　g　h
 &lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;　この局面でアプリ（黒）がクイーンサイドキャスリングしました。キャスリング自体は悪い手では無いと思いますが、h2のクイーンが只で取られてしまいます:sweat_smile:このケースを切っ掛けにキャスリングの評価値に下駄を履かせるのはやめました（Version1.0.1.4）&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;局面4:局面3からBf3と指したところ。
+&lt;pre&gt;&lt;code&gt;
+局面4:局面3からBf3と指したところ。
 
 8|♜|　|　|　|♚|♝|　|♜|
 7|　|　|♟|♟|　|♟|♟|♟|
@@ -72,6 +83,7 @@
 1|♖|　|♗|♔|　|　|　|　|
  　a　b　c　d　e　f　g　h
 &lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;　今では上図のように３の局面からBf3+と指すようになりました。キャスリングの評価値に下駄を履かせるのを止めた所為か、滅多にキャスリングをしないチェスアプリになってしまいました。また、局面1のケースではキングサイドキャスリングせずにQc7と指すようになりました。これがキャスリングよりいい手なのかどうかは分かりません。チェス初心者なので尚更分からないのですがどうも自分の&lt;a href=&quot;https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam&quot;&gt;チェスアプリ&lt;/a&gt;は居玉のまま無理攻めしていくような印象があります。&lt;/p&gt;
 
 &lt;h3 id=&quot;２チェスの方が千日手回避し難い&quot;&gt;２．チェスの方が千日手回避し難い&lt;/h3&gt;
@@ -79,7 +91,8 @@
 　将棋アプリだと予備の手を一つ用意しておくだけでほとんど千日手になることは無いのですが、チェスアプリで同じ機能をつけていてもよく千日手になってしまいます。&lt;br /&gt;
 　例えば以下のようにアプリ側（白）が圧倒的に有利であっても黒が千日手を狙ってくるとリリース当初は簡単に千日手になっていました。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;局面5:
+&lt;pre&gt;&lt;code&gt;
+局面5:
 
 8|♚|　|　|　|　|　|　|　|
 7|　|　|　|　|　|　|　|　|
@@ -91,6 +104,7 @@
 1|　|　|　|　|　|　|　|　|
  　a　b　c　d　e　f　g　h
 &lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;　予備の手を用意していても、この局面ではルークやビショップが一路違うだけで指し手の意味があまり変わらない手がいっぱい存在する局面なので、Bf4,Bg3,Bh2やRg6,Rf6,Re6などの似たような手を繰り返すだけで、黒のキングがb7近辺を動いているだけで簡単に千日手になってしまいます。&lt;br /&gt;
 　そこで同じ局面が２回出現した時は思い切って駒の重みをある程度ランダムに変更して指し手を変えることにしました（Version1.0.1.4）。&lt;/p&gt;
 
@@ -99,7 +113,8 @@
 　局面５では圧倒的にアプリ側（白）が有利なので、ビショップやルークを動かすよりポーンをゆっくり前に進めてクイーンに成るのが確実な勝ち方だと思います。でも自分のアプリでは３手〜５手読みなのでポーンが一つや二つ前に進んでもポーンの価値は変わらないので、ポーンを前に進める手を選んでくれませんでした。&lt;br /&gt;
 　そこでポーンのランク位置によって先手なら２カラムにあるポーンより８カラムにあるポーンの方が価値があるという評価関数にしました。先手の場合２カラムから８カラムに到るまで２次曲線を描くように加点しています。２カラムにあるポーンより３カラムに位置するポーンの方が価値が高いかのかどうか難しいところですが、８カラムに辿り着いてクイーンに成るまでにも一応変化を与える必要があるためそうしました。その結果、以下のようにポーンを進めるようになりました。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;局面6:局面5からポーンを進めた（d4）局面
+&lt;pre&gt;&lt;code&gt;
+局面6:局面5からポーンを進めた（d4）局面
 
 8|♚|　|　|　|　|　|　|　|
 7|　|　|　|　|　|　|　|　|
