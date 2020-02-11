@@ -1,0 +1,476 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    
+    <title>チェスだけに必要な局面評価属性</title>
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'UA-1752720-7');
+    </script>
+    <meta name="author" content="happyclam">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="チェスだけに必要な局面評価属性">
+  
+  
+  <meta name="twitter:url" content="/software/2020-02-11/evaluatechess">
+  
+  
+  <meta name="twitter:description" content="将棋アプリには必要なかったけど、チェスアプリだと必要になった独特の局面評価要素">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/chess_icon.png">
+  
+
+  <link rel="canonical" href="/software/2020-02-11/evaluatechess" />
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script language="JavaScript">
+$(document).ready( function () {
+    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
+<script src="/assets/themes/twitter/js/jquery.min.js"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
+<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
+<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
+<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
+    <!-- <script> -->
+    <!--   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ -->
+    <!--   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), -->
+    <!--   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) -->
+    <!--   })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); -->
+    <!--   ga('create', 'UA-1752720-7', 'happyclam.github.io'); -->
+    <!--   ga('send', 'pageview'); -->
+    <!-- </script> -->
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div style="text-align: center;">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-9018029357773039",
+        enable_page_level_ads: true
+        });
+      </script>
+    </div>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">自己満足プログラミング</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/policy">Policy</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/profile">About</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="row-fluid">
+        <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+        <div class="span9" html elements for search>
+             <div id="search-container" align="right">
+               <input type="text" id="search-input" placeholder="search...">
+               <ul id="results-container"></ul>
+             </div>
+             <div class="results"></div>
+        </div>
+      </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+      <div class="content">
+        
+<div class="page-header">
+  <h1>チェスだけに必要な局面評価属性 </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>11 February 2020</span>
+    </div>
+    <div class="content">
+      <h3 id="将棋と同じにしているといろいろ不都合が">将棋と同じにしていると、いろいろ不都合が</h3>
+<p>　将棋関連のアプリ（<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋</a>、<a href="https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam">７七将棋アプリ</a>、<a href="https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam">禽将棋アプリ</a>）と同じ評価関数で<a href="https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam">チェスアプリ</a>をリリースしましたが、いろいろ不都合が出てきたのでチェスアプリの評価関数に将棋アプリには無い独自の属性を追加していろいろ試しました。最終的には不採用にしたものもあるのですが、どんなことを試行錯誤していたのか紹介します。</p>
+
+<h3 id="１キャスリングに加点する">１．キャスリングに加点する</h3>
+<p>　<a href="https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam">チェスアプリ</a>をリリースした当初は、ここはキャスリングする一手だろうと思われるテストケースを用意して、その局面でキャスリングの手を選ぶように評価値を加減していました。先読みの過程で、キャスリングしていない局面からキャスリングした直後の局面の評価値に下駄を履かせて、無理やりキャスリングするようにするわけです。<br>
+　例えば以下のような局面です。</p>
+
+<pre><code>局面1:白番。最善手はキングサイドキャスリング？
+
+8|♜|　|♝|　|♚|♝|♞|♜|
+7|　|♟|♟|♟|　|♟|♟|　|
+6|　|　|　|　|　|　|♛|　|
+5|♟|　|　|　|♟|　|　|♟|
+4|♗|♞|♕|　|　|　|　|　|
+3|　|　|　|　|♙|　|　|　|
+2|♙|♙|♙|♙|♘|♙|♙|♙|
+1|♖|♘|♗|　|♔|　|　|♖|
+ 　a　b　c　d　e　f　g　h
+
+局面2:黒番。最善手はクイーンサイドキャスリング？
+
+8|♜|　|　|　|♚|♝|♞|♜|
+7|♟|♟|♟|♛|♟|♟|♟|♟|
+6|　|　|♞|　|♝|　|　|　|
+5|　|　|　|♟|　|　|　|　|
+4|　|　|　|　|♙|　|　|　|
+3|　|　|　|♗|　|♘|　|　|
+2|♙|♙|♙|♙|　|♙|♙|♙|
+1|♖|♘|♗|♕|　|♖|♔|　|
+ 　a　b　c　d　e　f　g　h
+</code></pre>
+<p>　キャスリングが最善手と思われる局面を適当に用意して、キャスリングの手を選ぶように評価値を加減していたのですが、こういう付け焼き刃なやり方はどこかで歪みが出てくるのが常で、<a href="https://www.chess.com">chess.com</a>のコンピュータ対戦テスト中にアプリがかなり優勢な局面で悪手と言えるキャスリングを選んだのをきっかけに採用するのを止めました。<br>
+　<a href="https://www.chess.com">chess.com</a>でコンピュータとの対戦テスト中に出現した一例が以下の局面です。</p>
+
+<pre><code>局面3:黒番。キャスリングは悪手
+
+8|♜|　|　|　|♚|♝|　|♜|
+7|　|♝|♟|♟|　|♟|♟|♟|
+6|　|　|　|　|♟|　|　|　|
+5|♟|　|　|　|　|　|　|　|
+4|♟|　|　|　|　|　|　|　|
+3|♙|　|　|♙|♙|　|　|　|
+2|　|♕|　|　|　|　|　|♛|
+1|♖|　|♗|♔|　|　|　|　|
+ 　a　b　c　d　e　f　g　h
+</code></pre>
+<p>　この局面でアプリ（黒）がクイーンサイドキャスリングしました。キャスリング自体は悪い手では無いと思いますが、h2のクイーンが只で取られてしまいます<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20">このケースを切っ掛けにキャスリングの評価値に下駄を履かせるのはやめました（Version1.0.1.4）</p>
+
+<pre><code>局面4:局面3からBf3と指したところ。
+
+8|♜|　|　|　|♚|♝|　|♜|
+7|　|　|♟|♟|　|♟|♟|♟|
+6|　|　|　|　|♟|　|　|　|
+5|♟|　|　|　|　|　|　|　|
+4|♟|　|　|　|　|　|　|　|
+3|♙|　|　|♙|♙|♝|　|　|
+2|　|♕|　|　|　|　|　|♛|
+1|♖|　|♗|♔|　|　|　|　|
+ 　a　b　c　d　e　f　g　h
+</code></pre>
+<p>　今では上図のように３の局面からBf3+と指すようになりました。キャスリングの評価値に下駄を履かせるのを止めた所為か、滅多にキャスリングをしないチェスアプリになってしまいました。また、局面1のケースではキングサイドキャスリングせずにQc7と指すようになりました。これがキャスリングよりいい手なのかどうかは分かりません。チェス初心者なので尚更分からないのですがどうも自分の<a href="https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam">チェスアプリ</a>は居玉のまま無理攻めしていくような印象があります。</p>
+
+<h3 id="２チェスの方が千日手回避し難い">２．チェスの方が千日手回避し難い</h3>
+<p>　自分の将棋関連のアプリは、駒の損得が発生しない状況だとあまりにも千日手になるケースが多く、対局が楽しめないのでなるべく千日手を避けるようにしています。アプリが不利な状況の時に負けないために戦略的に千日手を狙うというのではなく、予備の手を用意しておいて千日手になりそうな時は予備の手を選ぶという単純な機能です。勝負に負けないためではなく、千日手を回避することを目的にした機能です。<br>
+　将棋アプリだと予備の手を一つ用意しておくだけでほとんど千日手になることは無いのですが、チェスアプリで同じ機能をつけていてもよく千日手になってしまいます。<br>
+　例えば以下のようにアプリ側（白）が圧倒的に有利であっても黒が千日手を狙ってくるとリリース当初は簡単に千日手になっていました。</p>
+
+<pre><code>局面5:
+
+8|♚|　|　|　|　|　|　|　|
+7|　|　|　|　|　|　|　|　|
+6|　|　|　|　|　|　|　|♖|
+5|　|♙|　|　|♗|　|　|　|
+4|　|　|　|　|♙|　|　|♙|
+3|　|　|　|　|　|　|　|　|
+2|　|　|♙|♙|♔|　|　|　|
+1|　|　|　|　|　|　|　|　|
+ 　a　b　c　d　e　f　g　h
+</code></pre>
+<p>　予備の手を用意していても、この局面ではルークやビショップが一路違うだけで指し手の意味があまり変わらない手がいっぱい存在する局面なので、Bf4,Bg3,Bh2やRg6,Rf6,Re6などの似たような手を繰り返すだけで、黒のキングがb7近辺を動いているだけで簡単に千日手になってしまいます。<br>
+　そこで同じ局面が２回出現した時は思い切って駒の重みをある程度ランダムに変更して指し手を変えることにしました（Version1.0.1.4）。</p>
+
+<h3 id="３pawnのランク行位置で駒の価値に加点する">３．Pawnのランク（行）位置<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>で駒の価値に加点する</h3>
+<p>　２．の千日手回避の目的とも関わるのですが、ポーンの位置によってポーンの駒の価値に加点することにしました（Version1.0.1.4）。<br>
+　局面５では圧倒的にアプリ側（白）が有利なので、ビショップやルークを動かすよりポーンをゆっくり前に進めてクイーンに成るのが確実な勝ち方だと思います。でも自分のアプリでは３手〜５手読みなのでポーンが一つや二つ前に進んでもポーンの価値は変わらないので、ポーンを前に進める手を選んでくれませんでした。<br>
+　そこでポーンのランク位置によって先手なら２カラムにあるポーンより８カラムにあるポーンの方が価値があるという評価関数にしました。先手の場合２カラムから８カラムに到るまで２次曲線を描くように加点しています。２カラムにあるポーンより３カラムに位置するポーンの方が価値が高いかのかどうか難しいところですが、８カラムに辿り着いてクイーンに成るまでにも一応変化を与える必要があるためそうしました。その結果、以下のようにポーンを進めるようになりました。</p>
+
+<pre><code>局面6:局面5からポーンを進めた（d4）局面
+
+8|♚|　|　|　|　|　|　|　|
+7|　|　|　|　|　|　|　|　|
+6|　|　|　|　|　|　|　|♖|
+5|　|♙|　|　|♗|　|　|　|
+4|　|　|　|♙|♙|　|　|♙|
+3|　|　|　|　|　|　|　|　|
+2|　|　|♙|　|♔|　|　|　|
+1|　|　|　|　|　|　|　|　|
+ 　a　b　c　d　e　f　g　h
+</code></pre>
+
+<p>　こういうやり方が必要？なのはアプリの読む手の深さにも関係しています。将棋の場合なら敵陣に歩を打って相手が何か指して次に打った歩を成ればいいので、都合３手以上の読みの深さがあれば「歩」の価値が「と金」の価値となって評価関数に反映されますが、チェスの場合は持ち歩を打つという選択がないのでちまちまとポーンを前に進めていく手を読まなければならないので、読みが浅いとポーンがクイーンに成る局面まで評価出来ないことに起因してます。だから巷の深く読んでる強いアプリ（全部Stockfish由来？）は評価関数内でこんなことしてないと思います。</p>
+
+<h3 id="深く読めないのがもどかしい">深く読めないのがもどかしい</h3>
+<p>　他にもポーンチェーン<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>に加点するなんてことも試しましたがボツにしました。<br>
+　評価関数のパラメータ調整というのでしょうか？いろいろ試行錯誤しましたが、こういう職人技的な作業が必要なのは自分のアプリが深く読めないことが一番の原因です。Javascript製で尚且つデータ構造も人間が理解し易い（所謂高級な）ままなので実行速度が出せません。深く読めば読むほど強くなるわけではないと思います<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>が、どこまで読めばいいかを語る以前の段階っていう感じです。Javascriptでこういうアプリを作るのは自分に手枷足枷を課して作っているようにも感じるのですが、アイデアを絞り出して問題解決するのもプログラミングの醍醐味なので、なんとかチェスアプリとして最低限のレベルは確保していたいと思ってます。<br>
+　アプリのままだと制約が多いので、一度アプリより深く読む設定でCLI上で実行してchess.comのコンピュータ対戦でどのレベルまで勝てるのか試してみようと思ってます。読みを深くするだけで強くなるようであれば、評価関数の出来自体は悪くないということですし、また新たな問題を見つけることが出来るかもしれません。</p>
+
+<hr>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>チェスでは横の列（a〜h）をファイルと呼び、縦の行（1〜8）をランクと呼ぶそうです。 <a href="#fnref:1" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:2">
+      <p>ポーンが斜めに連結している状態 <a href="#fnref:2" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:3">
+      <p>５手読みで最善手とされた手が９手読みだと違う手が最善手になったけど、１３手読みだとまた５手読みと同じ手が最善手と判断されることもあり得ます。全てのノードを完全に読み切れていないのであるならどこまで深く読んだとしても最善手の結論は出せません。 <a href="#fnref:3" class="reversefootnote">↩</a></p>
+    </li>
+  </ol>
+</div>
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#software-ref">
+    		software <span>25</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#coffeescript-ref">coffeescript <span>40</span></a></li>
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>49</span></a></li>
+     
+    	<li><a href="/tags.html#shogi-ref">shogi <span>25</span></a></li>
+     
+    	<li><a href="/tags.html#chess-ref">chess <span>5</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/project/2020-01-02/minishogi" title="GNU mini-Shogiに挑戦">← Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled">
+<a>Next →</a>
+      
+      </li>
+</ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'hello-my-world'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';        
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hello-my-world.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      <hr>
+      <footer>
+        <p>© 2020 happyclam
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
