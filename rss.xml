@@ -5,107 +5,68 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2020-02-11T12:16:45+09:00</lastBuildDate>
-        <pubDate>2020-02-11T12:16:45+09:00</pubDate>
+        <lastBuildDate>2020-02-11T15:56:54+09:00</lastBuildDate>
+        <pubDate>2020-02-11T15:56:54+09:00</pubDate>
         <ttl>1800</ttl>
 
 
         <item>
                 <title>チェスだけに必要な局面評価属性</title>
-                <description>&lt;style&gt;
-    pre, pre * {
-        font-family : monospace !important;
-    }
-&lt;/style&gt;
-
-&lt;h3 id=&quot;将棋と同じにしているといろいろ不都合が&quot;&gt;将棋と同じにしていると、いろいろ不都合が&lt;/h3&gt;
+                <description>&lt;h3 id=&quot;将棋と同じにしているといろいろ不都合が&quot;&gt;将棋と同じにしていると、いろいろ不都合が&lt;/h3&gt;
 &lt;p&gt;　将棋関連のアプリ（&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;７七将棋アプリ&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;）と同じ評価関数で&lt;a href=&quot;https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam&quot;&gt;チェスアプリ&lt;/a&gt;をリリースしましたが、いろいろ不都合が出てきたのでチェスアプリの評価関数に将棋アプリには無い独自の属性を追加していろいろ試しました。最終的には不採用にしたものもあるのですが、どんなことを試行錯誤していたのか紹介します。&lt;/p&gt;
 
 &lt;h3 id=&quot;１キャスリングに加点する&quot;&gt;１．キャスリングに加点する&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam&quot;&gt;チェスアプリ&lt;/a&gt;をリリースした当初は、ここはキャスリングする一手だろうと思われるテストケースを用意して、その局面でキャスリングの手を選ぶように評価値を加減していました。先読みの過程で、キャスリングしていない局面からキャスリングした直後の局面の評価値に下駄を履かせて、無理やりキャスリングするようにするわけです。&lt;br /&gt;
 　例えば以下のような局面です。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;
-局面1:白番。最善手はキングサイドキャスリング？
+&lt;p&gt;&lt;span&gt;局面1:白番。最善手はキングサイドキャスリング？&lt;/span&gt;&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-8|♜|　|♝|　|♚|♝|♞|♜|
-7|　|♟|♟|♟|　|♟|♟|　|
-6|　|　|　|　|　|　|♛|　|
-5|♟|　|　|　|♟|　|　|♟|
-4|♗|♞|♕|　|　|　|　|　|
-3|　|　|　|　|♙|　|　|　|
-2|♙|♙|♙|♙|♘|♙|♙|♙|
-1|♖|♘|♗|　|♔|　|　|♖|
- 　a　b　c　d　e　f　g　h
+  &lt;p&gt;&lt;a href=&quot;/images/chess_shot01.png&quot;&gt;&lt;img src=&quot;/images/chess_shot01.png&quot; alt=&quot;局面図１&quot; title=&quot;局面図１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-局面2:黒番。最善手はクイーンサイドキャスリング？
+&lt;/div&gt;
 
-8|♜|　|　|　|♚|♝|♞|♜|
-7|♟|♟|♟|♛|♟|♟|♟|♟|
-6|　|　|♞|　|♝|　|　|　|
-5|　|　|　|♟|　|　|　|　|
-4|　|　|　|　|♙|　|　|　|
-3|　|　|　|♗|　|♘|　|　|
-2|♙|♙|♙|♙|　|♙|♙|♙|
-1|♖|♘|♗|♕|　|♖|♔|　|
- 　a　b　c　d　e　f　g　h
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;span&gt;局面2:黒番。最善手はクイーンサイドキャスリング？&lt;/span&gt;&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/chess_shot02.png&quot;&gt;&lt;img src=&quot;/images/chess_shot02.png&quot; alt=&quot;局面図２&quot; title=&quot;局面図２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
 
 &lt;p&gt;　キャスリングが最善手と思われる局面を適当に用意して、キャスリングの手を選ぶように評価値を加減していたのですが、こういう付け焼き刃なやり方はどこかで歪みが出てくるのが常で、&lt;a href=&quot;https://www.chess.com&quot;&gt;chess.com&lt;/a&gt;のコンピュータ対戦テスト中にアプリがかなり優勢な局面で悪手と言えるキャスリングを選んだのをきっかけに採用するのを止めました。&lt;br /&gt;
 　&lt;a href=&quot;https://www.chess.com&quot;&gt;chess.com&lt;/a&gt;でコンピュータとの対戦テスト中に出現した一例が以下の局面です。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;
-局面3:黒番。キャスリングは悪手
+&lt;p&gt;&lt;span&gt;局面3:黒番。キャスリングは悪手&lt;/span&gt;&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-8|♜|　|　|　|♚|♝|　|♜|
-7|　|♝|♟|♟|　|♟|♟|♟|
-6|　|　|　|　|♟|　|　|　|
-5|♟|　|　|　|　|　|　|　|
-4|♟|　|　|　|　|　|　|　|
-3|♙|　|　|♙|♙|　|　|　|
-2|　|♕|　|　|　|　|　|♛|
-1|♖|　|♗|♔|　|　|　|　|
- 　a　b　c　d　e　f　g　h
-&lt;/code&gt;&lt;/pre&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess_shot03.png&quot;&gt;&lt;img src=&quot;/images/chess_shot03.png&quot; alt=&quot;局面図３&quot; title=&quot;局面図３&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
 
 &lt;p&gt;　この局面でアプリ（黒）がクイーンサイドキャスリングしました。キャスリング自体は悪い手では無いと思いますが、h2のクイーンが只で取られてしまいます:sweat_smile:このケースを切っ掛けにキャスリングの評価値に下駄を履かせるのはやめました（Version1.0.1.4）&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;
-局面4:局面3からBf3と指したところ。
+&lt;p&gt;&lt;span&gt;局面4:局面3からBf3と指したところ。&lt;/span&gt;&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-8|♜|　|　|　|♚|♝|　|♜|
-7|　|　|♟|♟|　|♟|♟|♟|
-6|　|　|　|　|♟|　|　|　|
-5|♟|　|　|　|　|　|　|　|
-4|♟|　|　|　|　|　|　|　|
-3|♙|　|　|♙|♙|♝|　|　|
-2|　|♕|　|　|　|　|　|♛|
-1|♖|　|♗|♔|　|　|　|　|
- 　a　b　c　d　e　f　g　h
-&lt;/code&gt;&lt;/pre&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess_shot04.png&quot;&gt;&lt;img src=&quot;/images/chess_shot04.png&quot; alt=&quot;局面図４&quot; title=&quot;局面図４&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;　今では上図のように３の局面からBf3+と指すようになりました。キャスリングの評価値に下駄を履かせるのを止めた所為か、滅多にキャスリングをしないチェスアプリになってしまいました。また、局面1のケースではキングサイドキャスリングせずにQc7と指すようになりました。これがキャスリングよりいい手なのかどうかは分かりません。チェス初心者なので尚更分からないのですがどうも自分の&lt;a href=&quot;https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam&quot;&gt;チェスアプリ&lt;/a&gt;は居玉のまま無理攻めしていくような印象があります。&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　今では上図のように３の局面からBf3+と指すようになりましたが、キャスリングの評価値に下駄を履かせるのを止めた所為か、対局全体を通して滅多にキャスリングをしないチェスアプリになってしまいました。これは評価関数そのものに問題があるのかもしれません。また、局面1のケースではキングサイドキャスリングせずにQc7と指すようになりました。これがキャスリングよりいい手なのかどうかは分かりません。チェス初心者なので尚更分からないのですがどうも自分の&lt;a href=&quot;https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam&quot;&gt;チェスアプリ&lt;/a&gt;は居玉のまま無理攻めしていくような印象があります。&lt;/p&gt;
 
 &lt;h3 id=&quot;２チェスの方が千日手回避し難い&quot;&gt;２．チェスの方が千日手回避し難い&lt;/h3&gt;
 &lt;p&gt;　自分の将棋関連のアプリは、駒の損得が発生しない状況だとあまりにも千日手になるケースが多く、対局が楽しめないのでなるべく千日手を避けるようにしています。アプリが不利な状況の時に負けないために戦略的に千日手を狙うというのではなく、予備の手を用意しておいて千日手になりそうな時は予備の手を選ぶという単純な機能です。勝負に負けないためではなく、千日手を回避することを目的にした機能です。&lt;br /&gt;
 　将棋アプリだと予備の手を一つ用意しておくだけでほとんど千日手になることは無いのですが、チェスアプリで同じ機能をつけていてもよく千日手になってしまいます。&lt;br /&gt;
 　例えば以下のようにアプリ側（白）が圧倒的に有利であっても黒が千日手を狙ってくるとリリース当初は簡単に千日手になっていました。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;
-局面5:
+&lt;p&gt;&lt;span&gt;局面5:&lt;/span&gt;&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-8|♚|　|　|　|　|　|　|　|
-7|　|　|　|　|　|　|　|　|
-6|　|　|　|　|　|　|　|♖|
-5|　|♙|　|　|♗|　|　|　|
-4|　|　|　|　|♙|　|　|♙|
-3|　|　|　|　|　|　|　|　|
-2|　|　|♙|♙|♔|　|　|　|
-1|　|　|　|　|　|　|　|　|
- 　a　b　c　d　e　f　g　h
-&lt;/code&gt;&lt;/pre&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess_shot05.png&quot;&gt;&lt;img src=&quot;/images/chess_shot05.png&quot; alt=&quot;局面図５&quot; title=&quot;局面図５&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;　予備の手を用意していても、この局面ではルークやビショップが一路違うだけで指し手の意味があまり変わらない手がいっぱい存在する局面なので、Bf4,Bg3,Bh2やRg6,Rf6,Re6などの似たような手を繰り返すだけで、黒のキングがb7近辺を動いているだけで簡単に千日手になってしまいます。&lt;br /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　予備の手を用意していても、この局面ではルークやビショップが一路違うだけで指し手の意味があまり変わらない手がいっぱい存在する局面なので、Bf4,Bg3,Bh2やRg6,Rf6,Re6などの似たような手を繰り返すだけで、黒のキングがb7近辺を動いているだけで簡単に千日手になってしまいます。アプリ側（白）が圧倒的に有利なのにも拘らずです。&lt;br /&gt;
 　そこで同じ局面が２回出現した時は思い切って駒の重みをある程度ランダムに変更して指し手を変えることにしました（Version1.0.1.4）。&lt;/p&gt;
 
 &lt;h3 id=&quot;３pawnのランク行位置で駒の価値に加点する&quot;&gt;３．Pawnのランク（行）位置&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;で駒の価値に加点する&lt;/h3&gt;
@@ -113,25 +74,18 @@
 　局面５では圧倒的にアプリ側（白）が有利なので、ビショップやルークを動かすよりポーンをゆっくり前に進めてクイーンに成るのが確実な勝ち方だと思います。でも自分のアプリでは３手〜５手読みなのでポーンが一つや二つ前に進んでもポーンの価値は変わらないので、ポーンを前に進める手を選んでくれませんでした。&lt;br /&gt;
 　そこでポーンのランク位置によって先手なら２カラムにあるポーンより８カラムにあるポーンの方が価値があるという評価関数にしました。先手の場合２カラムから８カラムに到るまで２次曲線を描くように加点しています。２カラムにあるポーンより３カラムに位置するポーンの方が価値が高いかのかどうか難しいところですが、８カラムに辿り着いてクイーンに成るまでにも一応変化を与える必要があるためそうしました。その結果、以下のようにポーンを進めるようになりました。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;
-局面6:局面5からポーンを進めた（d4）局面
+&lt;p&gt;&lt;span&gt;局面6:局面5からポーンを進めた（d4）局面&lt;/span&gt;&lt;/p&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-8|♚|　|　|　|　|　|　|　|
-7|　|　|　|　|　|　|　|　|
-6|　|　|　|　|　|　|　|♖|
-5|　|♙|　|　|♗|　|　|　|
-4|　|　|　|♙|♙|　|　|♙|
-3|　|　|　|　|　|　|　|　|
-2|　|　|♙|　|♔|　|　|　|
-1|　|　|　|　|　|　|　|　|
- 　a　b　c　d　e　f　g　h
-&lt;/code&gt;&lt;/pre&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess_shot06.png&quot;&gt;&lt;img src=&quot;/images/chess_shot06.png&quot; alt=&quot;局面図６&quot; title=&quot;局面図６&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
 
 &lt;p&gt;　こういうやり方が必要？なのはアプリの読む手の深さにも関係しています。将棋の場合なら敵陣に歩を打って相手が何か指して次に打った歩を成ればいいので、都合３手以上の読みの深さがあれば「歩」の価値が「と金」の価値となって評価関数に反映されますが、チェスの場合は持ち歩を打つという選択がないのでちまちまとポーンを前に進めていく手を読まなければならないので、読みが浅いとポーンがクイーンに成る局面まで評価出来ないことに起因してます。だから巷の深く読んでる強いアプリ（全部Stockfish由来？）は評価関数内でこんなことしてないと思います。&lt;/p&gt;
 
 &lt;h3 id=&quot;深く読めないのがもどかしい&quot;&gt;深く読めないのがもどかしい&lt;/h3&gt;
 &lt;p&gt;　他にもポーンチェーン&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;に加点するなんてことも試しましたがボツにしました。&lt;br /&gt;
-　評価関数のパラメータ調整というのでしょうか？いろいろ試行錯誤しましたが、こういう職人技的な作業が必要なのは自分のアプリが深く読めないことが一番の原因です。Javascript製で尚且つデータ構造も人間が理解し易い（所謂高級な）ままなので実行速度が出せません。深く読めば読むほど強くなるわけではないと思います&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;が、どこまで読めばいいかを語る以前の段階っていう感じです。Javascriptでこういうアプリを作るのは自分に手枷足枷を課して作っているようにも感じるのですが、アイデアを絞り出して問題解決するのもプログラミングの醍醐味なので、なんとかチェスアプリとして最低限のレベルは確保していたいと思ってます。&lt;br /&gt;
+　評価関数のパラメータ調整というのでしょうか？いろいろ試行錯誤しましたが、こういう職人技的な作業が必要なのは自分のアプリが深く読めないことが一番の原因です。Javascript製で尚且つデータ構造も人間が理解し易い（所謂高級な）ままなので実行速度が出せません。深く読めば読むほど強くなるわけではないと思います&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;が、どこまで読めばいいかを語る以前の段階という感じです。Javascriptでこういうアプリを作るのは自分に手枷足枷を課して作っているようにも感じるのですが、アイデアを絞り出して問題解決するのもプログラミングの醍醐味なので、なんとかチェスアプリとして最低限のレベルは確保していたいと思ってます。&lt;br /&gt;
 　アプリのままだと制約が多いので、一度アプリより深く読む設定でCLI上で実行してchess.comのコンピュータ対戦でどのレベルまで勝てるのか試してみようと思ってます。読みを深くするだけで強くなるようであれば、評価関数の出来自体は悪くないということですし、また新たな問題を見つけることが出来るかもしれません。&lt;/p&gt;
 
 &lt;hr /&gt;
