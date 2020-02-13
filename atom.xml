@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-02-11T15:56:54+09:00</updated>
+ <updated>2020-02-13T09:26:35+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -39,7 +39,7 @@
 &lt;/div&gt;
 
 &lt;p&gt;　キャスリングが最善手と思われる局面を適当に用意して、キャスリングの手を選ぶように評価値を加減していたのですが、こういう付け焼き刃なやり方はどこかで歪みが出てくるのが常で、&lt;a href=&quot;https://www.chess.com&quot;&gt;chess.com&lt;/a&gt;のコンピュータ対戦テスト中にアプリがかなり優勢な局面で悪手と言えるキャスリングを選んだのをきっかけに採用するのを止めました。&lt;br /&gt;
-　&lt;a href=&quot;https://www.chess.com&quot;&gt;chess.com&lt;/a&gt;でコンピュータとの対戦テスト中に出現した一例が以下の局面です。&lt;/p&gt;
+　&lt;a href=&quot;https://www.chess.com&quot;&gt;chess.com&lt;/a&gt;でコンピュータとの対戦&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;テスト中に出現した一例が以下の局面です。&lt;/p&gt;
 
 &lt;p&gt;&lt;span&gt;局面3:黒番。キャスリングは悪手&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
@@ -74,10 +74,10 @@
 &lt;p&gt;　予備の手を用意していても、この局面ではルークやビショップが一路違うだけで指し手の意味があまり変わらない手がいっぱい存在する局面なので、Bf4,Bg3,Bh2やRg6,Rf6,Re6などの似たような手を繰り返すだけで、黒のキングがb7近辺を動いているだけで簡単に千日手になってしまいます。アプリ側（白）が圧倒的に有利なのにも拘らずです。&lt;br /&gt;
 　そこで同じ局面が２回出現した時は思い切って駒の重みをある程度ランダムに変更して指し手を変えることにしました（Version1.0.1.4）。&lt;/p&gt;
 
-&lt;h3 id=&quot;３pawnのランク行位置で駒の価値に加点する&quot;&gt;３．Pawnのランク（行）位置&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;で駒の価値に加点する&lt;/h3&gt;
+&lt;h3 id=&quot;３pawnのランク行位置で駒の価値に加点する&quot;&gt;３．Pawnのランク（行）位置&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;で駒の価値に加点する&lt;/h3&gt;
 &lt;p&gt;　２．の千日手回避の目的とも関わるのですが、ポーンの位置によってポーンの駒の価値に加点することにしました（Version1.0.1.4）。&lt;br /&gt;
 　局面５では圧倒的にアプリ側（白）が有利なので、ビショップやルークを動かすよりポーンをゆっくり前に進めてクイーンに成るのが確実な勝ち方だと思います。でも自分のアプリでは３手〜５手読みなのでポーンが一つや二つ前に進んでもポーンの価値は変わらないので、ポーンを前に進める手を選んでくれませんでした。&lt;br /&gt;
-　そこでポーンのランク位置によって先手なら２カラムにあるポーンより８カラムにあるポーンの方が価値があるという評価関数にしました。先手の場合２カラムから８カラムに到るまで２次曲線を描くように加点しています。２カラムにあるポーンより３カラムに位置するポーンの方が価値が高いかのかどうか難しいところですが、８カラムに辿り着いてクイーンに成るまでにも一応変化を与える必要があるためそうしました。その結果、以下のようにポーンを進めるようになりました。&lt;/p&gt;
+　そこでポーンのランク位置によって先手なら２ランクにあるポーンより８ランクにあるポーンの方が価値があるという評価関数にしました。先手の場合２ランクから８ランクに到るまで放物線を描くように加点しています。２ランクにあるポーンより３ランクに位置するポーンの方が価値が高いのかどうか難しいところですが、８ランクに辿り着いてクイーンに成るまでにも一応変化を与える必要があるためそうしました。その結果、以下のようにポーンを進めるようになりました。&lt;/p&gt;
 
 &lt;p&gt;&lt;span&gt;局面6:局面5からポーンを進めた（d4）局面&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
@@ -86,11 +86,11 @@
 
 &lt;/div&gt;
 
-&lt;p&gt;　こういうやり方が必要？なのはアプリの読む手の深さにも関係しています。将棋の場合なら敵陣に歩を打って相手が何か指して次に打った歩を成ればいいので、都合３手以上の読みの深さがあれば「歩」の価値が「と金」の価値となって評価関数に反映されますが、チェスの場合は持ち歩を打つという選択がないのでちまちまとポーンを前に進めていく手を読まなければならないので、読みが浅いとポーンがクイーンに成る局面まで評価出来ないことに起因してます。だから巷の深く読んでる強いアプリ（全部Stockfish由来？）は評価関数内でこんなことしてないと思います。&lt;/p&gt;
+&lt;p&gt;　こういうやり方が必要？なのはアプリの読む手の深さにも関係しています。将棋の場合なら敵陣に歩を打って相手が何か指して次に打った歩を成ればいいので、都合３手以上の読みの深さがあれば「歩」の価値が「と金」の価値となって評価値に反映されますが、チェスの場合は持ち歩を打つという選択がないのでちまちまとポーンを前に進めていく手を読まなければならないので、読みが浅いとポーンがクイーンに成る局面まで評価出来ないことに起因してます。だから巷の深く読んでる強いアプリ（全部Stockfish由来？）は評価関数内でこんなことしてないと思います。&lt;/p&gt;
 
 &lt;h3 id=&quot;深く読めないのがもどかしい&quot;&gt;深く読めないのがもどかしい&lt;/h3&gt;
-&lt;p&gt;　他にもポーンチェーン&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;に加点するなんてことも試しましたがボツにしました。&lt;br /&gt;
-　評価関数のパラメータ調整というのでしょうか？いろいろ試行錯誤しましたが、こういう職人技的な作業が必要なのは自分のアプリが深く読めないことが一番の原因です。Javascript製で尚且つデータ構造も人間が理解し易い（所謂高級な）ままなので実行速度が出せません。深く読めば読むほど強くなるわけではないと思います&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;が、どこまで読めばいいかを語る以前の段階という感じです。Javascriptでこういうアプリを作るのは自分に手枷足枷を課して作っているようにも感じるのですが、アイデアを絞り出して問題解決するのもプログラミングの醍醐味なので、なんとかチェスアプリとして最低限のレベルは確保していたいと思ってます。&lt;br /&gt;
+&lt;p&gt;　他にもポーンチェーン&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;に加点するなんてことも試しましたがボツにしました。&lt;br /&gt;
+　評価関数のパラメータ調整というのでしょうか？いろいろ試行錯誤しましたが、こういう職人技的な作業が必要なのは自分のアプリが深く読めないことが一番の原因です。Javascript製で尚且つデータ構造も人間が理解し易い（所謂高級な）ままなので実行速度が出せません。深く読めば読むほど強くなるわけではないと思います&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;が、どこまで読めばいいかを語る以前の段階という感じです。Javascriptでこういうアプリを作るのは自分に手枷足枷を課して作っているようにも感じるのですが、アイデアを絞り出して問題解決するのもプログラミングの醍醐味なので、なんとかチェスアプリとして最低限のレベルは確保していたいと思ってます。&lt;br /&gt;
 　アプリのままだと制約が多いので、一度アプリより深く読む設定でCLI上で実行してchess.comのコンピュータ対戦でどのレベルまで勝てるのか試してみようと思ってます。読みを深くするだけで強くなるようであれば、評価関数の出来自体は悪くないということですし、また新たな問題を見つけることが出来るかもしれません。&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -98,13 +98,16 @@
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;チェスでは横の列（a〜h）をファイルと呼び、縦の行（1〜8）をランクと呼ぶそうです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.chess.com&quot;&gt;chess.com&lt;/a&gt;のコンピュータのレベル４をライバル視しています。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:2&quot;&gt;
-      &lt;p&gt;ポーンが斜めに連結している状態 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;チェスでは横の列（a〜h）をファイルと呼び、縦の行（1〜8）をランクと呼ぶそうです。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:3&quot;&gt;
-      &lt;p&gt;５手読みで最善手とされた手が９手読みだと違う手が最善手になったけど、１３手読みだとまた５手読みと同じ手が最善手と判断されることもあり得ます。全てのノードを完全に読み切れていないのであるならどこまで深く読んだとしても最善手の結論は出せません。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;ポーンが斜めに連結している状態 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot;&gt;
+      &lt;p&gt;５手読みで最善手とされた手が９手読みだと違う手が最善手になったけど、１３手読みだとまた５手読みと同じ手が最善手と判断されることもあり得ます。全てのノードを完全に読み切れていないのであるならどこまで深く読んだとしても最善手の結論は出せません。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
