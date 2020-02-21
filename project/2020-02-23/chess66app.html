@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     
-    <title>iOS/Androidハイブリッドアプリ開発</title>
+    <title>「チェス６６」リリース</title>
 
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
@@ -41,19 +41,19 @@
   <meta name="twitter:site" content="@SappierBoy">
   <meta name="twitter:creator" content="@SappierBoy">
   
-  <meta name="twitter:title" content="iOS/Androidハイブリッドアプリ開発">
+  <meta name="twitter:title" content="「チェス６６」リリース">
   
   
-  <meta name="twitter:url" content="/project/2015-02-01/first_cordova">
+  <meta name="twitter:url" content="/project/2020-02-23/chess66app">
   
   
-  <meta name="twitter:description" content="programming for enjoyment.">
+  <meta name="twitter:description" content="普通のチェスに飽きた方に">
   
   
-  <meta name="twitter:image:src" content="https://happyclam.github.io/images/favicon.png">
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/chess66_icon.png">
   
 
-  <link rel="canonical" href="/project/2015-02-01/first_cordova" />
+  <link rel="canonical" href="/project/2020-02-23/chess66app" />
     <!-- atom & rss feed -->
     <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
     <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
@@ -221,91 +221,124 @@ MathJax.Hub.Config({
       <div class="content">
         
 <div class="page-header">
-  <h1>iOS/Androidハイブリッドアプリ開発 </h1>
+  <h1>「チェス６６」リリース </h1>
 </div>
 
 <div class="row-fluid post-full">
   <div class="span12">
     <div class="date">
-      <span>01 February 2015</span>
+      <span>23 February 2020</span>
     </div>
     <div class="content">
-      <p>Project: 「<a href="https://tictactoe-cf.herokuapp.com"><strong>CoffeeScript版三目並べ</strong></a>」: <a href="https://github.com/happyclam/tictactoe-cf">GitHub</a></p>
+      <p><a href="https://play.google.com/store/apps/details?id=chess66.io.github.happyclam"><img src="/images/ja_badge_web_generic.png" alt="チェス６６" title="チェス６６" width="155" height="60" /></a>
+<!-- [![チェス６６](/images/amazon-appstore-badge-jp-white.png){: title="チェス６６" width="155" height="60"}][chess66app-amazon] --></p>
 
-<h3 id="まずは通常のwebサイトを作成">まずは通常のWebサイトを作成</h3>
-<p>　ハイブリッド開発と言っても私は現時点ではiPhoneを持っていないのでAndroidでしか確認できませんが、HTML5とJavaScript（CoffeeScript）でPC上で開発しそれをAndroidとiPhoneで利用出来るなんて虫のいい話があるのなら是非やってみたくなります。HTML5のローカルストレージなんかもいろいろ可能性が広がる気がしますがとりあえず以前作ったRuby製コンソールアプリを使ってHTML5のCanvas機能を試してみたいと思います。<br />
-　まずは<a href="/project/2014-08-05/tictactoe">以前の記事</a>で作成した<a href="https://github.com/happyclam/tictactoe_ruby">Ruby製のコンソールプログラム</a>をCoffeeScriptに書き換えていきます。<a href="/programming/2015-01-25/ruby_to_js">前回の記事</a>以降特に苦労は無かったのですがRubyからCoffeeScriptへのコンバート作業に関しては触れずに、今回はAndroidアプリ化に関して書きます。</p>
-
-<h3 id="cordovaphonegapプロジェクトの作成">cordova（PhoneGap）プロジェクトの作成</h3>
-<p>　作成したCoffeeScriptをコンパイル（<code>coffee -c tictactoe.coffee</code>）したjsファイルとindex.htmlだけのサイトですが、Androidアプリ化するためにした作業は以下の通りです。</p>
-
+<h3 id="チェス６６について">「チェス６６」について</h3>
+<p>　６×６の盤で遊ぶミニチェスです。普通のチェスに飽きた方や、リリース済の<a href="https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam">「お気楽チェス」</a>ではＡＩが弱すぎると感じている方にお勧めです。盤が小さくなったことでＡＩが強くなっています。<br />
+　</p>
+<h3 id="ルール">ルール</h3>
 <ol>
-  <li>通常のWebサイトとして動作確認</li>
-  <li>cordovaコマンドを使ってプロジェクト作成</li>
-  <li>作成したプロジェクトのwwwディレクトリ内のindex.htmlファイル内のbodyタグの中身をPCサイトのindex.htmlの内容に置き換える＆作成したJavaScriptファイルを読み込むscriptタグを追記。</li>
-  <li>エミュレータ上で動作確認</li>
-  <li>実機で動作確認</li>
+  <li>ポーンはダブルムーブ、アンパッサンは出来ません。キャスリングも無しです。</li>
+  <li>ポーンが成れる駒は初期配置によって決まります。初期配置にクイーンがない場合、クイーンには成れません。</li>
+  <li>ステイルメイトは引き分けです。</li>
+  <li>同一局面３回で千日手、引き分けです。</li>
+  <li>その他はチェスのルールに準じます。</li>
 </ol>
 
-<pre><code>tree
-.
-├── index.html
-├── js
-│   └── jquery-1.11.1.min.js
-├── tictactoe.coffee
-└── tictactoe.js
+<h3 id="機能">機能</h3>
+<ol>
+  <li>３つのＡＩレベル選択</li>
+  <li>ＡＩ対ＡＩ、人対ＡＩ、人対人の対戦</li>
+  <li>駒の可動箇所ガイド機能</li>
+  <li>ゲーム中断、途中再開機能</li>
+  <li>二ヶ国語対応（日本語、英語）</li>
+  <li>初期配置の選択機能</li>
+  <li>対局自動保存機能</li>
+</ol>
 
-</code></pre>
-<pre><code>cordova create Tictactoe com.herokuapp.tictactoe Tictactoe -d
-cd Tictactoe
-cordova platform add android
-</code></pre>
-<p>　cordovaコマンドで生成したindex.htmlの雛形にPCサイト用のindex.htmlの中身をコピペ</p>
-
-<pre><code>#index.html
-#header部は省略
-    &lt;body&gt;
-      &lt;p id="title"&gt;三目並べ（TicTacToe）&lt;/p&gt;
-      &lt;p&gt;
-        &lt;canvas id="canvasMain"&gt;&lt;/canvas&gt;
-      &lt;/p&gt;
-      &lt;p&gt;
-        &lt;div id="orders"&gt;
-          &lt;input type="radio" name="optOrders" id="optOrder1" value="-1" checked="checked"&gt;First
-          &lt;input type="radio" name="optOrders" id="optOrder2" value="1"&gt;Second
-        &lt;/div&gt;
-      &lt;/p&gt;
-      &lt;p&gt;
-        &lt;input id="btnStart" type="button" value="Start!"&gt;
-        &lt;span id="spanStatus"&gt;&lt;/span&gt;
-      &lt;/p&gt;
-      &lt;script type="text/javascript" src="cordova.js"&gt;&lt;/script&gt;
-      &lt;script type="text/javascript" src="js/index.js"&gt;&lt;/script&gt;
-      &lt;script src="js/jquery-1.11.1.min.js"&gt; &lt;/script&gt;
-      &lt;script type="text/javascript" src="tictactoe.js"&gt;&lt;/script&gt;
-    &lt;/body&gt;
-</code></pre>
-
-<pre><code>cordova emulate android -d
-</code></pre>
-
+<h3 id="盤面">盤面</h3>
 <div style="width:320px; margin: 0 auto;">
 
-  <p><a href="/images/tictactoe_emulator.png" target="_blank"><img src="/images/tictactoe_emulator.png" alt="エミュレータ画面" title="エミュレータで動作確認" /></a></p>
+  <p><a href="/images/chess66app_board01.png"><img src="/images/chess66app_board01.png" alt="チェス盤面１" title="チェス盤面１" /></a></p>
 
 </div>
 
-<pre><code>cordova run android
-</code></pre>
+<ul>
+  <li>駒は二種類から選べます。</li>
+</ul>
 
 <div style="width:320px; margin: 0 auto;">
 
-  <p><a href="/images/tictactoe_gl07s.png" target="_blank"><img src="/images/tictactoe_gl07s.png" alt="実機画面" title="実機（gl07s）で動作確認" /></a></p>
+  <p><a href="/images/chess66app_board02.png"><img src="/images/chess66app_board02.png" alt="チェス盤面２" title="チェス盤面２" /></a></p>
 
 </div>
 
-<p>　cordovaプロジェクト下のwww内のファイルを修正してcordovaコマンドを実行すると、platforms/android/以下にAndroid用のファイルが出力されるようです。ビルドしてエミュレータや実機にインストールして実行するまで一気に行うので上記のようにあっという間に完成しました。このビルド作業を行う環境構築の方が時間がかかるかもしれません。環境構築については<a href="https://www.amazon.co.jp/Android%E5%AF%BE%E5%BF%9C-HTML5-%E3%83%8F%E3%82%A4%E3%83%96%E3%83%AA%E3%83%83%E3%83%89%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA-Software-Design/dp/4774162116/ref=tmm_pap_title_0?ie=UTF8&amp;qid=1421726606&amp;sr=1-1">この本</a>を参考にしましたが、個人的にはRubyの開発環境と同じく、ユーザ領域に構築（sudoを使わない）する方がいいのではないかと思ってます。<br />
-　それにしても以前droidgapコマンド（cordovaの前身？）の時はeclipseを使わなければいけなかったり、いろいろトラブルに見舞われた記憶があるのですが、思った以上に簡単でした。でも、このままだと見た目もUIも貧弱過ぎるのでjquery mobileを使って追加・修正していくことになると思いますが、そうするとPCサイト用とは別物になっていくのでしょう。そのあたりも今後確認していこうと思います。</p>
+<ul>
+  <li>ゲームを中断して前の局面に戻って再開することも出来ます。</li>
+  <li>ゲーム中に歯車のアイコンをタップすると強制的にゲームを中断して設定メニュー画面に移行します。ゲーム盤面に戻って再開ボタンをタップすれば続きからゲームを再開出来ます。</li>
+  <li>右上の矢印アイコンをタップすると盤面を回転表示します。</li>
+  <li>右上のキャレット（∧、∨）アイコンをタップすると取った駒の数と手数を表示します。もう一度タップすると非表示にします。端末の画面サイズに合わせてご利用ください。</li>
+</ul>
+
+<h3 id="ａｉレベル">ＡＩレベル</h3>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/chess66app_menu01.png"><img src="/images/chess66app_menu01.png" alt="ＡＩレベル" title="ＡＩレベル" /></a></p>
+
+</div>
+
+<ul>
+  <li>ＡＩのレベルは３段階。</li>
+</ul>
+
+<h3 id="初期配置選択">初期配置選択</h3>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/chess66app_menu03.png"><img src="/images/chess66app_menu03.png" alt="初期配置選択" title="初期配置選択" /></a></p>
+
+</div>
+
+<ul>
+  <li>オリジナルの初期配置の他に３つのパターンを用意しました。<a href="https://en.wikipedia.org/wiki/Minichess">Wikipedia</a>を元にDiana、L’Hermitte、Los Alamosの配置パターンを選びましたが、ルールはすべてのパターンで同じにしています。今後増やしていくかもしれません。</li>
+</ul>
+
+<h3 id="駒の動き">駒の動き</h3>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/chess66app_menu02.png"><img src="/images/chess66app_menu02.png" alt="移動ガイド" title="移動ガイド" /></a></p>
+
+</div>
+
+<ul>
+  <li>駒の略号のアルファベットは棋譜に使用します。</li>
+</ul>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/chess66app_board03.png"><img src="/images/chess66app_board03.png" alt="チェス盤面３" title="チェス盤面３" /></a></p>
+
+</div>
+
+<ul>
+  <li>駒をタップすると移動可能なマス目を表示します。</li>
+</ul>
+
+<h3 id="自動保存機能">自動保存機能</h3>
+<p>　メモリ逼迫時にAndroidによってアプリが強制終了されるケースがあるので、一手指す毎に棋譜を自動保存する機能があります。<br />
+不意にアプリが落ちても起動後「再開」ボタンをタップすることで対局の続きが可能です。<br />
+　※もし「Loading…」の表示が消えない場合は一度右上の歯車アイコンをタップして設定メニューを表示してから再開してください。<br />
+　※万が一自動保存に失敗して何らかのエラーが発生しても、「新規開始」すれば新たにファイルが作成されるので問題ありません。それでもエラーが表示される場合は、「アプリ情報」メニューから「ストレージ」を選んで「ストレージを消去」の操作をしてください。その際には対局データは消失し各種設定も初期化されますがご了承ください。</p>
+
+<h3 id="評価値表示">評価値表示</h3>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/chess66app_board04.png"><img src="/images/chess66app_board04.png" alt="チェス盤面４" title="チェス盤面４" /></a></p>
+
+</div>
+
+<ul>
+  <li>対戦相手にＡＩを選択すると、対戦中に局面の評価値を赤字で表示します。先手（White）が有利な場合は正の方向、後手（Black）が有利な場合は負の方向に評価値が変動します。</li>
+</ul>
 
 <hr />
 
@@ -340,17 +373,15 @@ cordova platform add android
 
   
      
-    	<li><a href="/tags.html#ruby-ref">ruby <span>34</span></a></li>
-     
     	<li><a href="/tags.html#coffeescript-ref">coffeescript <span>41</span></a></li>
-     
-    	<li><a href="/tags.html#javascript-ref">javascript <span>50</span></a></li>
-     
-    	<li><a href="/tags.html#android-ref">android <span>47</span></a></li>
      
     	<li><a href="/tags.html#cordova-ref">cordova <span>35</span></a></li>
      
-    	<li><a href="/tags.html#tictactoe-ref">tictactoe <span>33</span></a></li>
+    	<li><a href="/tags.html#android-ref">android <span>47</span></a></li>
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>50</span></a></li>
+     
+    	<li><a href="/tags.html#chess-ref">chess <span>6</span></a></li>
     
   
 
@@ -363,11 +394,11 @@ cordova platform add android
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/programming/2015-01-25/ruby_to_js" title="Ruby製プログラムをCoffeeScript（JavaScript）に書き換える">&larr; Previous</a></li>
+        <li class="prev"><a href="/software/2020-02-11/evaluatechess" title="チェスだけに必要な局面評価属性">&larr; Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next"><a href="/programming/2015-03-26/html5_anim" title="HTML5でアニメーション">Next &rarr;</a></li>
+        <li class="next disabled"><a>Next &rarr;</a>
       
       </ul>
     </div>

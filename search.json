@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "「チェス６６」リリース",
+      "category" : "project",
+      "tags"     : "coffeescript, cordova, android, javascript, chess",
+      "url"      : "/project/2020-02-23/chess66app",
+      "date"     : "2020-02-23 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "チェスだけに必要な局面評価属性",
       "category" : "software",
       "tags"     : "coffeescript, javascript, shogi, chess",

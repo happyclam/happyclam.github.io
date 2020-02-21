@@ -5,10 +5,130 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2020-02-13T09:26:35+09:00</lastBuildDate>
-        <pubDate>2020-02-13T09:26:35+09:00</pubDate>
+        <lastBuildDate>2020-02-22T08:24:13+09:00</lastBuildDate>
+        <pubDate>2020-02-22T08:24:13+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>「チェス６６」リリース</title>
+                <description>&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=chess66.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;チェス６６&quot; title=&quot;チェス６６&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
+&lt;!-- [![チェス６６](/images/amazon-appstore-badge-jp-white.png){: title=&quot;チェス６６&quot; width=&quot;155&quot; height=&quot;60&quot;}][chess66app-amazon] --&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;チェス６６について&quot;&gt;「チェス６６」について&lt;/h3&gt;
+&lt;p&gt;　６×６の盤で遊ぶミニチェスです。普通のチェスに飽きた方や、リリース済の&lt;a href=&quot;https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam&quot;&gt;「お気楽チェス」&lt;/a&gt;ではＡＩが弱すぎると感じている方にお勧めです。盤が小さくなったことでＡＩが強くなっています。&lt;br /&gt;
+　&lt;/p&gt;
+&lt;h3 id=&quot;ルール&quot;&gt;ルール&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;ポーンはダブルムーブ、アンパッサンは出来ません。キャスリングも無しです。&lt;/li&gt;
+  &lt;li&gt;ポーンが成れる駒は初期配置によって決まります。初期配置にクイーンがない場合、クイーンには成れません。&lt;/li&gt;
+  &lt;li&gt;ステイルメイトは引き分けです。&lt;/li&gt;
+  &lt;li&gt;同一局面３回で千日手、引き分けです。&lt;/li&gt;
+  &lt;li&gt;その他はチェスのルールに準じます。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;機能&quot;&gt;機能&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;３つのＡＩレベル選択&lt;/li&gt;
+  &lt;li&gt;ＡＩ対ＡＩ、人対ＡＩ、人対人の対戦&lt;/li&gt;
+  &lt;li&gt;駒の可動箇所ガイド機能&lt;/li&gt;
+  &lt;li&gt;ゲーム中断、途中再開機能&lt;/li&gt;
+  &lt;li&gt;二ヶ国語対応（日本語、英語）&lt;/li&gt;
+  &lt;li&gt;初期配置の選択機能&lt;/li&gt;
+  &lt;li&gt;対局自動保存機能&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;盤面&quot;&gt;盤面&lt;/h3&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/chess66app_board01.png&quot;&gt;&lt;img src=&quot;/images/chess66app_board01.png&quot; alt=&quot;チェス盤面１&quot; title=&quot;チェス盤面１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;駒は二種類から選べます。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/chess66app_board02.png&quot;&gt;&lt;img src=&quot;/images/chess66app_board02.png&quot; alt=&quot;チェス盤面２&quot; title=&quot;チェス盤面２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ゲームを中断して前の局面に戻って再開することも出来ます。&lt;/li&gt;
+  &lt;li&gt;ゲーム中に歯車のアイコンをタップすると強制的にゲームを中断して設定メニュー画面に移行します。ゲーム盤面に戻って再開ボタンをタップすれば続きからゲームを再開出来ます。&lt;/li&gt;
+  &lt;li&gt;右上の矢印アイコンをタップすると盤面を回転表示します。&lt;/li&gt;
+  &lt;li&gt;右上のキャレット（∧、∨）アイコンをタップすると取った駒の数と手数を表示します。もう一度タップすると非表示にします。端末の画面サイズに合わせてご利用ください。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;ａｉレベル&quot;&gt;ＡＩレベル&lt;/h3&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/chess66app_menu01.png&quot;&gt;&lt;img src=&quot;/images/chess66app_menu01.png&quot; alt=&quot;ＡＩレベル&quot; title=&quot;ＡＩレベル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ＡＩのレベルは３段階。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;初期配置選択&quot;&gt;初期配置選択&lt;/h3&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/chess66app_menu03.png&quot;&gt;&lt;img src=&quot;/images/chess66app_menu03.png&quot; alt=&quot;初期配置選択&quot; title=&quot;初期配置選択&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;オリジナルの初期配置の他に３つのパターンを用意しました。&lt;a href=&quot;https://en.wikipedia.org/wiki/Minichess&quot;&gt;Wikipedia&lt;/a&gt;を元にDiana、L’Hermitte、Los Alamosの配置パターンを選びましたが、ルールはすべてのパターンで同じにしています。今後増やしていくかもしれません。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;駒の動き&quot;&gt;駒の動き&lt;/h3&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/chess66app_menu02.png&quot;&gt;&lt;img src=&quot;/images/chess66app_menu02.png&quot; alt=&quot;移動ガイド&quot; title=&quot;移動ガイド&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;駒の略号のアルファベットは棋譜に使用します。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/chess66app_board03.png&quot;&gt;&lt;img src=&quot;/images/chess66app_board03.png&quot; alt=&quot;チェス盤面３&quot; title=&quot;チェス盤面３&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;駒をタップすると移動可能なマス目を表示します。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;自動保存機能&quot;&gt;自動保存機能&lt;/h3&gt;
+&lt;p&gt;　メモリ逼迫時にAndroidによってアプリが強制終了されるケースがあるので、一手指す毎に棋譜を自動保存する機能があります。&lt;br /&gt;
+不意にアプリが落ちても起動後「再開」ボタンをタップすることで対局の続きが可能です。&lt;br /&gt;
+　※もし「Loading…」の表示が消えない場合は一度右上の歯車アイコンをタップして設定メニューを表示してから再開してください。&lt;br /&gt;
+　※万が一自動保存に失敗して何らかのエラーが発生しても、「新規開始」すれば新たにファイルが作成されるので問題ありません。それでもエラーが表示される場合は、「アプリ情報」メニューから「ストレージ」を選んで「ストレージを消去」の操作をしてください。その際には対局データは消失し各種設定も初期化されますがご了承ください。&lt;/p&gt;
+
+&lt;h3 id=&quot;評価値表示&quot;&gt;評価値表示&lt;/h3&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/chess66app_board04.png&quot;&gt;&lt;img src=&quot;/images/chess66app_board04.png&quot; alt=&quot;チェス盤面４&quot; title=&quot;チェス盤面４&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;対戦相手にＡＩを選択すると、対戦中に局面の評価値を赤字で表示します。先手（White）が有利な場合は正の方向、後手（Black）が有利な場合は負の方向に評価値が変動します。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+</description>
+                <link>https://happyclam.github.io/project/2020-02-23/chess66app</link>
+                <guid>https://happyclam.github.io/project/2020-02-23/chess66app</guid>
+                <pubDate>2020-02-23T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>チェスだけに必要な局面評価属性</title>
