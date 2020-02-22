@@ -5,25 +5,25 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2020-02-22T08:24:13+09:00</lastBuildDate>
-        <pubDate>2020-02-22T08:24:13+09:00</pubDate>
+        <lastBuildDate>2020-02-22T17:45:42+09:00</lastBuildDate>
+        <pubDate>2020-02-22T17:45:42+09:00</pubDate>
         <ttl>1800</ttl>
 
 
         <item>
-                <title>「チェス６６」リリース</title>
+                <title>「チェス６６」アプリリリース</title>
                 <description>&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=chess66.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;チェス６６&quot; title=&quot;チェス６６&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
 &lt;!-- [![チェス６６](/images/amazon-appstore-badge-jp-white.png){: title=&quot;チェス６６&quot; width=&quot;155&quot; height=&quot;60&quot;}][chess66app-amazon] --&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;チェス６６について&quot;&gt;「チェス６６」について&lt;/h3&gt;
-&lt;p&gt;　６×６の盤で遊ぶミニチェスです。普通のチェスに飽きた方や、リリース済の&lt;a href=&quot;https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam&quot;&gt;「お気楽チェス」&lt;/a&gt;ではＡＩが弱すぎると感じている方にお勧めです。盤が小さくなったことでＡＩが強くなっています。&lt;br /&gt;
+&lt;h3 id=&quot;mini-chess---チェス６６について&quot;&gt;「Mini Chess - チェス６６」について&lt;/h3&gt;
+&lt;p&gt;　６×６の盤で遊ぶミニチェスです。普通のチェスに飽きた方や、リリース済の&lt;a href=&quot;https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam&quot;&gt;「お気楽チェス」&lt;/a&gt;ではＡＩが弱すぎると感じている方にお勧めです。盤が小さくなったことでＡＩが若干強くなっていると思います。&lt;br /&gt;
 　&lt;/p&gt;
 &lt;h3 id=&quot;ルール&quot;&gt;ルール&lt;/h3&gt;
 &lt;ol&gt;
-  &lt;li&gt;ポーンはダブルムーブ、アンパッサンは出来ません。キャスリングも無しです。&lt;/li&gt;
+  &lt;li&gt;ポーンのダブルムーブ、アンパッサンはありません。キャスリングも無しです。&lt;/li&gt;
   &lt;li&gt;ポーンが成れる駒は初期配置によって決まります。初期配置にクイーンがない場合、クイーンには成れません。&lt;/li&gt;
   &lt;li&gt;ステイルメイトは引き分けです。&lt;/li&gt;
-  &lt;li&gt;同一局面３回で千日手、引き分けです。&lt;/li&gt;
+  &lt;li&gt;同一局面３回で千日手、引き分けです（ＡＩはなるべく千日手を避けるようになっています）。&lt;/li&gt;
   &lt;li&gt;その他はチェスのルールに準じます。&lt;/li&gt;
 &lt;/ol&gt;
 
