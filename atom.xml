@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-02-27T15:15:39+09:00</updated>
+ <updated>2020-02-28T15:13:51+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -99,8 +99,9 @@
 &lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;左上のチェックマークアイコンをタップすると編集モードになりチェス盤が初期化されます。&lt;/li&gt;
-  &lt;li&gt;駒を置きたい場所をタップしたら駒選択ダイアログが表示されるので置きたい駒を選んで下さい。間違えて駒を配置した場合は同じ場所をタップして何か駒を選ぶと今度は配置した駒が削除されます。&lt;/li&gt;
+  &lt;li&gt;左上のチェックマークアイコンをタップすると編集モードになります。&lt;/li&gt;
+  &lt;li&gt;空いてる場所をタップすると駒選択ダイアログが表示されるので、駒を選ぶと新しく駒が配置されます。&lt;/li&gt;
+  &lt;li&gt;既に駒があるところをタップして駒選択ダイアログから何か駒を選ぶと駒が削除されます。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
@@ -110,7 +111,7 @@
 &lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;駒を配置し終えたら保存か中止を選んで下さい。保存すると初期配置選択画面に反映されます。中止を選ぶと編集は無かったことになります。&lt;/li&gt;
+  &lt;li&gt;盤面を編集し終えたら保存か中止を選んで下さい。保存すると初期配置選択画面に反映されます。中止を選ぶと編集は無かったことになります。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;駒の動き&quot;&gt;駒の動き&lt;/h3&gt;
