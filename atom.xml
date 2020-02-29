@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-02-28T15:13:51+09:00</updated>
+ <updated>2020-02-29T15:51:12+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -111,7 +111,7 @@
 &lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;盤面を編集し終えたら保存か中止を選んで下さい。保存すると初期配置選択画面に反映されます。中止を選ぶと編集は無かったことになります。&lt;/li&gt;
+  &lt;li&gt;編集モード中はメニュー操作は出来ません。盤面を編集し終えたら保存か中止を選んで下さい。保存すると初期配置選択画面に反映されます。中止を選ぶと編集は無かったことになります。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;駒の動き&quot;&gt;駒の動き&lt;/h3&gt;
@@ -3622,7 +3622,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
    <content type="html">&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;７七将棋&quot; title=&quot;７七将棋&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;７七将棋アプリについて&quot;&gt;「７七将棋」アプリについて&lt;/h3&gt;
-&lt;p&gt;　現在リリースしている&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;「５五将棋」アプリ&lt;/a&gt;とほとんど同じアプリです。以前&lt;a href=&quot;/project/2018-03-11/55shogiapp&quot;&gt;５五将棋アプリの記事&lt;/a&gt;で、５五将棋に桂馬を使用することに無理があることを書きましたが、７七将棋にしたことでバランス良く桂馬を使うことが出来ると思います。&lt;br /&gt;
+&lt;p&gt;　以前&lt;a href=&quot;/project/2018-03-11/55shogiapp&quot;&gt;５五将棋アプリの記事&lt;/a&gt;で、５五将棋に桂馬を使用することに無理があることを書きましたが、７七将棋にしたことでバランス良く桂馬を使うことが出来ると思います。&lt;br /&gt;
 　５×５から７×７に盤面が広がって実行速度的に厳しいのですが、５五将棋アプリと同じハイブリッドアプリ（JavaScript+HTML5）としてとりあえずリリースすることにしました。アプリの仕様については&lt;a href=&quot;/project/2018-01-01/33shogiapp&quot;&gt;３三将棋アプリの記事&lt;/a&gt;、&lt;a href=&quot;/project/2018-03-11/55shogiapp&quot;&gt;５五将棋アプリの記事&lt;/a&gt;、&lt;a href=&quot;/project/2019-01-03/torishogiapp&quot;&gt;禽将棋アプリの記事&lt;/a&gt;も合わせて読んでいただきたいと思います。
 　&lt;/p&gt;
 &lt;h3 id=&quot;ルール&quot;&gt;ルール&lt;/h3&gt;
@@ -3634,28 +3634,31 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
   &lt;li&gt;行き場の無い駒は打てません（先手が桂馬を二段目に打ったり歩を一段目に打ったり）&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;駒の配置&quot;&gt;駒の配置&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;「５五将棋」アプリ&lt;/a&gt;と同様に数種類の初期配置パターンを用意しました。とりあえず下の初期配置をスタンダードとしてしていますが、思いつきで決めただけで深い意味はありません&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
-　ということで、ランダム配置機能も付加してみました。&lt;/p&gt;
+&lt;h3 id=&quot;初期配置編集機能&quot;&gt;初期配置編集機能&lt;/h3&gt;
+&lt;p&gt;　Version1.0.7.0からランダム配置機能と棋譜の入出力機能を廃止して、初期配置の編集機能を追加しました。編集したパターンは保存され初期配置選択画面に反映されます。３つまで保存可能です。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/77shogi_standard.png&quot; alt=&quot;７七将棋初期配置&quot; title=&quot;７七将棋初期配置&quot; /&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/shogi77_menu04.png&quot;&gt;&lt;img src=&quot;/images/shogi77_menu04.png&quot; alt=&quot;初期配置編集&quot; title=&quot;初期配置編集&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
 &lt;/div&gt;
 
-&lt;p&gt;　ランダム配置では先後同型で一段目と七段目の駒がランダムに配置されます。&lt;/p&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/77shogi_menu_random.png&quot; alt=&quot;ランダム初期配置メニュー&quot; title=&quot;ランダム初期配置メニュー&quot; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　ランダム配置をチェックしていると、「新規対局」ボタンを押下する度に歩を除く駒がランダムに配置し直されます。&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;左上のチェックマークアイコンをタップすると編集モードになります。&lt;/li&gt;
+  &lt;li&gt;空いてる場所をタップすると駒選択ダイアログが表示されるので、駒を選ぶと新しく駒が配置されます。&lt;/li&gt;
+  &lt;li&gt;既に駒があるところをタップして駒選択ダイアログから何か駒を選ぶと駒が削除されます。&lt;/li&gt;
+  &lt;li&gt;持ち駒は先手・後手それぞれの駒のボタンをタップすると７枚を上限にカウントアップします。７に達した後タップするとカウントダウンします。&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/77shogi_random.png&quot; alt=&quot;ランダム初期配置&quot; title=&quot;ランダム初期配置&quot; /&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/shogi77_menu05.png&quot;&gt;&lt;img src=&quot;/images/shogi77_menu05.png&quot; alt=&quot;初期配置保存&quot; title=&quot;初期配置保存&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
 &lt;/div&gt;
 
-&lt;p&gt;　初期配置の組み合わせは５,０４０通り（&lt;script type=&quot;math/tex&quot;&gt;7! = 7 * 6 * 5 * 4 * 3 * 2 * 1 = 5,040&lt;/script&gt;）ありますので、配置に合った戦略を練って楽しんで下さい:smile:&lt;br /&gt;
-　※同じ初期配置から続けて対戦を開始したい場合は、開始局面に戻して「再開」するか棋譜を保存しておいて初手に戻して「再開」してください。&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;編集モード中はメニュー操作は出来ません。盤面を編集し終えたら保存か中止を選んで下さい。保存すると初期配置選択画面に反映されます。中止を選ぶと編集は無かったことになります。&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h4 id=&quot;盤面反転機能追加&quot;&gt;盤面反転機能追加&lt;/h4&gt;
 &lt;p&gt;　Version1.0.3.0から盤面の反転（先手・後手を上下逆さま）表示機能追加しました。画面右上の回転矢印アイコンをタップすると後手を手前にして将棋盤を表示出来ます。&lt;/p&gt;
@@ -3684,18 +3687,10 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 &lt;p&gt;　メモリ逼迫時にAndroidによってアプリが強制終了されるケースが多いので、Version1.0.6.0から一手指す毎に棋譜を自動保存する機能を追加しました。&lt;br /&gt;
 不意にアプリが落ちても起動後「再開」ボタンをタップすることで対局の続きが可能です。&lt;br /&gt;
 　※棋譜入力欄から入力された棋譜は自動保存の対象になりませんので、必要であれば棋譜出力して保存してください。&lt;br /&gt;
-　※&lt;strong&gt;ランダム配置の棋譜及び終了時にランダム配置を選んでいる場合は、棋譜は再生されません&lt;/strong&gt;ので必要であれば棋譜出力して保存してください。&lt;br /&gt;
 　※万が一自動保存に失敗して何らかのエラーが発生しても、「新規開始」すれば新たにファイルが作成されるので問題ありません。それでもエラーが表示される場合は、「アプリ情報」メニューから「ストレージ」を選んで「ストレージを消去」の操作をしてください。その際には対局データは消失し各種設定も初期化されますがご了承ください。&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;div class=&quot;footnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;９×９の本将棋の盤上に占める駒の割合は４０枚／８１マス（＝約４９．３％）、５五将棋では１２枚／２５マス（＝４８％）なので、それに倣うと「７七将棋」では歩の数は先手・後手それぞれ５枚ずつとして２４枚／４９マス（約４８．９％）にするのがいいかもしれません。アプリのメニューにあらかじめ用意しておいて欲しい初期配置案があればメールでご連絡ください、ご希望にそえるかもしれません。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;
 </content>
  </entry>
  
