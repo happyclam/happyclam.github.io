@@ -234,7 +234,7 @@ MathJax.Hub.Config({
 　ちなみに最近<a href="https://play.google.com/store/apps/details?id=jp.co.roue.shogi">９マス将棋オンライン</a>というアプリで遊んでいるのですが、単純な配置でも未だに最善手が何か悩まされることがあります（特に入玉形の場合が難しい）。そういう時スクショを取ってこの記事の方法で何が最善手だったか検討したりしています<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20">。</p>
 
 <hr>
-<p>　<strong>追記：</strong><a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>はVersion1.0.5.0から<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式(*.csa)</a>の棋譜の入出力に対応しましたので、CUI（コンソール画面）でコマンドを入力しなくてもアプリを使って自由に初期配置を編集出来ます。やり方については<a href="/project/2018-01-01/33shogiapp#inout">３三将棋アプリの記事</a>を参照してください。</p>
+<p>　<strong>追記：</strong><a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>はVersion1.1.7.0からGUIによる盤面編集機能を追加しましたので、CUI（コンソール画面）でコマンドを入力しなくてもアプリを使って自由に初期配置を編集出来ます。やり方については<a href="/project/2018-01-01/33shogiapp#inout">３三将棋アプリの記事</a>を参照してください。</p>
 
 <hr>
 
@@ -419,7 +419,7 @@ second.depth = 6
 <div style="width:320px; margin: 0 auto;">
   <p><img src="/images/arrange21.png" alt="初期配置　例２" title="初期配置　例２"></p>
 </div>
-<p>　上記の配置は<a href="https://github.com/happyclam/shogi33simple">github</a>に置いてあるgame.coffeeの初期配置です。githubからソースを取得した後、コンソール画面で<code>coffee game.coffee</code>と打てば以下のように対局が進行するはずです。</p>
+<p>　上記の配置は<a href="https://github.com/happyclam/shogi33simple">github</a>に置いてあるgame.coffeeの初期配置です。githubからソースを取得した後、コンソール画面で<code>coffee game.coffee</code>と打てば以下のように対局が進行するはずです<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup>。</p>
 
 <pre><code>coffee game.coffee
 x
@@ -482,7 +482,7 @@ Second Win
 
 <h3 id="詰みが見つからなければ最善手は当てにならない">詰みが見つからなければ、最善手は当てにならない</h3>
 <p>　局面の先読みメソッド（Player.think）の戻り値は<code>[駒オブジェクト, 座標（筋、段）, 評価値, 成（不成）, 次善手情報]</code>となっているので<code>temp = first.think(b, second, i, Const.MAX_VALUE)</code>と呼び出した場合<code>temp[2]</code>に評価値が入っています。temp[2]に最大値（50000）か最小値（-50000）が入っていれば勝ち（あるいは負け）を読み切った（詰みを発見した）ということです。前述の単純な静的評価関数によって指し手を選んだだけなのか、詰みを読み切った上でその手を選んだのかはここで判断出来ます。<br>
-　例えば上記の例題の場合、「３一飛、１二玉、３二玉、３三金、同玉、２三歩成、３二玉、２二と」と進行していますが、<code>depth = 7</code>で実行すると３一飛と打たれた後の後手番での先読みメソッドの戻り値を見ると、１二玉が最善だと返してきますが、評価値は-18（後手やや有利）になっています。１二玉と指せばやや有利になりますよと言っているだけで、ＡＩは後手の勝ちだとはわかっていません。しかし、<code>depth = 8</code>にすると１二玉が最善手で評価値も-50000（後手勝ち）と返してきます。初手３一飛と打たれた時に後手の立場で考えて自分の指し手から数えると「１二玉、３二玉、３三金、同玉、２三歩成、３二玉、２二と」までの７手詰めですので、９手先まで読まないと詰みが分からないはず（<code>depth = 8</code>は９手読み）ですので辻褄が合います。このように詰みを発見した上での最善手と、単なる評価関数による最善手は意味合いが全然違うので注意が必要です。詰みがない場合の最善手というのは読みの深さを変えたら変わる可能性があるのに対して、詰み発見後の最善手は絶対不変<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup>の正解手です。この辺の事情は有名な将棋ソフトでも同じことで、読む深さを決めてその手数で詰みが見つからなかった場合は、そのソフトの評価関数を使った最善手というだけの話で客観的に絶対正しい最善手というわけではありません。それでも近年は人間の判断より正確なようですが。<br>
+　例えば上記の例題の場合、「３一飛、１二玉、３二玉、３三金、同玉、２三歩成、３二玉、２二と」と進行していますが、<code>depth = 7</code>で実行すると３一飛と打たれた後の後手番での先読みメソッドの戻り値を見ると、１二玉が最善だと返してきますが、評価値は-18（後手やや有利）になっています。１二玉と指せばやや有利になりますよと言っているだけで、ＡＩは後手の勝ちだとはわかっていません。しかし、<code>depth = 8</code>にすると１二玉が最善手で評価値も-50000（後手勝ち）と返してきます。初手３一飛と打たれた時に後手の立場で考えて自分の指し手から数えると「１二玉、３二玉、３三金、同玉、２三歩成、３二玉、２二と」までの７手詰めですので、９手先まで読まないと詰みが分からないはず（<code>depth = 8</code>は９手読み）ですので辻褄が合います。このように詰みを発見した上での最善手と、単なる評価関数による最善手は意味合いが全然違うので注意が必要です。詰みがない場合の最善手というのは読みの深さを変えたら変わる可能性があるのに対して、詰み発見後の最善手は絶対不変<sup id="fnref:5"><a href="#fn:5" class="footnote">5</a></sup>の正解手です。この辺の事情は有名な将棋ソフトでも同じことで、読む深さを決めてその手数で詰みが見つからなかった場合は、そのソフトの評価関数を使った最善手というだけの話で客観的に絶対正しい最善手というわけではありません。それでも近年は人間の判断より正確なようですが。<br>
 　また、<a href="https://github.com/happyclam/shogi33simple">github</a>に置いてあるソースは候補手を絞るという作業をしていません（αβ法を使った全件探索）ので、<code>depth = 8</code>をセットしてＡＩの評価値が最大値（50000）または最小値（−50000）が返ってこない場合は７手以内の詰みは存在しないという言い方も出来ます。でも、全件探索ということは読む深さを深くする（depthの値を大きくする）と読む局面の数は指数関数的に増加しますので、いくらハイスペックなPCを使っても十数手しか読めないと思います。どうしても長手数の詰みも確認したいという方は、このソースコードを他のコンパイル言語に移植したりするより、まず将棋盤をビットパターンで表現する手法を取っている他のやり方を探る方がいいと思います。自分はそこまでやろうとは思ってませんけど、<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">このアプリ</a>をReactNativeに移植したらどれぐらい速度アップ出来るのか興味を持ってます。</p>
 
 <hr>
@@ -499,7 +499,10 @@ Second Win
       <p>これは９×９の本将棋のプログラムでも同じことですが、完全読み切りが出来るのであれば静的評価関数は先手勝ち（＋１）か後手勝ち（−１）かそれ以外（０）の３値を返すだけの単純なものでいいのですが、完全読み切りが出来ないので世のプログラマが苦心して評価関数の出来を競っているわけです。 <a href="#fnref:3" class="reversefootnote">↩</a></p>
     </li>
     <li id="fn:4">
-      <p>詰み手順が複数ある可能性はあります。 <a href="#fnref:4" class="reversefootnote">↩</a></p>
+      <p>メモリ不足でエラーが出る場合は環境変数NODE_OPTIONSで確保するメモリを指定してください（例：<code>NODE_OPTIONS="--max_old_space_size=8192" </code>）。stack sizeに関しては簡単には変更できないと思います（＝depthの値には限界がある）。 <a href="#fnref:4" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:5">
+      <p>詰み手順が複数ある可能性はあります。 <a href="#fnref:5" class="reversefootnote">↩</a></p>
     </li>
   </ol>
 </div>
