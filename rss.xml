@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2020-03-06T16:03:53+09:00</lastBuildDate>
-        <pubDate>2020-03-06T16:03:53+09:00</pubDate>
+        <lastBuildDate>2020-03-06T19:15:01+09:00</lastBuildDate>
+        <pubDate>2020-03-06T19:15:01+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -6259,7 +6259,7 @@ P5+HI+GI+OU+KI+HI
   &lt;p&gt;&lt;img src=&quot;/images/33shogi_kifu_output.png&quot; alt=&quot;棋譜出力画面&quot; title=&quot;棋譜出力画面&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;　左上の&lt;del&gt;チェックマーク&lt;/del&gt;ファイルアイコンをタップすると共有画面（インテント）が表示されるので、クリップボードを選べばテキストファイルを扱えるアプリに棋譜データを貼り付けて保存出来ます。&lt;br /&gt;
+&lt;p&gt;　左上の&lt;del&gt;チェックマーク&lt;/del&gt;ファイルアイコンをタップすると共有画面（インテント）が表示されるので、クリップボードやテキストファイルを扱えるアプリ（私は&lt;a href=&quot;https://play.google.com/store/apps/details?id=jp.sblo.pandora.jota&quot;&gt;Jota Text Editorというアプリ&lt;/a&gt;を使ってます）を選べば棋譜データを貼り付けて保存出来ます。&lt;br /&gt;
 　&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式&lt;/a&gt;の棋譜はヘッダ部分に駒の初期配置を定義出来る（駒落ち将棋にも対応している）ので、駒の初期配置パターンを選択出来るこのアプリに都合がいいと思ったので採用しました。但し&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式&lt;/a&gt;の規約を全て網羅しているわけではなく、必要最小限の部分だけ実装しています。&lt;code&gt;T&lt;/code&gt;で始まる指し手の消費時間や&lt;code&gt;$&lt;/code&gt;で始まる棋譜情報は出力されません。以下が出力される棋譜の一例です。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;' #３三将棋 https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam 
 'No. 52
