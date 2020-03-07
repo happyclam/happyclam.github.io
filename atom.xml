@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-03-07T20:07:32+09:00</updated>
+ <updated>2020-03-08T08:30:51+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -3267,6 +3267,7 @@ cordova-plugin-x-toast 2.7.2 &quot;Toast&quot;
 cordova-promise-polyfill 0.0.2 &quot;cordova-promise-polyfill&quot;
 es6-promise-plugin 4.2.2 &quot;Promise&quot;
 &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;重要:&lt;/strong&gt;上記「Push通知」のコード例の&lt;code&gt;FirebasePlugin.onNotificationOpen&lt;/code&gt;イベントは&lt;code&gt;cordova-plugin-firebasex&lt;/code&gt;で&lt;code&gt;FirebasePlugin.onMessageReceived&lt;/code&gt;に変わったようです。&lt;/p&gt;
 
 &lt;h3 id=&quot;追記-2019-09-25&quot;&gt;追記 2019-09-25&lt;/h3&gt;
 &lt;p&gt;　上記環境でビルドが出来てとりあえずgoogle playにリリース（&lt;a href=&quot;https://play.google.com/store/apps/details?id=tictactoe_evo.io.github.happyclam&quot;&gt;Tic-tac-toe Evo&lt;/a&gt;）したのですが、googleからリジェクト食らいました。このアプリで新しい環境を試す意味もあったのですが、やはりまだ急いで最新環境にしないほうがいいかもしれません。google からのメールには「ポリシー違反がある」としか書かれていないのでリジェクトの理由はいつものようにはっきりしないのですが、cordova-plugin-crypto-fileに原因があるのではと疑っています。Cordovaのバージョンを下げて以下の環境でビルドしたらすぐに承認されました。&lt;/p&gt;
@@ -3298,6 +3299,8 @@ es6-promise-plugin 4.2.2 &quot;Promise&quot;
 
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;　リジェクトされた内容と違うのは主にCordovaのバージョンとcordova-plugin-crypto-fileを使わなくしたことです。Cordova 9.0に問題があるとは思えないので、cordova-plugin-crypto-fileプラグインに問題があったのだと思います。AdMob関連のプラグインでも裏で怪しい動きをするものがあるようですし、サードパーティ製のプラグインを使うときは今回のように様子見ながらのほうが良さそうです。&lt;/p&gt;
+
+&lt;p&gt;→ 追加記事&lt;a href=&quot;/programming/2019-10-09/cordova9&quot;&gt;「Cordova 9 移行で少しハマった」&lt;/a&gt;参照&lt;/p&gt;
 
 &lt;hr /&gt;
 

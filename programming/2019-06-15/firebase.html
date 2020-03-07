@@ -518,6 +518,7 @@ cordova-plugin-x-toast 2.7.2 "Toast"
 cordova-promise-polyfill 0.0.2 "cordova-promise-polyfill"
 es6-promise-plugin 4.2.2 "Promise"
 </code></pre>
+<p><strong>重要:</strong>上記「Push通知」のコード例の<code>FirebasePlugin.onNotificationOpen</code>イベントは<code>cordova-plugin-firebasex</code>で<code>FirebasePlugin.onMessageReceived</code>に変わったようです。</p>
 
 <h3 id="追記-2019-09-25">追記 2019-09-25</h3>
 <p>　上記環境でビルドが出来てとりあえずgoogle playにリリース（<a href="https://play.google.com/store/apps/details?id=tictactoe_evo.io.github.happyclam">Tic-tac-toe Evo</a>）したのですが、googleからリジェクト食らいました。このアプリで新しい環境を試す意味もあったのですが、やはりまだ急いで最新環境にしないほうがいいかもしれません。google からのメールには「ポリシー違反がある」としか書かれていないのでリジェクトの理由はいつものようにはっきりしないのですが、cordova-plugin-crypto-fileに原因があるのではと疑っています。Cordovaのバージョンを下げて以下の環境でビルドしたらすぐに承認されました。</p>
@@ -549,6 +550,8 @@ es6-promise-plugin 4.2.2 "Promise"
 
 </code></pre>
 <p>　リジェクトされた内容と違うのは主にCordovaのバージョンとcordova-plugin-crypto-fileを使わなくしたことです。Cordova 9.0に問題があるとは思えないので、cordova-plugin-crypto-fileプラグインに問題があったのだと思います。AdMob関連のプラグインでも裏で怪しい動きをするものがあるようですし、サードパーティ製のプラグインを使うときは今回のように様子見ながらのほうが良さそうです。</p>
+
+<p>→ 追加記事<a href="/programming/2019-10-09/cordova9">「Cordova 9 移行で少しハマった」</a>参照</p>
 
 <hr />
 
