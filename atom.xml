@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-03-06T19:15:01+09:00</updated>
+ <updated>2020-03-07T20:07:32+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -6150,7 +6150,8 @@ P5+HI+GI+OU+KI+HI
 
 &lt;h3 id=&quot;３三将棋について&quot;&gt;「３三将棋」について&lt;/h3&gt;
 &lt;p&gt;　以前にも&lt;a href=&quot;/programming/2016-07-23/33shogi&quot;&gt;「３三将棋」に関する記事&lt;/a&gt;を書きましたが、実際に作ってみました。&lt;br /&gt;
-　リリース当初１５通りの初期配置パターンだったものが現在１４８個の初期配置パターンまで増えてますが、盤面編集機能を追加したので今後は増やす予定はありません。&lt;/p&gt;
+　リリース当初１５通りの初期配置パターンだったものが現在１４８個の初期配置パターンまで増えてますが、盤面編集機能を追加したので今後は増やす予定はありません。&lt;br /&gt;
+　あと、全てのユーザーが使用している端末がAndroid7.0以上になったので他の将棋関連アプリ（&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;７七将棋&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋&lt;/a&gt;）も含めて動作条件をAndroid7.0以上に変更しました。&lt;/p&gt;
 
 &lt;h3 id=&quot;ルール&quot;&gt;ルール&lt;/h3&gt;
 &lt;ul&gt;
@@ -6203,7 +6204,7 @@ P5+HI+GI+OU+KI+HI
   &lt;p&gt;&lt;img src=&quot;/images/33shogi_reverse.png&quot; alt=&quot;盤面反転機能&quot; title=&quot;盤面反転機能&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;　この機能追加により今までAndroid4.4以上が動作対象機種でしたが、Android5.0以上が必要になります&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;p&gt;　この機能追加により今までAndroid4.4以上が動作対象機種でしたが、Android5.0以上が必要になります。&lt;/p&gt;
 
 &lt;h3 id=&quot;メニュー&quot;&gt;メニュー&lt;/h3&gt;
 &lt;ul&gt;
@@ -6244,7 +6245,7 @@ P5+HI+GI+OU+KI+HI
   &lt;p&gt;&lt;img src=&quot;/images/menu_search1.png&quot; alt=&quot;Menu - 初期配置検索&quot; title=&quot;Menu - 初期配置検索&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;　駒を選択して検索ボタンを押下すると、持ち駒あるいは盤上にその駒を使用している初期配置がリストアップされます&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。駒の選択条件はアンド（＆）検索になっているので、例えば「角」と「香」を選んで検索すると「角」も「香」も使用されている初期配置だけが検索結果に表示されます。&lt;/p&gt;
+&lt;p&gt;　駒を選択して検索ボタンを押下すると、持ち駒あるいは盤上にその駒を使用している初期配置がリストアップされます。駒の選択条件はアンド（＆）検索になっているので、例えば「角」と「香」を選んで検索すると「角」も「香」も使用されている初期配置だけが検索結果に表示されます。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/images/menu_search2.png&quot; alt=&quot;Menu - 初期配置検索結果&quot; title=&quot;Menu - 初期配置検索結果&quot; /&gt;&lt;/p&gt;
@@ -6264,7 +6265,7 @@ P5+HI+GI+OU+KI+HI
   &lt;p&gt;&lt;img src=&quot;/images/33shogi_kifu_output.png&quot; alt=&quot;棋譜出力画面&quot; title=&quot;棋譜出力画面&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;　左上の&lt;del&gt;チェックマーク&lt;/del&gt;ファイルアイコンをタップすると共有画面（インテント）が表示されるので、クリップボードやテキストファイルを扱えるアプリ（私は&lt;a href=&quot;https://play.google.com/store/apps/details?id=jp.sblo.pandora.jota&quot;&gt;Jota Text Editorというアプリ&lt;/a&gt;を使ってます）を選べば棋譜データを貼り付けて保存出来ます。&lt;br /&gt;
+&lt;p&gt;　左上の&lt;del&gt;チェックマーク&lt;/del&gt;ファイルアイコンをタップすると共有画面（インテント）が表示されるので、クリップボードやテキストファイルを扱えるアプリ（自分は&lt;a href=&quot;https://play.google.com/store/apps/details?id=jp.sblo.pandora.jota&quot;&gt;Jota Text Editorというアプリ&lt;/a&gt;を使ってます）を選べば棋譜データを貼り付けて保存出来ます。&lt;br /&gt;
 　&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式&lt;/a&gt;の棋譜はヘッダ部分に駒の初期配置を定義出来る（駒落ち将棋にも対応している）ので、駒の初期配置パターンを選択出来るこのアプリに都合がいいと思ったので採用しました。但し&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式&lt;/a&gt;の規約を全て網羅しているわけではなく、必要最小限の部分だけ実装しています。&lt;code&gt;T&lt;/code&gt;で始まる指し手の消費時間や&lt;code&gt;$&lt;/code&gt;で始まる棋譜情報は出力されません。以下が出力される棋譜の一例です。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;' #３三将棋 https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam 
 'No. 52
@@ -6496,16 +6497,6 @@ P-00HI00FU
 
 &lt;hr /&gt;
 
-&lt;div class=&quot;footnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;他の将棋アプリなら当たり前のように実装されている機能だと思いますが、このアプリは将棋盤をアプリで描画しているのではなく、駒（ベクターデータ、*.svg）やボタンのオブジェクトを配置することで将棋盤を形成しているため簡単ではありませんでした（HTML製のWebページを反転させることを想像していただくと分かり易いと思います）。また、svgファイルを上下左右反転させるためにAndroidのバージョンの必要要件を上げる必要がありました。他のアプリ（&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;７七将棋アプリ&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=funashishogi.io.github.happyclam&quot;&gt;歩なし将棋アプリ&lt;/a&gt;）も順次変更していく予定です。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:4&quot;&gt;
-      &lt;p&gt;今後初期配置パターンが増えてきたら、持ち駒は含めずに盤上の駒だけを検索するように変更するかもしれません。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;
 </content>
  </entry>
  
