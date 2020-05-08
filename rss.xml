@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2020-03-20T14:55:40+09:00</lastBuildDate>
-        <pubDate>2020-03-20T14:55:40+09:00</pubDate>
+        <lastBuildDate>2020-05-09T06:53:21+09:00</lastBuildDate>
+        <pubDate>2020-05-09T06:53:21+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -5807,10 +5807,10 @@ Second Win
 &lt;/div&gt;
 
 &lt;p&gt;打った桂馬が３二に跳ねた場合に、その時点で駒が成れないと次に駒の行き場がなくなってしまいます。通常の将棋で先手の歩が一段目に進んだ場合強制的に「と金」になりますが、それと同じで使用する駒に桂馬がある場合は二段目でも成れるようにする必要があります。そのため&lt;strong&gt;「初期配置に桂馬が含まれている場合は、桂馬だけでなくすべての駒が二段目（後手は四段目）で成れるルールにしています」。&lt;/strong&gt;&lt;br /&gt;
-　詳しくないですが、一段目で駒が成れるルールの&lt;a href=&quot;https://ja.wikipedia.org/wiki/5五将棋&quot;&gt;本来の５五将棋&lt;/a&gt;に桂馬が使われていない理由は、もしかしたらこのことが理由かもしれません。たしかに全部で五段しかないのに敵陣が２段を占めるというのもバランスが悪い気がしますので、５五将棋では桂馬は使うべきではないのかもしれません。でも７七将棋ならちょうど良いバランスになるような気がしているので、次は先手が二段目、後手は六段目で成れるルールで７七将棋を作ってみようかと思っています。&lt;/p&gt;
+　後述の&lt;strong&gt;初期配置編集機能&lt;/strong&gt;で初期配置を編集した場合も、初期配置に桂馬が一枚でも含まれていれば、先手は二段目（後手は四段目）で成れるように設定され、元々桂馬が含まれていた初期配置から桂馬を除いて保存すると、先手は一段目（後手は五段目）で成るように設定保存されます。&lt;/p&gt;
 
 &lt;h3 id=&quot;千日手回避&quot;&gt;千日手回避&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;では千日手回避のために特別な処理はしていません、千日手になるのが当然の成り行きと思えるケースが多いためです&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。しかし&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;の場合は駒の損得が発生しない序盤の段階で千日手になってしまうケースがあまりにも多いので千日手回避のロジックを組み込んでいます。同じ局面が３回発生した場合にはＡＩの手を次善手（あくまでもアプリのＡＩが次善手と判断しているだけです）を指すようにして、なるべく千日手を回避するようにしています。但し次善手を指していても千日手になることもあるので、絶対千日手を避けるというわけではありません。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;「３三将棋」アプリ&lt;/a&gt;では千日手回避のために特別な処理はしていません、千日手になるのが当然の成り行きと思えるケースが多いためです&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。しかし&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;の場合は駒の損得が発生しない序盤の段階で千日手になってしまうケースがあまりにも多いので千日手回避のロジックを組み込んでいます。同じ局面が３回発生した場合にはＡＩの手を次善手（あくまでもアプリのＡＩが次善手と判断しているだけです）を指すようにして、なるべく千日手を回避するようにしています。但し次善手を指していても千日手になることもあるので、絶対千日手を避けるというわけではありません。&lt;/p&gt;
 
 &lt;h3 id=&quot;瞑想モード追加&quot;&gt;瞑想モード追加&lt;/h3&gt;
 &lt;p&gt;　Version1.0.0.2で瞑想モードを追加しました。「読みの深さ」のところで説明していますが、「長考」モードでは３手読みで候補手を１３手に絞ってその候補手に対して５手読みを行いますが、&lt;del&gt;「瞑想」モードでは候補手を絞らずに３手読みしたすべての手を評価値でソートした後に５手読みしています。読みの深さは変わっていませんので、詰みを見つけた場合等、枝刈りが効果的に働いて「長考」モードより応答が速くなることもあります。但し、ゲーム終盤に詰みを逃しにくくなったのは確かですが、&lt;/del&gt;自分がテストしている限りにおいては「長考」モードより強いかどうかは微妙なところです。&lt;/p&gt;
@@ -5928,7 +5928,7 @@ P5+HI+GI+OU+KI+HI
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;06&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;指し手データの指し手に誤りがあります。飛車（HI）が成っていないのに斜め後ろに移動している等&lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;指し手データの指し手に誤りがあります。飛車（HI）が成っていないのに斜め後ろに移動している等&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;07&lt;/td&gt;
@@ -5946,7 +5946,7 @@ P5+HI+GI+OU+KI+HI
 &lt;/table&gt;
 
 &lt;h3 id=&quot;駒に毛筆フォント&quot;&gt;駒に毛筆フォント&lt;/h3&gt;
-&lt;p&gt;　Version1.0.5.3から駒のフォントに毛筆フォントを選べるようになりました。無料フォントの中でも&lt;a href=&quot;http://today.izmaker.com/blog/technique/3154/&quot;&gt;「衡山毛筆フォント」&lt;/a&gt;のように再配布可能というものはなかなか無いと思います&lt;sup id=&quot;fnref:6&quot;&gt;&lt;a href=&quot;#fn:6&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;p&gt;　Version1.0.5.3から駒のフォントに毛筆フォントを選べるようになりました。無料フォントの中でも&lt;a href=&quot;http://today.izmaker.com/blog/technique/3154/&quot;&gt;「衡山毛筆フォント」&lt;/a&gt;のように再配布可能というものはなかなか無いと思います&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;img src=&quot;/images/55shogi_menu_font.png&quot; alt=&quot;フォント選択メニュー&quot; title=&quot;フォント選択メニュー&quot; /&gt;&lt;/p&gt;
@@ -5990,18 +5990,48 @@ P5+HI+GI+OU+KI+HI
 　※棋譜入力欄から入力された棋譜は自動保存の対象になりませんので、必要であれば棋譜出力して保存してください。&lt;br /&gt;
 　※万が一自動保存に失敗して何らかのエラーが発生しても、「新規開始」すれば新たにファイルが作成されるので問題ありません。それでもエラーが表示される場合は、「アプリ情報」メニューから「ストレージ」を選んで「ストレージを消去」の操作をしてください。その際には対局データは消失し各種設定も初期化されますがご了承ください。&lt;/p&gt;
 
+&lt;h3 id=&quot;初期配置編集機能追加&quot;&gt;初期配置編集機能追加&lt;/h3&gt;
+&lt;p&gt;　Version1.1.3.0から初期配置の編集機能を追加しました。編集したパターンを保存するとPattern0〜Pattern10の初期配置選択画面に反映されます。&lt;br /&gt;
+　この機能追加により、初期配置パターンは予め用意されているというだけで自由に上書き可能なものとなりましたので、自分で初期配置を変更して遊ぶことが出来ます。また、特定の局面を再現して詰み手順の確認などにも利用出来ます&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;。詰将棋作成にも利用できますが、初期配置盤面を保存するには先手と後手の玉が一枚ずつ必要となりますので、「双玉の詰将棋」にするか先手玉をどこか影響が無い場所に配置する必要があります。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/shogi55_menu01.png&quot;&gt;&lt;img src=&quot;/images/shogi55_menu01.png&quot; alt=&quot;初期配置編集&quot; title=&quot;初期配置編集&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;左上のチェックマークアイコンをタップすると編集モードになります。&lt;/li&gt;
+  &lt;li&gt;将棋盤の空いてる場所をタップすると駒選択ダイアログが表示されるので、駒を選ぶと新しく駒が配置されます。&lt;/li&gt;
+  &lt;li&gt;既に駒があるマス目をタップすると駒が削除されます。&lt;/li&gt;
+  &lt;li&gt;持ち駒は先手・後手それぞれの駒のボタンをタップすると７枚を上限にカウントアップします。７に達した後タップするとカウントダウンします。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/shogi55_menu02.png&quot;&gt;&lt;img src=&quot;/images/shogi55_menu02.png&quot; alt=&quot;初期配置保存&quot; title=&quot;初期配置保存&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;編集モード中はメニュー操作は出来ません。盤面を編集し終えたら「初期配置保存」か「中止」を選んで下さい。保存を選ぶと画面に表示されているNo.の初期配置選択画面に上書き保存されます。「中止」を選ぶと編集は無かったことになります。&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;hr /&gt;
 
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;千日手になって当然に見えると言ってもその局面を迎える前にもっといい手（最善手）を逃していると思われるケースが多いのですが、同一局面の繰り返しが始まってからでは時すでに遅しとなっていて千日手を避けられなくなっているという意味です。この辺りの事情はＡＩの出来の悪さなので仕方がありません。３三将棋の場合は無理に千日手を避けると致命的な悪手になるので敢えてそのままにしています。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;http://minerva.cs.uec.ac.jp/~uec55shogi/wiki.cgi?page=GPW%C7%D5%A5%B3%A5%F3%A5%D4%A5%E5%A1%BC%A5%BF%A3%B5%B8%DE%BE%AD%B4%FD%C2%E7%B2%F12018&quot;&gt;５五将棋大会の棋譜&lt;/a&gt;を読み込んでテストしていたら、成りを不成で出力していると思われる棋譜も混じっていました。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;svgファイルにフォントデータを埋め込んでいるため、再配布可能なフォントが必要でした。将棋の駒に使用する文字分だけなので自作も考えられますが、当然有名な書家が書いた字の方がいいでしょう。また、アプリ内にリンクを貼ったほうがいいのかどうかわからなかったので、一応&lt;a href=&quot;http://www7a.biglobe.ne.jp/~kouzan/&quot;&gt;権利者&lt;/a&gt;にも確認しました。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
     &lt;li id=&quot;fn:4&quot;&gt;
-      &lt;p&gt;千日手になって当然に見えると言ってもその局面を迎える前にもっといい手（最善手）を逃していると思われるケースが多いのですが、同一局面の繰り返しが始まってからでは時すでに遅しとなっていて千日手を避けられなくなっているという意味です。この辺りの事情はＡＩの出来の悪さなので仕方がありません。３三将棋の場合は無理に千日手を避けると致命的な悪手になるので敢えてそのままにしています。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:5&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;http://minerva.cs.uec.ac.jp/~uec55shogi/wiki.cgi?page=GPW%C7%D5%A5%B3%A5%F3%A5%D4%A5%E5%A1%BC%A5%BF%A3%B5%B8%DE%BE%AD%B4%FD%C2%E7%B2%F12018&quot;&gt;５五将棋大会の棋譜&lt;/a&gt;を読み込んでテストしていたら、成りを不成で出力していると思われる棋譜も混じっていました。 &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:6&quot;&gt;
-      &lt;p&gt;svgファイルにフォントデータを埋め込んでいるため、再配布可能なフォントが必要でした。将棋の駒に使用する文字分だけなので自作も考えられますが、当然有名な書家が書いた字の方がいいでしょう。また、アプリ内にリンクを貼ったほうがいいのかどうかわからなかったので、一応&lt;a href=&quot;http://www7a.biglobe.ne.jp/~kouzan/&quot;&gt;権利者&lt;/a&gt;にも確認しました。 &lt;a href=&quot;#fnref:6&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;今までは特定局面の検討をする場合、棋譜ファイル（CSA形式）を用意して読み込む必要がありました。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
