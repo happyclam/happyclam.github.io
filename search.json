@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "自転車のカスタマイズ",
+      "category" : "miscellaneous",
+      "tags"     : "bicycle",
+      "url"      : "/miscellaneous/2020-05-16/bicycle01",
+      "date"     : "2020-05-16 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "「Mini Chess - チェス６６」アプリリリース",
       "category" : "project",
       "tags"     : "coffeescript, cordova, android, javascript, chess",
