@@ -675,7 +675,7 @@ result = second.think(board, first, 50, FIRST_WIN);
 <p>　戻り値は<code>[-999, 6]</code>となって<code>2</code>の対称の位置にある<code>6</code>を選べば本来の後手（上側）が必勝と判定されます。上下対象の配置なので当然こうなるべきで、これも一応プログラムは正しく動いてそうです。</p>
 
 <h3 id="６２ではどうなのか">６×２ではどうなのか</h3>
-<p>　まず石１個でやってみました。</p>
+<p>　３×２列のマンカラでなく、通常の６×２列で石の数が４個のマンカラではどうなのか調べたいと思い、まず石１個でやってみました。</p>
 
 <pre><code class="language-Dart">final List board = [0,1,1,1,1,1,1,0,1,1,1,1,1,1];
 result = second.think(board, first, 50, FIRST_WIN);

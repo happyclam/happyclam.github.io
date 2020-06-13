@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2020-06-13T16:11:40+09:00</lastBuildDate>
-        <pubDate>2020-06-13T16:11:40+09:00</pubDate>
+        <lastBuildDate>2020-06-13T16:19:46+09:00</lastBuildDate>
+        <pubDate>2020-06-13T16:19:46+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -457,7 +457,7 @@ result = second.think(board, first, 50, FIRST_WIN);
 &lt;p&gt;　戻り値は&lt;code&gt;[-999, 6]&lt;/code&gt;となって&lt;code&gt;2&lt;/code&gt;の対称の位置にある&lt;code&gt;6&lt;/code&gt;を選べば本来の後手（上側）が必勝と判定されます。上下対象の配置なので当然こうなるべきで、これも一応プログラムは正しく動いてそうです。&lt;/p&gt;
 
 &lt;h3 id=&quot;６２ではどうなのか&quot;&gt;６×２ではどうなのか&lt;/h3&gt;
-&lt;p&gt;　まず石１個でやってみました。&lt;/p&gt;
+&lt;p&gt;　３×２列のマンカラでなく、通常の６×２列で石の数が４個のマンカラではどうなのか調べたいと思い、まず石１個でやってみました。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-Dart&quot;&gt;final List board = [0,1,1,1,1,1,1,0,1,1,1,1,1,1];
 result = second.think(board, first, 50, FIRST_WIN);
