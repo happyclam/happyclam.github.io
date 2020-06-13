@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-06-13T15:56:20+09:00</updated>
+ <updated>2020-06-13T16:11:40+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -469,7 +469,7 @@ result = second.think(board, first, 50, FIRST_WIN);
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;　結果は&lt;code&gt;[999, 1]&lt;/code&gt;となって先手が初手に&lt;code&gt;1&lt;/code&gt;の場所を選べば先手必勝のようです。&lt;br /&gt;
-　ただ、石２個、３個、４個で試すと循環する手順があるのか、丸一日動かしていても結果が返って来ませんでした。まだ原因がはっきり分かっていませんが、循環する手順があるとしても必勝手順が存在する場合は、その手順を避けて結果が返って来るはずなので、５０手以内には必勝手順は存在しないと言えると思います。マンカラで遊び始めたばかりなので、何か気づいていない特殊なケースがあるのかもしれません。&lt;br /&gt;
+　ただ、石２個、３個、４個で試すと循環する手順があるのか、丸一日動かしていても結果が返って来ませんでした。まだ原因がはっきり分かっていませんが、循環する手順があるとしても必勝手順が存在する場合は、その手順を避けて結果が返って来るはずなので、&lt;strong&gt;５０手以内には必勝手順は存在しない&lt;/strong&gt;と言えると思います&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。マンカラで遊び始めたばかりなので、何か気づいていない特殊なケースがあるのかもしれません。&lt;br /&gt;
 　ベーシックのルール特有のケースかもしれないので、先にカラハのルールを実装して試してみようかなどと考えていますが、いずれにしても読み切るには結構時間が掛かるので、三目並べのように絶対人間に負けないプログラムを作るのは思っていたほど簡単ではないようです。&lt;br /&gt;
 　カラハのルールだと自分の空の穴で撒き終わった場合に相手の石を取ることが出来るというルールがあるので、ベーシックのルールより早くゲームを終わらせる必勝手順があるような気がしていますが、どうなるか分かりません。&lt;/p&gt;
 
@@ -486,6 +486,9 @@ result = second.think(board, first, 50, FIRST_WIN);
     &lt;/li&gt;
     &lt;li id=&quot;fn:2&quot;&gt;
       &lt;p&gt;先読み関数から手数を返せば正確になるのですが、今のところやってません。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;この辺りの事情は&lt;a href=&quot;http://localhost:4000/software/2014-10-04/arrange_line&quot;&gt;以前の記事&lt;/a&gt;にも書きました。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
