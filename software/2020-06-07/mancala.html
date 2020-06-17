@@ -47,7 +47,7 @@
   <meta name="twitter:url" content="/software/2020-06-07/mancala">
   
   
-  <meta name="twitter:description" content="一番単純なルールのマンカラベーシックで先手必勝なのか後手必勝なのかDartで検証">
+  <meta name="twitter:description" content="マンカラベーシックとマンカラカラハで先手必勝なのか後手必勝なのかDartで検証">
   
   
   <meta name="twitter:image:src" content="https://happyclam.github.io/images/55shogi_logo.png">
@@ -278,11 +278,11 @@ MathJax.Hub.Config({
   print(board);
   Stopwatch watch = new Stopwatch();
   watch.start();
-  // result = first.think(board, second, 50, SECOND_WIN);
-  // result = second.think(board, first, 50, FIRST_WIN);
+  // result = first.think(board, second, 50, FIRST_WIN);
+  // result = second.think(board, first, 50, SECOND_WIN);
   for (var i = 1; i &lt; 50; i++){
     print("i = ${i}");
-    result = first.think(board, second, i, SECOND_WIN);
+    result = first.think(board, second, i, FIRST_WIN);
     if (result[0] == FIRST_WIN || result[1] == SECOND_WIN){
       print("=== result = ${result[0]}, ${result[1]}, i = ${i}");
       break;
@@ -320,6 +320,7 @@ MathJax.Hub.Config({
 
 <h3 id="結果">結果</h3>
 <p>　石の数を１〜９個にして、５０手先読みしたそれぞれの結果です。</p>
+<h4 id="３２列ベーシック">３×２列（ベーシック）</h4>
 
 <table>
   <thead>
@@ -464,7 +465,7 @@ MathJax.Hub.Config({
 <p>　先手が一手指した後の状態から、後手の立場で先読みしてみます。</p>
 
 <pre><code class="language-Dart">final List board = [0,0,2,1,0,1,1,1];
-result = second.think(board, first, 50, FIRST_WIN);
+result = second.think(board, first, 50, SECOND_WIN);
 </code></pre>
 
 <p>　戻り値は<code>[999, 7]</code>となって後手は<code>7</code>を選ぶけど、先手必勝（<code>999</code>）の結論は変わりません。<br />
@@ -662,14 +663,14 @@ i = 4
 
 <p>　この状態から後手の手番で先読みしてみましょう。</p>
 <pre><code class="language-Dart">final List board = [0,4,0,5,1,5,5,4];
-result = second.think(board, first, 50, FIRST_WIN);
+result = second.think(board, first, 50, SECOND_WIN);
 </code></pre>
 
 <p>　戻り値は<code>[999, 7]</code>となって先手必勝（<code>999</code>）の結論は変わりません。<br />
 　今度は初期状態から先手（下側）と後手（上側）の順番を入れ替えて、本来の後手（上側）から先読みしてみると</p>
 
 <pre><code class="language-Dart">final List board = [0,4,4,4,0,4,4,4];
-result = second.think(board, first, 50, FIRST_WIN);
+result = second.think(board, first, 50, SECOND_WIN);
 </code></pre>
 
 <p>　戻り値は<code>[-999, 6]</code>となって<code>2</code>の対称の位置にある<code>6</code>を選べば本来の後手（上側）が必勝と判定されます。上下対象の配置なので当然こうなるべきで、これも一応プログラムは正しく動いてそうです。</p>
@@ -678,13 +679,414 @@ result = second.think(board, first, 50, FIRST_WIN);
 <p>　３×２列のマンカラでなく、通常の６×２列で石の数が４個のマンカラではどうなのか調べたいと思い、まず石１個でやってみました。</p>
 
 <pre><code class="language-Dart">final List board = [0,1,1,1,1,1,1,0,1,1,1,1,1,1];
-result = second.think(board, first, 50, FIRST_WIN);
+result = second.think(board, first, 50, SECOND_WIN);
 </code></pre>
 
 <p>　結果は<code>[999, 1]</code>となって先手が初手に<code>1</code>の場所を選べば先手必勝のようです。<br />
-　ただ、石２個、３個、４個で試すと循環する手順があるのか、丸一日動かしていても結果が返って来ませんでした。まだ原因がはっきり分かっていませんが、循環する手順があるとしても必勝手順が存在する場合は、その手順を避けて結果が返って来るはずなので、<strong>５０手以内には必勝手順は存在しない</strong>と言えると思います<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>。マンカラで遊び始めたばかりなので、何か気づいていない特殊なケースがあるのかもしれません。<br />
+　ただ、石２個、３個、４個で試すと循環する手順があるのか、丸一日動かしていても結果が返って来ませんでした。まだ原因がはっきり分かっていませんが、循環する手順があるとしてもそこに入り込む必要なく必勝手順を辿ることが出来たということなので、<strong>必勝の結論を返してきた分に関しては間違いない</strong>と思います<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>。バグがなければの話ですが…。<br />
+　また、循環する手順（千日手）に入り込むということが、結論として<strong>最善手は千日手</strong>と言い切れるのかどうかはよく分かりません。<br />
 　ベーシックのルール特有のケースかもしれないので、先にカラハのルールを実装して試してみようかなどと考えていますが、いずれにしても読み切るには結構時間が掛かるので、三目並べのように絶対人間に負けないプログラムを作るのは思っていたほど簡単ではないようです。<br />
 　カラハのルールだと自分の空の穴で撒き終わった場合に相手の石を取ることが出来るというルールがあるので、ベーシックのルールより早くゲームを終わらせる必勝手順があるような気がしていますが、どうなるか分かりません。</p>
+
+<h3 id="マンカラカラハの結果2020-06-17追記">マンカラカラハの結果（2020-06-17追記）</h3>
+<p>　マンカラカラハのルールに対応したので結果を載せておきます。カラハでは自分の穴の石が無くなったら勝ちではなく、先手・後手どちらかの全ての穴が空になったらゲーム終了して残った石は自分のストアに戻し、その時点でのストアに溜まった石の数で勝敗を決めるので、評価関数は<code>先手のストア内の石の数 - 後手のストア内の石の数</code>です。マンカラベーシックのルールに較べて短手数での必勝手順が存在するのは、やはり相手の石を取ることが出来るルールによるものでしょう。</p>
+
+<h4 id="３２列カラハ">３×２列（カラハ）</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">石の数</th>
+      <th style="text-align: center">１</th>
+      <th style="text-align: center">２</th>
+      <th style="text-align: center">３</th>
+      <th style="text-align: center">４</th>
+      <th style="text-align: center">５</th>
+      <th style="text-align: center">６</th>
+      <th style="text-align: center">７</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">戻り値</td>
+      <td style="text-align: center">[0, 1]</td>
+      <td style="text-align: center">[0, 2]</td>
+      <td style="text-align: center">[999, 1]</td>
+      <td style="text-align: center">[0, 1]</td>
+      <td style="text-align: center">[999, 1]</td>
+      <td style="text-align: center">[-999, 3]</td>
+      <td style="text-align: center">[999, 1]</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">読みの深さ</td>
+      <td style="text-align: center">５０手</td>
+      <td style="text-align: center">５０手</td>
+      <td style="text-align: center">１９手</td>
+      <td style="text-align: center">５０手</td>
+      <td style="text-align: center">１８手</td>
+      <td style="text-align: center">２３手</td>
+      <td style="text-align: center">２５手</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">結論</td>
+      <td style="text-align: center">引分け</td>
+      <td style="text-align: center">引分け</td>
+      <td style="text-align: center">先手必勝</td>
+      <td style="text-align: center">引分け</td>
+      <td style="text-align: center">先手必勝</td>
+      <td style="text-align: center">後手必勝</td>
+      <td style="text-align: center">先手必勝</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="検証３２カラハ">検証（３×２カラハ）</h3>
+<p>　ベーシック同様簡単に検証してみます。<br />
+　例えば石１個の場合、以下のようにベーシックの例と同じようにゲームが進行したとします。</p>
+
+<div style="width:500px; margin: 0 auto;">
+<div style="float:left; margin: 0px 0px 0px">
+    <table>
+    <tr>
+    <td rowspan="2" align="center">0</td>
+    <td align="center">1</td>    
+    <td align="center">1</td>
+    <td align="center">1</td>
+    <td rowspan="2" align="center">0</td>
+    </tr>
+    <tr>
+    <td align="center">1</td>    
+    <td align="center">1</td>
+    <td align="center">1</td>
+    </tr>
+    </table>
+</div>
+<div style="float:left; margin: 0px 11px 0px">
+<span>→</span>
+</div>
+<div style="float:left; margin: 0px 11px 0px">
+    <table>
+    <tr>
+    <td rowspan="2" align="center">0</td>
+    <td align="center">1</td>    
+    <td align="center">1</td>
+    <td align="center">1</td>
+    <td rowspan="2" align="center">0</td>
+    </tr>
+    <tr>
+    <td align="center">0</td>    
+    <td align="center">2</td>
+    <td align="center">1</td>
+    </tr>
+    </table>
+</div>
+<div style="float:left; margin: 0px 11px 0px">
+<span>→</span>
+</div>
+<div style="float:left; margin: 0px 11px 0px">
+    <table>
+    <tr>
+    <td rowspan="2" align="center">1</td>
+    <td align="center">0</td>    
+    <td align="center">1</td>
+    <td align="center">1</td>
+    <td rowspan="2" align="center">0</td>
+    </tr>
+    <tr>
+    <td align="center">0</td>    
+    <td align="center">2</td>
+    <td align="center">1</td>
+    </tr>
+    </table>
+</div>
+<div style="float:left; margin: 0px 11px 0px">
+<span>→</span>
+</div>
+<div style="float:left; margin: 0px 11px 0px">
+    <table>
+    <tr>
+    <td rowspan="2" align="center">1</td>
+    <td align="center">1</td>    
+    <td align="center">0</td>
+    <td align="center">1</td>
+    <td rowspan="2" align="center">0</td>
+    </tr>
+    <tr>
+    <td align="center">0</td>    
+    <td align="center">2</td>
+    <td align="center">1</td>
+    </tr>
+    </table>
+</div>
+<div style="float:left; margin: 0px 11px 0px">
+<span>→</span>
+</div>
+<div style="float:left; margin: 0px 11px 0px">
+    <table>
+    <tr>
+    <td rowspan="2" align="center">1</td>
+    <td align="center">1</td>    
+    <td align="center">0</td>
+    <td align="center">1</td>
+    <td rowspan="2" align="center">1</td>
+    </tr>
+    <tr>
+    <td align="center">0</td>    
+    <td align="center">2</td>
+    <td align="center">0</td>
+    </tr>
+    </table>
+</div>
+<div style="float:left; margin: 0px 11px 0px">
+<span>→</span>
+</div>
+<div style="float:left; margin: 0px 11px 0px">
+    <table>
+    <tr>
+    <td rowspan="2" align="center">1</td>
+    <td align="center">1</td>    
+    <td align="center">0</td>
+    <td align="center">1</td>
+    <td rowspan="2" align="center">2</td>
+    </tr>
+    <tr>
+    <td align="center">0</td>    
+    <td align="center">0</td>
+    <td align="center">1</td>
+    </tr>
+    </table>
+</div>
+<div style="float:left; margin: 0px 11px 0px">
+<span>→</span>
+</div>
+<div style="float:left; margin: 0px 11px 0px">
+    <table>
+    <tr>
+    <td rowspan="2" align="center">1</td>
+    <td align="center">1</td>    
+    <td align="center">0</td>
+    <td align="center">1</td>
+    <td rowspan="2" align="center">3</td>
+    </tr>
+    <tr>
+    <td align="center">0</td>    
+    <td align="center">0</td>
+    <td align="center">0</td>
+    </tr>
+    </table>
+</div>
+<div style="float:left; margin: 0px 11px 0px">
+<span>→</span>
+</div>
+<div style="float:left; margin: 0px 11px 0px">
+    <table>
+    <tr>
+    <td rowspan="2" align="center">3</td>
+    <td align="center">0</td>    
+    <td align="center">0</td>
+    <td align="center">0</td>
+    <td rowspan="2" align="center">3</td>
+    </tr>
+    <tr>
+    <td align="center">0</td>    
+    <td align="center">0</td>
+    <td align="center">0</td>
+    </tr>
+    </table>
+</div>
+</div>
+<p><br clear="all" /></p>
+
+<p>　カラハのルールでも先手・後手どちらかの石が無くなればゲーム終了しますが、最後に残りの石を自分のストアに戻すことになりますので、先に先手の石が空になってもこの進行だと３対３の引き分けになり、ベーシックとは当然ですが違う結果になります。<br />
+　次に石６個のケースを見てみると、戻り値は<code>[-999, 3]</code>となっていますが、この場合ベーシックの時にも説明したように先手が<code>3</code>を選んだことには深い意味はありません。先手がどこを選んでも負ける（評価値<code>-999</code>）けど最善手として<code>3</code>を選んだというだけの話です。では後手の初手は何が最善手なのか見ていきます。<br />
+　石６個で先手が初手に<code>1</code>を選んだ直後の状態は以下のようになります。</p>
+
+<div style="width:500px; margin: 0 auto;">
+<div style="float:left; margin: 0px 0px 0px">
+    <table>
+    <tr>
+    <td rowspan="2" align="center">0</td>
+    <td align="center">6</td>    
+    <td align="center">6</td>
+    <td align="center">6</td>
+    <td rowspan="2" align="center">0</td>
+    </tr>
+    <tr>
+    <td align="center">6</td>    
+    <td align="center">6</td>
+    <td align="center">6</td>
+    </tr>
+    </table>
+</div>
+<div style="float:left; margin: 0px 15px 0px">
+<span>→</span>
+</div>
+<div style="float:left; margin: 0px 0px 0px">
+    <table>
+    <tr>
+    <td rowspan="2" align="center">0</td>
+    <td align="center">7</td>    
+    <td align="center">7</td>
+    <td align="center">7</td>
+    <td rowspan="2" align="center">1</td>
+    </tr>
+    <tr>
+    <td align="center">0</td>    
+    <td align="center">7</td>
+    <td align="center">7</td>
+    </tr>
+    </table>
+</div>
+</div>
+<p><br clear="all" /></p>
+
+<p>　この状態から後手の手番で先読みすると</p>
+
+<pre><code class="language-Dart">final List board = [0,0,7,7,1,7,7,7];
+result = second.think(board, first, 50, SECOND_WIN);
+</code></pre>
+<p>　結果は<code>[-999, 5]</code>となって後手は２手目に<code>5</code>を選べば勝てると言っています。<br />
+　次に先手が<code>2</code>を選んだ場合を見てみましょう。<strong>カラハでは相手のストアには石を撒かないことが注意点です。</strong></p>
+
+<div style="width:500px; margin: 0 auto;">
+<div style="float:left; margin: 0px 0px 0px">
+    <table>
+    <tr>
+    <td rowspan="2" align="center">0</td>
+    <td align="center">6</td>    
+    <td align="center">6</td>
+    <td align="center">6</td>
+    <td rowspan="2" align="center">0</td>
+    </tr>
+    <tr>
+    <td align="center">6</td>    
+    <td align="center">6</td>
+    <td align="center">6</td>
+    </tr>
+    </table>
+</div>
+<div style="float:left; margin: 0px 15px 0px">
+<span>→</span>
+</div>
+<div style="float:left; margin: 0px 0px 0px">
+    <table>
+    <tr>
+    <td rowspan="2" align="center">0</td>
+    <td align="center">7</td>    
+    <td align="center">7</td>
+    <td align="center">7</td>
+    <td rowspan="2" align="center">1</td>
+    </tr>
+    <tr>
+    <td align="center">7</td>    
+    <td align="center">0</td>
+    <td align="center">7</td>
+    </tr>
+    </table>
+</div>
+</div>
+<p><br clear="all" /></p>
+
+<pre><code class="language-Dart">final List board = [0,7,0,7,1,7,7,7];
+result = second.think(board, first, 50, SECOND_WIN);
+</code></pre>
+
+<p>　結果は<code>[-999, 5]</code>となって後手は<code>5</code>を選べば勝てると言っています。同様に先手が<code>3</code>を選んだ場合を見てみましょう。</p>
+
+<div style="width:500px; margin: 0 auto;">
+<div style="float:left; margin: 0px 0px 0px">
+    <table>
+    <tr>
+    <td rowspan="2" align="center">0</td>
+    <td align="center">6</td>    
+    <td align="center">6</td>
+    <td align="center">6</td>
+    <td rowspan="2" align="center">0</td>
+    </tr>
+    <tr>
+    <td align="center">6</td>    
+    <td align="center">6</td>
+    <td align="center">6</td>
+    </tr>
+    </table>
+</div>
+<div style="float:left; margin: 0px 15px 0px">
+<span>→</span>
+</div>
+<div style="float:left; margin: 0px 0px 0px">
+    <table>
+    <tr>
+    <td rowspan="2" align="center">0</td>
+    <td align="center">7</td>    
+    <td align="center">7</td>
+    <td align="center">7</td>
+    <td rowspan="2" align="center">1</td>
+    </tr>
+    <tr>
+    <td align="center">7</td>    
+    <td align="center">7</td>
+    <td align="center">0</td>
+    </tr>
+    </table>
+</div>
+</div>
+<p><br clear="all" /></p>
+
+<pre><code class="language-Dart">final List board = [0,7,7,0,1,7,7,7];
+result = second.think(board, first, 50, SECOND_WIN);
+</code></pre>
+<p>　結果は<code>[-999, 6]</code>となって後手は<code>6</code>を選べば勝てると言っています。先手が初手に<code>1</code>,<code>2</code>,<code>3</code>のどれを選んでも後手必勝（<code>-999</code>）の結論は変わっていないので一応プログラムとしては一貫した結果が返ってきています。<br />
+　あと、相手の石を取る（capture）ケースも自分なりに確認していますが、図を書くのに疲れたので検証はここまでにします。</p>
+
+<h4 id="６２列カラハ">６×２列（カラハ）</h4>
+<p>　後日更新予定</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">石の数</th>
+      <th style="text-align: center">１</th>
+      <th style="text-align: center">２</th>
+      <th style="text-align: center">３</th>
+      <th style="text-align: center">４</th>
+      <th style="text-align: center">５</th>
+      <th style="text-align: center">６</th>
+      <th style="text-align: center">７</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">戻り値</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">読みの深さ</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">結論</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="ソースファイル">ソースファイル</h3>
 <p>　<a href="/software/2014-09-23/tictactoe_arrange">以前の記事</a>の「３手前に打った駒が消える特殊なルールの三目並べ」のように<a href="https://github.com/happyclam/tictactoe_ruby/tree/arrange">github</a>でソースを公開しようと思っていたのですが、マンカラのアプリも作ってみようかと考えているところなので公開するのはその後にしようと思います。GUIで検証している最中にバグが見つかるかも知れませんので、結果が変わったらこの記事を更新するつもりです。<br />
@@ -739,6 +1141,8 @@ result = second.think(board, first, 50, FIRST_WIN);
     	<li><a href="/tags.html#dart-ref">dart <span>1</span></a></li>
      
     	<li><a href="/tags.html#android-ref">android <span>48</span></a></li>
+     
+    	<li><a href="/tags.html#flutter-ref">flutter <span>1</span></a></li>
     
   
 
