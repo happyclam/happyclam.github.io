@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2020-06-17T19:42:25+09:00</lastBuildDate>
-        <pubDate>2020-06-17T19:42:25+09:00</pubDate>
+        <lastBuildDate>2020-06-21T15:48:25+09:00</lastBuildDate>
+        <pubDate>2020-06-21T15:48:25+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -679,7 +679,7 @@ result = second.think(board, first, 50, SECOND_WIN);
 &lt;/div&gt;
 &lt;p&gt;&lt;br clear=&quot;all&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;　カラハのルールでも先手・後手どちらかの石が無くなればゲーム終了しますが、最後に残りの石を自分のストアに戻すことになりますので、先に先手の石が空になってもこの進行だと３対３の引き分けになり、ベーシックとは当然ですが違う結果になります。&lt;br /&gt;
+&lt;p&gt;　カラハのルールでも先手・後手どちらかの石が無くなればゲーム終了しますが、最後に残りの石を自分のストアに戻すことになりますので、先に先手の石が空になってもこの進行だと３対３の引き分けになり、当然ですがベーシックとは違う結果になります。&lt;br /&gt;
 　次に石６個のケースを見てみると、戻り値は&lt;code&gt;[-999, 3]&lt;/code&gt;となっていますが、この場合ベーシックの時にも説明したように先手が&lt;code&gt;3&lt;/code&gt;を選んだことには深い意味はありません。先手がどこを選んでも負ける（評価値&lt;code&gt;-999&lt;/code&gt;）けど最善手として&lt;code&gt;3&lt;/code&gt;を選んだというだけの話です。では後手の初手は何が最善手なのか見ていきます。&lt;br /&gt;
 　石６個で先手が初手に&lt;code&gt;1&lt;/code&gt;を選んだ直後の状態は以下のようになります。&lt;/p&gt;
 
@@ -820,8 +820,7 @@ result = second.think(board, first, 50, SECOND_WIN);
 &lt;p&gt;　結果は&lt;code&gt;[-999, 6]&lt;/code&gt;となって後手は&lt;code&gt;6&lt;/code&gt;を選べば勝てると言っています。先手が初手に&lt;code&gt;1&lt;/code&gt;,&lt;code&gt;2&lt;/code&gt;,&lt;code&gt;3&lt;/code&gt;のどれを選んでも後手必勝（&lt;code&gt;-999&lt;/code&gt;）の結論は変わっていないので一応プログラムとしては一貫した結果が返ってきています。&lt;br /&gt;
 　あと、相手の石を取る（capture）ケースも自分なりに確認していますが、図を書くのに疲れたので検証はここまでにします。&lt;/p&gt;
 
-&lt;h4 id=&quot;６２列カラハ&quot;&gt;６×２列（カラハ）&lt;/h4&gt;
-&lt;p&gt;　後日更新予定&lt;/p&gt;
+&lt;h4 id=&quot;６２列カラハ2020-06-21追記&quot;&gt;６×２列（カラハ）（2020-06-21追記）&lt;/h4&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -839,36 +838,42 @@ result = second.think(board, first, 50, SECOND_WIN);
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;戻り値&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;[999, 6]&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;[999, 5]&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;読みの深さ&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;１５手&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;１９手&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;結論&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;千日手？&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;千日手？&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;p&gt;　石の数を３個以上にするとベーシックの時と同じように先読みメソッドから返事が返って来ませんでした。千日手になってしまっているのだと思いますが、深くは調べていません。同一局面が現れたら手を変えるようにして千日手を無理やり回避するようにプログラムを改変すると、それは勝ち負けどちらの結果になったとしても必然の手順ではないということになってしまうので、実験は一旦ここで打ち切ろうと思います。&lt;/p&gt;
+
+&lt;h3 id=&quot;強いマンカラアプリ&quot;&gt;強いマンカラアプリ&lt;/h3&gt;
+&lt;p&gt;　自分のプログラムを１０手読みに設定して日本製の２つのアプリと何回か対戦させたのですが、負けは経験していないので今のところバグは無いのではと思っています。数あるAndroidアプリの中で一番強いマンカラアプリがどれなのか知りませんが、全体的に強さを追求しているアプリは少ないのかも知れません。それと海外製のアプリもいくつか触ってみましたが、ルールが微妙に違っていたりする&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;ので、強さを比較するためにはそれぞれのルールに対応しなければならず結構大変です。海外製のアプリと強さを比較するために今後ルールを変更するかも知れません。そうすると上記の表の結果も変わって来ると思います。いろいろ派生ルールがあると面倒です、しかも何回か対戦しないと気付かないような微妙な違いなので厄介です。&lt;br /&gt;
+※一例を挙げると&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.ccgames.mancala&quot;&gt;この海外製アプリ&lt;/a&gt;と対戦させて自分のプログラムが勝ち判定出した後に負けたのですが、&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.ccgames.mancala&quot;&gt;このアプリ&lt;/a&gt;はカラハとは違って&lt;strong&gt;Oware&lt;/strong&gt;というルールになっているようです。違うルールで先読みしていたら負けるのも当然です。&lt;/p&gt;
 
 &lt;h3 id=&quot;ソースファイル&quot;&gt;ソースファイル&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;/software/2014-09-23/tictactoe_arrange&quot;&gt;以前の記事&lt;/a&gt;の「３手前に打った駒が消える特殊なルールの三目並べ」のように&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/arrange&quot;&gt;github&lt;/a&gt;でソースを公開しようと思っていたのですが、マンカラのアプリも作ってみようかと考えているところなので公開するのはその後にしようと思います。GUIで検証している最中にバグが見つかるかも知れませんので、結果が変わったらこの記事を更新するつもりです。&lt;br /&gt;
@@ -886,6 +891,9 @@ result = second.think(board, first, 50, SECOND_WIN);
     &lt;/li&gt;
     &lt;li id=&quot;fn:3&quot;&gt;
       &lt;p&gt;この辺りの事情は&lt;a href=&quot;http://localhost:4000/software/2014-10-04/arrange_line&quot;&gt;以前の記事&lt;/a&gt;にも書きました。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot;&gt;
+      &lt;p&gt;自分のプログラムは先手の手番で全ての石が空になったらその時点でゲーム終了としていますが、先手番でゲームが終了したら、後手の指し手をもう一手進めてからゲームを終了するルールもあるようです。石を撒く回数を先手と後手で公平にするという意図でしょうか？ &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
