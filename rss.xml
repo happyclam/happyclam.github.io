@@ -5,14 +5,16 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2020-06-21T15:48:25+09:00</lastBuildDate>
-        <pubDate>2020-06-21T15:48:25+09:00</pubDate>
+        <lastBuildDate>2020-07-05T14:32:09+09:00</lastBuildDate>
+        <pubDate>2020-07-05T14:32:09+09:00</pubDate>
         <ttl>1800</ttl>
 
 
         <item>
                 <title>マンカラは先手必勝？後手必勝？</title>
-                <description>&lt;h3 id=&quot;最古のボードゲームらしい&quot;&gt;最古のボードゲームらしい&lt;/h3&gt;
+                <description>&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;最古のボードゲームらしい&quot;&gt;最古のボードゲームらしい&lt;/h3&gt;
 &lt;p&gt;　世界最古のボードゲームらしいのですが、存在自体知りませんでした。早速アプリをダウンロードして遊んでみたところ、何回か遊んでいるうちに勝つためのコツというのが少しずつ見えてきて楽しめましたが、それよりもこの単純なルールならすぐに人間に負けないＡＩが作れるんじゃないか？と思い試してみることにしました。&lt;/p&gt;
 
 &lt;h3 id=&quot;派生のルールがいろいろあるらしい&quot;&gt;派生のルールがいろいろあるらしい&lt;/h3&gt;
@@ -879,6 +881,10 @@ result = second.think(board, first, 50, SECOND_WIN);
 &lt;p&gt;　&lt;a href=&quot;/software/2014-09-23/tictactoe_arrange&quot;&gt;以前の記事&lt;/a&gt;の「３手前に打った駒が消える特殊なルールの三目並べ」のように&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/arrange&quot;&gt;github&lt;/a&gt;でソースを公開しようと思っていたのですが、マンカラのアプリも作ってみようかと考えているところなので公開するのはその後にしようと思います。GUIで検証している最中にバグが見つかるかも知れませんので、結果が変わったらこの記事を更新するつもりです。&lt;br /&gt;
 　MIN-MAX法やαβ法のアルゴリズムに興味のある方は、もしよろしければ&lt;a href=&quot;https://www.amazon.co.jp/HTML5-CoffeeScriptで作る最強の三目並べプログラム-MIN-MAX法からαβ法へ-happyclam-ebook/dp/B01D1IJ0S0/ref=sr_1_1?s=digital-text&amp;amp;ie=UTF8&amp;amp;qid=1473938717&amp;amp;Sr=1-1&amp;amp;keywords=三目並べ&quot;&gt;この本&lt;/a&gt;を買ってみてください。使用言語はCoffeeScript（JavaScript）ですが、本の中の相互再帰のやり方と今回の検証プログラムはほとんど同じやり方で、マンカラの場合は連続で指し手が続くケースがあるのでその部分だけif文（数行）が追加されている感じです。&lt;/p&gt;
 
+&lt;h3 id=&quot;アプリ作ってみました2020-07-05追記&quot;&gt;アプリ作ってみました（2020-07-05追記）&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラアプリ&lt;/a&gt;を作ってみました。まだ機能は少ないですが、今後追加していくつもりです。ＡＩは１０手読み固定で反応が遅いですが、今後少なくともレベル選択機能ぐらいは追加していこうと思います。&lt;br /&gt;
+　せっかくFlutterで作ったのでiPhone版もリリースしたいところですが、広告収入だけでは開発者登録費用の年間約10,000円を回収できるとは思えないので今のところ考えていません&lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+
 &lt;hr /&gt;
 
 &lt;div class=&quot;footnotes&quot;&gt;
@@ -894,6 +900,9 @@ result = second.think(board, first, 50, SECOND_WIN);
     &lt;/li&gt;
     &lt;li id=&quot;fn:4&quot;&gt;
       &lt;p&gt;自分のプログラムは先手の手番で全ての石が空になったらその時点でゲーム終了としていますが、先手番でゲームが終了したら、後手の指し手をもう一手進めてからゲームを終了するルールもあるようです。石を撒く回数を先手と後手で公平にするという意図でしょうか？ &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:5&quot;&gt;
+      &lt;p&gt;以前Cordovaで作成した機械学習型ＡＩアプリを&lt;a href=&quot;https://play.google.com/store/apps/details?id=tictactoe_evo.io.github.happyclam&quot;&gt;「進化する三目並べ」&lt;/a&gt;と題してiPhoneアプリとして公開していたのですが、売れなかったので１年間で止めてしまいました。 &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;

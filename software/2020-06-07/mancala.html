@@ -230,7 +230,9 @@ MathJax.Hub.Config({
       <span>07 June 2020</span>
     </div>
     <div class="content">
-      <h3 id="最古のボードゲームらしい">最古のボードゲームらしい</h3>
+      <p><a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam"><img src="/images/ja_badge_web_generic.png" alt="マンカラアプリ" title="マンカラ ナッツ" width="155" height="60" /></a></p>
+
+<h3 id="最古のボードゲームらしい">最古のボードゲームらしい</h3>
 <p>　世界最古のボードゲームらしいのですが、存在自体知りませんでした。早速アプリをダウンロードして遊んでみたところ、何回か遊んでいるうちに勝つためのコツというのが少しずつ見えてきて楽しめましたが、それよりもこの単純なルールならすぐに人間に負けないＡＩが作れるんじゃないか？と思い試してみることにしました。</p>
 
 <h3 id="派生のルールがいろいろあるらしい">派生のルールがいろいろあるらしい</h3>
@@ -1097,6 +1099,10 @@ result = second.think(board, first, 50, SECOND_WIN);
 <p>　<a href="/software/2014-09-23/tictactoe_arrange">以前の記事</a>の「３手前に打った駒が消える特殊なルールの三目並べ」のように<a href="https://github.com/happyclam/tictactoe_ruby/tree/arrange">github</a>でソースを公開しようと思っていたのですが、マンカラのアプリも作ってみようかと考えているところなので公開するのはその後にしようと思います。GUIで検証している最中にバグが見つかるかも知れませんので、結果が変わったらこの記事を更新するつもりです。<br />
 　MIN-MAX法やαβ法のアルゴリズムに興味のある方は、もしよろしければ<a href="https://www.amazon.co.jp/HTML5-CoffeeScriptで作る最強の三目並べプログラム-MIN-MAX法からαβ法へ-happyclam-ebook/dp/B01D1IJ0S0/ref=sr_1_1?s=digital-text&amp;ie=UTF8&amp;qid=1473938717&amp;Sr=1-1&amp;keywords=三目並べ">この本</a>を買ってみてください。使用言語はCoffeeScript（JavaScript）ですが、本の中の相互再帰のやり方と今回の検証プログラムはほとんど同じやり方で、マンカラの場合は連続で指し手が続くケースがあるのでその部分だけif文（数行）が追加されている感じです。</p>
 
+<h3 id="アプリ作ってみました2020-07-05追記">アプリ作ってみました（2020-07-05追記）</h3>
+<p>　<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">マンカラアプリ</a>を作ってみました。まだ機能は少ないですが、今後追加していくつもりです。ＡＩは１０手読み固定で反応が遅いですが、今後少なくともレベル選択機能ぐらいは追加していこうと思います。<br />
+　せっかくFlutterで作ったのでiPhone版もリリースしたいところですが、広告収入だけでは開発者登録費用の年間約10,000円を回収できるとは思えないので今のところ考えていません<sup id="fnref:5"><a href="#fn:5" class="footnote">5</a></sup>。</p>
+
 <hr />
 
 <div class="footnotes">
@@ -1112,6 +1118,9 @@ result = second.think(board, first, 50, SECOND_WIN);
     </li>
     <li id="fn:4">
       <p>自分のプログラムは先手の手番で全ての石が空になったらその時点でゲーム終了としていますが、先手番でゲームが終了したら、後手の指し手をもう一手進めてからゲームを終了するルールもあるようです。石を撒く回数を先手と後手で公平にするという意図でしょうか？ <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:5">
+      <p>以前Cordovaで作成した機械学習型ＡＩアプリを<a href="https://play.google.com/store/apps/details?id=tictactoe_evo.io.github.happyclam">「進化する三目並べ」</a>と題してiPhoneアプリとして公開していたのですが、売れなかったので１年間で止めてしまいました。 <a href="#fnref:5" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>
