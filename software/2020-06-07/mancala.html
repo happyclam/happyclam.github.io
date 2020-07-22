@@ -230,7 +230,8 @@ MathJax.Hub.Config({
       <span>07 June 2020</span>
     </div>
     <div class="content">
-      <p><a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam"><img src="/images/ja_badge_web_generic.png" alt="マンカラアプリ" title="マンカラ ナッツ" width="155" height="60" /></a></p>
+      <p><a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam"><img src="/images/ja_badge_web_generic.png" alt="マンカラアプリ" title="マンカラ ナッツ" width="155" height="60" /></a>
+<a href="https://www.amazon.co.jp/happyclam-マンカラ-ナッツ/dp/B08D8QVVQY/ref=sr_1_10?__mk_ja_JP=カタカナ&amp;dchild=1&amp;keywords=マンカラ&amp;qid=1595382601&amp;s=mobile-apps&amp;sr=1-10"><img src="/images/amazon-appstore-badge-jp-white.png" alt="マンカラアプリ" title="マンカラ ナッツ" width="155" height="60" /></a></p>
 
 <h3 id="最古のボードゲームらしい">最古のボードゲームらしい</h3>
 <p>　世界最古のボードゲームらしいのですが、存在自体知りませんでした。早速アプリをダウンロードして遊んでみたところ、何回か遊んでいるうちに勝つためのコツというのが少しずつ見えてきて楽しめましたが、それよりもこの単純なルールならすぐに人間に負けないＡＩが作れるんじゃないか？と思い試してみることにしました。</p>
@@ -1102,8 +1103,8 @@ result = second.think(board, first, 50, SECOND_WIN);
 　MIN-MAX法やαβ法のアルゴリズムに興味のある方は、もしよろしければ<a href="https://www.amazon.co.jp/HTML5-CoffeeScriptで作る最強の三目並べプログラム-MIN-MAX法からαβ法へ-happyclam-ebook/dp/B01D1IJ0S0/ref=sr_1_1?s=digital-text&amp;ie=UTF8&amp;qid=1473938717&amp;Sr=1-1&amp;keywords=三目並べ">この本</a>を買ってみてください。使用言語はCoffeeScript（JavaScript）ですが、本の中の相互再帰のやり方と今回の検証プログラムはほとんど同じやり方で、マンカラの場合は連続で指し手が続くケースがあるのでその部分だけif文（数行）が追加されている感じです。</p>
 
 <h3 id="アプリ作ってみました2020-07-05追記">アプリ作ってみました（2020-07-05追記）</h3>
-<p>　<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">マンカラアプリ</a>を作ってみました。まだ機能は少ないですが、今後追加していくつもりです。ＡＩは１０手読み固定で反応が遅いですが、今後少なくともレベル選択機能ぐらいは追加していこうと思います。<br />
-　せっかくFlutterで作ったのでiPhone版もリリースしたいところですが、広告収入だけでは開発者登録費用の年間約10,000円を回収できるとは思えないので今のところ考えていません<sup id="fnref:6"><a href="#fn:6" class="footnote">6</a></sup>。</p>
+<p>　<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">マンカラアプリ</a>を作ってみました。まだ機能は少ないですが、今後追加していくつもりです。<br />
+　せっかくFlutterで作ったのでiPhone版もリリースしたいところですが、開発者登録費用の年間約10,000円を回収できる目処が立てばリリースするかも知れません<sup id="fnref:6"><a href="#fn:6" class="footnote">6</a></sup>。</p>
 
 <hr />
 
@@ -1119,7 +1120,7 @@ result = second.think(board, first, 50, SECOND_WIN);
       <p>この辺りの事情は<a href="http://localhost:4000/software/2014-10-04/arrange_line">以前の記事</a>にも書きました。 <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
     </li>
     <li id="fn:4">
-      <p>アプリの設定をExpertにすると１０手読みですが、他のアプリと対戦させてみても結構強いです。絶対負けないプログラムにするにはこの記事の実験結果から考えて２０手以上の先読みが必要になると思われるので、アプリに実装するのは難しいと思いますが、まずは読む局面が増えた時にループ？に入ってしまう原因をはっきりさせたいところです。他の処理系で確認したいのですが、それをやってもメリットが無いのでモチベーションが湧きません…。 <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+      <p>アプリの設定をExpertにすると１０手読みですが、他のアプリと対戦させてみても結構強いです。絶対負けないプログラムにするにはこの記事の実験結果から考えて２０手以上の先読みが必要になると思われるので、アプリに実装するのは難しいと思いますが、まずは読む局面が増えた時にループ？に入ってしまう原因をはっきりさせたいところです。他の処理系で確認したいのですが、それをやってもメリットが無いので意欲が湧きません…。 <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
     </li>
     <li id="fn:5">
       <p>自分のプログラムは先手の手番で全ての石が空になったらその時点でゲーム終了としていますが、先手番でゲームが終了したら、後手の指し手をもう一手進めてからゲームを終了するルールもあるようです。石を撒く回数を先手と後手で公平にするという意図でしょうか？ <a href="#fnref:5" class="reversefootnote">&#8617;</a></p>

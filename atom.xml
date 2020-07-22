@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-07-12T08:53:24+09:00</updated>
+ <updated>2020-07-22T11:18:14+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -17,7 +17,8 @@
    <link href="https://happyclam.github.io/software/2020-06-07/mancala"/>
    <updated>2020-06-07T00:00:00+09:00</updated>
    <id>https://happyclam.github.io/software/2020-06-07/mancala</id>
-   <content type="html">&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;https://www.amazon.co.jp/happyclam-マンカラ-ナッツ/dp/B08D8QVVQY/ref=sr_1_10?__mk_ja_JP=カタカナ&amp;amp;dchild=1&amp;amp;keywords=マンカラ&amp;amp;qid=1595382601&amp;amp;s=mobile-apps&amp;amp;sr=1-10&quot;&gt;&lt;img src=&quot;/images/amazon-appstore-badge-jp-white.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;最古のボードゲームらしい&quot;&gt;最古のボードゲームらしい&lt;/h3&gt;
 &lt;p&gt;　世界最古のボードゲームらしいのですが、存在自体知りませんでした。早速アプリをダウンロードして遊んでみたところ、何回か遊んでいるうちに勝つためのコツというのが少しずつ見えてきて楽しめましたが、それよりもこの単純なルールならすぐに人間に負けないＡＩが作れるんじゃないか？と思い試してみることにしました。&lt;/p&gt;
@@ -889,8 +890,8 @@ result = second.think(board, first, 50, SECOND_WIN);
 　MIN-MAX法やαβ法のアルゴリズムに興味のある方は、もしよろしければ&lt;a href=&quot;https://www.amazon.co.jp/HTML5-CoffeeScriptで作る最強の三目並べプログラム-MIN-MAX法からαβ法へ-happyclam-ebook/dp/B01D1IJ0S0/ref=sr_1_1?s=digital-text&amp;amp;ie=UTF8&amp;amp;qid=1473938717&amp;amp;Sr=1-1&amp;amp;keywords=三目並べ&quot;&gt;この本&lt;/a&gt;を買ってみてください。使用言語はCoffeeScript（JavaScript）ですが、本の中の相互再帰のやり方と今回の検証プログラムはほとんど同じやり方で、マンカラの場合は連続で指し手が続くケースがあるのでその部分だけif文（数行）が追加されている感じです。&lt;/p&gt;
 
 &lt;h3 id=&quot;アプリ作ってみました2020-07-05追記&quot;&gt;アプリ作ってみました（2020-07-05追記）&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラアプリ&lt;/a&gt;を作ってみました。まだ機能は少ないですが、今後追加していくつもりです。ＡＩは１０手読み固定で反応が遅いですが、今後少なくともレベル選択機能ぐらいは追加していこうと思います。&lt;br /&gt;
-　せっかくFlutterで作ったのでiPhone版もリリースしたいところですが、広告収入だけでは開発者登録費用の年間約10,000円を回収できるとは思えないので今のところ考えていません&lt;sup id=&quot;fnref:6&quot;&gt;&lt;a href=&quot;#fn:6&quot; class=&quot;footnote&quot;&gt;6&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラアプリ&lt;/a&gt;を作ってみました。まだ機能は少ないですが、今後追加していくつもりです。&lt;br /&gt;
+　せっかくFlutterで作ったのでiPhone版もリリースしたいところですが、開発者登録費用の年間約10,000円を回収できる目処が立てばリリースするかも知れません&lt;sup id=&quot;fnref:6&quot;&gt;&lt;a href=&quot;#fn:6&quot; class=&quot;footnote&quot;&gt;6&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -906,7 +907,7 @@ result = second.think(board, first, 50, SECOND_WIN);
       &lt;p&gt;この辺りの事情は&lt;a href=&quot;http://localhost:4000/software/2014-10-04/arrange_line&quot;&gt;以前の記事&lt;/a&gt;にも書きました。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:4&quot;&gt;
-      &lt;p&gt;アプリの設定をExpertにすると１０手読みですが、他のアプリと対戦させてみても結構強いです。絶対負けないプログラムにするにはこの記事の実験結果から考えて２０手以上の先読みが必要になると思われるので、アプリに実装するのは難しいと思いますが、まずは読む局面が増えた時にループ？に入ってしまう原因をはっきりさせたいところです。他の処理系で確認したいのですが、それをやってもメリットが無いのでモチベーションが湧きません…。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;アプリの設定をExpertにすると１０手読みですが、他のアプリと対戦させてみても結構強いです。絶対負けないプログラムにするにはこの記事の実験結果から考えて２０手以上の先読みが必要になると思われるので、アプリに実装するのは難しいと思いますが、まずは読む局面が増えた時にループ？に入ってしまう原因をはっきりさせたいところです。他の処理系で確認したいのですが、それをやってもメリットが無いので意欲が湧きません…。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:5&quot;&gt;
       &lt;p&gt;自分のプログラムは先手の手番で全ての石が空になったらその時点でゲーム終了としていますが、先手番でゲームが終了したら、後手の指し手をもう一手進めてからゲームを終了するルールもあるようです。石を撒く回数を先手と後手で公平にするという意図でしょうか？ &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
