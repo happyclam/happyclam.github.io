@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2020-07-22T11:18:14+09:00</lastBuildDate>
-        <pubDate>2020-07-22T11:18:14+09:00</pubDate>
+        <lastBuildDate>2020-07-25T12:15:03+09:00</lastBuildDate>
+        <pubDate>2020-07-25T12:15:03+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -874,7 +874,7 @@ result = second.think(board, first, 50, SECOND_WIN);
 
 &lt;p&gt;　石の数を３個以上にするとベーシックの時と同じように先読みメソッドから返事が返って来ませんでした。&lt;del&gt;千日手になってしまっているのだと思いますが、深くは調べていません。同一局面が現れたら手を変えるようにして千日手を無理やり回避するようにプログラムを改変すると、それは勝ち負けどちらの結果になったとしても必然の手順ではないということになってしまうので、&lt;/del&gt; 実験は一旦ここで打ち切ろうと思います。&lt;br /&gt;
 　（訂正）冷静に考えると石を撒く時に自分のストアを通過して動かせる石が減るので、千日手（循環手順）があるとは思えません。GUIでテスト中に何かバグが見つかるかもと期待していましたが、アプリのテスト中も今のところバグらしきものは見つけられません&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;ので、局面が増えた時になぜ先読みメソッドがループ？に入るのか謎です。それとこの手の先読みプログラムをDartで作ったのは初めてなのですが、先読みの深さを1000とか10000とかにしてもスタックオーバーフローが発生しない理由がよく分からないのですが、そのことと何か関係があるのかも知れません。&lt;br /&gt;
-　今&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;をFlutter(Dart)に移植中ですので、今後何か分かればこの記事を更新しようと思います。&lt;/p&gt;
+　今&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;をFlutter(Dart)に移植中ですが、将棋アプリでも深く読ませると呼び出し元に戻ってこないという同じような状況になります。ハングアップしてる訳ではなさそうなので、ある限界を超えると極端に遅くなるだけかも知れません。また、読みが浅ければ問題ありません。スタック絡みのエラーになるべきところでエラーにならないとしたらDartに問題があるということになりますが、そう言い切れるとこまで調べてられないので、この問題はとりあえず放置しておきます…。&lt;/p&gt;
 
 &lt;h3 id=&quot;強いマンカラアプリ&quot;&gt;強いマンカラアプリ&lt;/h3&gt;
 &lt;p&gt;　自分のプログラムを１０手読みに設定して日本製の２つのアプリと何回か対戦させたのですが、負けは経験していないので今のところバグは無いのではと思っています。数あるAndroidアプリの中で一番強いマンカラアプリがどれなのか知りませんが、全体的に強さを追求しているアプリは少ないのかも知れません。それと海外製のアプリもいくつか触ってみましたが、ルールが微妙に違っていたりする&lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;ので、強さを比較するためにはそれぞれのルールに対応しなければならず結構大変です。海外製のアプリと強さを比較するために今後ルールを変更するかも知れません。そうすると上記の表の結果も変わって来ると思います。いろいろ派生ルールがあると面倒です、しかも何回か対戦しないと気付かないような微妙な違いなので厄介です。&lt;br /&gt;
@@ -902,7 +902,7 @@ result = second.think(board, first, 50, SECOND_WIN);
       &lt;p&gt;この辺りの事情は&lt;a href=&quot;http://localhost:4000/software/2014-10-04/arrange_line&quot;&gt;以前の記事&lt;/a&gt;にも書きました。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:4&quot;&gt;
-      &lt;p&gt;アプリの設定をExpertにすると１０手読みですが、他のアプリと対戦させてみても結構強いです。絶対負けないプログラムにするにはこの記事の実験結果から考えて２０手以上の先読みが必要になると思われるので、アプリに実装するのは難しいと思いますが、まずは読む局面が増えた時にループ？に入ってしまう原因をはっきりさせたいところです。他の処理系で確認したいのですが、それをやってもメリットが無いので意欲が湧きません…。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;アプリの設定をExpertにすると１０手読みですが、他のアプリと対戦させてみても結構強いです。絶対負けないプログラムにするにはこの記事の実験結果から考えて２０手以上の先読みが必要になると思われるので、アプリに実装するのは応答時間の問題で難しいと思いますが、まずは読む局面が増えた時にループ？に入ってしまう原因をはっきりさせたいところです。他の処理系で確認したいのですが、それをやってもメリットが無いので意欲が湧きません…。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:5&quot;&gt;
       &lt;p&gt;自分のプログラムは先手の手番で全ての石が空になったらその時点でゲーム終了としていますが、先手番でゲームが終了したら、後手の指し手をもう一手進めてからゲームを終了するルールもあるようです。石を撒く回数を先手と後手で公平にするという意図でしょうか？ &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
