@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-07-25T12:15:03+09:00</updated>
+ <updated>2020-08-01T11:45:07+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -878,8 +878,7 @@ result = second.think(board, first, 50, SECOND_WIN);
 &lt;/table&gt;
 
 &lt;p&gt;　石の数を３個以上にするとベーシックの時と同じように先読みメソッドから返事が返って来ませんでした。&lt;del&gt;千日手になってしまっているのだと思いますが、深くは調べていません。同一局面が現れたら手を変えるようにして千日手を無理やり回避するようにプログラムを改変すると、それは勝ち負けどちらの結果になったとしても必然の手順ではないということになってしまうので、&lt;/del&gt; 実験は一旦ここで打ち切ろうと思います。&lt;br /&gt;
-　（訂正）冷静に考えると石を撒く時に自分のストアを通過して動かせる石が減るので、千日手（循環手順）があるとは思えません。GUIでテスト中に何かバグが見つかるかもと期待していましたが、アプリのテスト中も今のところバグらしきものは見つけられません&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;ので、局面が増えた時になぜ先読みメソッドがループ？に入るのか謎です。それとこの手の先読みプログラムをDartで作ったのは初めてなのですが、先読みの深さを1000とか10000とかにしてもスタックオーバーフローが発生しない理由がよく分からないのですが、そのことと何か関係があるのかも知れません。&lt;br /&gt;
-　今&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;をFlutter(Dart)に移植中ですが、将棋アプリでも深く読ませると呼び出し元に戻ってこないという同じような状況になります。ハングアップしてる訳ではなさそうなので、ある限界を超えると極端に遅くなるだけかも知れません。また、読みが浅ければ問題ありません。スタック絡みのエラーになるべきところでエラーにならないとしたらDartに問題があるということになりますが、そう言い切れるとこまで調べてられないので、この問題はとりあえず放置しておきます…。&lt;/p&gt;
+　（訂正）冷静に考えると石を撒きながら自分のストアを通過する度に動かせる石が減っていくので、千日手（循環手順）があるとは思えません。GUIでテスト中に何かバグが見つかるかもと期待していましたが、アプリのテスト中も今のところバグらしきものは見つけられません&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;ので、局面が増えた時になぜ先読みメソッドがループ？に入るのか謎です。それとこの手の先読みプログラムをDartで作ったのは初めてなのですが、先読みの深さを1000とか10000とかにしてもスタックオーバーフローが発生しない理由がよく分からないのですが、そのことと何か関係があるのかも知れません。&lt;/p&gt;
 
 &lt;h3 id=&quot;強いマンカラアプリ&quot;&gt;強いマンカラアプリ&lt;/h3&gt;
 &lt;p&gt;　自分のプログラムを１０手読みに設定して日本製の２つのアプリと何回か対戦させたのですが、負けは経験していないので今のところバグは無いのではと思っています。数あるAndroidアプリの中で一番強いマンカラアプリがどれなのか知りませんが、全体的に強さを追求しているアプリは少ないのかも知れません。それと海外製のアプリもいくつか触ってみましたが、ルールが微妙に違っていたりする&lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;ので、強さを比較するためにはそれぞれのルールに対応しなければならず結構大変です。海外製のアプリと強さを比較するために今後ルールを変更するかも知れません。そうすると上記の表の結果も変わって来ると思います。いろいろ派生ルールがあると面倒です、しかも何回か対戦しないと気付かないような微妙な違いなので厄介です。&lt;br /&gt;
@@ -892,6 +891,127 @@ result = second.think(board, first, 50, SECOND_WIN);
 &lt;h3 id=&quot;アプリ作ってみました2020-07-05追記&quot;&gt;アプリ作ってみました（2020-07-05追記）&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラアプリ&lt;/a&gt;を作ってみました。まだ機能は少ないですが、今後追加していくつもりです。&lt;br /&gt;
 　せっかくFlutterで作ったのでiPhone版もリリースしたいところですが、開発者登録費用の年間約10,000円を回収できる目処が立てばリリースするかも知れません&lt;sup id=&quot;fnref:6&quot;&gt;&lt;a href=&quot;#fn:6&quot; class=&quot;footnote&quot;&gt;6&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;計算量の問題だけだったみたい2020-08-01追記&quot;&gt;計算量の問題だけだったみたい（2020-08-01追記）&lt;/h3&gt;
+&lt;p&gt;　本文中、「先読みメソッドから戻ってこない理由が分からない」とややこしいこと書いていますが、単に私が待ち切れなかっただけのようです。３×２列から６×２列に配列要素を増やすことで当然計算量は増えますが、それだけでなく石の数を増やすことでもかなりの計算量の増加があるようです。&lt;br /&gt;
+　以下は６×２列のカラハで石の数を２にして、反復深化で先読みさせたFlutterのテストの実行結果です。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;00:02 +0: First thinking test2 depth = 1
+result = [1, 5], depth = 1
+00:02 +1: First thinking test2 depth = 2
+result = [0, 5], depth = 2
+00:02 +2: First thinking test2 depth = 3
+result = [3, 5], depth = 3
+00:02 +3: First thinking test2 depth = 4
+result = [4, 5], depth = 4
+00:02 +4: First thinking test2 depth = 5
+result = [5, 5], depth = 5
+00:02 +5: First thinking test2 depth = 6
+result = [4, 5], depth = 6
+00:02 +6: First thinking test2 depth = 7
+result = [5, 5], depth = 7
+00:02 +7: First thinking test2 depth = 8
+result = [4, 5], depth = 8
+00:02 +8: First thinking test2 depth = 9
+result = [4, 5], depth = 9
+00:03 +9: First thinking test2 depth = 10
+result = [4, 5], depth = 10
+00:04 +10: First thinking test2 depth = 11
+result = [3, 5], depth = 11
+00:08 +11: First thinking test2 depth = 12
+result = [5, 5], depth = 12
+00:17 +12: First thinking test2 depth = 13
+result = [4, 5], depth = 13
+00:46 +13: First thinking test2 depth = 14
+result = [5, 5], depth = 14
+01:47 +14: First thinking test2 depth = 15
+result = [6, 5], depth = 15
+05:41 +15: First thinking test2 depth = 16
+result = [2, 6], depth = 16
+16:16 +16: First thinking test2 depth = 17
+result = [3, 6], depth = 17
+41:56 +17: First thinking test2 depth = 18
+result = [999, 5], depth = 18
+92:59 +18: All tests passed!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　最後の行の１９手読みの実行時間は９２分５９秒ですが、反復深化で調べると１手読みからの累積時間が必要となる（同じ経路を何度も調べている）ので、手間を惜しんで以下のように一気に５０手読みをさせていました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Dart&quot;&gt;final List board = [0,2,2,2,2,2,2,0,2,2,2,2,2,2];
+Stopwatch watch = new Stopwatch();
+watch.start();
+result = first.think(board, second, 50, FIRST_WIN);
+print(watch.elapsedMilliseconds);
+print(result);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;　この実行結果は以下のようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Dart&quot;&gt;4389283
+[999, 5]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　4389283ミリ秒＝約１時間１３分で反復深化で調べるより時間が短縮できます。&lt;br /&gt;
+そこで手数は分からなくてもいいから、まず５０手以内に必勝手順が存在するかどうかを確認しようと思い、石３個の場合も以下のように一気に５０手読みで実行していました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Dart&quot;&gt;final List board = [0,3,3,3,3,3,3,0,3,3,3,3,3,3];
+Stopwatch watch = new Stopwatch();
+watch.start();
+result = first.think(board, second, 50, FIRST_WIN);
+print(watch.elapsedMilliseconds);
+print(result);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　そして、丸一日経ってもプログラムが終了しないので、おかしいなぁと悩んでた訳です。&lt;br /&gt;
+　でも、このやり方だと石２個の時のように必勝の結論が得られればいいですが、その結論が得られない場合、計算量が指数関数的に増えて必要な時間も増えていきます。&lt;br /&gt;
+　試しに石３個の場合にどれぐらいの時間が必要なのか確認してみたのが以下の結果です。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Dart&quot;&gt;00:08 +0: First thinking test3 depth = 1
+result = [5, 4], depth = 1
+00:08 +1: First thinking test3 depth = 2
+result = [4, 4], depth = 2
+00:08 +2: First thinking test3 depth = 3
+result = [1, 5], depth = 3
+00:08 +3: First thinking test3 depth = 4
+result = [3, 5], depth = 4
+00:08 +4: First thinking test3 depth = 5
+result = [1, 6], depth = 5
+00:08 +5: First thinking test3 depth = 6
+result = [3, 6], depth = 6
+00:08 +6: First thinking test3 depth = 7
+result = [3, 5], depth = 7
+00:08 +7: First thinking test3 depth = 8
+result = [2, 5], depth = 8
+00:08 +8: First thinking test3 depth = 9
+result = [2, 5], depth = 9
+00:09 +9: First thinking test3 depth = 10
+result = [4, 5], depth = 10
+00:12 +10: First thinking test3 depth = 11
+result = [3, 5], depth = 11
+00:24 +11: First thinking test3 depth = 12
+result = [2, 5], depth = 12
+01:09 +12: First thinking test3 depth = 13
+result = [3, 5], depth = 13
+04:02 +13: First thinking test3 depth = 14
+result = [3, 5], depth = 14
+13:20 +14: First thinking test3 depth = 15
+result = [4, 5], depth = 15
+42:39 +15: First thinking test3 depth = 16
+result = [4, 5], depth = 16
+136:42 +16: First thinking test3 depth = 17
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　最初の内は読みが深くなっても時間はそれほど変わりませんが、途中から一手読みが深くなる毎に２倍、３倍と増えていくのが分かります。１８手読みまでに必勝手順は見つからず、１８手読みの段階で136分（約２時間強）以上かかっています。このペースで時間が増えていくと５０手読みだと数週間では済まないかも知れません。どおりで１日では終わらない訳です。５０手までに必勝手順が存在すれば数日で終了するかも知れませんがなんとも言えません。また、石４個だとさらに時間が必要になります。数ヶ月掛かるんじゃないでしょうか？&lt;br /&gt;
+　ちなみに石１個だと「１５手で先手必勝」の結論が、実行時間７秒で得られます。&lt;br /&gt;
+　実行環境は&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;CPU:&lt;code&gt;Intel(R) Core(TM) i7-2600K CPU @ 3.40GHz&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Memory: &lt;code&gt;12GB&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Dart: &lt;code&gt;Dart VM version: 2.8.4 (stable) (Unknown timestamp) on &quot;linux_x64&quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;です。どうしようか思案中です。&lt;br /&gt;
+　それにしてもDartはスタックオーバーフローが発生しない仕組みがあると考えていいのでしょうか？他の言語処理系だと５０手も先を読もうとすると真っ先に５０手先の末端ノードまで達してスタックオーバーフローが発生することが多いと思います&lt;sup id=&quot;fnref:7&quot;&gt;&lt;a href=&quot;#fn:7&quot; class=&quot;footnote&quot;&gt;7&lt;/a&gt;&lt;/sup&gt;。例え５０手で発生しなくても、先読みの深さに極端に大きな値を与えるとスタックオーバーフローが発生するので、そこで大体の限界値の見当が付きますが、先読み手数の値に1000とか10000を指定してもエラーが発生しないものですから正常に動いているのかどうか判断つきませんでした。&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -907,13 +1027,16 @@ result = second.think(board, first, 50, SECOND_WIN);
       &lt;p&gt;この辺りの事情は&lt;a href=&quot;http://localhost:4000/software/2014-10-04/arrange_line&quot;&gt;以前の記事&lt;/a&gt;にも書きました。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:4&quot;&gt;
-      &lt;p&gt;アプリの設定をExpertにすると１０手読みですが、他のアプリと対戦させてみても結構強いです。絶対負けないプログラムにするにはこの記事の実験結果から考えて２０手以上の先読みが必要になると思われるので、アプリに実装するのは応答時間の問題で難しいと思いますが、まずは読む局面が増えた時にループ？に入ってしまう原因をはっきりさせたいところです。他の処理系で確認したいのですが、それをやってもメリットが無いので意欲が湧きません…。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;アプリの設定をExpertにすると１０手読みですが、他のアプリと対戦させてみても結構強いです。絶対負けないプログラムにするにはこの記事の実験結果から考えて２０手以上の先読みが必要になると思われるので、アプリに実装するのは応答時間の問題で難しいと思います。海外製の強いアプリをいくつか見つけましたが、データ構造を小さくしたり、定跡データ化したり工夫しているのだと思います。やはり歴史が長い海外製の方がずっと先を行ってそうです。それかオープンソースの優秀なマンカラ用のライブラリが既にあるのかも知れません。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:5&quot;&gt;
       &lt;p&gt;自分のプログラムは先手の手番で全ての石が空になったらその時点でゲーム終了としていますが、先手番でゲームが終了したら、後手の指し手をもう一手進めてからゲームを終了するルールもあるようです。石を撒く回数を先手と後手で公平にするという意図でしょうか？ &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:6&quot;&gt;
       &lt;p&gt;以前Cordovaで作成した機械学習型ＡＩアプリを&lt;a href=&quot;https://play.google.com/store/apps/details?id=tictactoe_evo.io.github.happyclam&quot;&gt;「進化する三目並べ」&lt;/a&gt;と題してiPhoneアプリとして公開していたのですが、売れなかったので１年間で止めてしまいました。 &lt;a href=&quot;#fnref:6&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:7&quot;&gt;
+      &lt;p&gt;こう書くと「自前でスタックを用意してスタックオーバーフローが発生しないようなコードを書けばいい」と簡単に言い切ってしまう人がいますが、アルゴリズムの本とかに書かれている定番の簡単な処理以外では、かなり面倒な作業を強いられることが多いと思います。 &lt;a href=&quot;#fnref:7&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
