@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2020-08-09T10:27:03+09:00</lastBuildDate>
-        <pubDate>2020-08-09T10:27:03+09:00</pubDate>
+        <lastBuildDate>2020-08-09T13:41:03+09:00</lastBuildDate>
+        <pubDate>2020-08-09T13:41:03+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -20,7 +20,7 @@
 　今回はマンカライージーに関して、前回同様必勝手順の有無についての実験結果を書いてみます。マンカライージーのルールについては&lt;a href=&quot;https://hugkum.sho.jp/96590&quot;&gt;ここ&lt;/a&gt;にベーシックとカラハと比較して書かれています。相手のストアには石を撒かない点と自分のストアに溜まった石の数で勝敗を決める点でカラハと同じです。カラハと違うのは相手の石を横取り（Capture）するルールが無いことです。&lt;/p&gt;
 
 &lt;h3 id=&quot;実験結果３２列イージー&quot;&gt;実験結果（３×２列イージー）&lt;/h3&gt;
-&lt;p&gt;　石の数を１〜７個にして、５０手先読みしたそれぞれの結果です。&lt;/p&gt;
+&lt;p&gt;　石の数を１〜５個にして、５０手先読みしたそれぞれの結果です。&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
