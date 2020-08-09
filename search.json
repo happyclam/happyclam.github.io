@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "マンカラアプリについて",
+      "category" : "project",
+      "tags"     : "flutter, dart, android, mancala",
+      "url"      : "/project/2020-08-10/mancalanuts",
+      "date"     : "2020-08-10 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "マンカラの必勝手順の有無（続編）",
       "category" : "software",
       "tags"     : "dart, android, flutter, mancala",

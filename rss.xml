@@ -5,10 +5,92 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2020-08-09T13:41:03+09:00</lastBuildDate>
-        <pubDate>2020-08-09T13:41:03+09:00</pubDate>
+        <lastBuildDate>2020-08-09T21:51:38+09:00</lastBuildDate>
+        <pubDate>2020-08-09T21:51:38+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>マンカラアプリについて</title>
+                <description>&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;https://www.amazon.co.jp/happyclam-マンカラ-ナッツ/dp/B08D8QVVQY/ref=sr_1_10?__mk_ja_JP=カタカナ&amp;amp;dchild=1&amp;amp;keywords=マンカラ&amp;amp;qid=1595382601&amp;amp;s=mobile-apps&amp;amp;sr=1-10&quot;&gt;&lt;img src=&quot;/images/amazon-appstore-badge-jp-white.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;マンカラ-ナッツについて&quot;&gt;「マンカラ ナッツ」について&lt;/h3&gt;
+&lt;p&gt;　ＡＩの設定で最も強い&lt;code&gt;Expert&lt;/code&gt;にすると１０手読みを行う強いマンカラアプリです。また多くのマンカラアプリは一度対局を始めるとゲーム終了まで設定を変更出来ないものが多いと思いますが、対人戦の途中でＡＩ対戦に切り替えたり、ＡＩ対戦の途中で対人戦に切り替えたりして、マンカラの特定の局面での最善手の研究にも使えるように配慮しました。&lt;/p&gt;
+
+&lt;h3 id=&quot;ルール&quot;&gt;ルール&lt;/h3&gt;
+&lt;p&gt;　数あるマンカラのルールの中で、&lt;code&gt;カラハ（Karah）&lt;/code&gt;と呼ばれるルールを採用しています。&lt;br /&gt;
+　上下２列に並んだ６つのポケットにナッツが入っていて、上がAI、下があなたです。丸い６つのポケットからどれかを選んでナッツを取り出し、反時計回りにナッツを一つずつポケットに撒いていきます。どちらかの６つのポケットが全て空になったらゲーム終了し、右側の四角い自分の貯蔵所に残ったナッツの数で勝ち負けを判定します。&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;相手の貯蔵所にはナッツを撒きません。&lt;/li&gt;
+  &lt;li&gt;ナッツを撒き終わったポケットが自分の貯蔵所の場合、もう一度ポケットを選んでナッツを撒くことが出来ます。&lt;/li&gt;
+  &lt;li&gt;自分の空のポケットでナッツを撒き終わった場合、その対称に位置する相手のナッツを横取り（Capture）して自分の貯蔵所に加えることが出来ます。&lt;/li&gt;
+  &lt;li&gt;ゲーム終了時にポケットに残ったナッツは全て自分の貯蔵所に加えます。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;機能&quot;&gt;機能&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;ＡＩ対戦（レベルは３段階）&lt;/li&gt;
+  &lt;li&gt;人対人対戦&lt;/li&gt;
+  &lt;li&gt;待った機能&lt;/li&gt;
+  &lt;li&gt;ピース選択（コーヒー豆、ピスタチオ、アーモンド）機能&lt;/li&gt;
+  &lt;li&gt;ピースの数選択機能（３個、４個、５個から選択）&lt;/li&gt;
+  &lt;li&gt;対局成績保存機能（ゲーム途中で設定を変更した場合は対戦成績には記録されません）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;ａｉ対戦&quot;&gt;ＡＩ対戦&lt;/h3&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/mancala_screen1.png&quot; alt=&quot;ＡＩ対戦画面&quot; title=&quot;ＡＩ対戦画面&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;Stop&lt;/code&gt;ボタンでゲームを中断し、&lt;code&gt;Play&lt;/code&gt;ボタンで新規対局開始されます。&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;Setting&lt;/code&gt;画面で&lt;code&gt;One Player&lt;/code&gt;を選ぶとＡＩ対戦となります。&lt;/li&gt;
+  &lt;li&gt;ＡＩの対戦途中に強さ設定を変更すると、そのゲーム結果は対戦成績に記録されません。&lt;/li&gt;
+  &lt;li&gt;ＡＩ対戦の場合は&lt;code&gt;Undo&lt;/code&gt;ボタンで一つ前の人間の手番まで戻ります。ＡＩが連続で複数回着手していた場合も複数手分のＡＩの指し手を飛ばして、一つ前の人間の手番の局面に戻ります。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;対人対戦&quot;&gt;対人対戦&lt;/h3&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/mancala_screen2.png&quot; alt=&quot;対人対戦画面&quot; title=&quot;対人対戦画面&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;Stop&lt;/code&gt;ボタンでゲームを中断し、&lt;code&gt;Play&lt;/code&gt;ボタンで新規対局開始されます。&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;Setting&lt;/code&gt;画面で&lt;code&gt;Two Players&lt;/code&gt;を選ぶと対人対戦となります。&lt;/li&gt;
+  &lt;li&gt;途中でＡＩ対戦に戻すことも出来ます。途中からＡＩ対戦に切り替えても、勝敗は対戦成績には記録されません。&lt;/li&gt;
+  &lt;li&gt;対人対戦の場合は&lt;code&gt;Undo&lt;/code&gt;ボタンで一手ずつ前の局面に戻ります。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;設定画面&quot;&gt;設定画面&lt;/h3&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/mancala_screen3.png&quot; alt=&quot;設定画面&quot; title=&quot;設定画面&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ピースは&lt;code&gt;Coffee&lt;/code&gt;、&lt;code&gt;Pistachio&lt;/code&gt;、&lt;code&gt;Almond&lt;/code&gt;の３種類から選べます。&lt;/li&gt;
+  &lt;li&gt;初期のピースの数は３&lt;code&gt;Three&lt;/code&gt;、４&lt;code&gt;Four&lt;/code&gt;、５&lt;code&gt;Five&lt;/code&gt;の３種類から選べます。&lt;/li&gt;
+  &lt;li&gt;ＡＩの強さは&lt;code&gt;Easy&lt;/code&gt;、&lt;code&gt;Hard&lt;/code&gt;、&lt;code&gt;Expert&lt;/code&gt;の３種類から選べます。&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;One Player&lt;/code&gt;を選ぶとＡＩ対戦、&lt;code&gt;Two Players&lt;/code&gt;を選ぶと対人戦が可能です。&lt;/li&gt;
+  &lt;li&gt;ＡＩ対戦途中で設定内容を変更した場合そのＡＩ対戦の結果は対戦成績に保存されません。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;ゲーム成績画面&quot;&gt;ゲーム成績画面&lt;/h3&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/mancala_screen4.png&quot; alt=&quot;ＡＩ対戦成績画面&quot; title=&quot;ＡＩ対戦成績画面&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ＡＩ対戦の対戦成績を閲覧出来ます。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+</description>
+                <link>https://happyclam.github.io/project/2020-08-10/mancalanuts</link>
+                <guid>https://happyclam.github.io/project/2020-08-10/mancalanuts</guid>
+                <pubDate>2020-08-10T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>マンカラの必勝手順の有無（続編）</title>
