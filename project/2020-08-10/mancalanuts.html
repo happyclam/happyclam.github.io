@@ -291,8 +291,8 @@ MathJax.Hub.Config({
   <li>ＡＩの強さレベルは<code>Easy</code>、<code>Hard</code>、<code>Expert</code>の３種類から選べます。</li>
   <li><code>One Player</code>を選ぶとＡＩ対戦、<code>Two Players</code>を選ぶと対人戦が可能です。</li>
   <li>ＡＩ対戦途中で設定内容を変更した場合そのＡＩ対戦の結果は対戦成績に保存されません。</li>
-  <li>同じパターンの指し手を避けるため、ＡＩのレベル<code>Easy</code>と<code>Hard</code>では初手はランダムに選ぶようにしています。<code>Expert</code>はガチで指し手を決めます。</li>
-  <li>全てのＡＩのレベルで、同じ評価値の場合はランダムに指し手を選択するようにしていますので、同じ局面で同じ指し手を選ぶとは限りません<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。</li>
+  <li>同じパターンの指し手を避けるため、ＡＩのレベル<code>Easy</code>と<code>Hard</code>では初手はランダムに選ぶようにしています。<code>Expert</code>はガチで指し手を決めます<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。</li>
+  <li>全てのＡＩのレベルで、同じ評価値の場合はランダムに指し手を選択するようにしていますので、同じ局面で常に同じ指し手を選ぶとは限りません。と言ってもマンカラの場合、読みの深さが同じ場合は複数の指し手で同じ評価値になるケースはあまりないようです<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。</li>
 </ul>
 
 <h3 id="ゲーム成績画面">ゲーム成績画面</h3>
@@ -309,7 +309,10 @@ MathJax.Hub.Config({
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>評価関数は<code>（先手のストアに溜まったピースの数 - 後手のストアに溜まったピースの数）</code>です。マンカラの場合、読みの深さが同じ場合は複数の指し手で同じ評価値になるケースはあまりないようです。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p>一時期<code>Expert</code>モードでも初手をランダムにしてリリースしていた時期がありましたが、マンカラの場合、初手に悪手を選ぶとその段階で回復不可能な程形勢を大きく損ねるようなので、<code>Expert</code>の時だけはランダム指し手を止めました。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>評価関数は<code>（先手のストアに溜まったピースの数 - 後手のストアに溜まったピースの数）</code>です。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>

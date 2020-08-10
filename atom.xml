@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-08-10T10:22:53+09:00</updated>
+ <updated>2020-08-10T11:44:51+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -78,8 +78,8 @@
   &lt;li&gt;ＡＩの強さレベルは&lt;code&gt;Easy&lt;/code&gt;、&lt;code&gt;Hard&lt;/code&gt;、&lt;code&gt;Expert&lt;/code&gt;の３種類から選べます。&lt;/li&gt;
   &lt;li&gt;&lt;code&gt;One Player&lt;/code&gt;を選ぶとＡＩ対戦、&lt;code&gt;Two Players&lt;/code&gt;を選ぶと対人戦が可能です。&lt;/li&gt;
   &lt;li&gt;ＡＩ対戦途中で設定内容を変更した場合そのＡＩ対戦の結果は対戦成績に保存されません。&lt;/li&gt;
-  &lt;li&gt;同じパターンの指し手を避けるため、ＡＩのレベル&lt;code&gt;Easy&lt;/code&gt;と&lt;code&gt;Hard&lt;/code&gt;では初手はランダムに選ぶようにしています。&lt;code&gt;Expert&lt;/code&gt;はガチで指し手を決めます。&lt;/li&gt;
-  &lt;li&gt;全てのＡＩのレベルで、同じ評価値の場合はランダムに指し手を選択するようにしていますので、同じ局面で同じ指し手を選ぶとは限りません&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/li&gt;
+  &lt;li&gt;同じパターンの指し手を避けるため、ＡＩのレベル&lt;code&gt;Easy&lt;/code&gt;と&lt;code&gt;Hard&lt;/code&gt;では初手はランダムに選ぶようにしています。&lt;code&gt;Expert&lt;/code&gt;はガチで指し手を決めます&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/li&gt;
+  &lt;li&gt;全てのＡＩのレベルで、同じ評価値の場合はランダムに指し手を選択するようにしていますので、同じ局面で常に同じ指し手を選ぶとは限りません。と言ってもマンカラの場合、読みの深さが同じ場合は複数の指し手で同じ評価値になるケースはあまりないようです&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;ゲーム成績画面&quot;&gt;ゲーム成績画面&lt;/h3&gt;
@@ -96,7 +96,10 @@
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;評価関数は&lt;code&gt;（先手のストアに溜まったピースの数 - 後手のストアに溜まったピースの数）&lt;/code&gt;です。マンカラの場合、読みの深さが同じ場合は複数の指し手で同じ評価値になるケースはあまりないようです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;一時期&lt;code&gt;Expert&lt;/code&gt;モードでも初手をランダムにしてリリースしていた時期がありましたが、マンカラの場合、初手に悪手を選ぶとその段階で回復不可能な程形勢を大きく損ねるようなので、&lt;code&gt;Expert&lt;/code&gt;の時だけはランダム指し手を止めました。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;評価関数は&lt;code&gt;（先手のストアに溜まったピースの数 - 後手のストアに溜まったピースの数）&lt;/code&gt;です。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
