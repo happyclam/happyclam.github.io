@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-08-13T07:03:20+09:00</updated>
+ <updated>2020-08-13T19:44:31+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -742,6 +742,8 @@ result = second.think(board, first, 50, SECOND_WIN);
 
 &lt;p&gt;　先手と後手が自分の穴のどれかを選んで全ての石を取り出し、矢印のように反時計回りに一つずつ石を撒いていく動作を先手後手交互に繰り返して、先に自分の穴の石が全てなくなれば勝ちです。自分か相手のストアで石を撒き終わった場合はもう一度自分の手番になります。&lt;/p&gt;
 
+&lt;p&gt;　※&lt;a href=&quot;/software/2020-08-09/mancala_easy&quot;&gt;マンカライージーに関する記事&lt;/a&gt;も追加しました。&lt;/p&gt;
+
 &lt;h3 id=&quot;dartで実装&quot;&gt;Dartで実装&lt;/h3&gt;
 &lt;p&gt;　今リリースしている自分の将棋関連アプリの中で一番利用されている&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;をFlutterで作り直そうかと思って、慣れるためにプログラミング言語はDartにしました。&lt;br /&gt;
 　石の数は３つの場合&lt;code&gt;List board = [0,3,3,3,0,3,3,3];&lt;/code&gt;のようにリストを作ります。添字の&lt;code&gt;0&lt;/code&gt;と&lt;code&gt;4&lt;/code&gt;がストアになります。カラハのルールだと相手のストアには石を撒かないそうですが、ベーシックのルールだと相手のストアにも石を撒くので、このリストをシーケンシャルに処理していけばいいだけなので処理が単純です。またカラハのように自分の空の穴で石を撒き終わった時に相手の石を取る（capture）ことが出来るというルールもありません。&lt;/p&gt;
@@ -1159,8 +1161,7 @@ result = second.think(board, first, 50, SECOND_WIN);
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;　結果は&lt;code&gt;[999, 1]&lt;/code&gt;となって先手が初手に&lt;code&gt;1&lt;/code&gt;の場所を選べば先手必勝のようです。&lt;br /&gt;
-　ただ、石２個、３個、４個で試すと循環する手順があるのか、丸一日動かしていても結果が返って来ませんでした。まだ原因がはっきり分かっていませんが、循環する手順があるとしてもそこに入り込む必要なく必勝手順を辿ることが出来たということなので、&lt;strong&gt;必勝の結論を返してきた分に関しては間違いない&lt;/strong&gt;と思います&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。バグがなければの話ですが…。&lt;br /&gt;
-　また、循環する手順（千日手）に入り込むということが、結論として&lt;strong&gt;最善手は千日手&lt;/strong&gt;と言い切れるのかどうかはよく分かりません。&lt;br /&gt;
+　ただ、石２個、３個、４個で試すと&lt;del&gt;循環する手順があるのか、&lt;/del&gt;丸一日動かしていても結果が返って来ませんでした。まだ原因がはっきり分かっていませんが、循環する手順があるとしてもそこに入り込む必要なく必勝手順を辿ることが出来たということなので、&lt;strong&gt;必勝の結論を返してきた分に関しては間違いない&lt;/strong&gt;と思います&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。バグがなければの話ですが…。&lt;br /&gt;
 　ベーシックのルール特有のケースかもしれないので、先にカラハのルールを実装して試してみようかなどと考えていますが、いずれにしても読み切るには結構時間が掛かるので、三目並べのように絶対人間に負けないプログラムを作るのは思っていたほど簡単ではないようです。&lt;br /&gt;
 　カラハのルールだと自分の空の穴で撒き終わった場合に相手の石を取ることが出来るというルールがあるので、ベーシックのルールより早くゲームを終わらせる必勝手順があるような気がしていますが、どうなるか分かりません。&lt;/p&gt;
 
