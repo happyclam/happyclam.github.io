@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-08-20T20:11:15+09:00</updated>
+ <updated>2020-09-05T21:40:28+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -27,70 +27,78 @@
 
 &lt;h3 id=&quot;ルール&quot;&gt;ルール&lt;/h3&gt;
 &lt;p&gt;　数あるマンカラのルールの中で、&lt;code&gt;カラハ（Karah）&lt;/code&gt;と呼ばれるルールを採用しています。&lt;br /&gt;
-　上下２列に並んだ６つのポケットにナッツが入っていて、上がAI、下があなたです。丸い６つのポケットからどれかを選んでナッツを取り出し、反時計回りにナッツを一つずつポケットに撒いていきます。どちらかの６つのポケットが全て空になったらゲーム終了し、右側の四角い自分の貯蔵所に残ったナッツの数で勝ち負けを判定します。&lt;/p&gt;
+　上下２列に並んだ６つのポケットに豆が入っていて、上がAI、下があなたです。丸い６つのポケットからどれかを選んで豆を取り出し、反時計回りに豆を一つずつポケットに撒いていきます。どちらかの６つのポケットが全て空になったらゲーム終了し、右側の四角い自分の貯蔵所に残った豆の数で勝ち負けを判定します。&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;相手の貯蔵所にはナッツを撒きません。&lt;/li&gt;
-  &lt;li&gt;ナッツを撒き終わったポケットが自分の貯蔵所の場合、もう一度ポケットを選んでナッツを撒くことが出来ます。&lt;/li&gt;
-  &lt;li&gt;自分の空のポケットでナッツを撒き終わった場合、その対称に位置する相手のナッツを横取り（Capture）して自分の貯蔵所に加えることが出来ます。&lt;/li&gt;
-  &lt;li&gt;ゲーム終了時にポケットに残ったナッツは全て自分の貯蔵所に加えます。&lt;/li&gt;
+  &lt;li&gt;相手の貯蔵所には豆を撒きません。&lt;/li&gt;
+  &lt;li&gt;豆を撒き終わったポケットが自分の貯蔵所の場合、もう一度ポケットを選んで豆を撒くことが出来ます。&lt;/li&gt;
+  &lt;li&gt;自分の空のポケットで豆を撒き終わった場合、その対称に位置する相手の豆を横取り（Capture）して自分の貯蔵所に加えることが出来ます。&lt;/li&gt;
+  &lt;li&gt;ゲーム終了時にポケットに残った豆は全て自分の貯蔵所に加えます。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;機能&quot;&gt;機能&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;ＡＩ対戦（レベルは３段階）&lt;/li&gt;
-  &lt;li&gt;人対人対戦&lt;/li&gt;
+  &lt;li&gt;対人対戦&lt;/li&gt;
   &lt;li&gt;待った機能&lt;/li&gt;
-  &lt;li&gt;ピース選択（コーヒー豆、ピスタチオ、アーモンド）機能&lt;/li&gt;
-  &lt;li&gt;ピースの数選択機能（３個、４個、５個から選択）&lt;/li&gt;
-  &lt;li&gt;対局成績保存機能（ゲーム途中で設定を変更した場合は対戦成績には記録されません）&lt;/li&gt;
+  &lt;li&gt;豆選択（コーヒー、ピスタチオ、アーモンド）機能&lt;/li&gt;
+  &lt;li&gt;豆の数選択機能（３個、４個、５個から選択）&lt;/li&gt;
+  &lt;li&gt;対戦成績保存機能（ゲーム途中で設定を変更した場合は対戦成績には記録されません）&lt;/li&gt;
+  &lt;li&gt;多言語対応、日&lt;code&gt;ja&lt;/code&gt;, 英&lt;code&gt;en&lt;/code&gt;, 越&lt;code&gt;vi&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;ａｉ対戦&quot;&gt;ＡＩ対戦&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/mancala_screen1.png&quot; alt=&quot;ＡＩ対戦画面&quot; title=&quot;ＡＩ対戦画面&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen1.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen1.png&quot; alt=&quot;ＡＩ対戦画面&quot; title=&quot;ＡＩ対戦画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;code&gt;Stop&lt;/code&gt;ボタンでゲームを中断し、&lt;code&gt;Play&lt;/code&gt;ボタンで新規対局開始されます。&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;Setting&lt;/code&gt;画面で&lt;code&gt;One Player&lt;/code&gt;を選ぶとＡＩ対戦となります。&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;新規ゲーム(New Game)&lt;/code&gt;ボタンで新規対局開始されます。&lt;/li&gt;
   &lt;li&gt;ＡＩの対戦途中に強さ設定を変更すると、そのゲーム結果は対戦成績に記録されません。&lt;/li&gt;
-  &lt;li&gt;ＡＩ対戦の場合は&lt;code&gt;Undo&lt;/code&gt;ボタンで一つ前の人間の手番まで戻ります。ＡＩが連続で複数回着手していた場合も複数手分のＡＩの指し手を飛ばして、一つ前の人間の手番の局面に戻ります。&lt;/li&gt;
+  &lt;li&gt;ＡＩ対戦の場合は&lt;code&gt;戻す(Undo)&lt;/code&gt;ボタンで一つ前の人間の手番まで戻ります。ＡＩが連続で複数回着手していた場合も複数手分のＡＩの指し手を飛ばして、一つ前の人間の手番の局面に戻ります。&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;戻す(Undo)&lt;/code&gt;ボタンを使用すると対戦成績には記録されません。&lt;/li&gt;
+  &lt;li&gt;AIの静的評価関数は&lt;code&gt;先手の貯蔵所に溜まった豆の数 - 後手の貯蔵所に溜まった豆の数&lt;/code&gt;で、MIN-MAX法（+ αβ法）を使って先読みを行い指し手を決めます。
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code&gt;弱い(Easy)&lt;/code&gt; = ３手読み&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;強い(Hard)&lt;/code&gt; = ８手読み&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;やばい(Expert)&lt;/code&gt; = １１手読み&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;対人対戦&quot;&gt;対人対戦&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/mancala_screen2.png&quot; alt=&quot;対人対戦画面&quot; title=&quot;対人対戦画面&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen2.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen2.png&quot; alt=&quot;対人対戦画面&quot; title=&quot;対人対戦画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;code&gt;Stop&lt;/code&gt;ボタンでゲームを中断し、&lt;code&gt;Play&lt;/code&gt;ボタンで新規対局開始されます。&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;Setting&lt;/code&gt;画面で&lt;code&gt;Two Players&lt;/code&gt;を選ぶと対人対戦となります。&lt;/li&gt;
-  &lt;li&gt;途中でＡＩ対戦に戻すことも出来ます。途中からＡＩ対戦に切り替えても、勝敗は対戦成績には記録されません。&lt;/li&gt;
-  &lt;li&gt;対人対戦の場合は&lt;code&gt;Undo&lt;/code&gt;ボタンで一手ずつ前の局面に戻ります。&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;新規ゲーム(Play)&lt;/code&gt;ボタンでゲーム開始、&lt;code&gt;中止(Stop)&lt;/code&gt;ボタンでゲームを中断します。&lt;/li&gt;
+  &lt;li&gt;ゲーム途中でＡＩ対戦に戻すことも出来ます。途中からＡＩ対戦に切り替えても、勝敗は対戦成績には記録されません。&lt;/li&gt;
+  &lt;li&gt;対人対戦の場合は&lt;code&gt;戻す(Undo)&lt;/code&gt;ボタンで一手ずつ前の局面に戻ります。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;設定画面&quot;&gt;設定画面&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/mancala_screen3.png&quot; alt=&quot;設定画面&quot; title=&quot;設定画面&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen3.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen3.png&quot; alt=&quot;設定画面&quot; title=&quot;設定画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;ピースは&lt;code&gt;Coffee&lt;/code&gt;、&lt;code&gt;Pistachio&lt;/code&gt;、&lt;code&gt;Almond&lt;/code&gt;の３種類から選べます。&lt;/li&gt;
-  &lt;li&gt;初期のピースの数は３&lt;code&gt;Three&lt;/code&gt;、４&lt;code&gt;Four&lt;/code&gt;、５&lt;code&gt;Five&lt;/code&gt;の３種類から選べます。&lt;/li&gt;
-  &lt;li&gt;ＡＩの強さレベルは&lt;code&gt;Easy&lt;/code&gt;、&lt;code&gt;Hard&lt;/code&gt;、&lt;code&gt;Expert&lt;/code&gt;の３種類から選べます。&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;One Player&lt;/code&gt;を選ぶとＡＩ対戦、&lt;code&gt;Two Players&lt;/code&gt;を選ぶと対人戦が可能です。&lt;/li&gt;
+  &lt;li&gt;ゲームに使用する豆は&lt;code&gt;コーヒー(Coffee)&lt;/code&gt;、&lt;code&gt;ピスタチオ(Pistachio)&lt;/code&gt;、&lt;code&gt;アーモンド(Almond)&lt;/code&gt;の３種類から選べます。&lt;/li&gt;
+  &lt;li&gt;初期の豆の数は３個、４個、５個の３種類から選べます。&lt;/li&gt;
+  &lt;li&gt;ＡＩの強さレベルは&lt;code&gt;弱い(Easy)&lt;/code&gt;、&lt;code&gt;強い(Hard)&lt;/code&gt;、&lt;code&gt;やばい(Expert)&lt;/code&gt;の３種類から選べます。&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;AI対戦(One Player)&lt;/code&gt;を選ぶとＡＩ対戦、&lt;code&gt;対人対戦(Two Players)&lt;/code&gt;を選ぶと対人戦が可能です。&lt;/li&gt;
   &lt;li&gt;ＡＩ対戦途中で設定内容を変更した場合そのＡＩ対戦の結果は対戦成績に保存されません。&lt;/li&gt;
-  &lt;li&gt;同じパターンの指し手を避けるため、ＡＩのレベル&lt;code&gt;Easy&lt;/code&gt;と&lt;code&gt;Hard&lt;/code&gt;では初手はランダムに選ぶようにしています。&lt;code&gt;Expert&lt;/code&gt;はガチで指し手を決めます&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/li&gt;
-  &lt;li&gt;全てのＡＩのレベルで、同じ評価値の場合はランダムに指し手を選択するようにしていますので、同じ局面で常に同じ指し手を選ぶとは限りません。と言ってもマンカラの場合、読みの深さが同じ場合は複数の指し手で同じ評価値になるケースはあまりないようです&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/li&gt;
+  &lt;li&gt;同じパターンの指し手を避けるため、ＡＩのレベル&lt;code&gt;弱い(Easy)&lt;/code&gt;と&lt;code&gt;強い(Hard)&lt;/code&gt;では、初手はランダムに選ぶようにしています。&lt;code&gt;やばい(Expert)&lt;/code&gt;はガチで指し手を決めます&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/li&gt;
+  &lt;li&gt;全てのＡＩのレベルで、同じ評価値の場合はランダムに指し手を選択するようにしていますので、同じ局面で常に同じ指し手を選ぶとは限りません。と言ってもマンカラの場合、読みの深さが同じ場合は複数の指し手で同じ評価値になるケースはあまりないようです。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;ゲーム成績画面&quot;&gt;ゲーム成績画面&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/mancala_screen4.png&quot; alt=&quot;ＡＩ対戦成績画面&quot; title=&quot;ＡＩ対戦成績画面&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen4.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen4.png&quot; alt=&quot;ＡＩ対戦成績画面&quot; title=&quot;ＡＩ対戦成績画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;ＡＩ対戦の対戦成績を閲覧出来ます。&lt;/li&gt;
+  &lt;li&gt;豆の数（３、４、５）別に対戦成績が記録されます。表の左上の数字はゲーム開始時に配置されている豆の数です。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -98,10 +106,7 @@
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;一時期&lt;code&gt;Expert&lt;/code&gt;モードでも初手をランダムにしてリリースしていた時期がありましたが、マンカラの場合、初手に悪手を選ぶとその段階で回復不可能な程形勢を大きく損ねるようなので、&lt;code&gt;Expert&lt;/code&gt;の時だけはランダム指し手を止めました。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:2&quot;&gt;
-      &lt;p&gt;評価関数は&lt;code&gt;（先手のストアに溜まったピースの数 - 後手のストアに溜まったピースの数）&lt;/code&gt;です。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;一時期&lt;code&gt;やばい(Expert)&lt;/code&gt;モードでも初手をランダムにしてリリースしていた時期がありましたが、マンカラの場合、初手に悪手を選ぶとその段階で回復不可能な程形勢を大きく損ねるようなので、&lt;code&gt;やばい(Expert)&lt;/code&gt;の時だけは初手のランダム指し手を止めました。将棋やチェスなどと較べると初手から既に勝敗に大きく関わるようです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;

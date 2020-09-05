@@ -240,70 +240,78 @@ MathJax.Hub.Config({
 
 <h3 id="ルール">ルール</h3>
 <p>　数あるマンカラのルールの中で、<code>カラハ（Karah）</code>と呼ばれるルールを採用しています。<br />
-　上下２列に並んだ６つのポケットにナッツが入っていて、上がAI、下があなたです。丸い６つのポケットからどれかを選んでナッツを取り出し、反時計回りにナッツを一つずつポケットに撒いていきます。どちらかの６つのポケットが全て空になったらゲーム終了し、右側の四角い自分の貯蔵所に残ったナッツの数で勝ち負けを判定します。</p>
+　上下２列に並んだ６つのポケットに豆が入っていて、上がAI、下があなたです。丸い６つのポケットからどれかを選んで豆を取り出し、反時計回りに豆を一つずつポケットに撒いていきます。どちらかの６つのポケットが全て空になったらゲーム終了し、右側の四角い自分の貯蔵所に残った豆の数で勝ち負けを判定します。</p>
 <ul>
-  <li>相手の貯蔵所にはナッツを撒きません。</li>
-  <li>ナッツを撒き終わったポケットが自分の貯蔵所の場合、もう一度ポケットを選んでナッツを撒くことが出来ます。</li>
-  <li>自分の空のポケットでナッツを撒き終わった場合、その対称に位置する相手のナッツを横取り（Capture）して自分の貯蔵所に加えることが出来ます。</li>
-  <li>ゲーム終了時にポケットに残ったナッツは全て自分の貯蔵所に加えます。</li>
+  <li>相手の貯蔵所には豆を撒きません。</li>
+  <li>豆を撒き終わったポケットが自分の貯蔵所の場合、もう一度ポケットを選んで豆を撒くことが出来ます。</li>
+  <li>自分の空のポケットで豆を撒き終わった場合、その対称に位置する相手の豆を横取り（Capture）して自分の貯蔵所に加えることが出来ます。</li>
+  <li>ゲーム終了時にポケットに残った豆は全て自分の貯蔵所に加えます。</li>
 </ul>
 
 <h3 id="機能">機能</h3>
 <ul>
   <li>ＡＩ対戦（レベルは３段階）</li>
-  <li>人対人対戦</li>
+  <li>対人対戦</li>
   <li>待った機能</li>
-  <li>ピース選択（コーヒー豆、ピスタチオ、アーモンド）機能</li>
-  <li>ピースの数選択機能（３個、４個、５個から選択）</li>
-  <li>対局成績保存機能（ゲーム途中で設定を変更した場合は対戦成績には記録されません）</li>
+  <li>豆選択（コーヒー、ピスタチオ、アーモンド）機能</li>
+  <li>豆の数選択機能（３個、４個、５個から選択）</li>
+  <li>対戦成績保存機能（ゲーム途中で設定を変更した場合は対戦成績には記録されません）</li>
+  <li>多言語対応、日<code>ja</code>, 英<code>en</code>, 越<code>vi</code></li>
 </ul>
 
 <h3 id="ａｉ対戦">ＡＩ対戦</h3>
 <div style="width:320px; margin: 0 auto;">
-  <p><img src="/images/mancala_screen1.png" alt="ＡＩ対戦画面" title="ＡＩ対戦画面" /></p>
+  <p><a href="/images/mancala_screen1.png"><img src="/images/mancala_screen1.png" alt="ＡＩ対戦画面" title="ＡＩ対戦画面" /></a></p>
 </div>
 
 <ul>
-  <li><code>Stop</code>ボタンでゲームを中断し、<code>Play</code>ボタンで新規対局開始されます。</li>
-  <li><code>Setting</code>画面で<code>One Player</code>を選ぶとＡＩ対戦となります。</li>
+  <li><code>新規ゲーム(New Game)</code>ボタンで新規対局開始されます。</li>
   <li>ＡＩの対戦途中に強さ設定を変更すると、そのゲーム結果は対戦成績に記録されません。</li>
-  <li>ＡＩ対戦の場合は<code>Undo</code>ボタンで一つ前の人間の手番まで戻ります。ＡＩが連続で複数回着手していた場合も複数手分のＡＩの指し手を飛ばして、一つ前の人間の手番の局面に戻ります。</li>
+  <li>ＡＩ対戦の場合は<code>戻す(Undo)</code>ボタンで一つ前の人間の手番まで戻ります。ＡＩが連続で複数回着手していた場合も複数手分のＡＩの指し手を飛ばして、一つ前の人間の手番の局面に戻ります。</li>
+  <li><code>戻す(Undo)</code>ボタンを使用すると対戦成績には記録されません。</li>
+  <li>AIの静的評価関数は<code>先手の貯蔵所に溜まった豆の数 - 後手の貯蔵所に溜まった豆の数</code>で、MIN-MAX法（+ αβ法）を使って先読みを行い指し手を決めます。
+    <ul>
+      <li><code>弱い(Easy)</code> = ３手読み</li>
+      <li><code>強い(Hard)</code> = ８手読み</li>
+      <li><code>やばい(Expert)</code> = １１手読み</li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="対人対戦">対人対戦</h3>
 <div style="width:320px; margin: 0 auto;">
-  <p><img src="/images/mancala_screen2.png" alt="対人対戦画面" title="対人対戦画面" /></p>
+  <p><a href="/images/mancala_screen2.png"><img src="/images/mancala_screen2.png" alt="対人対戦画面" title="対人対戦画面" /></a></p>
 </div>
 
 <ul>
-  <li><code>Stop</code>ボタンでゲームを中断し、<code>Play</code>ボタンで新規対局開始されます。</li>
-  <li><code>Setting</code>画面で<code>Two Players</code>を選ぶと対人対戦となります。</li>
-  <li>途中でＡＩ対戦に戻すことも出来ます。途中からＡＩ対戦に切り替えても、勝敗は対戦成績には記録されません。</li>
-  <li>対人対戦の場合は<code>Undo</code>ボタンで一手ずつ前の局面に戻ります。</li>
+  <li><code>新規ゲーム(Play)</code>ボタンでゲーム開始、<code>中止(Stop)</code>ボタンでゲームを中断します。</li>
+  <li>ゲーム途中でＡＩ対戦に戻すことも出来ます。途中からＡＩ対戦に切り替えても、勝敗は対戦成績には記録されません。</li>
+  <li>対人対戦の場合は<code>戻す(Undo)</code>ボタンで一手ずつ前の局面に戻ります。</li>
 </ul>
 
 <h3 id="設定画面">設定画面</h3>
 <div style="width:320px; margin: 0 auto;">
-  <p><img src="/images/mancala_screen3.png" alt="設定画面" title="設定画面" /></p>
+  <p><a href="/images/mancala_screen3.png"><img src="/images/mancala_screen3.png" alt="設定画面" title="設定画面" /></a></p>
 </div>
 
 <ul>
-  <li>ピースは<code>Coffee</code>、<code>Pistachio</code>、<code>Almond</code>の３種類から選べます。</li>
-  <li>初期のピースの数は３<code>Three</code>、４<code>Four</code>、５<code>Five</code>の３種類から選べます。</li>
-  <li>ＡＩの強さレベルは<code>Easy</code>、<code>Hard</code>、<code>Expert</code>の３種類から選べます。</li>
-  <li><code>One Player</code>を選ぶとＡＩ対戦、<code>Two Players</code>を選ぶと対人戦が可能です。</li>
+  <li>ゲームに使用する豆は<code>コーヒー(Coffee)</code>、<code>ピスタチオ(Pistachio)</code>、<code>アーモンド(Almond)</code>の３種類から選べます。</li>
+  <li>初期の豆の数は３個、４個、５個の３種類から選べます。</li>
+  <li>ＡＩの強さレベルは<code>弱い(Easy)</code>、<code>強い(Hard)</code>、<code>やばい(Expert)</code>の３種類から選べます。</li>
+  <li><code>AI対戦(One Player)</code>を選ぶとＡＩ対戦、<code>対人対戦(Two Players)</code>を選ぶと対人戦が可能です。</li>
   <li>ＡＩ対戦途中で設定内容を変更した場合そのＡＩ対戦の結果は対戦成績に保存されません。</li>
-  <li>同じパターンの指し手を避けるため、ＡＩのレベル<code>Easy</code>と<code>Hard</code>では初手はランダムに選ぶようにしています。<code>Expert</code>はガチで指し手を決めます<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。</li>
-  <li>全てのＡＩのレベルで、同じ評価値の場合はランダムに指し手を選択するようにしていますので、同じ局面で常に同じ指し手を選ぶとは限りません。と言ってもマンカラの場合、読みの深さが同じ場合は複数の指し手で同じ評価値になるケースはあまりないようです<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。</li>
+  <li>同じパターンの指し手を避けるため、ＡＩのレベル<code>弱い(Easy)</code>と<code>強い(Hard)</code>では、初手はランダムに選ぶようにしています。<code>やばい(Expert)</code>はガチで指し手を決めます<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。</li>
+  <li>全てのＡＩのレベルで、同じ評価値の場合はランダムに指し手を選択するようにしていますので、同じ局面で常に同じ指し手を選ぶとは限りません。と言ってもマンカラの場合、読みの深さが同じ場合は複数の指し手で同じ評価値になるケースはあまりないようです。</li>
 </ul>
 
 <h3 id="ゲーム成績画面">ゲーム成績画面</h3>
 <div style="width:320px; margin: 0 auto;">
-  <p><img src="/images/mancala_screen4.png" alt="ＡＩ対戦成績画面" title="ＡＩ対戦成績画面" /></p>
+  <p><a href="/images/mancala_screen4.png"><img src="/images/mancala_screen4.png" alt="ＡＩ対戦成績画面" title="ＡＩ対戦成績画面" /></a></p>
 </div>
 
 <ul>
   <li>ＡＩ対戦の対戦成績を閲覧出来ます。</li>
+  <li>豆の数（３、４、５）別に対戦成績が記録されます。表の左上の数字はゲーム開始時に配置されている豆の数です。</li>
 </ul>
 
 <hr />
@@ -311,10 +319,7 @@ MathJax.Hub.Config({
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>一時期<code>Expert</code>モードでも初手をランダムにしてリリースしていた時期がありましたが、マンカラの場合、初手に悪手を選ぶとその段階で回復不可能な程形勢を大きく損ねるようなので、<code>Expert</code>の時だけはランダム指し手を止めました。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
-    </li>
-    <li id="fn:2">
-      <p>評価関数は<code>（先手のストアに溜まったピースの数 - 後手のストアに溜まったピースの数）</code>です。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+      <p>一時期<code>やばい(Expert)</code>モードでも初手をランダムにしてリリースしていた時期がありましたが、マンカラの場合、初手に悪手を選ぶとその段階で回復不可能な程形勢を大きく損ねるようなので、<code>やばい(Expert)</code>の時だけは初手のランダム指し手を止めました。将棋やチェスなどと較べると初手から既に勝敗に大きく関わるようです。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>
