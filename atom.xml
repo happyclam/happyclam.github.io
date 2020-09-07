@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-09-05T21:40:28+09:00</updated>
+ <updated>2020-09-07T11:20:49+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -4119,7 +4119,7 @@ android.enableJetifier=true
 
 &lt;h3 id=&quot;tic-tac-toe-evoについて&quot;&gt;「Tic-tac-toe Evo」について&lt;/h3&gt;
 &lt;p&gt;　今まで&lt;a href=&quot;https://play.google.com/store/apps/details?id=tictactoe_evo.io.github.happyclam&quot;&gt;「進化する三目並べ（Tic-tac-toe Evo）」&lt;/a&gt;として公開していたアプリを&lt;a href=&quot;https://forest.watch.impress.co.jp/docs/news/1171267.html&quot;&gt;Google Playがアプリ公開の要件を強化&lt;/a&gt;するのに伴ってリニューアルしました。新機能も追加しデータの互換性もない&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;ので新しい別アプリとして公開しています。&lt;br /&gt;
-　モンテカルロ法を使った強化学習によって対戦する毎に強くなります。対局終了時に「勝てばそれまでの指し手に加点、負ければ減点」することによって学習していきます。&lt;br /&gt;
+　モンテカルロ法を使った強化学習によって対戦する毎に強くなります。対局終了時に「勝てばそれまでの指し手に加点、負ければ減点」することによって学習していきます。プログラム内でやっていることは&lt;a href=&quot;https://hb.afl.rakuten.co.jp/hgc/18980d66.5ec24871.18980d67.e8ecef93/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F5271872%2F&amp;amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F12693001%2F&amp;amp;link_type=text&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJ0ZXh0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImxlZnQiLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjF9&quot;&gt;「Statistics Hacks」&lt;/a&gt;という統計学の本で紹介されていた強化学習の内容とほぼ同じです&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
 　&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.github.happyclam&quot;&gt;旧アプリ&lt;/a&gt;は近々削除する予定です。&lt;/p&gt;
 
 &lt;h5 id=&quot;-進化の過程について&quot;&gt;※ 進化の過程について&lt;/h5&gt;
@@ -4350,6 +4350,9 @@ window.onload = function() {
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
       &lt;p&gt;データの互換性がないのはCoffeeScript1.xxからCoffeeScript2に変えたことによるものです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;この本に関する内容は&lt;a href=&quot;/software/2015-10-25/machine_learning&quot;&gt;ここ&lt;/a&gt;や&lt;a href=&quot;/software/2015-11-27/reinforcement&quot;&gt;ここ&lt;/a&gt;や&lt;a href=&quot;/software/2019-07-19/self-play&quot;&gt;ここ&lt;/a&gt;など、ブログ内で散らばっていますので興味のある方はご参照ください。&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/neural&quot;&gt;Rubyのソース&lt;/a&gt;も公開していますが、アプリ内でやっていることは本の内容に沿って作ったシンプルな加減算による強化学習です。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;

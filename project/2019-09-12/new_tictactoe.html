@@ -234,7 +234,7 @@ MathJax.Hub.Config({
 
 <h3 id="tic-tac-toe-evoについて">「Tic-tac-toe Evo」について</h3>
 <p>　今まで<a href="https://play.google.com/store/apps/details?id=tictactoe_evo.io.github.happyclam">「進化する三目並べ（Tic-tac-toe Evo）」</a>として公開していたアプリを<a href="https://forest.watch.impress.co.jp/docs/news/1171267.html">Google Playがアプリ公開の要件を強化</a>するのに伴ってリニューアルしました。新機能も追加しデータの互換性もない<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>ので新しい別アプリとして公開しています。<br />
-　モンテカルロ法を使った強化学習によって対戦する毎に強くなります。対局終了時に「勝てばそれまでの指し手に加点、負ければ減点」することによって学習していきます。<br />
+　モンテカルロ法を使った強化学習によって対戦する毎に強くなります。対局終了時に「勝てばそれまでの指し手に加点、負ければ減点」することによって学習していきます。プログラム内でやっていることは<a href="https://hb.afl.rakuten.co.jp/hgc/18980d66.5ec24871.18980d67.e8ecef93/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F5271872%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F12693001%2F&amp;link_type=text&amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJ0ZXh0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImxlZnQiLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjF9">「Statistics Hacks」</a>という統計学の本で紹介されていた強化学習の内容とほぼ同じです<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。<br />
 　<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">旧アプリ</a>は近々削除する予定です。</p>
 
 <h5 id="-進化の過程について">※ 進化の過程について</h5>
@@ -465,6 +465,9 @@ window.onload = function() {
   <ol>
     <li id="fn:1">
       <p>データの互換性がないのはCoffeeScript1.xxからCoffeeScript2に変えたことによるものです。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>この本に関する内容は<a href="/software/2015-10-25/machine_learning">ここ</a>や<a href="/software/2015-11-27/reinforcement">ここ</a>や<a href="/software/2019-07-19/self-play">ここ</a>など、ブログ内で散らばっていますので興味のある方はご参照ください。<a href="https://github.com/happyclam/tictactoe_ruby/tree/neural">Rubyのソース</a>も公開していますが、アプリ内でやっていることは本の内容に沿って作ったシンプルな加減算による強化学習です。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>
