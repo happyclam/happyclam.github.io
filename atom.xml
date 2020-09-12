@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-09-07T11:20:49+09:00</updated>
+ <updated>2020-09-12T20:48:03+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -44,6 +44,7 @@
   &lt;li&gt;豆の数選択機能（３個、４個、５個から選択）&lt;/li&gt;
   &lt;li&gt;対戦成績保存機能（ゲーム途中で設定を変更した場合は対戦成績には記録されません）&lt;/li&gt;
   &lt;li&gt;多言語対応、日&lt;code&gt;ja&lt;/code&gt;, 英&lt;code&gt;en&lt;/code&gt;, 越&lt;code&gt;vi&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;AI対戦時の形勢判断Emoji表示機能&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;ａｉ対戦&quot;&gt;ＡＩ対戦&lt;/h3&gt;
@@ -58,12 +59,58 @@
   &lt;li&gt;&lt;code&gt;戻す(Undo)&lt;/code&gt;ボタンを使用すると対戦成績には記録されません。&lt;/li&gt;
   &lt;li&gt;AIの静的評価関数は&lt;code&gt;先手の貯蔵所に溜まった豆の数 - 後手の貯蔵所に溜まった豆の数&lt;/code&gt;で、MIN-MAX法（+ αβ法）を使って先読みを行い指し手を決めます。
     &lt;ul&gt;
-      &lt;li&gt;&lt;code&gt;弱い(Easy)&lt;/code&gt; = ３手読み&lt;/li&gt;
-      &lt;li&gt;&lt;code&gt;強い(Hard)&lt;/code&gt; = ８手読み&lt;/li&gt;
-      &lt;li&gt;&lt;code&gt;やばい(Expert)&lt;/code&gt; = １１手読み&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;弱い(Easy)&lt;/code&gt; = １手読み&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;強い(Hard)&lt;/code&gt; = ６手読み&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;やばい(Expert)&lt;/code&gt; = ９手読み&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h4 id=&quot;形勢emoji表示&quot;&gt;形勢Emoji表示&lt;/h4&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen5.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen5.png&quot; alt=&quot;ＡＩ形勢Emoji&quot; title=&quot;ＡＩ形勢Emoji&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　&lt;code&gt;AI対戦(One Player)&lt;/code&gt;時に画面右上に形勢判断用のEmojiを表示します。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Emoji&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;文字コード&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;意味&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;:laughing:&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;U+1F923&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ＡＩが勝ちを確信。逆転は難しいでしょう。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;:grin:&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;U+1F601&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ＡＩが優勢を意識。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;:neutral_face:&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;U+1F610&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ＡＩは互角と判断。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;:frowning:&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;U+1F641&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ＡＩは劣勢を意識。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;:tired_face:&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;U+1F62B&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ＡＩが負けを覚悟。但し、勝負はあなたの着手しだいです。&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;※このページのEmojiは実際のAndroid端末で表示されるEmojiとは若干表示が異なるケースがあります。&lt;/p&gt;
 
 &lt;h3 id=&quot;対人対戦&quot;&gt;対人対戦&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
@@ -88,7 +135,7 @@
   &lt;li&gt;&lt;code&gt;AI対戦(One Player)&lt;/code&gt;を選ぶとＡＩ対戦、&lt;code&gt;対人対戦(Two Players)&lt;/code&gt;を選ぶと対人戦が可能です。&lt;/li&gt;
   &lt;li&gt;ＡＩ対戦途中で設定内容を変更した場合そのＡＩ対戦の結果は対戦成績に保存されません。&lt;/li&gt;
   &lt;li&gt;同じパターンの指し手を避けるため、ＡＩのレベル&lt;code&gt;弱い(Easy)&lt;/code&gt;と&lt;code&gt;強い(Hard)&lt;/code&gt;では、初手はランダムに選ぶようにしています。&lt;code&gt;やばい(Expert)&lt;/code&gt;はガチで指し手を決めます&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/li&gt;
-  &lt;li&gt;全てのＡＩのレベルで、同じ評価値の場合はランダムに指し手を選択するようにしていますので、同じ局面で常に同じ指し手を選ぶとは限りません。と言ってもマンカラの場合、読みの深さが同じ場合は複数の指し手で同じ評価値になるケースはあまりないようです。&lt;/li&gt;
+  &lt;li&gt;全てのＡＩのレベルで、同じ評価値の場合はランダムに指し手を選択するようにしていますので、同じ局面で常に同じ指し手を選ぶとは限りません&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;ゲーム成績画面&quot;&gt;ゲーム成績画面&lt;/h3&gt;
@@ -107,6 +154,9 @@
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
       &lt;p&gt;一時期&lt;code&gt;やばい(Expert)&lt;/code&gt;モードでも初手をランダムにしてリリースしていた時期がありましたが、マンカラの場合、初手に悪手を選ぶとその段階で回復不可能な程形勢を大きく損ねるようなので、&lt;code&gt;やばい(Expert)&lt;/code&gt;の時だけは初手のランダム指し手を止めました。将棋やチェスなどと較べると初手から既に勝敗に大きく関わるようです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;&lt;code&gt;戻す(Undo)&lt;/code&gt;ボタンで数手前の局面に戻してからAI対戦を再開しても、前回と同じ局面になるとは限りませんのでご注意ください。ゲーム途中で設定を&lt;code&gt;対人対戦(Two Players)&lt;/code&gt;に変更して、気になる局面を再現してから&lt;code&gt;AI対戦(One Player)&lt;/code&gt;に切り替えることは可能です。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
