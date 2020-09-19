@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Dartは遅いと思いきやC++より速かった",
+      "category" : "software",
+      "tags"     : "dart, android, flutter, typescript, c++",
+      "url"      : "/software/2020-09-19/js_dart_cpp",
+      "date"     : "2020-09-19 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "マンカラアプリについて",
       "category" : "project",
       "tags"     : "flutter, dart, android, mancala",

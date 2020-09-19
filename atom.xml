@@ -4,13 +4,142 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-09-12T20:48:03+09:00</updated>
+ <updated>2020-09-19T11:01:48+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Dartは遅いと思いきやC++より速かった</title>
+   <link href="https://happyclam.github.io/software/2020-09-19/js_dart_cpp"/>
+   <updated>2020-09-19T00:00:00+09:00</updated>
+   <id>https://happyclam.github.io/software/2020-09-19/js_dart_cpp</id>
+   <content type="html">&lt;h3 id=&quot;dartに絶望flutterでguiは有り&quot;&gt;Dartに絶望FlutterでGUIは有り&lt;/h3&gt;
+&lt;p&gt;　Qiitaのどなたかの記事でDartはJavaScriptより実行速度が倍程速いと書かれているのを見かけて、期待しながら&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;のGUI以外の部分をDartで書き直して、今のCoffeeScript（JavaScript）製プログラムと比較したのですが、同じテストの実行結果がDartの方が明らかに遅かったんです。Flutter(Dart)で&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラアプリ&lt;/a&gt;を作ってみてGUIの作り易さに感動した&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;だけに非常に失望しました。&lt;br /&gt;
+　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;今のアプリ&lt;/a&gt;よりも実行速度が遅いのならFlutterで将棋関連のアプリを作り直す意味がないので、どうしようかと思い、&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;以前の記事&lt;/a&gt;で書いたマンカラアプリなら行数も少ないのでとりあえずこれを題材にTypeScriptとC++で書き直して比較してみました。&lt;br /&gt;
+　結果は意外なものでした。&lt;/p&gt;
+
+&lt;h3 id=&quot;比較の元となるdartの実行結果&quot;&gt;比較の元となるDartの実行結果&lt;/h3&gt;
+&lt;p&gt;　６×２列のマンカラカラハの先読みプログラムの実行結果です。何をやっているかは&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;以前の記事&lt;/a&gt;を参照してください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ dart mancala.dart
+[0, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2]
+=== result = 1, 5, i = 1
+=== result = 0, 5, i = 2
+=== result = 3, 5, i = 3
+=== result = 4, 5, i = 4
+=== result = 5, 5, i = 5
+=== result = 4, 5, i = 6
+=== result = 5, 5, i = 7
+=== result = 4, 5, i = 8
+=== result = 4, 5, i = 9
+=== result = 4, 5, i = 10
+=== result = 3, 5, i = 11
+=== result = 5, 5, i = 12
+=== result = 4, 5, i = 13
+=== result = 5, 5, i = 14
+=== result = 6, 5, i = 15
+=== result = 2, 6, i = 16
+=== result = 3, 6, i = 17
+=== result = 999, 5, i = 18
+4040941
+[999, 5]
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　１８手で先手必勝を読み切るまでに4040秒（１時間強）&lt;/p&gt;
+
+&lt;h3 id=&quot;まずはtypescript&quot;&gt;まずはTypeScript&lt;/h3&gt;
+&lt;p&gt;　好きなCoffeeScriptはマイナーになってしまったので、Dartの存在を知る前から今の将棋関連アプリをいずれTypeScriptに書き換えるべきかなと思っていたのでまずはこれで試しました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ts-node mancala.ts
+[ 0, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2 ]
+result = [ 1, 5, [length]: 2 ], i = 1
+result = [ 0, 5, [length]: 2 ], i = 2
+result = [ 3, 5, [length]: 2 ], i = 3
+result = [ 4, 5, [length]: 2 ], i = 4
+result = [ 5, 5, [length]: 2 ], i = 5
+result = [ 4, 5, [length]: 2 ], i = 6
+result = [ 5, 5, [length]: 2 ], i = 7
+result = [ 4, 5, [length]: 2 ], i = 8
+result = [ 4, 5, [length]: 2 ], i = 9
+result = [ 4, 5, [length]: 2 ], i = 10
+result = [ 3, 5, [length]: 2 ], i = 11
+result = [ 5, 5, [length]: 2 ], i = 12
+result = [ 4, 5, [length]: 2 ], i = 13
+result = [ 5, 5, [length]: 2 ], i = 14
+result = [ 6, 5, [length]: 2 ], i = 15
+result = [ 2, 6, [length]: 2 ], i = 16
+result = [ 3, 6, [length]: 2 ], i = 17
+result = [ 999, 5, [length]: 2 ], i = 18
+ms = 2862324
+[ 999, 5 ]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　同じ結果を得るまでに2862秒（１時間弱）で、やはりDartよりJSの方が速いようです。将棋の場合これ以上に明確な差がありました。&lt;/p&gt;
+
+&lt;h3 id=&quot;cなら最強だろうと思いきや&quot;&gt;C++なら最強だろうと思いきや&lt;/h3&gt;
+&lt;p&gt;　苦労してC++で将棋関連アプリを書き直しても、そのままではスマホアプリに出来ないので今までは避けていました。でもFlutterでGUI部分を作って思考部分だけC++で作ればいいんじゃないかなんて考えて試してみました&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ g++ mancala.cpp -o mancala.out
+$ ./mancala.out
+=== result = 1, 5, i = 1
+=== result = 0, 5, i = 2
+=== result = 3, 5, i = 3
+=== result = 4, 5, i = 4
+=== result = 5, 5, i = 5
+=== result = 4, 5, i = 6
+=== result = 5, 5, i = 7
+=== result = 4, 5, i = 8
+=== result = 4, 5, i = 9
+=== result = 4, 5, i = 10
+=== result = 3, 5, i = 11
+=== result = 5, 5, i = 12
+=== result = 4, 5, i = 13
+=== result = 5, 5, i = 14
+=== result = 6, 5, i = 15
+=== result = 2, 6, i = 16
+=== result = 3, 6, i = 17
+=== result = 999, 5, i = 18
+11788522.763000[ms]
+999, 5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　結果は、驚いたことに11788秒（３時間強）!!一番遅い結果になりました。&lt;br /&gt;
+　&lt;/p&gt;
+&lt;h3 id=&quot;何かがおかしい&quot;&gt;何かがおかしい&lt;/h3&gt;
+&lt;p&gt;　プログラムを他の言語に移植すると言っても同じオブジェクト指向言語であればほとんどコードは一対一に書き換え可能で、写経に近いものがあります&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。元々のDartのプログラムにはまだまだ改良の余地があると思いますが、拙いコードであってもバグがあったとしても、今回比較した３つのプログラムは行数も少なく同じ処理をしていますので、拙いコードもバグも同じまま、実行時間だけを比較していると言えると思います。実行結果も同じです。&lt;br /&gt;
+　昔から新しいプログラミング言語を勉強するときはオセロを題材に選ぶことが多かったので、この種のプログラムをいろんな言語で書いた経験がありますが、昔は実行速度で比較したらC(またはC++)が最も実行速度が速かったのですが、最近は違うのでしょうか？いやぁそんなこと無いですよねぇ。&lt;br /&gt;
+　今までの経験と違うことで思い当たるのは、同じMIN-MAX法やαβ法を使った再帰呼び出しが主な処理の先読みプログラムでも、今回のプログラムでは相互再帰という手法を使っている点です。もしかしてC++は相互再帰呼び出しが苦手なのでしょうか？&lt;br /&gt;
+　コンパイラの中の処理までは詳しくないので残念ながら分かりませんが、実行速度を比較する題材としては特殊過ぎて、よくなかったかもしれません。相互再帰とかもC++も使わずにC言語で書くのが一番速い気もします。&lt;br /&gt;
+　とにかく、この結果を見ると将棋関連アプリを作り直すとすれば、TypeScriptを使うのが一番良さそうです&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;マンカラの最善手も先送り&quot;&gt;マンカラの最善手も先送り&lt;/h3&gt;
+&lt;p&gt;　今回、マンカラの先読みプログラムをC++に移植したのは、以前の&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;マンカラの記事&lt;/a&gt;、&lt;a href=&quot;/software/2020-08-09/mancala_easy&quot;&gt;続編&lt;/a&gt;の課題であるマンカラカラハ（６×２列で種子４つ）の最善手を見つける目論見もあったのですが、C++でも時間が掛かることが分かった今となっては、かなり先になりそうだなぁと思ってます。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;アニメーションなんてほとんど経験ないのにネットでググりながら進めたら簡単に作れました。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;昔、GUIはVisualBasicで作って内部処理はVisualC++で作る（DLL）なんて仕事をよくしていました。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;コードもほぼ一対一で書式だけが違う感じで、C++だけクラス変数の初期化部分が少し違う程度です。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot;&gt;
+      &lt;p&gt;C言語が速いと思うならC言語で作ればいいじゃないかと言う人がいるかもしれませんが、FlutterとC（またはC++）モジュールとのデータのやり取りで苦労しそうです。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>マンカラアプリについて</title>
@@ -1750,8 +1879,7 @@ result = [4, 5], depth = 16
   &lt;li&gt;Dart: &lt;code&gt;Dart VM version: 2.8.4 (stable) (Unknown timestamp) on &quot;linux_x64&quot;&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;です。どうしようか思案中です。&lt;br /&gt;
-　それにしてもDartはスタックオーバーフローが発生しない仕組みがあると考えていいのでしょうか？他の言語処理系だとデータ量にも依りますが５０手も先を読もうとすると真っ先に５０手先の末端ノードまで達してスタックオーバーフローが発生することが多いと思います&lt;sup id=&quot;fnref:7&quot;&gt;&lt;a href=&quot;#fn:7&quot; class=&quot;footnote&quot;&gt;7&lt;/a&gt;&lt;/sup&gt;。例え５０手で発生しなくても、先読みの深さに極端に大きな値を与えるとスタックオーバーフローが発生するので、そこで大体の限界値の見当が付きますが、先読み手数の値に1000とか10000を指定してもエラーが発生しないものですから正常に動いているのかどうか判断つきませんでした。&lt;/p&gt;
+&lt;p&gt;です。どうしようか思案中です。&lt;/p&gt;
 
 &lt;h3 id=&quot;ソースファイル&quot;&gt;ソースファイル&lt;/h3&gt;
 &lt;p&gt;　アプリのアクティブユーザー数が1,000に達したらこの記事で使用しているソース（=アプリからGUI部分を除いたソース）を公開することにしました。もしソースが欲しいと思う方がいれば、アプリのユーザー増加にご協力ください。&lt;br /&gt;
@@ -1778,9 +1906,6 @@ result = [4, 5], depth = 16
     &lt;/li&gt;
     &lt;li id=&quot;fn:6&quot;&gt;
       &lt;p&gt;以前Cordovaで作成した機械学習型ＡＩアプリを&lt;a href=&quot;https://play.google.com/store/apps/details?id=tictactoe_evo.io.github.happyclam&quot;&gt;「進化する三目並べ」&lt;/a&gt;と題してiPhoneアプリとして公開していたのですが、売れなかったので１年間で止めてしまいました。 &lt;a href=&quot;#fnref:6&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:7&quot;&gt;
-      &lt;p&gt;こう書くと「自前でスタックを用意してスタックオーバーフローが発生しないようなコードを書けばいい」と簡単に言い切ってしまう人がいますが、アルゴリズムの本とかに書かれている定番の簡単な処理以外では、かなり面倒な作業を強いられることが多いと思います。 &lt;a href=&quot;#fnref:7&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
