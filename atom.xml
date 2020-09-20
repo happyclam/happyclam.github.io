@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-09-20T10:20:59+09:00</updated>
+ <updated>2020-09-20T19:31:43+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -13,14 +13,13 @@
 
  
  <entry>
-   <title>Dartは遅いと思いきやC++より速かった</title>
+   <title>Dartは遅いけど、FlutterでGUIは有り</title>
    <link href="https://happyclam.github.io/software/2020-09-19/js_dart_cpp"/>
    <updated>2020-09-19T00:00:00+09:00</updated>
    <id>https://happyclam.github.io/software/2020-09-19/js_dart_cpp</id>
    <content type="html">&lt;h3 id=&quot;dartに絶望flutterでguiは有り&quot;&gt;Dartに絶望FlutterでGUIは有り&lt;/h3&gt;
 &lt;p&gt;　Qiitaのどなたかの記事でDartはJavaScriptより実行速度が倍程速いと書かれているのを見かけて、期待しながら今リリースしているCoffeeScript（JavaScript）製の&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;のGUI以外の部分をDartで書き直して比較したのですが、テストの結果からDartの方が遅いことが分かりました。Flutter(Dart)で&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラアプリ&lt;/a&gt;を作ってみてGUIの作り易さに感動した&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;だけに非常に失望しました。&lt;br /&gt;
-　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;今のアプリ&lt;/a&gt;よりも実行速度が遅いのならFlutterで将棋関連のアプリを作り直す意味がないので、どうしようかと思い、&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;以前の記事&lt;/a&gt;で書いたマンカラアプリなら行数も少ないのでとりあえずこれを題材にTypeScriptとC++で書き直して比較してみました。&lt;br /&gt;
-　結果は意外なものでした。&lt;/p&gt;
+　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;今のアプリ&lt;/a&gt;よりも実行速度が遅いのならFlutterで将棋関連のアプリを作り直す意味がないので、どうしようかと思い、&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;以前の記事&lt;/a&gt;で書いたマンカラアプリなら行数も少ないのでとりあえずこれを題材にTypeScriptとC++で書き直して比較してみました。&lt;/p&gt;
 
 &lt;h3 id=&quot;比較の元となるdartの実行結果&quot;&gt;比較の元となるDartの実行結果&lt;/h3&gt;
 &lt;p&gt;　６×２列のマンカラカラハの先読みプログラムの実行結果です。何をやっているかは&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;以前の記事&lt;/a&gt;を参照してください。&lt;/p&gt;
@@ -81,11 +80,13 @@ ms = 2862324
 
 &lt;p&gt;　同じ結果を得るまでに2862秒（１時間弱）で、やはりDartよりJSの方が速いようです。将棋の場合これ以上に明確な差がありました。&lt;/p&gt;
 
-&lt;h3 id=&quot;cなら最強だろうと思いきや&quot;&gt;C++なら最強だろうと思いきや&lt;/h3&gt;
-&lt;p&gt;　苦労してC++で将棋関連アプリを書き直しても、そのままではスマホアプリに出来ないので今までは避けていました。でもFlutterでGUI部分を作って思考部分だけC++で作ればいいんじゃないかなんて考えて試してみました&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;h3 id=&quot;cはやはり最強&quot;&gt;C++はやはり最強&lt;/h3&gt;
+&lt;p&gt;　苦労してC++で将棋関連アプリを書き直しても、そのままではスマホアプリに出来ないので今までは避けていました。でもFlutterでGUI部分を作って思考部分だけC++で作ればいいんじゃないかなんて考えて試してみました&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。
+　C言語を使うのが久しぶりでよく調べずに一度間違った記事をアップしてしまったのですが、以下がC++の結果です&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ g++ mancala.cpp -o mancala.out
+&lt;pre&gt;&lt;code&gt;$ g++ mancala.cpp -O2 -o mancala.out
 $ ./mancala.out
+0,2,2,2,2,2,2,0,2,2,2,2,2,2,
 === result = 1, 5, i = 1
 === result = 0, 5, i = 2
 === result = 3, 5, i = 3
@@ -104,21 +105,14 @@ $ ./mancala.out
 === result = 2, 6, i = 16
 === result = 3, 6, i = 17
 === result = 999, 5, i = 18
-11788522.763000[ms]
+700673.273000[ms]
 999, 5
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;　結果は、驚いたことに11788秒（３時間強）!!一番遅い結果になりました。&lt;br /&gt;
+&lt;p&gt;　結果は、700秒（約１１分）!!やはり最強でした。~~&lt;br /&gt;
 　&lt;/p&gt;
-&lt;h3 id=&quot;何かがおかしい&quot;&gt;何かがおかしい&lt;/h3&gt;
-&lt;p&gt;　プログラムを他の言語に移植すると言っても同じオブジェクト指向言語であればほとんどコードは一対一に書き換え可能で、写経に近いものがあります&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。元々のDartのプログラムにはまだまだ改良の余地があると思いますが、拙いコードであってもバグがあったとしても、今回比較した３つのプログラムは行数も少なく同じ処理をしていますので、拙いコードもバグも同じまま、実行時間だけを比較していると言えると思います。実行結果も同じです。&lt;br /&gt;
-　昔から新しいプログラミング言語を勉強するときはオセロを題材に選ぶことが多かったので、この種のプログラムをいろんな言語で書いた経験がありますが、昔は実行速度で比較したらC(またはC++)が最も実行速度が速かったのですが、最近は違うのでしょうか？いやぁそんなこと無いですよねぇ。&lt;br /&gt;
-　今までの経験と違うことで思い当たるのは、同じMIN-MAX法やαβ法を使った再帰呼び出しが主な処理の先読みプログラムでも、今回のプログラムでは相互再帰という手法を使っている点です。もしかしてC++は相互再帰呼び出しが苦手なのでしょうか？&lt;br /&gt;
-　コンパイラの中の処理までは詳しくないので残念ながら分かりませんが、実行速度を比較する題材としては特殊過ぎて、よくなかったかもしれません。相互再帰とかもC++も使わずにC言語で書くのが一番速い気もします。&lt;br /&gt;
-　とにかく、この結果を見ると将棋関連アプリを作り直すとすれば、TypeScriptを使うのが一番良さそうです&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
-
-&lt;h3 id=&quot;マンカラの最善手も先送り&quot;&gt;マンカラの最善手も先送り&lt;/h3&gt;
-&lt;p&gt;　今回、マンカラの先読みプログラムをC++に移植したのは、以前の&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;マンカラの記事&lt;/a&gt;、&lt;a href=&quot;/software/2020-08-09/mancala_easy&quot;&gt;続編&lt;/a&gt;の課題であるマンカラカラハ（６×２列で種子４つ）の最善手を見つける目論見もあったのですが、C++でも時間が掛かることが分かった今となっては、かなり先になりそうだなぁと思ってます。&lt;/p&gt;
+&lt;h3 id=&quot;とりあえずマンカラの最善手は調べられそう&quot;&gt;とりあえずマンカラの最善手は調べられそう&lt;/h3&gt;
+&lt;p&gt;　このプログラムを今の&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラアプリ&lt;/a&gt;に組み入れるのは簡単ではないと思いますが、とりあえずマンカラカラハの最善手は何かという問題を解決することは出来そうです。でもそれを公開するとマンカラで遊ぶ人が減りそうですね:sweat_smile:&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -131,10 +125,7 @@ $ ./mancala.out
       &lt;p&gt;昔、GUIはVisualBasicで作って内部処理はVisualC++で作る（DLL）なんて仕事をよくしていました。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:3&quot;&gt;
-      &lt;p&gt;コードもほぼ一対一で書式だけが違う感じで、C++だけクラス変数の初期化部分が少し違う程度です。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:4&quot;&gt;
-      &lt;p&gt;C言語が速いと思うならC言語で作ればいいじゃないかと言う人がいるかもしれませんが、FlutterとC（またはC++）モジュールとのデータのやり取りで苦労しそうです。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;コンパイルオプション(&lt;code&gt;-O&lt;/code&gt;、または&lt;code&gt;-O2&lt;/code&gt;)を付加することで末尾最適化してくれるそうです。そう言えば昔はスタックサイズやらいろいろコンパイルオプションを付けなければ上手くいかなかった記憶があります。自分がC言語から遠ざかっている間にコンパイラも進化しているようです。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
@@ -1881,7 +1872,7 @@ result = [4, 5], depth = 16
 
 &lt;p&gt;です。どうしようか思案中です。&lt;/p&gt;
 
-&lt;p&gt;　※ TypeScriptとC++でも試してみました&lt;a href=&quot;/software/2020-09-19/js_dart_cpp&quot;&gt;「Dartは遅いと思いきやC++より速かった」&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;　※ TypeScriptとC++でも試してみました&lt;a href=&quot;/software/2020-09-19/js_dart_cpp&quot;&gt;「Dartは遅いけど、FlutterでGUIは有り」&lt;/a&gt;。&lt;/p&gt;
 
 &lt;h3 id=&quot;ソースファイル&quot;&gt;ソースファイル&lt;/h3&gt;
 &lt;p&gt;　アプリのアクティブユーザー数が1,000に達したらこの記事で使用しているソース（=アプリからGUI部分を除いたソース）を公開することにしました。もしソースが欲しいと思う方がいれば、アプリのユーザー増加にご協力ください。&lt;br /&gt;

@@ -1,7 +1,7 @@
 [
   
     {
-      "title"    : "Dartは遅いと思いきやC++より速かった",
+      "title"    : "Dartは遅いけど、FlutterでGUIは有り",
       "category" : "software",
       "tags"     : "dart, android, flutter, typescript, c++",
       "url"      : "/software/2020-09-19/js_dart_cpp",
