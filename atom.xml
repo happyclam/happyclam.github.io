@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-09-20T19:53:49+09:00</updated>
+ <updated>2020-09-21T08:51:01+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -111,8 +111,8 @@ $ ./mancala.out
 
 &lt;p&gt;　結果は、700秒（約１１分）!!やはり最強でした。&lt;br /&gt;
 　&lt;/p&gt;
-&lt;h3 id=&quot;とりあえずマンカラの最善手は調べられそう&quot;&gt;とりあえずマンカラの最善手は調べられそう&lt;/h3&gt;
-&lt;p&gt;　このプログラムを今の&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラアプリ&lt;/a&gt;に組み入れるのは簡単ではないと思いますが、とりあえずマンカラカラハの最善手は何かという問題を解決することは出来そうです。でもそれを公開するとマンカラで遊ぶ人が減りそうですね:sweat_smile:&lt;/p&gt;
+&lt;h3 id=&quot;マンカラの必勝法は&quot;&gt;マンカラの必勝法は？&lt;/h3&gt;
+&lt;p&gt;　今回、マンカラの先読みプログラムをC++に移植したのは、以前の&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;マンカラの記事&lt;/a&gt;、&lt;a href=&quot;/software/2020-08-09/mancala_easy&quot;&gt;続編&lt;/a&gt;の課題である、マンカラカラハ（６×２列で種子４つ）の必勝法を見つける目論見も兼ねていたのですが、C++版で実行時間が短縮されたと言っても、この程度では必勝法を見つけることが出来るかどうかは分かりません。１時間掛かった作業が１０分で可能になったと言っても、もし読み切るのに１年以上掛かる作業だとしたら、やはり数ヶ月以上掛かることには変わりませんから。&lt;/p&gt;
 
 &lt;hr /&gt;
 
