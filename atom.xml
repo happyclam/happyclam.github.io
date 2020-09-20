@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-09-20T19:31:43+09:00</updated>
+ <updated>2020-09-20T19:53:49+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -81,7 +81,7 @@ ms = 2862324
 &lt;p&gt;　同じ結果を得るまでに2862秒（１時間弱）で、やはりDartよりJSの方が速いようです。将棋の場合これ以上に明確な差がありました。&lt;/p&gt;
 
 &lt;h3 id=&quot;cはやはり最強&quot;&gt;C++はやはり最強&lt;/h3&gt;
-&lt;p&gt;　苦労してC++で将棋関連アプリを書き直しても、そのままではスマホアプリに出来ないので今までは避けていました。でもFlutterでGUI部分を作って思考部分だけC++で作ればいいんじゃないかなんて考えて試してみました&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。
+&lt;p&gt;　苦労してC++で将棋関連アプリを書き直しても、そのままではスマホアプリに出来ないので今までは避けていました。でもFlutterでGUI部分を作って思考部分だけC++で作ればいいんじゃないかなんて考えて試してみました&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
 　C言語を使うのが久しぶりでよく調べずに一度間違った記事をアップしてしまったのですが、以下がC++の結果です&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ g++ mancala.cpp -O2 -o mancala.out
@@ -109,7 +109,7 @@ $ ./mancala.out
 999, 5
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;　結果は、700秒（約１１分）!!やはり最強でした。~~&lt;br /&gt;
+&lt;p&gt;　結果は、700秒（約１１分）!!やはり最強でした。&lt;br /&gt;
 　&lt;/p&gt;
 &lt;h3 id=&quot;とりあえずマンカラの最善手は調べられそう&quot;&gt;とりあえずマンカラの最善手は調べられそう&lt;/h3&gt;
 &lt;p&gt;　このプログラムを今の&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラアプリ&lt;/a&gt;に組み入れるのは簡単ではないと思いますが、とりあえずマンカラカラハの最善手は何かという問題を解決することは出来そうです。でもそれを公開するとマンカラで遊ぶ人が減りそうですね:sweat_smile:&lt;/p&gt;
