@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-09-19T11:01:48+09:00</updated>
+ <updated>2020-09-20T10:20:59+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -18,7 +18,7 @@
    <updated>2020-09-19T00:00:00+09:00</updated>
    <id>https://happyclam.github.io/software/2020-09-19/js_dart_cpp</id>
    <content type="html">&lt;h3 id=&quot;dartに絶望flutterでguiは有り&quot;&gt;Dartに絶望FlutterでGUIは有り&lt;/h3&gt;
-&lt;p&gt;　Qiitaのどなたかの記事でDartはJavaScriptより実行速度が倍程速いと書かれているのを見かけて、期待しながら&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;のGUI以外の部分をDartで書き直して、今のCoffeeScript（JavaScript）製プログラムと比較したのですが、同じテストの実行結果がDartの方が明らかに遅かったんです。Flutter(Dart)で&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラアプリ&lt;/a&gt;を作ってみてGUIの作り易さに感動した&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;だけに非常に失望しました。&lt;br /&gt;
+&lt;p&gt;　Qiitaのどなたかの記事でDartはJavaScriptより実行速度が倍程速いと書かれているのを見かけて、期待しながら今リリースしているCoffeeScript（JavaScript）製の&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;のGUI以外の部分をDartで書き直して比較したのですが、テストの結果からDartの方が遅いことが分かりました。Flutter(Dart)で&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラアプリ&lt;/a&gt;を作ってみてGUIの作り易さに感動した&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;だけに非常に失望しました。&lt;br /&gt;
 　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;今のアプリ&lt;/a&gt;よりも実行速度が遅いのならFlutterで将棋関連のアプリを作り直す意味がないので、どうしようかと思い、&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;以前の記事&lt;/a&gt;で書いたマンカラアプリなら行数も少ないのでとりあえずこれを題材にTypeScriptとC++で書き直して比較してみました。&lt;br /&gt;
 　結果は意外なものでした。&lt;/p&gt;
 
@@ -1880,6 +1880,8 @@ result = [4, 5], depth = 16
 &lt;/ul&gt;
 
 &lt;p&gt;です。どうしようか思案中です。&lt;/p&gt;
+
+&lt;p&gt;　※ TypeScriptとC++でも試してみました&lt;a href=&quot;/software/2020-09-19/js_dart_cpp&quot;&gt;「Dartは遅いと思いきやC++より速かった」&lt;/a&gt;。&lt;/p&gt;
 
 &lt;h3 id=&quot;ソースファイル&quot;&gt;ソースファイル&lt;/h3&gt;
 &lt;p&gt;　アプリのアクティブユーザー数が1,000に達したらこの記事で使用しているソース（=アプリからGUI部分を除いたソース）を公開することにしました。もしソースが欲しいと思う方がいれば、アプリのユーザー増加にご協力ください。&lt;br /&gt;
