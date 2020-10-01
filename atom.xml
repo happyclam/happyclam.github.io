@@ -4,13 +4,152 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-09-22T15:32:19+09:00</updated>
+ <updated>2020-10-01T20:39:02+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
    <email>happyclam.u@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>C++でFlutterアプリのライブラリ作成</title>
+   <link href="https://happyclam.github.io/software/2020-10-01/flutter_plugin"/>
+   <updated>2020-10-01T00:00:00+09:00</updated>
+   <id>https://happyclam.github.io/software/2020-10-01/flutter_plugin</id>
+   <content type="html">&lt;h3 id=&quot;その簡単さに驚く&quot;&gt;その簡単さに驚く&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/software/2020-09-19/js_dart_cpp&quot;&gt;前回の記事&lt;/a&gt;で作ったC++製のプログラムをアプリで利用しない手は無いと思いちょっと調べてみたら非常に簡単に作れそうなのでやってみました。自分の場合は取り敢えずandroid版しか考えていないので、&lt;a href=&quot;https://flutter.dev/docs/development/platform-integration/c-interop&quot;&gt;公式サイト&lt;/a&gt;に書かれている僅かな手順を踏めば、ライブラリ（Plugin）とそのテストをするためのExampleプロジェクトが出来上がります。&lt;/p&gt;
+
+&lt;h3 id=&quot;情報が少なめ&quot;&gt;情報が少なめ&lt;/h3&gt;
+&lt;p&gt;　Flutter,Pluginで検索するとPluginを公開する前提で書かれている記事が多くて、自分のアプリ用のライブラリとして使うケースについては情報が少ないような気がします。Java（あるいはKotlin）やSwiftを経由してC++のライブラリを使う方法なんかもあるようですが、C++だけで済ませたかった自分には参考になる記事は少なかったです。&lt;br /&gt;
+　&lt;a href=&quot;https://flutter.dev/docs/development/platform-integration/c-interop&quot;&gt;前述の公式サイトの記事&lt;/a&gt;で&lt;code&gt;Dart:ffi&lt;/code&gt;を使えばint型のデータだけなら簡単にやり取りできるのは分かったのですが、intだけじゃ大変だなと思っていたところ、&lt;a href=&quot;https://www.google.co.jp/search?sxsrf=ALeKk0278rFY7cQTrFc34ZLGoL92Ncc_3w%3A1601382825947&amp;amp;source=hp&amp;amp;ei=qSlzX7TPNsuNoASIrIagBw&amp;amp;q=Flutter%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%A7dart%3Affi%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B&amp;amp;oq=Flutter%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%A7dart%3Affi%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B&amp;amp;gs_lcp=CgZwc3ktYWIQAzoICAAQsQMQgwE6BwgAELEDEAQ6BggAEAQQAzoECAAQBDoFCAAQsQM6AggAOggIABAFEAQQHjoGCAAQBRAeOgUIABDNAlCBF1j5c2D9dGgGcAB4AIABdIgB5x2SAQUyMy4xNpgBAKABAaoBB2d3cy13aXo&amp;amp;sclient=psy-ab&amp;amp;ved=0ahUKEwj0x_Lzr47sAhXLBogKHQiWAXQQ4dUDCAw&amp;amp;uact=5&quot;&gt;「Flutterプラグインでdart:ffiを使ってみる」というPDFファイル&lt;/a&gt;を読んでポインタ経由なら他のデータでもやり取り出来そうなことが分かって、やってみる気になりました。Dart:ffiだけで不足している機能は&lt;a href=&quot;https://pub.dev/packages/ffi&quot;&gt;ffiパッケージ&lt;/a&gt;として公開されているものを使います。&lt;/p&gt;
+
+&lt;h3 id=&quot;ライブラリplugin用のプロジェクト作成&quot;&gt;ライブラリ（Plugin）用のプロジェクト作成&lt;/h3&gt;
+&lt;p&gt;　iosでの利用も考えている人は違ってくると思います。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;flutter create --org io.github.happyclam --template=plugin --platforms=android karah_think
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　プロジェクトを作成したら&lt;code&gt;flutter build apk&lt;/code&gt;で一度ビルドした後、android/下のCMakeList.txtの編集&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# CMakeList.txt
+cmake_minimum_required(VERSION 3.4.1)  # for example
+set(CMAKE_CXX_FLAGS &quot;-O2 -std=c++11 -Wall&quot;)
+add_library( karah_think
+
+             # Sets the library as a shared library.
+             SHARED
+
+             # Provides a relative path to your source file(s).
+             ../android/Classes/karah_think.cpp )
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　android/下にClassesという名のディレクトリを作成（何でもいい）して、C++のソースは全てそこに入れました。/android/Classes/karah_think.cppがアプリから呼び出される関数（エクスポート関数）が書かれているファイルです。&lt;a href=&quot;/software/2020-09-19/js_dart_cpp&quot;&gt;前回の記事&lt;/a&gt;でも書いたコンパイルオプションもこのファイル（CMakeList.txt）で定義します。&lt;br /&gt;
+　これだけでライブラリ開発環境が出来て、karah_thinkプロジェクト内に自動作成されたExampleプロジェクトをAndroid Studioで読み込めばライブラリの開発＆テストが出来ます。Exampleプロジェクトをビルドすればライブラリ（libkarah_think.so）もビルドされます。&lt;br /&gt;
+　ここまでは上記の公式サイトに書かれている内容です。&lt;/p&gt;
+
+&lt;h3 id=&quot;作ったライブラリpluginをアプリのプロジェクトで使う&quot;&gt;作ったライブラリ（Plugin）をアプリのプロジェクトで使う&lt;/h3&gt;
+&lt;p&gt;　ライブラリの中身はマンカラで使う要素１４個の固定長配列、手番（先手・後手）、読みの深さを渡して最善手を返して貰うラッパー関数を書くだけなのですぐに実装出来ました。でも、この出来上がったライブラリをどうやって元々存在するマンカラアプリのプロジェクトから使うのか分からなかったのですが、Flutterで公開されているパッケージを使う時と同じように、&lt;code&gt;pubspec.yaml&lt;/code&gt;に依存関係を記述するだけでした。&lt;br /&gt;
+　マンカラアプリのプロジェクトの&lt;code&gt;pubspec.yaml&lt;/code&gt;内の依存関係に、ライブラリのプロジェクトが存在するローカルのPathを追記します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#pubspec.yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  karah_think:
+    path: &quot;../karah_think/&quot;
+  ffi: ^0.1.3
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　マンカラアプリプロジェクト（mancala）とC++ライプラリプロジェクト（karah_think）とライブラリ動作確認用プロジェクト（example）の関係は以下のようになっています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;├── mancala
+│   ├── pubspec.yaml
+├── karah_think
+│   ├── example
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　ライブラリを使う側のマンカラアプリプロジェクトの&lt;code&gt;lib/main.dart&lt;/code&gt;の宣言部分はこんな感じです。&lt;br /&gt;
+　引数は&lt;code&gt;評価値と指し手を受け取るための配列&lt;/code&gt;、&lt;code&gt;マンカラの盤面情報を渡す配列&lt;/code&gt;、&lt;code&gt;手番（先手・後手）&lt;/code&gt;、&lt;code&gt;読みの深さ&lt;/code&gt;になってます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#mancala/lib/main.dart
+import 'dart:typed_data';
+import 'dart:ffi'; // For FFI
+import 'dart:io'; // For Platform.isX
+import 'package:ffi/ffi.dart';
+final DynamicLibrary karahThinkLib = Platform.isAndroid
+    ? DynamicLibrary.open(&quot;libkarah_think.so&quot;)
+    : DynamicLibrary.process();
+
+final int Function(Pointer&amp;lt;Int32&amp;gt; pResult, Pointer&amp;lt;Int32&amp;gt; board, int turn, int depth) karahThink =
+karahThinkLib
+    .lookup&amp;lt;NativeFunction&amp;lt;Int32 Function(Pointer&amp;lt;Int32&amp;gt;, Pointer&amp;lt;Int32&amp;gt;, Int32, Int32)&amp;gt;&amp;gt;(&quot;karah_think&quot;)
+    .asFunction();
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　ライブラリ（libkarah_think.so）のエクスポート関数を呼び出す部分&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#mancala/lib/main.dart
+  List _cppThink(List board, int turn, int depth){
+    final pBoard32 = allocate&amp;lt;Int32&amp;gt;(count: board.length);
+    final pResult32 = allocate&amp;lt;Int32&amp;gt;(count: 2);
+    for (var i = 0; i &amp;lt; board.length; i++){
+      pBoard32[i] = board[i];
+    }
+    int ret = karahThink(pResult32, pBoard32, turn, depth);
+    Int32List list = pResult32.asTypedList(2);
+    List result = List.from(list);
+    free(pBoard32);
+    free(pResult32);
+    return result;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　ライブラリのエクスポート関数&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/* karah_think/android/Classes/karah_think.cpp */
+#include &amp;lt;stdint.h&amp;gt;
+#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;array&amp;gt;
+#include &amp;lt;map&amp;gt;
+#include &quot;./const.cpp&quot;
+#include &quot;./player.cpp&quot;
+
+extern &quot;C&quot; __attribute__((visibility(&quot;default&quot;))) __attribute__((used))
+int32_t karah_think(int32_t* pResult, int32_t* pBoard, int32_t turn, int32_t depth) {
+  std::array&amp;lt;int, DENTS&amp;gt; board{0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+  std::array&amp;lt;int, 2&amp;gt; result{0, 0};
+  for(int i = 0; i &amp;lt; DENTS; i++){
+    board[i] = pBoard[i];
+  }
+  Player first(FIRST);
+  Player second(SECOND);
+  if (turn == FIRST){
+    result = first.think(board, &amp;amp;second, depth, FIRST_WIN);
+  } else {
+    result = second.think(board, &amp;amp;first, depth, SECOND_WIN);
+  }
+  int32_t ret = result[0];
+  pResult[0] = result[0];
+  pResult[1] = result[1];
+  return ret;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　C++側はSTLを使っているので型に合わせた変数に代入し直して利用します。&lt;/p&gt;
+
+&lt;h3 id=&quot;効果は歴然&quot;&gt;効果は歴然&lt;/h3&gt;
+&lt;p&gt;　今まではマンカラアプリのAIのレベルを「やばい」にすると一手毎に待たされていたのですが、C++製ライブラリを使ったものは他のAIレベルと同じぐらいのレスポンスになりました。ただ、自分のandroid 10 の端末だと今のところ問題なく動作していますが、機種によっては問題が出るかもしれません。ネットを見ているとまだFlutter側の問題もあるようです。また、必ずしも古い機種だけで問題が発生しているわけでは無いようですが、マンカラアプリもAndroidのバージョンを7.1.1（minSdkVersion=25）以上に制限して取り敢えず&lt;a href=&quot;https://play.google.com/apps/testing/mancala.io.github.happyclam&quot;&gt;ベータ版&lt;/a&gt;として公開してしばらく様子みることにしました。&lt;br /&gt;
+　将棋関連アプリも早くこの形でリリースしたいところですが、マンカラのように一つの固定長配列を渡すだけでは済まないので、いろいろ試してみないと分からないことが多く道のりは遠いです。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Dartは遅いけど、FlutterでGUIは有り</title>
@@ -148,7 +287,8 @@ $ ./mancala.out
 &lt;br /&gt;&lt;a href=&quot;https://taimienphi.vn&quot; title=&quot;download&quot;&gt;taimienphi.vn&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;マンカラ-ナッツについて&quot;&gt;「マンカラ ナッツ」について&lt;/h3&gt;
-&lt;p&gt;　対人戦の途中でＡＩ対戦に切り替えたり、ＡＩ対戦の途中で対人戦に切り替えたりして、マンカラの特定の局面での最善手の研究にも使えるように配慮したマンカラアプリです。&lt;/p&gt;
+&lt;p&gt;　対人戦の途中でＡＩ対戦に切り替えたり、ＡＩ対戦の途中で対人戦に切り替えたりして、マンカラの特定の局面での最善手の研究にも使えるように配慮したマンカラアプリです。&lt;br /&gt;
+→&lt;a href=&quot;https://play.google.com/apps/testing/mancala.io.github.happyclam&quot;&gt;C++高速ベータ版&lt;/a&gt;（AI対戦の&lt;code&gt;「やばい」&lt;/code&gt;モードのレスポンスが向上してます）&lt;/p&gt;
 
 &lt;h3 id=&quot;ルール&quot;&gt;ルール&lt;/h3&gt;
 &lt;p&gt;　数あるマンカラのルールの中で、&lt;code&gt;カラハ（Karah）&lt;/code&gt;と呼ばれるルールを採用しています。&lt;br /&gt;

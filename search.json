@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "C++でFlutterアプリのライブラリ作成",
+      "category" : "software",
+      "tags"     : "dart, android, flutter, c++",
+      "url"      : "/software/2020-10-01/flutter_plugin",
+      "date"     : "2020-10-01 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "Dartは遅いけど、FlutterでGUIは有り",
       "category" : "software",
       "tags"     : "dart, android, flutter, typescript, c++",
