@@ -309,7 +309,7 @@ karahThinkLib
 <pre><code>#mancala/lib/main.dart
   List _cppThink(List board, int turn, int depth){
     final pBoard32 = allocate&lt;Int32&gt;(count: board.length);
-    final pResult32 = allocate&lt;Int32&gt;(count: 2);
+    Pointer&lt;Int32&gt; pResult32 = allocate&lt;Int32&gt;(count: 2);
     for (var i = 0; i &lt; board.length; i++){
       pBoard32[i] = board[i];
     }

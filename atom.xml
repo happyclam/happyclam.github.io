@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-10-02T16:59:39+09:00</updated>
+ <updated>2020-10-22T09:01:13+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -96,7 +96,7 @@ karahThinkLib
 &lt;pre&gt;&lt;code&gt;#mancala/lib/main.dart
   List _cppThink(List board, int turn, int depth){
     final pBoard32 = allocate&amp;lt;Int32&amp;gt;(count: board.length);
-    final pResult32 = allocate&amp;lt;Int32&amp;gt;(count: 2);
+    Pointer&amp;lt;Int32&amp;gt; pResult32 = allocate&amp;lt;Int32&amp;gt;(count: 2);
     for (var i = 0; i &amp;lt; board.length; i++){
       pBoard32[i] = board[i];
     }
