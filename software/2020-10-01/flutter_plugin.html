@@ -334,21 +334,24 @@ karahThinkLib
 
 extern "C" __attribute__((visibility("default"))) __attribute__((used))
 int32_t karah_think(int32_t* pResult, int32_t* pBoard, int32_t turn, int32_t depth) {
+  int32_t ret = 0;
   std::array&lt;int, DENTS&gt; board{0,0,0,0,0,0,0,0,0,0,0,0,0,0};
   std::array&lt;int, 2&gt; result{0, 0};
   for(int i = 0; i &lt; DENTS; i++){
     board[i] = pBoard[i];
   }
-  Player first(FIRST);
-  Player second(SECOND);
+  Player *pFirst = new Player(FIRST);
+  Player *pSecond = new Player(SECOND);
   if (turn == FIRST){
-    result = first.think(board, &amp;second, depth, FIRST_WIN);
+    result = pFirst-&gt;think(board, pSecond, depth, FIRST_WIN);
   } else {
-    result = second.think(board, &amp;first, depth, SECOND_WIN);
+    result = pSecond-&gt;think(board, pFirst, depth, SECOND_WIN);
   }
-  int32_t ret = result[0];
+  ret = result[0];
   pResult[0] = result[0];
   pResult[1] = result[1];
+  delete pFirst;
+  delete pSecond;
   return ret;
 }
 </code></pre>
@@ -356,7 +359,8 @@ int32_t karah_think(int32_t* pResult, int32_t* pBoard, int32_t turn, int32_t dep
 <p>　C++側はSTLを使っているので型に合わせた変数に代入し直して利用します。</p>
 
 <h3 id="効果は歴然">効果は歴然</h3>
-<p>　今まではマンカラアプリのAIのレベルを「やばい」にすると一手毎に待たされていたのですが、C++製ライブラリを使ったものは他のAIレベルと同じぐらいのレスポンスになりました。ただ、自分のandroid 10 の端末だと今のところ問題なく動作していますが、機種によっては問題が出るかもしれません。ネットを見ているとまだFlutter側の問題もあるようです。また、必ずしも古い機種だけで問題が発生しているわけでは無いようですが、マンカラアプリもAndroidのバージョンを7.1.1（minSdkVersion=25）以上に制限して取り敢えず<a href="https://play.google.com/apps/testing/mancala.io.github.happyclam">ベータ版</a>として公開してしばらく様子みることにしました。<br />
+<p>　今まではマンカラアプリのAIのレベルを「やばい」にすると一手毎に待たされていたのですが、C++製ライブラリを使ったものは他のAIレベルと同じぐらいのレスポンスになりました。<br />
+　Windows用のライブラリと違って、様々なCPUに合わせたAndroid端末毎のDLLが簡単なGUI操作（中で活躍してるのはgradleですが）でビルド出来るのはすごいです。<br />
 　将棋関連アプリも早くこの形でリリースしたいところですが、マンカラのように一つの固定長配列を渡すだけでは済まないので、いろいろ試してみないと分からないことが多く道のりは遠いです。</p>
 
 <hr />

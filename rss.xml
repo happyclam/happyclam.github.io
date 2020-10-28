@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2020-10-22T09:01:13+09:00</lastBuildDate>
-        <pubDate>2020-10-22T09:01:13+09:00</pubDate>
+        <lastBuildDate>2020-10-29T07:29:49+09:00</lastBuildDate>
+        <pubDate>2020-10-29T07:29:49+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -116,21 +116,24 @@ karahThinkLib
 
 extern &quot;C&quot; __attribute__((visibility(&quot;default&quot;))) __attribute__((used))
 int32_t karah_think(int32_t* pResult, int32_t* pBoard, int32_t turn, int32_t depth) {
+  int32_t ret = 0;
   std::array&amp;lt;int, DENTS&amp;gt; board{0,0,0,0,0,0,0,0,0,0,0,0,0,0};
   std::array&amp;lt;int, 2&amp;gt; result{0, 0};
   for(int i = 0; i &amp;lt; DENTS; i++){
     board[i] = pBoard[i];
   }
-  Player first(FIRST);
-  Player second(SECOND);
+  Player *pFirst = new Player(FIRST);
+  Player *pSecond = new Player(SECOND);
   if (turn == FIRST){
-    result = first.think(board, &amp;amp;second, depth, FIRST_WIN);
+    result = pFirst-&amp;gt;think(board, pSecond, depth, FIRST_WIN);
   } else {
-    result = second.think(board, &amp;amp;first, depth, SECOND_WIN);
+    result = pSecond-&amp;gt;think(board, pFirst, depth, SECOND_WIN);
   }
-  int32_t ret = result[0];
+  ret = result[0];
   pResult[0] = result[0];
   pResult[1] = result[1];
+  delete pFirst;
+  delete pSecond;
   return ret;
 }
 &lt;/code&gt;&lt;/pre&gt;
@@ -138,7 +141,8 @@ int32_t karah_think(int32_t* pResult, int32_t* pBoard, int32_t turn, int32_t dep
 &lt;p&gt;　C++側はSTLを使っているので型に合わせた変数に代入し直して利用します。&lt;/p&gt;
 
 &lt;h3 id=&quot;効果は歴然&quot;&gt;効果は歴然&lt;/h3&gt;
-&lt;p&gt;　今まではマンカラアプリのAIのレベルを「やばい」にすると一手毎に待たされていたのですが、C++製ライブラリを使ったものは他のAIレベルと同じぐらいのレスポンスになりました。ただ、自分のandroid 10 の端末だと今のところ問題なく動作していますが、機種によっては問題が出るかもしれません。ネットを見ているとまだFlutter側の問題もあるようです。また、必ずしも古い機種だけで問題が発生しているわけでは無いようですが、マンカラアプリもAndroidのバージョンを7.1.1（minSdkVersion=25）以上に制限して取り敢えず&lt;a href=&quot;https://play.google.com/apps/testing/mancala.io.github.happyclam&quot;&gt;ベータ版&lt;/a&gt;として公開してしばらく様子みることにしました。&lt;br /&gt;
+&lt;p&gt;　今まではマンカラアプリのAIのレベルを「やばい」にすると一手毎に待たされていたのですが、C++製ライブラリを使ったものは他のAIレベルと同じぐらいのレスポンスになりました。&lt;br /&gt;
+　Windows用のライブラリと違って、様々なCPUに合わせたAndroid端末毎のDLLが簡単なGUI操作（中で活躍してるのはgradleですが）でビルド出来るのはすごいです。&lt;br /&gt;
 　将棋関連アプリも早くこの形でリリースしたいところですが、マンカラのように一つの固定長配列を渡すだけでは済まないので、いろいろ試してみないと分からないことが多く道のりは遠いです。&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -282,8 +286,7 @@ $ ./mancala.out
 &lt;br /&gt;&lt;a href=&quot;https://taimienphi.vn&quot; title=&quot;download&quot;&gt;taimienphi.vn&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;マンカラ-ナッツについて&quot;&gt;「マンカラ ナッツ」について&lt;/h3&gt;
-&lt;p&gt;　対人戦の途中でＡＩ対戦に切り替えたり、ＡＩ対戦の途中で対人戦に切り替えたりして、マンカラの特定の局面での最善手の研究にも使えるように配慮したマンカラアプリです。&lt;br /&gt;
-→&lt;a href=&quot;https://play.google.com/apps/testing/mancala.io.github.happyclam&quot;&gt;C++高速ベータ版&lt;/a&gt;（AI対戦の&lt;code&gt;「やばい」&lt;/code&gt;モードのレスポンスが向上してます）&lt;/p&gt;
+&lt;p&gt;　対人戦の途中でＡＩ対戦に切り替えたり、ＡＩ対戦の途中で対人戦に切り替えたりして、マンカラの特定の局面での最善手の研究にも使えるように配慮したマンカラアプリです。&lt;/p&gt;
 
 &lt;h3 id=&quot;ルール&quot;&gt;ルール&lt;/h3&gt;
 &lt;p&gt;　数あるマンカラのルールの中で、&lt;code&gt;カラハ（Karah）&lt;/code&gt;と呼ばれるルールを採用しています。&lt;br /&gt;
@@ -319,9 +322,9 @@ $ ./mancala.out
   &lt;li&gt;&lt;code&gt;戻す(Undo)&lt;/code&gt;ボタンを使用すると対戦成績には記録されません。&lt;/li&gt;
   &lt;li&gt;AIの静的評価関数は&lt;code&gt;先手の貯蔵所に溜まった豆の数 - 後手の貯蔵所に溜まった豆の数&lt;/code&gt;で、MIN-MAX法（+ αβ法）を使って先読みを行い指し手を決めます。
     &lt;ul&gt;
-      &lt;li&gt;&lt;code&gt;弱い(Easy)&lt;/code&gt; = １手読み&lt;/li&gt;
-      &lt;li&gt;&lt;code&gt;強い(Hard)&lt;/code&gt; = ６手読み&lt;/li&gt;
-      &lt;li&gt;&lt;code&gt;やばい(Expert)&lt;/code&gt; = ９手読み&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;弱い(Easy)&lt;/code&gt; = ３手読み&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;強い(Hard)&lt;/code&gt; = ７手読み&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;やばい(Expert)&lt;/code&gt; = １０手読み&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
@@ -413,7 +416,7 @@ $ ./mancala.out
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;一時期&lt;code&gt;やばい(Expert)&lt;/code&gt;モードでも初手をランダムにしてリリースしていた時期がありましたが、マンカラの場合、初手に悪手を選ぶとその段階で回復不可能な程形勢を大きく損ねるようなので、&lt;code&gt;やばい(Expert)&lt;/code&gt;の時だけは初手のランダム指し手を止めました。将棋やチェスなどと較べると初手から既に勝敗に大きく関わるようです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;一時期&lt;code&gt;やばい(Expert)&lt;/code&gt;モードでも初手をランダムにしてリリースしていた時期がありましたが、マンカラの場合、初手に悪手を選ぶとその段階で回復不可能な程形勢を大きく損ねるようなので、&lt;code&gt;やばい(Expert)&lt;/code&gt;の時だけは初手のランダム指し手を止めました。将棋やチェスなどと較べると初手から既に勝敗に大きく影響するようです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:2&quot;&gt;
       &lt;p&gt;&lt;code&gt;戻す(Undo)&lt;/code&gt;ボタンで数手前の局面に戻してからAI対戦を再開しても、前回と同じ局面になるとは限りませんのでご注意ください。ゲーム途中で設定を&lt;code&gt;対人対戦(Two Players)&lt;/code&gt;に変更して、気になる局面を再現してから&lt;code&gt;AI対戦(One Player)&lt;/code&gt;に切り替えることは可能です。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
@@ -891,6 +894,7 @@ result = second.think(board, first, 50, SECOND_WIN);
 &lt;p&gt;　ここまで書いてからマンカライージーのルールについて、&lt;strong&gt;「終了時にポケットにある石は無効になります。どちらの数にも入れません」&lt;/strong&gt;と書かれている&lt;a href=&quot;https://genki-up.recreation.or.jp/top/mancala/rule&quot;&gt;サイト&lt;/a&gt;を見つけてしまいました。そう言えば&lt;a href=&quot;https://hugkum.sho.jp/96590&quot;&gt;上で紹介したサイト&lt;/a&gt;には、「基本はベーシックと同じ」と書かれているだけでゲーム終了時に残った石の扱いについては書かれていません。カラハと同じでいいだろうと勝手に判断してしまいました。折角コツコツと遷移表を書いたのが勿体ないので上の文はそのままにして、表だけ「終了時にポケットにある石は無効にする」ルールで更新しておきます。&lt;/p&gt;
 
 &lt;h3 id=&quot;実験結果３２列イージー終了時にポケットにある石は無効にするルール&quot;&gt;実験結果（３×２列イージー、終了時にポケットにある石は無効にするルール）&lt;/h3&gt;
+&lt;p&gt;（2020-10-28一部訂正）&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -907,7 +911,7 @@ result = second.think(board, first, 50, SECOND_WIN);
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;戻り値&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;[999, 1]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[0, 3]&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;[-999, 3]&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;[999, 1]&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;[0, 1]&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;[0, 1]&lt;/td&gt;
@@ -915,15 +919,15 @@ result = second.think(board, first, 50, SECOND_WIN);
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;読みの深さ&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;５手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;５０手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;２５手&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;１６手&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;２３手&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;５０手&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;５０手&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;結論&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;引分け&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;後手必勝&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;引分け&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;引分け&lt;/td&gt;
@@ -932,6 +936,7 @@ result = second.think(board, first, 50, SECOND_WIN);
 &lt;/table&gt;
 
 &lt;h3 id=&quot;実験結果２２列イージー終了時にポケットにある石は無効にするルール&quot;&gt;実験結果（２×２列イージー、終了時にポケットにある石は無効にするルール）&lt;/h3&gt;
+&lt;p&gt;（2020-10-28一部訂正）&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -957,7 +962,7 @@ result = second.think(board, first, 50, SECOND_WIN);
       &lt;td style=&quot;text-align: center&quot;&gt;[999, 1]&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;[-999, 2]&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;[999, 2]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[0, 1]&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;[999, 1]&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;[999, 2]&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;[-999, 2]&lt;/td&gt;
     &lt;/tr&gt;
@@ -967,11 +972,11 @@ result = second.think(board, first, 50, SECOND_WIN);
       &lt;td style=&quot;text-align: center&quot;&gt;１手&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;７手&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;５手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;１６手&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;１４手&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;１８手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;５０手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;２６手&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;２１手&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;２５手&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;２４手&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;結論&lt;/td&gt;
@@ -981,7 +986,7 @@ result = second.think(board, first, 50, SECOND_WIN);
       &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;後手必勝&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;引分け&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;後手必勝&lt;/td&gt;
     &lt;/tr&gt;
@@ -1000,8 +1005,8 @@ result = second.think(board, first, 50, SECOND_WIN);
 &lt;p&gt;　「終了時にポケットにある石は無効にする」ルールだと、本文の検証を読んで貰えれば一手で先手必勝になることは分かると思います。ルールが変わると結果が真逆になるいい例として説明文も無駄にならなくてよかったです。&lt;/p&gt;
 
 &lt;h3 id=&quot;カラハのルール&quot;&gt;カラハのルール&lt;/h3&gt;
-&lt;p&gt;　マンカラカラハにもいろいろな派生ルールが存在するようで、ゲーム終了時に残った石は相手の物になるというルールも存在するようです。&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.marcnadero.kahalagame&quot;&gt;このアプリ&lt;/a&gt;ではどちらのルールにするかオプションで選べるようになっていて、残った石は相手に取られるルールの方が&lt;code&gt;popular&lt;/code&gt;、自分の石になるルールが&lt;code&gt;classic&lt;/code&gt;となっています。残った石が相手のものになるルールの方が海外ではポピュラーなんでしょうか？そしてこのアプリどちらのルールでもAIが非常に強いです。&lt;br /&gt;
-　任天堂のアソビ大全５１に収録されているマンカラは&lt;code&gt;classic&lt;/code&gt;ルールのようですが、日本ではこのルールがメジャーになると思われるので、今後マンカラに関する記事はアソビ大全５１のルールに絞ろうと思います。&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;もそうなっています。&lt;/p&gt;
+&lt;p&gt;　マンカラカラハにもいろいろな派生ルールが存在するようで、ゲーム終了時に残った石は相手の物になるというルールも存在するようです。&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.marcnadero.kahalagame&quot;&gt;このアプリ&lt;/a&gt;ではどちらのルールにするかオプションで選べるようになっていて、残った石は相手に取られるルールの方が&lt;code&gt;popular&lt;/code&gt;、自分の石になるルールが&lt;code&gt;classic&lt;/code&gt;となっています。残った石が相手のものになるルールの方が海外ではポピュラーなんでしょうか？&lt;br /&gt;
+　任天堂のアソビ大全５１に収録されているマンカラは&lt;code&gt;classic&lt;/code&gt;ルールのようですが、日本ではこのルールがメジャーになると思われるので、今後マンカラに関する記事はアソビ大全５１のルールに絞ろうと思います。&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;も&lt;code&gt;classic&lt;/code&gt;ルールにしています。&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1115,7 +1120,7 @@ result = second.think(board, first, 50, SECOND_WIN);
 
 &lt;h3 id=&quot;結果&quot;&gt;結果&lt;/h3&gt;
 &lt;p&gt;　石の数を１〜９個にして、５０手先読みしたそれぞれの結果です。&lt;/p&gt;
-&lt;h4 id=&quot;３２列ベーシック&quot;&gt;３×２列（ベーシック）&lt;/h4&gt;
+&lt;h4 id=&quot;３２列ベーシック2020-10-28一部訂正&quot;&gt;３×２列（ベーシック）（2020-10-28一部訂正）&lt;/h4&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -1147,11 +1152,11 @@ result = second.think(board, first, 50, SECOND_WIN);
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;読みの深さ&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;５手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;２４手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;２４手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;３８手&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;４手&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;２３手&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;２３手&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;３６手&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;３３手&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;４３手&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;４８手&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
@@ -1172,7 +1177,7 @@ result = second.think(board, first, 50, SECOND_WIN);
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;※先手なのに指し手の数が偶数になるのは、連続で指した場合にまとめて一手とカウントしてるためで、不正確です&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;p&gt;※先読み関数の外側のループで手数をカウントしてるため、手数は若干不正確です&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 
 &lt;p&gt;　先読みメソッドの戻り値は（評価値,指し手）となっていて、評価値に最大値（&lt;code&gt;999&lt;/code&gt;）が返ってきたら先手必勝、最小値（&lt;code&gt;-999&lt;/code&gt;）が返ってきたら後手必勝です。石の数４個の場合、先手が初手にリストの&lt;code&gt;2&lt;/code&gt;の位置を選べば先手必勝であることを表しています。石の数７個の時は後手必勝となりました。指し手に&lt;code&gt;3&lt;/code&gt;が返ってきているのは、取り敢えず最善手として&lt;code&gt;3&lt;/code&gt;を選んだという意味で、深い意味はありません。先手は勝てないことが分かったけど取り敢えず最善手として&lt;code&gt;3&lt;/code&gt;を選んだということです。&lt;/p&gt;
 
@@ -1485,7 +1490,7 @@ result = second.think(board, first, 50, SECOND_WIN);
 &lt;h3 id=&quot;マンカラカラハの結果2020-06-17追記&quot;&gt;マンカラカラハの結果（2020-06-17追記）&lt;/h3&gt;
 &lt;p&gt;　マンカラカラハのルールに対応したので結果を載せておきます。カラハでは自分の穴の石が無くなったら勝ちではなく、先手・後手どちらかの全ての穴が空になったらゲーム終了して残った石は自分のストアに戻し、その時点でのストアに溜まった石の数で勝敗を決めるので、評価関数は&lt;code&gt;先手のストア内の石の数 - 後手のストア内の石の数&lt;/code&gt;です。マンカラベーシックのルールに較べて短手数での必勝手順が存在するのは、やはり相手の石を取ることが出来るルールによるものでしょう。&lt;/p&gt;
 
-&lt;h4 id=&quot;３２列カラハ&quot;&gt;３×２列（カラハ）&lt;/h4&gt;
+&lt;h4 id=&quot;３２列カラハ2020-10-28一部訂正&quot;&gt;３×２列（カラハ）（2020-10-28一部訂正）&lt;/h4&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -1504,29 +1509,29 @@ result = second.think(board, first, 50, SECOND_WIN);
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;戻り値&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;[0, 1]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[0, 2]&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;[999, 2]&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;[999, 2]&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;[999, 1]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[0, 1]&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;[999, 1]&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;[-999, 3]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[999, 1]&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;[999, 3]&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;読みの深さ&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;５０手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;５０手&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;７手&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;１７手&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;２４手&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;１７手&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;１９手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;５０手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;１８手&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;２３手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;２５手&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;結論&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;引分け&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;引分け&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;引分け&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;後手必勝&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
@@ -2001,7 +2006,7 @@ result = [4, 5], depth = 16
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;　最初の内は読みが深くなっても時間はそれほど変わりませんが、途中から一手読みが深くなる毎に２倍、３倍と増えていくのが分かります。１８手読みまでに必勝手順は見つからず、１８手読みの時に136分（約２時間強）以上かかっています。このペースで時間が増えていくと５０手読みだと数週間では済まないかも知れません。どおりで１日では終わらない訳です。５０手までに必勝手順が存在すれば数日で終了するかも知れませんがなんとも言えません。また、石４個だとさらに時間が必要になります。数ヶ月掛かるんじゃないでしょうか？&lt;br /&gt;
-　ちなみに石１個だと「１５手で先手必勝」の結論が、実行時間わずか７秒で得られます。石１個→７秒、石２個→２時間なら、石３個→「丸一日あれば十分かな」と考えたのが甘かったようです。&lt;br /&gt;
+　ちなみに石１個だと「１５手で先手必勝」の結論が、実行時間わずか７秒で得られます。石１個→７秒、石２個→１時間強なら、石３個→「丸一日あれば十分かな」と考えたのが甘かったようです。&lt;br /&gt;
 　実行環境は&lt;/p&gt;
 
 &lt;ul&gt;
@@ -2015,8 +2020,8 @@ result = [4, 5], depth = 16
 &lt;p&gt;　※ TypeScriptとC++でも試してみました&lt;a href=&quot;/software/2020-09-19/js_dart_cpp&quot;&gt;「Dartは遅いけど、FlutterでGUIは有り」&lt;/a&gt;。&lt;/p&gt;
 
 &lt;h3 id=&quot;ソースファイル&quot;&gt;ソースファイル&lt;/h3&gt;
-&lt;p&gt;　アプリのアクティブユーザー数が1,000に達したらこの記事で使用しているソース（=アプリからGUI部分を除いたソース）を公開することにしました。もしソースが欲しいと思う方がいれば、アプリのユーザー増加にご協力ください。&lt;br /&gt;
-　また、MIN-MAX法やαβ法のアルゴリズムに興味のある方は、もしよろしければ&lt;a href=&quot;https://www.amazon.co.jp/HTML5-CoffeeScriptで作る最強の三目並べプログラム-MIN-MAX法からαβ法へ-happyclam-ebook/dp/B01D1IJ0S0/ref=sr_1_1?s=digital-text&amp;amp;ie=UTF8&amp;amp;qid=1473938717&amp;amp;Sr=1-1&amp;amp;keywords=三目並べ&quot;&gt;この本&lt;/a&gt;を買ってみてください。使用言語はCoffeeScript（JavaScript）ですが、本の中の相互再帰のやり方と今回の検証プログラムはほとんど同じやり方で、マンカラの場合は連続で指し手が続くケースがあるのでその部分だけif文（数行）が追加されている感じです。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;/software/2014-09-23/tictactoe_arrange&quot;&gt;以前の記事&lt;/a&gt;の「３手前に打った駒が消える特殊なルールの三目並べ」のように&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/arrange&quot;&gt;github&lt;/a&gt;でソースを公開しようと思っていたのですが、google play内の日本製のマンカラアプリで遊んでみて、少し惜しくなったというのが本音です。アプリのアクティブユーザー数が1,000に達したらこの記事で使用しているソース（=アプリからGUI部分を除いたソース）を公開しようと思ってます。&lt;br /&gt;
+　またMIN-MAX法やαβ法のアルゴリズムに興味のある方は、よろしければ&lt;a href=&quot;https://www.amazon.co.jp/HTML5-CoffeeScriptで作る最強の三目並べプログラム-MIN-MAX法からαβ法へ-happyclam-ebook/dp/B01D1IJ0S0/ref=sr_1_1?s=digital-text&amp;amp;ie=UTF8&amp;amp;qid=1473938717&amp;amp;Sr=1-1&amp;amp;keywords=三目並べ&quot;&gt;この本&lt;/a&gt;を買ってみてください。使用言語はCoffeeScript（JavaScript）ですが、本の中の相互再帰のやり方と今回の検証プログラムはほとんど同じやり方で、マンカラの場合は連続で指し手が続くケースがあるのでその部分だけif文（数行）が追加されている感じです。&lt;/p&gt;
 
 &lt;hr /&gt;
 

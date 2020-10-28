@@ -325,7 +325,7 @@ MathJax.Hub.Config({
 
 <h3 id="結果">結果</h3>
 <p>　石の数を１〜９個にして、５０手先読みしたそれぞれの結果です。</p>
-<h4 id="３２列ベーシック">３×２列（ベーシック）</h4>
+<h4 id="３２列ベーシック2020-10-28一部訂正">３×２列（ベーシック）（2020-10-28一部訂正）</h4>
 
 <table>
   <thead>
@@ -357,11 +357,11 @@ MathJax.Hub.Config({
     </tr>
     <tr>
       <td style="text-align: left">読みの深さ</td>
-      <td style="text-align: center">５手</td>
-      <td style="text-align: center">２４手</td>
-      <td style="text-align: center">２４手</td>
-      <td style="text-align: center">３８手</td>
+      <td style="text-align: center">４手</td>
+      <td style="text-align: center">２３手</td>
+      <td style="text-align: center">２３手</td>
       <td style="text-align: center">３６手</td>
+      <td style="text-align: center">３３手</td>
       <td style="text-align: center">４３手</td>
       <td style="text-align: center">４８手</td>
       <td style="text-align: center">-</td>
@@ -382,7 +382,7 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 
-<p>※先手なのに指し手の数が偶数になるのは、連続で指した場合にまとめて一手とカウントしてるためで、不正確です<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。</p>
+<p>※先読み関数の外側のループで手数をカウントしてるため、手数は若干不正確です<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。</p>
 
 <p>　先読みメソッドの戻り値は（評価値,指し手）となっていて、評価値に最大値（<code>999</code>）が返ってきたら先手必勝、最小値（<code>-999</code>）が返ってきたら後手必勝です。石の数４個の場合、先手が初手にリストの<code>2</code>の位置を選べば先手必勝であることを表しています。石の数７個の時は後手必勝となりました。指し手に<code>3</code>が返ってきているのは、取り敢えず最善手として<code>3</code>を選んだという意味で、深い意味はありません。先手は勝てないことが分かったけど取り敢えず最善手として<code>3</code>を選んだということです。</p>
 
@@ -695,7 +695,7 @@ result = second.think(board, first, 50, SECOND_WIN);
 <h3 id="マンカラカラハの結果2020-06-17追記">マンカラカラハの結果（2020-06-17追記）</h3>
 <p>　マンカラカラハのルールに対応したので結果を載せておきます。カラハでは自分の穴の石が無くなったら勝ちではなく、先手・後手どちらかの全ての穴が空になったらゲーム終了して残った石は自分のストアに戻し、その時点でのストアに溜まった石の数で勝敗を決めるので、評価関数は<code>先手のストア内の石の数 - 後手のストア内の石の数</code>です。マンカラベーシックのルールに較べて短手数での必勝手順が存在するのは、やはり相手の石を取ることが出来るルールによるものでしょう。</p>
 
-<h4 id="３２列カラハ">３×２列（カラハ）</h4>
+<h4 id="３２列カラハ2020-10-28一部訂正">３×２列（カラハ）（2020-10-28一部訂正）</h4>
 
 <table>
   <thead>
@@ -714,29 +714,29 @@ result = second.think(board, first, 50, SECOND_WIN);
     <tr>
       <td style="text-align: left">戻り値</td>
       <td style="text-align: center">[0, 1]</td>
-      <td style="text-align: center">[0, 2]</td>
+      <td style="text-align: center">[999, 2]</td>
+      <td style="text-align: center">[999, 2]</td>
       <td style="text-align: center">[999, 1]</td>
-      <td style="text-align: center">[0, 1]</td>
       <td style="text-align: center">[999, 1]</td>
       <td style="text-align: center">[-999, 3]</td>
-      <td style="text-align: center">[999, 1]</td>
+      <td style="text-align: center">[999, 3]</td>
     </tr>
     <tr>
       <td style="text-align: left">読みの深さ</td>
       <td style="text-align: center">５０手</td>
-      <td style="text-align: center">５０手</td>
+      <td style="text-align: center">７手</td>
+      <td style="text-align: center">１７手</td>
+      <td style="text-align: center">２４手</td>
+      <td style="text-align: center">１７手</td>
       <td style="text-align: center">１９手</td>
-      <td style="text-align: center">５０手</td>
-      <td style="text-align: center">１８手</td>
       <td style="text-align: center">２３手</td>
-      <td style="text-align: center">２５手</td>
     </tr>
     <tr>
       <td style="text-align: left">結論</td>
       <td style="text-align: center">引分け</td>
-      <td style="text-align: center">引分け</td>
       <td style="text-align: center">先手必勝</td>
-      <td style="text-align: center">引分け</td>
+      <td style="text-align: center">先手必勝</td>
+      <td style="text-align: center">先手必勝</td>
       <td style="text-align: center">先手必勝</td>
       <td style="text-align: center">後手必勝</td>
       <td style="text-align: center">先手必勝</td>
@@ -1211,7 +1211,7 @@ result = [4, 5], depth = 16
 </code></pre>
 
 <p>　最初の内は読みが深くなっても時間はそれほど変わりませんが、途中から一手読みが深くなる毎に２倍、３倍と増えていくのが分かります。１８手読みまでに必勝手順は見つからず、１８手読みの時に136分（約２時間強）以上かかっています。このペースで時間が増えていくと５０手読みだと数週間では済まないかも知れません。どおりで１日では終わらない訳です。５０手までに必勝手順が存在すれば数日で終了するかも知れませんがなんとも言えません。また、石４個だとさらに時間が必要になります。数ヶ月掛かるんじゃないでしょうか？<br />
-　ちなみに石１個だと「１５手で先手必勝」の結論が、実行時間わずか７秒で得られます。石１個→７秒、石２個→２時間なら、石３個→「丸一日あれば十分かな」と考えたのが甘かったようです。<br />
+　ちなみに石１個だと「１５手で先手必勝」の結論が、実行時間わずか７秒で得られます。石１個→７秒、石２個→１時間強なら、石３個→「丸一日あれば十分かな」と考えたのが甘かったようです。<br />
 　実行環境は</p>
 
 <ul>
@@ -1225,8 +1225,8 @@ result = [4, 5], depth = 16
 <p>　※ TypeScriptとC++でも試してみました<a href="/software/2020-09-19/js_dart_cpp">「Dartは遅いけど、FlutterでGUIは有り」</a>。</p>
 
 <h3 id="ソースファイル">ソースファイル</h3>
-<p>　アプリのアクティブユーザー数が1,000に達したらこの記事で使用しているソース（=アプリからGUI部分を除いたソース）を公開することにしました。もしソースが欲しいと思う方がいれば、アプリのユーザー増加にご協力ください。<br />
-　また、MIN-MAX法やαβ法のアルゴリズムに興味のある方は、もしよろしければ<a href="https://www.amazon.co.jp/HTML5-CoffeeScriptで作る最強の三目並べプログラム-MIN-MAX法からαβ法へ-happyclam-ebook/dp/B01D1IJ0S0/ref=sr_1_1?s=digital-text&amp;ie=UTF8&amp;qid=1473938717&amp;Sr=1-1&amp;keywords=三目並べ">この本</a>を買ってみてください。使用言語はCoffeeScript（JavaScript）ですが、本の中の相互再帰のやり方と今回の検証プログラムはほとんど同じやり方で、マンカラの場合は連続で指し手が続くケースがあるのでその部分だけif文（数行）が追加されている感じです。</p>
+<p>　<a href="/software/2014-09-23/tictactoe_arrange">以前の記事</a>の「３手前に打った駒が消える特殊なルールの三目並べ」のように<a href="https://github.com/happyclam/tictactoe_ruby/tree/arrange">github</a>でソースを公開しようと思っていたのですが、google play内の日本製のマンカラアプリで遊んでみて、少し惜しくなったというのが本音です。アプリのアクティブユーザー数が1,000に達したらこの記事で使用しているソース（=アプリからGUI部分を除いたソース）を公開しようと思ってます。<br />
+　またMIN-MAX法やαβ法のアルゴリズムに興味のある方は、よろしければ<a href="https://www.amazon.co.jp/HTML5-CoffeeScriptで作る最強の三目並べプログラム-MIN-MAX法からαβ法へ-happyclam-ebook/dp/B01D1IJ0S0/ref=sr_1_1?s=digital-text&amp;ie=UTF8&amp;qid=1473938717&amp;Sr=1-1&amp;keywords=三目並べ">この本</a>を買ってみてください。使用言語はCoffeeScript（JavaScript）ですが、本の中の相互再帰のやり方と今回の検証プログラムはほとんど同じやり方で、マンカラの場合は連続で指し手が続くケースがあるのでその部分だけif文（数行）が追加されている感じです。</p>
 
 <hr />
 

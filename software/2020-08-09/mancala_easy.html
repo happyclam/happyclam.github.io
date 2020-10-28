@@ -693,6 +693,7 @@ result = second.think(board, first, 50, SECOND_WIN);
 <p>　ここまで書いてからマンカライージーのルールについて、<strong>「終了時にポケットにある石は無効になります。どちらの数にも入れません」</strong>と書かれている<a href="https://genki-up.recreation.or.jp/top/mancala/rule">サイト</a>を見つけてしまいました。そう言えば<a href="https://hugkum.sho.jp/96590">上で紹介したサイト</a>には、「基本はベーシックと同じ」と書かれているだけでゲーム終了時に残った石の扱いについては書かれていません。カラハと同じでいいだろうと勝手に判断してしまいました。折角コツコツと遷移表を書いたのが勿体ないので上の文はそのままにして、表だけ「終了時にポケットにある石は無効にする」ルールで更新しておきます。</p>
 
 <h3 id="実験結果３２列イージー終了時にポケットにある石は無効にするルール">実験結果（３×２列イージー、終了時にポケットにある石は無効にするルール）</h3>
+<p>（2020-10-28一部訂正）</p>
 
 <table>
   <thead>
@@ -709,7 +710,7 @@ result = second.think(board, first, 50, SECOND_WIN);
     <tr>
       <td style="text-align: left">戻り値</td>
       <td style="text-align: center">[999, 1]</td>
-      <td style="text-align: center">[0, 3]</td>
+      <td style="text-align: center">[-999, 3]</td>
       <td style="text-align: center">[999, 1]</td>
       <td style="text-align: center">[0, 1]</td>
       <td style="text-align: center">[0, 1]</td>
@@ -717,15 +718,15 @@ result = second.think(board, first, 50, SECOND_WIN);
     <tr>
       <td style="text-align: left">読みの深さ</td>
       <td style="text-align: center">５手</td>
-      <td style="text-align: center">５０手</td>
-      <td style="text-align: center">２５手</td>
+      <td style="text-align: center">１６手</td>
+      <td style="text-align: center">２３手</td>
       <td style="text-align: center">５０手</td>
       <td style="text-align: center">５０手</td>
     </tr>
     <tr>
       <td style="text-align: left">結論</td>
       <td style="text-align: center">先手必勝</td>
-      <td style="text-align: center">引分け</td>
+      <td style="text-align: center">後手必勝</td>
       <td style="text-align: center">先手必勝</td>
       <td style="text-align: center">引分け</td>
       <td style="text-align: center">引分け</td>
@@ -734,6 +735,7 @@ result = second.think(board, first, 50, SECOND_WIN);
 </table>
 
 <h3 id="実験結果２２列イージー終了時にポケットにある石は無効にするルール">実験結果（２×２列イージー、終了時にポケットにある石は無効にするルール）</h3>
+<p>（2020-10-28一部訂正）</p>
 
 <table>
   <thead>
@@ -759,7 +761,7 @@ result = second.think(board, first, 50, SECOND_WIN);
       <td style="text-align: center">[999, 1]</td>
       <td style="text-align: center">[-999, 2]</td>
       <td style="text-align: center">[999, 2]</td>
-      <td style="text-align: center">[0, 1]</td>
+      <td style="text-align: center">[999, 1]</td>
       <td style="text-align: center">[999, 2]</td>
       <td style="text-align: center">[-999, 2]</td>
     </tr>
@@ -769,11 +771,11 @@ result = second.think(board, first, 50, SECOND_WIN);
       <td style="text-align: center">１手</td>
       <td style="text-align: center">７手</td>
       <td style="text-align: center">５手</td>
-      <td style="text-align: center">１６手</td>
+      <td style="text-align: center">１４手</td>
       <td style="text-align: center">１８手</td>
-      <td style="text-align: center">５０手</td>
-      <td style="text-align: center">２６手</td>
+      <td style="text-align: center">２１手</td>
       <td style="text-align: center">２５手</td>
+      <td style="text-align: center">２４手</td>
     </tr>
     <tr>
       <td style="text-align: left">結論</td>
@@ -783,7 +785,7 @@ result = second.think(board, first, 50, SECOND_WIN);
       <td style="text-align: center">先手必勝</td>
       <td style="text-align: center">後手必勝</td>
       <td style="text-align: center">先手必勝</td>
-      <td style="text-align: center">引分け</td>
+      <td style="text-align: center">先手必勝</td>
       <td style="text-align: center">先手必勝</td>
       <td style="text-align: center">後手必勝</td>
     </tr>
@@ -802,8 +804,8 @@ result = second.think(board, first, 50, SECOND_WIN);
 <p>　「終了時にポケットにある石は無効にする」ルールだと、本文の検証を読んで貰えれば一手で先手必勝になることは分かると思います。ルールが変わると結果が真逆になるいい例として説明文も無駄にならなくてよかったです。</p>
 
 <h3 id="カラハのルール">カラハのルール</h3>
-<p>　マンカラカラハにもいろいろな派生ルールが存在するようで、ゲーム終了時に残った石は相手の物になるというルールも存在するようです。<a href="https://play.google.com/store/apps/details?id=com.marcnadero.kahalagame">このアプリ</a>ではどちらのルールにするかオプションで選べるようになっていて、残った石は相手に取られるルールの方が<code>popular</code>、自分の石になるルールが<code>classic</code>となっています。残った石が相手のものになるルールの方が海外ではポピュラーなんでしょうか？そしてこのアプリどちらのルールでもAIが非常に強いです。<br />
-　任天堂のアソビ大全５１に収録されているマンカラは<code>classic</code>ルールのようですが、日本ではこのルールがメジャーになると思われるので、今後マンカラに関する記事はアソビ大全５１のルールに絞ろうと思います。<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">アプリ</a>もそうなっています。</p>
+<p>　マンカラカラハにもいろいろな派生ルールが存在するようで、ゲーム終了時に残った石は相手の物になるというルールも存在するようです。<a href="https://play.google.com/store/apps/details?id=com.marcnadero.kahalagame">このアプリ</a>ではどちらのルールにするかオプションで選べるようになっていて、残った石は相手に取られるルールの方が<code>popular</code>、自分の石になるルールが<code>classic</code>となっています。残った石が相手のものになるルールの方が海外ではポピュラーなんでしょうか？<br />
+　任天堂のアソビ大全５１に収録されているマンカラは<code>classic</code>ルールのようですが、日本ではこのルールがメジャーになると思われるので、今後マンカラに関する記事はアソビ大全５１のルールに絞ろうと思います。<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">アプリ</a>も<code>classic</code>ルールにしています。</p>
 
 <hr />
 

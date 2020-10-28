@@ -235,8 +235,7 @@ MathJax.Hub.Config({
 <br><a href="https://taimienphi.vn" title="download">taimienphi.vn</a></p>
 
 <h3 id="マンカラ-ナッツについて">「マンカラ ナッツ」について</h3>
-<p>　対人戦の途中でＡＩ対戦に切り替えたり、ＡＩ対戦の途中で対人戦に切り替えたりして、マンカラの特定の局面での最善手の研究にも使えるように配慮したマンカラアプリです。<br>
-→<a href="https://play.google.com/apps/testing/mancala.io.github.happyclam">C++高速ベータ版</a>（AI対戦の<code>「やばい」</code>モードのレスポンスが向上してます）</p>
+<p>　対人戦の途中でＡＩ対戦に切り替えたり、ＡＩ対戦の途中で対人戦に切り替えたりして、マンカラの特定の局面での最善手の研究にも使えるように配慮したマンカラアプリです。</p>
 
 <h3 id="ルール">ルール</h3>
 <p>　数あるマンカラのルールの中で、<code>カラハ（Karah）</code>と呼ばれるルールを採用しています。<br>
@@ -276,11 +275,11 @@ MathJax.Hub.Config({
   <li>AIの静的評価関数は<code>先手の貯蔵所に溜まった豆の数 - 後手の貯蔵所に溜まった豆の数</code>で、MIN-MAX法（+ αβ法）を使って先読みを行い指し手を決めます。
     <ul>
       <li>
-<code>弱い(Easy)</code> = １手読み</li>
+<code>弱い(Easy)</code> = ３手読み</li>
       <li>
-<code>強い(Hard)</code> = ６手読み</li>
+<code>強い(Hard)</code> = ７手読み</li>
       <li>
-<code>やばい(Expert)</code> = ９手読み</li>
+<code>やばい(Expert)</code> = １０手読み</li>
     </ul>
   </li>
 </ul>
@@ -374,7 +373,7 @@ MathJax.Hub.Config({
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>一時期<code>やばい(Expert)</code>モードでも初手をランダムにしてリリースしていた時期がありましたが、マンカラの場合、初手に悪手を選ぶとその段階で回復不可能な程形勢を大きく損ねるようなので、<code>やばい(Expert)</code>の時だけは初手のランダム指し手を止めました。将棋やチェスなどと較べると初手から既に勝敗に大きく関わるようです。 <a href="#fnref:1" class="reversefootnote">↩</a></p>
+      <p>一時期<code>やばい(Expert)</code>モードでも初手をランダムにしてリリースしていた時期がありましたが、マンカラの場合、初手に悪手を選ぶとその段階で回復不可能な程形勢を大きく損ねるようなので、<code>やばい(Expert)</code>の時だけは初手のランダム指し手を止めました。将棋やチェスなどと較べると初手から既に勝敗に大きく影響するようです。 <a href="#fnref:1" class="reversefootnote">↩</a></p>
     </li>
     <li id="fn:2">
       <p><code>戻す(Undo)</code>ボタンで数手前の局面に戻してからAI対戦を再開しても、前回と同じ局面になるとは限りませんのでご注意ください。ゲーム途中で設定を<code>対人対戦(Two Players)</code>に変更して、気になる局面を再現してから<code>AI対戦(One Player)</code>に切り替えることは可能です。 <a href="#fnref:2" class="reversefootnote">↩</a></p>
