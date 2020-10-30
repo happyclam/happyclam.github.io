@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2020-10-29T07:45:09+09:00</lastBuildDate>
-        <pubDate>2020-10-29T07:45:09+09:00</pubDate>
+        <lastBuildDate>2020-10-30T13:56:44+09:00</lastBuildDate>
+        <pubDate>2020-10-30T13:56:44+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -1893,12 +1893,12 @@ result = second.think(board, first, 50, SECOND_WIN);
 　（訂正）冷静に考えると石を撒きながら自分のストアを通過する度に動かせる石が減っていくので、千日手（循環手順）があるとは思えません。GUIでテスト中に何かバグが見つかるかもと期待していましたが、アプリのテスト中も今のところバグらしきものは見つけられません&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;ので、局面が増えた時になぜ先読みメソッドがループ？に入るのか謎です。それとこの手の先読みプログラムをDartで作ったのは初めてなのですが、先読みの深さを1000とか10000とかにしてもスタックオーバーフローが発生しない理由がよく分からないのですが、そのことと何か関係があるのかも知れません。&lt;/p&gt;
 
 &lt;h3 id=&quot;強いマンカラアプリ&quot;&gt;強いマンカラアプリ&lt;/h3&gt;
-&lt;p&gt;　自分のプログラムを１０手読みに設定して日本製の２つのアプリと何回か対戦させたのですが、負けは経験していないので今のところバグは無いのではと思っています。数あるAndroidアプリの中で一番強いマンカラアプリがどれなのか知りませんが、全体的に強さを追求しているアプリは少ないのかも知れません。それと海外製のアプリもいくつか触ってみましたが、ルールが微妙に違っていたりする&lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;ので、強さを比較するためにはそれぞれのルールに対応しなければならず結構大変です。海外製のアプリと強さを比較するために今後ルールを変更するかも知れません。そうすると上記の表の結果も変わって来ると思います。いろいろ派生ルールがあると面倒です、しかも何回か対戦しないと気付かないような微妙な違いなので厄介です。&lt;br /&gt;
+&lt;p&gt;　自分のプログラムを１０手読みに設定して日本製の２つのアプリと何回か対戦させたのですが、負けは経験していないので今のところバグは無いのではと思っています&lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;。数あるAndroidアプリの中で一番強いマンカラアプリがどれなのか知りませんが、全体的に強さを追求しているアプリは少ないのかも知れません。それと海外製のアプリもいくつか触ってみましたが、ルールが微妙に違っていたりする&lt;sup id=&quot;fnref:6&quot;&gt;&lt;a href=&quot;#fn:6&quot; class=&quot;footnote&quot;&gt;6&lt;/a&gt;&lt;/sup&gt;ので、強さを比較するためにはそれぞれのルールに対応しなければならず結構大変です。海外製のアプリと強さを比較するために今後ルールを変更するかも知れません。そうすると上記の表の結果も変わって来ると思います。いろいろ派生ルールがあると面倒です、しかも何回か対戦しないと気付かないような微妙な違いなので厄介です。&lt;br /&gt;
 ※一例を挙げると&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.ccgames.mancala&quot;&gt;この海外製アプリ&lt;/a&gt;と対戦させて自分のプログラムが勝ち判定出した後に負けたのですが、&lt;a href=&quot;https://play.google.com/store/apps/details?id=io.ccgames.mancala&quot;&gt;このアプリ&lt;/a&gt;はカラハとは違って&lt;strong&gt;Oware&lt;/strong&gt;というルールになっているようです。違うルールで先読みしていたら負けるのも当然です。&lt;/p&gt;
 
 &lt;h3 id=&quot;アプリ作ってみました2020-07-05追記&quot;&gt;アプリ作ってみました（2020-07-05追記）&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラアプリ&lt;/a&gt;を作ってみました。まだ機能は少ないですが、今後追加していくつもりです。&lt;br /&gt;
-　せっかくFlutterで作ったのでiPhone版もリリースしたいところですが、開発者登録費用の年間約10,000円を回収できる目処が立てばリリースするかも知れません&lt;sup id=&quot;fnref:6&quot;&gt;&lt;a href=&quot;#fn:6&quot; class=&quot;footnote&quot;&gt;6&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+　せっかくFlutterで作ったのでiPhone版もリリースしたいところですが、開発者登録費用の年間約10,000円を回収できる目処が立てばリリースするかも知れません&lt;sup id=&quot;fnref:7&quot;&gt;&lt;a href=&quot;#fn:7&quot; class=&quot;footnote&quot;&gt;7&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 
 &lt;h3 id=&quot;計算量の問題だけだったみたい2020-08-01追記&quot;&gt;計算量の問題だけだったみたい（2020-08-01追記）&lt;/h3&gt;
 &lt;p&gt;　本文中、「先読みメソッドから戻ってこない理由が分からない」とややこしいこと書いていますが、単に私が待ち切れなかっただけのようです。３×２列から６×２列に配列要素を増やすことで当然計算量は増えますが、それだけでなく石の数を増やすことでもかなりの計算量の増加があるようです。&lt;br /&gt;
@@ -2043,10 +2043,13 @@ result = [4, 5], depth = 16
       &lt;p&gt;アプリの設定をExpertにすると１０手読みですが、他のアプリと対戦させてみても結構強いです。絶対負けないプログラムにするにはこの記事の実験結果から考えて２０手以上の先読みが必要になると思われるので、アプリに実装するのは応答時間の問題で難しいと思います。海外製の強いアプリをいくつか見つけましたが、データ構造を小さくしたり、定跡データ化したり工夫しているのだと思います。やはり歴史が長い海外製の方がずっと先を行ってそうです。それかオープンソースの優秀なマンカラ用のライブラリが既にあるのかも知れません。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:5&quot;&gt;
-      &lt;p&gt;自分のプログラムは先手の手番で全ての石が空になったらその時点でゲーム終了としていますが、先手番でゲームが終了したら、後手の指し手をもう一手進めてからゲームを終了するルールもあるようです。石を撒く回数を先手と後手で公平にするという意図でしょうか？ &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;微妙なバグがありました。本文には影響ないのですが、表は数カ所2020-10-28に更新しています。どこが変わったかはgithubの履歴を見てください。&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;に関しては修正済みです。 &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:6&quot;&gt;
-      &lt;p&gt;以前Cordovaで作成した機械学習型ＡＩアプリを&lt;a href=&quot;https://play.google.com/store/apps/details?id=tictactoe_evo.io.github.happyclam&quot;&gt;「進化する三目並べ」&lt;/a&gt;と題してiPhoneアプリとして公開していたのですが、売れなかったので１年間で止めてしまいました。 &lt;a href=&quot;#fnref:6&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;自分のプログラムは先手の手番で全ての石が空になったらその時点でゲーム終了としていますが、先手番でゲームが終了したら、後手の指し手をもう一手進めてからゲームを終了するルールもあるようです。石を撒く回数を先手と後手で公平にするという意図でしょうか？ &lt;a href=&quot;#fnref:6&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:7&quot;&gt;
+      &lt;p&gt;以前Cordovaで作成した機械学習型ＡＩアプリを&lt;a href=&quot;https://play.google.com/store/apps/details?id=tictactoe_evo.io.github.happyclam&quot;&gt;「進化する三目並べ」&lt;/a&gt;と題してiPhoneアプリとして公開していたのですが、売れなかったので１年間で止めてしまいました。 &lt;a href=&quot;#fnref:7&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
