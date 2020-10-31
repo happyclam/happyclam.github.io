@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2020-10-30T13:56:44+09:00</updated>
+ <updated>2020-10-31T12:59:39+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -376,7 +376,7 @@ $ ./mancala.out
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;:tired_face:&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;U+1F62B&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ＡＩが負けを覚悟。但し、勝負はあなたの着手しだいです。&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ＡＩが負けを覚悟。但し、勝負はあなたの着手しだいです&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -405,8 +405,8 @@ $ ./mancala.out
   &lt;li&gt;ＡＩの強さレベルは&lt;code&gt;弱い(Easy)&lt;/code&gt;、&lt;code&gt;強い(Hard)&lt;/code&gt;、&lt;code&gt;やばい(Expert)&lt;/code&gt;の３種類から選べます。&lt;/li&gt;
   &lt;li&gt;&lt;code&gt;AI対戦(One Player)&lt;/code&gt;を選ぶとＡＩ対戦、&lt;code&gt;対人対戦(Two Players)&lt;/code&gt;を選ぶと対人戦が可能です。&lt;/li&gt;
   &lt;li&gt;ＡＩ対戦途中で設定内容を変更した場合そのＡＩ対戦の結果は対戦成績に保存されません。&lt;/li&gt;
-  &lt;li&gt;同じパターンの指し手を避けるため、ＡＩのレベル&lt;code&gt;弱い(Easy)&lt;/code&gt;と&lt;code&gt;強い(Hard)&lt;/code&gt;では、初手はランダムに選ぶようにしています。&lt;code&gt;やばい(Expert)&lt;/code&gt;はガチで指し手を決めます&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/li&gt;
-  &lt;li&gt;全てのＡＩのレベルで、同じ評価値の場合はランダムに指し手を選択するようにしていますので、同じ局面で常に同じ指し手を選ぶとは限りません&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/li&gt;
+  &lt;li&gt;同じパターンの指し手を避けるため、ＡＩのレベル&lt;code&gt;弱い(Easy)&lt;/code&gt;と&lt;code&gt;強い(Hard)&lt;/code&gt;では、初手はランダムに選ぶようにしています。&lt;code&gt;やばい(Expert)&lt;/code&gt;はガチで指し手を決めます&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/li&gt;
+  &lt;li&gt;全てのＡＩのレベルで、同じ評価値の場合はランダムに指し手を選択するようにしていますので、同じ局面で常に同じ指し手を選ぶとは限りません&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;ゲーム成績画面&quot;&gt;ゲーム成績画面&lt;/h3&gt;
@@ -424,10 +424,13 @@ $ ./mancala.out
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;一時期&lt;code&gt;やばい(Expert)&lt;/code&gt;モードでも初手をランダムにしてリリースしていた時期がありましたが、マンカラの場合、初手に悪手を選ぶとその段階で回復不可能な程形勢を大きく損ねるようなので、&lt;code&gt;やばい(Expert)&lt;/code&gt;の時だけは初手のランダム指し手を止めました。将棋やチェスなどと較べると初手から既に勝敗に大きく影響するようです。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;ＡＩのレベル毎の先読みの手数（３手、７手、１０手）以内に勝ちがある（将棋で言うと詰みがある）状態です。よく考えて着手してください。:tired_face:の絵文字が表示された後の着手でＡＩの表情が他のものに変わった場合、勝ち（詰み）を逃したことを意味します。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:2&quot;&gt;
-      &lt;p&gt;&lt;code&gt;戻す(Undo)&lt;/code&gt;ボタンで数手前の局面に戻してからAI対戦を再開しても、前回と同じ局面になるとは限りませんのでご注意ください。ゲーム途中で設定を&lt;code&gt;対人対戦(Two Players)&lt;/code&gt;に変更して、気になる局面を再現してから&lt;code&gt;AI対戦(One Player)&lt;/code&gt;に切り替えることは可能です。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;一時期&lt;code&gt;やばい(Expert)&lt;/code&gt;モードでも初手をランダムにしてリリースしていた時期がありましたが、マンカラの場合、初手に悪手を選ぶとその段階で回復不可能な程形勢を大きく損ねるようなので、&lt;code&gt;やばい(Expert)&lt;/code&gt;の時だけは初手のランダム指し手を止めました。将棋やチェスなどと較べると初手から既に勝敗に大きく影響するようです。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;&lt;code&gt;戻す(Undo)&lt;/code&gt;ボタンで数手前の局面に戻してからAI対戦を再開しても、前回と同じ局面になるとは限りませんのでご注意ください。ゲーム途中で設定を&lt;code&gt;対人対戦(Two Players)&lt;/code&gt;に変更して、気になる局面を再現してから&lt;code&gt;AI対戦(One Player)&lt;/code&gt;に切り替えることは可能です。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;

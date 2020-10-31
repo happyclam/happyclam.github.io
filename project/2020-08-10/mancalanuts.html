@@ -323,7 +323,7 @@ MathJax.Hub.Config({
     <tr>
       <td style="text-align: center"><img class="emoji" title=":tired_face:" alt=":tired_face:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f62b.png" height="20" width="20"></td>
       <td style="text-align: left">U+1F62B</td>
-      <td style="text-align: left">ＡＩが負けを覚悟。但し、勝負はあなたの着手しだいです。</td>
+      <td style="text-align: left">ＡＩが負けを覚悟。但し、勝負はあなたの着手しだいです<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。</td>
     </tr>
   </tbody>
 </table>
@@ -354,8 +354,8 @@ MathJax.Hub.Config({
   <li>
 <code>AI対戦(One Player)</code>を選ぶとＡＩ対戦、<code>対人対戦(Two Players)</code>を選ぶと対人戦が可能です。</li>
   <li>ＡＩ対戦途中で設定内容を変更した場合そのＡＩ対戦の結果は対戦成績に保存されません。</li>
-  <li>同じパターンの指し手を避けるため、ＡＩのレベル<code>弱い(Easy)</code>と<code>強い(Hard)</code>では、初手はランダムに選ぶようにしています。<code>やばい(Expert)</code>はガチで指し手を決めます<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。</li>
-  <li>全てのＡＩのレベルで、同じ評価値の場合はランダムに指し手を選択するようにしていますので、同じ局面で常に同じ指し手を選ぶとは限りません<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。</li>
+  <li>同じパターンの指し手を避けるため、ＡＩのレベル<code>弱い(Easy)</code>と<code>強い(Hard)</code>では、初手はランダムに選ぶようにしています。<code>やばい(Expert)</code>はガチで指し手を決めます<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。</li>
+  <li>全てのＡＩのレベルで、同じ評価値の場合はランダムに指し手を選択するようにしていますので、同じ局面で常に同じ指し手を選ぶとは限りません<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>。</li>
 </ul>
 
 <h3 id="ゲーム成績画面">ゲーム成績画面</h3>
@@ -373,10 +373,13 @@ MathJax.Hub.Config({
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>一時期<code>やばい(Expert)</code>モードでも初手をランダムにしてリリースしていた時期がありましたが、マンカラの場合、初手に悪手を選ぶとその段階で回復不可能な程形勢を大きく損ねるようなので、<code>やばい(Expert)</code>の時だけは初手のランダム指し手を止めました。将棋やチェスなどと較べると初手から既に勝敗に大きく影響するようです。 <a href="#fnref:1" class="reversefootnote">↩</a></p>
+      <p>ＡＩのレベル毎の先読みの手数（３手、７手、１０手）以内に勝ちがある（将棋で言うと詰みがある）状態です。よく考えて着手してください。<img class="emoji" title=":tired_face:" alt=":tired_face:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f62b.png" height="20" width="20">の絵文字が表示された後の着手でＡＩの表情が他のものに変わった場合、勝ち（詰み）を逃したことを意味します。 <a href="#fnref:1" class="reversefootnote">↩</a></p>
     </li>
     <li id="fn:2">
-      <p><code>戻す(Undo)</code>ボタンで数手前の局面に戻してからAI対戦を再開しても、前回と同じ局面になるとは限りませんのでご注意ください。ゲーム途中で設定を<code>対人対戦(Two Players)</code>に変更して、気になる局面を再現してから<code>AI対戦(One Player)</code>に切り替えることは可能です。 <a href="#fnref:2" class="reversefootnote">↩</a></p>
+      <p>一時期<code>やばい(Expert)</code>モードでも初手をランダムにしてリリースしていた時期がありましたが、マンカラの場合、初手に悪手を選ぶとその段階で回復不可能な程形勢を大きく損ねるようなので、<code>やばい(Expert)</code>の時だけは初手のランダム指し手を止めました。将棋やチェスなどと較べると初手から既に勝敗に大きく影響するようです。 <a href="#fnref:2" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:3">
+      <p><code>戻す(Undo)</code>ボタンで数手前の局面に戻してからAI対戦を再開しても、前回と同じ局面になるとは限りませんのでご注意ください。ゲーム途中で設定を<code>対人対戦(Two Players)</code>に変更して、気になる局面を再現してから<code>AI対戦(One Player)</code>に切り替えることは可能です。 <a href="#fnref:3" class="reversefootnote">↩</a></p>
     </li>
   </ol>
 </div>
