@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "詰将棋ならぬ詰マンカラ",
+      "category" : "software",
+      "tags"     : "dart, android, flutter, c++, mancala",
+      "url"      : "/software/2020-11-21/mancala_evaluate01",
+      "date"     : "2020-11-21 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "C++でFlutterアプリのライブラリ作成",
       "category" : "software",
       "tags"     : "dart, android, flutter, c++",

@@ -242,8 +242,8 @@ MathJax.Hub.Config({
 　上下２列に並んだ６つのポケットに豆が入っていて、上がAI、下があなたです。丸い６つのポケットからどれかを選んで豆を取り出し、反時計回りに豆を一つずつポケットに撒いていきます。どちらかの６つのポケットが全て空になったらゲーム終了し、右側の四角い自分の貯蔵所に残った豆の数で勝ち負けを判定します。</p>
 <ul>
   <li>相手の貯蔵所には豆を撒きません。</li>
-  <li>豆を撒き終わったポケットが自分の貯蔵所の場合、もう一度ポケットを選んで豆を撒くことが出来ます。</li>
-  <li>自分の空のポケットで豆を撒き終わった場合、その対称に位置する相手の豆を横取り（Capture）して自分の貯蔵所に加えることが出来ます。</li>
+  <li>豆を撒き終わったポケットが自分の貯蔵所の場合、もう一度ポケットを選んで豆を撒くことが出来ます（<code>ピッタリ</code>）。</li>
+  <li>自分の空のポケットで豆を撒き終わった場合、その対称に位置する相手の豆を<code>横取り</code>（Capture）して自分の貯蔵所に加えることが出来ます。</li>
   <li>ゲーム終了時にポケットに残った豆は全て自分の貯蔵所に加えます。</li>
 </ul>
 
@@ -277,9 +277,9 @@ MathJax.Hub.Config({
       <li>
 <code>弱い(Easy)</code> = ３手読み</li>
       <li>
-<code>強い(Hard)</code> = ７手読み</li>
+<code>強い(Hard)</code> = ８手読み</li>
       <li>
-<code>やばい(Expert)</code> = １０手読み</li>
+<code>やばい(Expert)</code> = １１手読み</li>
     </ul>
   </li>
 </ul>
@@ -373,7 +373,7 @@ MathJax.Hub.Config({
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>ＡＩのレベル毎の先読みの手数（３手、７手、１０手）以内に勝ちがある（将棋で言うと詰みがある）状態です。よく考えて着手してください。<img class="emoji" title=":tired_face:" alt=":tired_face:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f62b.png" height="20" width="20">の絵文字が表示された後の着手でＡＩの表情が他のものに変わった場合、勝ち（詰み）を逃したことを意味します。 <a href="#fnref:1" class="reversefootnote">↩</a></p>
+      <p>ＡＩのレベル毎の先読みの手数（３手、８手、１１手）以内に勝ちがある（将棋で言うと詰みがある）状態です。よく考えて着手してください。<img class="emoji" title=":tired_face:" alt=":tired_face:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f62b.png" height="20" width="20">の絵文字が表示された後の着手でＡＩの表情が他のものに変わった場合、勝ち（詰み）を逃したことを意味します。 <a href="#fnref:1" class="reversefootnote">↩</a></p>
     </li>
     <li id="fn:2">
       <p>一時期<code>やばい(Expert)</code>モードでも初手をランダムにしてリリースしていた時期がありましたが、マンカラの場合、初手に悪手を選ぶとその段階で回復不可能な程形勢を大きく損ねるようなので、<code>やばい(Expert)</code>の時だけは初手のランダム指し手を止めました。将棋やチェスなどと較べると初手から既に勝敗に大きく影響するようです。 <a href="#fnref:2" class="reversefootnote">↩</a></p>
@@ -414,13 +414,13 @@ MathJax.Hub.Config({
 
   
      
-    	<li><a href="/tags.html#flutter-ref">flutter <span>5</span></a></li>
+    	<li><a href="/tags.html#flutter-ref">flutter <span>6</span></a></li>
      
-    	<li><a href="/tags.html#dart-ref">dart <span>5</span></a></li>
+    	<li><a href="/tags.html#dart-ref">dart <span>6</span></a></li>
      
-    	<li><a href="/tags.html#android-ref">android <span>52</span></a></li>
+    	<li><a href="/tags.html#android-ref">android <span>53</span></a></li>
      
-    	<li><a href="/tags.html#mancala-ref">mancala <span>2</span></a></li>
+    	<li><a href="/tags.html#mancala-ref">mancala <span>3</span></a></li>
     
   
 
