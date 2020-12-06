@@ -401,6 +401,10 @@ MathJax.Hub.Config({
 
 <p>　ＡＩは<strong>問題２</strong>の局面の前から既に<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">アプリ</a>の形勢Emojiが<img class="emoji" title=":tired_face:" alt=":tired_face:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f62b.png" height="20" width="20">に変わっていて、詰みを読み切っていたわけです。人間が読み切るのは大変かもしれませんが、形勢Emojiが<img class="emoji" title=":tired_face:" alt=":tired_face:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f62b.png" height="20" width="20">に変わったら詰み（勝ち）があるということなので、マンカラを詰将棋を解く気持ちで楽しんでみるのも面白いと思います。</p>
 
+<h3 id="ボードゲームは必勝法追求より楽しんだ者勝ち">ボードゲームは必勝法追求より楽しんだ者勝ち</h3>
+<p>　<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">アプリ</a>をリリースしてからは、テストも兼ねてgoogle play内のマンカラアプリをいろいろダウンロードして試しに遊んでみました。必ずしもダウンロード数が多いアプリが強いわけではなく、強さとユーザーの評価とはあまり関係ないようです。宣伝にどれだけ金かけているかの違いだと思いますが、強いソフトが商売として成功するとは限らない点は将棋アプリについても言えることでしょう。<br>
+　ただ、強いアプリはどれもだいたい似たような指し手になるようで、何度も対戦していると勝ちパターンも分かってきて楽しめなくなります。将棋ほど変化が多くないので仕方がないのかも知れません。そこで<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">「マンカラ ナッツ」</a>では、最強の<code>やばい</code>モード以外の<code>強い</code>、<code>弱い</code>モードでは初手を評価値とは関係なく乱数で選ぶようにしています<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>。初手を乱数に変えるだけで全てのパターンに対応するのは難しく、勝ったり負けたりゲームを楽しめると思います。自分は<code>やばい</code>モードでは先手の時の勝ちパターンが分かってきたのですが、<code>強い</code>モードでは先手でも勝てない時が多いのでいつも<code>強い</code>モードで遊んでます。</p>
+
 <hr>
 
 <div class="footnotes">
@@ -410,6 +414,9 @@ MathJax.Hub.Config({
     </li>
     <li id="fn:2">
       <p>マンカラで形勢判断するとしたら、自陣にある種子（豆）の数とか、横取りされ易さ（対称の位置にある相手のポケットが空かどうか）とかを数値化するのでしょうか？よく分かりません。 <a href="#fnref:2" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:3">
+      <p>全てのモードで評価値が同じ場合は乱数で着手を選ぶようになっていますが、初手に関しては評価値が低い手を敢えて選ばせているという意味です。 <a href="#fnref:3" class="reversefootnote">↩</a></p>
     </li>
   </ol>
 </div>

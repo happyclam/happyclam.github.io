@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2020-11-21T15:07:55+09:00</lastBuildDate>
-        <pubDate>2020-11-21T15:07:55+09:00</pubDate>
+        <lastBuildDate>2020-12-06T13:16:41+09:00</lastBuildDate>
+        <pubDate>2020-12-06T13:16:41+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -178,6 +178,10 @@
 
 &lt;p&gt;　ＡＩは&lt;strong&gt;問題２&lt;/strong&gt;の局面の前から既に&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;の形勢Emojiが:tired_face:に変わっていて、詰みを読み切っていたわけです。人間が読み切るのは大変かもしれませんが、形勢Emojiが:tired_face:に変わったら詰み（勝ち）があるということなので、マンカラを詰将棋を解く気持ちで楽しんでみるのも面白いと思います。&lt;/p&gt;
 
+&lt;h3 id=&quot;ボードゲームは必勝法追求より楽しんだ者勝ち&quot;&gt;ボードゲームは必勝法追求より楽しんだ者勝ち&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;をリリースしてからは、テストも兼ねてgoogle play内のマンカラアプリをいろいろダウンロードして試しに遊んでみました。必ずしもダウンロード数が多いアプリが強いわけではなく、強さとユーザーの評価とはあまり関係ないようです。宣伝にどれだけ金かけているかの違いだと思いますが、強いソフトが商売として成功するとは限らない点は将棋アプリについても言えることでしょう。&lt;br /&gt;
+　ただ、強いアプリはどれもだいたい似たような指し手になるようで、何度も対戦していると勝ちパターンも分かってきて楽しめなくなります。将棋ほど変化が多くないので仕方がないのかも知れません。そこで&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;「マンカラ ナッツ」&lt;/a&gt;では、最強の&lt;code&gt;やばい&lt;/code&gt;モード以外の&lt;code&gt;強い&lt;/code&gt;、&lt;code&gt;弱い&lt;/code&gt;モードでは初手を評価値とは関係なく乱数で選ぶようにしています&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。初手を乱数に変えるだけで全てのパターンに対応するのは難しく、勝ったり負けたりゲームを楽しめると思います。自分は&lt;code&gt;やばい&lt;/code&gt;モードでは先手の時の勝ちパターンが分かってきたのですが、&lt;code&gt;強い&lt;/code&gt;モードでは先手でも勝てない時が多いのでいつも&lt;code&gt;強い&lt;/code&gt;モードで遊んでます。&lt;/p&gt;
+
 &lt;hr /&gt;
 
 &lt;div class=&quot;footnotes&quot;&gt;
@@ -187,6 +191,9 @@
     &lt;/li&gt;
     &lt;li id=&quot;fn:2&quot;&gt;
       &lt;p&gt;マンカラで形勢判断するとしたら、自陣にある種子（豆）の数とか、横取りされ易さ（対称の位置にある相手のポケットが空かどうか）とかを数値化するのでしょうか？よく分かりません。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;全てのモードで評価値が同じ場合は乱数で着手を選ぶようになっていますが、初手に関しては評価値が低い手を敢えて選ばせているという意味です。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
