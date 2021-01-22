@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "マンカラは後手でも勝てるか？",
+      "category" : "software",
+      "tags"     : "dart, android, flutter, c++, mancala",
+      "url"      : "/software/2021-01-22/mancala_evaluate02",
+      "date"     : "2021-01-22 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "詰将棋ならぬ詰マンカラ",
       "category" : "software",
       "tags"     : "dart, android, flutter, c++, mancala",

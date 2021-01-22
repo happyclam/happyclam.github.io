@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     
-    <title>楽天Kobo電子書籍検索API使ってみた</title>
+    <title>マンカラは後手でも勝てるか？</title>
 
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
@@ -41,19 +41,19 @@
   <meta name="twitter:site" content="@SappierBoy">
   <meta name="twitter:creator" content="@SappierBoy">
   
-  <meta name="twitter:title" content="楽天Kobo電子書籍検索API使ってみた">
+  <meta name="twitter:title" content="マンカラは後手でも勝てるか？">
   
   
-  <meta name="twitter:url" content="/project/2016-03-30/koboAPI">
+  <meta name="twitter:url" content="/software/2021-01-22/mancala_evaluate02">
   
   
-  <meta name="twitter:description" content="楽天Kobo電子書籍（KWL）の新着チェッカー作ってみました。">
+  <meta name="twitter:description" content="先手必勝か後手必勝か、結論をアプリ比較で推測。マンカラカラハは後手でも勝つことが出来るのか？">
   
   
-  <meta name="twitter:image:src" content="https://happyclam.github.io/images/kwlchecker_small.png">
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/mancala_logo.png">
   
 
-  <link rel="canonical" href="/project/2016-03-30/koboAPI" />
+  <link rel="canonical" href="/software/2021-01-22/mancala_evaluate02" />
     <!-- atom & rss feed -->
     <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
     <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
@@ -221,64 +221,98 @@ MathJax.Hub.Config({
       <div class="content">
         
 <div class="page-header">
-  <h1>楽天Kobo電子書籍検索API使ってみた </h1>
+  <h1>マンカラは後手でも勝てるか？ </h1>
 </div>
 
 <div class="row-fluid post-full">
   <div class="span12">
     <div class="date">
-      <span>30 March 2016</span>
+      <span>22 January 2021</span>
     </div>
     <div class="content">
-      <p>Project: 「<a href="https://kwl-books.herokuapp.com"><strong>楽天Kobo電子書籍新着チェッカー</strong></a>」: <a href="https://github.com/happyclam/kwl-books">GitHub</a></p>
+      <h3 id="自分のアプリと他のアプリを手動で対戦させてみた">自分のアプリと他のアプリを手動で対戦させてみた</h3>
+<p>　<a href="/software/2020-06-07/mancala">以前の記事</a>で６×２列のマンカラが先手必勝なのか後手必勝なのかを自作プログラムで調べましたが、時間がかかり過ぎるので結論が得られないままでした。そこで自分のアプリと他の強いアプリを対戦させてみて、その結果から石の数（豆の数）毎に先手必勝なのか後手必勝なのかを推測してみようと思います。<br />
+　google playに公開されているマンカラアプリの中で、マンカラカラハ（classicルール<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>）で遊ぶことが出来て、初期配置の石の数を３個から７個まで選択出来るアプリを３つ選んで、先手・後手の対戦結果から推測します。どのアプリと比較したかは別に公開しても構わないと思うのですが、もしかしたら作者に歓迎されない可能性もあるので使用したアプリ名は一応伏せておきます。また比較する時はアプリの強さ設定で全て<code>最強</code>に設定して比較しています。</p>
 
-<h3 id="自分の本が検索されない">自分の本が検索されない</h3>
-<p>　以前からやってみたかった電子書籍出版やってみました（<a href="https://www.amazon.co.jp/dp/B01D1IJ0S0">Amazon KDP</a>、<a href="https://books.rakuten.co.jp/rk/8353a2085f33386d8fe9102c7b8eb4c3">楽天Kobo</a>）。その顛末については別の記事を書こうと思っていますが、先に「楽天Kobo電子書籍新着チェッカー」を作ってみたのでそれについて書きます。<br />
-　楽天Koboの電子書籍出版サービス（KWL、Kobo Writing Life）に自分の本を登録して、リリースまで時間が掛かると書いてあったから<a href="https://wakufactory.jp/kobo/kwlnew.html">「KoboWritingLife新着チェッカー」</a>というサイトを見つけて、自分の本が出版されたかどうかチェックしていました。丸一日ぐらい経った後、まだ自分の本が表示されていなかったので、試しに楽天のサイトから検索してみたら、自分の本がヒットするではないですか、「なんで自分の本は出てこないの？」って感じです。この<a href="https://wakufactory.jp/kobo/kwlnew.html">新着チェッカー</a>がどれほど利用されているのかわかりませんが、「自分の本を表示してくれないサイトが新着チェッカーとしてメジャーになってもらっては困る」、「なんとか自分で世間の人に使って貰えるこれ以上の新着チェッカーを作らなければならない」という使命感に駆られて（嘘です）作ってみることにしました。<br />
-　自分で楽天APIを弄ってみてから想像するとおそらく自分の本が表示されないのは、自分の本を登録している「PC・システム開発」というジャンルが検索対象になっていないからだと思いますが、真相はわかりません。自分の本だけ意地悪されているわけでないことは確かでしょう。<br />
-　ということでジャンル別に検索する形で作りました。自己責任でご利用ください（免責条項）。<a href="https://webservice.rakuten.co.jp/guide/">楽天のサイト</a>でも簡単にAPIを試してみることも出来ます。試すだけなら開発者用のIDをわざわざ取得しなくても利用できます。</p>
+<h3 id="対戦成績">対戦成績</h3>
+<p>　<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">自分のアプリ</a>は対戦結果を先手・後手別に記録出来る様にしているの<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>で、そのスクリーンショットを以下に並べます。※画像クリックで拡大表示</p>
 
-<h3 id="やっていること仕様">やっていること（仕様）</h3>
+<h4 id="-豆３つの対戦成績">* 豆３つの対戦成績</h4>
 
-<ul>
-  <li>使用するのは楽天Kobo系APIだけ（「楽天ブックス系API」と「楽天Kobo系API」に分かれているようです）<br />
-※深くは追求してませんが、<a href="https://wakufactory.jp/kobo/kwlnew.html">件のサイト</a>で自分の本が検索出来なかったのはこのAPIの違いによるものかもしれません。APIを分けている理由も知りませんが、Kobo系は簡易版みたいな感じかもしれません。</li>
-  <li>予約販売分は検索対象外（予約販売分を含めると未来の発売日分のデータばかりになるため）</li>
-  <li>サイトにアクセスがあると、その都度最新のジャンルデータを取得して表示し差分を保存する</li>
-  <li>ジャンルがクリックされると、一度のAPIで取得出来る最大３０件の最新出版データを保存して日付の新しい順に過去に取得した分を含めて最大５０件表示<br />
-※最初は先頭３桁が”123”のもの（KWLの分だけ）に限定しようと思ったのですがデータが少なくてあまりにも寂しい検索結果になるので他のものも表示することにしました。</li>
-  <li>発売日から３０日経過を目処に古い新着データは削除していく（ジャンルデータ取得時に日付をチェックして削除）。<br />
-※herokuの無料枠で運用しているのでデータが大量に溜まると困ると思ってこうしています。更新頻度が高いジャンルは３０日経過していなくても表示されなくなります。</li>
-</ul>
-
-<h3 id="使用しているapi">使用しているAPI</h3>
-<p>　発行しているAPIは以下の二種類だけです。</p>
-
-<ul>
-  <li>楽天Koboジャンル検索APIで電子書籍のジャンル一覧を取得<br />
-　例、koboGenreId=101、101は電子書籍<br />
-HTTPS https://app.rakuten.co.jp/services/api/Kobo/GenreSearch/20131010?applicationId=XXXXXXXXXXXXXXXXXXX&amp;format=json&amp;koboGenreId=101</li>
-  <li>楽天Kobo電子書籍検索APIでジャンル別の新着データを取得<br />
-　例、salesType=0は予約販売でない、koboGenreId=101912は「PC・システム開発」<br />
-HTTPS https://app.rakuten.co.jp/services/api/Kobo/EbookSearch/20140811?applicationId=XXXXXXXXXXXXXXXXXXX&amp;format=json&amp;koboGenreId=101912&amp;salesType=0&amp;sort=-releaseDate</li>
-</ul>
-
-<div style="width:320px; margin: 0 auto;">
-
-  <p><a href="/images/kwlchecker.png" target="_blank"><img src="/images/kwlchecker.png" alt="kwl-checker" title="KWL新着チェッカー" /></a></p>
-
+<div style="width:480px; margin: 0 auto;">
+  <p><a href="/images/results_3beans.png"><img src="/images/results_3beans.png" alt="豆３つ" title="豆３つ" /></a></p>
 </div>
 
-<script language="javascript" src="//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3216166&amp;pid=885863892"></script>
-<noscript><a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3216166&amp;pid=885863892" target="_blank" rel="nofollow"><img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3216166&amp;pid=885863892" border="0" /></a></noscript>
+<h4 id="-豆４つの対戦成績">* 豆４つの対戦成績</h4>
 
-<h3 id="er図">ER図</h3>
-<object data="/pdf/koboapi.pdf" width="760" height="900">
-<p>ご覧の環境では、object要素がサポートされていないようです。<a href="/pdf/koboapi.pdf">PDFファイルをダウンロードしてください</a></p>
-</object>
+<div style="width:480px; margin: 0 auto;">
+  <p><a href="/images/results_4beans.png"><img src="/images/results_4beans.png" alt="豆４つ" title="豆４つ" /></a></p>
+</div>
+
+<h4 id="-豆５つの対戦成績">* 豆５つの対戦成績</h4>
+
+<div style="width:480px; margin: 0 auto;">
+  <p><a href="/images/results_5beans.png"><img src="/images/results_5beans.png" alt="豆５つ" title="豆５つ" /></a></p>
+</div>
+
+<h4 id="-豆６つの対戦成績">* 豆６つの対戦成績</h4>
+
+<div style="width:480px; margin: 0 auto;">
+  <p><a href="/images/results_6beans.png"><img src="/images/results_6beans.png" alt="豆６つ" title="豆６つ" /></a></p>
+</div>
+
+<h4 id="-豆７つの対戦成績">* 豆７つの対戦成績</h4>
+
+<div style="width:480px; margin: 0 auto;">
+  <p><a href="/images/results_7beans.png"><img src="/images/results_7beans.png" alt="豆７つ" title="豆７つ" /></a></p>
+</div>
+
+<p>　対戦成績表の見方ですが、<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">マンカラナッツ</a>では<code>やばい</code>モード以外では初手をランダムに決めるようにしていて、勝負に拘っていないので、アプリが勝てるのかどうかを判断する場合は<code>やばい</code>モード以外は見る必要がありません。勝ちの欄の数字はＡＩ対戦で人間側が勝った数字、つまり比較対象となっているアプリが勝ったということです。また比較するために選んだアプリが初手をランダムに決めているものもあるので、一回だけの対戦ではなく何回か対戦させました。<br />
+　注目すべきは黄色い丸で囲んだ部分の数字です。<code>後手で勝つことが出来るか</code>です。豆の数が３、４、５、７の時は後手の勝ち星が全て<code>0</code>で、比較対象のアプリが後手の場合は、何度やっても<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">自分のアプリ</a>に勝てません。<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">自分のアプリ</a>が数あるマンカラアプリの中で最強だと主張しているのではなく、<code>マンカラカラハというゲームはお互いが最善を尽くせば先手必勝</code>なのではないか？ということです。負けの欄の数字（比較対象のアプリが負けた数字＝<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">自分のアプリ</a>が勝った数字）を見ると、勝ちの欄の数字より大きいので勝率は良い方だと思いますが、先に言ったように比較対象のアプリは初手をランダムに決めている（＝勝負に拘ってない）ものもあるので一概には言えません。マンカラでは初手で既に勝敗が決まってる気がします。<br />
+　また豆の数が６の時は先手でも後手でも勝ったり負けたりなので、どちらとも言えませんが後手必勝あるいは双方が最善を尽くしたら引分けなのかもしれません。</p>
+
+<h3 id="結論">結論</h3>
+<p>　豆の数１の時と２の時は<a href="/software/2020-06-07/mancala">以前の記事</a>で結論が出ていると思っているので、以下のように推測します。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">豆の数</th>
+      <th style="text-align: center">１</th>
+      <th style="text-align: center">２</th>
+      <th style="text-align: center">３</th>
+      <th style="text-align: center">４</th>
+      <th style="text-align: center">５</th>
+      <th style="text-align: center">６</th>
+      <th style="text-align: center">７</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">カラハClassic</td>
+      <td style="text-align: center">先手必勝</td>
+      <td style="text-align: center">先手必勝</td>
+      <td style="text-align: center">先手必勝</td>
+      <td style="text-align: center">先手必勝</td>
+      <td style="text-align: center">先手必勝</td>
+      <td style="text-align: center">引分け？</td>
+      <td style="text-align: center">先手必勝</td>
+    </tr>
+  </tbody>
+</table>
 
 <hr />
 
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>カラハのclassicルールについては<a href="/software/2020-08-09/mancala_easy">以前の記事</a>を見て下さい。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>先手・後手別の対戦結果を自分が知りたかったのでこの機能を付けました。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
 
     </div>
 
@@ -291,8 +325,8 @@ HTTPS https://app.rakuten.co.jp/services/api/Kobo/EbookSearch/20140811?applicati
 
   
      
-    	<li><a href="/categories.html#project-ref">
-    		project <span>28</span>
+    	<li><a href="/categories.html#software-ref">
+    		software <span>31</span>
     	</a></li>
     
   
@@ -310,13 +344,15 @@ HTTPS https://app.rakuten.co.jp/services/api/Kobo/EbookSearch/20140811?applicati
 
   
      
-    	<li><a href="/tags.html#rails-ref">rails <span>13</span></a></li>
+    	<li><a href="/tags.html#dart-ref">dart <span>7</span></a></li>
      
-    	<li><a href="/tags.html#software-ref">software <span>15</span></a></li>
+    	<li><a href="/tags.html#android-ref">android <span>54</span></a></li>
      
-    	<li><a href="/tags.html#ruby-ref">ruby <span>34</span></a></li>
+    	<li><a href="/tags.html#flutter-ref">flutter <span>7</span></a></li>
      
-    	<li><a href="/tags.html#coffeescript-ref">coffeescript <span>41</span></a></li>
+    	<li><a href="/tags.html#c++-ref">c++ <span>4</span></a></li>
+     
+    	<li><a href="/tags.html#mancala-ref">mancala <span>4</span></a></li>
     
   
 
@@ -329,11 +365,11 @@ HTTPS https://app.rakuten.co.jp/services/api/Kobo/EbookSearch/20140811?applicati
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/hardware/2016-03-21/pr_epson" title="モバイルプリンター PX-S05B">&larr; Previous</a></li>
+        <li class="prev"><a href="/software/2020-11-21/mancala_evaluate01" title="詰将棋ならぬ詰マンカラ">&larr; Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next"><a href="/miscellaneous/2016-04-02/self-publishing" title="電子書籍出版して２週間経ちました">Next &rarr;</a></li>
+        <li class="next disabled"><a>Next &rarr;</a>
       
       </ul>
     </div>
