@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2021-01-22T19:18:50+09:00</lastBuildDate>
-        <pubDate>2021-01-22T19:18:50+09:00</pubDate>
+        <lastBuildDate>2021-01-23T11:28:46+09:00</lastBuildDate>
+        <pubDate>2021-01-23T11:28:46+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -50,8 +50,8 @@
 &lt;/div&gt;
 
 &lt;p&gt;　対戦成績表の見方ですが、&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラナッツ&lt;/a&gt;では&lt;code&gt;やばい&lt;/code&gt;モード以外では初手をランダムに決めるようにしていて、勝負に拘っていないので、アプリが勝てるのかどうかを判断する場合は&lt;code&gt;やばい&lt;/code&gt;モード以外は見る必要がありません。勝ちの欄の数字はＡＩ対戦で人間側が勝った数字、つまり比較対象となっているアプリが勝ったということです。また比較するために選んだアプリが初手をランダムに決めているものもあるので、一回だけの対戦ではなく何回か対戦させました。&lt;br /&gt;
-　注目すべきは黄色い丸で囲んだ部分の数字です。&lt;code&gt;後手で勝つことが出来るか&lt;/code&gt;です。豆の数が３、４、５、７の時は後手の勝ち星が全て&lt;code&gt;0&lt;/code&gt;で、比較対象のアプリが後手の場合は、何度やっても&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;に勝てません。&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;が数あるマンカラアプリの中で最強だと主張しているのではなく、&lt;code&gt;マンカラカラハというゲームはお互いが最善を尽くせば先手必勝&lt;/code&gt;なのではないか？ということです。負けの欄の数字（比較対象のアプリが負けた数字＝&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;が勝った数字）を見ると、勝ちの欄の数字より大きいので勝率は良い方だと思いますが、先に言ったように比較対象のアプリは初手をランダムに決めている（＝勝負に拘ってない）ものもあるので一概には言えません。マンカラでは初手で既に勝敗が決まってる気がします。&lt;br /&gt;
-　また豆の数が６の時は先手でも後手でも勝ったり負けたりなので、どちらとも言えませんが後手必勝あるいは双方が最善を尽くしたら引分けなのかもしれません。&lt;/p&gt;
+　注目すべきは黄色い丸で囲んだ部分の数字です。&lt;code&gt;後手で勝つことが出来るか&lt;/code&gt;です。豆の数が３、４、５、７の時は後手の勝ち星が全て&lt;code&gt;0&lt;/code&gt;で、比較対象のアプリが後手の場合は、何度やっても&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;に勝てません。&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;が数あるマンカラアプリの中で最強だと主張しているのではなく、&lt;code&gt;マンカラカラハというゲームはお互いが最善を尽くせば先手必勝&lt;/code&gt;なのではないか？ということです。負けの欄の数字（比較対象のアプリが負けた数字＝&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;が勝った数字）を見ると、勝ちの欄の数字より大きいので勝率は良い方だと思いますが、先に言ったように比較対象のアプリは初手をランダムに決めている（＝勝負に拘ってない）ものもあるので一概には言えません。マンカラでは初手で悪手を選択するとそれだけで勝てなくなるような気がします。&lt;br /&gt;
+　また豆の数が６の時は先手でも後手でも勝ったり負けたりなので、どちらとも言えませんが双方が最善を尽くしたら引分けなのかもしれません。上の対戦成績結果以外で試していた時も引分けになる頻度が結構高かったです。&lt;/p&gt;
 
 &lt;h3 id=&quot;結論&quot;&gt;結論&lt;/h3&gt;
 &lt;p&gt;　豆の数１の時と２の時は&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;以前の記事&lt;/a&gt;で結論が出ていると思っているので、以下のように推測します。&lt;/p&gt;
@@ -82,6 +82,10 @@
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;p&gt;　強さの比較に使用したアプリも&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;もおそらく似たような評価関数と、MIN-MAX法及びαβ法を使った先読み探索で指し手を決めていると思うので、この推測が絶対正しいといは言えません。先読みの手数に制限があるからです。&lt;br /&gt;
+　今将棋や囲碁で流行っている機械学習（Deep Learning等）によるＡＩだと違う指し手を選んで全てのマンカラアプリに常に勝つなんてことがないとは言い切れませんが、マンカラは将棋や囲碁に較べたら変化の幅が狭いので、将棋や囲碁のように劇的な強さの向上はないでしょう。でも誰か試している人はいないのでしょうか？機械学習を使ったらどうなるか、ちょっと興味あります。&lt;br /&gt;
+　機械学習（強化学習）を使った&lt;a href=&quot;https://play.google.com/store/apps/details?id=tictactoe_evo.io.github.happyclam&quot;&gt;三目並べアプリ&lt;/a&gt;では、結局MIN-MAX法を使ったものと同じ結果（双方が最善を尽くせば常に引分け）になるので、マンカラの場合も同じ結果が得られるだけかもしれませんが…。&lt;/p&gt;
 
 &lt;hr /&gt;
 
