@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2021-01-23T11:28:46+09:00</lastBuildDate>
-        <pubDate>2021-01-23T11:28:46+09:00</pubDate>
+        <lastBuildDate>2021-01-25T13:07:19+09:00</lastBuildDate>
+        <pubDate>2021-01-25T13:07:19+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -83,9 +83,9 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;　強さの比較に使用したアプリも&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;もおそらく似たような評価関数と、MIN-MAX法及びαβ法を使った先読み探索で指し手を決めていると思うので、この推測が絶対正しいといは言えません。先読みの手数に制限があるからです。&lt;br /&gt;
-　今将棋や囲碁で流行っている機械学習（Deep Learning等）によるＡＩだと違う指し手を選んで全てのマンカラアプリに常に勝つなんてことがないとは言い切れませんが、マンカラは将棋や囲碁に較べたら変化の幅が狭いので、将棋や囲碁のように劇的な強さの向上はないでしょう。でも誰か試している人はいないのでしょうか？機械学習を使ったらどうなるか、ちょっと興味あります。&lt;br /&gt;
-　機械学習（強化学習）を使った&lt;a href=&quot;https://play.google.com/store/apps/details?id=tictactoe_evo.io.github.happyclam&quot;&gt;三目並べアプリ&lt;/a&gt;では、結局MIN-MAX法を使ったものと同じ結果（双方が最善を尽くせば常に引分け）になるので、マンカラの場合も同じ結果が得られるだけかもしれませんが…。&lt;/p&gt;
+&lt;p&gt;　強さの比較に使用したアプリも&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;もおそらく似たような評価関数と、MIN-MAX法及びαβ法を使った先読み探索で指し手を決めていると思うので、この推測が絶対正しいとは言えません。先読みの手数に制限があるからです。&lt;br /&gt;
+　今将棋や囲碁で流行っている機械学習（Deep Learning等）によるＡＩだと違う指し手を選んで全てのマンカラアプリに後手でも勝つなんてことがないとは言い切れませんが、マンカラは将棋や囲碁に較べたら変化の幅が狭いので、将棋や囲碁のように劇的な強さの向上はないでしょう。でも誰か試している人はいないのでしょうか？機械学習を使ったらどうなるか、ちょっと興味あります。&lt;br /&gt;
+　機械学習（強化学習）を使った&lt;a href=&quot;https://play.google.com/store/apps/details?id=tictactoe_evo.io.github.happyclam&quot;&gt;三目並べアプリ&lt;/a&gt;では、結局MIN-MAX法を使ったものと同じ結果（双方が最善を尽くせば常に引分け）になるので、マンカラの場合も結局同じ結果が得られるだけかもしれません。&lt;/p&gt;
 
 &lt;hr /&gt;
 
