@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2021-02-18T12:57:54+09:00</updated>
+ <updated>2021-02-22T19:01:53+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -2844,6 +2844,13 @@ result = [4, 5], depth = 16
 　評価関数のパラメータ調整というのでしょうか？いろいろ試行錯誤しましたが、こういう職人技的な作業が必要なのは自分のアプリが深く読めないことが一番の原因です。Javascript製で尚且つデータ構造も人間が理解し易い（所謂高級な）ままなので実行速度が出せません。深く読めば読むほど強くなるわけではないと思います&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;が、どこまで読めばいいかを語る以前の段階という感じです。Javascriptでこういうアプリを作るのは自分に手枷足枷を課して作っているようにも感じるのですが、アイデアを絞り出して問題解決するのもプログラミングの醍醐味なので、なんとかチェスアプリとして最低限のレベルは確保していたいと思ってます。&lt;br /&gt;
 　アプリのままだと制約が多いので、一度アプリより深く読む設定でCLI上で実行してchess.comのコンピュータ対戦でどのレベルまで勝てるのか試してみようと思ってます。読みを深くするだけで強くなるようであれば、評価関数の出来自体は悪くないということですし、また新たな問題を見つけることが出来るかもしれません。&lt;/p&gt;
 
+&lt;h3 id=&quot;４ステイルメイトの局面評価2021-02-22追記&quot;&gt;４．ステイルメイトの局面評価（2021-02-22追記）&lt;/h3&gt;
+&lt;p&gt;　以前の記事&lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;に書いているのでここには書いていなかったのですが、&lt;a href=&quot;https://yaneuraou.yaneu.com/2021/02/19/shogi-is-not-a-zero-sum-game/&quot;&gt;「俺氏、将棋が二人零和有限確定完全情報ゲームでないことに気づいてしまうｗｗｗ」&lt;/a&gt;という記事を読んで、将棋の千日手とチェスのステイルメイトは似ている点があることに気づいたので書いておきます。&lt;br /&gt;
+　&lt;a href=&quot;https://yaneuraou.yaneu.com/2021/02/19/shogi-is-not-a-zero-sum-game/&quot;&gt;この記事&lt;/a&gt;の趣旨とは別の話になると思うのですが、将棋ソフトの「やねうら王」の思考ルーチンには&lt;strong&gt;「引き分け（千日手）を回避する意欲」&lt;/strong&gt;みたいなパラメータがあるそうです。自分の将棋関連アプリはそこまでやっていないのですが、チェスのステイルメイトを評価する時に例外的な局面評価をする必要があるので、&lt;a href=&quot;https://play.google.com/store/apps/details?id=chess66.io.github.happyclam&quot;&gt;チェスアプリ&lt;/a&gt;では特殊な評価をしています。&lt;br /&gt;
+　チェスのステイルメイトは引分けと言ってもレピュテーションドロー（千日手）と違い、劣勢な時はステイルメイトを狙う必要があるけど、優勢であればチェックメイト（詰み）を狙う方がいいので優勢な側はステイルメイトを避けたいところです。つまり引分けと言っても評価値を０にすればいいという話にはならないのです、このことは&lt;a href=&quot;/software/2019-11-09/stalemate3&quot;&gt;以前の記事&lt;/a&gt;に書きました。&lt;br /&gt;
+　内部的には打ち歩詰めの局面評価と同じ方法を取っているのですが、自分の将棋関連アプリは&lt;strong&gt;相手玉を詰ませば最大評価値（勝ち）だけど、打ち歩詰めの場合は評価値に-1を掛けて評価値を反転（最少評価値、負け）&lt;/strong&gt;にしています。&lt;a href=&quot;https://play.google.com/store/apps/details?id=chess66.io.github.happyclam&quot;&gt;チェスアプリ&lt;/a&gt;の場合は&lt;strong&gt;相手玉をチェックメイトすれば最大評価値（勝ち）だけど、ステイルメイトの場合は評価値に&lt;code&gt;-0.7&lt;/code&gt;を掛けて評価値をやや反転？（劣勢から優勢）&lt;/strong&gt;するようにしています。この処理は前述の&lt;strong&gt;「引き分け（千日手）を回避する意欲」&lt;/strong&gt;に当たると思います。劣勢な時はステイルメイトの評価値が&lt;code&gt;-0.7&lt;/code&gt;を掛けることによって高くなり（優勢）、優勢な時は&lt;code&gt;-0.7&lt;/code&gt;を掛けることによって低くなる（回避する）方向に働きます。将棋の場合、リーグ戦の状況などによって積極的に千日手（引分け）を選びたい状況があり得ると思いますが、チェスの場合はたった一局の勝負でも劣勢なら常に積極的にステイルメイトを選びたいゲームなので、チェスの場合は必須の機能と言えるかも知れません。&lt;br /&gt;
+　ところでこの&lt;code&gt;-0.7&lt;/code&gt;というマジックナンバーですが、明確な根拠はありません。&lt;a href=&quot;/software/2019-11-09/stalemate3&quot;&gt;以前の記事&lt;/a&gt;に書いたように、こうしないと優勢なのにも拘らずステイルメイトになる手を選んでしまうケースがあったので、適当な数値を設定してステイルメイトを避けるようにしただけです。この値をどのように決めるべきなのかは今も分かりません:sweat_smile:&lt;/p&gt;
+
 &lt;hr /&gt;
 
 &lt;div class=&quot;footnotes&quot;&gt;
@@ -2859,6 +2866,9 @@ result = [4, 5], depth = 16
     &lt;/li&gt;
     &lt;li id=&quot;fn:4&quot;&gt;
       &lt;p&gt;５手読みで最善手とされた手が９手読みだと違う手が最善手になったけど、１３手読みだとまた５手読みと同じ手が最善手と判断されることもあり得ます。全てのノードを完全に読み切れていないのであるならどこまで深く読んだとしても最善手の結論は出せません。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:5&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;/software/2019-11-09/stalemate3&quot;&gt;「将棋の評価関数とチェスの評価関数−３」&lt;/a&gt;参照 &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
