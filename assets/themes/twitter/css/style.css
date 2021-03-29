@@ -16,6 +16,11 @@ p {
   line-height: normal;
 }
 
+li {
+  font-size: 1.1em;
+  line-height: normal;
+}
+
 table { border-collapse: collapse; border-spacing: 0; }
 td { border: solid 1px #003333; }
 th { border: solid 2px #003333; }

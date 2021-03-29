@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2021-02-22T19:25:04+09:00</updated>
+ <updated>2021-03-29T09:39:24+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -12129,10 +12129,10 @@ catch e
 &lt;ul&gt;
   &lt;li&gt;楽天Koboジャンル検索APIで電子書籍のジャンル一覧を取得&lt;br /&gt;
 　例、koboGenreId=101、101は電子書籍&lt;br /&gt;
-HTTPS https://app.rakuten.co.jp/services/api/Kobo/GenreSearch/20131010?applicationId=XXXXXXXXXXXXXXXXXXX&amp;amp;format=json&amp;amp;koboGenreId=101&lt;/li&gt;
+URL: https://app.rakuten.co.jp/services/api/Kobo/GenreSearch/20131010?applicationId=XXXXXXXXXXXXXXXXXXX&amp;amp;format=json&amp;amp;koboGenreId=101&lt;/li&gt;
   &lt;li&gt;楽天Kobo電子書籍検索APIでジャンル別の新着データを取得&lt;br /&gt;
 　例、salesType=0は予約販売でない、koboGenreId=101912は「PC・システム開発」&lt;br /&gt;
-HTTPS https://app.rakuten.co.jp/services/api/Kobo/EbookSearch/20140811?applicationId=XXXXXXXXXXXXXXXXXXX&amp;amp;format=json&amp;amp;koboGenreId=101912&amp;amp;salesType=0&amp;amp;sort=-releaseDate&lt;/li&gt;
+URL: https://app.rakuten.co.jp/services/api/Kobo/EbookSearch/20140811?applicationId=XXXXXXXXXXXXXXXXXXX&amp;amp;format=json&amp;amp;koboGenreId=101912&amp;amp;salesType=0&amp;amp;sort=-releaseDate&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
@@ -12145,7 +12145,7 @@ HTTPS https://app.rakuten.co.jp/services/api/Kobo/EbookSearch/20140811?applicati
 &lt;noscript&gt;&lt;a href=&quot;//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3216166&amp;amp;pid=885863892&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;&lt;img src=&quot;//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3216166&amp;amp;pid=885863892&quot; border=&quot;0&quot; /&gt;&lt;/a&gt;&lt;/noscript&gt;
 
 &lt;h3 id=&quot;er図&quot;&gt;ER図&lt;/h3&gt;
-&lt;object data=&quot;/pdf/koboapi.pdf&quot; width=&quot;760&quot; height=&quot;900&quot;&gt;
+&lt;object data=&quot;/pdf/koboapi.pdf&quot; width=&quot;480&quot; height=&quot;600&quot;&gt;
 &lt;p&gt;ご覧の環境では、object要素がサポートされていないようです。&lt;a href=&quot;/pdf/koboapi.pdf&quot;&gt;PDFファイルをダウンロードしてください&lt;/a&gt;&lt;/p&gt;
 &lt;/object&gt;
 
