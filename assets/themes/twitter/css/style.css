@@ -7,17 +7,12 @@ code, pre {
 }
 
 body {
-  font-size: 1.1em;
-  line-height: 1.625em;
+  font-size: 1.1rem;
+  line-height: 1.80rem;
   /* line-height: normal; */
 }
 
 p {
-  line-height: normal;
-}
-
-li {
-  font-size: 1.1em;
   line-height: normal;
 }
 
