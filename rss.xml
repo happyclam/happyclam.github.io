@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2021-03-30T10:59:34+09:00</lastBuildDate>
-        <pubDate>2021-03-30T10:59:34+09:00</pubDate>
+        <lastBuildDate>2021-04-05T12:12:22+09:00</lastBuildDate>
+        <pubDate>2021-04-05T12:12:22+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -586,9 +586,11 @@ $ ./mancala.out
 &lt;ul&gt;
   &lt;li&gt;相手の貯蔵所には豆を撒きません。&lt;/li&gt;
   &lt;li&gt;豆を撒き終わったポケットが自分の貯蔵所の場合、もう一度ポケットを選んで豆を撒くことが出来ます（&lt;code&gt;ピッタリ&lt;/code&gt;）。&lt;/li&gt;
-  &lt;li&gt;自分の空のポケットで豆を撒き終わった場合、その対称に位置する相手の豆を&lt;code&gt;横取り&lt;/code&gt;（Capture）して自分の貯蔵所に加えることが出来ます。&lt;/li&gt;
+  &lt;li&gt;自分の空のポケットで豆を撒き終わった時にその対称に位置する相手のポケットに豆が存在する場合、その豆を&lt;code&gt;横取り&lt;/code&gt;（Capture）して自分の貯蔵所に加えることが出来ます。&lt;/li&gt;
   &lt;li&gt;ゲーム終了時にポケットに残った豆は全て自分の貯蔵所に加えます。&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;　同じ&lt;code&gt;カラハ（Karah）&lt;/code&gt;と称するルールでも細かな違いがあるケースが存在しますが、&lt;a href=&quot;https://www.nintendo.co.jp/switch/as7ta/&quot;&gt;Nintendo Switchの世界のアソビ大全51&lt;/a&gt;に収録されているマンカラと同じルールにしています。&lt;/p&gt;
 
 &lt;h3 id=&quot;機能&quot;&gt;機能&lt;/h3&gt;
 &lt;ul&gt;
