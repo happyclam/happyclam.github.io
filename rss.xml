@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2021-04-05T12:12:22+09:00</lastBuildDate>
-        <pubDate>2021-04-05T12:12:22+09:00</pubDate>
+        <lastBuildDate>2021-04-12T08:52:24+09:00</lastBuildDate>
+        <pubDate>2021-04-12T08:52:24+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -2319,7 +2319,7 @@ result = [4, 5], depth = 16
 &lt;p&gt;です。どうしようか思案中です。&lt;/p&gt;
 
 &lt;p&gt;　※ TypeScriptとC++でも試してみました&lt;a href=&quot;/software/2020-09-19/js_dart_cpp&quot;&gt;「Dartは遅いけど、FlutterでGUIは有り」&lt;/a&gt;。
-　※ 強いアプリを厳選して、先手必勝なのか後手必勝なのか推測してみました&lt;a href=&quot;/software/2021-01-22/mancala_evaluate02&quot;&gt;「マンカラは後手でも勝てるか？」&lt;/a&gt;。&lt;/p&gt;
+　※ 強いアプリを厳選して手動で対戦させて、先手必勝なのか後手必勝なのか推測してみました&lt;a href=&quot;/software/2021-01-22/mancala_evaluate02&quot;&gt;「マンカラは後手でも勝てるか？」&lt;/a&gt;。&lt;/p&gt;
 
 &lt;h3 id=&quot;ソースファイル&quot;&gt;ソースファイル&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;/software/2014-09-23/tictactoe_arrange&quot;&gt;以前の記事&lt;/a&gt;の「３手前に打った駒が消える特殊なルールの三目並べ」のように&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/arrange&quot;&gt;github&lt;/a&gt;でソースを公開しようと思っていたのですが、google play内の日本製のマンカラアプリで遊んでみて、少し惜しくなったというのが本音です。アプリのアクティブユーザー数が1,000に達したらこの記事で使用しているソース（=アプリからGUI部分を除いたソース）を公開しようと思ってます。&lt;br /&gt;
