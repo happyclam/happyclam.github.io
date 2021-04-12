@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2021-04-12T08:52:24+09:00</updated>
+ <updated>2021-04-12T14:56:58+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -12104,7 +12104,7 @@ catch e
    <link href="https://happyclam.github.io/project/2016-03-30/koboAPI"/>
    <updated>2016-03-30T00:00:00+09:00</updated>
    <id>https://happyclam.github.io/project/2016-03-30/koboAPI</id>
-   <content type="html">&lt;p&gt;Project: 「&lt;a href=&quot;https://kwl-books.herokuapp.com&quot;&gt;&lt;strong&gt;楽天Kobo電子書籍新着チェッカー&lt;/strong&gt;&lt;/a&gt;」: &lt;a href=&quot;https://github.com/happyclam/kwl-books&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
+   <content type="html">&lt;h5 id=&quot;楽天kobo電子書籍新着チェッカー-github&quot;&gt;「&lt;a href=&quot;https://kwl-books.herokuapp.com&quot;&gt;&lt;strong&gt;楽天Kobo電子書籍新着チェッカー&lt;/strong&gt;&lt;/a&gt;」: &lt;a href=&quot;https://github.com/happyclam/kwl-books&quot;&gt;GitHub&lt;/a&gt;&lt;/h5&gt;
 
 &lt;h3 id=&quot;自分の本が検索されない&quot;&gt;自分の本が検索されない&lt;/h3&gt;
 &lt;p&gt;　以前からやってみたかった電子書籍出版やってみました（&lt;a href=&quot;https://www.amazon.co.jp/dp/B01D1IJ0S0&quot;&gt;Amazon KDP&lt;/a&gt;、&lt;a href=&quot;https://books.rakuten.co.jp/rk/8353a2085f33386d8fe9102c7b8eb4c3&quot;&gt;楽天Kobo&lt;/a&gt;）。その顛末については別の記事を書こうと思っていますが、先に「楽天Kobo電子書籍新着チェッカー」を作ってみたのでそれについて書きます。&lt;br /&gt;

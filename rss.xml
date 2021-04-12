@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2021-04-12T08:52:24+09:00</lastBuildDate>
-        <pubDate>2021-04-12T08:52:24+09:00</pubDate>
+        <lastBuildDate>2021-04-12T14:56:58+09:00</lastBuildDate>
+        <pubDate>2021-04-12T14:56:58+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -12099,7 +12099,7 @@ catch e
 
         <item>
                 <title>楽天Kobo電子書籍検索API使ってみた</title>
-                <description>&lt;p&gt;Project: 「&lt;a href=&quot;https://kwl-books.herokuapp.com&quot;&gt;&lt;strong&gt;楽天Kobo電子書籍新着チェッカー&lt;/strong&gt;&lt;/a&gt;」: &lt;a href=&quot;https://github.com/happyclam/kwl-books&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
+                <description>&lt;h5 id=&quot;楽天kobo電子書籍新着チェッカー-github&quot;&gt;「&lt;a href=&quot;https://kwl-books.herokuapp.com&quot;&gt;&lt;strong&gt;楽天Kobo電子書籍新着チェッカー&lt;/strong&gt;&lt;/a&gt;」: &lt;a href=&quot;https://github.com/happyclam/kwl-books&quot;&gt;GitHub&lt;/a&gt;&lt;/h5&gt;
 
 &lt;h3 id=&quot;自分の本が検索されない&quot;&gt;自分の本が検索されない&lt;/h3&gt;
 &lt;p&gt;　以前からやってみたかった電子書籍出版やってみました（&lt;a href=&quot;https://www.amazon.co.jp/dp/B01D1IJ0S0&quot;&gt;Amazon KDP&lt;/a&gt;、&lt;a href=&quot;https://books.rakuten.co.jp/rk/8353a2085f33386d8fe9102c7b8eb4c3&quot;&gt;楽天Kobo&lt;/a&gt;）。その顛末については別の記事を書こうと思っていますが、先に「楽天Kobo電子書籍新着チェッカー」を作ってみたのでそれについて書きます。&lt;br /&gt;
