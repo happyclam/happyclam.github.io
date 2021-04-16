@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2021-04-12T14:56:58+09:00</updated>
+ <updated>2021-04-16T12:09:12+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -583,7 +583,8 @@ $ ./mancala.out
 
 &lt;h3 id=&quot;マンカラ-ナッツについて&quot;&gt;「マンカラ ナッツ」について&lt;/h3&gt;
 &lt;p&gt;　対人戦の途中でＡＩ対戦に切り替えたり、ＡＩ対戦の途中で対人戦に切り替えたりして、マンカラの特定の局面での最善手の研究にも使えるように配慮したマンカラアプリです。&lt;br /&gt;
-　Version1.1.6で豆の数を３個〜７個から選べるようにしました。また、対戦成績を先手番・後手番別に保存するようにしました。豆の数によって先手有利・後手有利の違いがあります。&lt;/p&gt;
+　Version1.1.6で豆の数を３個〜７個から選べるようにしました。また、対戦成績を先手番・後手番別に保存するようにしました。豆の数によって先手有利・後手有利の違いがあります。&lt;br /&gt;
+　勝ちパターンを覚えてしまうとゲームを楽しめないので、Version1.1.9から&lt;strong&gt;ランダム配置機能&lt;/strong&gt;を追加しました。&lt;/p&gt;
 
 &lt;h3 id=&quot;ルール&quot;&gt;ルール&lt;/h3&gt;
 &lt;p&gt;　数あるマンカラのルールの中で、&lt;code&gt;カラハ（Karah）&lt;/code&gt;と呼ばれるルールを採用しています。&lt;br /&gt;
@@ -604,9 +605,10 @@ $ ./mancala.out
   &lt;li&gt;待った機能&lt;/li&gt;
   &lt;li&gt;豆選択（コーヒー、ピスタチオ、アーモンド）機能&lt;/li&gt;
   &lt;li&gt;豆の数選択機能（３個〜７個）&lt;/li&gt;
-  &lt;li&gt;先手後手別、対戦成績保存機能（ゲーム途中で設定を変更した場合は対戦成績には記録されません）&lt;/li&gt;
+  &lt;li&gt;先手後手別、対戦成績保存機能（ゲーム途中で設定を変更しり、「待った」した場合は対戦成績には記録されません）&lt;/li&gt;
   &lt;li&gt;多言語対応、日&lt;code&gt;ja&lt;/code&gt;, 英&lt;code&gt;en&lt;/code&gt;, 越&lt;code&gt;vi&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;AI対戦時の形勢判断Emoji表示機能&lt;/li&gt;
+  &lt;li&gt;ランダム配置機能&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;ａｉ対戦&quot;&gt;ＡＩ対戦&lt;/h3&gt;
@@ -700,6 +702,7 @@ $ ./mancala.out
   &lt;li&gt;同じパターンの指し手を避けるため、ＡＩのレベル&lt;code&gt;弱い(Easy)&lt;/code&gt;と&lt;code&gt;強い(Hard)&lt;/code&gt;では、初手はランダムに選ぶようにしています。&lt;code&gt;やばい(Expert)&lt;/code&gt;はガチで指し手を決めます&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/li&gt;
   &lt;li&gt;全てのＡＩのレベルで、同じ評価値の場合はランダムに指し手を選択するようにしていますので、同じ局面で常に同じ指し手を選ぶとは限りません&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。&lt;/li&gt;
   &lt;li&gt;ＡＩ対戦時に&lt;code&gt;先手&lt;/code&gt;か&lt;code&gt;後手&lt;/code&gt;かを選べます。この設定は&lt;code&gt;二人対戦(Two Players)&lt;/code&gt;時には意味はありません。&lt;/li&gt;
+  &lt;li&gt;対戦を重ねると同じパターンで決着し、ゲームを楽しめなくなるのを防ぐため&lt;strong&gt;ランダム配置機能&lt;/strong&gt;追加しました（Version1.1.9以降）。設定画面で「ランダム」を選ぶと豆の初期配置が先手・後手同じでランダムな配置になります（豆の合計数は&lt;code&gt;４&lt;/code&gt;を選んだ場合と同じ４×６×２＝４８個です）。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;ゲーム成績画面&quot;&gt;ゲーム成績画面&lt;/h3&gt;
