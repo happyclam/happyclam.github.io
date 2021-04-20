@@ -4,7 +4,7 @@
  <title>自己満足プログラミング</title>
  <link href="https://happyclam.github.io/" rel="self"/>
  <link href="https://happyclam.github.io"/>
- <updated>2021-04-16T12:09:12+09:00</updated>
+ <updated>2021-04-20T14:10:10+09:00</updated>
  <id>https://happyclam.github.io</id>
  <author>
    <name>happyclam</name>
@@ -702,7 +702,7 @@ $ ./mancala.out
   &lt;li&gt;同じパターンの指し手を避けるため、ＡＩのレベル&lt;code&gt;弱い(Easy)&lt;/code&gt;と&lt;code&gt;強い(Hard)&lt;/code&gt;では、初手はランダムに選ぶようにしています。&lt;code&gt;やばい(Expert)&lt;/code&gt;はガチで指し手を決めます&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/li&gt;
   &lt;li&gt;全てのＡＩのレベルで、同じ評価値の場合はランダムに指し手を選択するようにしていますので、同じ局面で常に同じ指し手を選ぶとは限りません&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。&lt;/li&gt;
   &lt;li&gt;ＡＩ対戦時に&lt;code&gt;先手&lt;/code&gt;か&lt;code&gt;後手&lt;/code&gt;かを選べます。この設定は&lt;code&gt;二人対戦(Two Players)&lt;/code&gt;時には意味はありません。&lt;/li&gt;
-  &lt;li&gt;対戦を重ねると同じパターンで決着し、ゲームを楽しめなくなるのを防ぐため&lt;strong&gt;ランダム配置機能&lt;/strong&gt;追加しました（Version1.1.9以降）。設定画面で「ランダム」を選ぶと豆の初期配置が先手・後手同じでランダムな配置になります（豆の合計数は&lt;code&gt;４&lt;/code&gt;を選んだ場合と同じ４×６×２＝４８個です）。&lt;/li&gt;
+  &lt;li&gt;対戦を重ねると同じパターンで決着し、ゲームを楽しめなくなるのを防ぐため&lt;strong&gt;ランダム配置機能&lt;/strong&gt;追加しました（Version1.1.9以降）。設定画面で「ランダム」を選ぶと豆の初期配置が先手・後手同じでランダムな配置になります&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;ゲーム成績画面&quot;&gt;ゲーム成績画面&lt;/h3&gt;
@@ -729,6 +729,9 @@ $ ./mancala.out
     &lt;/li&gt;
     &lt;li id=&quot;fn:3&quot;&gt;
       &lt;p&gt;&lt;code&gt;戻す(Undo)&lt;/code&gt;ボタンで数手前の局面に戻してからAI対戦を再開しても、前回と同じ局面になるとは限りませんのでご注意ください。ゲーム途中で設定を&lt;code&gt;二人対戦(Two Players)&lt;/code&gt;に変更して、気になる局面を再現してから&lt;code&gt;AI対戦(One Player)&lt;/code&gt;に切り替えることは可能です。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot;&gt;
+      &lt;p&gt;ランダムと言っても豆の数が０にはならないようにしています。また、豆の合計数は&lt;code&gt;４&lt;/code&gt;を選んだ場合と同じ４×６×２＝４８個です。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;

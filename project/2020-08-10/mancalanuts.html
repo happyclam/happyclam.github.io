@@ -364,7 +364,7 @@ MathJax.Hub.Config({
   <li>同じパターンの指し手を避けるため、ＡＩのレベル<code>弱い(Easy)</code>と<code>強い(Hard)</code>では、初手はランダムに選ぶようにしています。<code>やばい(Expert)</code>はガチで指し手を決めます<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。</li>
   <li>全てのＡＩのレベルで、同じ評価値の場合はランダムに指し手を選択するようにしていますので、同じ局面で常に同じ指し手を選ぶとは限りません<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>。</li>
   <li>ＡＩ対戦時に<code>先手</code>か<code>後手</code>かを選べます。この設定は<code>二人対戦(Two Players)</code>時には意味はありません。</li>
-  <li>対戦を重ねると同じパターンで決着し、ゲームを楽しめなくなるのを防ぐため<strong>ランダム配置機能</strong>追加しました（Version1.1.9以降）。設定画面で「ランダム」を選ぶと豆の初期配置が先手・後手同じでランダムな配置になります（豆の合計数は<code>４</code>を選んだ場合と同じ４×６×２＝４８個です）。</li>
+  <li>対戦を重ねると同じパターンで決着し、ゲームを楽しめなくなるのを防ぐため<strong>ランダム配置機能</strong>追加しました（Version1.1.9以降）。設定画面で「ランダム」を選ぶと豆の初期配置が先手・後手同じでランダムな配置になります<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup>。</li>
 </ul>
 
 <h3 id="ゲーム成績画面">ゲーム成績画面</h3>
@@ -391,6 +391,9 @@ MathJax.Hub.Config({
     </li>
     <li id="fn:3">
       <p><code>戻す(Undo)</code>ボタンで数手前の局面に戻してからAI対戦を再開しても、前回と同じ局面になるとは限りませんのでご注意ください。ゲーム途中で設定を<code>二人対戦(Two Players)</code>に変更して、気になる局面を再現してから<code>AI対戦(One Player)</code>に切り替えることは可能です。 <a href="#fnref:3" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:4">
+      <p>ランダムと言っても豆の数が０にはならないようにしています。また、豆の合計数は<code>４</code>を選んだ場合と同じ４×６×２＝４８個です。 <a href="#fnref:4" class="reversefootnote">↩</a></p>
     </li>
   </ol>
 </div>
