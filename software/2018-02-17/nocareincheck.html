@@ -236,7 +236,7 @@ MathJax.Hub.Config({
 <p>　下のような局面で先手が「勝った」と思い２一歩成りと指して相手に玉を取られて負けてしまうなんてことが将棋覚えたての人にはよくあることだと思います（後手も自分が勝ったと気づかなかったり<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20">）。</p>
 
 <div style="width:320px; margin: 0 auto;">
-  <p><img src="/images/hochi1.png" alt="王手放置１" title="王手放置１"></p>
+  <p><img src="/images/hochi1.png" alt="王手放置１" width="320"></p>
 </div>
 
 <p>　自分の玉に王手がかかることに気づかずにうっかり自分の駒を動かして王手放置をしてしまうことは初心者によくあることだし、自分も将棋覚えた頃はそういうことを相手と一緒に楽しんでました。「王手に気づくなよ、気づくなよ」と念じながら空き王手したりして楽しんでいたものです。だからわざわざ王手放置を禁止する（指せないようにする）必要もないと思ってアプリを作っていたのですが、ルール上「王手放置は反則」というのであれば他のソフトに倣って対応した方がいいのかもと思えてきました。<br>
@@ -247,19 +247,19 @@ MathJax.Hub.Config({
 <h3 id="どうなればゲーム終了かをソフトに教える必要がある">どうなればゲーム終了かをソフトに教える必要がある</h3>
 
 <div style="width:320px; margin: 0 auto;">
-  <p><img src="/images/hochi2.png" alt="王手放置２" title="王手放置２"></p>
+  <p><img src="/images/hochi2.png" alt="王手放置２" width="320"></p>
 </div>
 
 <p><span>上の局面は３三将棋の初形から２二銀、２一玉（王手放置）と進んだ局面ですが、ここで先手が後手玉を取ればゲーム終了になりますが、取らずに１三歩と打っても下の図のように後手玉が詰み（王手は掛かっていませんが玉が自爆する手しかない状態、次に王手放置せざるを得ない）となります（version0.9.3.0以前）。</span></p>
 
 <div style="width:320px; margin: 0 auto;">
-  <p><img src="/images/hochi3.png" alt="王手放置３" title="王手放置３"></p>
+  <p><img src="/images/hochi3.png" alt="王手放置３" width="320"></p>
 </div>
 
 <p><span>次の例は先手が１三歩ではなく１二歩と打ったケースですが、この場合後手玉は１二に移動出来る余地があるので後手玉は詰みとならずにゲームが継続します（version0.9.3.0以前）。</span></p>
 
 <div style="width:320px; margin: 0 auto;">
-  <p><img src="/images/hochi4.png" alt="王手放置４" title="王手放置４"></p>
+  <p><img src="/images/hochi4.png" alt="王手放置４" width="320"></p>
 </div>
 
 <p><span>上の局面は先手の１二歩に対して後手が３二銀と打って先手玉を詰ました局面ですが、手番は先手ですので先手が後手玉を取ればゲーム終了になります（version0.9.3.0以前）。これでいい、玉を取るまで指させればいいじゃないか、と言う人もいると思いますが、某９マス将棋アプリのレビューを読んでいると、「将棋は玉を取るまで指させるもんじゃない」「詰み局面で終了すべき」と言う意見も多く、私も相手玉を取るまでゲームが終わらないことに違和感を感じた一人です。</span><br>
@@ -270,11 +270,11 @@ MathJax.Hub.Config({
 <h3 id="ルールを厳格に適用すると">ルールを厳格に適用すると…</h3>
 
 <div style="width:320px; margin: 0 auto;">
-  <p><img src="/images/foulplay1.png" alt="反則１" title="反則１"></p>
+  <p><img src="/images/foulplay1.png" alt="反則１" width="320"></p>
 </div>
 <p><span>上の局面は後手が２一桂と王手を掛けたところです。先手がここで持ち駒の歩を３二に打った場合「二歩」であり「王手放置」であり「打ち歩詰め」でもあります。</span></p>
 <div style="width:320px; margin: 0 auto;">
-  <p><img src="/images/foulplay2.png" alt="反則２" title="反則２"></p>
+  <p><img src="/images/foulplay2.png" alt="反則２" width="320"></p>
 </div>
 <p><span>上の局面は後手が２二角と王手を掛けたところです。先手がここで持ち駒の歩を３一に打った場合「二歩」であり「王手放置」であり「行き場の無い駒を打つ」という反則でもあります。</span></p>
 

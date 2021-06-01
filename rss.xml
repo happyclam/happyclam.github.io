@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2021-04-20T14:10:10+09:00</lastBuildDate>
-        <pubDate>2021-04-20T14:10:10+09:00</pubDate>
+        <lastBuildDate>2021-06-01T21:08:23+09:00</lastBuildDate>
+        <pubDate>2021-06-01T21:08:23+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -22,31 +22,31 @@
 &lt;h4 id=&quot;-豆３つの対戦成績&quot;&gt;* 豆３つの対戦成績&lt;/h4&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_3beans.png&quot;&gt;&lt;img src=&quot;/images/results_3beans.png&quot; alt=&quot;豆３つ&quot; title=&quot;豆３つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/results_3beans.png&quot;&gt;&lt;img src=&quot;/images/results_3beans.png&quot; alt=&quot;豆３つ&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&quot;-豆４つの対戦成績&quot;&gt;* 豆４つの対戦成績&lt;/h4&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_4beans.png&quot;&gt;&lt;img src=&quot;/images/results_4beans.png&quot; alt=&quot;豆４つ&quot; title=&quot;豆４つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/results_4beans.png&quot;&gt;&lt;img src=&quot;/images/results_4beans.png&quot; alt=&quot;豆４つ&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&quot;-豆５つの対戦成績&quot;&gt;* 豆５つの対戦成績&lt;/h4&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_5beans.png&quot;&gt;&lt;img src=&quot;/images/results_5beans.png&quot; alt=&quot;豆５つ&quot; title=&quot;豆５つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/results_5beans.png&quot;&gt;&lt;img src=&quot;/images/results_5beans.png&quot; alt=&quot;豆５つ&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&quot;-豆６つの対戦成績&quot;&gt;* 豆６つの対戦成績&lt;/h4&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_6beans.png&quot;&gt;&lt;img src=&quot;/images/results_6beans.png&quot; alt=&quot;豆６つ&quot; title=&quot;豆６つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/results_6beans.png&quot;&gt;&lt;img src=&quot;/images/results_6beans.png&quot; alt=&quot;豆６つ&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&quot;-豆７つの対戦成績&quot;&gt;* 豆７つの対戦成績&lt;/h4&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_7beans.png&quot;&gt;&lt;img src=&quot;/images/results_7beans.png&quot; alt=&quot;豆７つ&quot; title=&quot;豆７つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/results_7beans.png&quot;&gt;&lt;img src=&quot;/images/results_7beans.png&quot; alt=&quot;豆７つ&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　対戦成績表の見方ですが、&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラナッツ&lt;/a&gt;では&lt;code&gt;やばい&lt;/code&gt;モード以外では初手をランダムに決めるようにしていて、勝負に拘っていないので、アプリが勝てるのかどうかを判断する場合は&lt;code&gt;やばい&lt;/code&gt;モード以外は見る必要がありません。勝ちの欄の数字はＡＩ対戦で人間側が勝った数字、つまり比較対象となっているアプリが勝ったということです。また比較するために選んだアプリが初手をランダムに決めているものもあるので、一回だけの対戦ではなく何回か対戦させました。&lt;br /&gt;
@@ -2781,14 +2781,14 @@ result = [4, 5], depth = 16
 &lt;p&gt;&lt;span&gt;局面1:白番。最善手はキングサイドキャスリング？&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chess_shot01.png&quot;&gt;&lt;img src=&quot;/images/chess_shot01.png&quot; alt=&quot;局面図１&quot; title=&quot;局面図１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess_shot01.png&quot;&gt;&lt;img src=&quot;/images/chess_shot01.png&quot; alt=&quot;局面図１&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
 &lt;p&gt;&lt;span&gt;局面2:黒番。最善手はクイーンサイドキャスリング？&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chess_shot02.png&quot;&gt;&lt;img src=&quot;/images/chess_shot02.png&quot; alt=&quot;局面図２&quot; title=&quot;局面図２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess_shot02.png&quot;&gt;&lt;img src=&quot;/images/chess_shot02.png&quot; alt=&quot;局面図２&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2798,7 +2798,7 @@ result = [4, 5], depth = 16
 &lt;p&gt;&lt;span&gt;局面3:黒番。キャスリングは悪手&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chess_shot03.png&quot;&gt;&lt;img src=&quot;/images/chess_shot03.png&quot; alt=&quot;局面図３&quot; title=&quot;局面図３&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess_shot03.png&quot;&gt;&lt;img src=&quot;/images/chess_shot03.png&quot; alt=&quot;局面図３&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2807,7 +2807,7 @@ result = [4, 5], depth = 16
 &lt;p&gt;&lt;span&gt;局面4:局面3からBf3と指したところ。&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chess_shot04.png&quot;&gt;&lt;img src=&quot;/images/chess_shot04.png&quot; alt=&quot;局面図４&quot; title=&quot;局面図４&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess_shot04.png&quot;&gt;&lt;img src=&quot;/images/chess_shot04.png&quot; alt=&quot;局面図４&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2821,7 +2821,7 @@ result = [4, 5], depth = 16
 &lt;p&gt;&lt;span&gt;局面5:&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chess_shot05.png&quot;&gt;&lt;img src=&quot;/images/chess_shot05.png&quot; alt=&quot;局面図５&quot; title=&quot;局面図５&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess_shot05.png&quot;&gt;&lt;img src=&quot;/images/chess_shot05.png&quot; alt=&quot;局面図５&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2836,7 +2836,7 @@ result = [4, 5], depth = 16
 &lt;p&gt;&lt;span&gt;局面6:局面5からポーンを進めた（d4）局面&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chess_shot06.png&quot;&gt;&lt;img src=&quot;/images/chess_shot06.png&quot; alt=&quot;局面図６&quot; title=&quot;局面図６&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess_shot06.png&quot;&gt;&lt;img src=&quot;/images/chess_shot06.png&quot; alt=&quot;局面図６&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4696,7 +4696,7 @@ android.enableJetifier=true
 &lt;p&gt;　そもそも今回のトラブルはAndroid StudioでGradle Syncした時に以下のダイアログが表示されて&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/gradle_plugin.png&quot;&gt;&lt;img src=&quot;/images/gradle_plugin.png&quot; alt=&quot;Gradle Plugin 更新ダイアログ&quot; title=&quot;Sync Project with Gradle Files&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/gradle_plugin.png&quot;&gt;&lt;img src=&quot;/images/gradle_plugin.png&quot; alt=&quot;Gradle Plugin 更新ダイアログ&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　&lt;code&gt;update&lt;/code&gt;を選択したことによるものです。&lt;br /&gt;
@@ -5758,12 +5758,12 @@ cordova.system.library.8=com.google.android.gms:play-services-ads:+
 
 &lt;p&gt;Firebase通知作成画面:&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/firebase_push.png&quot;&gt;&lt;img src=&quot;/images/firebase_push.png&quot; alt=&quot;Push通知作成画面&quot; title=&quot;Push通知作成画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/firebase_push.png&quot;&gt;&lt;img src=&quot;/images/firebase_push.png&quot; alt=&quot;Push通知作成画面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;アプリでの通知受信時:&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/push_notification.png&quot;&gt;&lt;img src=&quot;/images/push_notification.png&quot; alt=&quot;Push通知サンプル&quot; title=&quot;Push通知サンプル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/push_notification.png&quot;&gt;&lt;img src=&quot;/images/push_notification.png&quot; alt=&quot;Push通知サンプル&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　アプリを立ち上げている人に通知内容をtoast表示しているだけです。アプリを立ち上げていない場合はスマホの通知欄にメッセージが届きます。いろいろ使い道はありそうですが、何をするにも運用コストがかかるので難しいところです。&lt;/p&gt;
@@ -5792,7 +5792,7 @@ Available platforms:
 　うまくビルド出来ても、Firebase導入後ダッシュボードを眺めていると、以下のようにステータスが&lt;code&gt;調査が必要&lt;/code&gt;となって「クラッシュに遭遇していないユーザー数」が&lt;code&gt;100%&lt;/code&gt;になりません。問題のない他のアプリのステータスは&lt;code&gt;成功&lt;/code&gt;と出力され、「クラッシュに遭遇していないユーザー数」が&lt;code&gt;100%&lt;/code&gt;になります。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/firebase_crash.png&quot;&gt;&lt;img src=&quot;/images/firebase_crash.png&quot; alt=&quot;リリース直後のステータス&quot; title=&quot;リリース直後のステータス&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/firebase_crash.png&quot;&gt;&lt;img src=&quot;/images/firebase_crash.png&quot; alt=&quot;リリース直後のステータス&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　やはり環境によっては苦労が伴いそうです。&lt;/p&gt;
@@ -6186,7 +6186,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/heroku01.png&quot;&gt;&lt;img src=&quot;/images/heroku01.png&quot; alt=&quot;Settings画面1&quot; title=&quot;Settings画面2&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/heroku01.png&quot;&gt;&lt;img src=&quot;/images/heroku01.png&quot; alt=&quot;Settings画面1&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6194,7 +6194,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/heroku02.png&quot;&gt;&lt;img src=&quot;/images/heroku02.png&quot; alt=&quot;Settings画面2&quot; title=&quot;Settings画面2&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/heroku02.png&quot;&gt;&lt;img src=&quot;/images/heroku02.png&quot; alt=&quot;Settings画面2&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6202,7 +6202,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/heroku03.png&quot;&gt;&lt;img src=&quot;/images/heroku03.png&quot; alt=&quot;Settings画面3&quot; title=&quot;Settings画面3&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/heroku03.png&quot;&gt;&lt;img src=&quot;/images/heroku03.png&quot; alt=&quot;Settings画面3&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6210,7 +6210,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/heroku04.png&quot;&gt;&lt;img src=&quot;/images/heroku04.png&quot; alt=&quot;Settings画面4&quot; title=&quot;Settings画面4&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/heroku04.png&quot;&gt;&lt;img src=&quot;/images/heroku04.png&quot; alt=&quot;Settings画面4&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6223,7 +6223,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/heroku05.png&quot;&gt;&lt;img src=&quot;/images/heroku05.png&quot; alt=&quot;Settings画面5&quot; title=&quot;Settings画面5&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/heroku05.png&quot;&gt;&lt;img src=&quot;/images/heroku05.png&quot; alt=&quot;Settings画面5&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -7494,7 +7494,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 &lt;p&gt;　下の局面は７七将棋の初期盤面です。&lt;/p&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/77shogi.png&quot;&gt;&lt;img src=&quot;/images/77shogi.png&quot; alt=&quot;７七将棋初期盤面&quot; title=&quot;７七将棋初期盤面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/77shogi.png&quot;&gt;&lt;img src=&quot;/images/77shogi.png&quot; alt=&quot;７七将棋初期盤面&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -7502,7 +7502,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/77battle1.png&quot;&gt;&lt;img src=&quot;/images/77battle1.png&quot; alt=&quot;AI対戦の一局面&quot; title=&quot;AI対戦の一局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/77battle1.png&quot;&gt;&lt;img src=&quot;/images/77battle1.png&quot; alt=&quot;AI対戦の一局面&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -7629,7 +7629,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/55shogi_test.png&quot;&gt;&lt;img src=&quot;/images/55shogi_test.png&quot; alt=&quot;９×９将棋盤でのテスト&quot; title=&quot;９×９将棋盤でのテスト&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/55shogi_test.png&quot;&gt;&lt;img src=&quot;/images/55shogi_test.png&quot; alt=&quot;９×９将棋盤でのテスト&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -7833,7 +7833,7 @@ console.log &quot;経過時間: #{elapsed}ミリ秒&quot;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/puzzle_example.png&quot;&gt;&lt;img src=&quot;/images/puzzle_example.png&quot; alt=&quot;例題局面&quot; title=&quot;例題局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/puzzle_example.png&quot;&gt;&lt;img src=&quot;/images/puzzle_example.png&quot; alt=&quot;例題局面&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
   &lt;p&gt;&lt;span&gt;最短手数＝５手&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -7907,7 +7907,7 @@ console.log &quot;経過時間: #{elapsed}ミリ秒&quot;
 &lt;p&gt;　先の例題のスタート局面から最も長い手数が必要となる局面は以下の局面で、必要な手数は９手です。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/puzzle_deepest.png&quot;&gt;&lt;img src=&quot;/images/puzzle_deepest.png&quot; alt=&quot;最長手数局面&quot; title=&quot;最長手数局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/puzzle_deepest.png&quot;&gt;&lt;img src=&quot;/images/puzzle_deepest.png&quot; alt=&quot;最長手数局面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
   &lt;p&gt;&lt;span&gt;最短手数＝９手&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -7919,7 +7919,7 @@ console.log &quot;経過時間: #{elapsed}ミリ秒&quot;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/puzzle_example2.png&quot;&gt;&lt;img src=&quot;/images/puzzle_example2.png&quot; alt=&quot;例題局面&quot; title=&quot;例題局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/puzzle_example2.png&quot;&gt;&lt;img src=&quot;/images/puzzle_example2.png&quot; alt=&quot;例題局面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -7927,7 +7927,7 @@ console.log &quot;経過時間: #{elapsed}ミリ秒&quot;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/puzzle_example2-all.png&quot;&gt;&lt;img src=&quot;/images/puzzle_example2-all.png&quot; alt=&quot;解答局面&quot; title=&quot;解答局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/puzzle_example2-all.png&quot;&gt;&lt;img src=&quot;/images/puzzle_example2-all.png&quot; alt=&quot;解答局面&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
   &lt;p&gt;&lt;span&gt;最短手数＝２５手&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -7977,7 +7977,7 @@ coffee game.coffee
 　例えば先手の玉を３三に配置したい場合は&lt;code&gt;new Piece.Ou(Const.FIRST, Const.Status.OMOTE, [3,3])&lt;/code&gt;としてPieceクラスのインスタンスを生成してBoardオブジェクトのpiecesメンバにpushします。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/arrange13.png&quot; alt=&quot;初期配置　例１&quot; title=&quot;初期配置　例１&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/arrange13.png&quot; alt=&quot;初期配置　例１&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　上記の初期配置をセットするコードは以下のようになります。&lt;/p&gt;
@@ -8143,7 +8143,7 @@ second.depth = 6
 &lt;/table&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/arrange21.png&quot; alt=&quot;初期配置　例２&quot; title=&quot;初期配置　例２&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/arrange21.png&quot; alt=&quot;初期配置　例２&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;　上記の配置は&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;github&lt;/a&gt;に置いてあるgame.coffeeの初期配置です。githubからソースを取得した後、コンソール画面で&lt;code&gt;coffee game.coffee&lt;/code&gt;と打てば以下のように対局が進行するはずです&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 
@@ -8336,7 +8336,7 @@ Second Win
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/9masu_case1.png&quot;&gt;&lt;img src=&quot;/images/9masu_case1.png&quot; alt=&quot;Arrange02&quot; title=&quot;Arrange02&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/9masu_case1.png&quot;&gt;&lt;img src=&quot;/images/9masu_case1.png&quot; alt=&quot;Arrange02&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -8344,7 +8344,7 @@ Second Win
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/9masu_case2.png&quot;&gt;&lt;img src=&quot;/images/9masu_case2.png&quot; alt=&quot;AIレベル＝弱い・普通&quot; title=&quot;AIレベル＝弱い・普通&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/9masu_case2.png&quot;&gt;&lt;img src=&quot;/images/9masu_case2.png&quot; alt=&quot;AIレベル＝弱い・普通&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -8352,7 +8352,7 @@ Second Win
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/9masu_case3.png&quot;&gt;&lt;img src=&quot;/images/9masu_case3.png&quot; alt=&quot;AIレベル＝長考・瞑想&quot; title=&quot;AIレベル＝長考・瞑想&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/9masu_case3.png&quot;&gt;&lt;img src=&quot;/images/9masu_case3.png&quot; alt=&quot;AIレベル＝長考・瞑想&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -8361,7 +8361,7 @@ Second Win
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/9masu_case4.png&quot;&gt;&lt;img src=&quot;/images/9masu_case4.png&quot; alt=&quot;AIレベル＝長考・瞑想、途中図&quot; title=&quot;AIレベル＝長考・瞑想、途中図&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/9masu_case4.png&quot;&gt;&lt;img src=&quot;/images/9masu_case4.png&quot; alt=&quot;AIレベル＝長考・瞑想、途中図&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -8373,7 +8373,7 @@ Second Win
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/9masu_case5.png&quot;&gt;&lt;img src=&quot;/images/9masu_case5.png&quot; alt=&quot;上級編の問題の初期配置&quot; title=&quot;上級編の問題の初期配置&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/9masu_case5.png&quot;&gt;&lt;img src=&quot;/images/9masu_case5.png&quot; alt=&quot;上級編の問題の初期配置&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -8381,7 +8381,7 @@ Second Win
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/meisou_depth7.gif&quot;&gt;&lt;img src=&quot;/images/meisou_depth7.gif&quot; alt=&quot;AIレベル＝瞑想９手読み&quot; title=&quot;AIレベル＝瞑想９手読み&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/meisou_depth7.gif&quot;&gt;&lt;img src=&quot;/images/meisou_depth7.gif&quot; alt=&quot;AIレベル＝瞑想９手読み&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -8390,7 +8390,7 @@ Second Win
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/meisou_depth9.gif&quot;&gt;&lt;img src=&quot;/images/meisou_depth9.gif&quot; alt=&quot;AIレベル＝瞑想１１手読み&quot; title=&quot;瞑想１１手読み&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/meisou_depth9.gif&quot;&gt;&lt;img src=&quot;/images/meisou_depth9.gif&quot; alt=&quot;AIレベル＝瞑想１１手読み&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -8683,7 +8683,7 @@ P5+HI+GI+OU+KI+HI
 &lt;p&gt;　下のような局面で先手が「勝った」と思い２一歩成りと指して相手に玉を取られて負けてしまうなんてことが将棋覚えたての人にはよくあることだと思います（後手も自分が勝ったと気づかなかったり:sweat_smile:）。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/hochi1.png&quot; alt=&quot;王手放置１&quot; title=&quot;王手放置１&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/hochi1.png&quot; alt=&quot;王手放置１&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　自分の玉に王手がかかることに気づかずにうっかり自分の駒を動かして王手放置をしてしまうことは初心者によくあることだし、自分も将棋覚えた頃はそういうことを相手と一緒に楽しんでました。「王手に気づくなよ、気づくなよ」と念じながら空き王手したりして楽しんでいたものです。だからわざわざ王手放置を禁止する（指せないようにする）必要もないと思ってアプリを作っていたのですが、ルール上「王手放置は反則」というのであれば他のソフトに倣って対応した方がいいのかもと思えてきました。&lt;br /&gt;
@@ -8694,19 +8694,19 @@ P5+HI+GI+OU+KI+HI
 &lt;h3 id=&quot;どうなればゲーム終了かをソフトに教える必要がある&quot;&gt;どうなればゲーム終了かをソフトに教える必要がある&lt;/h3&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/hochi2.png&quot; alt=&quot;王手放置２&quot; title=&quot;王手放置２&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/hochi2.png&quot; alt=&quot;王手放置２&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;span&gt;上の局面は３三将棋の初形から２二銀、２一玉（王手放置）と進んだ局面ですが、ここで先手が後手玉を取ればゲーム終了になりますが、取らずに１三歩と打っても下の図のように後手玉が詰み（王手は掛かっていませんが玉が自爆する手しかない状態、次に王手放置せざるを得ない）となります（version0.9.3.0以前）。&lt;/span&gt;&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/hochi3.png&quot; alt=&quot;王手放置３&quot; title=&quot;王手放置３&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/hochi3.png&quot; alt=&quot;王手放置３&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;span&gt;次の例は先手が１三歩ではなく１二歩と打ったケースですが、この場合後手玉は１二に移動出来る余地があるので後手玉は詰みとならずにゲームが継続します（version0.9.3.0以前）。&lt;/span&gt;&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/hochi4.png&quot; alt=&quot;王手放置４&quot; title=&quot;王手放置４&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/hochi4.png&quot; alt=&quot;王手放置４&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;span&gt;上の局面は先手の１二歩に対して後手が３二銀と打って先手玉を詰ました局面ですが、手番は先手ですので先手が後手玉を取ればゲーム終了になります（version0.9.3.0以前）。これでいい、玉を取るまで指させればいいじゃないか、と言う人もいると思いますが、某９マス将棋アプリのレビューを読んでいると、「将棋は玉を取るまで指させるもんじゃない」「詰み局面で終了すべき」と言う意見も多く、私も相手玉を取るまでゲームが終わらないことに違和感を感じた一人です。&lt;/span&gt;&lt;br /&gt;
@@ -8717,11 +8717,11 @@ P5+HI+GI+OU+KI+HI
 &lt;h3 id=&quot;ルールを厳格に適用すると&quot;&gt;ルールを厳格に適用すると…&lt;/h3&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/foulplay1.png&quot; alt=&quot;反則１&quot; title=&quot;反則１&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/foulplay1.png&quot; alt=&quot;反則１&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;span&gt;上の局面は後手が２一桂と王手を掛けたところです。先手がここで持ち駒の歩を３二に打った場合「二歩」であり「王手放置」であり「打ち歩詰め」でもあります。&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/foulplay2.png&quot; alt=&quot;反則２&quot; title=&quot;反則２&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/foulplay2.png&quot; alt=&quot;反則２&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;span&gt;上の局面は後手が２二角と王手を掛けたところです。先手がここで持ち駒の歩を３一に打った場合「二歩」であり「王手放置」であり「行き場の無い駒を打つ」という反則でもあります。&lt;/span&gt;&lt;/p&gt;
 
@@ -8760,13 +8760,13 @@ P5+HI+GI+OU+KI+HI
 &lt;h3 id=&quot;上記の判定では不十分なケース&quot;&gt;上記の判定では不十分なケース&lt;/h3&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/utifu_gote.png&quot; alt=&quot;打ち歩詰め後手&quot; title=&quot;打ち歩詰め後手&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/utifu_gote.png&quot; alt=&quot;打ち歩詰め後手&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;span&gt;上の局面で後手が３二に歩を打つと打ち歩詰めですが、上記の打ち歩詰め判定では相手の駒（２三の角）で打ち歩を取ることが出来るので打ち歩詰めではないと判定してしまいます。後手の飛車の利きが相手玉を睨んでいるにも関わらずです。&lt;/span&gt;&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/utifu_sente.png&quot; alt=&quot;打ち歩詰め先手&quot; title=&quot;打ち歩詰め先手&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/utifu_sente.png&quot; alt=&quot;打ち歩詰め先手&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;span&gt;次の例では先手が１二に歩を打つと角が利いているので後手は２二の飛車でその歩を取ることが出来ません。ゆえにこの「１二歩打ち」も打ち歩詰めですが、上記の打ち歩詰め判定ロジックでは飛車で歩が取れるから打ち歩詰めではないと判定してしまいます。&lt;/span&gt;&lt;/p&gt;
@@ -10691,7 +10691,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;div style=&quot;width:600px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/tictactoe.png&quot;&gt;&lt;img src=&quot;/images/tictactoe.png&quot; alt=&quot;消える三目並べゲーム木&quot; title=&quot;消える三目並べゲーム木&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/tictactoe.png&quot;&gt;&lt;img src=&quot;/images/tictactoe.png&quot; alt=&quot;消える三目並べゲーム木&quot; width=&quot;600&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -10910,7 +10910,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/texturepacker1.png&quot;&gt;&lt;img src=&quot;/images/texturepacker1.png&quot; alt=&quot;TexturePacker起動画面&quot; title=&quot;Texture Packer 起動画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/texturepacker1.png&quot;&gt;&lt;img src=&quot;/images/texturepacker1.png&quot; alt=&quot;TexturePacker起動画面&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -10919,7 +10919,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/texturepacker2.png&quot;&gt;&lt;img src=&quot;/images/texturepacker2.png&quot; alt=&quot;ドラッグ＆ドロップ後画面&quot; title=&quot;ドラッグ＆ドロップ後画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/texturepacker2.png&quot;&gt;&lt;img src=&quot;/images/texturepacker2.png&quot; alt=&quot;ドラッグ＆ドロップ後画面&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -11019,7 +11019,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/test.png&quot;&gt;&lt;img src=&quot;/images/test.png&quot; alt=&quot;サンプルで使用したスプライトシート&quot; title=&quot;サンプルで使用したスプライトシート&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/test.png&quot;&gt;&lt;img src=&quot;/images/test.png&quot; alt=&quot;サンプルで使用したスプライトシート&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -11659,7 +11659,7 @@ Kind regards Andreas Loew&lt;br /&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
   &lt;p&gt;&lt;span&gt;３三将棋の初期盤面&lt;/span&gt;
-&lt;a href=&quot;/images/33shogi_screen_00.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/33shogi_screen_00.png&quot; alt=&quot;３三将棋の初期盤面&quot; title=&quot;３三将棋の初期盤面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;/images/33shogi_screen_00.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/33shogi_screen_00.png&quot; alt=&quot;３三将棋の初期盤面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -11736,7 +11736,7 @@ Kind regards Andreas Loew&lt;br /&gt;&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/mugen_sanmoku.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/mugen_sanmoku.png&quot; alt=&quot;無限三目並べの実行画面&quot; title=&quot;無限三目並べの実行画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/mugen_sanmoku.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/mugen_sanmoku.png&quot; alt=&quot;無限三目並べの実行画面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -11921,7 +11921,7 @@ class Sample
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/settimeout.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/settimeout.png&quot; alt=&quot;setTimeoutを使ったサンプル&quot; title=&quot;SetTimeoutを使ったサンプル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/settimeout.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/settimeout.png&quot; alt=&quot;setTimeoutを使ったサンプル&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -12058,7 +12058,7 @@ catch e
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/activite_band.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/activite_band.png&quot; alt=&quot;Withings Activitéの輪ゴム&quot; title=&quot;Withings Activité内部の輪ゴム&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/activite_band.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/activite_band.png&quot; alt=&quot;Withings Activitéの輪ゴム&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -12066,7 +12066,7 @@ catch e
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/activite_mini.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/activite_mini.png&quot; alt=&quot;Withings Activitéの輪ゴムの代用品？&quot; title=&quot;Withings Activitéの輪ゴムの代用品？&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/activite_mini.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/activite_mini.png&quot; alt=&quot;Withings Activitéの輪ゴムの代用品？&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -12140,7 +12140,7 @@ URL: https://app.rakuten.co.jp/services/api/Kobo/EbookSearch/20140811?applicatio
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/kwlchecker.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/kwlchecker.png&quot; alt=&quot;kwl-checker&quot; title=&quot;KWL新着チェッカー&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/kwlchecker.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/kwlchecker.png&quot; alt=&quot;kwl-checker&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -12170,7 +12170,7 @@ URL: https://app.rakuten.co.jp/services/api/Kobo/EbookSearch/20140811?applicatio
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/epson_setting.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/epson_setting.png&quot; alt=&quot;ネットワーク診断レポート&quot; title=&quot;ネットワーク診断レポート&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/epson_setting.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/epson_setting.png&quot; alt=&quot;ネットワーク診断レポート&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -12186,7 +12186,7 @@ URL: https://app.rakuten.co.jp/services/api/Kobo/EbookSearch/20140811?applicatio
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/epson_direct.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/epson_direct.png&quot; alt=&quot;Wi-Fi Direct&quot; title=&quot;Wi-Fi Direct&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/epson_direct.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/epson_direct.png&quot; alt=&quot;Wi-Fi Direct&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -12395,7 +12395,7 @@ Googleで検索したところ、上記エラーは&lt;code&gt;npm link express&
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/screenshot_unbeaten.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/screenshot_unbeaten.png&quot; alt=&quot;ランキング表示画面&quot; title=&quot;三目並べ「無敗」ランキング表示画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/screenshot_unbeaten.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/screenshot_unbeaten.png&quot; alt=&quot;ランキング表示画面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -13030,7 +13030,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/shortest.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/shortest.png&quot; alt=&quot;短手数ほど報酬＆罰を増やす&quot; title=&quot;短手数ほど報酬＆罰を増やす&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/shortest.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/shortest.png&quot; alt=&quot;短手数ほど報酬＆罰を増やす&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -13180,7 +13180,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/log-linear3.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/log-linear3.png&quot; alt=&quot;曲線回帰、初期値のみ&quot; title=&quot;曲線回帰、初期値のみ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/log-linear3.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/log-linear3.png&quot; alt=&quot;曲線回帰、初期値のみ&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -13385,7 +13385,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/linear.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/linear.png&quot; alt=&quot;回帰直線&quot; title=&quot;回帰直線&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/linear.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/linear.png&quot; alt=&quot;回帰直線&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -13471,7 +13471,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/log-linear1.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/log-linear1.png&quot; alt=&quot;曲線回帰、小&quot; title=&quot;曲線回帰、小&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/log-linear1.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/log-linear1.png&quot; alt=&quot;曲線回帰、小&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -13566,7 +13566,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/log-linear2.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/log-linear2.png&quot; alt=&quot;曲線回帰、大&quot; title=&quot;曲線回帰、大&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/log-linear2.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/log-linear2.png&quot; alt=&quot;曲線回帰、大&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -13613,7 +13613,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/logarithm.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/logarithm.png&quot; alt=&quot;対数方程式&quot; title=&quot;対数方程式&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/logarithm.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/logarithm.png&quot; alt=&quot;対数方程式&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -14485,7 +14485,7 @@ end until buf == nil
 
 &lt;div style=&quot;width:600px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/dfs_tree.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/dfs_tree.png&quot; alt=&quot;DFSの先読み順序&quot; title=&quot;DFSの先読み順序&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/dfs_tree.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/dfs_tree.png&quot; alt=&quot;DFSの先読み順序&quot; width=&quot;600&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -14495,7 +14495,7 @@ end until buf == nil
 
 &lt;div style=&quot;width:600px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/bfs_tree.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/bfs_tree.png&quot; alt=&quot;BFSの先読み順序&quot; title=&quot;BFSの先読み順序&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/bfs_tree.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/bfs_tree.png&quot; alt=&quot;BFSの先読み順序&quot; width=&quot;600&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -15132,13 +15132,13 @@ exports.mypage = function(req, res){
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/macbook_samp0.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/macbook_samp0.png&quot; alt=&quot;MacBook 12-inch Space Gray 512GB&quot; title=&quot;MacBook 12-inch Space Gray 512GB&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/macbook_samp0.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/macbook_samp0.png&quot; alt=&quot;MacBook 12-inch Space Gray 512GB&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/macbook_samp1.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/macbook_samp1.png&quot; alt=&quot;MacBook 12-inch Space Gray 512GB&quot; title=&quot;MacBook 12-inch Space Gray 512GB&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/macbook_samp1.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/macbook_samp1.png&quot; alt=&quot;MacBook 12-inch Space Gray 512GB&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -15200,7 +15200,7 @@ exports.mypage = function(req, res){
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/comp_vaio.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/comp_vaio.png&quot; alt=&quot;MacBook 12-inch and Vaio P&quot; title=&quot;VaioPとの比較&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/comp_vaio.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/comp_vaio.png&quot; alt=&quot;MacBook 12-inch and Vaio P&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -15353,7 +15353,7 @@ window.cancelRequestAnimFrame = (-&amp;gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/animation.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/animation.png&quot; alt=&quot;実機画面&quot; title=&quot;実機（gl07s）で動作確認&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/animation.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/animation.png&quot; alt=&quot;実機画面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -15363,7 +15363,7 @@ window.cancelRequestAnimFrame = (-&amp;gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/3mokunarabe.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/3mokunarabe.png&quot; alt=&quot;三目並べアプリ画面&quot; title=&quot;実機（gl07s）で三目並べアプリ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/3mokunarabe.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/3mokunarabe.png&quot; alt=&quot;三目並べアプリ画面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -15445,7 +15445,7 @@ cordova platform add android
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/tictactoe_emulator.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/tictactoe_emulator.png&quot; alt=&quot;エミュレータ画面&quot; title=&quot;エミュレータで動作確認&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/tictactoe_emulator.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/tictactoe_emulator.png&quot; alt=&quot;エミュレータ画面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -15454,7 +15454,7 @@ cordova platform add android
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/tictactoe_gl07s.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/tictactoe_gl07s.png&quot; alt=&quot;実機画面&quot; title=&quot;実機（gl07s）で動作確認&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/tictactoe_gl07s.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/tictactoe_gl07s.png&quot; alt=&quot;実機画面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -15593,7 +15593,7 @@ rails s
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/scaffold_edit.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/scaffold_edit.png&quot; alt=&quot;scaffold 編集画面&quot; title=&quot;scaffold 編集画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/scaffold_edit.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/scaffold_edit.png&quot; alt=&quot;scaffold 編集画面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -15636,7 +15636,7 @@ $('#status').html(&quot;&amp;lt;%= j(@status) %&amp;gt;&quot;);
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/invalidauthenticitytoken.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/invalidauthenticitytoken.png&quot; alt=&quot;InvalidAuthenticityTokenエラー画面&quot; title=&quot;InvalidAuthenticityTokenエラー画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/invalidauthenticitytoken.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/invalidauthenticitytoken.png&quot; alt=&quot;InvalidAuthenticityTokenエラー画面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -15644,7 +15644,7 @@ $('#status').html(&quot;&amp;lt;%= j(@status) %&amp;gt;&quot;);
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/templatemissing.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/templatemissing.png&quot; alt=&quot;Template Missing エラー画面&quot; title=&quot;Template Missing エラー画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/templatemissing.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/templatemissing.png&quot; alt=&quot;Template Missing エラー画面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -15652,7 +15652,7 @@ $('#status').html(&quot;&amp;lt;%= j(@status) %&amp;gt;&quot;);
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/browser_disp.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/browser_disp.png&quot; alt=&quot;Text Response 画面&quot; title=&quot;Text Response 画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/browser_disp.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/browser_disp.png&quot; alt=&quot;Text Response 画面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -15793,13 +15793,13 @@ jQuery ($) -&amp;gt;
 &lt;/ul&gt;
 
 &lt;div style=&quot;width:320px; height:240px; float: left;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/my-posi-update-old.png&quot; alt=&quot;修正前グラフ編集画面&quot; title=&quot;修正前グラフ編集画面&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/my-posi-update-old.png&quot; alt=&quot;修正前グラフ編集画面&quot; width=&quot;240&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div style=&quot;width:20px; height:240px; float: left;&quot;&gt;&lt;/div&gt;
 
 &lt;div style=&quot;width:320px; height:240px; float: left;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/my-posi-update-new.png&quot; alt=&quot;修正後グラフ編集画面&quot; title=&quot;修正後グラフ編集画面&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/my-posi-update-new.png&quot; alt=&quot;修正後グラフ編集画面&quot; width=&quot;240&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div style=&quot;width:320px; height:280px; margin: 0 auto;&quot;&gt;&lt;/div&gt;
@@ -15841,13 +15841,13 @@ jQuery ($) -&amp;gt;
 
 &lt;div style=&quot;width:320px; height:240px; float: left;&quot;&gt;
 
-  &lt;p&gt;&lt;img src=&quot;/images/dashboard_org_my-posi.png&quot; alt=&quot;ダッシュボード画面初期状態&quot; title=&quot;初レビュー時のダッシュボード画面&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/dashboard_org_my-posi.png&quot; alt=&quot;ダッシュボード画面初期状態&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
 &lt;div style=&quot;width:320px; height:240px; float: left;&quot;&gt;
 
-  &lt;p&gt;&lt;img src=&quot;/images/dashboard_new_my-posi.png&quot; alt=&quot;ダッシュボード画面コード改修後&quot; title=&quot;コード改修後のダッシュボード画面&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/dashboard_new_my-posi.png&quot; alt=&quot;ダッシュボード画面コード改修後&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
