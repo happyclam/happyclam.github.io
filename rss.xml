@@ -5,8 +5,8 @@
         <description>自己満足プログラミング - happyclam</description>
         <link>https://happyclam.github.io</link>
         <link>https://happyclam.github.io</link>
-        <lastBuildDate>2021-06-01T21:08:23+09:00</lastBuildDate>
-        <pubDate>2021-06-01T21:08:23+09:00</pubDate>
+        <lastBuildDate>2021-06-02T11:01:24+09:00</lastBuildDate>
+        <pubDate>2021-06-02T11:01:24+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -22,31 +22,31 @@
 &lt;h4 id=&quot;-豆３つの対戦成績&quot;&gt;* 豆３つの対戦成績&lt;/h4&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_3beans.png&quot;&gt;&lt;img src=&quot;/images/results_3beans.png&quot; alt=&quot;豆３つ&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/results_3beans.png&quot;&gt;&lt;img src=&quot;/images/results_3beans.png&quot; alt=&quot;豆３つ&quot; width=&quot;480&quot; title=&quot;豆３つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&quot;-豆４つの対戦成績&quot;&gt;* 豆４つの対戦成績&lt;/h4&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_4beans.png&quot;&gt;&lt;img src=&quot;/images/results_4beans.png&quot; alt=&quot;豆４つ&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/results_4beans.png&quot;&gt;&lt;img src=&quot;/images/results_4beans.png&quot; alt=&quot;豆４つ&quot; width=&quot;480&quot; title=&quot;豆４つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&quot;-豆５つの対戦成績&quot;&gt;* 豆５つの対戦成績&lt;/h4&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_5beans.png&quot;&gt;&lt;img src=&quot;/images/results_5beans.png&quot; alt=&quot;豆５つ&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/results_5beans.png&quot;&gt;&lt;img src=&quot;/images/results_5beans.png&quot; alt=&quot;豆５つ&quot; width=&quot;480&quot; title=&quot;豆５つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&quot;-豆６つの対戦成績&quot;&gt;* 豆６つの対戦成績&lt;/h4&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_6beans.png&quot;&gt;&lt;img src=&quot;/images/results_6beans.png&quot; alt=&quot;豆６つ&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/results_6beans.png&quot;&gt;&lt;img src=&quot;/images/results_6beans.png&quot; alt=&quot;豆６つ&quot; width=&quot;480&quot; title=&quot;豆６つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&quot;-豆７つの対戦成績&quot;&gt;* 豆７つの対戦成績&lt;/h4&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_7beans.png&quot;&gt;&lt;img src=&quot;/images/results_7beans.png&quot; alt=&quot;豆７つ&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/results_7beans.png&quot;&gt;&lt;img src=&quot;/images/results_7beans.png&quot; alt=&quot;豆７つ&quot; width=&quot;480&quot; title=&quot;豆７つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　対戦成績表の見方ですが、&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラナッツ&lt;/a&gt;では&lt;code&gt;やばい&lt;/code&gt;モード以外では初手をランダムに決めるようにしていて、勝負に拘っていないので、アプリが勝てるのかどうかを判断する場合は&lt;code&gt;やばい&lt;/code&gt;モード以外は見る必要がありません。勝ちの欄の数字はＡＩ対戦で人間側が勝った数字、つまり比較対象となっているアプリが勝ったということです。また比較するために選んだアプリが初手をランダムに決めているものもあるので、一回だけの対戦ではなく何回か対戦させました。&lt;br /&gt;
@@ -147,7 +147,7 @@
 
 &lt;p&gt;&lt;span&gt;※クリックで拡大&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose07.png&quot;&gt;&lt;img src=&quot;/images/ai_lose07.png&quot; alt=&quot;詰み07&quot; title=&quot;詰み07&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_lose07.png&quot;&gt;&lt;img src=&quot;/images/ai_lose07.png&quot; alt=&quot;詰み07&quot; width=&quot;480&quot; title=&quot;詰み07&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　マンカラに慣れている人だと&lt;code&gt;4&lt;/code&gt;と&lt;code&gt;5&lt;/code&gt;の豆は動かさずに済ませられるならと思い、&lt;code&gt;1&lt;/code&gt;か&lt;code&gt;2&lt;/code&gt;か&lt;code&gt;3&lt;/code&gt;がいいんじゃないかと見当が付くのではないでしょうか？順に見ていきます。&lt;/p&gt;
@@ -155,7 +155,7 @@
 &lt;p&gt;　ＡＩは&lt;code&gt;13&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code&gt;12&lt;/code&gt;と進めて以下の局面になります。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_001.png&quot;&gt;&lt;img src=&quot;/images/ai_001.png&quot; alt=&quot;詰めマンカラ&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_001.png&quot;&gt;&lt;img src=&quot;/images/ai_001.png&quot; alt=&quot;詰めマンカラ&quot; width=&quot;480&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　こうなると次に先手（下側）は&lt;code&gt;2&lt;/code&gt;を選んでも&lt;code&gt;3&lt;/code&gt;を選んでも、いずれ豆を溜め込んでいる&lt;code&gt;4&lt;/code&gt;や&lt;code&gt;5&lt;/code&gt;のポケットを選ばざるを得なくなり、勝負が紛れます。というより逆転して後手が有利になります。この後、&lt;code&gt;2&lt;/code&gt;を選べばＡＩは&lt;code&gt;11&lt;/code&gt;、&lt;code&gt;3&lt;/code&gt;を選んでもＡＩは&lt;code&gt;11&lt;/code&gt;（横取り２つ）で形勢逆転です。&lt;/p&gt;
@@ -164,7 +164,7 @@
 &lt;p&gt;　ＡＩは&lt;code&gt;13&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code&gt;12&lt;/code&gt;-&amp;gt;横取り（２つ）となって以下の局面になります。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_002.png&quot;&gt;&lt;img src=&quot;/images/ai_002.png&quot; alt=&quot;詰めマンカラ&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_002.png&quot;&gt;&lt;img src=&quot;/images/ai_002.png&quot; alt=&quot;詰めマンカラ&quot; width=&quot;480&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　この場合も次に先手（下側）は&lt;code&gt;3&lt;/code&gt;を選んでも&lt;code&gt;6&lt;/code&gt;を選んでも、パスは出来ないので豆を溜め込んでいる&lt;code&gt;4&lt;/code&gt;や&lt;code&gt;5&lt;/code&gt;のポケットを選ばざるを得なくなり後手が有利になります。&lt;/p&gt;
@@ -173,7 +173,7 @@
 &lt;p&gt;　ＡＩは&lt;code&gt;13&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code&gt;12&lt;/code&gt;-&amp;gt;横取り（２つ）となって以下の局面になります。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_003.png&quot;&gt;&lt;img src=&quot;/images/ai_003.png&quot; alt=&quot;詰めマンカラ&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_003.png&quot;&gt;&lt;img src=&quot;/images/ai_003.png&quot; alt=&quot;詰めマンカラ&quot; width=&quot;480&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　こうなれば次に先手（下側）が&lt;code&gt;2&lt;/code&gt;を選べば、相手の&lt;code&gt;11&lt;/code&gt;のポケットの豆を横取りしてゲーム終了。先手の勝ちになります。&lt;br /&gt;
@@ -181,25 +181,25 @@
 　念のため確認すると&lt;br /&gt;
 　ＡＩが&lt;code&gt;13&lt;/code&gt;でなく&lt;code&gt;11&lt;/code&gt;を選んだ場合&lt;/p&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_004.png&quot;&gt;&lt;img src=&quot;/images/ai_004.png&quot; alt=&quot;詰めマンカラ&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_004.png&quot;&gt;&lt;img src=&quot;/images/ai_004.png&quot; alt=&quot;詰めマンカラ&quot; width=&quot;480&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;　先手は&lt;code&gt;1&lt;/code&gt;を選んでも&lt;code&gt;2&lt;/code&gt;を選んでも後手はピッタリ（連続して着手出来る）が仇となり、自陣の豆が無くなります。&lt;br /&gt;
 　ＡＩが&lt;code&gt;13&lt;/code&gt;でなく&lt;code&gt;12&lt;/code&gt;を選んだ場合&lt;/p&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_005.png&quot;&gt;&lt;img src=&quot;/images/ai_005.png&quot; alt=&quot;詰めマンカラ&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_005.png&quot;&gt;&lt;img src=&quot;/images/ai_005.png&quot; alt=&quot;詰めマンカラ&quot; width=&quot;480&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;　先手が&lt;code&gt;2&lt;/code&gt;を選べば&lt;code&gt;11&lt;/code&gt;の豆を横取りして、次にＡＩは自陣の豆が無くなります。&lt;br /&gt;
 　ということで&lt;strong&gt;問題１の正解は&lt;code&gt;3&lt;/code&gt;です&lt;/strong&gt;。&lt;/p&gt;
 
 &lt;h3 id=&quot;長手数問題&quot;&gt;長手数問題&lt;/h3&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose01.png&quot;&gt;&lt;img src=&quot;/images/ai_lose01.png&quot; alt=&quot;詰めマンカラ01&quot; title=&quot;詰めマンカラ01&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_lose01.png&quot;&gt;&lt;img src=&quot;/images/ai_lose01.png&quot; alt=&quot;詰めマンカラ01&quot; width=&quot;480&quot; title=&quot;詰めマンカラ01&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　上の画面から先手が&lt;code&gt;3&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code&gt;6&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code&gt;1&lt;/code&gt;と進むと以下の局面になります。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose02.png&quot;&gt;&lt;img src=&quot;/images/ai_lose02.png&quot; alt=&quot;詰めマンカラ02&quot; title=&quot;詰めマンカラ02&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_lose02.png&quot;&gt;&lt;img src=&quot;/images/ai_lose02.png&quot; alt=&quot;詰めマンカラ02&quot; width=&quot;480&quot; title=&quot;詰めマンカラ02&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　この段階でＡＩの形勢Emojiが:tired_face:になりました。ＡＩは負けを覚悟したようです。負けを覚悟しながらもＡＩは&lt;code&gt;13&lt;/code&gt;を選びました。&lt;br /&gt;
@@ -207,14 +207,14 @@
 
 &lt;h4 id=&quot;問題２&quot;&gt;問題２&lt;/h4&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose03.png&quot;&gt;&lt;img src=&quot;/images/ai_lose03.png&quot; alt=&quot;詰めマンカラ03&quot; title=&quot;詰めマンカラ03&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_lose03.png&quot;&gt;&lt;img src=&quot;/images/ai_lose03.png&quot; alt=&quot;詰めマンカラ03&quot; width=&quot;480&quot; title=&quot;詰めマンカラ03&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　この局面で何番のポケットが先手の最善手でしょう？&lt;/p&gt;
 
 &lt;h5 id=&quot;1を選んでみると-1&quot;&gt;&lt;code&gt;1&lt;/code&gt;を選んでみると&lt;/h5&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_win01.png&quot;&gt;&lt;img src=&quot;/images/ai_win01.png&quot; alt=&quot;ＡＩ勝ち01&quot; title=&quot;ＡＩ勝ち01&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_win01.png&quot;&gt;&lt;img src=&quot;/images/ai_win01.png&quot; alt=&quot;ＡＩ勝ち01&quot; width=&quot;480&quot; title=&quot;ＡＩ勝ち01&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　上図のようになりＡＩの形勢Emojiが:frowning:に変わりました。これは詰みを逃したことを意味します。&lt;br /&gt;
@@ -222,21 +222,21 @@
 　&lt;code&gt;13&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code&gt;10&lt;/code&gt;と進めて以下の局面になって、ピッタリが防がれてしまいます。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_win02.png&quot;&gt;&lt;img src=&quot;/images/ai_win02.png&quot; alt=&quot;ＡＩ勝ち02&quot; title=&quot;ＡＩ勝ち02&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_win02.png&quot;&gt;&lt;img src=&quot;/images/ai_win02.png&quot; alt=&quot;ＡＩ勝ち02&quot; width=&quot;480&quot; title=&quot;ＡＩ勝ち02&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　この後はどう変化しても&lt;code&gt;4&lt;/code&gt;と&lt;code&gt;5&lt;/code&gt;のポケットに溜め込んでいる豆を吐き出すことになり、逆転してＡＩが有利になります。&lt;/p&gt;
 
 &lt;h5 id=&quot;2を選んでみると-1&quot;&gt;&lt;code&gt;2&lt;/code&gt;を選んでみると&lt;/h5&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose04.png&quot;&gt;&lt;img src=&quot;/images/ai_lose04.png&quot; alt=&quot;詰み04&quot; title=&quot;詰み04&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_lose04.png&quot;&gt;&lt;img src=&quot;/images/ai_lose04.png&quot; alt=&quot;詰み04&quot; width=&quot;480&quot; title=&quot;詰み04&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　上図のようになりＡＩの形勢Emojiも:tired_face:のままです。ＡＩが次に
 　&lt;code&gt;13&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code&gt;10&lt;/code&gt;と進めて以下の局面になりますが、&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose07.png&quot;&gt;&lt;img src=&quot;/images/ai_lose07.png&quot; alt=&quot;詰み07&quot; title=&quot;詰み07&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_lose07.png&quot;&gt;&lt;img src=&quot;/images/ai_lose07.png&quot; alt=&quot;詰み07&quot; width=&quot;480&quot; title=&quot;詰み07&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　この後は先手（下側）が&lt;code&gt;3&lt;/code&gt;のポケットを選べば、&lt;code&gt;1&lt;/code&gt;の豆は取られてしまいますが、先手が勝ちます。&lt;br /&gt;
@@ -244,27 +244,27 @@
 
 &lt;h5 id=&quot;3を選んでみると-1&quot;&gt;&lt;code&gt;3&lt;/code&gt;を選んでみると&lt;/h5&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose05.png&quot;&gt;&lt;img src=&quot;/images/ai_lose05.png&quot; alt=&quot;詰み05&quot; title=&quot;詰み05&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_lose05.png&quot;&gt;&lt;img src=&quot;/images/ai_lose05.png&quot; alt=&quot;詰み05&quot; width=&quot;480&quot; title=&quot;詰み05&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　上図のようになりＡＩの形勢Emojiも:tired_face:のままです。ＡＩが次に
 　&lt;code&gt;13&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code&gt;10&lt;/code&gt;と進めて以下の局面になりますが、&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose06.png&quot;&gt;&lt;img src=&quot;/images/ai_lose06.png&quot; alt=&quot;詰み06&quot; title=&quot;詰み06&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_lose06.png&quot;&gt;&lt;img src=&quot;/images/ai_lose06.png&quot; alt=&quot;詰み06&quot; width=&quot;480&quot; title=&quot;詰み06&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　先手（下側）は今度は&lt;code&gt;1&lt;/code&gt;のポケットを選んで&lt;code&gt;11&lt;/code&gt;の豆を横取り、&lt;br /&gt;
 　後手が&lt;code&gt;13&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code&gt;12&lt;/code&gt;で以下の画面。&lt;/p&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose08.png&quot;&gt;&lt;img src=&quot;/images/ai_lose08.png&quot; alt=&quot;詰み08&quot; title=&quot;詰み08&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_lose08.png&quot;&gt;&lt;img src=&quot;/images/ai_lose08.png&quot; alt=&quot;詰み08&quot; width=&quot;480&quot; title=&quot;詰み08&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　この局面を新たな３手詰問題としてもいいかも知れません。相手陣に豆は一つしか残っていないのですが、間違えると勝負が紛れます。先手はどこを選んでも相手陣に豆が渡ってしまう状態になっています。こういう時、自分に勝ちがあることに気づかず着手する人が結構多いのでは無いでしょうか？また、少し慣れた人だと、「&lt;code&gt;4&lt;/code&gt;を選べば相手の&lt;code&gt;13&lt;/code&gt;の豆を横取り出来るぞ」なんて読んでしまう人がいるかも知れません。&lt;br /&gt;
 　でも正解は相手陣に無駄に豆を供給しない手、一番豆の少ない&lt;code&gt;2&lt;/code&gt;が好手です。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose09.png&quot;&gt;&lt;img src=&quot;/images/ai_lose09.png&quot; alt=&quot;詰み09&quot; title=&quot;詰み09&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_lose09.png&quot;&gt;&lt;img src=&quot;/images/ai_lose09.png&quot; alt=&quot;詰み09&quot; width=&quot;480&quot; title=&quot;詰み09&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　こうなると先手の&lt;code&gt;5&lt;/code&gt;の９個の豆は横取りされてしまうのですが、先手には&lt;code&gt;3&lt;/code&gt;に一個残っている（一手パスするような手が残っている）のでＡＩが&lt;code&gt;8&lt;/code&gt;を選んでも&lt;code&gt;13&lt;/code&gt;を選んでも自陣に豆が無くなり先手の勝ちになります。&lt;br /&gt;
@@ -608,7 +608,7 @@ $ ./mancala.out
 
 &lt;h3 id=&quot;ａｉ対戦&quot;&gt;ＡＩ対戦&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen1.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen1.png&quot; alt=&quot;ＡＩ対戦画面&quot; title=&quot;ＡＩ対戦画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen1.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen1.png&quot; alt=&quot;ＡＩ対戦画面&quot; width=&quot;320&quot; title=&quot;ＡＩ対戦画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;ul&gt;
@@ -627,7 +627,7 @@ $ ./mancala.out
 
 &lt;h4 id=&quot;形勢emoji表示&quot;&gt;形勢Emoji表示&lt;/h4&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen5.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen5.png&quot; alt=&quot;ＡＩ形勢Emoji&quot; title=&quot;ＡＩ形勢Emoji&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen5.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen5.png&quot; alt=&quot;ＡＩ形勢Emoji&quot; width=&quot;320&quot; title=&quot;ＡＩ形勢Emoji&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　&lt;code&gt;AI対戦(One Player)&lt;/code&gt;時に画面右上に形勢判断用のEmojiを表示します。&lt;/p&gt;
@@ -673,7 +673,7 @@ $ ./mancala.out
 
 &lt;h3 id=&quot;対人対戦&quot;&gt;対人対戦&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen2.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen2.png&quot; alt=&quot;対人対戦画面&quot; title=&quot;対人対戦画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen2.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen2.png&quot; alt=&quot;対人対戦画面&quot; width=&quot;320&quot; title=&quot;対人対戦画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;ul&gt;
@@ -685,7 +685,7 @@ $ ./mancala.out
 
 &lt;h3 id=&quot;設定画面&quot;&gt;設定画面&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen3.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen3.png&quot; alt=&quot;設定画面&quot; title=&quot;設定画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen3.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen3.png&quot; alt=&quot;設定画面&quot; width=&quot;320&quot; title=&quot;設定画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;ul&gt;
@@ -702,7 +702,7 @@ $ ./mancala.out
 
 &lt;h3 id=&quot;ゲーム成績画面&quot;&gt;ゲーム成績画面&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen4.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen4.png&quot; alt=&quot;ＡＩ対戦成績画面&quot; title=&quot;ＡＩ対戦成績画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen4.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen4.png&quot; alt=&quot;ＡＩ対戦成績画面&quot; width=&quot;320&quot; title=&quot;ＡＩ対戦成績画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;ul&gt;
@@ -2436,7 +2436,7 @@ result = [4, 5], depth = 16
 &lt;p&gt;　以前&lt;code&gt;ETRTO 23-451&lt;/code&gt;から&lt;code&gt;ETRTO 28-451&lt;/code&gt;に変えた時は、はっきり乗り心地が変わりました。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/kenda_23c.png&quot;&gt;&lt;img src=&quot;/images/kenda_23c.png&quot; alt=&quot;KENDA23CとSCHWALBE28C&quot; title=&quot;KENDA23CとSCHWALBE28C&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/kenda_23c.png&quot;&gt;&lt;img src=&quot;/images/kenda_23c.png&quot; alt=&quot;KENDA23CとSCHWALBE28C&quot; width=&quot;320&quot; title=&quot;KENDA23CとSCHWALBE28C&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2447,7 +2447,7 @@ result = [4, 5], depth = 16
 &lt;p&gt;　&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1bc8f4a0.6e824d6a.1bc8f4a1.d36f627c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fa-price%2F4589946139044%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjB9&quot;&gt;DOPPELGANGER(ドッペルギャンガー) 超大容量サドルバッグ&lt;/a&gt;を買いました。これ普段は&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1baf65b2.49d34a94.1baf65b3.a627089c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffalcon-bike%2Fpa_xmaruix_gds01100%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjB9&quot;&gt;リアフェンダー&lt;/a&gt;の代わりになりますし、出かけた帰り道に食料品などを買って帰ることが出来るので重宝します。細長いので荷物の入れ方に工夫が必要ですが、１７リットルの容量なので結構な量を格納できます。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/saddle_bag.png&quot;&gt;&lt;img src=&quot;/images/saddle_bag.png&quot; alt=&quot;サドルバッグ&quot; title=&quot;サドルバッグ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/saddle_bag.png&quot;&gt;&lt;img src=&quot;/images/saddle_bag.png&quot; alt=&quot;サドルバッグ&quot; width=&quot;320&quot; title=&quot;サドルバッグ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2475,7 +2475,7 @@ result = [4, 5], depth = 16
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/idiom2_2010.png&quot;&gt;&lt;img src=&quot;/images/idiom2_2010.png&quot; alt=&quot;IDIOM2 2010&quot; title=&quot;IDIOM2 2010&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/idiom2_2010.png&quot;&gt;&lt;img src=&quot;/images/idiom2_2010.png&quot; alt=&quot;IDIOM2 2010&quot; width=&quot;320&quot; title=&quot;IDIOM2 2010&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2487,7 +2487,7 @@ result = [4, 5], depth = 16
 &lt;p&gt;　今ではどんなサドルであってもロングライドでお尻が痛くなるなんてことはないのですが、当時はお尻が痛くなるのはサドルが原因じゃないか？なんて思って&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1b4a07c8.5ec8c127.1b4a07c9.a4619934/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpalmy%2F888984%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjB9&quot;&gt;スパイダーサドル ツインテール&lt;/a&gt;というサドルを購入して交換しました。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/spider_saddle.png&quot;&gt;&lt;img src=&quot;/images/spider_saddle.png&quot; alt=&quot;Spider Saddle&quot; title=&quot;Spider Saddle&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/spider_saddle.png&quot;&gt;&lt;img src=&quot;/images/spider_saddle.png&quot; alt=&quot;Spider Saddle&quot; width=&quot;320&quot; title=&quot;Spider Saddle&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;p&gt;　このスパイダーサドルはIDIOM2デフォルトのサドルより確かに柔らかいのですが、お尻が痛くなる原因はサドルではなく、主に乗車姿勢によるものだと思います。サドルにどっかり座るのではなく、自分の体重をしっかり足で支える意識を持って自転車に乗っていればどれだけ長距離乗っていてもお尻は痛くなりません。この頃、そのことが徐々に分かってきました。&lt;/p&gt;
@@ -2498,7 +2498,7 @@ result = [4, 5], depth = 16
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/spider_pedal.png&quot;&gt;&lt;img src=&quot;/images/spider_pedal.png&quot; alt=&quot;Spider Pedal&quot; title=&quot;Spider Pedal&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/spider_pedal.png&quot;&gt;&lt;img src=&quot;/images/spider_pedal.png&quot; alt=&quot;Spider Pedal&quot; width=&quot;320&quot; title=&quot;Spider Pedal&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2507,7 +2507,7 @@ result = [4, 5], depth = 16
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/column_cut.png&quot;&gt;&lt;img src=&quot;/images/column_cut.png&quot; alt=&quot;Column Cut&quot; title=&quot;Column Cut&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/column_cut.png&quot;&gt;&lt;img src=&quot;/images/column_cut.png&quot; alt=&quot;Column Cut&quot; width=&quot;320&quot; title=&quot;Column Cut&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2524,7 +2524,7 @@ result = [4, 5], depth = 16
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/bull_horn.png&quot;&gt;&lt;img src=&quot;/images/bull_horn.png&quot; alt=&quot;Bull Horn&quot; title=&quot;Bull Horn&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/bull_horn.png&quot;&gt;&lt;img src=&quot;/images/bull_horn.png&quot; alt=&quot;Bull Horn&quot; width=&quot;320&quot; title=&quot;Bull Horn&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2532,7 +2532,7 @@ result = [4, 5], depth = 16
 &lt;p&gt;　さらにハンドル位置を下げてみようと&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1b4ebe8f.7a15ae9e.1b4ebe90.9bb5cd88/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbebike%2Fdeda-0333630001%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjEsInByb2QiOjB9&quot;&gt;ドロップハンドル&lt;/a&gt;にした時もありました。でもこれだとブレーキを使うためには常に下ハン（ハンドルの下を持った状態）になるので少し辛かったです。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/drop_handle.png&quot;&gt;&lt;img src=&quot;/images/drop_handle.png&quot; alt=&quot;Drop Handle&quot; title=&quot;Drop Handle&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/drop_handle.png&quot;&gt;&lt;img src=&quot;/images/drop_handle.png&quot; alt=&quot;Drop Handle&quot; width=&quot;320&quot; title=&quot;Drop Handle&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2541,20 +2541,20 @@ result = [4, 5], depth = 16
 &lt;h3 id=&quot;最終的にはフラットタイプのブルホーンに&quot;&gt;最終的にはフラットタイプのブルホーンに&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/flat_bullhorn.png&quot;&gt;&lt;img src=&quot;/images/flat_bullhorn.png&quot; alt=&quot;Flat Bull Horn&quot; title=&quot;Flat Bull Horn&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/flat_bullhorn.png&quot;&gt;&lt;img src=&quot;/images/flat_bullhorn.png&quot; alt=&quot;Flat Bull Horn&quot; width=&quot;320&quot; title=&quot;Flat Bull Horn&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
 &lt;p&gt;　前回の&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1b4d851f.029a4119.1b4d8522.d009d163/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcycle-yoshida%2F00600005%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjEsInByb2QiOjB9&quot;&gt;ブルホーンハンドル&lt;/a&gt;は両肩が下がっていたのですが、&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1b4d851f.029a4119.1b4d8522.d009d163/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcycle-yoshida%2F00615884%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjEsInByb2QiOjB9&quot;&gt;フラットなブルホーン&lt;/a&gt;にしてブレーキは手前につけることにしました。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/compared.png&quot;&gt;&lt;img src=&quot;/images/compared.png&quot; alt=&quot;Bull Horn Compared&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/compared.png&quot;&gt;&lt;img src=&quot;/images/compared.png&quot; alt=&quot;Bull Horn Compared&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/cycon.png&quot;&gt;&lt;img src=&quot;/images/cycon.png&quot; alt=&quot;ハンドル周り&quot; title=&quot;ハンドル周り&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/cycon.png&quot;&gt;&lt;img src=&quot;/images/cycon.png&quot; alt=&quot;ハンドル周り&quot; width=&quot;320&quot; title=&quot;ハンドル周り&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1b503d9f.bf04a72c.1b503da0.e1442817/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fi-selection%2Fb0106519%2F&amp;amp;link_type=pict&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjEsInByb2QiOjB9&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot; style=&quot;word-wrap:break-word;&quot;&gt;&lt;img src=&quot;https://hbb.afl.rakuten.co.jp/hgb/1b503d9f.bf04a72c.1b503da0.e1442817/?me_id=1276554&amp;amp;item_id=10023586&amp;amp;m=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fi-selection%2Fcabinet%2Fimg08%2Fb0106519.jpg%3F_ex%3D80x80&amp;amp;pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fi-selection%2Fcabinet%2Fimg08%2Fb0106519.jpg%3F_ex%3D240x240&amp;amp;s=240x240&amp;amp;t=pict&quot; border=&quot;0&quot; style=&quot;margin:2px&quot; alt=&quot;&quot; title=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -2564,7 +2564,7 @@ result = [4, 5], depth = 16
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/break01.png&quot;&gt;&lt;img src=&quot;/images/break01.png&quot; alt=&quot;ブレーキング改善前&quot; title=&quot;ブレーキング改善前&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/break01.png&quot;&gt;&lt;img src=&quot;/images/break01.png&quot; alt=&quot;ブレーキング改善前&quot; width=&quot;320&quot; title=&quot;ブレーキング改善前&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2572,7 +2572,7 @@ result = [4, 5], depth = 16
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/break02.png&quot;&gt;&lt;img src=&quot;/images/break02.png&quot; alt=&quot;ブレーキング改善後1&quot; title=&quot;ブレーキング改善後1&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/break02.png&quot;&gt;&lt;img src=&quot;/images/break02.png&quot; alt=&quot;ブレーキング改善後1&quot; width=&quot;320&quot; title=&quot;ブレーキング改善後1&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2580,7 +2580,7 @@ result = [4, 5], depth = 16
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/break03.png&quot;&gt;&lt;img src=&quot;/images/break03.png&quot; alt=&quot;ブレーキング改善後2&quot; title=&quot;ブレーキング改善後2&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/break03.png&quot;&gt;&lt;img src=&quot;/images/break03.png&quot; alt=&quot;ブレーキング改善後2&quot; width=&quot;320&quot; title=&quot;ブレーキング改善後2&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2657,7 +2657,7 @@ result = [4, 5], depth = 16
 &lt;h3 id=&quot;盤面&quot;&gt;盤面&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chess66app_board01.png&quot;&gt;&lt;img src=&quot;/images/chess66app_board01.png&quot; alt=&quot;チェス盤面１&quot; title=&quot;チェス盤面１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess66app_board01.png&quot;&gt;&lt;img src=&quot;/images/chess66app_board01.png&quot; alt=&quot;チェス盤面１&quot; width=&quot;320&quot; title=&quot;チェス盤面１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2667,7 +2667,7 @@ result = [4, 5], depth = 16
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chess66app_board02.png&quot;&gt;&lt;img src=&quot;/images/chess66app_board02.png&quot; alt=&quot;チェス盤面２&quot; title=&quot;チェス盤面２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess66app_board02.png&quot;&gt;&lt;img src=&quot;/images/chess66app_board02.png&quot; alt=&quot;チェス盤面２&quot; width=&quot;320&quot; title=&quot;チェス盤面２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2681,7 +2681,7 @@ result = [4, 5], depth = 16
 &lt;h3 id=&quot;ａｉレベル&quot;&gt;ＡＩレベル&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chess66app_menu01.png&quot;&gt;&lt;img src=&quot;/images/chess66app_menu01.png&quot; alt=&quot;ＡＩレベル&quot; title=&quot;ＡＩレベル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess66app_menu01.png&quot;&gt;&lt;img src=&quot;/images/chess66app_menu01.png&quot; alt=&quot;ＡＩレベル&quot; width=&quot;320&quot; title=&quot;ＡＩレベル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2692,7 +2692,7 @@ result = [4, 5], depth = 16
 &lt;h3 id=&quot;初期配置選択&quot;&gt;初期配置選択&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chess66app_menu03.png&quot;&gt;&lt;img src=&quot;/images/chess66app_menu03.png&quot; alt=&quot;初期配置選択&quot; title=&quot;初期配置選択&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess66app_menu03.png&quot;&gt;&lt;img src=&quot;/images/chess66app_menu03.png&quot; alt=&quot;初期配置選択&quot; width=&quot;320&quot; title=&quot;初期配置選択&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2703,7 +2703,7 @@ result = [4, 5], depth = 16
 &lt;h3 id=&quot;初期配置編集機能&quot;&gt;初期配置編集機能&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chess66app_menu04.png&quot;&gt;&lt;img src=&quot;/images/chess66app_menu04.png&quot; alt=&quot;初期配置編集&quot; title=&quot;初期配置編集&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess66app_menu04.png&quot;&gt;&lt;img src=&quot;/images/chess66app_menu04.png&quot; alt=&quot;初期配置編集&quot; width=&quot;320&quot; title=&quot;初期配置編集&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2715,7 +2715,7 @@ result = [4, 5], depth = 16
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chess66app_menu05.png&quot;&gt;&lt;img src=&quot;/images/chess66app_menu05.png&quot; alt=&quot;初期配置保存&quot; title=&quot;初期配置保存&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess66app_menu05.png&quot;&gt;&lt;img src=&quot;/images/chess66app_menu05.png&quot; alt=&quot;初期配置保存&quot; width=&quot;320&quot; title=&quot;初期配置保存&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2726,7 +2726,7 @@ result = [4, 5], depth = 16
 &lt;h3 id=&quot;駒の動き&quot;&gt;駒の動き&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chess66app_menu02.png&quot;&gt;&lt;img src=&quot;/images/chess66app_menu02.png&quot; alt=&quot;移動ガイド&quot; title=&quot;移動ガイド&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess66app_menu02.png&quot;&gt;&lt;img src=&quot;/images/chess66app_menu02.png&quot; alt=&quot;移動ガイド&quot; width=&quot;320&quot; title=&quot;移動ガイド&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2736,7 +2736,7 @@ result = [4, 5], depth = 16
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chess66app_board03.png&quot;&gt;&lt;img src=&quot;/images/chess66app_board03.png&quot; alt=&quot;チェス盤面３&quot; title=&quot;チェス盤面３&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess66app_board03.png&quot;&gt;&lt;img src=&quot;/images/chess66app_board03.png&quot; alt=&quot;チェス盤面３&quot; width=&quot;320&quot; title=&quot;チェス盤面３&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2753,7 +2753,7 @@ result = [4, 5], depth = 16
 &lt;h3 id=&quot;評価値表示&quot;&gt;評価値表示&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chess66app_board04.png&quot;&gt;&lt;img src=&quot;/images/chess66app_board04.png&quot; alt=&quot;チェス盤面４&quot; title=&quot;チェス盤面４&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess66app_board04.png&quot;&gt;&lt;img src=&quot;/images/chess66app_board04.png&quot; alt=&quot;チェス盤面４&quot; width=&quot;320&quot; title=&quot;チェス盤面４&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2781,14 +2781,14 @@ result = [4, 5], depth = 16
 &lt;p&gt;&lt;span&gt;局面1:白番。最善手はキングサイドキャスリング？&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chess_shot01.png&quot;&gt;&lt;img src=&quot;/images/chess_shot01.png&quot; alt=&quot;局面図１&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess_shot01.png&quot;&gt;&lt;img src=&quot;/images/chess_shot01.png&quot; alt=&quot;局面図１&quot; width=&quot;320&quot; title=&quot;局面図１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
 &lt;p&gt;&lt;span&gt;局面2:黒番。最善手はクイーンサイドキャスリング？&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chess_shot02.png&quot;&gt;&lt;img src=&quot;/images/chess_shot02.png&quot; alt=&quot;局面図２&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess_shot02.png&quot;&gt;&lt;img src=&quot;/images/chess_shot02.png&quot; alt=&quot;局面図２&quot; width=&quot;320&quot; title=&quot;局面図２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2798,7 +2798,7 @@ result = [4, 5], depth = 16
 &lt;p&gt;&lt;span&gt;局面3:黒番。キャスリングは悪手&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chess_shot03.png&quot;&gt;&lt;img src=&quot;/images/chess_shot03.png&quot; alt=&quot;局面図３&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess_shot03.png&quot;&gt;&lt;img src=&quot;/images/chess_shot03.png&quot; alt=&quot;局面図３&quot; width=&quot;320&quot; title=&quot;局面図３&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2807,7 +2807,7 @@ result = [4, 5], depth = 16
 &lt;p&gt;&lt;span&gt;局面4:局面3からBf3と指したところ。&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chess_shot04.png&quot;&gt;&lt;img src=&quot;/images/chess_shot04.png&quot; alt=&quot;局面図４&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess_shot04.png&quot;&gt;&lt;img src=&quot;/images/chess_shot04.png&quot; alt=&quot;局面図４&quot; width=&quot;320&quot; title=&quot;局面図４&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2821,7 +2821,7 @@ result = [4, 5], depth = 16
 &lt;p&gt;&lt;span&gt;局面5:&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chess_shot05.png&quot;&gt;&lt;img src=&quot;/images/chess_shot05.png&quot; alt=&quot;局面図５&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess_shot05.png&quot;&gt;&lt;img src=&quot;/images/chess_shot05.png&quot; alt=&quot;局面図５&quot; width=&quot;320&quot; title=&quot;局面図５&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2836,7 +2836,7 @@ result = [4, 5], depth = 16
 &lt;p&gt;&lt;span&gt;局面6:局面5からポーンを進めた（d4）局面&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chess_shot06.png&quot;&gt;&lt;img src=&quot;/images/chess_shot06.png&quot; alt=&quot;局面図６&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chess_shot06.png&quot;&gt;&lt;img src=&quot;/images/chess_shot06.png&quot; alt=&quot;局面図６&quot; width=&quot;320&quot; title=&quot;局面図６&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -3989,7 +3989,7 @@ P5+OU+KI+GI+KA+HI
 &lt;h3 id=&quot;酷い負けパターン&quot;&gt;酷い負けパターン&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/lost_pattern.png&quot;&gt;&lt;img src=&quot;/images/lost_pattern.png&quot; alt=&quot;酷い負けパターン&quot; title=&quot;酷い負けパターン&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/lost_pattern.png&quot;&gt;&lt;img src=&quot;/images/lost_pattern.png&quot; alt=&quot;酷い負けパターン&quot; width=&quot;320&quot; title=&quot;酷い負けパターン&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4038,7 +4038,7 @@ P5+OU+KI+GI+KA+HI
 &lt;h3 id=&quot;盤面&quot;&gt;盤面&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chessapp_board01.png&quot;&gt;&lt;img src=&quot;/images/chessapp_board01.png&quot; alt=&quot;チェス盤面１&quot; title=&quot;チェス盤面１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chessapp_board01.png&quot;&gt;&lt;img src=&quot;/images/chessapp_board01.png&quot; alt=&quot;チェス盤面１&quot; width=&quot;320&quot; title=&quot;チェス盤面１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4048,7 +4048,7 @@ P5+OU+KI+GI+KA+HI
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chessapp_board02.png&quot;&gt;&lt;img src=&quot;/images/chessapp_board02.png&quot; alt=&quot;チェス盤面２&quot; title=&quot;チェス盤面２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chessapp_board02.png&quot;&gt;&lt;img src=&quot;/images/chessapp_board02.png&quot; alt=&quot;チェス盤面２&quot; width=&quot;320&quot; title=&quot;チェス盤面２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4065,7 +4065,7 @@ P5+OU+KI+GI+KA+HI
 &lt;h3 id=&quot;ａｉレベル&quot;&gt;ＡＩレベル&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chessapp_menu01.png&quot;&gt;&lt;img src=&quot;/images/chessapp_menu01.png&quot; alt=&quot;ＡＩレベル&quot; title=&quot;ＡＩレベル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chessapp_menu01.png&quot;&gt;&lt;img src=&quot;/images/chessapp_menu01.png&quot; alt=&quot;ＡＩレベル&quot; width=&quot;320&quot; title=&quot;ＡＩレベル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4120,7 +4120,7 @@ bxa1=Q 41. Bc2 Qf1# 0-1
 &lt;h3 id=&quot;駒の動き&quot;&gt;駒の動き&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chessapp_menu02.png&quot;&gt;&lt;img src=&quot;/images/chessapp_menu02.png&quot; alt=&quot;移動ガイド&quot; title=&quot;移動ガイド&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chessapp_menu02.png&quot;&gt;&lt;img src=&quot;/images/chessapp_menu02.png&quot; alt=&quot;移動ガイド&quot; width=&quot;320&quot; title=&quot;移動ガイド&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4130,7 +4130,7 @@ bxa1=Q 41. Bc2 Qf1# 0-1
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chessapp_board03.png&quot;&gt;&lt;img src=&quot;/images/chessapp_board03.png&quot; alt=&quot;チェス盤面３&quot; title=&quot;チェス盤面３&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chessapp_board03.png&quot;&gt;&lt;img src=&quot;/images/chessapp_board03.png&quot; alt=&quot;チェス盤面３&quot; width=&quot;320&quot; title=&quot;チェス盤面３&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4141,7 +4141,7 @@ bxa1=Q 41. Bc2 Qf1# 0-1
 &lt;h3 id=&quot;棋譜の入出力&quot;&gt;棋譜の入出力&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chessapp_menu03.png&quot;&gt;&lt;img src=&quot;/images/chessapp_menu03.png&quot; alt=&quot;棋譜入出力&quot; title=&quot;棋譜入出力&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chessapp_menu03.png&quot;&gt;&lt;img src=&quot;/images/chessapp_menu03.png&quot; alt=&quot;棋譜入出力&quot; width=&quot;320&quot; title=&quot;棋譜入出力&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4156,7 +4156,7 @@ bxa1=Q 41. Bc2 Qf1# 0-1
 &lt;h3 id=&quot;評価値表示&quot;&gt;評価値表示&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/chessapp_board04.png&quot;&gt;&lt;img src=&quot;/images/chessapp_board04.png&quot; alt=&quot;チェス盤面４&quot; title=&quot;チェス盤面４&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/chessapp_board04.png&quot;&gt;&lt;img src=&quot;/images/chessapp_board04.png&quot; alt=&quot;チェス盤面４&quot; width=&quot;320&quot; title=&quot;チェス盤面４&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4270,7 +4270,7 @@ bxa1=Q 41. Bc2 Qf1# 0-1
 &lt;p&gt;（クリックで画像拡大）&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/stalemate_chess01.png&quot;&gt;&lt;img src=&quot;/images/stalemate_chess01.png&quot; alt=&quot;テスト１&quot; title=&quot;テスト１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/stalemate_chess01.png&quot;&gt;&lt;img src=&quot;/images/stalemate_chess01.png&quot; alt=&quot;テスト１&quot; width=&quot;320&quot; title=&quot;テスト１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4281,7 +4281,7 @@ bxa1=Q 41. Bc2 Qf1# 0-1
 （クリックで画像拡大）&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/stalemate_chess02.png&quot;&gt;&lt;img src=&quot;/images/stalemate_chess02.png&quot; alt=&quot;テスト２&quot; title=&quot;テスト２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/stalemate_chess02.png&quot;&gt;&lt;img src=&quot;/images/stalemate_chess02.png&quot; alt=&quot;テスト２&quot; width=&quot;320&quot; title=&quot;テスト２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4293,7 +4293,7 @@ bxa1=Q 41. Bc2 Qf1# 0-1
 &lt;p&gt;（クリックで画像拡大）&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/stalemate_chess03.png&quot;&gt;&lt;img src=&quot;/images/stalemate_chess03.png&quot; alt=&quot;テスト３&quot; title=&quot;テスト３&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/stalemate_chess03.png&quot;&gt;&lt;img src=&quot;/images/stalemate_chess03.png&quot; alt=&quot;テスト３&quot; width=&quot;320&quot; title=&quot;テスト３&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4346,7 +4346,7 @@ bxa1=Q 41. Bc2 Qf1# 0-1
 &lt;p&gt;（クリックで画像拡大）&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/test_chess01.png&quot;&gt;&lt;img src=&quot;/images/test_chess01.png&quot; alt=&quot;テスト１&quot; title=&quot;テスト１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/test_chess01.png&quot;&gt;&lt;img src=&quot;/images/test_chess01.png&quot; alt=&quot;テスト１&quot; width=&quot;320&quot; title=&quot;テスト１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4356,7 +4356,7 @@ bxa1=Q 41. Bc2 Qf1# 0-1
 &lt;p&gt;（クリックで画像拡大）&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/test_chess02.png&quot;&gt;&lt;img src=&quot;/images/test_chess02.png&quot; alt=&quot;テスト２&quot; title=&quot;テスト２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/test_chess02.png&quot;&gt;&lt;img src=&quot;/images/test_chess02.png&quot; alt=&quot;テスト２&quot; width=&quot;320&quot; title=&quot;テスト２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4534,7 +4534,7 @@ em {
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/screen_chess01.png&quot;&gt;&lt;img src=&quot;/images/screen_chess01.png&quot; alt=&quot;チェスの一局面&quot; title=&quot;チェスの一局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/screen_chess01.png&quot;&gt;&lt;img src=&quot;/images/screen_chess01.png&quot; alt=&quot;チェスの一局面&quot; width=&quot;480&quot; title=&quot;チェスの一局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4542,7 +4542,7 @@ em {
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/screen_chess02.png&quot;&gt;&lt;img src=&quot;/images/screen_chess02.png&quot; alt=&quot;チェスの一局面&quot; title=&quot;チェスの一局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/screen_chess02.png&quot;&gt;&lt;img src=&quot;/images/screen_chess02.png&quot; alt=&quot;チェスの一局面&quot; width=&quot;480&quot; title=&quot;チェスの一局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4551,7 +4551,7 @@ em {
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/screen_shogi01.png&quot;&gt;&lt;img src=&quot;/images/screen_shogi01.png&quot; alt=&quot;チェスの一局面を将棋で現す&quot; title=&quot;チェスの一局面を将棋で現す&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/screen_shogi01.png&quot;&gt;&lt;img src=&quot;/images/screen_shogi01.png&quot; alt=&quot;チェスの一局面を将棋で現す&quot; width=&quot;480&quot; title=&quot;チェスの一局面を将棋で現す&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4696,7 +4696,7 @@ android.enableJetifier=true
 &lt;p&gt;　そもそも今回のトラブルはAndroid StudioでGradle Syncした時に以下のダイアログが表示されて&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/gradle_plugin.png&quot;&gt;&lt;img src=&quot;/images/gradle_plugin.png&quot; alt=&quot;Gradle Plugin 更新ダイアログ&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/gradle_plugin.png&quot;&gt;&lt;img src=&quot;/images/gradle_plugin.png&quot; alt=&quot;Gradle Plugin 更新ダイアログ&quot; width=&quot;320&quot; title=&quot;Sync Project with Gradle Files&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　&lt;code&gt;update&lt;/code&gt;を選択したことによるものです。&lt;br /&gt;
@@ -4773,14 +4773,14 @@ android.enableJetifier=true
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/screen_turn.png&quot;&gt;&lt;img src=&quot;/images/screen_turn.png&quot; alt=&quot;先手・後手&quot; title=&quot;先手・後手&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/screen_turn.png&quot;&gt;&lt;img src=&quot;/images/screen_turn.png&quot; alt=&quot;先手・後手&quot; width=&quot;320&quot; title=&quot;先手・後手&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
 &lt;h4 id=&quot;ａｉの対戦成績&quot;&gt;ＡＩの対戦成績：&lt;/h4&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/screen_record.png&quot;&gt;&lt;img src=&quot;/images/screen_record.png&quot; alt=&quot;ＡＩの対戦成績&quot; title=&quot;ＡＩの対戦成績&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/screen_record.png&quot;&gt;&lt;img src=&quot;/images/screen_record.png&quot; alt=&quot;ＡＩの対戦成績&quot; width=&quot;320&quot; title=&quot;ＡＩの対戦成績&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4789,7 +4789,7 @@ android.enableJetifier=true
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/value_display0.png&quot;&gt;&lt;img src=&quot;/images/value_display0.png&quot; alt=&quot;重みデータ確認&quot; title=&quot;重みデータ確認&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/value_display0.png&quot;&gt;&lt;img src=&quot;/images/value_display0.png&quot; alt=&quot;重みデータ確認&quot; width=&quot;320&quot; title=&quot;重みデータ確認&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4800,7 +4800,7 @@ android.enableJetifier=true
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/screen_initialize.png&quot;&gt;&lt;img src=&quot;/images/screen_initialize.png&quot; alt=&quot;データの初期化&quot; title=&quot;データの初期化画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/screen_initialize.png&quot;&gt;&lt;img src=&quot;/images/screen_initialize.png&quot; alt=&quot;データの初期化&quot; width=&quot;320&quot; title=&quot;データの初期化画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4809,7 +4809,7 @@ android.enableJetifier=true
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/screen_degree.png&quot;&gt;&lt;img src=&quot;/images/screen_degree.png&quot; alt=&quot;進化度合い&quot; title=&quot;進化度合い&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/screen_degree.png&quot;&gt;&lt;img src=&quot;/images/screen_degree.png&quot; alt=&quot;進化度合い&quot; width=&quot;320&quot; title=&quot;進化度合い&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4819,7 +4819,7 @@ android.enableJetifier=true
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/screen_swipe.png&quot;&gt;&lt;img src=&quot;/images/screen_swipe.png&quot; alt=&quot;スワイプで画像の移動&quot; title=&quot;スワイプで画像の移動&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/screen_swipe.png&quot;&gt;&lt;img src=&quot;/images/screen_swipe.png&quot; alt=&quot;スワイプで画像の移動&quot; width=&quot;320&quot; title=&quot;スワイプで画像の移動&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4827,14 +4827,14 @@ android.enableJetifier=true
 &lt;h4 id=&quot;例１&quot;&gt;例１：&lt;/h4&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/value_display1.png&quot;&gt;&lt;img src=&quot;/images/value_display1.png&quot; alt=&quot;初期状態１&quot; title=&quot;初期状態１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/value_display1.png&quot;&gt;&lt;img src=&quot;/images/value_display1.png&quot; alt=&quot;初期状態１&quot; width=&quot;320&quot; title=&quot;初期状態１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;p&gt;　インストール直後でＡＩとの対戦をしていない初期状態ではすべての空いているマス目の重みが合計１になるように割り当てられています。上の図では&lt;code&gt;0.1111 * 9 = 1.0&lt;/code&gt;（切り捨てて表示）&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/value_display2.png&quot;&gt;&lt;img src=&quot;/images/value_display2.png&quot; alt=&quot;初期状態２&quot; title=&quot;初期状態２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/value_display2.png&quot;&gt;&lt;img src=&quot;/images/value_display2.png&quot; alt=&quot;初期状態２&quot; width=&quot;320&quot; title=&quot;初期状態２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4843,7 +4843,7 @@ android.enableJetifier=true
 &lt;h4 id=&quot;例２&quot;&gt;例２：&lt;/h4&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/game1.gif&quot;&gt;&lt;img src=&quot;/images/game1.gif&quot; alt=&quot;ゲーム例１&quot; title=&quot;ゲーム例１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/game1.gif&quot;&gt;&lt;img src=&quot;/images/game1.gif&quot; alt=&quot;ゲーム例１&quot; width=&quot;480&quot; title=&quot;ゲーム例１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4851,7 +4851,7 @@ android.enableJetifier=true
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/game1_value0.png&quot;&gt;&lt;img src=&quot;/images/game1_value0.png&quot; alt=&quot;ゲーム例１、初手&quot; title=&quot;ゲーム例１、初手&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/game1_value0.png&quot;&gt;&lt;img src=&quot;/images/game1_value0.png&quot; alt=&quot;ゲーム例１、初手&quot; width=&quot;320&quot; title=&quot;ゲーム例１、初手&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4859,7 +4859,7 @@ android.enableJetifier=true
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/game1_value1.png&quot;&gt;&lt;img src=&quot;/images/game1_value1.png&quot; alt=&quot;ゲーム例１、二手目&quot; title=&quot;ゲーム例１、二手目&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/game1_value1.png&quot;&gt;&lt;img src=&quot;/images/game1_value1.png&quot; alt=&quot;ゲーム例１、二手目&quot; width=&quot;320&quot; title=&quot;ゲーム例１、二手目&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -4868,7 +4868,7 @@ android.enableJetifier=true
 &lt;h4 id=&quot;例３&quot;&gt;例３：&lt;/h4&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/game2_value0.png&quot;&gt;&lt;img src=&quot;/images/game2_value0.png&quot; alt=&quot;ゲーム例２&quot; title=&quot;ゲーム例２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/game2_value0.png&quot;&gt;&lt;img src=&quot;/images/game2_value0.png&quot; alt=&quot;ゲーム例２&quot; width=&quot;320&quot; title=&quot;ゲーム例２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -5007,14 +5007,14 @@ window.onload = function() {
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;局面１：
-&lt;a href=&quot;/images/tictactoe_sample1.png&quot;&gt;&lt;img src=&quot;/images/tictactoe_sample1.png&quot; alt=&quot;序盤画面１&quot; title=&quot;序盤画面１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;/images/tictactoe_sample1.png&quot;&gt;&lt;img src=&quot;/images/tictactoe_sample1.png&quot; alt=&quot;序盤画面１&quot; width=&quot;320&quot; title=&quot;序盤画面１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　しかし、ＡＩを自己対戦させると地道に全ての局面を学習していきます。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;局面２：
-&lt;a href=&quot;/images/tictactoe_sample2.png&quot;&gt;&lt;img src=&quot;/images/tictactoe_sample2.png&quot; alt=&quot;序盤画面２&quot; title=&quot;序盤画面２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;/images/tictactoe_sample2.png&quot;&gt;&lt;img src=&quot;/images/tictactoe_sample2.png&quot; alt=&quot;序盤画面２&quot; width=&quot;320&quot; title=&quot;序盤画面２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　そして、仮に上図のように後手（○）が左上を選択した時に、まだ学習が十分でないＡＩ（先手×）が下段真ん中を選ばずに後手（○）が最終的に勝ったりすると、後手が報酬を受け取って「局面１」で左上を選んだのが良い手だったと学習してしまいます。こういうことが何回も繰り返されているわけです。ただ、「局面２」のようにあと一手で勝てる局面では、下段真ん中に打ちさえすればその時点でゲーム終了して勝ち点３の報酬を貰えるので、比較的早い段階で学習できるようです。問題は「局面１」の段階で相手のラインが揃うのを防ぐ手がなかなか学習出来ないことで、「局面１」で下段真ん中を選ばなかった後の展開も非常に多岐に渡りますし、後手が偶々下段真ん中を選んだとしてもそのあとの展開で後手が負けたりすると、結局下段真ん中に打った手が悪い手だったと学習してしまい、それを修正するのにまた多くの対戦を必要とし学習効率が非常に悪くなります&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
@@ -5022,7 +5022,7 @@ window.onload = function() {
 &lt;h3 id=&quot;実戦には現れない局面を先に学習している&quot;&gt;実戦には現れない局面を先に学習している&lt;/h3&gt;
 &lt;p&gt;　下の図は&lt;a href=&quot;/software/2019-07-19/self-play&quot;&gt;前回の記事&lt;/a&gt;のプログラムを自己対戦で５００局程度対戦させた後の「局面１」と「局面２」での重みデータを表示しているものですが、&lt;/p&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/tictactoe_sample3.png&quot;&gt;&lt;img src=&quot;/images/tictactoe_sample3.png&quot; alt=&quot;重みデータ画面&quot; title=&quot;重みデータ画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/tictactoe_sample3.png&quot;&gt;&lt;img src=&quot;/images/tictactoe_sample3.png&quot; alt=&quot;重みデータ画面&quot; width=&quot;480&quot; title=&quot;重みデータ画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　局面２では下段真ん中が&lt;code&gt;0.6815&lt;/code&gt;と一番大きな値となっていて、最善手だと学習していることがわかりますが、局面１の学習データは値がバラついていて、まだどこが選ばれるかわからない、学習が十分に進んでいない状況です。「局面２」のようにあと一手で勝ちという局面に関しては比較的早い段階で最善手を学習するのですが、その前の段階で間違えるために非常に無駄な学習を続けることになります。「局面１」で最善手を選べれば「局面２」とそれ以後の局面はお互いに最善手を選ぶ実戦では現れない局面で、学習しなくていいとは言いませんが、後回しにしたいところです&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
@@ -5758,12 +5758,12 @@ cordova.system.library.8=com.google.android.gms:play-services-ads:+
 
 &lt;p&gt;Firebase通知作成画面:&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/firebase_push.png&quot;&gt;&lt;img src=&quot;/images/firebase_push.png&quot; alt=&quot;Push通知作成画面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/firebase_push.png&quot;&gt;&lt;img src=&quot;/images/firebase_push.png&quot; alt=&quot;Push通知作成画面&quot; width=&quot;320&quot; title=&quot;Push通知作成画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;アプリでの通知受信時:&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/push_notification.png&quot;&gt;&lt;img src=&quot;/images/push_notification.png&quot; alt=&quot;Push通知サンプル&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/push_notification.png&quot;&gt;&lt;img src=&quot;/images/push_notification.png&quot; alt=&quot;Push通知サンプル&quot; width=&quot;320&quot; title=&quot;Push通知サンプル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　アプリを立ち上げている人に通知内容をtoast表示しているだけです。アプリを立ち上げていない場合はスマホの通知欄にメッセージが届きます。いろいろ使い道はありそうですが、何をするにも運用コストがかかるので難しいところです。&lt;/p&gt;
@@ -5792,7 +5792,7 @@ Available platforms:
 　うまくビルド出来ても、Firebase導入後ダッシュボードを眺めていると、以下のようにステータスが&lt;code&gt;調査が必要&lt;/code&gt;となって「クラッシュに遭遇していないユーザー数」が&lt;code&gt;100%&lt;/code&gt;になりません。問題のない他のアプリのステータスは&lt;code&gt;成功&lt;/code&gt;と出力され、「クラッシュに遭遇していないユーザー数」が&lt;code&gt;100%&lt;/code&gt;になります。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/firebase_crash.png&quot;&gt;&lt;img src=&quot;/images/firebase_crash.png&quot; alt=&quot;リリース直後のステータス&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/firebase_crash.png&quot;&gt;&lt;img src=&quot;/images/firebase_crash.png&quot; alt=&quot;リリース直後のステータス&quot; width=&quot;320&quot; title=&quot;リリース直後のステータス&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　やはり環境によっては苦労が伴いそうです。&lt;/p&gt;
@@ -5968,14 +5968,14 @@ es6-promise-plugin 4.2.2 &quot;Promise&quot;
 &lt;h3 id=&quot;駒の配置&quot;&gt;駒の配置&lt;/h3&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/funashishogi.png&quot;&gt;&lt;img src=&quot;/images/funashishogi.png&quot; alt=&quot;歩なし将棋初期配置&quot; title=&quot;歩なし将棋初期配置&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/funashishogi.png&quot;&gt;&lt;img src=&quot;/images/funashishogi.png&quot; alt=&quot;歩なし将棋初期配置&quot; width=&quot;320&quot; title=&quot;歩なし将棋初期配置&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&quot;盤面反転機能追加&quot;&gt;盤面反転機能追加&lt;/h4&gt;
 &lt;p&gt;　Version1.0.2.0から盤面の反転（先手・後手を上下逆さま）表示機能追加しました。画面右上の回転矢印アイコンをタップすると後手を手前にして将棋盤を表示出来ます。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/funashi_reverse.png&quot; alt=&quot;盤面反転機能&quot; title=&quot;盤面反転機能&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/funashi_reverse.png&quot; alt=&quot;盤面反転機能&quot; width=&quot;320&quot; title=&quot;盤面反転機能&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　この機能追加により今までAndroid4.4以上が動作対象機種でしたが、Android5.0以上が必要になります。&lt;/p&gt;
@@ -6025,7 +6025,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/kaku_hisya_only.png&quot;&gt;&lt;img src=&quot;/images/kaku_hisya_only.png&quot; alt=&quot;全部角対全部飛車&quot; title=&quot;全部角対全部飛車&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/kaku_hisya_only.png&quot;&gt;&lt;img src=&quot;/images/kaku_hisya_only.png&quot; alt=&quot;全部角対全部飛車&quot; width=&quot;320&quot; title=&quot;全部角対全部飛車&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　棋譜を読み込んだ後、「再開」ボタンをタップすればゲーム開始されます。誤って「新規対局」ボタンをタップすると読み込んだ棋譜ではなく、歩なし将棋の初期配置からゲーム開始されますので注意してください。&lt;br /&gt;
@@ -6036,7 +6036,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 &lt;p&gt;　ＡＩの強さは２段階です。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/funashi_menu.png&quot;&gt;&lt;img src=&quot;/images/funashi_menu.png&quot; alt=&quot;先手・後手／レベルメニュー&quot; title=&quot;先手・後手／レベルメニュー&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/funashi_menu.png&quot;&gt;&lt;img src=&quot;/images/funashi_menu.png&quot; alt=&quot;先手・後手／レベルメニュー&quot; width=&quot;320&quot; title=&quot;先手・後手／レベルメニュー&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;７七将棋アプリ&lt;/a&gt;や&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;とほとんど同じ作り（HTML+JavaScript）です。７×７の盤を使った&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;７七将棋&lt;/a&gt;や&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋&lt;/a&gt;でさえレスポンスが悪い状態なのに９×９に盤面が拡大することでさらにレスポンスが悪化しそうですが、「歩なし将棋」の場合、駒の数も減り「打ち歩詰め」等の反則手のチェックも必要なくなるので、機種にもよると思いますがなんとか使えるレスポンスと強さを確保出来たと思います。もともと「歩なし将棋」は初心者向けだと思いますので、将棋を覚えたての初心者の方に楽しんでいただければ幸いです。&lt;/p&gt;
@@ -6065,21 +6065,21 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 &lt;p&gt;（画像はクリックで拡大）&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/shogi33_141_1.png&quot;&gt;&lt;img src=&quot;/images/shogi33_141_1.png&quot; alt=&quot;No.141_1&quot; title=&quot;No.141&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/shogi33_141_1.png&quot;&gt;&lt;img src=&quot;/images/shogi33_141_1.png&quot; alt=&quot;No.141_1&quot; width=&quot;320&quot; title=&quot;No.141&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
 &lt;p&gt;　上の初期配置は&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;のNo.141のものです。これを以前のバージョン（1.0.7.0未満）の長考モード同士で対戦させると以下のように後手が勝ってしまいます。先手が千日手を打開しようとして負けている感じです（２４手）。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/shogi33_141_2.gif&quot;&gt;&lt;img src=&quot;/images/shogi33_141_2.gif&quot; alt=&quot;No.141_2&quot; title=&quot;No.141&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/shogi33_141_2.gif&quot;&gt;&lt;img src=&quot;/images/shogi33_141_2.gif&quot; alt=&quot;No.141_2&quot; width=&quot;320&quot; title=&quot;No.141&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
 &lt;p&gt;　以前のバージョン（1.0.7.0未満）の瞑想モードだと以下の手順で千日手になります（２５手）。正解はおそらく千日手なのですが、上のように長考モードで間違えているのでボツにしました。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/shogi33_141_3.gif&quot;&gt;&lt;img src=&quot;/images/shogi33_141_3.gif&quot; alt=&quot;No.141_3&quot; title=&quot;No.141&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/shogi33_141_3.gif&quot;&gt;&lt;img src=&quot;/images/shogi33_141_3.gif&quot; alt=&quot;No.141_3&quot; width=&quot;320&quot; title=&quot;No.141&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6087,14 +6087,14 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 　面白いのは３通りの千日手になる手順が全て異なっていることです。最新バージョン（1.0.8.0）の瞑想モードだと数手一組の手順が手番を変えて以下のように循環します（４８手）。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/shogi33_141_4.gif&quot;&gt;&lt;img src=&quot;/images/shogi33_141_4.gif&quot; alt=&quot;No.141_4&quot; title=&quot;No.141&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/shogi33_141_4.gif&quot;&gt;&lt;img src=&quot;/images/shogi33_141_4.gif&quot; alt=&quot;No.141_4&quot; width=&quot;320&quot; title=&quot;No.141&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
 &lt;p&gt;　３三将棋（９マス将棋）では２一と２三の地点にお互い金がある以下のような形はほぼ千日手になるようですが、&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/shogi33_141_5.png&quot;&gt;&lt;img src=&quot;/images/shogi33_141_5.png&quot; alt=&quot;No.141_5&quot; title=&quot;No.141&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/shogi33_141_5.png&quot;&gt;&lt;img src=&quot;/images/shogi33_141_5.png&quot; alt=&quot;No.141_5&quot; width=&quot;320&quot; title=&quot;No.141&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6105,28 +6105,28 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/shogi33_144_1.png&quot;&gt;&lt;img src=&quot;/images/shogi33_144_1.png&quot; alt=&quot;No.144_1&quot; title=&quot;No.144&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/shogi33_144_1.png&quot;&gt;&lt;img src=&quot;/images/shogi33_144_1.png&quot; alt=&quot;No.144_1&quot; width=&quot;320&quot; title=&quot;No.144&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
 &lt;p&gt;　以下のように先手が負けるのでボツにしました。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/shogi33_144_2.gif&quot;&gt;&lt;img src=&quot;/images/shogi33_144_2.gif&quot; alt=&quot;No.144_2&quot; title=&quot;No.144&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/shogi33_144_2.gif&quot;&gt;&lt;img src=&quot;/images/shogi33_144_2.gif&quot; alt=&quot;No.144_2&quot; width=&quot;320&quot; title=&quot;No.144&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
 &lt;p&gt;　初手の最善手は（おそらく）３二角と打つ手です。バージョン1.0.7.0以降だと以下の手順で先手が勝てます（１３手）。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/shogi33_144_3.gif&quot;&gt;&lt;img src=&quot;/images/shogi33_144_3.gif&quot; alt=&quot;No.144_3&quot; title=&quot;No.144&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/shogi33_144_3.gif&quot;&gt;&lt;img src=&quot;/images/shogi33_144_3.gif&quot; alt=&quot;No.144_3&quot; width=&quot;320&quot; title=&quot;No.144&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
 &lt;p&gt;　初手３二角、同銀、同玉、２三角と進んだ以下の局面で、２三同玉と角を取ってしまうと（逃げれば大丈夫）１三歩成、同玉、１二銀で先手玉は詰んでしまいます。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/shogi33_144_4.png&quot;&gt;&lt;img src=&quot;/images/shogi33_144_4.png&quot; alt=&quot;No.144_4&quot; title=&quot;No.144&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/shogi33_144_4.png&quot;&gt;&lt;img src=&quot;/images/shogi33_144_4.png&quot; alt=&quot;No.144_4&quot; width=&quot;320&quot; title=&quot;No.144&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6186,7 +6186,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/heroku01.png&quot;&gt;&lt;img src=&quot;/images/heroku01.png&quot; alt=&quot;Settings画面1&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/heroku01.png&quot;&gt;&lt;img src=&quot;/images/heroku01.png&quot; alt=&quot;Settings画面1&quot; width=&quot;480&quot; title=&quot;Settings画面2&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6194,7 +6194,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/heroku02.png&quot;&gt;&lt;img src=&quot;/images/heroku02.png&quot; alt=&quot;Settings画面2&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/heroku02.png&quot;&gt;&lt;img src=&quot;/images/heroku02.png&quot; alt=&quot;Settings画面2&quot; width=&quot;480&quot; title=&quot;Settings画面2&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6202,7 +6202,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/heroku03.png&quot;&gt;&lt;img src=&quot;/images/heroku03.png&quot; alt=&quot;Settings画面3&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/heroku03.png&quot;&gt;&lt;img src=&quot;/images/heroku03.png&quot; alt=&quot;Settings画面3&quot; width=&quot;480&quot; title=&quot;Settings画面3&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6210,7 +6210,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/heroku04.png&quot;&gt;&lt;img src=&quot;/images/heroku04.png&quot; alt=&quot;Settings画面4&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/heroku04.png&quot;&gt;&lt;img src=&quot;/images/heroku04.png&quot; alt=&quot;Settings画面4&quot; width=&quot;480&quot; title=&quot;Settings画面4&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6223,7 +6223,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/heroku05.png&quot;&gt;&lt;img src=&quot;/images/heroku05.png&quot; alt=&quot;Settings画面5&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/heroku05.png&quot;&gt;&lt;img src=&quot;/images/heroku05.png&quot; alt=&quot;Settings画面5&quot; width=&quot;480&quot; title=&quot;Settings画面5&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6270,7 +6270,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/shogi77_menu04.png&quot;&gt;&lt;img src=&quot;/images/shogi77_menu04.png&quot; alt=&quot;初期配置編集&quot; title=&quot;初期配置編集&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/shogi77_menu04.png&quot;&gt;&lt;img src=&quot;/images/shogi77_menu04.png&quot; alt=&quot;初期配置編集&quot; width=&quot;320&quot; title=&quot;初期配置編集&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6283,7 +6283,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/shogi77_menu05.png&quot;&gt;&lt;img src=&quot;/images/shogi77_menu05.png&quot; alt=&quot;初期配置保存&quot; title=&quot;初期配置保存&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/shogi77_menu05.png&quot;&gt;&lt;img src=&quot;/images/shogi77_menu05.png&quot; alt=&quot;初期配置保存&quot; width=&quot;320&quot; title=&quot;初期配置保存&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6295,7 +6295,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 &lt;p&gt;　Version1.0.3.0から盤面の反転（先手・後手を上下逆さま）表示機能追加しました。画面右上の回転矢印アイコンをタップすると後手を手前にして将棋盤を表示出来ます。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/77shogi_reverse.png&quot; alt=&quot;盤面反転機能&quot; title=&quot;盤面反転機能&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/77shogi_reverse.png&quot; alt=&quot;盤面反転機能&quot; width=&quot;320&quot; title=&quot;盤面反転機能&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　この機能追加により今までAndroid4.4以上が動作対象機種でしたが、Android5.0以上が必要になります。&lt;/p&gt;
@@ -6304,7 +6304,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 &lt;p&gt;　Version1.0.2.1からPush通知を受信できます。左上右側にあるアイコンをタップすると受信した最新のメッセージを再度表示します。受信したメッセージがないときは何も表示されません。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/push_notification_shogi77.png&quot;&gt;&lt;img src=&quot;/images/push_notification_shogi77.png&quot; alt=&quot;Push通知サンプル&quot; title=&quot;Push通知サンプル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/push_notification_shogi77.png&quot;&gt;&lt;img src=&quot;/images/push_notification_shogi77.png&quot; alt=&quot;Push通知サンプル&quot; width=&quot;320&quot; title=&quot;Push通知サンプル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;局面の評価方法変更&quot;&gt;局面の評価方法変更&lt;/h3&gt;
@@ -6335,7 +6335,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/33shogi_case1.png&quot;&gt;&lt;img src=&quot;/images/33shogi_case1.png&quot; alt=&quot;Arrange109&quot; title=&quot;Arrange109&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_case1.png&quot;&gt;&lt;img src=&quot;/images/33shogi_case1.png&quot; alt=&quot;Arrange109&quot; width=&quot;480&quot; title=&quot;Arrange109&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6347,7 +6347,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/33shogi_case2.png&quot;&gt;&lt;img src=&quot;/images/33shogi_case2.png&quot; alt=&quot;Arrange109途中図&quot; title=&quot;Arrange109途中図&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_case2.png&quot;&gt;&lt;img src=&quot;/images/33shogi_case2.png&quot; alt=&quot;Arrange109途中図&quot; width=&quot;480&quot; title=&quot;Arrange109途中図&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6355,7 +6355,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/33shogi_case3.png&quot;&gt;&lt;img src=&quot;/images/33shogi_case3.png&quot; alt=&quot;Arrange109途中図&quot; title=&quot;Arrange109途中図&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_case3.png&quot;&gt;&lt;img src=&quot;/images/33shogi_case3.png&quot; alt=&quot;Arrange109途中図&quot; width=&quot;480&quot; title=&quot;Arrange109途中図&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6366,7 +6366,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/33shogi_case4.png&quot;&gt;&lt;img src=&quot;/images/33shogi_case4.png&quot; alt=&quot;Arrange109 AI初手&quot; title=&quot;Arrange109 AI初手&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_case4.png&quot;&gt;&lt;img src=&quot;/images/33shogi_case4.png&quot; alt=&quot;Arrange109 AI初手&quot; width=&quot;480&quot; title=&quot;Arrange109 AI初手&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6374,7 +6374,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/33shogi_oldversion.gif&quot;&gt;&lt;img src=&quot;/images/33shogi_oldversion.gif&quot; alt=&quot;Arrange109 旧バージョン&quot; title=&quot;Arrange109 旧バージョン&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_oldversion.gif&quot;&gt;&lt;img src=&quot;/images/33shogi_oldversion.gif&quot; alt=&quot;Arrange109 旧バージョン&quot; width=&quot;480&quot; title=&quot;Arrange109 旧バージョン&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6385,7 +6385,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/33shogi_new1.gif&quot;&gt;&lt;img src=&quot;/images/33shogi_new1.gif&quot; alt=&quot;Arrange109 変化例&quot; title=&quot;Arrange109 変化例&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_new1.gif&quot;&gt;&lt;img src=&quot;/images/33shogi_new1.gif&quot; alt=&quot;Arrange109 変化例&quot; width=&quot;480&quot; title=&quot;Arrange109 変化例&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6393,7 +6393,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/33shogi_new2.png&quot;&gt;&lt;img src=&quot;/images/33shogi_new2.png&quot; alt=&quot;Arrange109 変化例&quot; title=&quot;Arrange109 変化例&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_new2.png&quot;&gt;&lt;img src=&quot;/images/33shogi_new2.png&quot; alt=&quot;Arrange109 変化例&quot; width=&quot;480&quot; title=&quot;Arrange109 変化例&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6401,7 +6401,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/33shogi_new3.png&quot;&gt;&lt;img src=&quot;/images/33shogi_new3.png&quot; alt=&quot;Arrange109 変化例&quot; title=&quot;Arrange109 変化例&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_new3.png&quot;&gt;&lt;img src=&quot;/images/33shogi_new3.png&quot; alt=&quot;Arrange109 変化例&quot; width=&quot;480&quot; title=&quot;Arrange109 変化例&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6409,7 +6409,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/33shogi_new4.png&quot;&gt;&lt;img src=&quot;/images/33shogi_new4.png&quot; alt=&quot;Arrange109 変化例&quot; title=&quot;Arrange109 変化例&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_new4.png&quot;&gt;&lt;img src=&quot;/images/33shogi_new4.png&quot; alt=&quot;Arrange109 変化例&quot; width=&quot;480&quot; title=&quot;Arrange109 変化例&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6417,7 +6417,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/33shogi_new5.gif&quot;&gt;&lt;img src=&quot;/images/33shogi_new5.gif&quot; alt=&quot;Arrange109 新バージョン&quot; title=&quot;Arrange109 新バージョン&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_new5.gif&quot;&gt;&lt;img src=&quot;/images/33shogi_new5.gif&quot; alt=&quot;Arrange109 新バージョン&quot; width=&quot;480&quot; title=&quot;Arrange109 新バージョン&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6428,7 +6428,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/33shogi_all2.gif&quot;&gt;&lt;img src=&quot;/images/33shogi_all2.gif&quot; alt=&quot;Arrange109 全件探索&quot; title=&quot;Arrange109 全件探索&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_all2.gif&quot;&gt;&lt;img src=&quot;/images/33shogi_all2.gif&quot; alt=&quot;Arrange109 全件探索&quot; width=&quot;480&quot; title=&quot;Arrange109 全件探索&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6441,7 +6441,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/33shogi_all.gif&quot;&gt;&lt;img src=&quot;/images/33shogi_all.gif&quot; alt=&quot;Arrange109 全件探索&quot; title=&quot;Arrange109 全件探索&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_all.gif&quot;&gt;&lt;img src=&quot;/images/33shogi_all.gif&quot; alt=&quot;Arrange109 全件探索&quot; width=&quot;480&quot; title=&quot;Arrange109 全件探索&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;p&gt;　２二飛、３三玉、３二飛、２三玉、３一玉、１二飛、同飛、同玉、２二飛、１三玉、３二玉、３三飛、同玉、３一香、３二飛打、同香、同玉、１二飛、同飛、同玉、１三香、同玉、２三飛、１二玉、２一飛成、１三玉、２二竜まで２７手で先手の勝ち&lt;br /&gt;
@@ -6449,7 +6449,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/33shogi_all1.png&quot;&gt;&lt;img src=&quot;/images/33shogi_all1.png&quot; alt=&quot;Arrange109 全件探索&quot; title=&quot;Arrange109 全件探索&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/33shogi_all1.png&quot;&gt;&lt;img src=&quot;/images/33shogi_all1.png&quot; alt=&quot;Arrange109 全件探索&quot; width=&quot;480&quot; title=&quot;Arrange109 全件探索&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -6489,7 +6489,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 &lt;p&gt;　解けなかったというより解ける深さまで読ませるとアプリで実行するには時間がかかり過ぎるので、最善手（おそらく正解）を諦めていた初期配置です。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/9masu_case5.png&quot;&gt;&lt;img src=&quot;/images/9masu_case5.png&quot; alt=&quot;上級編の問題の初期配置&quot; title=&quot;上級編の問題の初期配置&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/9masu_case5.png&quot;&gt;&lt;img src=&quot;/images/9masu_case5.png&quot; alt=&quot;上級編の問題の初期配置&quot; width=&quot;480&quot; title=&quot;上級編の問題の初期配置&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　この初期配置は&lt;a href=&quot;/project/2018-04-22/9masushogi&quot;&gt;以前の記事（「９マス将棋の本」買ってみました）&lt;/a&gt;で紹介した本（&lt;a href=&quot;https://hb.afl.rakuten.co.jp/hgc/1898184c.61df42d5.1898184d.aee9e867/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenkobo-ebooks%2Fa9b8e0edfad33fbcb089d3786912dae2%2F&amp;amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenkobo-ebooks%2Fi%2F16530252%2F&amp;amp;link_type=text&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJ0ZXh0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImxlZnQiLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjF9&quot;&gt;９マス将棋の本&lt;/a&gt;）に載っていた問題で、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;では初期配置リストのNo.41番にあるものです。この配置は初手が肝心なのですが、以前の&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;でAIに指させてみると一番深く読む「瞑想」モードでも初手１三角と相手の角を取ってしまい先手が勝てません。本に出題されている通り先手が勝つためには初手に２三玉と指さないといけないのですが、Version1.0.7.0からは初手２三玉が指せるようになりました。&lt;br /&gt;
@@ -6951,31 +6951,31 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;h3 id=&quot;初期配置&quot;&gt;初期配置&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/torishogi_standard.png&quot; alt=&quot;禽将棋初期配置&quot; title=&quot;禽将棋初期配置&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/torishogi_standard.png&quot; alt=&quot;禽将棋初期配置&quot; width=&quot;320&quot; title=&quot;禽将棋初期配置&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&quot;盤面反転機能追加&quot;&gt;盤面反転機能追加&lt;/h4&gt;
 &lt;p&gt;　Version1.0.7.0から盤面の反転（先手・後手を上下逆さま）表示機能追加しました。画面右上の回転矢印アイコンをタップすると後手を手前にして将棋盤を表示出来ます。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/torishogi_reverse.png&quot; alt=&quot;盤面反転機能&quot; title=&quot;盤面反転機能&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/torishogi_reverse.png&quot; alt=&quot;盤面反転機能&quot; width=&quot;320&quot; title=&quot;盤面反転機能&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　この機能追加により今までAndroid4.4以上が動作対象機種でしたが、Android5.0以上が必要になります。&lt;/p&gt;
 
 &lt;h3 id=&quot;ａｉレベル&quot;&gt;ＡＩレベル&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/torishogi_ai.png&quot; alt=&quot;禽将棋ＡＩメニュー&quot; title=&quot;禽将棋ＡＩメニュー&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/torishogi_ai.png&quot; alt=&quot;禽将棋ＡＩメニュー&quot; width=&quot;320&quot; title=&quot;禽将棋ＡＩメニュー&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;　ＡＩのレベルは３段階で、思考ルーチンは&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;とほとんど同じです。&lt;a href=&quot;/project/2018-03-11/55shogiapp&quot;&gt;５五将棋アプリの記事&lt;/a&gt;も参照してください。&lt;/p&gt;
 
 &lt;h3 id=&quot;駒の動きガイド&quot;&gt;駒の動きガイド&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/torishogi_guide.png&quot; alt=&quot;禽将棋ガイドメニュー&quot; title=&quot;禽将棋ガイドメニュー&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/torishogi_guide.png&quot; alt=&quot;禽将棋ガイドメニュー&quot; width=&quot;320&quot; title=&quot;禽将棋ガイドメニュー&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;　禽将棋独特の駒の動きに慣れるには時間が掛かると思いますので、駒を選択した時に駒の動かせる位置を表示出来るようにしています。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/torishogi_guide_ex.png&quot; alt=&quot;禽将棋ガイド例&quot; title=&quot;禽将棋ガイド例&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/torishogi_guide_ex.png&quot; alt=&quot;禽将棋ガイド例&quot; width=&quot;320&quot; title=&quot;禽将棋ガイド例&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;棋譜入出力対応&quot;&gt;棋譜入出力対応&lt;/h3&gt;
@@ -7167,11 +7167,11 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 &lt;p&gt;　Version1.0.4.1から駒のフォントに毛筆フォントを選べるようになりました。無料フォントの中でも&lt;a href=&quot;http://today.izmaker.com/blog/technique/3154/&quot;&gt;「衡山毛筆フォント」&lt;/a&gt;のように再配布可能というものはなかなか無いと思います。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/torishogi_menu_font.png&quot; alt=&quot;フォント選択メニュー&quot; title=&quot;フォント選択メニュー&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/torishogi_menu_font.png&quot; alt=&quot;フォント選択メニュー&quot; width=&quot;320&quot; title=&quot;フォント選択メニュー&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;hr /&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/torishogi_font.png&quot; alt=&quot;衡山毛筆フォント&quot; title=&quot;衡山毛筆フォント&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/torishogi_font.png&quot; alt=&quot;衡山毛筆フォント&quot; width=&quot;320&quot; title=&quot;衡山毛筆フォント&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;自動保存機能追加&quot;&gt;自動保存機能追加&lt;/h3&gt;
@@ -7494,7 +7494,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 &lt;p&gt;　下の局面は７七将棋の初期盤面です。&lt;/p&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/77shogi.png&quot;&gt;&lt;img src=&quot;/images/77shogi.png&quot; alt=&quot;７七将棋初期盤面&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/77shogi.png&quot;&gt;&lt;img src=&quot;/images/77shogi.png&quot; alt=&quot;７七将棋初期盤面&quot; width=&quot;480&quot; title=&quot;７七将棋初期盤面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -7502,7 +7502,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/77battle1.png&quot;&gt;&lt;img src=&quot;/images/77battle1.png&quot; alt=&quot;AI対戦の一局面&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/77battle1.png&quot;&gt;&lt;img src=&quot;/images/77battle1.png&quot; alt=&quot;AI対戦の一局面&quot; width=&quot;480&quot; title=&quot;AI対戦の一局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -7629,7 +7629,7 @@ P9+KA+KA+KA+KA+OU+KA+KA+KA+KA
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/55shogi_test.png&quot;&gt;&lt;img src=&quot;/images/55shogi_test.png&quot; alt=&quot;９×９将棋盤でのテスト&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/55shogi_test.png&quot;&gt;&lt;img src=&quot;/images/55shogi_test.png&quot; alt=&quot;９×９将棋盤でのテスト&quot; width=&quot;320&quot; title=&quot;９×９将棋盤でのテスト&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -7833,7 +7833,7 @@ console.log &quot;経過時間: #{elapsed}ミリ秒&quot;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/puzzle_example.png&quot;&gt;&lt;img src=&quot;/images/puzzle_example.png&quot; alt=&quot;例題局面&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/puzzle_example.png&quot;&gt;&lt;img src=&quot;/images/puzzle_example.png&quot; alt=&quot;例題局面&quot; width=&quot;480&quot; title=&quot;例題局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
   &lt;p&gt;&lt;span&gt;最短手数＝５手&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -7907,7 +7907,7 @@ console.log &quot;経過時間: #{elapsed}ミリ秒&quot;
 &lt;p&gt;　先の例題のスタート局面から最も長い手数が必要となる局面は以下の局面で、必要な手数は９手です。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/puzzle_deepest.png&quot;&gt;&lt;img src=&quot;/images/puzzle_deepest.png&quot; alt=&quot;最長手数局面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/puzzle_deepest.png&quot;&gt;&lt;img src=&quot;/images/puzzle_deepest.png&quot; alt=&quot;最長手数局面&quot; width=&quot;320&quot; title=&quot;最長手数局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
   &lt;p&gt;&lt;span&gt;最短手数＝９手&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -7919,7 +7919,7 @@ console.log &quot;経過時間: #{elapsed}ミリ秒&quot;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/puzzle_example2.png&quot;&gt;&lt;img src=&quot;/images/puzzle_example2.png&quot; alt=&quot;例題局面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/puzzle_example2.png&quot;&gt;&lt;img src=&quot;/images/puzzle_example2.png&quot; alt=&quot;例題局面&quot; width=&quot;320&quot; title=&quot;例題局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -7927,7 +7927,7 @@ console.log &quot;経過時間: #{elapsed}ミリ秒&quot;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/puzzle_example2-all.png&quot;&gt;&lt;img src=&quot;/images/puzzle_example2-all.png&quot; alt=&quot;解答局面&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/puzzle_example2-all.png&quot;&gt;&lt;img src=&quot;/images/puzzle_example2-all.png&quot; alt=&quot;解答局面&quot; width=&quot;480&quot; title=&quot;解答局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
   &lt;p&gt;&lt;span&gt;最短手数＝２５手&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -7977,7 +7977,7 @@ coffee game.coffee
 　例えば先手の玉を３三に配置したい場合は&lt;code&gt;new Piece.Ou(Const.FIRST, Const.Status.OMOTE, [3,3])&lt;/code&gt;としてPieceクラスのインスタンスを生成してBoardオブジェクトのpiecesメンバにpushします。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/arrange13.png&quot; alt=&quot;初期配置　例１&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/arrange13.png&quot; alt=&quot;初期配置　例１&quot; width=&quot;320&quot; title=&quot;初期配置　例１&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　上記の初期配置をセットするコードは以下のようになります。&lt;/p&gt;
@@ -8143,7 +8143,7 @@ second.depth = 6
 &lt;/table&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/arrange21.png&quot; alt=&quot;初期配置　例２&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/arrange21.png&quot; alt=&quot;初期配置　例２&quot; width=&quot;320&quot; title=&quot;初期配置　例２&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;　上記の配置は&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;github&lt;/a&gt;に置いてあるgame.coffeeの初期配置です。githubからソースを取得した後、コンソール画面で&lt;code&gt;coffee game.coffee&lt;/code&gt;と打てば以下のように対局が進行するはずです&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 
@@ -8255,7 +8255,7 @@ Second Win
 
 &lt;div style=&quot;width:600px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/utifudume.png&quot;&gt;&lt;img src=&quot;/images/utifudume.png&quot; alt=&quot;ゲーム木 - 打ち歩詰め判定&quot; title=&quot;ゲーム木 - 打ち歩詰め判定&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/utifudume.png&quot;&gt;&lt;img src=&quot;/images/utifudume.png&quot; alt=&quot;ゲーム木 - 打ち歩詰め判定&quot; width=&quot;600&quot; title=&quot;ゲーム木 - 打ち歩詰め判定&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -8277,7 +8277,7 @@ Second Win
 　以下の局面は&lt;a href=&quot;/software/2018-01-27/utifudume&quot;&gt;以前の記事&lt;/a&gt;で紹介した判定に失敗する「特殊な打ち歩詰め」のケースですが、&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/utifu_sente.png&quot; alt=&quot;打ち歩詰め先手&quot; title=&quot;打ち歩詰め先手&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/utifu_sente.png&quot; alt=&quot;打ち歩詰め先手&quot; width=&quot;320&quot; title=&quot;打ち歩詰め先手&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　この局面で先手が１二歩と打った場合に後手は玉以外の味方の駒（飛車）で同飛と取れるから打ち歩詰めではないと誤った判断をしてしまうのを防止するために、王手で打たれた歩を玉以外の駒（玉で取る場合はチェック済み）で取った場合には、その時点で呼び出す先読みメソッドの戻り値が最大値あるいは最小値だった場合（勝負がついた場合）には−１を掛けて値を反転させる（打ち歩の王手を掛けた方が負け）というやり方です。&lt;strong&gt;打ち歩による王手なら不完全な打ち歩詰め判定メソッドでチェックして、そこで打ち歩詰めと判定されればその手は指さない（事前チェック）、打ち歩詰めでないと判定されてもその手を指した直後（次の階層を読む時）に打ち歩詰めだとわかったら（先読みメソッドの戻り値が最大値か最小値なら）負けの評価値を与える（事後チェック）&lt;/strong&gt;ということです。&lt;br /&gt;
@@ -8285,7 +8285,7 @@ Second Win
 
 &lt;div style=&quot;width:600px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/utifudume_new.png&quot;&gt;&lt;img src=&quot;/images/utifudume_new.png&quot; alt=&quot;ゲーム木 - 打ち歩詰め判定2&quot; title=&quot;ゲーム木 - 打ち歩詰め判定2&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/utifudume_new.png&quot;&gt;&lt;img src=&quot;/images/utifudume_new.png&quot; alt=&quot;ゲーム木 - 打ち歩詰め判定2&quot; width=&quot;600&quot; title=&quot;ゲーム木 - 打ち歩詰め判定2&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -8336,7 +8336,7 @@ Second Win
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/9masu_case1.png&quot;&gt;&lt;img src=&quot;/images/9masu_case1.png&quot; alt=&quot;Arrange02&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/9masu_case1.png&quot;&gt;&lt;img src=&quot;/images/9masu_case1.png&quot; alt=&quot;Arrange02&quot; width=&quot;480&quot; title=&quot;Arrange02&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -8344,7 +8344,7 @@ Second Win
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/9masu_case2.png&quot;&gt;&lt;img src=&quot;/images/9masu_case2.png&quot; alt=&quot;AIレベル＝弱い・普通&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/9masu_case2.png&quot;&gt;&lt;img src=&quot;/images/9masu_case2.png&quot; alt=&quot;AIレベル＝弱い・普通&quot; width=&quot;480&quot; title=&quot;AIレベル＝弱い・普通&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -8352,7 +8352,7 @@ Second Win
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/9masu_case3.png&quot;&gt;&lt;img src=&quot;/images/9masu_case3.png&quot; alt=&quot;AIレベル＝長考・瞑想&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/9masu_case3.png&quot;&gt;&lt;img src=&quot;/images/9masu_case3.png&quot; alt=&quot;AIレベル＝長考・瞑想&quot; width=&quot;480&quot; title=&quot;AIレベル＝長考・瞑想&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -8361,7 +8361,7 @@ Second Win
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/9masu_case4.png&quot;&gt;&lt;img src=&quot;/images/9masu_case4.png&quot; alt=&quot;AIレベル＝長考・瞑想、途中図&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/9masu_case4.png&quot;&gt;&lt;img src=&quot;/images/9masu_case4.png&quot; alt=&quot;AIレベル＝長考・瞑想、途中図&quot; width=&quot;480&quot; title=&quot;AIレベル＝長考・瞑想、途中図&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -8373,7 +8373,7 @@ Second Win
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/9masu_case5.png&quot;&gt;&lt;img src=&quot;/images/9masu_case5.png&quot; alt=&quot;上級編の問題の初期配置&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/9masu_case5.png&quot;&gt;&lt;img src=&quot;/images/9masu_case5.png&quot; alt=&quot;上級編の問題の初期配置&quot; width=&quot;480&quot; title=&quot;上級編の問題の初期配置&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -8381,7 +8381,7 @@ Second Win
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/meisou_depth7.gif&quot;&gt;&lt;img src=&quot;/images/meisou_depth7.gif&quot; alt=&quot;AIレベル＝瞑想９手読み&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/meisou_depth7.gif&quot;&gt;&lt;img src=&quot;/images/meisou_depth7.gif&quot; alt=&quot;AIレベル＝瞑想９手読み&quot; width=&quot;480&quot; title=&quot;AIレベル＝瞑想９手読み&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -8390,7 +8390,7 @@ Second Win
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/meisou_depth9.gif&quot;&gt;&lt;img src=&quot;/images/meisou_depth9.gif&quot; alt=&quot;AIレベル＝瞑想１１手読み&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/meisou_depth9.gif&quot;&gt;&lt;img src=&quot;/images/meisou_depth9.gif&quot; alt=&quot;AIレベル＝瞑想１１手読み&quot; width=&quot;480&quot; title=&quot;瞑想１１手読み&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -8435,7 +8435,7 @@ Second Win
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/55shogi_ex1.png&quot;&gt;&lt;img src=&quot;/images/55shogi_ex1.png&quot; alt=&quot;桂馬を打った局面&quot; title=&quot;桂馬を打った局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/55shogi_ex1.png&quot;&gt;&lt;img src=&quot;/images/55shogi_ex1.png&quot; alt=&quot;桂馬を打った局面&quot; width=&quot;320&quot; title=&quot;桂馬を打った局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -8458,7 +8458,7 @@ Second Win
 &lt;h3 id=&quot;クリップボードを使った棋譜出力&quot;&gt;クリップボードを使った棋譜出力&lt;/h3&gt;
 &lt;p&gt;　Version1.0.2.0から&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式(*.csa)&lt;/a&gt;での棋譜出力が出来るようになりました。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/55shogi_kifu_output.png&quot; alt=&quot;棋譜出力画面&quot; title=&quot;棋譜出力画面&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/55shogi_kifu_output.png&quot; alt=&quot;棋譜出力画面&quot; width=&quot;320&quot; title=&quot;棋譜出力画面&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　左上のチェックマークアイコンをタップすると共有画面（インテント）が表示されるので、クリップボードを選べばテキストファイルを扱えるアプリに棋譜データを貼り付けて保存出来ます。&lt;br /&gt;
@@ -8494,14 +8494,14 @@ P5+OU+KI+GI+KA+HI
 &lt;h3 id=&quot;クリップボードを使った棋譜読み込み&quot;&gt;クリップボードを使った棋譜読み込み&lt;/h3&gt;
 &lt;p&gt;　Version1.0.2.4から&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式(*.csa)&lt;/a&gt;の棋譜入力が出来るようになりました。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/55shogi_kifu_input1.png&quot; alt=&quot;棋譜入力画面１&quot; title=&quot;棋譜入力画面１&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/55shogi_kifu_input1.png&quot; alt=&quot;棋譜入力画面１&quot; width=&quot;320&quot; title=&quot;棋譜入力画面１&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　テキストボックスに棋譜テキストデータを貼り付けて読み込みボタンをタップすれば、棋譜を読み込みます。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;このアプリ&lt;/a&gt;自身が出力した棋譜データは読めますが、他のソフトから出力された棋譜データは読み込みに失敗するかもしれません。エラーが発生した場合はその行数を表示しますので、データを編集して試してください。&lt;br /&gt;
 　※カンマ区切りのマルチステートメントには対応していません。&lt;br /&gt;
 　※たとえ&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式(*.csa)&lt;/a&gt;の棋譜であっても本将棋（９×９）の棋譜は読めません、５五将棋専用です。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/55shogi_kifu_input2.png&quot; alt=&quot;棋譜入力画面２&quot; title=&quot;棋譜入力画面２&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/55shogi_kifu_input2.png&quot; alt=&quot;棋譜入力画面２&quot; width=&quot;320&quot; title=&quot;棋譜入力画面２&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　棋譜を読み込んだ後は通常の対局通り、対局者を変更したり局面を戻して途中から指し継いだり出来ます。&lt;/p&gt;
@@ -8522,7 +8522,7 @@ P5+HI+GI+OU+KI+HI
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/55shogi_illegal_demo.png&quot; alt=&quot;独自定義初期盤面&quot; title=&quot;独自定義初期盤面&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/55shogi_illegal_demo.png&quot; alt=&quot;独自定義初期盤面&quot; width=&quot;320&quot; title=&quot;独自定義初期盤面&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　飛車４枚の盤面がちゃんと表示されました。ここで「再開」ボタンをタップすると通常通りゲームを開始できます。&lt;br /&gt;
@@ -8582,20 +8582,20 @@ P5+HI+GI+OU+KI+HI
 &lt;p&gt;　Version1.0.5.3から駒のフォントに毛筆フォントを選べるようになりました。無料フォントの中でも&lt;a href=&quot;http://today.izmaker.com/blog/technique/3154/&quot;&gt;「衡山毛筆フォント」&lt;/a&gt;のように再配布可能というものはなかなか無いと思います&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/55shogi_menu_font.png&quot; alt=&quot;フォント選択メニュー&quot; title=&quot;フォント選択メニュー&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/55shogi_menu_font.png&quot; alt=&quot;フォント選択メニュー&quot; width=&quot;320&quot; title=&quot;フォント選択メニュー&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;hr /&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/55shogi_font.png&quot; alt=&quot;衡山毛筆フォント&quot; title=&quot;衡山毛筆フォント&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/55shogi_font.png&quot; alt=&quot;衡山毛筆フォント&quot; width=&quot;320&quot; title=&quot;衡山毛筆フォント&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;盤面反転機能追加&quot;&gt;盤面反転機能追加&lt;/h3&gt;
 &lt;p&gt;　Version1.0.9.0から盤面の反転（先手・後手を上下逆さま）表示機能追加しました。画面右上の回転矢印アイコンをタップすると後手を手前にして将棋盤を表示出来ます。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/55shogi_reverse.png&quot; alt=&quot;盤面反転機能&quot; title=&quot;盤面反転機能&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/55shogi_reverse.png&quot; alt=&quot;盤面反転機能&quot; width=&quot;320&quot; title=&quot;盤面反転機能&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　この機能追加により今までAndroid4.4以上が動作対象機種でしたが、Android5.0以上が必要になります。&lt;/p&gt;
@@ -8604,7 +8604,7 @@ P5+HI+GI+OU+KI+HI
 &lt;p&gt;　Version1.0.7.2からPush通知を受信できます。左上右側にあるアイコンをタップすると受信した最新のメッセージを再度表示します。受信したメッセージがないときは何も表示されません。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/push_notification_shogi55.png&quot;&gt;&lt;img src=&quot;/images/push_notification_shogi55.png&quot; alt=&quot;Push通知サンプル&quot; title=&quot;Push通知サンプル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/push_notification_shogi55.png&quot;&gt;&lt;img src=&quot;/images/push_notification_shogi55.png&quot; alt=&quot;Push通知サンプル&quot; width=&quot;320&quot; title=&quot;Push通知サンプル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;局面の評価方法変更&quot;&gt;局面の評価方法変更&lt;/h3&gt;
@@ -8629,7 +8629,7 @@ P5+HI+GI+OU+KI+HI
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/shogi55_menu01.png&quot;&gt;&lt;img src=&quot;/images/shogi55_menu01.png&quot; alt=&quot;初期配置編集&quot; title=&quot;初期配置編集&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/shogi55_menu01.png&quot;&gt;&lt;img src=&quot;/images/shogi55_menu01.png&quot; alt=&quot;初期配置編集&quot; width=&quot;320&quot; title=&quot;初期配置編集&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -8642,7 +8642,7 @@ P5+HI+GI+OU+KI+HI
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/shogi55_menu02.png&quot;&gt;&lt;img src=&quot;/images/shogi55_menu02.png&quot; alt=&quot;初期配置保存&quot; title=&quot;初期配置保存&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/shogi55_menu02.png&quot;&gt;&lt;img src=&quot;/images/shogi55_menu02.png&quot; alt=&quot;初期配置保存&quot; width=&quot;320&quot; title=&quot;初期配置保存&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -8683,7 +8683,7 @@ P5+HI+GI+OU+KI+HI
 &lt;p&gt;　下のような局面で先手が「勝った」と思い２一歩成りと指して相手に玉を取られて負けてしまうなんてことが将棋覚えたての人にはよくあることだと思います（後手も自分が勝ったと気づかなかったり:sweat_smile:）。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/hochi1.png&quot; alt=&quot;王手放置１&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/hochi1.png&quot; alt=&quot;王手放置１&quot; width=&quot;320&quot; title=&quot;王手放置１&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　自分の玉に王手がかかることに気づかずにうっかり自分の駒を動かして王手放置をしてしまうことは初心者によくあることだし、自分も将棋覚えた頃はそういうことを相手と一緒に楽しんでました。「王手に気づくなよ、気づくなよ」と念じながら空き王手したりして楽しんでいたものです。だからわざわざ王手放置を禁止する（指せないようにする）必要もないと思ってアプリを作っていたのですが、ルール上「王手放置は反則」というのであれば他のソフトに倣って対応した方がいいのかもと思えてきました。&lt;br /&gt;
@@ -8694,19 +8694,19 @@ P5+HI+GI+OU+KI+HI
 &lt;h3 id=&quot;どうなればゲーム終了かをソフトに教える必要がある&quot;&gt;どうなればゲーム終了かをソフトに教える必要がある&lt;/h3&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/hochi2.png&quot; alt=&quot;王手放置２&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/hochi2.png&quot; alt=&quot;王手放置２&quot; width=&quot;320&quot; title=&quot;王手放置２&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;span&gt;上の局面は３三将棋の初形から２二銀、２一玉（王手放置）と進んだ局面ですが、ここで先手が後手玉を取ればゲーム終了になりますが、取らずに１三歩と打っても下の図のように後手玉が詰み（王手は掛かっていませんが玉が自爆する手しかない状態、次に王手放置せざるを得ない）となります（version0.9.3.0以前）。&lt;/span&gt;&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/hochi3.png&quot; alt=&quot;王手放置３&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/hochi3.png&quot; alt=&quot;王手放置３&quot; width=&quot;320&quot; title=&quot;王手放置３&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;span&gt;次の例は先手が１三歩ではなく１二歩と打ったケースですが、この場合後手玉は１二に移動出来る余地があるので後手玉は詰みとならずにゲームが継続します（version0.9.3.0以前）。&lt;/span&gt;&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/hochi4.png&quot; alt=&quot;王手放置４&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/hochi4.png&quot; alt=&quot;王手放置４&quot; width=&quot;320&quot; title=&quot;王手放置４&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;span&gt;上の局面は先手の１二歩に対して後手が３二銀と打って先手玉を詰ました局面ですが、手番は先手ですので先手が後手玉を取ればゲーム終了になります（version0.9.3.0以前）。これでいい、玉を取るまで指させればいいじゃないか、と言う人もいると思いますが、某９マス将棋アプリのレビューを読んでいると、「将棋は玉を取るまで指させるもんじゃない」「詰み局面で終了すべき」と言う意見も多く、私も相手玉を取るまでゲームが終わらないことに違和感を感じた一人です。&lt;/span&gt;&lt;br /&gt;
@@ -8717,11 +8717,11 @@ P5+HI+GI+OU+KI+HI
 &lt;h3 id=&quot;ルールを厳格に適用すると&quot;&gt;ルールを厳格に適用すると…&lt;/h3&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/foulplay1.png&quot; alt=&quot;反則１&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/foulplay1.png&quot; alt=&quot;反則１&quot; width=&quot;320&quot; title=&quot;反則１&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;span&gt;上の局面は後手が２一桂と王手を掛けたところです。先手がここで持ち駒の歩を３二に打った場合「二歩」であり「王手放置」であり「打ち歩詰め」でもあります。&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/foulplay2.png&quot; alt=&quot;反則２&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/foulplay2.png&quot; alt=&quot;反則２&quot; width=&quot;320&quot; title=&quot;反則２&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;span&gt;上の局面は後手が２二角と王手を掛けたところです。先手がここで持ち駒の歩を３一に打った場合「二歩」であり「王手放置」であり「行き場の無い駒を打つ」という反則でもあります。&lt;/span&gt;&lt;/p&gt;
 
@@ -8760,13 +8760,13 @@ P5+HI+GI+OU+KI+HI
 &lt;h3 id=&quot;上記の判定では不十分なケース&quot;&gt;上記の判定では不十分なケース&lt;/h3&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/utifu_gote.png&quot; alt=&quot;打ち歩詰め後手&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/utifu_gote.png&quot; alt=&quot;打ち歩詰め後手&quot; width=&quot;320&quot; title=&quot;打ち歩詰め後手&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;span&gt;上の局面で後手が３二に歩を打つと打ち歩詰めですが、上記の打ち歩詰め判定では相手の駒（２三の角）で打ち歩を取ることが出来るので打ち歩詰めではないと判定してしまいます。後手の飛車の利きが相手玉を睨んでいるにも関わらずです。&lt;/span&gt;&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/utifu_sente.png&quot; alt=&quot;打ち歩詰め先手&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/utifu_sente.png&quot; alt=&quot;打ち歩詰め先手&quot; width=&quot;320&quot; title=&quot;打ち歩詰め先手&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;span&gt;次の例では先手が１二に歩を打つと角が利いているので後手は２二の飛車でその歩を取ることが出来ません。ゆえにこの「１二歩打ち」も打ち歩詰めですが、上記の打ち歩詰め判定ロジックでは飛車で歩が取れるから打ち歩詰めではないと判定してしまいます。&lt;/span&gt;&lt;/p&gt;
@@ -8831,7 +8831,7 @@ P5+HI+GI+OU+KI+HI
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/shogi33_menu01.png&quot;&gt;&lt;img src=&quot;/images/shogi33_menu01.png&quot; alt=&quot;初期配置編集&quot; title=&quot;初期配置編集&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/shogi33_menu01.png&quot;&gt;&lt;img src=&quot;/images/shogi33_menu01.png&quot; alt=&quot;初期配置編集&quot; width=&quot;320&quot; title=&quot;初期配置編集&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -8844,7 +8844,7 @@ P5+HI+GI+OU+KI+HI
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/shogi33_menu02.png&quot;&gt;&lt;img src=&quot;/images/shogi33_menu02.png&quot; alt=&quot;初期配置保存&quot; title=&quot;初期配置保存&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/shogi33_menu02.png&quot;&gt;&lt;img src=&quot;/images/shogi33_menu02.png&quot; alt=&quot;初期配置保存&quot; width=&quot;320&quot; title=&quot;初期配置保存&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -8855,7 +8855,7 @@ P5+HI+GI+OU+KI+HI
 &lt;h3 id=&quot;対局画面&quot;&gt;対局画面&lt;/h3&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/33shogi_battle.png&quot; alt=&quot;対戦画面&quot; title=&quot;対戦画面&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/33shogi_battle.png&quot; alt=&quot;対戦画面&quot; width=&quot;320&quot; title=&quot;対戦画面&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;span&gt;ＡＩ同士の対戦の時だけ局面の評価値を表示するようにしています。左上の数値は手数です。&lt;/span&gt;&lt;/p&gt;
 
@@ -8863,7 +8863,7 @@ P5+HI+GI+OU+KI+HI
 &lt;p&gt;　Version1.1.2.0から盤面の反転（先手・後手を上下逆さま）表示機能追加しました。画面右上の回転矢印アイコンをタップすると後手を手前にして将棋盤を表示出来ます。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/33shogi_reverse.png&quot; alt=&quot;盤面反転機能&quot; title=&quot;盤面反転機能&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/33shogi_reverse.png&quot; alt=&quot;盤面反転機能&quot; width=&quot;320&quot; title=&quot;盤面反転機能&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　この機能追加により今までAndroid4.4以上が動作対象機種でしたが、Android5.0以上が必要になります。&lt;/p&gt;
@@ -8875,7 +8875,7 @@ P5+HI+GI+OU+KI+HI
 
 &lt;p&gt;&lt;span&gt;ＡＩレベルは４通りから選べます。&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/33shogi_player.png&quot; alt=&quot;Menu - 先手・後手&quot; title=&quot;Menu - 先手・後手&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/33shogi_player.png&quot; alt=&quot;Menu - 先手・後手&quot; width=&quot;320&quot; title=&quot;Menu - 先手・後手&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;ul&gt;
@@ -8884,17 +8884,17 @@ P5+HI+GI+OU+KI+HI
 
 &lt;p&gt;&lt;span&gt;ここで選んだ後に盤面編集して保存すると、この画面に反映されます。&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/33shogi_placement.png&quot; alt=&quot;Menu - 初期配置&quot; title=&quot;Menu - 初期配置&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/33shogi_placement.png&quot; alt=&quot;Menu - 初期配置&quot; width=&quot;320&quot; title=&quot;Menu - 初期配置&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;span&gt;「初期配置」のタブをタップして一度閉じてから再度タップすると、現在選択中の初期配置パターンの位置まで選択リスト画面がスクロールします。&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/shogi33_menu03.png&quot; alt=&quot;Menu - 選択中の初期配置１&quot; title=&quot;Menu - 選択中の初期配置１&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/shogi33_menu03.png&quot; alt=&quot;Menu - 選択中の初期配置１&quot; width=&quot;320&quot; title=&quot;Menu - 選択中の初期配置１&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;hr /&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/shogi33_menu04.png&quot; alt=&quot;Menu - 選択中の初期配置２&quot; title=&quot;Menu - 選択中の初期配置２&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/shogi33_menu04.png&quot; alt=&quot;Menu - 選択中の初期配置２&quot; width=&quot;320&quot; title=&quot;Menu - 選択中の初期配置２&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;ul&gt;
@@ -8904,13 +8904,13 @@ P5+HI+GI+OU+KI+HI
 &lt;p&gt;　初期配置パターンが１００を超えてきたので、Version1.0.2.6から初期配置検索機能を付けました。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/menu_search1.png&quot; alt=&quot;Menu - 初期配置検索&quot; title=&quot;Menu - 初期配置検索&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/menu_search1.png&quot; alt=&quot;Menu - 初期配置検索&quot; width=&quot;320&quot; title=&quot;Menu - 初期配置検索&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　駒を選択して検索ボタンを押下すると、持ち駒あるいは盤上にその駒を使用している初期配置がリストアップされます。駒の選択条件はアンド（＆）検索になっているので、例えば「角」と「香」を選んで検索すると「角」も「香」も使用されている初期配置だけが検索結果に表示されます。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/menu_search2.png&quot; alt=&quot;Menu - 初期配置検索結果&quot; title=&quot;Menu - 初期配置検索結果&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/menu_search2.png&quot; alt=&quot;Menu - 初期配置検索結果&quot; width=&quot;320&quot; title=&quot;Menu - 初期配置検索結果&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;多言語対応&quot;&gt;多言語対応&lt;/h3&gt;
@@ -8924,7 +8924,7 @@ P5+HI+GI+OU+KI+HI
   &lt;li&gt;棋譜出力&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/33shogi_kifu_output.png&quot; alt=&quot;棋譜出力画面&quot; title=&quot;棋譜出力画面&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/33shogi_kifu_output.png&quot; alt=&quot;棋譜出力画面&quot; width=&quot;320&quot; title=&quot;棋譜出力画面&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　左上の&lt;del&gt;チェックマーク&lt;/del&gt;ファイルアイコンをタップすると共有画面（インテント）が表示されるので、クリップボードやテキストファイルを扱えるアプリ（自分は&lt;a href=&quot;https://play.google.com/store/apps/details?id=jp.sblo.pandora.jota&quot;&gt;Jota Text Editorというアプリ&lt;/a&gt;を使ってます）を選べば棋譜データを貼り付けて保存出来ます。&lt;br /&gt;
@@ -8955,14 +8955,14 @@ P-00KE
   &lt;li&gt;棋譜入力&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/33shogi_kifu_input1.png&quot; alt=&quot;棋譜入力画面１&quot; title=&quot;棋譜入力画面１&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/33shogi_kifu_input1.png&quot; alt=&quot;棋譜入力画面１&quot; width=&quot;320&quot; title=&quot;棋譜入力画面１&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　テキストボックスに棋譜テキストデータを貼り付けて読み込みボタンをタップすれば、棋譜を読み込みます。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;このアプリ&lt;/a&gt;自身が出力した棋譜データは読めますが、他のソフトから出力された棋譜データや自前で作成した棋譜データは読み込みに失敗するかもしれません。エラーが発生した場合はその行数を表示しますので、データを編集して試してください。&lt;br /&gt;
 　※カンマ区切りのマルチステートメントには対応していません。&lt;br /&gt;
 　※たとえ&lt;a href=&quot;http://www2.computer-shogi.org/protocol/record_v22.html&quot;&gt;CSA形式(*.csa)&lt;/a&gt;の棋譜であっても本将棋（９×９）の棋譜は読めません、３三将棋専用です。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/33shogi_kifu_input2.png&quot; alt=&quot;棋譜入力画面２&quot; title=&quot;棋譜入力画面２&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/33shogi_kifu_input2.png&quot; alt=&quot;棋譜入力画面２&quot; width=&quot;320&quot; title=&quot;棋譜入力画面２&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　棋譜を読み込んだ後は通常の対局通り、対局者を変更したり局面を戻して途中から指し継いだり出来ます。&lt;/p&gt;
@@ -8981,7 +8981,7 @@ P-00GI00GI
 
 &lt;p&gt;　&lt;code&gt;P&lt;/code&gt;に続く&lt;strong&gt;盤面データ&lt;/strong&gt;と&lt;strong&gt;持ち駒データ&lt;/strong&gt;、それに続く&lt;strong&gt;手番データ&lt;/strong&gt;の３つを記述すれば読み込んで対局可能です。駒の無い升目は&lt;code&gt; * &lt;/code&gt;（スペース＋アスタリスク＋スペースの３バイト）で、持ち駒は&lt;code&gt;00&lt;/code&gt;に続けて駒の略号を記述します。駒の略号についてはこのページの「駒の動きガイド」の表かアプリ内にある「駒の動き」メニューを参照してください。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/33shogi_kifu_input0.png&quot; alt=&quot;棋譜入力画面&quot; title=&quot;棋譜入力画面&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/33shogi_kifu_input0.png&quot; alt=&quot;棋譜入力画面&quot; width=&quot;320&quot; title=&quot;棋譜入力画面&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　必要最小限の上記データを読み込んだ直後の画面です。ここで「再開」ボタンをタップすると通常通りゲームを開始できます。&lt;br /&gt;
@@ -9101,20 +9101,20 @@ P-00HI00FU
 &lt;p&gt;　Version1.0.7.3から駒のフォントに毛筆フォントを選べるようになりました。無料フォントの中でも&lt;a href=&quot;http://today.izmaker.com/blog/technique/3154/&quot;&gt;「衡山毛筆フォント」&lt;/a&gt;のように再配布可能というものはなかなか無いと思います。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/33shogi_menu_font.png&quot; alt=&quot;フォント選択メニュー&quot; title=&quot;フォント選択メニュー&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/33shogi_menu_font.png&quot; alt=&quot;フォント選択メニュー&quot; width=&quot;320&quot; title=&quot;フォント選択メニュー&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;hr /&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/33shogi_font.png&quot; alt=&quot;衡山毛筆フォント&quot; title=&quot;衡山毛筆フォント&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/33shogi_font.png&quot; alt=&quot;衡山毛筆フォント&quot; width=&quot;320&quot; title=&quot;衡山毛筆フォント&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;push通知対応&quot;&gt;Push通知対応&lt;/h3&gt;
 &lt;p&gt;　Version1.0.9.2からPush通知を受信できます。左上右側にあるアイコンをタップすると受信した最新のメッセージを再度表示します。受信したメッセージがないときは何も表示されません。&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/push_notification.png&quot;&gt;&lt;img src=&quot;/images/push_notification.png&quot; alt=&quot;Push通知サンプル&quot; title=&quot;Push通知サンプル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/push_notification.png&quot;&gt;&lt;img src=&quot;/images/push_notification.png&quot; alt=&quot;Push通知サンプル&quot; width=&quot;320&quot; title=&quot;Push通知サンプル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;自動保存機能追加&quot;&gt;自動保存機能追加&lt;/h3&gt;
@@ -9135,7 +9135,7 @@ P-00HI00FU
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/shogi33class.png&quot;&gt;&lt;img src=&quot;/images/shogi33class.png&quot; alt=&quot;クラス図&quot; title=&quot;クラス図&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/shogi33class.png&quot;&gt;&lt;img src=&quot;/images/shogi33class.png&quot; alt=&quot;クラス図&quot; width=&quot;480&quot; title=&quot;クラス図&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -9151,7 +9151,7 @@ P-00HI00FU
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/shogi33cui.png&quot;&gt;&lt;img src=&quot;/images/shogi33cui.png&quot; alt=&quot;CUI版&quot; title=&quot;CUI版&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/shogi33cui.png&quot;&gt;&lt;img src=&quot;/images/shogi33cui.png&quot; alt=&quot;CUI版&quot; width=&quot;480&quot; title=&quot;CUI版&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -9258,13 +9258,13 @@ P-00HI00FU
 &lt;/ul&gt;
 
 &lt;div style=&quot;width:640px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/van_serial.png&quot; alt=&quot;メイン画面&quot; title=&quot;メイン画面&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/van_serial.png&quot; alt=&quot;メイン画面&quot; width=&quot;640&quot; title=&quot;メイン画面&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;span&gt;上記のようにゲームが進行した場合、ｘのラインを揃えようとして下段真ん中をタッチしても
 三手前の×が消えるので×のラインは揃わず、逆に◯を揃えられて負けてしまいます。&lt;/span&gt;&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/tictactoe-van-win.png&quot; alt=&quot;メイン画面&quot; title=&quot;メイン画面&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/tictactoe-van-win.png&quot; alt=&quot;メイン画面&quot; width=&quot;320&quot; title=&quot;メイン画面&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;ul&gt;
@@ -9278,10 +9278,10 @@ P-00HI00FU
 
 &lt;p&gt;&lt;span&gt;学習機能 On/Off を選択します。Onにするとゲームを終了する度に学習データを書き込むための時間が必要になります&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/menu_learning.png&quot; alt=&quot;Menu - 学習機能&quot; title=&quot;Menu - 学習機能&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/menu_learning.png&quot; alt=&quot;Menu - 学習機能&quot; width=&quot;320&quot; title=&quot;Menu - 学習機能&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/saving_message.png&quot; alt=&quot;学習データ保存中ダイアログ&quot; title=&quot;学習データ保存中ダイアログ&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/saving_message.png&quot; alt=&quot;学習データ保存中ダイアログ&quot; width=&quot;320&quot; title=&quot;学習データ保存中ダイアログ&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;span&gt;「Saving Learning Data…」のダイアログ表示中に次のゲームを開始する等の操作をすることはタイミング次第で出来なくはないですが、アプリがファイルを書きこんでいる最中はすべての操作が出来なくなります。&lt;/span&gt;&lt;/p&gt;
 
@@ -9297,11 +9297,11 @@ P-00HI00FU
 &lt;/ul&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/menu_difficulty.png&quot; alt=&quot;Menu - 難易度&quot; title=&quot;Menu - 難易度&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/menu_difficulty.png&quot; alt=&quot;Menu - 難易度&quot; width=&quot;320&quot; title=&quot;Menu - 難易度&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div style=&quot;width:640px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/van-easy.png&quot; alt=&quot;メイン画面 - Easyモード&quot; title=&quot;メイン画面 - Easyモード&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/van-easy.png&quot; alt=&quot;メイン画面 - Easyモード&quot; width=&quot;320&quot; title=&quot;メイン画面 - Easyモード&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;span&gt;Easyモードに設定した場合、上記のよう古い駒（×、◯）が徐々に薄く描画されます。次にどの駒が消えるか覚えなくてもいいので戦い易くなります。AIの指し手の選択自体はNormalモードもEasyモードも違いはありません。&lt;/span&gt;&lt;/p&gt;
 
@@ -9311,7 +9311,7 @@ P-00HI00FU
 
 &lt;p&gt;&lt;span&gt;Easyモード、Normalモードそれぞれの対戦成績を表示します。&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/menu_records.png&quot; alt=&quot;Menu - 対戦成績&quot; title=&quot;Menu - 対戦成績&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/menu_records.png&quot; alt=&quot;Menu - 対戦成績&quot; width=&quot;320&quot; title=&quot;Menu - 対戦成績&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;学習データ&quot;&gt;学習データ&lt;/h3&gt;
@@ -10691,7 +10691,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;div style=&quot;width:600px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/tictactoe.png&quot;&gt;&lt;img src=&quot;/images/tictactoe.png&quot; alt=&quot;消える三目並べゲーム木&quot; width=&quot;600&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/tictactoe.png&quot;&gt;&lt;img src=&quot;/images/tictactoe.png&quot; alt=&quot;消える三目並べゲーム木&quot; width=&quot;600&quot; title=&quot;消える三目並べゲーム木&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -10910,7 +10910,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/texturepacker1.png&quot;&gt;&lt;img src=&quot;/images/texturepacker1.png&quot; alt=&quot;TexturePacker起動画面&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/texturepacker1.png&quot;&gt;&lt;img src=&quot;/images/texturepacker1.png&quot; alt=&quot;TexturePacker起動画面&quot; width=&quot;480&quot; title=&quot;Texture Packer 起動画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -10919,7 +10919,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/texturepacker2.png&quot;&gt;&lt;img src=&quot;/images/texturepacker2.png&quot; alt=&quot;ドラッグ＆ドロップ後画面&quot; width=&quot;480&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/texturepacker2.png&quot;&gt;&lt;img src=&quot;/images/texturepacker2.png&quot; alt=&quot;ドラッグ＆ドロップ後画面&quot; width=&quot;480&quot; title=&quot;ドラッグ＆ドロップ後画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -11019,7 +11019,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/test.png&quot;&gt;&lt;img src=&quot;/images/test.png&quot; alt=&quot;サンプルで使用したスプライトシート&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/test.png&quot;&gt;&lt;img src=&quot;/images/test.png&quot; alt=&quot;サンプルで使用したスプライトシート&quot; width=&quot;320&quot; title=&quot;サンプルで使用したスプライトシート&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -11152,7 +11152,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;span&gt;タッチエフェクト（バージョン1.3.6以降）&lt;/span&gt;
-&lt;a href=&quot;/images/touch-effects.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/touch-effects.png&quot; alt=&quot;タッチエフェクト&quot; title=&quot;タッチエフェクト&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;/images/touch-effects.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/touch-effects.png&quot; alt=&quot;タッチエフェクト&quot; width=&quot;320&quot; title=&quot;タッチエフェクト&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;手番表示機能追加ver136&quot;&gt;手番表示機能追加（ver1.3.6）&lt;/h3&gt;
@@ -11160,7 +11160,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;div style=&quot;width:220px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;span&gt;手番表示（バージョン1.3.6以降）&lt;/span&gt;
-&lt;a href=&quot;/images/next-turn.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/next-turn.png&quot; alt=&quot;手番表示&quot; title=&quot;手番表示&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;/images/next-turn.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/next-turn.png&quot; alt=&quot;手番表示&quot; width=&quot;220&quot; title=&quot;手番表示&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;twitter投稿機能追加ver135&quot;&gt;Twitter投稿機能追加（ver1.3.5）&lt;/h3&gt;
@@ -11168,7 +11168,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;div style=&quot;width:220px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;span&gt;Twitter投稿ボタン追加&lt;br /&gt;（バージョン1.3.5以降）&lt;/span&gt;
-&lt;a href=&quot;/images/twitter_button.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/twitter_button.png&quot; alt=&quot;Twitterボタンスクリーンショット&quot; title=&quot;Twitter投稿ボタン追加&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;/images/twitter_button.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/twitter_button.png&quot; alt=&quot;Twitterボタンスクリーンショット&quot; width=&quot;220&quot; title=&quot;Twitter投稿ボタン追加&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;学習速度の向上ver130&quot;&gt;学習速度の向上（ver1.3.0）&lt;/h3&gt;
@@ -11176,13 +11176,13 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;span&gt;ウナギに進化するまで約2,000回対戦&lt;br /&gt;（1.3.0以前のバージョン）&lt;/span&gt;
-&lt;a href=&quot;/images/eel_old.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/eel_old.png&quot; alt=&quot;旧バージョンスクリーンショット&quot; title=&quot;1.3.0以前のスクリーンショット&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;/images/eel_old.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/eel_old.png&quot; alt=&quot;旧バージョンスクリーンショット&quot; width=&quot;320&quot; title=&quot;1.3.0以前のスクリーンショット&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;span&gt;約600回の対戦でウナギに進化&lt;br /&gt;（バージョン1.3.0以降）&lt;/span&gt;
-&lt;a href=&quot;/images/eel_new.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/eel_new.png&quot; alt=&quot;新バージョンスクリーンショット&quot; title=&quot;1.3.0以降のスクリーンショット&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;/images/eel_new.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/eel_new.png&quot; alt=&quot;新バージョンスクリーンショット&quot; width=&quot;320&quot; title=&quot;1.3.0以降のスクリーンショット&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -11197,7 +11197,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/ad_setting.png&quot;&gt;&lt;img src=&quot;/images/ad_setting.png&quot; alt=&quot;アプリの広告設定&quot; title=&quot;アプリの広告設定&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ad_setting.png&quot;&gt;&lt;img src=&quot;/images/ad_setting.png&quot; alt=&quot;アプリの広告設定&quot; width=&quot;320&quot; title=&quot;アプリの広告設定&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -11551,7 +11551,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/screen_degree.png&quot;&gt;&lt;img src=&quot;/images/screen_degree.png&quot; alt=&quot;進化度合い&quot; title=&quot;進化度合い&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/screen_degree.png&quot;&gt;&lt;img src=&quot;/images/screen_degree.png&quot; alt=&quot;進化度合い&quot; width=&quot;320&quot; title=&quot;進化度合い&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -11564,7 +11564,7 @@ if (typeof contentLoaded != &quot;undefined&quot;) {
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/screen_initialize.png&quot;&gt;&lt;img src=&quot;/images/screen_initialize.png&quot; alt=&quot;データの初期化&quot; title=&quot;データの初期化画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/screen_initialize.png&quot;&gt;&lt;img src=&quot;/images/screen_initialize.png&quot; alt=&quot;データの初期化&quot; width=&quot;320&quot; title=&quot;データの初期化画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -11659,7 +11659,7 @@ Kind regards Andreas Loew&lt;br /&gt;&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
   &lt;p&gt;&lt;span&gt;３三将棋の初期盤面&lt;/span&gt;
-&lt;a href=&quot;/images/33shogi_screen_00.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/33shogi_screen_00.png&quot; alt=&quot;３三将棋の初期盤面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;/images/33shogi_screen_00.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/33shogi_screen_00.png&quot; alt=&quot;３三将棋の初期盤面&quot; width=&quot;320&quot; title=&quot;３三将棋の初期盤面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -11736,7 +11736,7 @@ Kind regards Andreas Loew&lt;br /&gt;&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/mugen_sanmoku.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/mugen_sanmoku.png&quot; alt=&quot;無限三目並べの実行画面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/mugen_sanmoku.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/mugen_sanmoku.png&quot; alt=&quot;無限三目並べの実行画面&quot; width=&quot;320&quot; title=&quot;無限三目並べの実行画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -11921,7 +11921,7 @@ class Sample
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/settimeout.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/settimeout.png&quot; alt=&quot;setTimeoutを使ったサンプル&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/settimeout.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/settimeout.png&quot; alt=&quot;setTimeoutを使ったサンプル&quot; width=&quot;320&quot; title=&quot;SetTimeoutを使ったサンプル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -12058,7 +12058,7 @@ catch e
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/activite_band.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/activite_band.png&quot; alt=&quot;Withings Activitéの輪ゴム&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/activite_band.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/activite_band.png&quot; alt=&quot;Withings Activitéの輪ゴム&quot; width=&quot;320&quot; title=&quot;Withings Activité内部の輪ゴム&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -12066,7 +12066,7 @@ catch e
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/activite_mini.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/activite_mini.png&quot; alt=&quot;Withings Activitéの輪ゴムの代用品？&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/activite_mini.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/activite_mini.png&quot; alt=&quot;Withings Activitéの輪ゴムの代用品？&quot; width=&quot;320&quot; title=&quot;Withings Activitéの輪ゴムの代用品？&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -12140,7 +12140,7 @@ URL: https://app.rakuten.co.jp/services/api/Kobo/EbookSearch/20140811?applicatio
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/kwlchecker.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/kwlchecker.png&quot; alt=&quot;kwl-checker&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/kwlchecker.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/kwlchecker.png&quot; alt=&quot;kwl-checker&quot; width=&quot;320&quot; title=&quot;KWL新着チェッカー&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -12170,7 +12170,7 @@ URL: https://app.rakuten.co.jp/services/api/Kobo/EbookSearch/20140811?applicatio
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/epson_setting.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/epson_setting.png&quot; alt=&quot;ネットワーク診断レポート&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/epson_setting.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/epson_setting.png&quot; alt=&quot;ネットワーク診断レポート&quot; width=&quot;320&quot; title=&quot;ネットワーク診断レポート&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -12186,7 +12186,7 @@ URL: https://app.rakuten.co.jp/services/api/Kobo/EbookSearch/20140811?applicatio
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/epson_direct.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/epson_direct.png&quot; alt=&quot;Wi-Fi Direct&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/epson_direct.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/epson_direct.png&quot; alt=&quot;Wi-Fi Direct&quot; width=&quot;320&quot; title=&quot;Wi-Fi Direct&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -12303,7 +12303,7 @@ $adb install -r ./Release/android/Tictactoe-release1-3-2.apk
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/screenshot_googleplay.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/screenshot_googleplay.png&quot; alt=&quot;GooglePlayAPK画面&quot; title=&quot;Google Play APK画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/screenshot_googleplay.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/screenshot_googleplay.png&quot; alt=&quot;GooglePlayAPK画面&quot; width=&quot;320&quot; title=&quot;Google Play APK画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -12395,7 +12395,7 @@ Googleで検索したところ、上記エラーは&lt;code&gt;npm link express&
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/screenshot_unbeaten.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/screenshot_unbeaten.png&quot; alt=&quot;ランキング表示画面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/screenshot_unbeaten.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/screenshot_unbeaten.png&quot; alt=&quot;ランキング表示画面&quot; width=&quot;320&quot; title=&quot;三目並べ「無敗」ランキング表示画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -13030,7 +13030,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/shortest.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/shortest.png&quot; alt=&quot;短手数ほど報酬＆罰を増やす&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/shortest.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/shortest.png&quot; alt=&quot;短手数ほど報酬＆罰を増やす&quot; width=&quot;320&quot; title=&quot;短手数ほど報酬＆罰を増やす&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -13180,7 +13180,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/log-linear3.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/log-linear3.png&quot; alt=&quot;曲線回帰、初期値のみ&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/log-linear3.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/log-linear3.png&quot; alt=&quot;曲線回帰、初期値のみ&quot; width=&quot;320&quot; title=&quot;曲線回帰、初期値のみ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -13385,7 +13385,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/linear.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/linear.png&quot; alt=&quot;回帰直線&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/linear.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/linear.png&quot; alt=&quot;回帰直線&quot; width=&quot;320&quot; title=&quot;回帰直線&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -13471,7 +13471,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/log-linear1.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/log-linear1.png&quot; alt=&quot;曲線回帰、小&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/log-linear1.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/log-linear1.png&quot; alt=&quot;曲線回帰、小&quot; width=&quot;320&quot; title=&quot;曲線回帰、小&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -13566,7 +13566,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/log-linear2.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/log-linear2.png&quot; alt=&quot;曲線回帰、大&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/log-linear2.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/log-linear2.png&quot; alt=&quot;曲線回帰、大&quot; width=&quot;320&quot; title=&quot;曲線回帰、大&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -13613,7 +13613,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/logarithm.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/logarithm.png&quot; alt=&quot;対数方程式&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/logarithm.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/logarithm.png&quot; alt=&quot;対数方程式&quot; width=&quot;320&quot; title=&quot;対数方程式&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -14405,7 +14405,7 @@ end until buf == nil
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/goback.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/goback.png&quot; alt=&quot;スクリプト実行結果&quot; title=&quot;スクリプト実行結果&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/goback.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/goback.png&quot; alt=&quot;スクリプト実行結果&quot; width=&quot;480&quot; title=&quot;スクリプト実行結果&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -14485,7 +14485,7 @@ end until buf == nil
 
 &lt;div style=&quot;width:600px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/dfs_tree.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/dfs_tree.png&quot; alt=&quot;DFSの先読み順序&quot; width=&quot;600&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/dfs_tree.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/dfs_tree.png&quot; alt=&quot;DFSの先読み順序&quot; width=&quot;600&quot; title=&quot;DFSの先読み順序&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -14495,7 +14495,7 @@ end until buf == nil
 
 &lt;div style=&quot;width:600px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/bfs_tree.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/bfs_tree.png&quot; alt=&quot;BFSの先読み順序&quot; width=&quot;600&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/bfs_tree.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/bfs_tree.png&quot; alt=&quot;BFSの先読み順序&quot; width=&quot;600&quot; title=&quot;BFSの先読み順序&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -14545,7 +14545,7 @@ end until buf == nil
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/withings_screenshot.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/withings_screenshot.png&quot; alt=&quot;Withingsのグラフ&quot; title=&quot;Withingsのグラフ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/withings_screenshot.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/withings_screenshot.png&quot; alt=&quot;Withingsのグラフ&quot; width=&quot;320&quot; title=&quot;Withingsのグラフ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -14555,7 +14555,7 @@ end until buf == nil
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/nocturia_screenshot.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/nocturia_screenshot.png&quot; alt=&quot;夜間頻尿診断グラフ&quot; title=&quot;夜間頻尿診断グラフ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/nocturia_screenshot.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/nocturia_screenshot.png&quot; alt=&quot;夜間頻尿診断グラフ&quot; width=&quot;320&quot; title=&quot;夜間頻尿診断グラフ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -14629,7 +14629,7 @@ end until buf == nil
 
 &lt;div style=&quot;width:160px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/activite_setup.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/activite_setup.png&quot; alt=&quot;セットアップ完了&quot; title=&quot;セットアップ完了&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/activite_setup.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/activite_setup.png&quot; alt=&quot;セットアップ完了&quot; width=&quot;160&quot; title=&quot;セットアップ完了&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -14638,7 +14638,7 @@ end until buf == nil
 
 &lt;div style=&quot;width:160px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/activite_sleeping.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/activite_sleeping.png&quot; alt=&quot;日毎の睡眠パターン&quot; title=&quot;日毎の睡眠パターン&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/activite_sleeping.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/activite_sleeping.png&quot; alt=&quot;日毎の睡眠パターン&quot; width=&quot;160&quot; title=&quot;日毎の睡眠パターン&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -14713,7 +14713,7 @@ pp result
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/activite_screenshot.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/activite_screenshot.png&quot; alt=&quot;スクリプト実行結果&quot; title=&quot;スクリプト実行結果&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/activite_screenshot.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/activite_screenshot.png&quot; alt=&quot;スクリプト実行結果&quot; width=&quot;320&quot; title=&quot;スクリプト実行結果&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -14755,7 +14755,7 @@ pp result
   &lt;table rules=&quot;groups&quot;&gt;
     &lt;tbody&gt;
       &lt;tr&gt;
-        &lt;td&gt;&lt;a href=&quot;/images/defaultfont_img.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/defaultfont_img.png&quot; alt=&quot;ドキュメントデフォルト&quot; title=&quot;ドキュメントデフォルトの文字化け状態&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&quot;/images/defaultfont_img.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/defaultfont_img.png&quot; alt=&quot;ドキュメントデフォルト&quot; width=&quot;320&quot; title=&quot;ドキュメントデフォルトの文字化け状態&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;td&gt;&lt;a href=&quot;/images/fixedfont_img.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/fixedfont_img.png&quot; alt=&quot;モリサワゴシック&quot; title=&quot;モリサワゴシックフォント選択後&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
       &lt;/tr&gt;
     &lt;/tbody&gt;
@@ -14768,7 +14768,7 @@ pp result
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/encoding_error.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/encoding_error.png&quot; alt=&quot;Wikipediaのエラーページ&quot; title=&quot;koboで表示されたWikipediaのエラーページ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/encoding_error.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/encoding_error.png&quot; alt=&quot;Wikipediaのエラーページ&quot; width=&quot;320&quot; title=&quot;koboで表示されたWikipediaのエラーページ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -14777,7 +14777,7 @@ pp result
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/browser_launch.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/browser_launch.png&quot; alt=&quot;リンクをタップした時のダイアログ&quot; title=&quot;koboでリンクをタップした時のダイアログ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/browser_launch.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/browser_launch.png&quot; alt=&quot;リンクをタップした時のダイアログ&quot; width=&quot;320&quot; title=&quot;koboでリンクをタップした時のダイアログ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -15132,13 +15132,13 @@ exports.mypage = function(req, res){
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/macbook_samp0.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/macbook_samp0.png&quot; alt=&quot;MacBook 12-inch Space Gray 512GB&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/macbook_samp0.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/macbook_samp0.png&quot; alt=&quot;MacBook 12-inch Space Gray 512GB&quot; width=&quot;320&quot; title=&quot;MacBook 12-inch Space Gray 512GB&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/macbook_samp1.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/macbook_samp1.png&quot; alt=&quot;MacBook 12-inch Space Gray 512GB&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/macbook_samp1.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/macbook_samp1.png&quot; alt=&quot;MacBook 12-inch Space Gray 512GB&quot; width=&quot;320&quot; title=&quot;MacBook 12-inch Space Gray 512GB&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -15200,7 +15200,7 @@ exports.mypage = function(req, res){
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/comp_vaio.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/comp_vaio.png&quot; alt=&quot;MacBook 12-inch and Vaio P&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/comp_vaio.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/comp_vaio.png&quot; alt=&quot;MacBook 12-inch and Vaio P&quot; width=&quot;320&quot; title=&quot;VaioPとの比較&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -15353,7 +15353,7 @@ window.cancelRequestAnimFrame = (-&amp;gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/animation.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/animation.png&quot; alt=&quot;実機画面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/animation.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/animation.png&quot; alt=&quot;実機画面&quot; width=&quot;320&quot; title=&quot;実機（gl07s）で動作確認&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -15363,7 +15363,7 @@ window.cancelRequestAnimFrame = (-&amp;gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/3mokunarabe.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/3mokunarabe.png&quot; alt=&quot;三目並べアプリ画面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/3mokunarabe.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/3mokunarabe.png&quot; alt=&quot;三目並べアプリ画面&quot; width=&quot;320&quot; title=&quot;実機（gl07s）で三目並べアプリ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -15445,7 +15445,7 @@ cordova platform add android
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/tictactoe_emulator.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/tictactoe_emulator.png&quot; alt=&quot;エミュレータ画面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/tictactoe_emulator.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/tictactoe_emulator.png&quot; alt=&quot;エミュレータ画面&quot; width=&quot;320&quot; title=&quot;エミュレータで動作確認&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -15454,7 +15454,7 @@ cordova platform add android
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/tictactoe_gl07s.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/tictactoe_gl07s.png&quot; alt=&quot;実機画面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/tictactoe_gl07s.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/tictactoe_gl07s.png&quot; alt=&quot;実機画面&quot; width=&quot;320&quot; title=&quot;実機（gl07s）で動作確認&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -15593,7 +15593,7 @@ rails s
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/scaffold_edit.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/scaffold_edit.png&quot; alt=&quot;scaffold 編集画面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/scaffold_edit.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/scaffold_edit.png&quot; alt=&quot;scaffold 編集画面&quot; width=&quot;320&quot; title=&quot;scaffold 編集画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -15636,7 +15636,7 @@ $('#status').html(&quot;&amp;lt;%= j(@status) %&amp;gt;&quot;);
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/invalidauthenticitytoken.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/invalidauthenticitytoken.png&quot; alt=&quot;InvalidAuthenticityTokenエラー画面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/invalidauthenticitytoken.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/invalidauthenticitytoken.png&quot; alt=&quot;InvalidAuthenticityTokenエラー画面&quot; width=&quot;320&quot; title=&quot;InvalidAuthenticityTokenエラー画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -15644,7 +15644,7 @@ $('#status').html(&quot;&amp;lt;%= j(@status) %&amp;gt;&quot;);
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/templatemissing.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/templatemissing.png&quot; alt=&quot;Template Missing エラー画面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/templatemissing.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/templatemissing.png&quot; alt=&quot;Template Missing エラー画面&quot; width=&quot;320&quot; title=&quot;Template Missing エラー画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -15652,7 +15652,7 @@ $('#status').html(&quot;&amp;lt;%= j(@status) %&amp;gt;&quot;);
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/browser_disp.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/browser_disp.png&quot; alt=&quot;Text Response 画面&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/browser_disp.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/browser_disp.png&quot; alt=&quot;Text Response 画面&quot; width=&quot;320&quot; title=&quot;Text Response 画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -15793,13 +15793,13 @@ jQuery ($) -&amp;gt;
 &lt;/ul&gt;
 
 &lt;div style=&quot;width:320px; height:240px; float: left;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/my-posi-update-old.png&quot; alt=&quot;修正前グラフ編集画面&quot; width=&quot;240&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/my-posi-update-old.png&quot; alt=&quot;修正前グラフ編集画面&quot; width=&quot;320&quot; title=&quot;修正前グラフ編集画面&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div style=&quot;width:20px; height:240px; float: left;&quot;&gt;&lt;/div&gt;
 
 &lt;div style=&quot;width:320px; height:240px; float: left;&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;/images/my-posi-update-new.png&quot; alt=&quot;修正後グラフ編集画面&quot; width=&quot;240&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/my-posi-update-new.png&quot; alt=&quot;修正後グラフ編集画面&quot; width=&quot;320&quot; title=&quot;修正後グラフ編集画面&quot; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div style=&quot;width:320px; height:280px; margin: 0 auto;&quot;&gt;&lt;/div&gt;
@@ -15841,13 +15841,13 @@ jQuery ($) -&amp;gt;
 
 &lt;div style=&quot;width:320px; height:240px; float: left;&quot;&gt;
 
-  &lt;p&gt;&lt;img src=&quot;/images/dashboard_org_my-posi.png&quot; alt=&quot;ダッシュボード画面初期状態&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/dashboard_org_my-posi.png&quot; alt=&quot;ダッシュボード画面初期状態&quot; width=&quot;320&quot; title=&quot;初レビュー時のダッシュボード画面&quot; /&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
 &lt;div style=&quot;width:320px; height:240px; float: left;&quot;&gt;
 
-  &lt;p&gt;&lt;img src=&quot;/images/dashboard_new_my-posi.png&quot; alt=&quot;ダッシュボード画面コード改修後&quot; width=&quot;320&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/dashboard_new_my-posi.png&quot; alt=&quot;ダッシュボード画面コード改修後&quot; width=&quot;320&quot; title=&quot;コード改修後のダッシュボード画面&quot; /&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
