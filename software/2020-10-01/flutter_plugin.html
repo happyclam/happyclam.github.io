@@ -1,42 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    
-    <title>C++でFlutterアプリのライブラリ作成</title>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="description"
+    content="C++でFlutterアプリのライブラリ作成 マンカラアプリのAI部分だけC++で高速化 Reinventing the wheel.">
+  <title> C++でFlutterアプリのライブラリ作成 - 自己満足プログラミング </title>
 
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      
-      gtag('config', 'UA-1752720-7');
-    </script>
-    <meta name="author" content="happyclam">
-
-    <!-- Enable responsive viewport -->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
-    <![endif]-->
-
-    <!-- Le styles -->
-    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
-    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
-    <link rel="shortcut icon" href="/images/favicon.ico">
-    <!-- Le fav and touch icons -->
-  <!-- Update these with your own images
-
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@SappierBoy">
   <meta name="twitter:creator" content="@SappierBoy">
@@ -53,29 +25,63 @@
   <meta name="twitter:image:src" content="https://happyclam.github.io/images/mancala_logo.png">
   
 
-  <link rel="canonical" href="/software/2020-10-01/flutter_plugin" />
-    <!-- atom & rss feed -->
-    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
-    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script language="JavaScript">
-$(document).ready( function () {
-    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
-})
-</script>
-<script src="/assets/themes/twitter/js/jquery.min.js"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
-<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
-<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
-    <!-- <script> -->
-    <!--   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ -->
-    <!--   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), -->
-    <!--   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) -->
-    <!--   })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); -->
-    <!--   ga('create', 'UA-1752720-7', 'happyclam.github.io'); -->
-    <!--   ga('send', 'pageview'); -->
-    <!-- </script> -->
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"> -->
+        <!--   <span class="sr-only">Toggle navigation</span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!-- </button> -->
+        <!-- <a id="site-title" class="navbar-brand" href="/"> -->
+        <!--   <img class="pull-left img-responsive" src="">  -->
+        <!--   <span class="name-holder">自己満足プログラミング</span> -->
+        <!-- </a> -->
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li><a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li><a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li><a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li><a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li><a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -91,9 +97,9 @@ MathJax.Hub.Config({
 });
 </script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-  </head>
 
-  <body>
+</header>
+
     <div style="text-align: center;">
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <script>
@@ -103,149 +109,58 @@ MathJax.Hub.Config({
         });
       </script>
     </div>
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container-narrow">
-          <a class="brand" href="/">自己満足プログラミング</a>
-          <ul class="nav">
-            
-            
-            
-
-
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/archive">Archive</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/categories">Categories</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/pages">Pages</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/policy">Policy</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/profile">About</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-  
-    
-      
-      	
-      	<li><a href="/tags">Tags</a></li>
-      	
-      
-    
-  
-    
-  
-    
-  
-
-
-
-          </ul>
-        </div>
-      </div>
+  <div class="blog-header">
+    <div class="span3">
+      <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     </div>
+  </div>
+  
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
 
-    <div class="container-narrow">
-      <div class="row-fluid">
-        <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        </div>
-        <div class="span9"
-             <!-- Html Elements for Search -->
-             <div id="search-container" align="right">
-               <input type="text" id="search-input" placeholder="search...">
-               <ul id="results-container"></ul>
-             </div>
-             <div class="results"></div>
-        </div>
-      </div>
-<script type="text/javascript">
-  SimpleJekyllSearch.init({
-    searchInput: document.getElementById('search-input'),
-    resultsContainer: document.getElementById('results-container'),
-    json: '/search.json',
-    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
-    noResultsText: 'No results found',
-    limit: 15,
-    fuzzy: false,
-  })
-</script>
-      <div class="content">
-        
-<div class="page-header">
-  <h1>C++でFlutterアプリのライブラリ作成 </h1>
-</div>
+        <header class="page-header">
+          <h2 class="page-title"><a href="/software/2020-10-01/flutter_plugin">C++でFlutterアプリのライブラリ作成</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Thursday, October 01, 2020
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">dart</span>
+                
+                  <span class="label label-tag">android</span>
+                
+                  <span class="label label-tag">flutter</span>
+                
+                  <span class="label label-tag">c++</span>
+                
+            </div>
+          </div>
 
-<div class="row-fluid post-full">
-  <div class="span12">
-    <div class="date">
-      <span>01 October 2020</span>
-    </div>
-    <div class="content">
-      <h3 id="その簡単さに驚く">その簡単さに驚く</h3>
+        </header>
+
+        <article class="page-content">
+          <h3 id="その簡単さに驚く">その簡単さに驚く</h3>
 <p>　<a href="/software/2020-09-19/js_dart_cpp">前回の記事</a>で作ったC++製のプログラムをアプリで利用しない手は無いと思いちょっと調べてみたら非常に簡単に作れそうなのでやってみました。自分の場合は取り敢えずandroid版しか考えていないので、<a href="https://flutter.dev/docs/development/platform-integration/c-interop">公式サイト</a>に書かれている僅かな手順を踏めば、ライブラリ（Plugin）とそのテストをするためのExampleプロジェクトが出来上がります。</p>
 
 <h3 id="情報が少なめ">情報が少なめ</h3>
 <p>　Flutter,Pluginで検索するとPluginを公開する前提で書かれている記事が多くて、自分のアプリ用のライブラリとして使うケースについては情報が少ないような気がします。Java（あるいはKotlin）やSwiftを経由してC++のライブラリを使う方法なんかもあるようですが、C++だけで済ませたかった自分には参考になる記事は少なかったです。<br />
-　<a href="https://flutter.dev/docs/development/platform-integration/c-interop">前述の公式サイトの記事</a>で<code>Dart:ffi</code>を使えばint型のデータだけなら簡単にやり取りできるのは分かったのですが、intだけじゃ大変だなと思っていたところ、<a href="https://www.google.co.jp/search?sxsrf=ALeKk0278rFY7cQTrFc34ZLGoL92Ncc_3w%3A1601382825947&amp;source=hp&amp;ei=qSlzX7TPNsuNoASIrIagBw&amp;q=Flutter%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%A7dart%3Affi%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B&amp;oq=Flutter%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%A7dart%3Affi%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B&amp;gs_lcp=CgZwc3ktYWIQAzoICAAQsQMQgwE6BwgAELEDEAQ6BggAEAQQAzoECAAQBDoFCAAQsQM6AggAOggIABAFEAQQHjoGCAAQBRAeOgUIABDNAlCBF1j5c2D9dGgGcAB4AIABdIgB5x2SAQUyMy4xNpgBAKABAaoBB2d3cy13aXo&amp;sclient=psy-ab&amp;ved=0ahUKEwj0x_Lzr47sAhXLBogKHQiWAXQQ4dUDCAw&amp;uact=5">「Flutterプラグインでdart:ffiを使ってみる」というPDFファイル</a>を読んでポインタ経由なら他のデータでもやり取り出来そうなことが分かって、やってみる気になりました。Dart:ffiだけで不足している機能は<a href="https://pub.dev/packages/ffi">ffiパッケージ</a>として公開されているものを使います。</p>
+　<a href="https://flutter.dev/docs/development/platform-integration/c-interop">前述の公式サイトの記事</a>で<code class="language-plaintext highlighter-rouge">Dart:ffi</code>を使えばint型のデータだけなら簡単にやり取りできるのは分かったのですが、intだけじゃ大変だなと思っていたところ、<a href="https://www.google.co.jp/search?sxsrf=ALeKk0278rFY7cQTrFc34ZLGoL92Ncc_3w%3A1601382825947&amp;source=hp&amp;ei=qSlzX7TPNsuNoASIrIagBw&amp;q=Flutter%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%A7dart%3Affi%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B&amp;oq=Flutter%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%A7dart%3Affi%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B&amp;gs_lcp=CgZwc3ktYWIQAzoICAAQsQMQgwE6BwgAELEDEAQ6BggAEAQQAzoECAAQBDoFCAAQsQM6AggAOggIABAFEAQQHjoGCAAQBRAeOgUIABDNAlCBF1j5c2D9dGgGcAB4AIABdIgB5x2SAQUyMy4xNpgBAKABAaoBB2d3cy13aXo&amp;sclient=psy-ab&amp;ved=0ahUKEwj0x_Lzr47sAhXLBogKHQiWAXQQ4dUDCAw&amp;uact=5">「Flutterプラグインでdart:ffiを使ってみる」というPDFファイル</a>を読んでポインタ経由なら他のデータでもやり取り出来そうなことが分かって、やってみる気になりました。Dart:ffiだけで不足している機能は<a href="https://pub.dev/packages/ffi">ffiパッケージ</a>として公開されているものを使います。</p>
 
 <h3 id="ライブラリplugin用のプロジェクト作成">ライブラリ（Plugin）用のプロジェクト作成</h3>
 <p>　iosでの利用も考えている人は違ってくると思います。</p>
 
-<pre><code>flutter create --org io.github.happyclam --template=plugin --platforms=android karah_think
-</code></pre>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flutter create --org io.github.happyclam --template=plugin --platforms=android karah_think
+</code></pre></div></div>
 
-<p>　プロジェクトを作成したら<code>flutter build apk</code>で一度ビルドした後、android/下のCMakeList.txtの編集</p>
+<p>　プロジェクトを作成したら<code class="language-plaintext highlighter-rouge">flutter build apk</code>で一度ビルドした後、android/下のCMakeList.txtの編集</p>
 
-<pre><code># CMakeList.txt
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># CMakeList.txt
 cmake_minimum_required(VERSION 3.4.1)  # for example
 set(CMAKE_CXX_FLAGS "-O2 -std=c++11 -Wall")
 add_library( karah_think
@@ -256,17 +171,17 @@ add_library( karah_think
              # Provides a relative path to your source file(s).
              ../android/Classes/karah_think.cpp )
 
-</code></pre>
+</code></pre></div></div>
 
 <p>　android/下にClassesという名のディレクトリを作成（何でもいい）して、C++のソースは全てそこに入れました。/android/Classes/karah_think.cppがアプリから呼び出される関数（エクスポート関数）が書かれているファイルです。<a href="/software/2020-09-19/js_dart_cpp">前回の記事</a>でも書いたコンパイルオプションもこのファイル（CMakeList.txt）で定義します。<br />
 　これだけでライブラリ開発環境が出来て、karah_thinkプロジェクト内に自動作成されたExampleプロジェクトをAndroid Studioで読み込めばライブラリの開発＆テストが出来ます。Exampleプロジェクトをビルドすればライブラリ（libkarah_think.so）もビルドされます。<br />
 　ここまでは上記の公式サイトに書かれている内容です。</p>
 
 <h3 id="作ったライブラリpluginをアプリのプロジェクトで使う">作ったライブラリ（Plugin）をアプリのプロジェクトで使う</h3>
-<p>　ライブラリの中身はマンカラで使う要素１４個の固定長配列、手番（先手・後手）、読みの深さを渡して最善手を返して貰うラッパー関数を書くだけなのですぐに実装出来ました。でも、この出来上がったライブラリをどうやって元々存在するマンカラアプリのプロジェクトから使うのか分からなかったのですが、Flutterで公開されているパッケージを使う時と同じように、<code>pubspec.yaml</code>に依存関係を記述するだけでした。<br />
-　マンカラアプリのプロジェクトの<code>pubspec.yaml</code>内の依存関係に、ライブラリのプロジェクトが存在するローカルのPathを追記します。</p>
+<p>　ライブラリの中身はマンカラで使う要素１４個の固定長配列、手番（先手・後手）、読みの深さを渡して最善手を返して貰うラッパー関数を書くだけなのですぐに実装出来ました。でも、この出来上がったライブラリをどうやって元々存在するマンカラアプリのプロジェクトから使うのか分からなかったのですが、Flutterで公開されているパッケージを使う時と同じように、<code class="language-plaintext highlighter-rouge">pubspec.yaml</code>に依存関係を記述するだけでした。<br />
+　マンカラアプリのプロジェクトの<code class="language-plaintext highlighter-rouge">pubspec.yaml</code>内の依存関係に、ライブラリのプロジェクトが存在するローカルのPathを追記します。</p>
 
-<pre><code>#pubspec.yaml
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#pubspec.yaml
 dependencies:
   flutter:
     sdk: flutter
@@ -274,21 +189,21 @@ dependencies:
     path: "../karah_think/"
   ffi: ^0.1.3
 
-</code></pre>
+</code></pre></div></div>
 
 <p>　マンカラアプリプロジェクト（mancala）とC++ライプラリプロジェクト（karah_think）とライブラリ動作確認用プロジェクト（example）の関係は以下のようになっています。</p>
 
-<pre><code>├── mancala
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── mancala
 │   ├── pubspec.yaml
 ├── karah_think
 │   ├── example
 
-</code></pre>
+</code></pre></div></div>
 
-<p>　ライブラリを使う側のマンカラアプリプロジェクトの<code>lib/main.dart</code>の宣言部分はこんな感じです。<br />
-　引数は<code>評価値と指し手を受け取るための配列</code>、<code>マンカラの盤面情報を渡す配列</code>、<code>手番（先手・後手）</code>、<code>読みの深さ</code>になってます。</p>
+<p>　ライブラリを使う側のマンカラアプリプロジェクトの<code class="language-plaintext highlighter-rouge">lib/main.dart</code>の宣言部分はこんな感じです。<br />
+　引数は<code class="language-plaintext highlighter-rouge">評価値と指し手を受け取るための配列</code>、<code class="language-plaintext highlighter-rouge">マンカラの盤面情報を渡す配列</code>、<code class="language-plaintext highlighter-rouge">手番（先手・後手）</code>、<code class="language-plaintext highlighter-rouge">読みの深さ</code>になってます。</p>
 
-<pre><code>#mancala/lib/main.dart
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#mancala/lib/main.dart
 import 'dart:typed_data';
 import 'dart:ffi'; // For FFI
 import 'dart:io'; // For Platform.isX
@@ -302,11 +217,11 @@ karahThinkLib
     .lookup&lt;NativeFunction&lt;Int32 Function(Pointer&lt;Int32&gt;, Pointer&lt;Int32&gt;, Int32, Int32)&gt;&gt;("karah_think")
     .asFunction();
 
-</code></pre>
+</code></pre></div></div>
 
 <p>　ライブラリ（libkarah_think.so）のエクスポート関数を呼び出す部分</p>
 
-<pre><code>#mancala/lib/main.dart
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#mancala/lib/main.dart
   List _cppThink(List board, int turn, int depth){
     final pBoard32 = allocate&lt;Int32&gt;(count: board.length);
     Pointer&lt;Int32&gt; pResult32 = allocate&lt;Int32&gt;(count: 2);
@@ -320,11 +235,11 @@ karahThinkLib
     free(pResult32);
     return result;
   }
-</code></pre>
+</code></pre></div></div>
 
 <p>　ライブラリのエクスポート関数</p>
 
-<pre><code>/* karah_think/android/Classes/karah_think.cpp */
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/* karah_think/android/Classes/karah_think.cpp */
 #include &lt;stdint.h&gt;
 #include &lt;iostream&gt;
 #include &lt;array&gt;
@@ -354,7 +269,7 @@ int32_t karah_think(int32_t* pResult, int32_t* pBoard, int32_t turn, int32_t dep
   delete pSecond;
   return ret;
 }
-</code></pre>
+</code></pre></div></div>
 
 <p>　C++側はSTLを使っているので型に合わせた変数に代入し直して利用します。</p>
 
@@ -366,121 +281,35 @@ int32_t karah_think(int32_t* pResult, int32_t* pBoard, int32_t turn, int32_t dep
 <hr />
 
 
+        </article>
+      </div>
     </div>
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-folder-open"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/categories.html#software-ref">
-    		software <span>31</span>
-    	</a></li>
-    
-  
-
-
-    </ul>
-    
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-tags"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/tags.html#dart-ref">dart <span>7</span></a></li>
-     
-    	<li><a href="/tags.html#android-ref">android <span>54</span></a></li>
-     
-    	<li><a href="/tags.html#flutter-ref">flutter <span>7</span></a></li>
-     
-    	<li><a href="/tags.html#c++-ref">c++ <span>4</span></a></li>
-    
-  
-
-
-
-    </ul>
-    
-
-    <hr>
-    <div class="pagination">
-      <ul>
-      
-        <li class="prev"><a href="/software/2020-09-19/js_dart_cpp" title="Dartは遅いけど、FlutterでGUIは有り">&larr; Previous</a></li>
-      
-        <li><a href="/archive.html">Archive</a></li>
-      
-        <li class="next"><a href="/software/2020-11-21/mancala_evaluate01" title="詰将棋ならぬ詰マンカラ">Next &rarr;</a></li>
-      
-      </ul>
-    </div>
-    <hr>
-    
-
-
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'hello-my-world'; // required: replace example with your forum shortname
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';        
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
-
-
   </div>
 </div>
 
-<div id="disqus_thread"></div>
-<script>
 
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://hello-my-world.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
 
+<footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-offset-3 col-lg-6">
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                <small>&copy; rifyll theme, 2014</small>
+              </div>
+            </div>
+        </div>
       </div>
-      <hr>
-      <footer>
-        <p>&copy; 2021 happyclam
-          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-        </p>
-      </footer>
-
     </div>
+  </footer>
 
-    
-  </body>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+
+</body>
+
 </html>
-

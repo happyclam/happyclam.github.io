@@ -1,0 +1,258 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+
+/* global settings */
+body {
+  font-family: 'Lato', 'sans-serif';
+  padding-bottom:60px;
+  padding-top:50px;
+}
+
+.page-header{
+  margin: 10px 0;
+  text-align:center;
+  padding-bottom:25px;
+}
+.page-header h1{
+  margin: 0;
+}
+
+
+/*navbar stuff*/
+.name-holder{
+  margin-left:10px;
+}
+
+
+/*Primary navigation bar*/
+
+.navbar .navbar-brand {
+  padding: 0px;
+}
+.navbar .navbar-brand img {
+  height: 51px;/* because the navbar has a height of 50px and 1px border bottom*/
+}
+
+.navbar-right li{
+  font-size: 20px;
+}
+@media (max-width: 992px) {
+  #main-menu li{
+    font-size: 15px;
+  }
+  #main-menu li a {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+
+/*makes an anchor inactive(not clickable)*/
+
+.inactive-link {
+   pointer-events: none;
+   cursor: default;
+}
+
+/*blog stuff */
+.blog-short{
+  border-bottom:1px solid #ddd;
+  padding-bottom:30px;
+  display: table;
+
+}
+.blog-short .excerpt{
+  min-height:100px;
+}
+.margin10{margin-bottom:10px; margin-right:10px;}
+
+
+/*footer*/
+.footer {
+    background-color: #f5f5f5;
+    bottom: 0;
+    min-height: 10px;
+    position: fixed;
+    width: 100%;
+    font-weight: bold;
+}
+
+/* social buttons */
+/*social buttons */
+.social-btn-holder{
+  padding:10px;
+  margin-top:5px;
+  margin-bottom:5px;
+}
+.social-btn-holder .btn-social{
+  font-size:12px;
+  font-weight:bold;
+}
+
+.btn-social{
+  color: white;
+  opacity:0.9;
+}
+.btn-social:hover {
+  color: white;
+  opacity:1;
+}
+.btn-facebook {
+background-color: #3b5998;
+}
+.btn-twitter {
+background-color: #00aced;
+}
+.btn-linkedin {
+background-color:#0e76a8;
+}
+.btn-github{
+  background-color:#000000;
+}
+.btn-google {
+  background-color: #c32f10;
+}
+.btn-stackoverflow{
+  background-color: #D38B28;
+}
+
+.btn-hackerrank{
+  background-color: #27AB5B;
+}
+.btn-soundcloud{
+  background-color: #FF7202;
+}
+
+
+/* utility classes */
+.no-margin:{
+  margin:0;
+}
+.border-bottom{
+    border-bottom: 1px solid #eee;
+}
+.centered-text{
+  text-align: center;
+}
+
+
+/* front page stuff */
+.imgcontainer img{
+  width: 100%;
+}
+
+#site-title{
+  line-height: 50px;
+  color: #002E62;
+  font-weight: bold;
+}
+
+.container h1,h2,h3,h4,h5,h6{
+    color: #002e62;
+}
+/* a{ */
+/*  color: #002e62; */
+/* } */
+a:link {
+  color:#002e62;
+  text-decoration:none;
+}
+a:visited {
+  color:#002e62;
+  text-decoration:underline;
+}
+a:hover {
+  color:#999;
+  text-decoration:underline;
+}
+a:active {
+  color:#002e62;
+  text-decoration:underline;    
+}
+
+#main-menu a{
+  color:#002e62;
+}
+
+.label-tag{
+  background-color: #002e62;
+}
+.blog-header{
+  background-color: #f8f8f8
+}
+
+/* original */
+h2 {
+  font-weight: bold;    
+  position: relative;
+  padding-top: 10px;
+}
+
+.about {
+  width:50%;
+  max-width:800px;
+  height:60px;
+  margin:40px auto 40px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { border: solid 1px #003333; }
+th { border: solid 2px #003333; }
+
+.cp_actab {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	margin-bottom: 1px;
+	color: #ffffff;
+}
+.cp_actab input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+.cp_actab label {
+	font-weight: bold;
+	line-height: 3;
+	position: relative;
+	display: block;
+	padding: 0 0 0 1em;
+	margin: 0 0 1px 0;
+	cursor: pointer;
+	background: #0088cc;
+}
+.cp_actab .cp_actab-content {
+	overflow: hidden;
+	max-height: 0;
+	-webkit-transition: max-height 0.35s;
+	transition: max-height 0.35s;
+	background: #ffffff;
+}
+.cp_actab .cp_actab-content p {
+	margin: 1em;
+    color: #000000;
+}
+/* :checked */
+.cp_actab input:checked ~ .cp_actab-content {
+	max-height: 100em;
+}
+/* Icon */
+.cp_actab label::after {
+	line-height: 3;
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: block;
+	width: 3em;
+	height: 3em;
+	-webkit-transition: all 0.35s;
+	transition: all 0.35s;
+	text-align: center;
+}
+.cp_actab input[type=radio] + label::after {
+	content: "\2b07";
+}
+.cp_actab input[type=radio]:checked + label::after {
+	transform: rotateX(180deg);
+}

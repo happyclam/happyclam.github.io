@@ -1,42 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    
-    <title>markdownファイルを元に電子出版</title>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="description"
+    content="markdownファイルを元に電子出版 今このブログを書いているスタイルで… Reinventing the wheel.">
+  <title> markdownファイルを元に電子出版 - 自己満足プログラミング </title>
 
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      
-      gtag('config', 'UA-1752720-7');
-    </script>
-    <meta name="author" content="happyclam">
-
-    <!-- Enable responsive viewport -->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
-    <![endif]-->
-
-    <!-- Le styles -->
-    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
-    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
-    <link rel="shortcut icon" href="/images/favicon.ico">
-    <!-- Le fav and touch icons -->
-  <!-- Update these with your own images
-
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@SappierBoy">
   <meta name="twitter:creator" content="@SappierBoy">
@@ -47,35 +19,69 @@
   <meta name="twitter:url" content="/miscellaneous/2015-06-09/pandoc_epub">
   
   
-  <meta name="twitter:description" content="programming for enjoyment.">
+  <meta name="twitter:description" content="Reinventing the wheel.">
   
   
   <meta name="twitter:image:src" content="https://happyclam.github.io/images/favicon.png">
   
 
-  <link rel="canonical" href="/miscellaneous/2015-06-09/pandoc_epub" />
-    <!-- atom & rss feed -->
-    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
-    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script language="JavaScript">
-$(document).ready( function () {
-    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
-})
-</script>
-<script src="/assets/themes/twitter/js/jquery.min.js"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
-<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
-<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
-    <!-- <script> -->
-    <!--   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ -->
-    <!--   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), -->
-    <!--   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) -->
-    <!--   })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); -->
-    <!--   ga('create', 'UA-1752720-7', 'happyclam.github.io'); -->
-    <!--   ga('send', 'pageview'); -->
-    <!-- </script> -->
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"> -->
+        <!--   <span class="sr-only">Toggle navigation</span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!-- </button> -->
+        <!-- <a id="site-title" class="navbar-brand" href="/"> -->
+        <!--   <img class="pull-left img-responsive" src="">  -->
+        <!--   <span class="name-holder">自己満足プログラミング</span> -->
+        <!-- </a> -->
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li><a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li><a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li><a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li><a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li><a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -91,9 +97,9 @@ MathJax.Hub.Config({
 });
 </script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-  </head>
 
-  <body>
+</header>
+
     <div style="text-align: center;">
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <script>
@@ -103,136 +109,41 @@ MathJax.Hub.Config({
         });
       </script>
     </div>
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container-narrow">
-          <a class="brand" href="/">自己満足プログラミング</a>
-          <ul class="nav">
-            
-            
-            
-
-
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/archive">Archive</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/categories">Categories</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/pages">Pages</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/policy">Policy</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/profile">About</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-  
-    
-      
-      	
-      	<li><a href="/tags">Tags</a></li>
-      	
-      
-    
-  
-    
-  
-    
-  
-
-
-
-          </ul>
-        </div>
-      </div>
+  <div class="blog-header">
+    <div class="span3">
+      <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     </div>
+  </div>
+  
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
 
-    <div class="container-narrow">
-      <div class="row-fluid">
-        <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        </div>
-        <div class="span9"
-             <!-- Html Elements for Search -->
-             <div id="search-container" align="right">
-               <input type="text" id="search-input" placeholder="search...">
-               <ul id="results-container"></ul>
-             </div>
-             <div class="results"></div>
-        </div>
-      </div>
-<script type="text/javascript">
-  SimpleJekyllSearch.init({
-    searchInput: document.getElementById('search-input'),
-    resultsContainer: document.getElementById('results-container'),
-    json: '/search.json',
-    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
-    noResultsText: 'No results found',
-    limit: 15,
-    fuzzy: false,
-  })
-</script>
-      <div class="content">
-        
-<div class="page-header">
-  <h1>markdownファイルを元に電子出版 </h1>
-</div>
+        <header class="page-header">
+          <h2 class="page-title"><a href="/miscellaneous/2015-06-09/pandoc_epub">markdownファイルを元に電子出版</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Tuesday, June 09, 2015
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">epub</span>
+                
+                  <span class="label label-tag">jekyll</span>
+                
+            </div>
+          </div>
 
-<div class="row-fluid post-full">
-  <div class="span12">
-    <div class="date">
-      <span>09 June 2015</span>
-    </div>
-    <div class="content">
-      <h3 id="無料で出版してもダウンロードさえして貰えないと聞くけど">無料で出版してもダウンロードさえして貰えないと聞くけど</h3>
+        </header>
+
+        <article class="page-content">
+          <h3 id="無料で出版してもダウンロードさえして貰えないと聞くけど">無料で出版してもダウンロードさえして貰えないと聞くけど</h3>
 <p>　最近自分が購入する本に占める電子書籍の割合が高くなってきました。単に購入する電子書籍の数が増えてきているだけでなく、昔は購入する電子書籍といえばマンガや雑誌のようなどうでもいいと思える本が多かったのに、最近は何度も読み返すようなお気に入りの技術系の本の中に電子書籍が混じっています。そして、電子書籍に触れる機会が増えてきたのと出版へのハードルが下がってきたこともあって、電子書籍を作るほう（出版）にも興味が湧いてきました。でも、原稿用紙に鉛筆で文章を書いて出版したいわけじゃなく、今このブログを書いているスタイル（markdownで書く）のまま書いたものを流用したいという拘りがあります。<br />
-　だから、書きたいことはあるけど、わざわざMacのpagesを使ったりWindowsの一太郎を使ったりネット上のサービス<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>を利用してepubファイルを作成して出版したいわけじゃないってことです。こういう方法論に拘るタイプは作家としては大成できないことは分かっていますが、あくまでmarkdownファイルを元にして電子書籍出版するにはどうすればいいのか、最近試行錯誤したことを書いてみたいと思います。</p>
+　だから、書きたいことはあるけど、わざわざMacのpagesを使ったりWindowsの一太郎を使ったりネット上のサービス<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>を利用してepubファイルを作成して出版したいわけじゃないってことです。こういう方法論に拘るタイプは作家としては大成できないことは分かっていますが、あくまでmarkdownファイルを元にして電子書籍出版するにはどうすればいいのか、最近試行錯誤したことを書いてみたいと思います。</p>
 
 <h3 id="markdownから電子書籍ファイルに変換する色々な方法">markdownから電子書籍ファイルに変換する色々な方法</h3>
 
@@ -241,40 +152,40 @@ MathJax.Hub.Config({
     <p>markdown-pdfコマンドで変換しPDF出力<br />
 markdown-pdfコマンドを使用してPDFファイルに変換します。CSSも使えるし改ページ処理も可能です、リンクが有効に出来ないようなので目次が使えません。でも、左サイドにサムネイル表示すれば不要な気もするので、PCで読むことだけを考えるのならこれでいいような気もします。<br />
 例.<br />
-<code>npm install -g markdown-pdf</code><br />
-<code>markdown-pdf -f 'A4' -s github.css hoge.md -o hoge.pdf</code></p>
+<code class="language-plaintext highlighter-rouge">npm install -g markdown-pdf</code><br />
+<code class="language-plaintext highlighter-rouge">markdown-pdf -f 'A4' -s github.css hoge.md -o hoge.pdf</code></p>
   </li>
   <li>
     <p>pandocで変換、PDF出力<br />
 ややこしいLaTeXのclsファイルを弄りながらpandocでPDFを出力してみましたが、文字化けしたりよくわからないトラブルに見舞われましたので自分としてはお勧めしません。<br />
 例1.<br />
-<code>pandoc hoge.md -o hoge.pdf -V documentclass=myltjsarticle --latex-engine=lualatex</code><br />
+<code class="language-plaintext highlighter-rouge">pandoc hoge.md -o hoge.pdf -V documentclass=myltjsarticle --latex-engine=lualatex</code><br />
 例2（一度TeXに変換してからPDFに変換）<br />
-<code>pandoc hoge.md -f markdown_github -o hoge.tex</code><br />
-<code>pandoc hoge.tex -o hoge.pdf -V documentclass=myltjsarticle --latex-engine=lualatex</code></p>
+<code class="language-plaintext highlighter-rouge">pandoc hoge.md -f markdown_github -o hoge.tex</code><br />
+<code class="language-plaintext highlighter-rouge">pandoc hoge.tex -o hoge.pdf -V documentclass=myltjsarticle --latex-engine=lualatex</code></p>
   </li>
   <li>
     <p>pandocで変換、epub出力<br />
 ほぼ満足のいく出来でしたが強制改ページの方法がわからないのと、epubcheckでエラーが出て原因がわからないので使うのを止めました。<br />
 例1.<br />
-<code>pandoc -t epub3 -o hoge.epub title.txt hoge.md -s --mathjax --epub-cover-image=images/title.png --epub-stylesheet=github.css --epub-metadata=metadata.xml</code><br />
+<code class="language-plaintext highlighter-rouge">pandoc -t epub3 -o hoge.epub title.txt hoge.md -s --mathjax --epub-cover-image=images/title.png --epub-stylesheet=github.css --epub-metadata=metadata.xml</code><br />
 例2.（一度TeXに変換してからPDFに変換）<br />
-<code>pandoc hoge.md -f markdown_github -o hoge.tex</code><br />
-<code>pandoc -s hoge.tex -o hoge.epub</code></p>
+<code class="language-plaintext highlighter-rouge">pandoc hoge.md -f markdown_github -o hoge.tex</code><br />
+<code class="language-plaintext highlighter-rouge">pandoc -s hoge.tex -o hoge.epub</code></p>
   </li>
   <li>
     <p>epubの仕様に沿って定義ファイルを自前で用意してコンパイル（zip化）してepub出力。<br />
 他の変換ツールを使った方法と違って、変換ツールの制限を受けないので調べながらやれば出来上がりに不満が出ることは無いと思うのですが手間がかかります。<br />
 例.<br />
-<code>zip -q0X hoge.zip mimetype</code><br />
-<code>zip -qXr9D hoge.zip *</code><br />
-<code>cp hoge.zip hoge.epub</code><br />
+<code class="language-plaintext highlighter-rouge">zip -q0X hoge.zip mimetype</code><br />
+<code class="language-plaintext highlighter-rouge">zip -qXr9D hoge.zip *</code><br />
+<code class="language-plaintext highlighter-rouge">cp hoge.zip hoge.epub</code><br />
 用意するディレクトリとファイルの例<br />
 <a href="https://epubcafe.googlecode.com/svn/trunk/tutorial/OEBPS/Text/Chapter020201.xhtml">参考サイト</a></p>
   </li>
 </ol>
 
-<pre><code>Packeage/
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Packeage/
 ├── META-INF
 │   └── container.xml
 ├── mimetype
@@ -292,7 +203,7 @@ markdown-pdfコマンドを使用してPDFファイルに変換します。CSS�
 │   └── hoge.opf
 ├── hoge.epub
 └── hoge.zip
-</code></pre>
+</code></pre></div></div>
 
 <h3 id="pdfかepubか">PDFかepubか</h3>
 <p>　出版するための形態をどちらにするか一般的にはepubの方が正式な出版物という扱いだと思いますが、自分としては最初<a href="https://gumroad.com">Gumroad</a>にPDFで公開するのが一番簡単そうだったのでそうしようと思っていたのです。でもpandocを使ってmarkdownからPDFに出力すると色々と不満が出てきたのでepubにも手を出してみたという経緯があります。pandocを使えばPDFにもepubにも出力出来るはずですが、一部の文字が化けたり、細かなトラブルに見舞われたのでPDF出力するならmarkdown-pdfを使った方が良さそうだとか、epub出力するならこのオプションが良さそうだとかいうノウハウが色々試行錯誤しているうちにわかってきました。そして、最終的には1.markdown-pdfを使ってPDF出力する、2.pandocを使ってepub出力する、3.epubの仕様に沿って自前で定義ファイルを書きepubを作成する、の３つの方法に絞りました。以下にそれぞれのメリットデメリットを書きます（不満点に書いている内容は、あくまで自分がうまく出来なかっただけで、よく理解している人がやれば可能なのかもしれません）。</p>
@@ -349,8 +260,8 @@ markdown-pdfコマンドを使用してPDFファイルに変換します。CSS�
 <h3 id="epubcheckとは">epubcheckとは</h3>
 <p>　実はpandocで自分にとってはほぼ満足いくepub形式のファイルに変換できてcalibre等で動作確認も出来たのですが、AppleのiBooksだと<a href="https://github.com/idpf/epubcheck">epubcheck</a>というepub検証ツールを通過しないと出版できないという話を聞いたので試したところ原因不明のエラーが出ました。そしてエラーメッセージだけからでは原因がわからず、いろいろ推測しながら編集してエラーの原因を探ることに疲れたので、一から自前で定義ファイルを書く（自力epub）ことにしたのです。その結果epubcheckでエラーも出ないし自分で満足のいくepubファイルが作れることはわかったのですが、markdownファイルから直接epubファイルに変換しているわけではないので不満もあります。</p>
 
-<pre><code>java -jar ~/Downloads/epubcheck-4.0.0-alpha11/epubcheck.jar ./hoge.epub
-</code></pre>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java -jar ~/Downloads/epubcheck-4.0.0-alpha11/epubcheck.jar ./hoge.epub
+</code></pre></div></div>
 
 <h3 id="まとめ">まとめ</h3>
 <p>　結局現時点での自分なりの結論はpandocに頼らずepubの仕様に沿って自前で定義ファイルを書いてコンパイルする（自力epub）のが一番良さそうだと思います。でもこの方法はmarkdownファイルから直接変換しているわけではなく、jekyll等でmarkdownからHTMLを生成し、それを定義にあわせて編集しているので一手間かかるのでまだ不満が残ります。ただこのやり方はepubで出力することを考慮しながらmarkdownの書き方を工夫するという余地もあるので、まだまだ試行錯誤が続きそうです。<br />
@@ -358,125 +269,43 @@ markdown-pdfコマンドを使用してPDFファイルに変換します。CSS�
 
 <hr />
 
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1">
-      <p>markdownに拘らなければAmazonやAppleや楽天ブックス以外にも<a href="https://bccks.jp">個人出版を助けるネットサービス</a>があるようですし、<a href="https://www7b.biglobe.ne.jp/~yama88/make.html">変換ツール</a>も色々あります。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:1" role="doc-endnote">
+      <p>markdownに拘らなければAmazonやAppleや楽天ブックス以外にも<a href="https://bccks.jp">個人出版を助けるネットサービス</a>があるようですし、<a href="https://www7b.biglobe.ne.jp/~yama88/make.html">変換ツール</a>も色々あります。 <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>
 
+        </article>
+      </div>
     </div>
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-folder-open"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/categories.html#miscellaneous-ref">
-    		miscellaneous <span>6</span>
-    	</a></li>
-    
-  
-
-
-    </ul>
-    
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-tags"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/tags.html#epub-ref">epub <span>3</span></a></li>
-     
-    	<li><a href="/tags.html#jekyll-ref">jekyll <span>3</span></a></li>
-    
-  
-
-
-
-    </ul>
-    
-
-    <hr>
-    <div class="pagination">
-      <ul>
-      
-        <li class="prev"><a href="/programming/2015-05-29/android_app1" title="ハイブリッド開発（HTML5 + JavaScript）でハマったこと">&larr; Previous</a></li>
-      
-        <li><a href="/archive.html">Archive</a></li>
-      
-        <li class="next"><a href="/hardware/2015-06-12/kobo_aura" title="kobo aura購入">Next &rarr;</a></li>
-      
-      </ul>
-    </div>
-    <hr>
-    
-
-
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'hello-my-world'; // required: replace example with your forum shortname
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';        
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
-
-
   </div>
 </div>
 
-<div id="disqus_thread"></div>
-<script>
 
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://hello-my-world.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
 
+<footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-offset-3 col-lg-6">
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                <small>&copy; rifyll theme, 2014</small>
+              </div>
+            </div>
+        </div>
       </div>
-      <hr>
-      <footer>
-        <p>&copy; 2021 happyclam
-          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-        </p>
-      </footer>
-
     </div>
+  </footer>
 
-    
-  </body>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+
+</body>
+
 </html>
-

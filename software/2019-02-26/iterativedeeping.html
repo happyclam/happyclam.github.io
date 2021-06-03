@@ -1,42 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    
-    <title>反復深化？を工夫してより深く読む</title>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="description"
+    content="反復深化？を工夫してより深く読む 以前解けなかった９マス将棋の問題が解けた Reinventing the wheel.">
+  <title> 反復深化？を工夫してより深く読む - 自己満足プログラミング </title>
 
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      
-      gtag('config', 'UA-1752720-7');
-    </script>
-    <meta name="author" content="happyclam">
-
-    <!-- Enable responsive viewport -->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
-    <![endif]-->
-
-    <!-- Le styles -->
-    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
-    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
-    <link rel="shortcut icon" href="/images/favicon.ico">
-    <!-- Le fav and touch icons -->
-  <!-- Update these with your own images
-
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@SappierBoy">
   <meta name="twitter:creator" content="@SappierBoy">
@@ -53,29 +25,68 @@
   <meta name="twitter:image:src" content="https://happyclam.github.io/images/33shogi_logo.png">
   
 
-  <link rel="canonical" href="/software/2019-02-26/iterativedeeping" />
-    <!-- atom & rss feed -->
-    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
-    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script language="JavaScript">
-$(document).ready( function () {
-    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
-})
-</script>
-<script src="/assets/themes/twitter/js/jquery.min.js"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
-<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
-<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
-    <!-- <script> -->
-    <!--   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ -->
-    <!--   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), -->
-    <!--   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) -->
-    <!--   })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); -->
-    <!--   ga('create', 'UA-1752720-7', 'happyclam.github.io'); -->
-    <!--   ga('send', 'pageview'); -->
-    <!-- </script> -->
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"> -->
+        <!--   <span class="sr-only">Toggle navigation</span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!-- </button> -->
+        <!-- <a id="site-title" class="navbar-brand" href="/"> -->
+        <!--   <img class="pull-left img-responsive" src="">  -->
+        <!--   <span class="name-holder">自己満足プログラミング</span> -->
+        <!-- </a> -->
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li>
+<a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li>
+<a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li>
+<a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li>
+<a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li>
+<a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -91,9 +102,9 @@ MathJax.Hub.Config({
 });
 </script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-  </head>
 
-  <body>
+</header>
+
     <div style="text-align: center;">
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <script>
@@ -103,133 +114,45 @@ MathJax.Hub.Config({
         });
       </script>
     </div>
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container-narrow">
-          <a class="brand" href="/">自己満足プログラミング</a>
-          <ul class="nav">
-            
-            
-            
-
-
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/archive">Archive</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/categories">Categories</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/pages">Pages</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/policy">Policy</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/profile">About</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-  
-    
-      
-      	
-      	<li><a href="/tags">Tags</a></li>
-      	
-      
-    
-  
-    
-  
-    
-  
-
-
-
-          </ul>
-        </div>
-      </div>
+  <div class="blog-header">
+    <div class="span3">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     </div>
+  </div>
+  
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
 
-    <div class="container-narrow">
-      <div class="row-fluid">
-        <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        </div>
-        <div class="span9" html elements for search>
-             <div id="search-container" align="right">
-               <input type="text" id="search-input" placeholder="search...">
-               <ul id="results-container"></ul>
-             </div>
-             <div class="results"></div>
-        </div>
-      </div>
-<script type="text/javascript">
-  SimpleJekyllSearch.init({
-    searchInput: document.getElementById('search-input'),
-    resultsContainer: document.getElementById('results-container'),
-    json: '/search.json',
-    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
-    noResultsText: 'No results found',
-    limit: 15,
-    fuzzy: false,
-  })
-</script>
-      <div class="content">
-        
-<div class="page-header">
-  <h1>反復深化？を工夫してより深く読む </h1>
-</div>
+        <header class="page-header">
+          <h2 class="page-title"><a href="/software/2019-02-26/iterativedeeping">反復深化？を工夫してより深く読む</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Tuesday, February 26, 2019
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">coffeescript</span>
+                
+                  <span class="label label-tag">cordova</span>
+                
+                  <span class="label label-tag">android</span>
+                
+                  <span class="label label-tag">javascript</span>
+                
+                  <span class="label label-tag">shogi</span>
+                
+            </div>
+          </div>
 
-<div class="row-fluid post-full">
-  <div class="span12">
-    <div class="date">
-      <span>26 February 2019</span>
-    </div>
-    <div class="content">
-      <h3 id="常に２段階で先読みする">常に２段階で先読みする</h3>
+        </header>
+
+        <article class="page-content">
+          <h3 id="常に２段階で先読みする">常に２段階で先読みする</h3>
 <p>　<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>の「長考モード」と「瞑想モード」では、まず４手読み(depth=3)で候補手を５手に絞って、その５手に関して８手読み（depth=7）をするという仕様になっていますが、候補手を絞る作業は最初の一回だけでした。一度候補手を絞った後はその候補手に関してαβ法で枝刈りをしながら全件探索するというやり方です。この候補手を絞る作業を最初の一回だけではなく、全ての先読みの過程（再帰呼び出しの都度）で行えるようにコードを修正しました。その結果同じ時間でより深く読むことが出来るようになりました。<br>
 　候補手を絞って評価値の低い手は意図的に読まない（αβ法の枝刈りとは意味合いが違います）ので、最善手が読み抜けてしまう可能性はありますが、より深く読むことを優先したということです。テストスクリプトの実行時間で比較したところ<strong>約３０％</strong>時間短縮出来ました。</p>
 
@@ -241,13 +164,13 @@ MathJax.Hub.Config({
 </div>
 
 <p>　この初期配置は<a href="/project/2018-04-22/9masushogi">以前の記事（「９マス将棋の本」買ってみました）</a>で紹介した本（<a href="https://hb.afl.rakuten.co.jp/hgc/1898184c.61df42d5.1898184d.aee9e867/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenkobo-ebooks%2Fa9b8e0edfad33fbcb089d3786912dae2%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenkobo-ebooks%2Fi%2F16530252%2F&amp;link_type=text&amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJ0ZXh0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImxlZnQiLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjF9">９マス将棋の本</a>）に載っていた問題で、<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>では初期配置リストのNo.41番にあるものです。この配置は初手が肝心なのですが、以前の<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>でAIに指させてみると一番深く読む「瞑想」モードでも初手１三角と相手の角を取ってしまい先手が勝てません。本に出題されている通り先手が勝つためには初手に２三玉と指さないといけないのですが、Version1.0.7.0からは初手２三玉が指せるようになりました。<br>
-　しかし、その後の変化はいろいろあるようでアプリでは後手が勝つケースもあるようです。<a href="/project/2018-04-22/9masushogi">以前の記事（「９マス将棋の本」買ってみました）</a>で紹介した手順（２三玉、２一玉、１三角、同歩成、同玉、３三角、２三歩、１一角成、３一歩成、同玉、２二角、同馬、同歩、１一歩、２三玉、１二角、３三玉、２一角、同歩成、同玉、３二角、１二玉、３一角、２一歩、２三角）の２５手で「先手が勝ち」という手順も以前のバージョンの設定を一時的に深く読む設定にして導いた一例に過ぎません。ちなみに、候補手を絞るという作業を入れずに全件探索で調べてみると４３手で先手が勝ちという変化になりました<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>、奥が深いです。<br>
+　しかし、その後の変化はいろいろあるようでアプリでは後手が勝つケースもあるようです。<a href="/project/2018-04-22/9masushogi">以前の記事（「９マス将棋の本」買ってみました）</a>で紹介した手順（２三玉、２一玉、１三角、同歩成、同玉、３三角、２三歩、１一角成、３一歩成、同玉、２二角、同馬、同歩、１一歩、２三玉、１二角、３三玉、２一角、同歩成、同玉、３二角、１二玉、３一角、２一歩、２三角）の２５手で「先手が勝ち」という手順も以前のバージョンの設定を一時的に深く読む設定にして導いた一例に過ぎません。ちなみに、候補手を絞るという作業を入れずに全件探索で調べてみると４３手で先手が勝ちという変化になりました<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>、奥が深いです。<br>
 　この初期配置以外にも今まで間違ってるなぁと思いながらもそのままにしていた初期配置に関して、今回の修正で正解が出せるようになった（と自分が思っている）初期配置があったり、先手勝ち、後手勝ち、千日手の結論は置いといて、この変化は筋悪過ぎるだろうと思う手順が改善されたものもあります。また、逆に深く読めるのはいいけど、全件探索の「弱い」モードなら正解手順を示せるのに、最善手が初期の段階で候補手から漏れてしまい「瞑想」モードだと間違えるという初期配置もあると思います。と言うことで、局面の検討をするときは、<strong>まず「弱い」モードで試してから、他のモードを試してみることをお勧めします。</strong><br>
 　ちなみに何手先まで読むかを指定するパラメータ(depthの値)が今回の修正で７から９になっています。２手深く読めるようになったということです。</p>
 
 <h3 id="反復深化について">反復深化について</h3>
 <p>　<a href="/software/2014-09-23/tictactoe_arrange">以前の記事</a>で特殊な三目並べを例にして、最も単純な評価関数（勝ち、負け、それ以外の３つの値を返す関数）を使って９手読み、１０手読み、１１手読みと徐々に先読みの手数を伸ばしていって解を求めるやり方について書きました。これが一番単純な反復深化探索だと思いますが、このやり方だと同じ経路を何度も探索しているので重複チェックを組み入れるのが普通だと思います。<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>では、短い手数で読んで候補手リストを作って評価値でソート後、さらに深く読むときに候補手リストに無い手は読まないようにしているのですが、これは重複を避けるというより、見込みがないと思われる手をバッサリと読みから外していますので<strong>反復深化探索とは呼ばないのかもしれません</strong>。少なくともこの方法で迷路やパズルを解くと解答が得られないことがあるでしょう。その辺りのアルゴリズムの分類についてはよく分かりませんが、どう呼べばいいのか分からなかったので反復深化と表題につけました。２段階深化とでも言うべきでしょうか？<br>
-　また、一般的に反復深化探索で迷路やパズル等の問題を解くときは、重複チェックにコストがかかり過ぎて重複チェックを省略した方が速く解けるケースもあるようで、たしかに再帰呼び出しの度に候補手リストを作成する作業も結構コストがかかるやり方なので、３三将棋の変更を試しに<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>に適用してもそれほど速度アップの効果はありませんでした。コードの中身は変わったのですが、評価関数を変えたわけではないので指し手もあまり変わりませんでした。再帰の度に候補手リストを作って読む指し手を省略すると言っても、<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>では元々深く読めてない（５手読み）ので、読む手を省略する効果もそれ程ありません<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>は８手（depth=7）読んでいたからこそ、指し手の省略の効果が大きく出たのだと思います。<br>
+　また、一般的に反復深化探索で迷路やパズル等の問題を解くときは、重複チェックにコストがかかり過ぎて重複チェックを省略した方が速く解けるケースもあるようで、たしかに再帰呼び出しの度に候補手リストを作成する作業も結構コストがかかるやり方なので、３三将棋の変更を試しに<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>に適用してもそれほど速度アップの効果はありませんでした。コードの中身は変わったのですが、評価関数を変えたわけではないので指し手もあまり変わりませんでした。再帰の度に候補手リストを作って読む指し手を省略すると言っても、<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>では元々深く読めてない（５手読み）ので、読む手を省略する効果もそれ程ありません<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>。<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>は８手（depth=7）読んでいたからこそ、指し手の省略の効果が大きく出たのだと思います。<br>
 　でも、候補手リストに含める手の数、候補手リスト作成時の読みの深さ、最終的に制限する読みの深さ、全件探索に切り替える手数など、パラメータが増えたので<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>や<a href="https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam">禽将棋アプリ</a>にも取り入れて試行錯誤してみようと思ってます。</p>
 
 <h3 id="検討モード">検討モード</h3>
@@ -255,136 +178,46 @@ MathJax.Hub.Config({
 
 <hr>
 
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1">
-      <p>２三玉、２一玉、１三角、同歩成、同玉、３三角、２三歩、１一角成、３一歩成、同玉、２二角、同馬、同歩、１一角、３一角、３二玉、１二玉、３三玉、１一玉、２三角、２一歩成、３二角成、３一角、３一馬、同と、２二角、２一玉、１三角成、３二と、２三玉、２二角、１二馬、３一玉、１三馬、同角、同玉、１一角、２一歩、３三角成、１二玉、２二と、同歩、同馬まで４３手で先手勝ち。全件探索で読んでいると言っても初手から詰みを読んでいるわけではないのでこの手順が正解とは限りません。３７手目１一角を打つ時に初めて先手勝ちを読みきっています。 <a href="#fnref:1" class="reversefootnote">↩</a></p>
+    <li id="fn:1" role="doc-endnote">
+      <p>２三玉、２一玉、１三角、同歩成、同玉、３三角、２三歩、１一角成、３一歩成、同玉、２二角、同馬、同歩、１一角、３一角、３二玉、１二玉、３三玉、１一玉、２三角、２一歩成、３二角成、３一角、３一馬、同と、２二角、２一玉、１三角成、３二と、２三玉、２二角、１二馬、３一玉、１三馬、同角、同玉、１一角、２一歩、３三角成、１二玉、２二と、同歩、同馬まで４３手で先手勝ち。全件探索で読んでいると言っても初手から詰みを読んでいるわけではないのでこの手順が正解とは限りません。３７手目１一角を打つ時に初めて先手勝ちを読みきっています。 <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
-    <li id="fn:2">
-      <p>JavaScriptと言えども５五将棋で３手読みぐらいまでは一瞬で全件探索が完了します。２段階深化の方法だけだとかえって遅くなるので、残り４手（depth=3）からは全件探索に切り替えているという事情があります。５手読み（depth=4）だと今までの「最初に一回だけ候補手リストを作成する方法」と同じ効果しかないわけです。残り何手から切り替えるのが良いのかは今後試行錯誤してみる予定です。 <a href="#fnref:2" class="reversefootnote">↩</a></p>
+    <li id="fn:2" role="doc-endnote">
+      <p>JavaScriptと言えども５五将棋で３手読みぐらいまでは一瞬で全件探索が完了します。２段階深化の方法だけだとかえって遅くなるので、残り４手（depth=3）からは全件探索に切り替えているという事情があります。５手読み（depth=4）だと今までの「最初に一回だけ候補手リストを作成する方法」と同じ効果しかないわけです。残り何手から切り替えるのが良いのかは今後試行錯誤してみる予定です。 <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
   </ol>
 </div>
 
+        </article>
+      </div>
     </div>
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-folder-open"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/categories.html#software-ref">
-    		software <span>31</span>
-    	</a></li>
-    
-  
-
-
-    </ul>
-    
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-tags"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/tags.html#coffeescript-ref">coffeescript <span>41</span></a></li>
-     
-    	<li><a href="/tags.html#cordova-ref">cordova <span>35</span></a></li>
-     
-    	<li><a href="/tags.html#android-ref">android <span>54</span></a></li>
-     
-    	<li><a href="/tags.html#javascript-ref">javascript <span>50</span></a></li>
-     
-    	<li><a href="/tags.html#shogi-ref">shogi <span>25</span></a></li>
-    
-  
-
-
-
-    </ul>
-    
-
-    <hr>
-    <div class="pagination">
-      <ul>
-      
-        <li class="prev"><a href="/project/2019-01-03/torishogiapp" title="「禽将棋」アプリについて">← Previous</a></li>
-      
-        <li><a href="/archive.html">Archive</a></li>
-      
-        <li class="next"><a href="/project/2019-03-21/33shogiquestions" title="３三将棋（９マス将棋）の難問たち">Next →</a></li>
-      
-      </ul>
-    </div>
-    <hr>
-    
-
-
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'hello-my-world'; // required: replace example with your forum shortname
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';        
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
-
-
   </div>
 </div>
 
-<div id="disqus_thread"></div>
-<script>
 
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://hello-my-world.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
+  
 
+<footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-offset-3 col-lg-6">
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                <small>© rifyll theme, 2014</small>
+              </div>
+            </div>
+        </div>
       </div>
-      <hr>
-      <footer>
-        <p>© 2021 happyclam
-          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-        </p>
-      </footer>
-
     </div>
+  </footer>
 
-    
-  </body>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+
+</body>
+
 </html>
-

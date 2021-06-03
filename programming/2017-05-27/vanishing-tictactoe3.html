@@ -1,42 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    
-    <title>「消える三目並べ」もう少しテスト</title>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="description"
+    content="「消える三目並べ」もう少しテスト いやに学習速度が速いと思ったら勘違いだった Reinventing the wheel.">
+  <title> 「消える三目並べ」もう少しテスト - 自己満足プログラミング </title>
 
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      
-      gtag('config', 'UA-1752720-7');
-    </script>
-    <meta name="author" content="happyclam">
-
-    <!-- Enable responsive viewport -->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
-    <![endif]-->
-
-    <!-- Le styles -->
-    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
-    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
-    <link rel="shortcut icon" href="/images/favicon.ico">
-    <!-- Le fav and touch icons -->
-  <!-- Update these with your own images
-
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@SappierBoy">
   <meta name="twitter:creator" content="@SappierBoy">
@@ -53,29 +25,68 @@
   <meta name="twitter:image:src" content="https://happyclam.github.io/images/tictactoe-van.png">
   
 
-  <link rel="canonical" href="/programming/2017-05-27/vanishing-tictactoe3" />
-    <!-- atom & rss feed -->
-    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
-    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script language="JavaScript">
-$(document).ready( function () {
-    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
-})
-</script>
-<script src="/assets/themes/twitter/js/jquery.min.js"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
-<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
-<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
-    <!-- <script> -->
-    <!--   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ -->
-    <!--   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), -->
-    <!--   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) -->
-    <!--   })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); -->
-    <!--   ga('create', 'UA-1752720-7', 'happyclam.github.io'); -->
-    <!--   ga('send', 'pageview'); -->
-    <!-- </script> -->
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"> -->
+        <!--   <span class="sr-only">Toggle navigation</span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!-- </button> -->
+        <!-- <a id="site-title" class="navbar-brand" href="/"> -->
+        <!--   <img class="pull-left img-responsive" src="">  -->
+        <!--   <span class="name-holder">自己満足プログラミング</span> -->
+        <!-- </a> -->
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li>
+<a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li>
+<a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li>
+<a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li>
+<a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li>
+<a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -91,9 +102,9 @@ MathJax.Hub.Config({
 });
 </script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-  </head>
 
-  <body>
+</header>
+
     <div style="text-align: center;">
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <script>
@@ -103,135 +114,57 @@ MathJax.Hub.Config({
         });
       </script>
     </div>
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container-narrow">
-          <a class="brand" href="/">自己満足プログラミング</a>
-          <ul class="nav">
-            
-            
-            
-
-
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/archive">Archive</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/categories">Categories</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/pages">Pages</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/policy">Policy</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/profile">About</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-  
-    
-      
-      	
-      	<li><a href="/tags">Tags</a></li>
-      	
-      
-    
-  
-    
-  
-    
-  
-
-
-
-          </ul>
-        </div>
-      </div>
+  <div class="blog-header">
+    <div class="span3">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     </div>
+  </div>
+  
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
 
-    <div class="container-narrow">
-      <div class="row-fluid">
-        <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        </div>
-        <div class="span9" html elements for search>
-             <div id="search-container" align="right">
-               <input type="text" id="search-input" placeholder="search...">
-               <ul id="results-container"></ul>
-             </div>
-             <div class="results"></div>
-        </div>
-      </div>
-<script type="text/javascript">
-  SimpleJekyllSearch.init({
-    searchInput: document.getElementById('search-input'),
-    resultsContainer: document.getElementById('results-container'),
-    json: '/search.json',
-    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
-    noResultsText: 'No results found',
-    limit: 15,
-    fuzzy: false,
-  })
-</script>
-      <div class="content">
-        
-<div class="page-header">
-  <h1>「消える三目並べ」もう少しテスト </h1>
-</div>
+        <header class="page-header">
+          <h2 class="page-title"><a href="/programming/2017-05-27/vanishing-tictactoe3">「消える三目並べ」もう少しテスト</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Saturday, May 27, 2017
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">programming</span>
+                
+                  <span class="label label-tag">ruby</span>
+                
+                  <span class="label label-tag">tictactoe</span>
+                
+                  <span class="label label-tag">android</span>
+                
+                  <span class="label label-tag">javascript</span>
+                
+            </div>
+          </div>
 
-<div class="row-fluid post-full">
-  <div class="span12">
-    <div class="date">
-      <span>27 May 2017</span>
-    </div>
-    <div class="content">
-      <h3 id="全然強くない">全然強くない</h3>
+        </header>
+
+        <article class="page-content">
+          <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="/assets/js/jquery.min.js"></script>
+
+<script src="/assets/js/jquery.flot.min.js"></script>
+
+<script src="/assets/js/flotr2.min.js" type="text/javascript"></script>
+
+<script src="/assets/js/jquery.flot.selection.js" type="text/javascript"></script>
+
+<h3 id="全然強くない">全然強くない</h3>
 <p>　前作（<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">「進化する三目並べ（Tic-tac-toe Evo）」</a>）と同様の機能のまま「消える三目並べ」（３手前に打った自分の駒が消えるルールの三目並べ）のアプリをリリースしようと思っていたのですが、いざ作成した「消える三目並べ」のアプリをスマホにインストールしてテストしてみるとあまりにもAIが弱い。それに前作の通常の三目並べ版だと学習データが真っさらの状態から300回程度対戦すると先手の時はほぼ必ず真ん中に駒を打つようになり、成長する過程が実感できるのに対して、「消える三目並べ」版だと強くなっていく過程が全然実感できませんでした。自分が「消える三目並べ」というゲームに慣れてきて強くなった所為もあると思いますが…。<br>
-　と、いうことでAIの成長を実感できないので前作のように進化する過程を画像で表現する機能はやめて、とりあえずもう少し強くする方法を試行錯誤しました。AIが思ったほど強くならないのは、やはり通常の三目並べの全局面数が6,046ノード（回転・対照形を省くと627ノード）<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>であるのに対して、「消える三目並べ」では79,210ノード<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>と２桁以上増える違いは大きかったようです。</p>
+　と、いうことでAIの成長を実感できないので前作のように進化する過程を画像で表現する機能はやめて、とりあえずもう少し強くする方法を試行錯誤しました。AIが思ったほど強くならないのは、やはり通常の三目並べの全局面数が6,046ノード（回転・対照形を省くと627ノード）<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>であるのに対して、「消える三目並べ」では79,210ノード<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>と２桁以上増える違いは大きかったようです。</p>
 
 <h3 id="なかなか強くならない原因">なかなか強くならない原因</h3>
 <p>　以前<a href="/programming/2016-11-23/vanishing-tictactoe">「「消える三目並べ」は、学習が速い」</a>という記事で、MIN-MAX法を使った最強プログラムと1,500回程度対戦させると、勝ち負けがほぼ互角になることを書きました。最強のプログラムと互角なので十分強いだろうと思っていたのですが、最強プログラムの方はいつも同じ手を指すようになっていたので私がテストに使った自作の最強プログラムに対してだけ強くなっているだけのことでした<img class="emoji" title=":sob:" alt=":sob:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png" height="20" width="20"><br>
@@ -246,7 +179,7 @@ MathJax.Hub.Config({
 <p><button id="unzoom">元に戻す</button><span>　※範囲をドラッグすれば、グラフを zoom up 出来ます</span></p>
 
 <p>　赤と黄色のグラフは<a href="/programming/2016-11-23/vanishing-tictactoe">以前の記事</a>と同じものです。今回同じ評価値なら指し手をランダムに変更するように改良した最強プログラムとの対戦勝率（水色のグラフ）は5,000回対戦後でも３０％程度でまだまだ学習が足りないのがわかります。今まで同じ指し手しか選ばない最強プログラムでテストして、勝率５割になったから学習完了した（＝強くなった）と勘違いしていたわけです。本来なら最初からこのプログラムでテストするべきでした<img class="emoji" title=":cold_sweat:" alt=":cold_sweat:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f630.png" height="20" width="20">。このプログラムを使って作った学習データをアプリの初期データとしてリリースしようかと思ってます。でも、以前にも書きましたが最強プログラムとの対戦テストは時間が掛るのが辛いところです。このわずか5,000回の対戦データを作成するためにCore i7-2600KのPCを約３日間稼働しっぱなしでした。<br>
-　ちなみにグラフにはしませんでしたが、対乱数プログラムとの対戦テストなら対最強プログラムのように時間はかからないので100,000回まで試してみました。すると勝率（赤のグラフ）は９割以上まで伸びました<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>が、その学習データを使ってアプリにして遊んでみても全然強さを感じさせるものにはなっていませんでした。以前から書いてますが、いくら乱数プログラムとの対戦学習（モンテカルロ法を使った強化学習）を続けても効果は薄そうです。</p>
+　ちなみにグラフにはしませんでしたが、対乱数プログラムとの対戦テストなら対最強プログラムのように時間はかからないので100,000回まで試してみました。すると勝率（赤のグラフ）は９割以上まで伸びました<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>が、その学習データを使ってアプリにして遊んでみても全然強さを感じさせるものにはなっていませんでした。以前から書いてますが、いくら乱数プログラムとの対戦学習（モンテカルロ法を使った強化学習）を続けても効果は薄そうです。</p>
 
 <h3 id="その他の方法">その他の方法</h3>
 <p>　学習させたい機械学習プログラム側の学習データ作成部分だけを使用して最強プログラム同士で対戦させれば、最強プログラムの指し手そのものを学習データに反映させることもできます。これはプログラムが自分で学習するのとは異なり、最強プログラムの手を真似るデータを定跡データとして学習データに反映させていることになります。こうした定跡データを使った方法や、何も学習していない状態から学習プログラム同士で対戦を重ねて学習データを作る方法なども試しましたが、詳しく確認したわけでないですが思ったほど強くなりませんでした。強くなったかどうかをどのように判断してるのかという話もいろいろあるのですが、それほどたいそうな事はしてないのですが話が長くなるのでまた別の機会に書こうと思います。</p>
@@ -321,139 +254,49 @@ if (typeof contentLoaded != "undefined") {
 
 <hr>
 
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1">
-      <p><a href="/project/2016-12-23/compressed_gametree">「三目並べのゲーム木データを間引く」</a> <a href="#fnref:1" class="reversefootnote">↩</a></p>
+    <li id="fn:1" role="doc-endnote">
+      <p><a href="/project/2016-12-23/compressed_gametree">「三目並べのゲーム木データを間引く」</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
-    <li id="fn:2">
-      <p><a href="/programming/2016-11-03/ml_miscellaneous2">「消える三目並べ」、思ったより大変」</a> <a href="#fnref:2" class="reversefootnote">↩</a></p>
+    <li id="fn:2" role="doc-endnote">
+      <p><a href="/programming/2016-11-03/ml_miscellaneous2">「消える三目並べ」、思ったより大変」</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
-    <li id="fn:3">
-      <p>「消える三目並べ」というゲームは先手必勝のゲームなので、先手・後手をランダムに決める条件で勝率９割以上になるというのは、かなりの実力差（乱数で指し手を決めても先手の時は偶然最善手を選び続けて勝つ場合があるため）があると言えると思います。 <a href="#fnref:3" class="reversefootnote">↩</a></p>
+    <li id="fn:3" role="doc-endnote">
+      <p>「消える三目並べ」というゲームは先手必勝のゲームなので、先手・後手をランダムに決める条件で勝率９割以上になるというのは、かなりの実力差（乱数で指し手を決めても先手の時は偶然最善手を選び続けて勝つ場合があるため）があると言えると思います。 <a href="#fnref:3" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
   </ol>
 </div>
 
+        </article>
+      </div>
     </div>
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-folder-open"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/categories.html#programming-ref">
-    		programming <span>26</span>
-    	</a></li>
-    
-  
-
-
-    </ul>
-    
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-tags"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/tags.html#programming-ref">programming <span>15</span></a></li>
-     
-    	<li><a href="/tags.html#ruby-ref">ruby <span>34</span></a></li>
-     
-    	<li><a href="/tags.html#tictactoe-ref">tictactoe <span>33</span></a></li>
-     
-    	<li><a href="/tags.html#android-ref">android <span>54</span></a></li>
-     
-    	<li><a href="/tags.html#javascript-ref">javascript <span>50</span></a></li>
-    
-  
-
-
-
-    </ul>
-    
-
-    <hr>
-    <div class="pagination">
-      <ul>
-      
-        <li class="prev"><a href="/programming/2017-03-19/vanishing-tictactoe2" title="「消える三目並べ」の話の続き">← Previous</a></li>
-      
-        <li><a href="/archive.html">Archive</a></li>
-      
-        <li class="next"><a href="/project/2017-07-01/neuralnw" title="三目並べでニューラルネットワーク（誤）">Next →</a></li>
-      
-      </ul>
-    </div>
-    <hr>
-    
-
-
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'hello-my-world'; // required: replace example with your forum shortname
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';        
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
-
-
   </div>
 </div>
 
-<div id="disqus_thread"></div>
-<script>
 
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://hello-my-world.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
+  
 
+<footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-offset-3 col-lg-6">
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                <small>© rifyll theme, 2014</small>
+              </div>
+            </div>
+        </div>
       </div>
-      <hr>
-      <footer>
-        <p>© 2021 happyclam
-          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-        </p>
-      </footer>
-
     </div>
+  </footer>
 
-    
-  </body>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+
+</body>
+
 </html>
-

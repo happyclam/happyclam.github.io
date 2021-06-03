@@ -1,42 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    
-    <title>マンカラは先手必勝？後手必勝？</title>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="description"
+    content="マンカラは先手必勝？後手必勝？ Dartでマンカラの必勝手順の有無を検証 Reinventing the wheel.">
+  <title> マンカラは先手必勝？後手必勝？ - 自己満足プログラミング </title>
 
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      
-      gtag('config', 'UA-1752720-7');
-    </script>
-    <meta name="author" content="happyclam">
-
-    <!-- Enable responsive viewport -->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
-    <![endif]-->
-
-    <!-- Le styles -->
-    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
-    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
-    <link rel="shortcut icon" href="/images/favicon.ico">
-    <!-- Le fav and touch icons -->
-  <!-- Update these with your own images
-
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@SappierBoy">
   <meta name="twitter:creator" content="@SappierBoy">
@@ -53,29 +25,63 @@
   <meta name="twitter:image:src" content="https://happyclam.github.io/images/mancala_logo.png">
   
 
-  <link rel="canonical" href="/software/2020-06-07/mancala" />
-    <!-- atom & rss feed -->
-    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
-    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script language="JavaScript">
-$(document).ready( function () {
-    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
-})
-</script>
-<script src="/assets/themes/twitter/js/jquery.min.js"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
-<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
-<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
-    <!-- <script> -->
-    <!--   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ -->
-    <!--   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), -->
-    <!--   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) -->
-    <!--   })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); -->
-    <!--   ga('create', 'UA-1752720-7', 'happyclam.github.io'); -->
-    <!--   ga('send', 'pageview'); -->
-    <!-- </script> -->
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"> -->
+        <!--   <span class="sr-only">Toggle navigation</span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!-- </button> -->
+        <!-- <a id="site-title" class="navbar-brand" href="/"> -->
+        <!--   <img class="pull-left img-responsive" src="">  -->
+        <!--   <span class="name-holder">自己満足プログラミング</span> -->
+        <!-- </a> -->
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li><a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li><a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li><a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li><a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li><a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -91,9 +97,9 @@ MathJax.Hub.Config({
 });
 </script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-  </head>
 
-  <body>
+</header>
+
     <div style="text-align: center;">
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <script>
@@ -103,141 +109,48 @@ MathJax.Hub.Config({
         });
       </script>
     </div>
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container-narrow">
-          <a class="brand" href="/">自己満足プログラミング</a>
-          <ul class="nav">
-            
-            
-            
-
-
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/archive">Archive</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/categories">Categories</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/pages">Pages</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/policy">Policy</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/profile">About</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-  
-    
-      
-      	
-      	<li><a href="/tags">Tags</a></li>
-      	
-      
-    
-  
-    
-  
-    
-  
-
-
-
-          </ul>
-        </div>
-      </div>
+  <div class="blog-header">
+    <div class="span3">
+      <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     </div>
+  </div>
+  
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
 
-    <div class="container-narrow">
-      <div class="row-fluid">
-        <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        </div>
-        <div class="span9"
-             <!-- Html Elements for Search -->
-             <div id="search-container" align="right">
-               <input type="text" id="search-input" placeholder="search...">
-               <ul id="results-container"></ul>
-             </div>
-             <div class="results"></div>
-        </div>
-      </div>
-<script type="text/javascript">
-  SimpleJekyllSearch.init({
-    searchInput: document.getElementById('search-input'),
-    resultsContainer: document.getElementById('results-container'),
-    json: '/search.json',
-    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
-    noResultsText: 'No results found',
-    limit: 15,
-    fuzzy: false,
-  })
-</script>
-      <div class="content">
-        
-<div class="page-header">
-  <h1>マンカラは先手必勝？後手必勝？ </h1>
-</div>
+        <header class="page-header">
+          <h2 class="page-title"><a href="/software/2020-06-07/mancala">マンカラは先手必勝？後手必勝？</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Sunday, June 07, 2020
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">dart</span>
+                
+                  <span class="label label-tag">android</span>
+                
+                  <span class="label label-tag">flutter</span>
+                
+            </div>
+          </div>
 
-<div class="row-fluid post-full">
-  <div class="span12">
-    <div class="date">
-      <span>07 June 2020</span>
-    </div>
-    <div class="content">
-      <p><a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam"><img src="/images/ja_badge_web_generic.png" alt="マンカラアプリ" title="マンカラ ナッツ" width="155" height="60" /></a>
+        </header>
+
+        <article class="page-content">
+          <p><a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam"><img src="/images/ja_badge_web_generic.png" alt="マンカラアプリ" title="マンカラ ナッツ" width="155" height="60" /></a>
 <a href="https://www.amazon.co.jp/happyclam-マンカラ-ナッツ/dp/B08D8QVVQY/ref=sr_1_10?__mk_ja_JP=カタカナ&amp;dchild=1&amp;keywords=マンカラ&amp;qid=1595382601&amp;s=mobile-apps&amp;sr=1-10"><img src="/images/amazon-appstore-badge-jp-white.png" alt="マンカラアプリ" title="マンカラ ナッツ" width="155" height="60" /></a></p>
 
 <h3 id="最古のボードゲームらしい">最古のボードゲームらしい</h3>
 <p>　世界最古のボードゲームらしいのですが、存在自体知りませんでした。早速アプリをダウンロードして遊んでみたところ、何回か遊んでいるうちに勝つためのコツというのが少しずつ見えてきて楽しめましたが、それよりもこの単純なルールならすぐに人間に負けないＡＩが作れるんじゃないか？と思い試してみることにしました。</p>
 
 <h3 id="派生のルールがいろいろあるらしい">派生のルールがいろいろあるらしい</h3>
-<p>　<a href="https://ja.wikipedia.org/wiki/マンカラ">Wikipedia</a>によるといろいろな遊び方があるようですが、たまたまダウンロードしたアプリは「ベーシック」と「カラハ」という２つのルールで遊べるもので、ベーシックをやってみてすごく単純なルールに興味を持ったのですが、最初にカラハのルールで遊んでいたら面倒そうなので自分でプログラムを作ってみようなんて思わなかったかも知れません<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。<br />
+<p>　<a href="https://ja.wikipedia.org/wiki/マンカラ">Wikipedia</a>によるといろいろな遊び方があるようですが、たまたまダウンロードしたアプリは「ベーシック」と「カラハ」という２つのルールで遊べるもので、ベーシックをやってみてすごく単純なルールに興味を持ったのですが、最初にカラハのルールで遊んでいたら面倒そうなので自分でプログラムを作ってみようなんて思わなかったかも知れません<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>。<br />
 　先手必勝か後手必勝かを調べる方法は、<a href="/software/2014-09-23/tictactoe_arrange">以前の記事</a>で<strong>３手前に打った駒が消える特殊なルールの三目並べ</strong>を例にして紹介したように、MIN-MAX法（+αβ法）で先読みの深さを徐々に深くしていって（反復深化）、お互い最善手を尽くしても先手が勝つ（先手必勝）のかあるいは後手が勝つ（後手必勝）のかを確認するやり方です。</p>
 
 <h3 id="マンカラベーシックのルール">マンカラベーシックのルール</h3>
@@ -273,7 +186,7 @@ MathJax.Hub.Config({
 
 <h3 id="dartで実装">Dartで実装</h3>
 <p>　今リリースしている自分の将棋関連アプリの中で一番利用されている<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>をFlutterで作り直そうかと思って、慣れるためにプログラミング言語はDartにしました。<br />
-　石の数は３つの場合<code>List board = [0,3,3,3,0,3,3,3];</code>のようにリストを作ります。添字の<code>0</code>と<code>4</code>がストアになります。カラハのルールだと相手のストアには石を撒かないそうですが、ベーシックのルールだと相手のストアにも石を撒くので、このリストをシーケンシャルに処理していけばいいだけなので処理が単純です。またカラハのように自分の空の穴で石を撒き終わった時に相手の石を取る（capture）ことが出来るというルールもありません。</p>
+　石の数は３つの場合<code class="language-plaintext highlighter-rouge">List board = [0,3,3,3,0,3,3,3];</code>のようにリストを作ります。添字の<code class="language-plaintext highlighter-rouge">0</code>と<code class="language-plaintext highlighter-rouge">4</code>がストアになります。カラハのルールだと相手のストアには石を撒かないそうですが、ベーシックのルールだと相手のストアにも石を撒くので、このリストをシーケンシャルに処理していけばいいだけなので処理が単純です。またカラハのように自分の空の穴で石を撒き終わった時に相手の石を取る（capture）ことが出来るというルールもありません。</p>
 
 <pre><code class="language-Dart">void main() {
   final List board = [0,3,3,3,0,3,3,3];
@@ -300,7 +213,7 @@ MathJax.Hub.Config({
 
 </code></pre>
 
-<p>　一手読みから５０手読みまで反復深化で徐々に読みを深くしていって、先手勝ち（<code>999</code>）の評価値が返ってきたら先手必勝、後手勝ち（<code>-999</code>）の評価値が返ってきたら後手必勝となります。この辺りの話は<a href="/software/2014-09-23/tictactoe_arrange">以前の記事</a>を読んでみてください。</p>
+<p>　一手読みから５０手読みまで反復深化で徐々に読みを深くしていって、先手勝ち（<code class="language-plaintext highlighter-rouge">999</code>）の評価値が返ってきたら先手必勝、後手勝ち（<code class="language-plaintext highlighter-rouge">-999</code>）の評価値が返ってきたら後手必勝となります。この辺りの話は<a href="/software/2014-09-23/tictactoe_arrange">以前の記事</a>を読んでみてください。</p>
 
 <pre><code class="language-Dart">  //評価関数
   int evaluate(List board){
@@ -321,7 +234,7 @@ MathJax.Hub.Config({
   }
 </code></pre>
 
-<p>　評価関数は先手勝ち（<code>999</code>）か後手勝ち（<code>-999</code>）、それ以外は<code>(先手の空になっている穴の数 - 後手の空になっている穴の数)</code>にしていますが、<code>return 0</code>でもいいと思います。形勢判断の評価関数として<code>(先手の空になっている穴の数 - 後手の空になっている穴の数)</code>というのはかなり雑ですが、読み切ってしまうことが目的なので適当で構いません。</p>
+<p>　評価関数は先手勝ち（<code class="language-plaintext highlighter-rouge">999</code>）か後手勝ち（<code class="language-plaintext highlighter-rouge">-999</code>）、それ以外は<code class="language-plaintext highlighter-rouge">(先手の空になっている穴の数 - 後手の空になっている穴の数)</code>にしていますが、<code class="language-plaintext highlighter-rouge">return 0</code>でもいいと思います。形勢判断の評価関数として<code class="language-plaintext highlighter-rouge">(先手の空になっている穴の数 - 後手の空になっている穴の数)</code>というのはかなり雑ですが、読み切ってしまうことが目的なので適当で構いません。</p>
 
 <h3 id="結果">結果</h3>
 <p>　石の数を１〜９個にして、５０手先読みしたそれぞれの結果です。</p>
@@ -382,12 +295,12 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 
-<p>※先読み関数の外側のループで手数をカウントしてるため、手数は若干不正確です<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。</p>
+<p>※先読み関数の外側のループで手数をカウントしてるため、手数は若干不正確です<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>。</p>
 
-<p>　先読みメソッドの戻り値は（評価値,指し手）となっていて、評価値に最大値（<code>999</code>）が返ってきたら先手必勝、最小値（<code>-999</code>）が返ってきたら後手必勝です。石の数４個の場合、先手が初手にリストの<code>2</code>の位置を選べば先手必勝であることを表しています。石の数７個の時は後手必勝となりました。指し手に<code>3</code>が返ってきているのは、取り敢えず最善手として<code>3</code>を選んだという意味で、深い意味はありません。先手は勝てないことが分かったけど取り敢えず最善手として<code>3</code>を選んだということです。</p>
+<p>　先読みメソッドの戻り値は（評価値,指し手）となっていて、評価値に最大値（<code class="language-plaintext highlighter-rouge">999</code>）が返ってきたら先手必勝、最小値（<code class="language-plaintext highlighter-rouge">-999</code>）が返ってきたら後手必勝です。石の数４個の場合、先手が初手にリストの<code class="language-plaintext highlighter-rouge">2</code>の位置を選べば先手必勝であることを表しています。石の数７個の時は後手必勝となりました。指し手に<code class="language-plaintext highlighter-rouge">3</code>が返ってきているのは、取り敢えず最善手として<code class="language-plaintext highlighter-rouge">3</code>を選んだという意味で、深い意味はありません。先手は勝てないことが分かったけど取り敢えず最善手として<code class="language-plaintext highlighter-rouge">3</code>を選んだということです。</p>
 
 <h3 id="検証１石が１個の時">検証１（石が１個の時）</h3>
-<p>　取り敢えず石の数１個の時のケースを確認しましょう。先手が初手に<code>1</code>の場所を選んで石を撒いた直後の状態は以下のようになります。</p>
+<p>　取り敢えず石の数１個の時のケースを確認しましょう。先手が初手に<code class="language-plaintext highlighter-rouge">1</code>の場所を選んで石を撒いた直後の状態は以下のようになります。</p>
 
 <div style="float:left; margin: 0px 0px 0px">
     <table>
@@ -407,7 +320,7 @@ MathJax.Hub.Config({
 </div>
 <p><br clear="all" /></p>
 
-<p>　後手はこの次にどこを選んでも（以下の図は<code>5</code>を選んだ場合）、先手は<code>3</code>を選べば自分のストアに石を撒き終わるので次も先手の番です。その結果、３手連続で着手することが出来るので以下のように遷移して先手が勝てます。</p>
+<p>　後手はこの次にどこを選んでも（以下の図は<code class="language-plaintext highlighter-rouge">5</code>を選んだ場合）、先手は<code class="language-plaintext highlighter-rouge">3</code>を選べば自分のストアに石を撒き終わるので次も先手の番です。その結果、３手連続で着手することが出来るので以下のように遷移して先手が勝てます。</p>
 
 <div style="width:500px; margin: 0 auto;">
 <div style="float:left; margin: 0px 0px 0px">
@@ -473,8 +386,8 @@ MathJax.Hub.Config({
 result = second.think(board, first, 50, SECOND_WIN);
 </code></pre>
 
-<p>　戻り値は<code>[999, 7]</code>となって後手は<code>7</code>を選ぶけど、先手必勝（<code>999</code>）の結論は変わりません。<br />
-　後手は２手目にどこを選んでも負けるのですが、２手目は<code>7</code>を選んだ方が上で紹介した評価関数に従って有利と判定されるので<code>7</code>が最善手となります。初手からの遷移を省略せずに書くと以下のようになります。</p>
+<p>　戻り値は<code class="language-plaintext highlighter-rouge">[999, 7]</code>となって後手は<code class="language-plaintext highlighter-rouge">7</code>を選ぶけど、先手必勝（<code class="language-plaintext highlighter-rouge">999</code>）の結論は変わりません。<br />
+　後手は２手目にどこを選んでも負けるのですが、２手目は<code class="language-plaintext highlighter-rouge">7</code>を選んだ方が上で紹介した評価関数に従って有利と判定されるので<code class="language-plaintext highlighter-rouge">7</code>が最善手となります。初手からの遷移を省略せずに書くと以下のようになります。</p>
 
 <div style="width:500px; margin: 0 auto;">
 <div style="float:left; margin: 0px 0px 0px">
@@ -621,11 +534,11 @@ i = 4
 6
 [999, 1]
 </code></pre>
-<p>　main関数の出力も<code>i = 4</code>（５手読み）で先手が勝つと表示されます。</p>
+<p>　main関数の出力も<code class="language-plaintext highlighter-rouge">i = 4</code>（５手読み）で先手が勝つと表示されます。</p>
 
 <h3 id="検証２石が４個の時">検証２（石が４個の時）</h3>
 <p>　石の数が１の場合は簡単に検証できましたが、石の数が２個以上の場合は何十手もかかるので、目で追うだけで検証するのは大変です。簡単にみていきます。<br />
-　石の数が４個の場合は<code>2</code>の位置を選べば３８手で先手必勝と表示されます。先手が<code>2</code>の位置を選んで石を撒いたら以下の状態になります。</p>
+　石の数が４個の場合は<code class="language-plaintext highlighter-rouge">2</code>の位置を選べば３８手で先手必勝と表示されます。先手が<code class="language-plaintext highlighter-rouge">2</code>の位置を選んで石を撒いたら以下の状態になります。</p>
 
 <div style="width:500px; margin: 0 auto;">
 <div style="float:left; margin: 0px 0px 0px">
@@ -671,14 +584,14 @@ i = 4
 result = second.think(board, first, 50, SECOND_WIN);
 </code></pre>
 
-<p>　戻り値は<code>[999, 7]</code>となって先手必勝（<code>999</code>）の結論は変わりません。<br />
+<p>　戻り値は<code class="language-plaintext highlighter-rouge">[999, 7]</code>となって先手必勝（<code class="language-plaintext highlighter-rouge">999</code>）の結論は変わりません。<br />
 　今度は初期状態から先手（下側）と後手（上側）の順番を入れ替えて、本来の後手（上側）から先読みしてみると</p>
 
 <pre><code class="language-Dart">final List board = [0,4,4,4,0,4,4,4];
 result = second.think(board, first, 50, SECOND_WIN);
 </code></pre>
 
-<p>　戻り値は<code>[-999, 6]</code>となって<code>2</code>の対称の位置にある<code>6</code>を選べば本来の後手（上側）が必勝と判定されます。上下対象の配置なので当然こうなるべきで、これも一応プログラムは正しく動いてそうです。</p>
+<p>　戻り値は<code class="language-plaintext highlighter-rouge">[-999, 6]</code>となって<code class="language-plaintext highlighter-rouge">2</code>の対称の位置にある<code class="language-plaintext highlighter-rouge">6</code>を選べば本来の後手（上側）が必勝と判定されます。上下対象の配置なので当然こうなるべきで、これも一応プログラムは正しく動いてそうです。</p>
 
 <h3 id="６２ではどうなのか">６×２ではどうなのか</h3>
 <p>　３×２列のマンカラでなく、通常の６×２列で石の数が４個のマンカラではどうなのか調べたいと思い、まず石１個でやってみました。</p>
@@ -687,13 +600,13 @@ result = second.think(board, first, 50, SECOND_WIN);
 result = second.think(board, first, 50, SECOND_WIN);
 </code></pre>
 
-<p>　結果は<code>[999, 1]</code>となって先手が初手に<code>1</code>の場所を選べば先手必勝のようです。<br />
-　ただ、石２個、３個、４個で試すと<del>循環する手順があるのか、</del>丸一日動かしていても結果が返って来ませんでした。まだ原因がはっきり分かっていませんが、循環する手順があるとしてもそこに入り込む必要なく必勝手順を辿ることが出来たということなので、<strong>必勝の結論を返してきた分に関しては間違いない</strong>と思います<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>。バグがなければの話ですが…。<br />
+<p>　結果は<code class="language-plaintext highlighter-rouge">[999, 1]</code>となって先手が初手に<code class="language-plaintext highlighter-rouge">1</code>の場所を選べば先手必勝のようです。<br />
+　ただ、石２個、３個、４個で試すと<del>循環する手順があるのか、</del>丸一日動かしていても結果が返って来ませんでした。まだ原因がはっきり分かっていませんが、循環する手順があるとしてもそこに入り込む必要なく必勝手順を辿ることが出来たということなので、<strong>必勝の結論を返してきた分に関しては間違いない</strong>と思います<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>。バグがなければの話ですが…。<br />
 　ベーシックのルール特有のケースかもしれないので、先にカラハのルールを実装して試してみようかなどと考えていますが、いずれにしても読み切るには結構時間が掛かるので、三目並べのように絶対人間に負けないプログラムを作るのは思っていたほど簡単ではないようです。<br />
 　カラハのルールだと自分の空の穴で撒き終わった場合に相手の石を取ることが出来るというルールがあるので、ベーシックのルールより早くゲームを終わらせる必勝手順があるような気がしていますが、どうなるか分かりません。</p>
 
 <h3 id="マンカラカラハの結果2020-06-17追記">マンカラカラハの結果（2020-06-17追記）</h3>
-<p>　マンカラカラハのルールに対応したので結果を載せておきます。カラハでは自分の穴の石が無くなったら勝ちではなく、先手・後手どちらかの全ての穴が空になったらゲーム終了して残った石は自分のストアに戻し、その時点でのストアに溜まった石の数で勝敗を決めるので、評価関数は<code>先手のストア内の石の数 - 後手のストア内の石の数</code>です。マンカラベーシックのルールに較べて短手数での必勝手順が存在するのは、やはり相手の石を取ることが出来るルールによるものでしょう。</p>
+<p>　マンカラカラハのルールに対応したので結果を載せておきます。カラハでは自分の穴の石が無くなったら勝ちではなく、先手・後手どちらかの全ての穴が空になったらゲーム終了して残った石は自分のストアに戻し、その時点でのストアに溜まった石の数で勝敗を決めるので、評価関数は<code class="language-plaintext highlighter-rouge">先手のストア内の石の数 - 後手のストア内の石の数</code>です。マンカラベーシックのルールに較べて短手数での必勝手順が存在するのは、やはり相手の石を取ることが出来るルールによるものでしょう。</p>
 
 <h4 id="３２列カラハ2020-10-28一部訂正">３×２列（カラハ）（2020-10-28一部訂正）</h4>
 
@@ -902,8 +815,8 @@ result = second.think(board, first, 50, SECOND_WIN);
 <p><br clear="all" /></p>
 
 <p>　カラハのルールでも先手・後手どちらかの石が無くなればゲーム終了しますが、最後に残りの石を自分のストアに戻すことになりますので、先に先手の石が空になってもこの進行だと３対３の引き分けになり、当然ですがベーシックとは違う結果になります。<br />
-　次に石６個のケースを見てみると、戻り値は<code>[-999, 3]</code>となっていますが、この場合ベーシックの時にも説明したように先手が<code>3</code>を選んだことには深い意味はありません。先手がどこを選んでも負ける（評価値<code>-999</code>）けど最善手として<code>3</code>を選んだというだけの話です。では後手の初手は何が最善手なのか見ていきます。<br />
-　石６個で先手が初手に<code>1</code>を選んだ直後の状態は以下のようになります。</p>
+　次に石６個のケースを見てみると、戻り値は<code class="language-plaintext highlighter-rouge">[-999, 3]</code>となっていますが、この場合ベーシックの時にも説明したように先手が<code class="language-plaintext highlighter-rouge">3</code>を選んだことには深い意味はありません。先手がどこを選んでも負ける（評価値<code class="language-plaintext highlighter-rouge">-999</code>）けど最善手として<code class="language-plaintext highlighter-rouge">3</code>を選んだというだけの話です。では後手の初手は何が最善手なのか見ていきます。<br />
+　石６個で先手が初手に<code class="language-plaintext highlighter-rouge">1</code>を選んだ直後の状態は以下のようになります。</p>
 
 <div style="width:500px; margin: 0 auto;">
 <div style="float:left; margin: 0px 0px 0px">
@@ -949,8 +862,8 @@ result = second.think(board, first, 50, SECOND_WIN);
 <pre><code class="language-Dart">final List board = [0,0,7,7,1,7,7,7];
 result = second.think(board, first, 50, SECOND_WIN);
 </code></pre>
-<p>　結果は<code>[-999, 5]</code>となって後手は２手目に<code>5</code>を選べば勝てると言っています。<br />
-　次に先手が<code>2</code>を選んだ場合を見てみましょう。<strong>カラハでは相手のストアには石を撒かないことが注意点です。</strong></p>
+<p>　結果は<code class="language-plaintext highlighter-rouge">[-999, 5]</code>となって後手は２手目に<code class="language-plaintext highlighter-rouge">5</code>を選べば勝てると言っています。<br />
+　次に先手が<code class="language-plaintext highlighter-rouge">2</code>を選んだ場合を見てみましょう。<strong>カラハでは相手のストアには石を撒かないことが注意点です。</strong></p>
 
 <div style="width:500px; margin: 0 auto;">
 <div style="float:left; margin: 0px 0px 0px">
@@ -995,7 +908,7 @@ result = second.think(board, first, 50, SECOND_WIN);
 result = second.think(board, first, 50, SECOND_WIN);
 </code></pre>
 
-<p>　結果は<code>[-999, 5]</code>となって後手は<code>5</code>を選べば勝てると言っています。同様に先手が<code>3</code>を選んだ場合を見てみましょう。</p>
+<p>　結果は<code class="language-plaintext highlighter-rouge">[-999, 5]</code>となって後手は<code class="language-plaintext highlighter-rouge">5</code>を選べば勝てると言っています。同様に先手が<code class="language-plaintext highlighter-rouge">3</code>を選んだ場合を見てみましょう。</p>
 
 <div style="width:500px; margin: 0 auto;">
 <div style="float:left; margin: 0px 0px 0px">
@@ -1039,7 +952,7 @@ result = second.think(board, first, 50, SECOND_WIN);
 <pre><code class="language-Dart">final List board = [0,7,7,0,1,7,7,7];
 result = second.think(board, first, 50, SECOND_WIN);
 </code></pre>
-<p>　結果は<code>[-999, 6]</code>となって後手は<code>6</code>を選べば勝てると言っています。先手が初手に<code>1</code>,<code>2</code>,<code>3</code>のどれを選んでも後手必勝（<code>-999</code>）の結論は変わっていないので一応プログラムとしては一貫した結果が返ってきています。<br />
+<p>　結果は<code class="language-plaintext highlighter-rouge">[-999, 6]</code>となって後手は<code class="language-plaintext highlighter-rouge">6</code>を選べば勝てると言っています。先手が初手に<code class="language-plaintext highlighter-rouge">1</code>,<code class="language-plaintext highlighter-rouge">2</code>,<code class="language-plaintext highlighter-rouge">3</code>のどれを選んでも後手必勝（<code class="language-plaintext highlighter-rouge">-999</code>）の結論は変わっていないので一応プログラムとしては一貫した結果が返ってきています。<br />
 　あと、相手の石を取る（capture）ケースも自分なりに確認していますが、図を書くのに疲れたので検証はここまでにします。</p>
 
 <h4 id="６２列カラハ2020-06-21追記">６×２列（カラハ）（2020-06-21追記）</h4>
@@ -1092,21 +1005,21 @@ result = second.think(board, first, 50, SECOND_WIN);
 </table>
 
 <p>　石の数を３個以上にするとベーシックの時と同じように先読みメソッドから返事が返って来ませんでした。<del>千日手になってしまっているのだと思いますが、深くは調べていません。同一局面が現れたら手を変えるようにして千日手を無理やり回避するようにプログラムを改変すると、それは勝ち負けどちらの結果になったとしても必然の手順ではないということになってしまうので、</del> 実験は一旦ここで打ち切ろうと思います。<br />
-　（訂正）冷静に考えると石を撒きながら自分のストアを通過する度に動かせる石が減っていくので、千日手（循環手順）があるとは思えません。GUIでテスト中に何かバグが見つかるかもと期待していましたが、アプリのテスト中も今のところバグらしきものは見つけられません<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup>ので、局面が増えた時になぜ先読みメソッドがループ？に入るのか謎です。それとこの手の先読みプログラムをDartで作ったのは初めてなのですが、先読みの深さを1000とか10000とかにしてもスタックオーバーフローが発生しない理由がよく分からないのですが、そのことと何か関係があるのかも知れません。</p>
+　（訂正）冷静に考えると石を撒きながら自分のストアを通過する度に動かせる石が減っていくので、千日手（循環手順）があるとは思えません。GUIでテスト中に何かバグが見つかるかもと期待していましたが、アプリのテスト中も今のところバグらしきものは見つけられません<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup>ので、局面が増えた時になぜ先読みメソッドがループ？に入るのか謎です。それとこの手の先読みプログラムをDartで作ったのは初めてなのですが、先読みの深さを1000とか10000とかにしてもスタックオーバーフローが発生しない理由がよく分からないのですが、そのことと何か関係があるのかも知れません。</p>
 
 <h3 id="強いマンカラアプリ">強いマンカラアプリ</h3>
-<p>　自分のプログラムを１０手読みに設定して日本製の２つのアプリと何回か対戦させたのですが、負けは経験していないので今のところバグは無いのではと思っています<sup id="fnref:5"><a href="#fn:5" class="footnote">5</a></sup>。数あるAndroidアプリの中で一番強いマンカラアプリがどれなのか知りませんが、全体的に強さを追求しているアプリは少ないのかも知れません。それと海外製のアプリもいくつか触ってみましたが、ルールが微妙に違っていたりする<sup id="fnref:6"><a href="#fn:6" class="footnote">6</a></sup>ので、強さを比較するためにはそれぞれのルールに対応しなければならず結構大変です。海外製のアプリと強さを比較するために今後ルールを変更するかも知れません。そうすると上記の表の結果も変わって来ると思います。いろいろ派生ルールがあると面倒です、しかも何回か対戦しないと気付かないような微妙な違いなので厄介です。<br />
+<p>　自分のプログラムを１０手読みに設定して日本製の２つのアプリと何回か対戦させたのですが、負けは経験していないので今のところバグは無いのではと思っています<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup>。数あるAndroidアプリの中で一番強いマンカラアプリがどれなのか知りませんが、全体的に強さを追求しているアプリは少ないのかも知れません。それと海外製のアプリもいくつか触ってみましたが、ルールが微妙に違っていたりする<sup id="fnref:6" role="doc-noteref"><a href="#fn:6" class="footnote" rel="footnote">6</a></sup>ので、強さを比較するためにはそれぞれのルールに対応しなければならず結構大変です。海外製のアプリと強さを比較するために今後ルールを変更するかも知れません。そうすると上記の表の結果も変わって来ると思います。いろいろ派生ルールがあると面倒です、しかも何回か対戦しないと気付かないような微妙な違いなので厄介です。<br />
 ※一例を挙げると<a href="https://play.google.com/store/apps/details?id=io.ccgames.mancala">この海外製アプリ</a>と対戦させて自分のプログラムが勝ち判定出した後に負けたのですが、<a href="https://play.google.com/store/apps/details?id=io.ccgames.mancala">このアプリ</a>はカラハとは違って<strong>Oware</strong>というルールになっているようです。違うルールで先読みしていたら負けるのも当然です。</p>
 
 <h3 id="アプリ作ってみました2020-07-05追記">アプリ作ってみました（2020-07-05追記）</h3>
 <p>　<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">マンカラアプリ</a>を作ってみました。まだ機能は少ないですが、今後追加していくつもりです。<br />
-　せっかくFlutterで作ったのでiPhone版もリリースしたいところですが、開発者登録費用の年間約10,000円を回収できる目処が立てばリリースするかも知れません<sup id="fnref:7"><a href="#fn:7" class="footnote">7</a></sup>。</p>
+　せっかくFlutterで作ったのでiPhone版もリリースしたいところですが、開発者登録費用の年間約10,000円を回収できる目処が立てばリリースするかも知れません<sup id="fnref:7" role="doc-noteref"><a href="#fn:7" class="footnote" rel="footnote">7</a></sup>。</p>
 
 <h3 id="計算量の問題だけだったみたい2020-08-01追記">計算量の問題だけだったみたい（2020-08-01追記）</h3>
 <p>　本文中、「先読みメソッドから戻ってこない理由が分からない」とややこしいこと書いていますが、単に私が待ち切れなかっただけのようです。３×２列から６×２列に配列要素を増やすことで当然計算量は増えますが、それだけでなく石の数を増やすことでもかなりの計算量の増加があるようです。<br />
 　以下は６×２列のカラハで石の数を２にして、反復深化で先読みさせたFlutterのテストの実行結果です。</p>
 
-<pre><code>00:02 +0: First thinking test2 depth = 1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>00:02 +0: First thinking test2 depth = 1
 result = [1, 5], depth = 1
 00:02 +1: First thinking test2 depth = 2
 result = [0, 5], depth = 2
@@ -1143,7 +1056,7 @@ result = [3, 6], depth = 17
 41:56 +17: First thinking test2 depth = 18
 result = [999, 5], depth = 18
 92:59 +18: All tests passed!
-</code></pre>
+</code></pre></div></div>
 
 <p>　最後の行の１９手読みの実行時間は９２分５９秒ですが、反復深化で調べると１手読みからの累積時間が必要となる（同じ経路を何度も調べている）ので、手間を惜しんで以下のように一気に５０手読みをさせていました。</p>
 
@@ -1215,9 +1128,9 @@ result = [4, 5], depth = 16
 　実行環境は</p>
 
 <ul>
-  <li>CPU:<code>Intel(R) Core(TM) i7-2600K CPU @ 3.40GHz</code></li>
-  <li>Memory: <code>12GB</code></li>
-  <li>Dart: <code>Dart VM version: 2.8.4 (stable) (Unknown timestamp) on "linux_x64"</code></li>
+  <li>CPU:<code class="language-plaintext highlighter-rouge">Intel(R) Core(TM) i7-2600K CPU @ 3.40GHz</code></li>
+  <li>Memory: <code class="language-plaintext highlighter-rouge">12GB</code></li>
+  <li>Dart: <code class="language-plaintext highlighter-rouge">Dart VM version: 2.8.4 (stable) (Unknown timestamp) on "linux_x64"</code></li>
 </ul>
 
 <p>です。どうしようか思案中です。</p>
@@ -1231,145 +1144,61 @@ result = [4, 5], depth = 16
 
 <hr />
 
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1">
-      <p>マンカラベーシックという呼び方が同じでも国や地域によってルールが違うようです。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:1" role="doc-endnote">
+      <p>マンカラベーシックという呼び方が同じでも国や地域によってルールが違うようです。 <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:2">
-      <p>先読み関数から手数を返せば正確になるのですが、今のところやってません。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:2" role="doc-endnote">
+      <p>先読み関数から手数を返せば正確になるのですが、今のところやってません。 <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:3">
-      <p>この辺りの事情は<a href="http://localhost:4000/software/2014-10-04/arrange_line">以前の記事</a>にも書きました。 <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:3" role="doc-endnote">
+      <p>この辺りの事情は<a href="http://localhost:4000/software/2014-10-04/arrange_line">以前の記事</a>にも書きました。 <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:4">
-      <p>アプリの設定をExpertにすると１０手読みですが、他のアプリと対戦させてみても結構強いです。絶対負けないプログラムにするにはこの記事の実験結果から考えて２０手以上の先読みが必要になると思われるので、アプリに実装するのは応答時間の問題で難しいと思います。海外製の強いアプリをいくつか見つけましたが、データ構造を小さくしたり、定跡データ化したり工夫しているのだと思います。やはり歴史が長い海外製の方がずっと先を行ってそうです。それかオープンソースの優秀なマンカラ用のライブラリが既にあるのかも知れません。 <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:4" role="doc-endnote">
+      <p>アプリの設定をExpertにすると１０手読みですが、他のアプリと対戦させてみても結構強いです。絶対負けないプログラムにするにはこの記事の実験結果から考えて２０手以上の先読みが必要になると思われるので、アプリに実装するのは応答時間の問題で難しいと思います。海外製の強いアプリをいくつか見つけましたが、データ構造を小さくしたり、定跡データ化したり工夫しているのだと思います。やはり歴史が長い海外製の方がずっと先を行ってそうです。それかオープンソースの優秀なマンカラ用のライブラリが既にあるのかも知れません。 <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:5">
-      <p>微妙なバグがありました。本文には影響ないのですが、表は数カ所2020-10-28に更新しています。どこが変わったかはgithubの履歴を見てください。<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">アプリ</a>に関しては修正済みです。 <a href="#fnref:5" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:5" role="doc-endnote">
+      <p>微妙なバグがありました。本文には影響ないのですが、表は数カ所2020-10-28に更新しています。どこが変わったかはgithubの履歴を見てください。<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">アプリ</a>に関しては修正済みです。 <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:6">
-      <p>自分のプログラムは先手の手番で全ての石が空になったらその時点でゲーム終了としていますが、先手番でゲームが終了したら、後手の指し手をもう一手進めてからゲームを終了するルールもあるようです。石を撒く回数を先手と後手で公平にするという意図でしょうか？ <a href="#fnref:6" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:6" role="doc-endnote">
+      <p>自分のプログラムは先手の手番で全ての石が空になったらその時点でゲーム終了としていますが、先手番でゲームが終了したら、後手の指し手をもう一手進めてからゲームを終了するルールもあるようです。石を撒く回数を先手と後手で公平にするという意図でしょうか？ <a href="#fnref:6" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:7">
-      <p>以前Cordovaで作成した機械学習型ＡＩアプリを<a href="https://play.google.com/store/apps/details?id=tictactoe_evo.io.github.happyclam">「進化する三目並べ」</a>と題してiPhoneアプリとして公開していたのですが、売れなかったので１年間で止めてしまいました。 <a href="#fnref:7" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:7" role="doc-endnote">
+      <p>以前Cordovaで作成した機械学習型ＡＩアプリを<a href="https://play.google.com/store/apps/details?id=tictactoe_evo.io.github.happyclam">「進化する三目並べ」</a>と題してiPhoneアプリとして公開していたのですが、売れなかったので１年間で止めてしまいました。 <a href="#fnref:7" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>
 
+        </article>
+      </div>
     </div>
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-folder-open"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/categories.html#software-ref">
-    		software <span>31</span>
-    	</a></li>
-    
-  
-
-
-    </ul>
-    
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-tags"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/tags.html#dart-ref">dart <span>7</span></a></li>
-     
-    	<li><a href="/tags.html#android-ref">android <span>54</span></a></li>
-     
-    	<li><a href="/tags.html#flutter-ref">flutter <span>7</span></a></li>
-    
-  
-
-
-
-    </ul>
-    
-
-    <hr>
-    <div class="pagination">
-      <ul>
-      
-        <li class="prev"><a href="/miscellaneous/2020-05-21/bicycle02" title="同じ規格でもタイヤの高さは違うことがある">&larr; Previous</a></li>
-      
-        <li><a href="/archive.html">Archive</a></li>
-      
-        <li class="next"><a href="/software/2020-08-09/mancala_easy" title="マンカラの必勝手順の有無（続編）">Next &rarr;</a></li>
-      
-      </ul>
-    </div>
-    <hr>
-    
-
-
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'hello-my-world'; // required: replace example with your forum shortname
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';        
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
-
-
   </div>
 </div>
 
-<div id="disqus_thread"></div>
-<script>
 
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://hello-my-world.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
 
+<footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-offset-3 col-lg-6">
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                <small>&copy; rifyll theme, 2014</small>
+              </div>
+            </div>
+        </div>
       </div>
-      <hr>
-      <footer>
-        <p>&copy; 2021 happyclam
-          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-        </p>
-      </footer>
-
     </div>
+  </footer>
 
-    
-  </body>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+
+</body>
+
 </html>
-

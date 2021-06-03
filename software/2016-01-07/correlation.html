@@ -1,42 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    
-    <title>三目並べプログラムの強化学習効率を上げる</title>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="description"
+    content="三目並べプログラムの強化学習効率を上げる 人間並みに強くするにはどれぐらい学習が必要か？ Reinventing the wheel.">
+  <title> 三目並べプログラムの強化学習効率を上げる - 自己満足プログラミング </title>
 
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      
-      gtag('config', 'UA-1752720-7');
-    </script>
-    <meta name="author" content="happyclam">
-
-    <!-- Enable responsive viewport -->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
-    <![endif]-->
-
-    <!-- Le styles -->
-    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
-    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
-    <link rel="shortcut icon" href="/images/favicon.ico">
-    <!-- Le fav and touch icons -->
-  <!-- Update these with your own images
-
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@SappierBoy">
   <meta name="twitter:creator" content="@SappierBoy">
@@ -53,29 +25,63 @@
   <meta name="twitter:image:src" content="https://happyclam.github.io/images/log-linear3.png">
   
 
-  <link rel="canonical" href="/software/2016-01-07/correlation" />
-    <!-- atom & rss feed -->
-    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
-    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script language="JavaScript">
-$(document).ready( function () {
-    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
-})
-</script>
-<script src="/assets/themes/twitter/js/jquery.min.js"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
-<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
-<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
-    <!-- <script> -->
-    <!--   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ -->
-    <!--   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), -->
-    <!--   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) -->
-    <!--   })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); -->
-    <!--   ga('create', 'UA-1752720-7', 'happyclam.github.io'); -->
-    <!--   ga('send', 'pageview'); -->
-    <!-- </script> -->
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"> -->
+        <!--   <span class="sr-only">Toggle navigation</span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!-- </button> -->
+        <!-- <a id="site-title" class="navbar-brand" href="/"> -->
+        <!--   <img class="pull-left img-responsive" src="">  -->
+        <!--   <span class="name-holder">自己満足プログラミング</span> -->
+        <!-- </a> -->
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li><a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li><a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li><a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li><a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li><a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -91,9 +97,9 @@ MathJax.Hub.Config({
 });
 </script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-  </head>
 
-  <body>
+</header>
+
     <div style="text-align: center;">
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <script>
@@ -103,145 +109,52 @@ MathJax.Hub.Config({
         });
       </script>
     </div>
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container-narrow">
-          <a class="brand" href="/">自己満足プログラミング</a>
-          <ul class="nav">
-            
-            
-            
-
-
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/archive">Archive</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/categories">Categories</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/pages">Pages</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/policy">Policy</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/profile">About</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-  
-    
-      
-      	
-      	<li><a href="/tags">Tags</a></li>
-      	
-      
-    
-  
-    
-  
-    
-  
-
-
-
-          </ul>
-        </div>
-      </div>
+  <div class="blog-header">
+    <div class="span3">
+      <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     </div>
+  </div>
+  
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
 
-    <div class="container-narrow">
-      <div class="row-fluid">
-        <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        </div>
-        <div class="span9"
-             <!-- Html Elements for Search -->
-             <div id="search-container" align="right">
-               <input type="text" id="search-input" placeholder="search...">
-               <ul id="results-container"></ul>
-             </div>
-             <div class="results"></div>
-        </div>
-      </div>
-<script type="text/javascript">
-  SimpleJekyllSearch.init({
-    searchInput: document.getElementById('search-input'),
-    resultsContainer: document.getElementById('results-container'),
-    json: '/search.json',
-    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
-    noResultsText: 'No results found',
-    limit: 15,
-    fuzzy: false,
-  })
-</script>
-      <div class="content">
-        
-<div class="page-header">
-  <h1>三目並べプログラムの強化学習効率を上げる </h1>
-</div>
+        <header class="page-header">
+          <h2 class="page-title"><a href="/software/2016-01-07/correlation">三目並べプログラムの強化学習効率を上げる</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Thursday, January 07, 2016
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">software</span>
+                
+                  <span class="label label-tag">tictactoe</span>
+                
+                  <span class="label label-tag">ruby</span>
+                
+            </div>
+          </div>
 
-<div class="row-fluid post-full">
-  <div class="span12">
-    <div class="date">
-      <span>07 January 2016</span>
-    </div>
-    <div class="content">
-      <h3 id="気になることがまだ残っている">気になることがまだ残っている</h3>
+        </header>
+
+        <article class="page-content">
+          <h3 id="気になることがまだ残っている">気になることがまだ残っている</h3>
 <p>　前回の続きです。手数毎に報酬や罰の値を変更する方法をいろいろ試しましたが、大した成果が上がらなかったので、もとに戻して（全ての局面データに一律に報酬や罰を与える方法、前々回までの状態に戻して）他の切り口から気になっていたことを試してみたいと思います。<br />
 　もしかしたら三目並べに最善の強化方法というものが既に確立されているのかもしれませんが、自分で試してみたいので続けます。</p>
 
 <h3 id="強い人ほど短手数で勝つはず">強い人ほど短手数で勝つはず？</h3>
 <p>　以前から気になっていたのですが、完全読み切りプログラムでは、先手（ X ）の時に以下のような経過を辿って勝つ時があります。</p>
 
-<pre><code>    初期盤面      １手目      ２手目       ３手目       ４手目       ５手目
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    初期盤面      １手目      ２手目       ３手目       ４手目       ５手目
     |1|2|3|    |1|2|3|     |1|O|3|     |X|O|3|     |X|O|O|    |X|O|O|
     |4|5|6| -&gt; |4|X|6|  -&gt; |4|X|6|  -&gt; |4|X|6|  -&gt; |4|X|6| -&gt; |4|X|6|
     |7|8|9|    |7|8|9|     |7|8|9|     |7|8|9|     |7|8|9|    |X|8|9|
-</code></pre>
+</code></pre></div></div>
 
 <p>　４手目で”9”の場所を選べば勝ちなのにそこを選ばずに”7”の場所を選んでダブルリーチをかける時があるのです。完全に読み切っているために”7”の場所も”9”の場所も同じ評価値（どちらを選んでも勝ちであることを読み切っている）なのでこういうことが起きるわけです。事前に勝ちがあるかどうかを判断して、勝ちがある時はその手を優先して選択するように変更するのは容易ですが、機械学習プログラムの場合は先読みするわけでは無いので、こういうケースに対処するために「なるべく短手数で勝負を終える方がいい」と学習させる必要があるのではないかと思ったわけです。機械学習プログラムの場合は先読み関数を使用せず、過去の経験から学習して手を選択するだけなので、勝負が長引けば間違える（悪い手を選択する）可能性も高くなります。短手数で決着したゲームの方が長手数の時より報酬を多めに与えるべきか、本当は手数と強さの相関関係を調べた方がいいのかもしれませんが、実際に試した方が早そうです。将棋などでも必ずしも強い人の総手数が短いとは言えないと思いますが、詰みがある時は逃さないという意味では「強い人は短手数で勝つ」ということが言えるような気もします。<br />
 　ということで、いたずらに勝負を長引かせないために、なるべく短手数で勝った時の方が報酬を多く与えるように学習機能（「強化」の方法）を変更して効果を確認してみました。</p>
@@ -256,7 +169,7 @@ inc = (@sengo == CROSS) ? 3 : -1
 base = SHORTEST / history.size
 inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 </code></pre>
-<p>　SHORTEST定数は最短で勝負がついた場合の手数６（初期盤面を含む）です。総手数を分母にしているので、最短手数の６手で勝った時だけ報酬が＋３されますが、手数が伸びるほどそれ未満の報酬しか受け取れなくなります。また、短手数で負けた時ほど罰が厳しくなります。最短手数で負けた場合は辿ったすべての局面データから、選択した場所の小石（score配列）が−１されていきますが、最長手数１０手（初期盤面を含む）で負けた時は0.6 (<script type="math/tex">-1\times\frac{6}{10}</script> ) ずつしか引かれません<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。<br />
+<p>　SHORTEST定数は最短で勝負がついた場合の手数６（初期盤面を含む）です。総手数を分母にしているので、最短手数の６手で勝った時だけ報酬が＋３されますが、手数が伸びるほどそれ未満の報酬しか受け取れなくなります。また、短手数で負けた時ほど罰が厳しくなります。最短手数で負けた場合は辿ったすべての局面データから、選択した場所の小石（score配列）が−１されていきますが、最長手数１０手（初期盤面を含む）で負けた時は0.6 (\(-1\times\frac{6}{10}\) ) ずつしか引かれません<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>。<br />
 　これは手数によって（何手目かによって）報酬や罰を変化させるわけではないので、<a href="/software/2015-12-25/log-linear">前回の記事</a>の方法と似ていますが違います。何手でゲームが終了したかによって y の値が変わる横一直線のグラフになり、前回同様６手で終了した場合を敢えてグラフ化すると、以下のようになります。</p>
 
 <div style="width:320px; margin: 0 auto;">
@@ -455,7 +368,7 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 　今から思えば小石が不足した時に補充するやり方に修正した時点（<a href="/software/2015-11-27/reinforcement">前々回の記事</a>）で、初期値を１０から１にすればよかったです。</p>
 
 <h3 id="終盤の手ほど重要視する方法は効果がない">終盤の手ほど重要視する方法は効果がない？</h3>
-<p>　小石の総数を減らすことが強化学習の効果を上げるのに有効なことはわかりましたが、前回の記事で試していた終盤の手ほど重要視する（終盤ほど報酬や罰を増やす）方法が否定されたわけではありません。それを確認するために、小石の初期値や補充分を１０個から１個に修正した上で、尚且つ前回の方程式１（<script type="math/tex">y = \frac{1}{総手数} x</script>）を適用して確認してみました。</p>
+<p>　小石の総数を減らすことが強化学習の効果を上げるのに有効なことはわかりましたが、前回の記事で試していた終盤の手ほど重要視する（終盤ほど報酬や罰を増やす）方法が否定されたわけではありません。それを確認するために、小石の初期値や補充分を１０個から１個に修正した上で、尚且つ前回の方程式１（\(y = \frac{1}{総手数} x\)）を適用して確認してみました。</p>
 
 <table>
   <thead>
@@ -520,142 +433,58 @@ inc = (@sengo == CROSS) ? (3.0 * base) : (-1.0 * base)
 </table>
 
 <p>　やはり、単に小石の総数を減らしただけより、対最強プログラムでは負け数が減り、対乱数プログラムでも勝率が上がっているので、効果が出ています。<br />
-　小石を浮動小数点数で扱うように変更した甲斐がありました<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。</p>
+　小石を浮動小数点数で扱うように変更した甲斐がありました<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>。</p>
 
 <h3 id="人間並みに強くするにはどれぐらい学習が必要か">人間並みに強くするにはどれぐらい学習が必要か？</h3>
 <p>　<a href="https://hb.afl.rakuten.co.jp/hgc/18980d66.5ec24871.18980d67.e8ecef93/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F5271872%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F12693001%2F&amp;link_type=text&amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJ0ZXh0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImxlZnQiLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjF9">「STATISTICS HACKS」</a>の仕様に沿いながらこの三目並べ機械学習プログラムを<a href="/software/2015-10-25/machine_learning">初めて作った時点</a>では、完全読み切りの最強プログラムとの対戦成績は８割の引き分け率でしたが、いろいろ弄って９割７分まで上げることが出来ました。三目並べを人間同士で対戦すればほぼ１００％引き分けになると思いますが、うっかりミスもあるので、９割７分の引き分け率というのはほぼ人間並みになったと言えるのではないでしょうか？<br />
-　でも、三目並べで１０万回も対戦（学習）させてようやく９割７分になる<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>というのは、機械学習プログラムの出来としてどれほどのものなのかわかりません。学習効率を数値化して競う大会なんかがあっても面白いかなと思いました。ただ、麻雀ソフトなんかでもそうですが、三目並べだとズルをすれば簡単に強く出来るのでチェックが大変かもしれません。<br />
+　でも、三目並べで１０万回も対戦（学習）させてようやく９割７分になる<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>というのは、機械学習プログラムの出来としてどれほどのものなのかわかりません。学習効率を数値化して競う大会なんかがあっても面白いかなと思いました。ただ、麻雀ソフトなんかでもそうですが、三目並べだとズルをすれば簡単に強く出来るのでチェックが大変かもしれません。<br />
 　結局、ソフトウェアとしての出来の良さを競うのであれば、将棋や囲碁のように完全読み切りが不可能なゲーム（ズルが出来ないゲーム）を題材にして、強さを競うという形が分かり易く現実的なのかもしれません。</p>
 
 <hr />
 
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1">
-      <p>前回の記事やこのテストではscore配列は小数に変更したので、小石という表現が当てはまらなくなっています。無理矢理石に例えるなら、小石を砕いて増やしたり減らしたりしているイメージでしょうか？ <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:1" role="doc-endnote">
+      <p>前回の記事やこのテストではscore配列は小数に変更したので、小石という表現が当てはまらなくなっています。無理矢理石に例えるなら、小石を砕いて増やしたり減らしたりしているイメージでしょうか？ <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:2">
-      <p>乱数を使って指し手を選択させる機能（Tree.apply）を浮動小数点数（小数）に対応させるには少し工夫が必要でした。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:2" role="doc-endnote">
+      <p>乱数を使って指し手を選択させる機能（Tree.apply）を浮動小数点数（小数）に対応させるには少し工夫が必要でした。 <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:3">
-      <p>１０万回の対戦と言ってもその大部分は学習が進んでいない、初期の９割以上負けていた分の成績を取り戻すために費やされていて、細かく分けて対戦成績を確認すれば、もっと早い段階で９割７分の引き分け率に到達しているはずです。 <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:3" role="doc-endnote">
+      <p>１０万回の対戦と言ってもその大部分は学習が進んでいない、初期の９割以上負けていた分の成績を取り戻すために費やされていて、細かく分けて対戦成績を確認すれば、もっと早い段階で９割７分の引き分け率に到達しているはずです。 <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>
 
+        </article>
+      </div>
     </div>
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-folder-open"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/categories.html#software-ref">
-    		software <span>31</span>
-    	</a></li>
-    
-  
-
-
-    </ul>
-    
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-tags"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/tags.html#software-ref">software <span>15</span></a></li>
-     
-    	<li><a href="/tags.html#tictactoe-ref">tictactoe <span>33</span></a></li>
-     
-    	<li><a href="/tags.html#ruby-ref">ruby <span>34</span></a></li>
-    
-  
-
-
-
-    </ul>
-    
-
-    <hr>
-    <div class="pagination">
-      <ul>
-      
-        <li class="prev"><a href="/software/2015-12-25/log-linear" title="曲線回帰で強化を試みる">&larr; Previous</a></li>
-      
-        <li><a href="/archive.html">Archive</a></li>
-      
-        <li class="next"><a href="/software/2016-01-16/flotr2" title="学習効果をグラフ化してみる">Next &rarr;</a></li>
-      
-      </ul>
-    </div>
-    <hr>
-    
-
-
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'hello-my-world'; // required: replace example with your forum shortname
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';        
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
-
-
   </div>
 </div>
 
-<div id="disqus_thread"></div>
-<script>
 
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://hello-my-world.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
 
+<footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-offset-3 col-lg-6">
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                <small>&copy; rifyll theme, 2014</small>
+              </div>
+            </div>
+        </div>
       </div>
-      <hr>
-      <footer>
-        <p>&copy; 2021 happyclam
-          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-        </p>
-      </footer>
-
     </div>
+  </footer>
 
-    
-  </body>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+
+</body>
+
 </html>
-

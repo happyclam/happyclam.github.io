@@ -1,42 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    
-    <title>「お気楽チェス」アプリリリース</title>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="description"
+    content="「お気楽チェス」アプリリリース チェス初心者が作ったチェスアプリ Reinventing the wheel.">
+  <title> 「お気楽チェス」アプリリリース - 自己満足プログラミング </title>
 
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      
-      gtag('config', 'UA-1752720-7');
-    </script>
-    <meta name="author" content="happyclam">
-
-    <!-- Enable responsive viewport -->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
-    <![endif]-->
-
-    <!-- Le styles -->
-    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
-    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
-    <link rel="shortcut icon" href="/images/favicon.ico">
-    <!-- Le fav and touch icons -->
-  <!-- Update these with your own images
-
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@SappierBoy">
   <meta name="twitter:creator" content="@SappierBoy">
@@ -53,29 +25,63 @@
   <meta name="twitter:image:src" content="https://happyclam.github.io/images/chess_icon.png">
   
 
-  <link rel="canonical" href="/project/2019-11-16/chessapp" />
-    <!-- atom & rss feed -->
-    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
-    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script language="JavaScript">
-$(document).ready( function () {
-    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
-})
-</script>
-<script src="/assets/themes/twitter/js/jquery.min.js"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
-<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
-<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
-    <!-- <script> -->
-    <!--   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ -->
-    <!--   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), -->
-    <!--   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) -->
-    <!--   })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); -->
-    <!--   ga('create', 'UA-1752720-7', 'happyclam.github.io'); -->
-    <!--   ga('send', 'pageview'); -->
-    <!-- </script> -->
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"> -->
+        <!--   <span class="sr-only">Toggle navigation</span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!-- </button> -->
+        <!-- <a id="site-title" class="navbar-brand" href="/"> -->
+        <!--   <img class="pull-left img-responsive" src="">  -->
+        <!--   <span class="name-holder">自己満足プログラミング</span> -->
+        <!-- </a> -->
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li><a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li><a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li><a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li><a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li><a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -91,9 +97,9 @@ MathJax.Hub.Config({
 });
 </script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-  </head>
 
-  <body>
+</header>
+
     <div style="text-align: center;">
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <script>
@@ -103,134 +109,45 @@ MathJax.Hub.Config({
         });
       </script>
     </div>
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container-narrow">
-          <a class="brand" href="/">自己満足プログラミング</a>
-          <ul class="nav">
-            
-            
-            
-
-
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/archive">Archive</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/categories">Categories</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/pages">Pages</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/policy">Policy</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/profile">About</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-  
-    
-      
-      	
-      	<li><a href="/tags">Tags</a></li>
-      	
-      
-    
-  
-    
-  
-    
-  
-
-
-
-          </ul>
-        </div>
-      </div>
+  <div class="blog-header">
+    <div class="span3">
+      <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     </div>
+  </div>
+  
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
 
-    <div class="container-narrow">
-      <div class="row-fluid">
-        <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        </div>
-        <div class="span9"
-             <!-- Html Elements for Search -->
-             <div id="search-container" align="right">
-               <input type="text" id="search-input" placeholder="search...">
-               <ul id="results-container"></ul>
-             </div>
-             <div class="results"></div>
-        </div>
-      </div>
-<script type="text/javascript">
-  SimpleJekyllSearch.init({
-    searchInput: document.getElementById('search-input'),
-    resultsContainer: document.getElementById('results-container'),
-    json: '/search.json',
-    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
-    noResultsText: 'No results found',
-    limit: 15,
-    fuzzy: false,
-  })
-</script>
-      <div class="content">
-        
-<div class="page-header">
-  <h1>「お気楽チェス」アプリリリース </h1>
-</div>
+        <header class="page-header">
+          <h2 class="page-title"><a href="/project/2019-11-16/chessapp">「お気楽チェス」アプリリリース</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Saturday, November 16, 2019
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">coffeescript</span>
+                
+                  <span class="label label-tag">cordova</span>
+                
+                  <span class="label label-tag">android</span>
+                
+                  <span class="label label-tag">javascript</span>
+                
+                  <span class="label label-tag">chess</span>
+                
+            </div>
+          </div>
 
-<div class="row-fluid post-full">
-  <div class="span12">
-    <div class="date">
-      <span>16 November 2019</span>
-    </div>
-    <div class="content">
-      <p><a href="https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;refinements=p_4%3Ahappyclam&amp;s=mobile-apps&amp;search-type=ss&amp;sr=1-1"><img src="/images/amazon-appstore-badge-jp-white.png" alt="お気楽チェス" title="お気楽チェス" width="155" height="60" /></a></p>
+        </header>
+
+        <article class="page-content">
+          <p><a href="https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;refinements=p_4%3Ahappyclam&amp;s=mobile-apps&amp;search-type=ss&amp;sr=1-1"><img src="/images/amazon-appstore-badge-jp-white.png" alt="お気楽チェス" title="お気楽チェス" width="155" height="60" /></a></p>
 
 <h3 id="お気楽チェスアプリについて">「お気楽チェス」アプリについて</h3>
 <p>　チェス初心者がチェスを楽しむために作りました。チェスに自信のある方にとっても終盤は手強いと思います。他のチェスアプリでは味わえない奇抜な手を楽しんでください。<br />
@@ -287,7 +204,7 @@ MathJax.Hub.Config({
 <p>　アプリ側の強さを最強（「長考」）にして<a href="https://www.chess.com">chess.com</a>でコンピュータと対戦させてみたところ、現状では<a href="https://www.chess.com">chess.com</a>のLevel3と勝ったり負けたり、Level4やLevel5に偶に勝てるぐらいの強さのようです。<br />
 　以下のPGNファイルの内容をアプリで読み込めば棋譜が再現できます。</p>
 
-<pre><code>{先手（White）でchess.comのレベル５と対戦してアプリが勝った棋譜}
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{先手（White）でchess.comのレベル５と対戦してアプリが勝った棋譜}
 1. e3 d5 2. Qh5 h6 3. Bb5+ Nc6 4. Ne2 a6 5. Bxc6+ bxc6 6. d3 g5 7. Nd2 e5 8. O-O
 Nf6 9. Qf3 Bg7 10. Nc3 Rb8 11. h3 g4 12. Qg3 e4 13. Qe5+ Qe7 14. d4 Qxe5 15.
 dxe5 Nd7 16. f4 exf3 17. hxg4 fxg2 18. Kxg2 h5 19. b4 Nxe5 20. Bb2 a5 21. Ne2
@@ -301,9 +218,9 @@ Nc5+ Kf4 60. Nb7 Bg7 61. Ra8 d4 62. Nd6 d3 63. Ra4+ Kg5 64. Ra5 Kg4 65. Nxf5 d2
 66. Ne3+ Kf3 67. Nd1 Bf6 68. Rf5+ Ke4 69. Rxf6 Kd3 70. Kf1 Kc2 71. Ke2 Kb3 72.
 Kxd2 g2 73. Rg6 Kc4 74. Ne3+ Kb3 75. Nxg2 Kc4 76. Nf4 Kb3 77. Ne6 Ka3 78. Ng7
 Kb3 79. Ne6 Ka2 80. Ng7 Ka1 81. Kc2 Ka2 82. Ra6# 1-0
-</code></pre>
+</code></pre></div></div>
 
-<pre><code>{先手（White）でchess.comのレベル４と対戦してアプリが勝った棋譜}
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{先手（White）でchess.comのレベル４と対戦してアプリが勝った棋譜}
 1. e3 Nf6 2. Qe2 d6 3. Qc4 e6 4. Nc3 Nbd7 5. a4 Rb8 6. Nf3 b6 7. b4 Be7 8. Bb2
 Bb7 9. Nb5 h5 10. Nxc7+ Kf8 11. Ng5 Ne5 12. Ncxe6+ fxe6 13. Nxe6+ Kg8 14. Bxe5
 d5 15. Nxd8 dxc4 16. Bxb8 Bd5 17. Bxc4 Kh7 18. Bxd5 Bxb4 19. Nf7 Re8 20. Bc6
@@ -316,9 +233,9 @@ Nc8 47. a5 Kf7 48. Bd5+ Kf8 49. axb6 axb6 50. Be4 Ke7 51. Bd5 Kd6 52. Bf7 Kc7
 g6 60. Rxg6 Kd8 61. Rb6 Kc8 62. Be6+ Kc7 63. Rb1 Nf6 64. g5 Nh7 65. Bg8 Kd7 66.
 Bxh7 Kc6 67. Be4+ Kd7 68. h5 Ke8 69. c4 Kf8 70. c5 Ke7 71. Bd5 Kf8 72. f4 Ke7
 73. h6 Kf8 74. f5 Ke7 75. h7 Kf8 76. h8=Q+ Ke7 77. Rb7# 1-0
-</code></pre>
+</code></pre></div></div>
 
-<pre><code>{後手（Black）でchess.comのレベル３と対戦してアプリが勝った棋譜}
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{後手（Black）でchess.comのレベル３と対戦してアプリが勝った棋譜}
 1. e3 e5 2. Nc3 Qg5 3. h4 Qf5 4. d3 Bb4 5. Qd2 Nf6 6. a3 Ba5 7. Nf3 d5 8. Qe2
 Bxc3+ 9. Kd1 Ba5 10. Ra2 Ke7 11. h5 Bd7 12. c3 Na6 13. Ra1 Nc5 14. Ke1 Bb5 15.
 Nd4 Nxd3+ 16. Qxd3 Bxd3 17. Nxf5+ Bxf5 18. h6 g5 19. Be2 Rhg8 20. Bd1 Bb6 21. b3
@@ -326,7 +243,7 @@ a5 22. g3 a4 23. c4 axb3 24. Kf1 dxc4 25. a4 Bc5 26. Kg2 Rgd8 27. Re1 Bb4 28.
 Rf1 Bc5 29. Kg1 Bh3 30. Bxb3 Bxf1 31. Ba2 Rxa4 32. f4 Bh3 33. Bb2 c3 34. Bc1
 exf4 35. Kh2 fxe3 36. g4 Bxg4 37. Kg3 Bf5 38. Bb2 cxb2 39. Bb1 Rg4+ 40. Kf3
 bxa1=Q 41. Bc2 Qf1# 0-1
-</code></pre>
+</code></pre></div></div>
 
 <h3 id="駒の動き">駒の動き</h3>
 <div style="width:320px; margin: 0 auto;">
@@ -357,7 +274,7 @@ bxa1=Q 41. Bc2 Qf1# 0-1
 </div>
 
 <p>　テキストボックスにPGN形式の棋譜ファイルをペーストして棋譜を読み込んでゲームを再開出来ます。棋譜を出力する時は左上のチェックマークボタンをタップすれば、テキストファイルを扱えるアプリやクリップボードに棋譜データ（*.pgn）を送信することが出来ます。<br />
-　棋譜の入出力には<a href="https://github.com/jhlywa/chess.js/blob/master/README.md">チェス用ライブラリ（chess.js）</a>を使用しています。このライブラリはドキュメントにも書いてあるように、チェスに関するＡＩ以外の機能はほぼ全て網羅していて非常に便利です<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。<a href="https://www.chess.com">chess.com</a>でも使用されているそうです。</p>
+　棋譜の入出力には<a href="https://github.com/jhlywa/chess.js/blob/master/README.md">チェス用ライブラリ（chess.js）</a>を使用しています。このライブラリはドキュメントにも書いてあるように、チェスに関するＡＩ以外の機能はほぼ全て網羅していて非常に便利です<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>。<a href="https://www.chess.com">chess.com</a>でも使用されているそうです。</p>
 
 <h3 id="自動保存機能">自動保存機能</h3>
 <p>　メモリ逼迫時にAndroidによってアプリが強制終了されるケースがあるので、一手指す毎に棋譜を自動保存する機能を追加しました。<br />
@@ -441,140 +358,52 @@ bxa1=Q 41. Bc2 Qf1# 0-1
   </tbody>
 </table>
 
-<p>　上記表の駒の重みに、可動割合（モビリティ）を掛けて局面を評価しています<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。<br />
-<code>駒の価値＝駒の重み（固定値） ×（１+ 現時点での駒の可動箇所数／駒の最大可動箇所数）</code>という式で駒の価値を計算し、局面の静的評価値＝（先手の駒の価値の合計 ー 後手の駒の価値の合計）とすることで先手が有利な場合は正の方向、後手が有利な時は負の方向に評価値が変動します。<br />
+<p>　上記表の駒の重みに、可動割合（モビリティ）を掛けて局面を評価しています<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>。<br />
+<code class="language-plaintext highlighter-rouge">駒の価値＝駒の重み（固定値） ×（１+ 現時点での駒の可動箇所数／駒の最大可動箇所数）</code>という式で駒の価値を計算し、局面の静的評価値＝（先手の駒の価値の合計 ー 後手の駒の価値の合計）とすることで先手が有利な場合は正の方向、後手が有利な時は負の方向に評価値が変動します。<br />
 　詳しい仕様に興味ある方は<a href="/software/2018-12-29/evaluate">この記事</a>や<a href="/software/2019-10-27/stalemate">この記事</a>も参照してください。</p>
 
 <hr />
 
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1">
-      <p>自分の場合は自作の将棋アプリを改変してチェスアプリを作りましたが、新規にチェスアプリを作ってみようと思う人は、最初からchess.jsを使用することを前提にＡＩを作成すれば、効率的に作成出来ると思います。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:1" role="doc-endnote">
+      <p>自分の場合は自作の将棋アプリを改変してチェスアプリを作りましたが、新規にチェスアプリを作ってみようと思う人は、最初からchess.jsを使用することを前提にＡＩを作成すれば、効率的に作成出来ると思います。 <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:2">
-      <p>可動割合を掛けるのはキング（♔, ♚）を除く駒だけで、キングの重みは常に固定値です。キング（♔, ♚）の可動性を重視するとキング自ら危険地帯（敵陣）に向かっていき弱くなります。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:2" role="doc-endnote">
+      <p>可動割合を掛けるのはキング（♔, ♚）を除く駒だけで、キングの重みは常に固定値です。キング（♔, ♚）の可動性を重視するとキング自ら危険地帯（敵陣）に向かっていき弱くなります。 <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>
 
+        </article>
+      </div>
     </div>
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-folder-open"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/categories.html#project-ref">
-    		project <span>28</span>
-    	</a></li>
-    
-  
-
-
-    </ul>
-    
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-tags"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/tags.html#coffeescript-ref">coffeescript <span>41</span></a></li>
-     
-    	<li><a href="/tags.html#cordova-ref">cordova <span>35</span></a></li>
-     
-    	<li><a href="/tags.html#android-ref">android <span>54</span></a></li>
-     
-    	<li><a href="/tags.html#javascript-ref">javascript <span>50</span></a></li>
-     
-    	<li><a href="/tags.html#chess-ref">chess <span>6</span></a></li>
-    
-  
-
-
-
-    </ul>
-    
-
-    <hr>
-    <div class="pagination">
-      <ul>
-      
-        <li class="prev"><a href="/software/2019-11-09/stalemate3" title="将棋の評価関数とチェスの評価関数−３">&larr; Previous</a></li>
-      
-        <li><a href="/archive.html">Archive</a></li>
-      
-        <li class="next"><a href="/project/2020-01-02/minishogi" title="GNU mini-Shogiに挑戦">Next &rarr;</a></li>
-      
-      </ul>
-    </div>
-    <hr>
-    
-
-
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'hello-my-world'; // required: replace example with your forum shortname
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';        
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
-
-
   </div>
 </div>
 
-<div id="disqus_thread"></div>
-<script>
 
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://hello-my-world.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
 
+<footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-offset-3 col-lg-6">
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                <small>&copy; rifyll theme, 2014</small>
+              </div>
+            </div>
+        </div>
       </div>
-      <hr>
-      <footer>
-        <p>&copy; 2021 happyclam
-          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-        </p>
-      </footer>
-
     </div>
+  </footer>
 
-    
-  </body>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+
+</body>
+
 </html>
-

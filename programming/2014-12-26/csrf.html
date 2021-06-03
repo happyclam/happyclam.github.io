@@ -1,42 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    
-    <title>checkboxでAjaxで更新（PATCH）処理</title>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="description"
+    content="checkboxでAjaxで更新（PATCH）処理 一通り必要なことを理解していないと、とんでもなく遠回りを強いられる Reinventing the wheel.">
+  <title> checkboxでAjaxで更新（PATCH）処理 - 自己満足プログラミング </title>
 
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      
-      gtag('config', 'UA-1752720-7');
-    </script>
-    <meta name="author" content="happyclam">
-
-    <!-- Enable responsive viewport -->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
-    <![endif]-->
-
-    <!-- Le styles -->
-    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
-    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
-    <link rel="shortcut icon" href="/images/favicon.ico">
-    <!-- Le fav and touch icons -->
-  <!-- Update these with your own images
-
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@SappierBoy">
   <meta name="twitter:creator" content="@SappierBoy">
@@ -47,35 +19,69 @@
   <meta name="twitter:url" content="/programming/2014-12-26/csrf">
   
   
-  <meta name="twitter:description" content="programming for enjoyment.">
+  <meta name="twitter:description" content="Reinventing the wheel.">
   
   
   <meta name="twitter:image:src" content="https://happyclam.github.io/images/favicon.png">
   
 
-  <link rel="canonical" href="/programming/2014-12-26/csrf" />
-    <!-- atom & rss feed -->
-    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
-    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script language="JavaScript">
-$(document).ready( function () {
-    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
-})
-</script>
-<script src="/assets/themes/twitter/js/jquery.min.js"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
-<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
-<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
-    <!-- <script> -->
-    <!--   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ -->
-    <!--   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), -->
-    <!--   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) -->
-    <!--   })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); -->
-    <!--   ga('create', 'UA-1752720-7', 'happyclam.github.io'); -->
-    <!--   ga('send', 'pageview'); -->
-    <!-- </script> -->
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"> -->
+        <!--   <span class="sr-only">Toggle navigation</span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!-- </button> -->
+        <!-- <a id="site-title" class="navbar-brand" href="/"> -->
+        <!--   <img class="pull-left img-responsive" src="">  -->
+        <!--   <span class="name-holder">自己満足プログラミング</span> -->
+        <!-- </a> -->
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li><a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li><a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li><a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li><a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li><a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -91,9 +97,9 @@ MathJax.Hub.Config({
 });
 </script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-  </head>
 
-  <body>
+</header>
+
     <div style="text-align: center;">
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <script>
@@ -103,143 +109,52 @@ MathJax.Hub.Config({
         });
       </script>
     </div>
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container-narrow">
-          <a class="brand" href="/">自己満足プログラミング</a>
-          <ul class="nav">
-            
-            
-            
-
-
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/archive">Archive</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/categories">Categories</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/pages">Pages</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/policy">Policy</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/profile">About</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-  
-    
-      
-      	
-      	<li><a href="/tags">Tags</a></li>
-      	
-      
-    
-  
-    
-  
-    
-  
-
-
-
-          </ul>
-        </div>
-      </div>
+  <div class="blog-header">
+    <div class="span3">
+      <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     </div>
+  </div>
+  
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
 
-    <div class="container-narrow">
-      <div class="row-fluid">
-        <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        </div>
-        <div class="span9"
-             <!-- Html Elements for Search -->
-             <div id="search-container" align="right">
-               <input type="text" id="search-input" placeholder="search...">
-               <ul id="results-container"></ul>
-             </div>
-             <div class="results"></div>
-        </div>
-      </div>
-<script type="text/javascript">
-  SimpleJekyllSearch.init({
-    searchInput: document.getElementById('search-input'),
-    resultsContainer: document.getElementById('results-container'),
-    json: '/search.json',
-    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
-    noResultsText: 'No results found',
-    limit: 15,
-    fuzzy: false,
-  })
-</script>
-      <div class="content">
-        
-<div class="page-header">
-  <h1>checkboxでAjaxで更新（PATCH）処理 </h1>
-</div>
+        <header class="page-header">
+          <h2 class="page-title"><a href="/programming/2014-12-26/csrf">checkboxでAjaxで更新（PATCH）処理</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Friday, December 26, 2014
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">rails</span>
+                
+                  <span class="label label-tag">my-posi</span>
+                
+                  <span class="label label-tag">jquery</span>
+                
+                  <span class="label label-tag">coffeescript</span>
+                
+            </div>
+          </div>
 
-<div class="row-fluid post-full">
-  <div class="span12">
-    <div class="date">
-      <span>26 December 2014</span>
-    </div>
-    <div class="content">
-      <h3 id="jqueryajaxcoffeescript覚えること多過ぎ">jQuery,Ajax,CoffeeScript覚えること多過ぎ</h3>
+        </header>
+
+        <article class="page-content">
+          <h3 id="jqueryajaxcoffeescript覚えること多過ぎ">jQuery,Ajax,CoffeeScript覚えること多過ぎ</h3>
 <p>　<a href="https://my-posi.herokuapp.com/">先物・オプションのシミュレーションサイト</a>のポジション編集画面で、チェックボックスをクリックすることでグラフのタイプを切り替える処理（データ更新後リダイレクトしている）をしているのですが、これをAjaxで実現しようとしたところ思わぬエラーに遭遇したので、新規サンプルプロジェクトを作って改めて動作を確認することにしました。</p>
 
-<pre><code>rails _4.1.6_ new chkbox                ←バージョンを指定して新規プロジェクト作成
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rails _4.1.6_ new chkbox                ←バージョンを指定して新規プロジェクト作成
 cd chkbox
 rails g scaffold memo body:string chk:boolean
 bundle install
 rake db:migrate
 rails s
-</code></pre>
+</code></pre></div></div>
 
 <div style="width:320px; margin: 0 auto;">
 
@@ -281,8 +196,8 @@ rails s
 $('#status').html("&lt;%= j(@status) %&gt;");
 </code></pre>
 
-<p>　scaffoldで生成された状態からformに<code>remote: true</code>を追加してcontrollerをすこし弄ってupdate.js.erbを新規作成しただけですが、フォームのボタンをクリックするとAjax通信でデータの更新処理が完了し、コントローラから渡された文字列をビューに表示出来ます。フレームワークが用意してくれた仕組みを素直に使えば非常に簡単にAjax更新処理が実現できました。<br />
-　そこで今度はフォームのsubmitボタンではなく、チェックボックスをクリックすることで同じことをやろうとしてフォームのcheck_boxの行を<code>&lt;%= f.check_box(:chk, {:onchange =&gt; "this.form.submit();"}, "t", "f") %&gt;</code>と書き換えて、チェックボックスをクリックするとInvalidAuthenticityTokenエラーが出ました。</p>
+<p>　scaffoldで生成された状態からformに<code class="language-plaintext highlighter-rouge">remote: true</code>を追加してcontrollerをすこし弄ってupdate.js.erbを新規作成しただけですが、フォームのボタンをクリックするとAjax通信でデータの更新処理が完了し、コントローラから渡された文字列をビューに表示出来ます。フレームワークが用意してくれた仕組みを素直に使えば非常に簡単にAjax更新処理が実現できました。<br />
+　そこで今度はフォームのsubmitボタンではなく、チェックボックスをクリックすることで同じことをやろうとしてフォームのcheck_boxの行を<code class="language-plaintext highlighter-rouge">&lt;%= f.check_box(:chk, {:onchange =&gt; "this.form.submit();"}, "t", "f") %&gt;</code>と書き換えて、チェックボックスをクリックするとInvalidAuthenticityTokenエラーが出ました。</p>
 
 <div style="width:320px; margin: 0 auto;">
 
@@ -290,7 +205,7 @@ $('#status').html("&lt;%= j(@status) %&gt;");
 
 </div>
 
-<p>　javascriptでsubmitしてしまうとcsrf-tokenが送られないということでしょう。ユーザ認証（ログイン処理）していなくてもPOST（この場合PATCH）リクエストを送る場合は必要なのか？と思いながらフォーム内に<code> &lt;%= hidden_field_tag(:authenticity_token, form_authenticity_token) %&gt;</code>を記述して再度チェックボックスをクリックすると今度はTemplate is missingエラー。</p>
+<p>　javascriptでsubmitしてしまうとcsrf-tokenが送られないということでしょう。ユーザ認証（ログイン処理）していなくてもPOST（この場合PATCH）リクエストを送る場合は必要なのか？と思いながらフォーム内に<code class="language-plaintext highlighter-rouge"> &lt;%= hidden_field_tag(:authenticity_token, form_authenticity_token) %&gt;</code>を記述して再度チェックボックスをクリックすると今度はTemplate is missingエラー。</p>
 
 <div style="width:320px; margin: 0 auto;">
 
@@ -298,7 +213,7 @@ $('#status').html("&lt;%= j(@status) %&gt;");
 
 </div>
 
-<p>　フォームのPATH指定時にformatを指定してこのように<code>&lt;%= form_for(@memo, url: memo_path(@memo, format: :js), remote: true) do |f| %&gt;</code>書き換えて、再度チェックボックスをクリックすると、ブラウザにupdate.js.erbファイルの中身が文字として表示されました。</p>
+<p>　フォームのPATH指定時にformatを指定してこのように<code class="language-plaintext highlighter-rouge">&lt;%= form_for(@memo, url: memo_path(@memo, format: :js), remote: true) do |f| %&gt;</code>書き換えて、再度チェックボックスをクリックすると、ブラウザにupdate.js.erbファイルの中身が文字として表示されました。</p>
 
 <div style="width:320px; margin: 0 auto;">
 
@@ -307,8 +222,8 @@ $('#status').html("&lt;%= j(@status) %&gt;");
 </div>
 
 <p>　ここまで来てもすぐには自分の間違いに気が付きませんでした。上でも自分で書いているけど、javascriptで普通にsubmitしているのだからAjax通信出来ていないようです。remote: true を書くことでフォームがAjax用になっているからform.submit()でAjax通信が出来るような錯覚をしていました。冒頭で思わぬエラーに遭遇したと書いたのはこのことです^^;<br />
-　HTMLのソースを見てみるとフォームには<code>data-remote="true"</code>の属性が付加されていたので、onchangeでthis.form.submit()するのではなくjavascriptの関数を作ってその中で<code>form.setAttribute('data-remote', true);</code>とやってcheckboxに無理やり<code>data-remote="true"</code>の属性を付加してみましたが効果ありませんでした^^; Railsがどういう仕組みでAjaxを実現しているのかよくわかってませんが、Railsで予定していない使い方であることは確かなようです。 <br />
-　で、form.submit()ではダメだとわかったので次のようにcheckboxのonchange=のイベントを削除して、jQueryでイベントを登録してそのイベント内でAjax通信するようにしました。Ajax送信後のCallback処理もそこに記述したのでjs.erbは使いません。<code>render :text =&gt; @status</code>とすれば.doneイベント（コールバック関数）のdata引数に@statusの内容が入って来るので。<code>$('#status').html(data);</code>として画面に表示します。これで一応UnobtrusiveなJavascriptというかHTMLとスクリプトの分離が出来たのは目出度いことです。<br />
+　HTMLのソースを見てみるとフォームには<code class="language-plaintext highlighter-rouge">data-remote="true"</code>の属性が付加されていたので、onchangeでthis.form.submit()するのではなくjavascriptの関数を作ってその中で<code class="language-plaintext highlighter-rouge">form.setAttribute('data-remote', true);</code>とやってcheckboxに無理やり<code class="language-plaintext highlighter-rouge">data-remote="true"</code>の属性を付加してみましたが効果ありませんでした^^; Railsがどういう仕組みでAjaxを実現しているのかよくわかってませんが、Railsで予定していない使い方であることは確かなようです。 <br />
+　で、form.submit()ではダメだとわかったので次のようにcheckboxのonchange=のイベントを削除して、jQueryでイベントを登録してそのイベント内でAjax通信するようにしました。Ajax送信後のCallback処理もそこに記述したのでjs.erbは使いません。<code class="language-plaintext highlighter-rouge">render :text =&gt; @status</code>とすれば.doneイベント（コールバック関数）のdata引数に@statusの内容が入って来るので。<code class="language-plaintext highlighter-rouge">$('#status').html(data);</code>として画面に表示します。これで一応UnobtrusiveなJavascriptというかHTMLとスクリプトの分離が出来たのは目出度いことです。<br />
 　それと、先ほどエラー回避のためにフォーム内のPATHを変更しましたが、_form.html.erbはupdateのときだけでなくcreateのときも使用しているので元に戻しておきます。そうすればチェックボックスでの更新処理はあくまで追加の機能として作成できます。</p>
 
 <pre><code class="language-Ruby">#app/views/memos/_form.html.erb
@@ -362,36 +277,36 @@ jQuery(function ($){
 
 <p>　これで一応checkboxのクリック時は動くのですが、render部分を変更したために更新ボタンをクリックした場合に何も表示されません。はじめはcheckboxイベント用の別メソッドをコントローラに追加したのですが、更新処理自体は同じものなので既存のupdateメソッドをそのまま使って表示の際に分岐するようにします。<br />
 　それからテンプレートとjavascriptは分けておこうと思ってjavascript部分をapp/asset/javascript/ディレクトリに別ファイル（chkbox.js）として移動したのですが、ajax呼び出し時のurl:パラメータが上手く展開されませんでした。拡張子に「erb」を追加すればRailsがちゃんと展開してくれるとどこかに書かれていたので.jsからerb.jsに拡張子を変えてみましたが上手くいきませんでした。<br />
-　それとRails4から新規プロジェクトを作成すると勝手にコントローラ毎のjs.coffeeファイルが作られるので、どうせならそちらに移動しようと思いcoffeescriptに書き換えて<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>最終的には以下のようにしました。</p>
+　それとRails4から新規プロジェクトを作成すると勝手にコントローラ毎のjs.coffeeファイルが作られるので、どうせならそちらに移動しようと思いcoffeescriptに書き換えて<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>最終的には以下のようにしました。</p>
 
-<pre><code class="language-coffeescript">#app/assets/javascripts/memos.js.coffee
-jQuery ($) -&gt;
-    $("#memo_chk").on "change", -&gt;
-        id = $("#memo_id").val()
-        body = $("#memo_body").val()
-        chk = $(this).is(":checked") ? "t" : "f"
-        authenticity_token = $("#authenticity_token").val()
-        $.ajax(
-            url: "/memos/" + id + ".js"
-            type: "PATCH"
-            dataType: "text"
-            data:
-                id: id
-                authenticity_token: authenticity_token
-                memo:
-                    body: body
-                    chk: (if chk then "t" else "f")
-        ).done((data, status, xhr) -&gt;
-            $("#status").html data
-            return
-        ).fail (xhr, status, error) -&gt;
-            alert "Error Occured(" + error + ")"
-            return
+<div class="language-coffeescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#app/assets/javascripts/memos.js.coffee</span>
+<span class="nx">jQuery</span> <span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="o">-&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s">"#memo_chk"</span><span class="p">).</span><span class="na">on</span> <span class="s">"change"</span><span class="p">,</span> <span class="o">-&gt;</span>
+        <span class="nx">id</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s">"#memo_id"</span><span class="p">).</span><span class="na">val</span><span class="p">()</span>
+        <span class="nx">body</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s">"#memo_body"</span><span class="p">).</span><span class="na">val</span><span class="p">()</span>
+        <span class="nx">chk</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="na">is</span><span class="p">(</span><span class="s">":checked"</span><span class="p">)</span> <span class="o">?</span> <span class="s">"t"</span> <span class="o">:</span> <span class="s">"f"</span>
+        <span class="nx">authenticity_token</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s">"#authenticity_token"</span><span class="p">).</span><span class="na">val</span><span class="p">()</span>
+        <span class="nx">$</span><span class="p">.</span><span class="na">ajax</span><span class="p">(</span>
+            <span class="na">url</span><span class="o">:</span> <span class="s">"/memos/"</span> <span class="o">+</span> <span class="nx">id</span> <span class="o">+</span> <span class="s">".js"</span>
+            <span class="na">type</span><span class="o">:</span> <span class="s">"PATCH"</span>
+            <span class="na">dataType</span><span class="o">:</span> <span class="s">"text"</span>
+            <span class="na">data</span><span class="o">:</span>
+                <span class="na">id</span><span class="o">:</span> <span class="nx">id</span>
+                <span class="na">authenticity_token</span><span class="o">:</span> <span class="nx">authenticity_token</span>
+                <span class="na">memo</span><span class="o">:</span>
+                    <span class="na">body</span><span class="o">:</span> <span class="nx">body</span>
+                    <span class="na">chk</span><span class="o">:</span> <span class="p">(</span><span class="k">if</span> <span class="nx">chk</span> <span class="k">then</span> <span class="s">"t"</span> <span class="k">else</span> <span class="s">"f"</span><span class="p">)</span>
+        <span class="p">).</span><span class="na">done</span><span class="p">((</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">)</span> <span class="o">-&gt;</span>
+            <span class="nx">$</span><span class="p">(</span><span class="s">"#status"</span><span class="p">).</span><span class="na">html</span> <span class="nx">data</span>
+            <span class="k">return</span>
+        <span class="p">).</span><span class="na">fail</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span> <span class="o">-&gt;</span>
+            <span class="nx">alert</span> <span class="s">"Error Occured("</span> <span class="o">+</span> <span class="nx">error</span> <span class="o">+</span> <span class="s">")"</span>
+            <span class="k">return</span>
 
-        return
+        <span class="k">return</span>
 
-    return
-</code></pre>
+    <span class="k">return</span>
+</code></pre></div></div>
 
 <pre><code class="language-Ruby">#app/views/memos/_form.html.erb
 &lt;%= form_for(@memo, remote: true, html:{name: "frm_memo"}) do |f| %&gt;↓
@@ -459,129 +374,43 @@ jQuery ($) -&gt;
 
 <hr />
 
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1">
-      <p>javascriptをcoffeescriptに書き換えるのは<a href="https://js2coffee.org/">こちらのサイト</a>を利用しました <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:1" role="doc-endnote">
+      <p>javascriptをcoffeescriptに書き換えるのは<a href="https://js2coffee.org/">こちらのサイト</a>を利用しました <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>
 
+        </article>
+      </div>
     </div>
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-folder-open"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/categories.html#programming-ref">
-    		programming <span>26</span>
-    	</a></li>
-    
-  
-
-
-    </ul>
-    
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-tags"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/tags.html#rails-ref">rails <span>13</span></a></li>
-     
-    	<li><a href="/tags.html#my-posi-ref">my-posi <span>6</span></a></li>
-     
-    	<li><a href="/tags.html#jquery-ref">jquery <span>2</span></a></li>
-     
-    	<li><a href="/tags.html#coffeescript-ref">coffeescript <span>41</span></a></li>
-    
-  
-
-
-
-    </ul>
-    
-
-    <hr>
-    <div class="pagination">
-      <ul>
-      
-        <li class="prev"><a href="/programming/2014-11-05/sideci_review" title="自動でコードレビュー">&larr; Previous</a></li>
-      
-        <li><a href="/archive.html">Archive</a></li>
-      
-        <li class="next"><a href="/programming/2015-01-25/ruby_to_js" title="Ruby製プログラムをCoffeeScript（JavaScript）に書き換える">Next &rarr;</a></li>
-      
-      </ul>
-    </div>
-    <hr>
-    
-
-
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'hello-my-world'; // required: replace example with your forum shortname
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';        
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
-
-
   </div>
 </div>
 
-<div id="disqus_thread"></div>
-<script>
 
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://hello-my-world.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
 
+<footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-offset-3 col-lg-6">
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                <small>&copy; rifyll theme, 2014</small>
+              </div>
+            </div>
+        </div>
       </div>
-      <hr>
-      <footer>
-        <p>&copy; 2021 happyclam
-          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-        </p>
-      </footer>
-
     </div>
+  </footer>
 
-    
-  </body>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+
+</body>
+
 </html>
-

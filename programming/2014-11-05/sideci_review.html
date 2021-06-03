@@ -1,42 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    
-    <title>自動でコードレビュー</title>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="description"
+    content="自動でコードレビュー あなたのコード、レビューします！だそうです。 Reinventing the wheel.">
+  <title> 自動でコードレビュー - 自己満足プログラミング </title>
 
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      
-      gtag('config', 'UA-1752720-7');
-    </script>
-    <meta name="author" content="happyclam">
-
-    <!-- Enable responsive viewport -->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
-    <![endif]-->
-
-    <!-- Le styles -->
-    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
-    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
-    <link rel="shortcut icon" href="/images/favicon.ico">
-    <!-- Le fav and touch icons -->
-  <!-- Update these with your own images
-
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@SappierBoy">
   <meta name="twitter:creator" content="@SappierBoy">
@@ -47,35 +19,74 @@
   <meta name="twitter:url" content="/programming/2014-11-05/sideci_review">
   
   
-  <meta name="twitter:description" content="programming for enjoyment.">
+  <meta name="twitter:description" content="Reinventing the wheel.">
   
   
   <meta name="twitter:image:src" content="https://happyclam.github.io/images/favicon.png">
   
 
-  <link rel="canonical" href="/programming/2014-11-05/sideci_review" />
-    <!-- atom & rss feed -->
-    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
-    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script language="JavaScript">
-$(document).ready( function () {
-    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
-})
-</script>
-<script src="/assets/themes/twitter/js/jquery.min.js"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
-<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
-<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
-    <!-- <script> -->
-    <!--   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ -->
-    <!--   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), -->
-    <!--   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) -->
-    <!--   })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); -->
-    <!--   ga('create', 'UA-1752720-7', 'happyclam.github.io'); -->
-    <!--   ga('send', 'pageview'); -->
-    <!-- </script> -->
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"> -->
+        <!--   <span class="sr-only">Toggle navigation</span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!-- </button> -->
+        <!-- <a id="site-title" class="navbar-brand" href="/"> -->
+        <!--   <img class="pull-left img-responsive" src="">  -->
+        <!--   <span class="name-holder">自己満足プログラミング</span> -->
+        <!-- </a> -->
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li>
+<a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li>
+<a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li>
+<a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li>
+<a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li>
+<a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -91,9 +102,9 @@ MathJax.Hub.Config({
 });
 </script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-  </head>
 
-  <body>
+</header>
+
     <div style="text-align: center;">
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <script>
@@ -103,133 +114,39 @@ MathJax.Hub.Config({
         });
       </script>
     </div>
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container-narrow">
-          <a class="brand" href="/">自己満足プログラミング</a>
-          <ul class="nav">
-            
-            
-            
-
-
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/archive">Archive</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/categories">Categories</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/pages">Pages</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/policy">Policy</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/profile">About</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-  
-    
-      
-      	
-      	<li><a href="/tags">Tags</a></li>
-      	
-      
-    
-  
-    
-  
-    
-  
-
-
-
-          </ul>
-        </div>
-      </div>
+  <div class="blog-header">
+    <div class="span3">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     </div>
+  </div>
+  
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
 
-    <div class="container-narrow">
-      <div class="row-fluid">
-        <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        </div>
-        <div class="span9" html elements for search>
-             <div id="search-container" align="right">
-               <input type="text" id="search-input" placeholder="search...">
-               <ul id="results-container"></ul>
-             </div>
-             <div class="results"></div>
-        </div>
-      </div>
-<script type="text/javascript">
-  SimpleJekyllSearch.init({
-    searchInput: document.getElementById('search-input'),
-    resultsContainer: document.getElementById('results-container'),
-    json: '/search.json',
-    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
-    noResultsText: 'No results found',
-    limit: 15,
-    fuzzy: false,
-  })
-</script>
-      <div class="content">
-        
-<div class="page-header">
-  <h1>自動でコードレビュー </h1>
-</div>
+        <header class="page-header">
+          <h2 class="page-title"><a href="/programming/2014-11-05/sideci_review">自動でコードレビュー</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Wednesday, November 05, 2014
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">rails</span>
+                
+                  <span class="label label-tag">my-posi</span>
+                
+            </div>
+          </div>
 
-<div class="row-fluid post-full">
-  <div class="span12">
-    <div class="date">
-      <span>05 November 2014</span>
-    </div>
-    <div class="content">
-      <h3 id="当面は無料で提供されるらしいのでやってみて損はないかな">当面は無料で提供されるらしいのでやってみて損はないかな？</h3>
+        </header>
+
+        <article class="page-content">
+          <h3 id="当面は無料で提供されるらしいのでやってみて損はないかな">当面は無料で提供されるらしいのでやってみて損はないかな？</h3>
 <p>　セキュリティホールをふせぐという謳い文句に惹かれて<a href="https://jp.techcrunch.com/2014/04/30/%E3%82%A2%E3%82%AF%E3%83%88%E3%82%AD%E3%83%A3%E3%83%83%E3%83%88%E3%81%AE%E3%80%8Csideci%E3%80%8D%E3%81%AF%E3%80%81%E3%82%B3%E3%83%BC%E3%83%89%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E3%82%92%E8%87%AA/">「SideCI」</a>使ってみました。レビューの対象に使ったプロジェクトは<a href="/programming/2014-10-27/my-posi-chart">前回の記事</a>でRails4にバージョンアップしたばかりの<a href="https://github.com/happyclam/my-posi">これ</a>です。<br>
 　使っている人の感想とか探せばもっと見つかると思いますが自分が参考にしたのは<a href="https://blog.mah-lab.com/2014/05/14/rails-side-ci/">ここ</a>です。中身は<a href="https://brakemanscanner.org/">Brakeman</a>や<a href="https://github.com/railsbp/rails_best_practices">Rails Best Practice</a>などのツールを組み合わせたものらしいけど、統合メニューで操作できるのは確かに有難いかも。色々メニュー項目がありますが自分が使ってみたものについて感想と、指摘された改善点についてざっと書きます。<br>
 　自分が書いたプログラムにどのような難癖を付けられるのか気になる人もいると思いますので参考にしてください<img class="emoji" title=":grin:" alt=":grin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f601.png" height="20" width="20"></p>
@@ -267,12 +184,14 @@ MathJax.Hub.Config({
 twitterで呟くための文字列をAPIに渡す以下のコードでセキュリティ警告が出ました。</li>
     </ul>
 
-    <pre><code>&lt;%= link_to("結果をTwitterでつぶやく", "https://twitter.com/intent/tweet?text=#{u(@strategy.get_message_str)}&amp;url=" + request.url) %&gt;
-</code></pre>
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>&lt;%= link_to("結果をTwitterでつぶやく", "https://twitter.com/intent/tweet?text=#{u(@strategy.get_message_str)}&amp;url=" + request.url) %&gt;
+</code></pre></div>    </div>
     <p>　たしかRails3以降は自動で文字列をエスケープしてくれるはずと思って検索したら<a href="https://www.rubylife.jp/rails/template/index7.html">ここ</a>にもそう書いてあります。それなのに警告が出るのはおそらくSideCI上の<a href="https://github.com/railsbp/rails_best_practices">Rails Best Practice</a>のオプション設定の問題だと思います。もしそうだとしたらGemfileに使用しているRailsのバージョンが書いてあるのだからオプション設定もそれに合わせてほしいところですが、一応以下のように修正して警告を出さないようにすることは出来ました。</p>
 
-    <pre><code>&lt;%= link_to("結果をTwitterでつぶやく", "https://twitter.com/intent/tweet?text=#{h(@strategy.get_message_str)}&amp;url=#{h(request.url)}") %&gt;
-</code></pre>
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>&lt;%= link_to("結果をTwitterでつぶやく", "https://twitter.com/intent/tweet?text=#{h(@strategy.get_message_str)}&amp;url=#{h(request.url)}") %&gt;
+</code></pre></div>    </div>
     <p>念のためhtmlタグやシングルクォートを出力して確認しましたがh()で囲まなくてもちゃんとエスケープされていました。無駄な時間を取られましたが、まぁ確認する機会を得られたと前向きに考えるべきなのでしょうかヽ(~〜~　)ノ\ ハテ?</p>
   </li>
   <li>
@@ -288,7 +207,7 @@ twitterで呟くための文字列をAPIに渡す以下のコードでセキュ�
       </li>
       <li>
         <p><a href="https://rails-bestpractices.com/posts/72-remove-empty-helpers">Remove empty helpers</a><br>
-中身が空のヘルパーファイルがありますよ。自動生成したくなかったら<code>config.generators.helper = false</code>しておけということですね。</p>
+中身が空のヘルパーファイルがありますよ。自動生成したくなかったら<code class="language-plaintext highlighter-rouge">config.generators.helper = false</code>しておけということですね。</p>
       </li>
       <li>
         <p><a href="https://rails-bestpractices.com/posts/27-replace-instance-variable-with-local-variable">Replace instance variable with local variable</a><br>
@@ -300,7 +219,8 @@ twitterで呟くための文字列をAPIに渡す以下のコードでセキュ�
       </li>
     </ul>
 
-    <pre><code>resources :strategies do
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>resources :strategies do
   collection do
     get :children
   end
@@ -310,11 +230,12 @@ twitterで呟くための文字列をAPIに渡す以下のコードでセキュ�
   end
   resources :positions, :only =&gt; ["destroy", "update", "create", "edit"]
 end
-</code></pre>
+</code></pre></div>    </div>
     <p>　「newが使われていませんよ」と指摘してくれたわけです。これはいいかも。以下のように修正しました。</p>
 
-    <pre><code>resources :strategies, :except =&gt; ["new"] do
-</code></pre>
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>resources :strategies, :except =&gt; ["new"] do
+</code></pre></div>    </div>
 
     <ul>
       <li>
@@ -322,7 +243,8 @@ end
 このプロジェクトはModel用のテストスクリプト（Model用のspecファイル）しか書いていなくて、Railsのバージョンアップをした時に以下のようなRailsが出力する雛形のコードに対するテストが不十分でしたが、バグ出しツールとして役に立ちました。saveに失敗したら’new’テンプレートをrenderするとコードでは書いていますが、newテンプレートは存在していませんでした。但しファイルが存在しないことを指摘してくれたわけではありません。</li>
     </ul>
 
-    <pre><code>  respond_to do |format|
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  respond_to do |format|
     if @user.save
       format.html { redirect_to @user, notice: 'User was successfully created.' }
       format.json { render action: 'show', status: :created, location: @user }
@@ -331,12 +253,12 @@ end
       format.json { render json: @user.errors, status: :unprocessable_entity }
     end
   end
-</code></pre>
+</code></pre></div>    </div>
 
     <ul>
       <li>
         <p><a href="https://rails-bestpractices.com/posts/61-simplify-render-in-views">Simplify render in views</a><br>
-部分テンプレートを使うとき<code>:partial</code>というオプションを使わなければならない機会っていうのは無いってことなのか？と、新たな疑問が湧きましたが、リンク先に書いてある通りに修正しました。</p>
+部分テンプレートを使うとき<code class="language-plaintext highlighter-rouge">:partial</code>というオプションを使わなければならない機会っていうのは無いってことなのか？と、新たな疑問が湧きましたが、リンク先に書いてある通りに修正しました。</p>
       </li>
       <li>
         <p><a href="https://rails-bestpractices.com/posts/60-remove-trailing-whitespace">remove trailing whitespace</a><br>
@@ -357,119 +279,35 @@ end
 <hr>
 
 
+        </article>
+      </div>
     </div>
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-folder-open"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/categories.html#programming-ref">
-    		programming <span>26</span>
-    	</a></li>
-    
-  
-
-
-    </ul>
-    
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-tags"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/tags.html#rails-ref">rails <span>13</span></a></li>
-     
-    	<li><a href="/tags.html#my-posi-ref">my-posi <span>6</span></a></li>
-    
-  
-
-
-
-    </ul>
-    
-
-    <hr>
-    <div class="pagination">
-      <ul>
-      
-        <li class="prev"><a href="/programming/2014-10-27/my-posi-chart" title="gruffからlazy_high_chartへ">← Previous</a></li>
-      
-        <li><a href="/archive.html">Archive</a></li>
-      
-        <li class="next"><a href="/programming/2014-12-26/csrf" title="checkboxでAjaxで更新（PATCH）処理">Next →</a></li>
-      
-      </ul>
-    </div>
-    <hr>
-    
-
-
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'hello-my-world'; // required: replace example with your forum shortname
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';        
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
-
-
   </div>
 </div>
 
-<div id="disqus_thread"></div>
-<script>
 
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://hello-my-world.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
+  
 
+<footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-offset-3 col-lg-6">
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                <small>© rifyll theme, 2014</small>
+              </div>
+            </div>
+        </div>
       </div>
-      <hr>
-      <footer>
-        <p>© 2021 happyclam
-          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-        </p>
-      </footer>
-
     </div>
+  </footer>
 
-    
-  </body>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+
+</body>
+
 </html>
-

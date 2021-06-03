@@ -1,42 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    
-    <title>GNU mini-Shogiに挑戦</title>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="description"
+    content="GNU mini-Shogiに挑戦 アプリより読みが深いPCソフトにどこまで迫れるか？ Reinventing the wheel.">
+  <title> GNU mini-Shogiに挑戦 - 自己満足プログラミング </title>
 
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      
-      gtag('config', 'UA-1752720-7');
-    </script>
-    <meta name="author" content="happyclam">
-
-    <!-- Enable responsive viewport -->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
-    <![endif]-->
-
-    <!-- Le styles -->
-    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
-    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
-    <link rel="shortcut icon" href="/images/favicon.ico">
-    <!-- Le fav and touch icons -->
-  <!-- Update these with your own images
-
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@SappierBoy">
   <meta name="twitter:creator" content="@SappierBoy">
@@ -53,29 +25,68 @@
   <meta name="twitter:image:src" content="https://happyclam.github.io/images/55shogi_logo.png">
   
 
-  <link rel="canonical" href="/project/2020-01-02/minishogi" />
-    <!-- atom & rss feed -->
-    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
-    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script language="JavaScript">
-$(document).ready( function () {
-    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
-})
-</script>
-<script src="/assets/themes/twitter/js/jquery.min.js"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
-<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
-<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
-    <!-- <script> -->
-    <!--   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ -->
-    <!--   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), -->
-    <!--   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) -->
-    <!--   })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); -->
-    <!--   ga('create', 'UA-1752720-7', 'happyclam.github.io'); -->
-    <!--   ga('send', 'pageview'); -->
-    <!-- </script> -->
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"> -->
+        <!--   <span class="sr-only">Toggle navigation</span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!-- </button> -->
+        <!-- <a id="site-title" class="navbar-brand" href="/"> -->
+        <!--   <img class="pull-left img-responsive" src="">  -->
+        <!--   <span class="name-holder">自己満足プログラミング</span> -->
+        <!-- </a> -->
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li>
+<a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li>
+<a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li>
+<a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li>
+<a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li>
+<a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -91,9 +102,9 @@ MathJax.Hub.Config({
 });
 </script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-  </head>
 
-  <body>
+</header>
+
     <div style="text-align: center;">
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <script>
@@ -103,134 +114,46 @@ MathJax.Hub.Config({
         });
       </script>
     </div>
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container-narrow">
-          <a class="brand" href="/">自己満足プログラミング</a>
-          <ul class="nav">
-            
-            
-            
-
-
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/archive">Archive</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/categories">Categories</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/pages">Pages</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/policy">Policy</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/profile">About</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-  
-    
-      
-      	
-      	<li><a href="/tags">Tags</a></li>
-      	
-      
-    
-  
-    
-  
-    
-  
-
-
-
-          </ul>
-        </div>
-      </div>
+  <div class="blog-header">
+    <div class="span3">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     </div>
+  </div>
+  
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
 
-    <div class="container-narrow">
-      <div class="row-fluid">
-        <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        </div>
-        <div class="span9" html elements for search>
-             <div id="search-container" align="right">
-               <input type="text" id="search-input" placeholder="search...">
-               <ul id="results-container"></ul>
-             </div>
-             <div class="results"></div>
-        </div>
-      </div>
-<script type="text/javascript">
-  SimpleJekyllSearch.init({
-    searchInput: document.getElementById('search-input'),
-    resultsContainer: document.getElementById('results-container'),
-    json: '/search.json',
-    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
-    noResultsText: 'No results found',
-    limit: 15,
-    fuzzy: false,
-  })
-</script>
-      <div class="content">
-        
-<div class="page-header">
-  <h1>GNU mini-Shogiに挑戦 </h1>
-</div>
+        <header class="page-header">
+          <h2 class="page-title"><a href="/project/2020-01-02/minishogi">GNU mini-Shogiに挑戦</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Thursday, January 02, 2020
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">coffeescript</span>
+                
+                  <span class="label label-tag">cordova</span>
+                
+                  <span class="label label-tag">android</span>
+                
+                  <span class="label label-tag">javascript</span>
+                
+                  <span class="label label-tag">shogi</span>
+                
+            </div>
+          </div>
 
-<div class="row-fluid post-full">
-  <div class="span12">
-    <div class="date">
-      <span>02 January 2020</span>
-    </div>
-    <div class="content">
-      <h3 id="評価方法を変えたことによる効果が知りたい">評価方法を変えたことによる効果が知りたい</h3>
-<p>　「将棋の評価関数とチェスの評価関数」と題した<a href="/software/2019-10-27/stalemate">一連の記事</a>で書いたように、<a href="https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam">チェスアプリ</a>で導入した局面の評価方法を将棋関連アプリ（<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>を除く）にも採用したので、もっとも効果が高かった<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>の強さがどの程度変わったか試してみました。評価関数内の駒の重み等細かなところは変えていないのですが、今回のアップデートで全てのアプリの評価関数を駒の働き（モビリティ）を考慮する形に変更しています<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。<br>
+        </header>
+
+        <article class="page-content">
+          <h3 id="評価方法を変えたことによる効果が知りたい">評価方法を変えたことによる効果が知りたい</h3>
+<p>　「将棋の評価関数とチェスの評価関数」と題した<a href="/software/2019-10-27/stalemate">一連の記事</a>で書いたように、<a href="https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam">チェスアプリ</a>で導入した局面の評価方法を将棋関連アプリ（<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>を除く）にも採用したので、もっとも効果が高かった<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>の強さがどの程度変わったか試してみました。評価関数内の駒の重み等細かなところは変えていないのですが、今回のアップデートで全てのアプリの評価関数を駒の働き（モビリティ）を考慮する形に変更しています<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>。<br>
 　また、なぜ<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>は変更しなかったかと言うと、駒の働きも考慮するようにすると評価関数が重くなるので、同じ時間で較べた場合深く読めなくなるからです。<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>は深く読むことを優先して軽い評価関数（駒の重みだけを考慮）のままにしています。</p>
 
 <h3 id="評価関数の精度を上げると深く読めない">評価関数の精度を上げると深く読めない</h3>
@@ -1350,7 +1273,7 @@ P5+OU+KI+GI+KA+HI
 </div>
 
 <p>　結果はアプリの１２勝８敗で最初のうちは喜んでいました。でも棋譜を追ってもらえばわかりますが、GNUのエンジンは必勝の局面になってから自滅するような手を指してくる時があって自分が思っていたより弱いようです。<a href="http://hgm.nubati.net/miniShogi.html">GNU mini-Shogi</a>のサイトにも「the classic, but rather weak open-source engine」と紹介されていて、その筋の人達には広く知られていることなのかも知れません。他のエンジンでも試してみましたが、他のエンジンに関しては相変わらず勝てないようです。やはり多少評価関数の精度が上がっても読みの深さが勝る方が勝つような気がします。<br>
-　興味本位でアプリの読む手をあと一手深く読むように設定して他のエンジンとの対戦も試してみようと思っているのですが、そうすると今よりさらに指し手が遅くなりますし、メモリ不足で頻繁にアプリが落ちる状況になる<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>ので、そのままではとてもアプリに適用出来そうにありません。</p>
+　興味本位でアプリの読む手をあと一手深く読むように設定して他のエンジンとの対戦も試してみようと思っているのですが、そうすると今よりさらに指し手が遅くなりますし、メモリ不足で頻繁にアプリが落ちる状況になる<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>ので、そのままではとてもアプリに適用出来そうにありません。</p>
 
 <h3 id="酷い負けパターン">酷い負けパターン</h3>
 <div style="width:320px; margin: 0 auto;">
@@ -1359,144 +1282,54 @@ P5+OU+KI+GI+KA+HI
 
 </div>
 
-<p>　上の局面は棋譜のNo.12の一局面ですが、ここでアプリは２二金（先後反転表示）と上がってしまいます。この棋譜に限らずこの駒の配置になるケースが結構あって、この局面になった時に現状のアプリは２二金や４一飛と指してしまいます。すると相手から１二角と切って来られて以下同金、同飛、同玉、１三歩と打たれて玉がどこに逃げても金打ちまでの詰みとなり負けてしまいます。この局面ではおそらく玉の懐を広げる４二銀がいい手<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>だと思うのです（アプリの読みを今の「瞑想」モードより一手深くするとこの手を指します）が、読みが足りなくて現状ではよくこのパターンで負けます。<br>
+<p>　上の局面は棋譜のNo.12の一局面ですが、ここでアプリは２二金（先後反転表示）と上がってしまいます。この棋譜に限らずこの駒の配置になるケースが結構あって、この局面になった時に現状のアプリは２二金や４一飛と指してしまいます。すると相手から１二角と切って来られて以下同金、同飛、同玉、１三歩と打たれて玉がどこに逃げても金打ちまでの詰みとなり負けてしまいます。この局面ではおそらく玉の懐を広げる４二銀がいい手<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>だと思うのです（アプリの読みを今の「瞑想」モードより一手深くするとこの手を指します）が、読みが足りなくて現状ではよくこのパターンで負けます。<br>
 　最近の強い将棋ソフトでも自分が不利になるおかしな角打ちをすることがあるそうですが、このケースに対応するだけのその場凌ぎの改変はしたくないので、何かいいアイデアが思いつくまでは当面このままにするしかないかと思っています。</p>
 
 <hr>
 
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1">
-      <p>強さの設定にもよりますが、今まではほとんど駒の重みしか考慮していない評価関数を使っていました。 <a href="#fnref:1" class="reversefootnote">↩</a></p>
+    <li id="fn:1" role="doc-endnote">
+      <p>強さの設定にもよりますが、今まではほとんど駒の重みしか考慮していない評価関数を使っていました。 <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
-    <li id="fn:2">
-      <p>仕方がないのでCLI（Comannd Line Interface）でテストしています。 <a href="#fnref:2" class="reversefootnote">↩</a></p>
+    <li id="fn:2" role="doc-endnote">
+      <p>仕方がないのでCLI（Comannd Line Interface）でテストしています。 <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
-    <li id="fn:3">
-      <p>４二銀と上がれば玉の逃げ道が出来て詰みが生じません。本文で説明した大駒を切る手順は無理攻めとなりアプリ側が優勢になります。 <a href="#fnref:3" class="reversefootnote">↩</a></p>
+    <li id="fn:3" role="doc-endnote">
+      <p>４二銀と上がれば玉の逃げ道が出来て詰みが生じません。本文で説明した大駒を切る手順は無理攻めとなりアプリ側が優勢になります。 <a href="#fnref:3" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
   </ol>
 </div>
 
+        </article>
+      </div>
     </div>
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-folder-open"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/categories.html#project-ref">
-    		project <span>28</span>
-    	</a></li>
-    
-  
-
-
-    </ul>
-    
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-tags"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/tags.html#coffeescript-ref">coffeescript <span>41</span></a></li>
-     
-    	<li><a href="/tags.html#cordova-ref">cordova <span>35</span></a></li>
-     
-    	<li><a href="/tags.html#android-ref">android <span>54</span></a></li>
-     
-    	<li><a href="/tags.html#javascript-ref">javascript <span>50</span></a></li>
-     
-    	<li><a href="/tags.html#shogi-ref">shogi <span>25</span></a></li>
-    
-  
-
-
-
-    </ul>
-    
-
-    <hr>
-    <div class="pagination">
-      <ul>
-      
-        <li class="prev"><a href="/project/2019-11-16/chessapp" title="「お気楽チェス」アプリリリース">← Previous</a></li>
-      
-        <li><a href="/archive.html">Archive</a></li>
-      
-        <li class="next"><a href="/software/2020-02-11/evaluatechess" title="チェスだけに必要な局面評価属性">Next →</a></li>
-      
-      </ul>
-    </div>
-    <hr>
-    
-
-
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'hello-my-world'; // required: replace example with your forum shortname
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';        
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
-
-
   </div>
 </div>
 
-<div id="disqus_thread"></div>
-<script>
 
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://hello-my-world.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
+  
 
+<footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-offset-3 col-lg-6">
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                <small>© rifyll theme, 2014</small>
+              </div>
+            </div>
+        </div>
       </div>
-      <hr>
-      <footer>
-        <p>© 2021 happyclam
-          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-        </p>
-      </footer>
-
     </div>
+  </footer>
 
-    
-  </body>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+
+</body>
+
 </html>
-

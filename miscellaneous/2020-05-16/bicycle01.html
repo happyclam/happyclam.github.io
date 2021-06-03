@@ -1,42 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    
-    <title>ロード系ミニベロのカスタマイズ</title>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="description"
+    content="ロード系ミニベロのカスタマイズ 自転車のカスタマイズは自作パソコン弄りに似ている Reinventing the wheel.">
+  <title> ロード系ミニベロのカスタマイズ - 自己満足プログラミング </title>
 
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      
-      gtag('config', 'UA-1752720-7');
-    </script>
-    <meta name="author" content="happyclam">
-
-    <!-- Enable responsive viewport -->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
-    <![endif]-->
-
-    <!-- Le styles -->
-    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
-    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
-    <link rel="shortcut icon" href="/images/favicon.ico">
-    <!-- Le fav and touch icons -->
-  <!-- Update these with your own images
-
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@SappierBoy">
   <meta name="twitter:creator" content="@SappierBoy">
@@ -47,35 +19,69 @@
   <meta name="twitter:url" content="/miscellaneous/2020-05-16/bicycle01">
   
   
-  <meta name="twitter:description" content="programming for enjoyment.">
+  <meta name="twitter:description" content="Reinventing the wheel.">
   
   
   <meta name="twitter:image:src" content="https://happyclam.github.io/images/idiom2_icon.png">
   
 
-  <link rel="canonical" href="/miscellaneous/2020-05-16/bicycle01" />
-    <!-- atom & rss feed -->
-    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
-    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script language="JavaScript">
-$(document).ready( function () {
-    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
-})
-</script>
-<script src="/assets/themes/twitter/js/jquery.min.js"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
-<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
-<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
-    <!-- <script> -->
-    <!--   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ -->
-    <!--   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), -->
-    <!--   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) -->
-    <!--   })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); -->
-    <!--   ga('create', 'UA-1752720-7', 'happyclam.github.io'); -->
-    <!--   ga('send', 'pageview'); -->
-    <!-- </script> -->
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"> -->
+        <!--   <span class="sr-only">Toggle navigation</span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!-- </button> -->
+        <!-- <a id="site-title" class="navbar-brand" href="/"> -->
+        <!--   <img class="pull-left img-responsive" src="">  -->
+        <!--   <span class="name-holder">自己満足プログラミング</span> -->
+        <!-- </a> -->
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li><a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li><a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li><a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li><a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li><a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -91,9 +97,9 @@ MathJax.Hub.Config({
 });
 </script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-  </head>
 
-  <body>
+</header>
+
     <div style="text-align: center;">
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <script>
@@ -103,141 +109,44 @@ MathJax.Hub.Config({
         });
       </script>
     </div>
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container-narrow">
-          <a class="brand" href="/">自己満足プログラミング</a>
-          <ul class="nav">
-            
-            
-            
-
-
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/archive">Archive</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/categories">Categories</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/pages">Pages</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/policy">Policy</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/profile">About</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-  
-    
-      
-      	
-      	<li><a href="/tags">Tags</a></li>
-      	
-      
-    
-  
-    
-  
-    
-  
-
-
-
-          </ul>
-        </div>
-      </div>
+  <div class="blog-header">
+    <div class="span3">
+      <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     </div>
+  </div>
+  
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
 
-    <div class="container-narrow">
-      <div class="row-fluid">
-        <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        </div>
-        <div class="span9"
-             <!-- Html Elements for Search -->
-             <div id="search-container" align="right">
-               <input type="text" id="search-input" placeholder="search...">
-               <ul id="results-container"></ul>
-             </div>
-             <div class="results"></div>
-        </div>
-      </div>
-<script type="text/javascript">
-  SimpleJekyllSearch.init({
-    searchInput: document.getElementById('search-input'),
-    resultsContainer: document.getElementById('results-container'),
-    json: '/search.json',
-    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
-    noResultsText: 'No results found',
-    limit: 15,
-    fuzzy: false,
-  })
-</script>
-      <div class="content">
-        
-<div class="page-header">
-  <h1>ロード系ミニベロのカスタマイズ </h1>
-</div>
+        <header class="page-header">
+          <h2 class="page-title"><a href="/miscellaneous/2020-05-16/bicycle01">ロード系ミニベロのカスタマイズ</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Saturday, May 16, 2020
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">bicycle</span>
+                
+            </div>
+          </div>
 
-<div class="row-fluid post-full">
-  <div class="span12">
-    <div class="date">
-      <span>16 May 2020</span>
-    </div>
-    <div class="content">
-      <h3 id="昔は買い物カゴ付きのママチャリで不満はなかった">昔は買い物カゴ付きのママチャリで不満はなかった</h3>
+        </header>
+
+        <article class="page-content">
+          <h3 id="昔は買い物カゴ付きのママチャリで不満はなかった">昔は買い物カゴ付きのママチャリで不満はなかった</h3>
 <p>　偶にロードバイクで出かけることがあるのですが、このブログでは自転車について全然触れたことがありませんでした。今まで自転車に関する記事を書かなかったのは、自分が自転車に嵌っていたのがこのブログを始める少し前だったというのが主な理由ですが、最近久しぶりにミニベロのカスタマイズをしたので、ちょっと自転車について書いてみたくなりました。<br />
 　自分で自転車のカスタマイズをしようなんて思う人は少ないかもしれませんが、自転車への理解が深まっていくと、これが結構嵌るものなんです。プログラミングから自作パソコン弄りに凝りだすのと似ていると思います。<br />
 　ママチャリしか知らなかった自分がどんな風に自転車弄りに嵌っていったか昔を思い出して紹介します。</p>
 
 <h3 id="ママチャリで山を登るのは辛い">ママチャリで山を登るのは辛い</h3>
 <p>　変速機付きの自転車（ママチャリ）で近くの山に行ってみたことが始まりです。５段変速なので普通に登れると思っていたら、頂上までの道程の多くは自転車を押しながら歩く羽目になりました。当時は自転車を押して歩くことには全然抵抗なかったのですが、山に行くと多くのローディ（ロードバイク乗り）が、息を切らしながら自転車を押している自分の横をスイスイと追い抜いて行くんです。ヘルメット被ってレーパン（レーサーパンツ）とピチピチジャージでロードバイクに乗っている人たちには全然興味がなかった（むしろ避けたかった）のですが、この時に「いい自転車、高級な自転車というのは軽い自転車なんだ」ということを知りました。<br />
-　そこでロードバイクじゃなくても、もう少しグレードアップしてなんとなくママチャリよりはかっこいい自転車が欲しいと思ってロード系ミニベロ（小径車）と呼ばれる自転車を買った<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>ことが、自転車に嵌り出した切っ掛けです。
+　そこでロードバイクじゃなくても、もう少しグレードアップしてなんとなくママチャリよりはかっこいい自転車が欲しいと思ってロード系ミニベロ（小径車）と呼ばれる自転車を買った<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>ことが、自転車に嵌り出した切っ掛けです。
 　</p>
 <h3 id="自転車には自分に合ったサイズがある">自転車には自分に合ったサイズがある</h3>
 <p>　自転車についてよく分かっていなかった自分が最初に選んだママチャリ以外の自転車は、とにかく軽くてカッコイイという理由で当時発売されたばかりのGIANTのIDIOM2というものでした↓。</p>
@@ -262,7 +171,7 @@ MathJax.Hub.Config({
 <p>　このスパイダーサドルはIDIOM2デフォルトのサドルより確かに柔らかいのですが、お尻が痛くなる原因はサドルではなく、主に乗車姿勢によるものだと思います。サドルにどっかり座るのではなく、自分の体重をしっかり足で支える意識を持って自転車に乗っていればどれだけ長距離乗っていてもお尻は痛くなりません。この頃、そのことが徐々に分かってきました。</p>
 
 <h3 id="引き足を覚えるペダル交換">引き足を覚える（ペダル交換）</h3>
-<p>　次に交換したのはペダルです。多くのローディはビンディングシューズを履いてペダルと靴を固定して自転車を漕ぎますが、自分は自転車はあくまで移動手段、ビンディングシューズのまま目的地や街中を歩くなんて嫌だったので、<a href="https://www.amazon.co.jp/タイオガ-TIOGA-PDL07700-スパイダーペダル-ブラック/dp/B004BU9H7M">スパイダーペダル</a>を買って試しました<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。このペダルは普通のペダルと違い、写真のように縦長で数個の鋲が飛び出していて靴の裏にピッタリ引っかかります。ですので、ペダルを踏み込んだ後、足を引き上げる時にもペダルを回す感覚があります。<br />
+<p>　次に交換したのはペダルです。多くのローディはビンディングシューズを履いてペダルと靴を固定して自転車を漕ぎますが、自分は自転車はあくまで移動手段、ビンディングシューズのまま目的地や街中を歩くなんて嫌だったので、<a href="https://www.amazon.co.jp/タイオガ-TIOGA-PDL07700-スパイダーペダル-ブラック/dp/B004BU9H7M">スパイダーペダル</a>を買って試しました<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>。このペダルは普通のペダルと違い、写真のように縦長で数個の鋲が飛び出していて靴の裏にピッタリ引っかかります。ですので、ペダルを踏み込んだ後、足を引き上げる時にもペダルを回す感覚があります。<br />
 　ただこれを長期間使っていると靴底が傷んできます。</p>
 
 <div style="width:320px; margin: 0 auto;">
@@ -272,7 +181,7 @@ MathJax.Hub.Config({
 </div>
 
 <h3 id="ハンドル位置を下げるコラムカット">ハンドル位置を下げる（コラムカット）</h3>
-<p>　IDIOM2は折り畳み式のハンドルという特殊な構造で、フォークコラムに折り畳み可能な機構を持つパイプが乗っかっている形になっています。その折り畳み可能なパイプの代替となる鉄製パイプ（白色しかなかった）とコラム固定リングを自転車屋さんで入手出来た<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>のでそれに付け替えました。</p>
+<p>　IDIOM2は折り畳み式のハンドルという特殊な構造で、フォークコラムに折り畳み可能な機構を持つパイプが乗っかっている形になっています。その折り畳み可能なパイプの代替となる鉄製パイプ（白色しかなかった）とコラム固定リングを自転車屋さんで入手出来た<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>のでそれに付け替えました。</p>
 
 <div style="width:320px; margin: 0 auto;">
 
@@ -337,7 +246,7 @@ MathJax.Hub.Config({
 
 </div>
 
-<p>　上の写真のように薬指と小指でなんとかブレーキを引っ掛けることはできるのですが、心許ない感じです。ブルホーンハンドルではこの角の部分を握って走るのが一番気持ちよく走れるので、なんとかしたいと思いながらもミニベロに乗る機会が減っていたので長年放置していたのですが、つい最近<a href="https://www.amazon.co.jp/SENQI自転車ホーンハンドルバーブレーキレバー-固定ギア-左右セット-22-2mm-23-8mm-2色/dp/B06XDYVK3F/ref=sr_1_10?__mk_ja_JP=カタカナ&amp;dchild=1&amp;keywords=senqi&amp;qid=1589193186&amp;sr=8-10&amp;th=1">こんな製品</a><sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup>があることを知って買いました。</p>
+<p>　上の写真のように薬指と小指でなんとかブレーキを引っ掛けることはできるのですが、心許ない感じです。ブルホーンハンドルではこの角の部分を握って走るのが一番気持ちよく走れるので、なんとかしたいと思いながらもミニベロに乗る機会が減っていたので長年放置していたのですが、つい最近<a href="https://www.amazon.co.jp/SENQI自転車ホーンハンドルバーブレーキレバー-固定ギア-左右セット-22-2mm-23-8mm-2色/dp/B06XDYVK3F/ref=sr_1_10?__mk_ja_JP=カタカナ&amp;dchild=1&amp;keywords=senqi&amp;qid=1589193186&amp;sr=8-10&amp;th=1">こんな製品</a><sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup>があることを知って買いました。</p>
 
 <div style="width:320px; margin: 0 auto;">
 
@@ -353,150 +262,70 @@ MathJax.Hub.Config({
 
 </div>
 
-<p>　紹介した上記のカスタマイズはコラムカット以外は全部ネットで部品や道具を買って自分でやりました<sup id="fnref:5"><a href="#fn:5" class="footnote">5</a></sup>。</p>
+<p>　紹介した上記のカスタマイズはコラムカット以外は全部ネットで部品や道具を買って自分でやりました<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup>。</p>
 
 <h3 id="知的好奇心によって目的が変わっていく">知的好奇心によって目的が変わっていく</h3>
 <p>　自転車に関する本なども何冊か読んで理解が深まるほどいろいろ試したくなって、上記のようにいろいろ弄りまくったのですが、PCの自作も似ているところがあります。PCを自作したりカスタマイズすると何かプログラムを作る気力が湧いてくるように感じることがあるのですが、自転車も同じで、何かカスタマイズする度にロングライドに出かけていました。このバイクではせいぜい100kmぐらいですが、もう一つ持っている700Cのロードバイクでは夜通し丸１日かけて300km以上走ったこともあります。今は夜通し乗るなんていう気力はありませんが…。<br />
 　こうなってくると、最初は移動手段として自転車に乗っていたものが、自転車に乗ることが目的になって来たりします。この点もプログラミングと似ていて、何かの問題の解決手段であるはずのプログラミングがいつの間にかプログラミング自体が目的になって来たりします。それが良いとか悪いとかここで主張する気はありませんが、楽しいから続けているという感じです。</p>
 
 <h3 id="日本人は自転車の乗り方を分かっていない">日本人は自転車の乗り方を分かっていない</h3>
-<p>　<a href="http://kaigai-matome.net/archives/35598234.html">「日本人は自転車の乗り方を分かっていない」</a>という記事を見かけたのですが、自分もこのミニベロのカスタマイズを通じて自転車に対する理解が深まってからは同感です。海外とは道路事情が違いますし、どっしりとサドルに腰掛けて傘を差して<sup id="fnref:6"><a href="#fn:6" class="footnote">6</a></sup>歩道をポタポタと走る日本の自転車文化を一概に否定するわけではありませんが、一度スポーツ系と言われるバイクに乗って見て欲しいと思います。そうするとママチャリしか乗ったことがない人は、自転車は本来こういう乗り方をするものだったのかという驚きがあると思います。<br />
+<p>　<a href="http://kaigai-matome.net/archives/35598234.html">「日本人は自転車の乗り方を分かっていない」</a>という記事を見かけたのですが、自分もこのミニベロのカスタマイズを通じて自転車に対する理解が深まってからは同感です。海外とは道路事情が違いますし、どっしりとサドルに腰掛けて傘を差して<sup id="fnref:6" role="doc-noteref"><a href="#fn:6" class="footnote" rel="footnote">6</a></sup>歩道をポタポタと走る日本の自転車文化を一概に否定するわけではありませんが、一度スポーツ系と言われるバイクに乗って見て欲しいと思います。そうするとママチャリしか乗ったことがない人は、自転車は本来こういう乗り方をするものだったのかという驚きがあると思います。<br />
 　そして自転車を買う時は自分のように適当に買うのではなく、自分の身長に合ったサイズのバイクを選ぶことをお勧めします。</p>
 
 <hr />
 
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1">
-      <p>当時は分かっていなかったのですが、今ならミニベロなんて特殊なバイクを買うより、自分のサイズにあったロードバイクを最初に買うことをお勧めします。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:1" role="doc-endnote">
+      <p>当時は分かっていなかったのですが、今ならミニベロなんて特殊なバイクを買うより、自分のサイズにあったロードバイクを最初に買うことをお勧めします。 <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:2">
-      <p>現在はスパイダーペダルは売っていないようです。似たようなペダルで、自分が持っているロードバイクの方は<a href="https://hb.afl.rakuten.co.jp/ichiba/1b4d49cd.6bbf085f.1b4d49ce.c5e66119/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Faris%2F10-tioga-sf8%2F&amp;link_type=hybrid_url&amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjEsInByb2QiOjB9">このペダル</a>を使っています。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:2" role="doc-endnote">
+      <p>現在はスパイダーペダルは売っていないようです。似たようなペダルで、自分が持っているロードバイクの方は<a href="https://hb.afl.rakuten.co.jp/ichiba/1b4d49cd.6bbf085f.1b4d49ce.c5e66119/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Faris%2F10-tioga-sf8%2F&amp;link_type=hybrid_url&amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjEsInByb2QiOjB9">このペダル</a>を使っています。 <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:3">
-      <p>なんでこんな特殊な部品が存在したのかは今でも謎ですが、ニーズが多かったのかもしれません。 <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:3" role="doc-endnote">
+      <p>なんでこんな特殊な部品が存在したのかは今でも謎ですが、ニーズが多かったのかもしれません。 <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:4">
-      <p>似たような製品で<a href="https://hb.afl.rakuten.co.jp/ichiba/1b5d9f91.956dd233.1b5d9f92.9c201623/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fworldcycle%2Fdix-i-jc-brake%2F&amp;link_type=hybrid_url&amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjEsInByb2QiOjB9">DIXNAのこんな製品</a>もあります。この製品、本来はドロップハンドルに使用する想定（ギドネットレバーのような感じ）のようですが、Amazonのレビューでもブルホーンで利用していると書かれています。 <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:4" role="doc-endnote">
+      <p>似たような製品で<a href="https://hb.afl.rakuten.co.jp/ichiba/1b5d9f91.956dd233.1b5d9f92.9c201623/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fworldcycle%2Fdix-i-jc-brake%2F&amp;link_type=hybrid_url&amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjEsInByb2QiOjB9">DIXNAのこんな製品</a>もあります。この製品、本来はドロップハンドルに使用する想定（ギドネットレバーのような感じ）のようですが、Amazonのレビューでもブルホーンで利用していると書かれています。 <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:5">
-      <p>ママチャリの後輪バンク修理を近所の自転車屋さんに頼んだ時に「バック拡げ」という日本のママチャリ独自の工具を使う現場を目撃してからは、むしろ街の自転車屋さんに自分のバイクのメンテナンスを任せたくない、自分でやりたいって感じです。 <a href="#fnref:5" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:5" role="doc-endnote">
+      <p>ママチャリの後輪バンク修理を近所の自転車屋さんに頼んだ時に「バック拡げ」という日本のママチャリ独自の工具を使う現場を目撃してからは、むしろ街の自転車屋さんに自分のバイクのメンテナンスを任せたくない、自分でやりたいって感じです。 <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:6">
-      <p>ロードバイク乗るようになってからは、持っているママチャリもそれなりにカスタマイズしていて、傘を差しながら自転車に乗ることはなくなりました。というか、やってみると分かりますが、ハンドル位置を下げると、傘を差しながら自転車に乗るのが非常に難しいというか不安定になります。その所為かどうか分かりませんが、海外では傘を差して自転車に乗る習慣は無いようです。日本でも北海道では傘を差して自転車には乗らないと聞いたことがあります。 <a href="#fnref:6" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:6" role="doc-endnote">
+      <p>ロードバイク乗るようになってからは、持っているママチャリもそれなりにカスタマイズしていて、傘を差しながら自転車に乗ることはなくなりました。というか、やってみると分かりますが、ハンドル位置を下げると、傘を差しながら自転車に乗るのが非常に難しいというか不安定になります。その所為かどうか分かりませんが、海外では傘を差して自転車に乗る習慣は無いようです。日本でも北海道では傘を差して自転車には乗らないと聞いたことがあります。 <a href="#fnref:6" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>
 
+        </article>
+      </div>
     </div>
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-folder-open"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/categories.html#miscellaneous-ref">
-    		miscellaneous <span>6</span>
-    	</a></li>
-    
-  
-
-
-    </ul>
-    
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-tags"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/tags.html#bicycle-ref">bicycle <span>2</span></a></li>
-    
-  
-
-
-
-    </ul>
-    
-
-    <hr>
-    <div class="pagination">
-      <ul>
-      
-        <li class="prev"><a href="/project/2020-02-23/chess66app" title="「Mini Chess - チェス６６」アプリリリース">&larr; Previous</a></li>
-      
-        <li><a href="/archive.html">Archive</a></li>
-      
-        <li class="next"><a href="/miscellaneous/2020-05-21/bicycle02" title="同じ規格でもタイヤの高さは違うことがある">Next &rarr;</a></li>
-      
-      </ul>
-    </div>
-    <hr>
-    
-
-
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'hello-my-world'; // required: replace example with your forum shortname
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';        
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
-
-
   </div>
 </div>
 
-<div id="disqus_thread"></div>
-<script>
 
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://hello-my-world.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
 
+<footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-offset-3 col-lg-6">
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                <small>&copy; rifyll theme, 2014</small>
+              </div>
+            </div>
+        </div>
       </div>
-      <hr>
-      <footer>
-        <p>&copy; 2021 happyclam
-          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-        </p>
-      </footer>
-
     </div>
+  </footer>
 
-    
-  </body>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+
+</body>
+
 </html>
-

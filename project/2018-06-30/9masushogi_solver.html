@@ -1,42 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    
-    <title>CUIで９マス将棋を解く</title>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="description"
+    content="CUIで９マス将棋を解く 簡単な９マス将棋なら正解を得られるでしょう。 Reinventing the wheel.">
+  <title> CUIで９マス将棋を解く - 自己満足プログラミング </title>
 
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      
-      gtag('config', 'UA-1752720-7');
-    </script>
-    <meta name="author" content="happyclam">
-
-    <!-- Enable responsive viewport -->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
-    <![endif]-->
-
-    <!-- Le styles -->
-    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
-    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
-    <link rel="shortcut icon" href="/images/favicon.ico">
-    <!-- Le fav and touch icons -->
-  <!-- Update these with your own images
-
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@SappierBoy">
   <meta name="twitter:creator" content="@SappierBoy">
@@ -53,29 +25,68 @@
   <meta name="twitter:image:src" content="https://happyclam.github.io/images/33shogi_logo.png">
   
 
-  <link rel="canonical" href="/project/2018-06-30/9masushogi_solver" />
-    <!-- atom & rss feed -->
-    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
-    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script language="JavaScript">
-$(document).ready( function () {
-    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
-})
-</script>
-<script src="/assets/themes/twitter/js/jquery.min.js"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
-<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
-<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
-    <!-- <script> -->
-    <!--   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ -->
-    <!--   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), -->
-    <!--   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) -->
-    <!--   })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); -->
-    <!--   ga('create', 'UA-1752720-7', 'happyclam.github.io'); -->
-    <!--   ga('send', 'pageview'); -->
-    <!-- </script> -->
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"> -->
+        <!--   <span class="sr-only">Toggle navigation</span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!-- </button> -->
+        <!-- <a id="site-title" class="navbar-brand" href="/"> -->
+        <!--   <img class="pull-left img-responsive" src="">  -->
+        <!--   <span class="name-holder">自己満足プログラミング</span> -->
+        <!-- </a> -->
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li>
+<a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li>
+<a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li>
+<a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li>
+<a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li>
+<a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -91,9 +102,9 @@ MathJax.Hub.Config({
 });
 </script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-  </head>
 
-  <body>
+</header>
+
     <div style="text-align: center;">
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <script>
@@ -103,134 +114,46 @@ MathJax.Hub.Config({
         });
       </script>
     </div>
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container-narrow">
-          <a class="brand" href="/">自己満足プログラミング</a>
-          <ul class="nav">
-            
-            
-            
-
-
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/archive">Archive</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/categories">Categories</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/pages">Pages</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/policy">Policy</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/profile">About</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-  
-    
-      
-      	
-      	<li><a href="/tags">Tags</a></li>
-      	
-      
-    
-  
-    
-  
-    
-  
-
-
-
-          </ul>
-        </div>
-      </div>
+  <div class="blog-header">
+    <div class="span3">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     </div>
+  </div>
+  
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
 
-    <div class="container-narrow">
-      <div class="row-fluid">
-        <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        </div>
-        <div class="span9" html elements for search>
-             <div id="search-container" align="right">
-               <input type="text" id="search-input" placeholder="search...">
-               <ul id="results-container"></ul>
-             </div>
-             <div class="results"></div>
-        </div>
-      </div>
-<script type="text/javascript">
-  SimpleJekyllSearch.init({
-    searchInput: document.getElementById('search-input'),
-    resultsContainer: document.getElementById('results-container'),
-    json: '/search.json',
-    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
-    noResultsText: 'No results found',
-    limit: 15,
-    fuzzy: false,
-  })
-</script>
-      <div class="content">
-        
-<div class="page-header">
-  <h1>CUIで９マス将棋を解く </h1>
-</div>
+        <header class="page-header">
+          <h2 class="page-title"><a href="/project/2018-06-30/9masushogi_solver">CUIで９マス将棋を解く</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Saturday, June 30, 2018
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">coffeescript</span>
+                
+                  <span class="label label-tag">cordova</span>
+                
+                  <span class="label label-tag">android</span>
+                
+                  <span class="label label-tag">javascript</span>
+                
+                  <span class="label label-tag">shogi</span>
+                
+            </div>
+          </div>
 
-<div class="row-fluid post-full">
-  <div class="span12">
-    <div class="date">
-      <span>30 June 2018</span>
-    </div>
-    <div class="content">
-      <h3 id="３三将棋アプリのソース公開しました">３三将棋アプリのソース公開しました</h3>
-<p>　<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>もそろそろ安定してきたと思うのでソースを<a href="https://github.com/happyclam/shogi33simple">githubに公開</a>しました。Bonanzaを始めとする優秀な将棋ソフトをカスタマイズしようとは思わないけど、CoffeeScript(JavaScript)で将棋ソフトが作れるならやってみようと思う人はいるかも知れないと思ってます。また、プログラミングには興味ないけど９マス将棋の正解を知りたいと思う人は結構いるかもしれないと思ったので記事を書いてみました。ただ、詰みがある場合は別ですが、ここで示す方法で得られた解答が必ず最善手だとは言い切れないことには留意してください<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。<br>
+        </header>
+
+        <article class="page-content">
+          <h3 id="３三将棋アプリのソース公開しました">３三将棋アプリのソース公開しました</h3>
+<p>　<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>もそろそろ安定してきたと思うのでソースを<a href="https://github.com/happyclam/shogi33simple">githubに公開</a>しました。Bonanzaを始めとする優秀な将棋ソフトをカスタマイズしようとは思わないけど、CoffeeScript(JavaScript)で将棋ソフトが作れるならやってみようと思う人はいるかも知れないと思ってます。また、プログラミングには興味ないけど９マス将棋の正解を知りたいと思う人は結構いるかもしれないと思ったので記事を書いてみました。ただ、詰みがある場合は別ですが、ここで示す方法で得られた解答が必ず最善手だとは言い切れないことには留意してください<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>。<br>
 　ちなみに最近<a href="https://play.google.com/store/apps/details?id=jp.co.roue.shogi">９マス将棋オンライン</a>というアプリで遊んでいるのですが、単純な配置でも未だに最善手が何か悩まされることがあります（特に入玉形の場合が難しい）。そういう時スクショを取ってこの記事の方法で何が最善手だったか検討したりしています<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20">。</p>
 
 <hr>
@@ -241,14 +164,14 @@ MathJax.Hub.Config({
 <h3 id="テスト環境">テスト環境</h3>
 <p>　９マス将棋の解答を得るために必要なものは<a href="https://github.com/happyclam/shogi33simple">githubリポジトリ</a>内のファイルとCoffeeScriptのインストールだけです。編集する必要があるのはCUIテスト用スクリプトファイル（game.coffee）だけです。CoffeeScriptのインストールに関しては環境に依りますので省略します。</p>
 
-<pre><code>git clone https://github.com/happyclam/shogi33simple.git
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/happyclam/shogi33simple.git
 cd shogi33simple
 coffee game.coffee
-</code></pre>
+</code></pre></div></div>
 
 <h3 id="将棋盤面初期配置の編集">将棋盤面（初期配置）の編集</h3>
 <p>　将棋盤に駒を配置するにはBoardクラスのpiecesメンバに駒をpushしていくのですが、コピペして書き換えれば簡単だと思います。<br>
-　例えば先手の玉を３三に配置したい場合は<code>new Piece.Ou(Const.FIRST, Const.Status.OMOTE, [3,3])</code>としてPieceクラスのインスタンスを生成してBoardオブジェクトのpiecesメンバにpushします。</p>
+　例えば先手の玉を３三に配置したい場合は<code class="language-plaintext highlighter-rouge">new Piece.Ou(Const.FIRST, Const.Status.OMOTE, [3,3])</code>としてPieceクラスのインスタンスを生成してBoardオブジェクトのpiecesメンバにpushします。</p>
 
 <div style="width:320px; margin: 0 auto;">
   <p><img src="/images/arrange13.png" alt="初期配置　例１" width="320" title="初期配置　例１"></p>
@@ -343,14 +266,14 @@ b.pieces.push(new Piece.Ki(Const.SECOND, Const.Status.MOTIGOMA))
 <h3 id="読む深さの指定">読む深さの指定</h3>
 <p>　Playerクラスのdepthプロパティに読む深さを指定します。０になるまで局面を先読みしますので６を指定すると７手読みになります。</p>
 
-<pre><code>first = new Player(Const.FIRST, false)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>first = new Player(Const.FIRST, false)
 second = new Player(Const.SECOND, false)
 first.depth = 6
 second.depth = 6
-</code></pre>
+</code></pre></div></div>
 
-<p>　５手詰めの詰将棋を解くには７手読みする必要がある<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>のでdepth = 6を指定しないと解けないかというとそういうわけでもなくて、それ以下でも詰み手順を正確に辿っていくこともあります。上記の初期配置の例だと、詰み手数で言えば７手詰め（１三香、１二金、同香、同玉、２二金、１三玉、２三金）ですが、depth=3（４手読み）の設定でも正確に詰み手順を辿ることができます。読み切れていなくても最善手を指せるかどうかは評価関数の巧拙にかかっています<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>。<br>
-　ちなみに<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>の評価関数は<code>（先手の駒の重みの合計 ー 後手の駒の重みの合計）</code>という非常に単純なものですが、９マス将棋ならこの程度の評価関数で十分だと言えるでしょう。</p>
+<p>　５手詰めの詰将棋を解くには７手読みする必要がある<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>のでdepth = 6を指定しないと解けないかというとそういうわけでもなくて、それ以下でも詰み手順を正確に辿っていくこともあります。上記の初期配置の例だと、詰み手数で言えば７手詰め（１三香、１二金、同香、同玉、２二金、１三玉、２三金）ですが、depth=3（４手読み）の設定でも正確に詰み手順を辿ることができます。読み切れていなくても最善手を指せるかどうかは評価関数の巧拙にかかっています<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>。<br>
+　ちなみに<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>の評価関数は<code class="language-plaintext highlighter-rouge">（先手の駒の重みの合計 ー 後手の駒の重みの合計）</code>という非常に単純なものですが、９マス将棋ならこの程度の評価関数で十分だと言えるでしょう。</p>
 
 <h3 id="将棋盤面初期配置の表示">将棋盤面（初期配置）の表示</h3>
 <p>　以下の表のように先手が大文字、後手が小文字のアルファベットで将棋の駒を表現します。</p>
@@ -419,9 +342,9 @@ second.depth = 6
 <div style="width:320px; margin: 0 auto;">
   <p><img src="/images/arrange21.png" alt="初期配置　例２" width="320" title="初期配置　例２"></p>
 </div>
-<p>　上記の配置は<a href="https://github.com/happyclam/shogi33simple">github</a>に置いてあるgame.coffeeの初期配置です。githubからソースを取得した後、コンソール画面で<code>coffee game.coffee</code>と打てば以下のように対局が進行するはずです<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup>。</p>
+<p>　上記の配置は<a href="https://github.com/happyclam/shogi33simple">github</a>に置いてあるgame.coffeeの初期配置です。githubからソースを取得した後、コンソール画面で<code class="language-plaintext highlighter-rouge">coffee game.coffee</code>と打てば以下のように対局が進行するはずです<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup>。</p>
 
-<pre><code>coffee game.coffee
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>coffee game.coffee
 x
  3 2 1
 | | |o|1
@@ -477,155 +400,65 @@ X
 | | | |3
 X
 Second Win
-</code></pre>
-<p>　これじゃぁ分かりにくいという方も多いと思いますがすぐ慣れます<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20">。それか、ある程度結論が得られたら初期配置のコードをgameGui.coffeeに移してトランスパイル（<code>webpack</code>とコマンドを打つだけです）してブラウザで確認するのもいいかもしれません。但し、ブラウザであまり深読みさせると応答しなくなる可能性があります。</p>
+</code></pre></div></div>
+<p>　これじゃぁ分かりにくいという方も多いと思いますがすぐ慣れます<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20">。それか、ある程度結論が得られたら初期配置のコードをgameGui.coffeeに移してトランスパイル（<code class="language-plaintext highlighter-rouge">webpack</code>とコマンドを打つだけです）してブラウザで確認するのもいいかもしれません。但し、ブラウザであまり深読みさせると応答しなくなる可能性があります。</p>
 
 <h3 id="詰みが見つからなければ最善手は当てにならない">詰みが見つからなければ、最善手は当てにならない</h3>
-<p>　局面の先読みメソッド（Player.think）の戻り値は<code>[駒オブジェクト, 座標（筋、段）, 評価値, 成（不成）, 次善手情報]</code>となっているので<code>temp = first.think(b, second, i, Const.MAX_VALUE)</code>と呼び出した場合<code>temp[2]</code>に評価値が入っています。temp[2]に最大値（50000）か最小値（-50000）が入っていれば勝ち（あるいは負け）を読み切った（詰みを発見した）ということです。前述の単純な静的評価関数によって指し手を選んだだけなのか、詰みを読み切った上でその手を選んだのかはここで判断出来ます。<br>
-　例えば上記の例題の場合、「３一飛、１二玉、３二玉、３三金、同玉、２三歩成、３二玉、２二と」と進行していますが、<code>depth = 7</code>で実行すると３一飛と打たれた後の後手番での先読みメソッドの戻り値を見ると、１二玉が最善だと返してきますが、評価値は-18（後手やや有利）になっています。１二玉と指せばやや有利になりますよと言っているだけで、ＡＩは後手の勝ちだとはわかっていません。しかし、<code>depth = 8</code>にすると１二玉が最善手で評価値も-50000（後手勝ち）と返してきます。初手３一飛と打たれた時に後手の立場で考えて自分の指し手から数えると「１二玉、３二玉、３三金、同玉、２三歩成、３二玉、２二と」までの７手詰めですので、９手先まで読まないと詰みが分からないはず（<code>depth = 8</code>は９手読み）ですので辻褄が合います。このように詰みを発見した上での最善手と、単なる評価関数による最善手は意味合いが全然違うので注意が必要です。詰みがない場合の最善手というのは読みの深さを変えたら変わる可能性があるのに対して、詰み発見後の最善手は絶対不変<sup id="fnref:5"><a href="#fn:5" class="footnote">5</a></sup>の正解手です。この辺の事情は有名な将棋ソフトでも同じことで、読む深さを決めてその手数で詰みが見つからなかった場合は、そのソフトの評価関数を使った最善手というだけの話で客観的に絶対正しい最善手というわけではありません。それでも近年は人間の判断より正確なようですが。<br>
-　また、<a href="https://github.com/happyclam/shogi33simple">github</a>に置いてあるソースは候補手を絞るという作業をしていません（αβ法を使った全件探索）ので、<code>depth = 8</code>をセットしてＡＩの評価値が最大値（50000）または最小値（−50000）が返ってこない場合は７手以内の詰みは存在しないという言い方も出来ます。でも、全件探索ということは読む深さを深くする（depthの値を大きくする）と読む局面の数は指数関数的に増加しますので、いくらハイスペックなPCを使っても十数手しか読めないと思います。どうしても長手数の詰みも確認したいという方は、このソースコードを他のコンパイル言語に移植したりするより、まず将棋盤をビットパターンで表現する手法を取っている他のやり方を探る方がいいと思います。自分はそこまでやろうとは思ってませんけど、<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">このアプリ</a>をReactNativeに移植したらどれぐらい速度アップ出来るのか興味を持ってます。</p>
+<p>　局面の先読みメソッド（Player.think）の戻り値は<code class="language-plaintext highlighter-rouge">[駒オブジェクト, 座標（筋、段）, 評価値, 成（不成）, 次善手情報]</code>となっているので<code class="language-plaintext highlighter-rouge">temp = first.think(b, second, i, Const.MAX_VALUE)</code>と呼び出した場合<code class="language-plaintext highlighter-rouge">temp[2]</code>に評価値が入っています。temp[2]に最大値（50000）か最小値（-50000）が入っていれば勝ち（あるいは負け）を読み切った（詰みを発見した）ということです。前述の単純な静的評価関数によって指し手を選んだだけなのか、詰みを読み切った上でその手を選んだのかはここで判断出来ます。<br>
+　例えば上記の例題の場合、「３一飛、１二玉、３二玉、３三金、同玉、２三歩成、３二玉、２二と」と進行していますが、<code class="language-plaintext highlighter-rouge">depth = 7</code>で実行すると３一飛と打たれた後の後手番での先読みメソッドの戻り値を見ると、１二玉が最善だと返してきますが、評価値は-18（後手やや有利）になっています。１二玉と指せばやや有利になりますよと言っているだけで、ＡＩは後手の勝ちだとはわかっていません。しかし、<code class="language-plaintext highlighter-rouge">depth = 8</code>にすると１二玉が最善手で評価値も-50000（後手勝ち）と返してきます。初手３一飛と打たれた時に後手の立場で考えて自分の指し手から数えると「１二玉、３二玉、３三金、同玉、２三歩成、３二玉、２二と」までの７手詰めですので、９手先まで読まないと詰みが分からないはず（<code class="language-plaintext highlighter-rouge">depth = 8</code>は９手読み）ですので辻褄が合います。このように詰みを発見した上での最善手と、単なる評価関数による最善手は意味合いが全然違うので注意が必要です。詰みがない場合の最善手というのは読みの深さを変えたら変わる可能性があるのに対して、詰み発見後の最善手は絶対不変<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup>の正解手です。この辺の事情は有名な将棋ソフトでも同じことで、読む深さを決めてその手数で詰みが見つからなかった場合は、そのソフトの評価関数を使った最善手というだけの話で客観的に絶対正しい最善手というわけではありません。それでも近年は人間の判断より正確なようですが。<br>
+　また、<a href="https://github.com/happyclam/shogi33simple">github</a>に置いてあるソースは候補手を絞るという作業をしていません（αβ法を使った全件探索）ので、<code class="language-plaintext highlighter-rouge">depth = 8</code>をセットしてＡＩの評価値が最大値（50000）または最小値（−50000）が返ってこない場合は７手以内の詰みは存在しないという言い方も出来ます。でも、全件探索ということは読む深さを深くする（depthの値を大きくする）と読む局面の数は指数関数的に増加しますので、いくらハイスペックなPCを使っても十数手しか読めないと思います。どうしても長手数の詰みも確認したいという方は、このソースコードを他のコンパイル言語に移植したりするより、まず将棋盤をビットパターンで表現する手法を取っている他のやり方を探る方がいいと思います。自分はそこまでやろうとは思ってませんけど、<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">このアプリ</a>をReactNativeに移植したらどれぐらい速度アップ出来るのか興味を持ってます。</p>
 
 <hr>
 
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1">
-      <p>有名な将棋ソフトを９マス将棋に対応させるのはそれなりに大変だと思いますが、どうしても９マス将棋の正解を得たいという人は、あの「どうぶつしょうぎ」を完全解析した人のソースコードを改変する方法があるようです。でも、それもまた簡単ではないと思いますが…。 <a href="#fnref:1" class="reversefootnote">↩</a></p>
+    <li id="fn:1" role="doc-endnote">
+      <p>有名な将棋ソフトを９マス将棋に対応させるのはそれなりに大変だと思いますが、どうしても９マス将棋の正解を得たいという人は、あの「どうぶつしょうぎ」を完全解析した人のソースコードを改変する方法があるようです。でも、それもまた簡単ではないと思いますが…。 <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
-    <li id="fn:2">
-      <p><a href="/software/2018-06-10/droppawncheck">前回の記事</a>にも書きましたが玉を取るところまで読まないといけないので、１手詰めの問題を解くには３手読み、３手詰めの問題を解くには５手読みが必要となります。 <a href="#fnref:2" class="reversefootnote">↩</a></p>
+    <li id="fn:2" role="doc-endnote">
+      <p><a href="/software/2018-06-10/droppawncheck">前回の記事</a>にも書きましたが玉を取るところまで読まないといけないので、１手詰めの問題を解くには３手読み、３手詰めの問題を解くには５手読みが必要となります。 <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
-    <li id="fn:3">
-      <p>これは９×９の本将棋のプログラムでも同じことですが、完全読み切りが出来るのであれば静的評価関数は先手勝ち（＋１）か後手勝ち（−１）かそれ以外（０）の３値を返すだけの単純なものでいいのですが、完全読み切りが出来ないので世のプログラマが苦心して評価関数の出来を競っているわけです。 <a href="#fnref:3" class="reversefootnote">↩</a></p>
+    <li id="fn:3" role="doc-endnote">
+      <p>これは９×９の本将棋のプログラムでも同じことですが、完全読み切りが出来るのであれば静的評価関数は先手勝ち（＋１）か後手勝ち（−１）かそれ以外（０）の３値を返すだけの単純なものでいいのですが、完全読み切りが出来ないので世のプログラマが苦心して評価関数の出来を競っているわけです。 <a href="#fnref:3" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
-    <li id="fn:4">
-      <p>メモリ不足でエラーが出る場合は環境変数NODE_OPTIONSで確保するメモリを指定してください（例：<code>NODE_OPTIONS="--max_old_space_size=8192" </code>）。stack sizeに関しては簡単には変更できないと思います（＝depthの値には限界がある）。 <a href="#fnref:4" class="reversefootnote">↩</a></p>
+    <li id="fn:4" role="doc-endnote">
+      <p>メモリ不足でエラーが出る場合は環境変数NODE_OPTIONSで確保するメモリを指定してください（例：<code class="language-plaintext highlighter-rouge">NODE_OPTIONS="--max_old_space_size=8192" </code>）。stack sizeに関しては簡単には変更できないと思います（＝depthの値には限界がある）。 <a href="#fnref:4" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
-    <li id="fn:5">
-      <p>詰み手順が複数ある可能性はあります。 <a href="#fnref:5" class="reversefootnote">↩</a></p>
+    <li id="fn:5" role="doc-endnote">
+      <p>詰み手順が複数ある可能性はあります。 <a href="#fnref:5" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
   </ol>
 </div>
 
+        </article>
+      </div>
     </div>
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-folder-open"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/categories.html#project-ref">
-    		project <span>28</span>
-    	</a></li>
-    
-  
-
-
-    </ul>
-    
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-tags"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/tags.html#coffeescript-ref">coffeescript <span>41</span></a></li>
-     
-    	<li><a href="/tags.html#cordova-ref">cordova <span>35</span></a></li>
-     
-    	<li><a href="/tags.html#android-ref">android <span>54</span></a></li>
-     
-    	<li><a href="/tags.html#javascript-ref">javascript <span>50</span></a></li>
-     
-    	<li><a href="/tags.html#shogi-ref">shogi <span>25</span></a></li>
-    
-  
-
-
-
-    </ul>
-    
-
-    <hr>
-    <div class="pagination">
-      <ul>
-      
-        <li class="prev"><a href="/software/2018-06-10/droppawncheck" title="打ち歩詰め判定は必要なのか">← Previous</a></li>
-      
-        <li><a href="/archive.html">Archive</a></li>
-      
-        <li class="next"><a href="/software/2018-08-18/puzzle" title="BFSで将棋パズルを解く">Next →</a></li>
-      
-      </ul>
-    </div>
-    <hr>
-    
-
-
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'hello-my-world'; // required: replace example with your forum shortname
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';        
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
-
-
   </div>
 </div>
 
-<div id="disqus_thread"></div>
-<script>
 
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://hello-my-world.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
+  
 
+<footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-offset-3 col-lg-6">
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                <small>© rifyll theme, 2014</small>
+              </div>
+            </div>
+        </div>
       </div>
-      <hr>
-      <footer>
-        <p>© 2021 happyclam
-          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-        </p>
-      </footer>
-
     </div>
+  </footer>
 
-    
-  </body>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+
+</body>
+
 </html>
-

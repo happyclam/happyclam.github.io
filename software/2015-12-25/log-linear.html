@@ -1,42 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    
-    <title>曲線回帰で強化を試みる</title>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="description"
+    content="曲線回帰で強化を試みる 等間隔で手の重要度が変化するとはとても思えません Reinventing the wheel.">
+  <title> 曲線回帰で強化を試みる - 自己満足プログラミング </title>
 
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      
-      gtag('config', 'UA-1752720-7');
-    </script>
-    <meta name="author" content="happyclam">
-
-    <!-- Enable responsive viewport -->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      <script src="/assets/themes/twitter/js/excanvas.min.js"></script>
-    <![endif]-->
-
-    <!-- Le styles -->
-    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
-    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
-    <link rel="shortcut icon" href="/images/favicon.ico">
-    <!-- Le fav and touch icons -->
-  <!-- Update these with your own images
-
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@SappierBoy">
   <meta name="twitter:creator" content="@SappierBoy">
@@ -47,35 +19,69 @@
   <meta name="twitter:url" content="/software/2015-12-25/log-linear">
   
   
-  <meta name="twitter:description" content="programming for enjoyment.">
+  <meta name="twitter:description" content="Reinventing the wheel.">
   
   
-  <meta name="twitter:image:src" content="https://happyclam.github.io/images/favicon.png">
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/logarithm.png">
   
 
-  <link rel="canonical" href="/software/2015-12-25/log-linear" />
-    <!-- atom & rss feed -->
-    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
-    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script language="JavaScript">
-$(document).ready( function () {
-    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
-})
-</script>
-<script src="/assets/themes/twitter/js/jquery.min.js"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.min.js"></script>
-<script src="/assets/themes/twitter/js/flotr2.min.js" type="text/javascript"></script>
-<script src="/assets/themes/twitter/js/jquery.flot.selection.js" type="text/javascript" ></script>
-<script src="/assets/themes/twitter/js/jekyll-search.js" type="text/javascript"></script>
-    <!-- <script> -->
-    <!--   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ -->
-    <!--   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), -->
-    <!--   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) -->
-    <!--   })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); -->
-    <!--   ga('create', 'UA-1752720-7', 'happyclam.github.io'); -->
-    <!--   ga('send', 'pageview'); -->
-    <!-- </script> -->
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"> -->
+        <!--   <span class="sr-only">Toggle navigation</span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!--   <span class="icon-bar"></span> -->
+        <!-- </button> -->
+        <!-- <a id="site-title" class="navbar-brand" href="/"> -->
+        <!--   <img class="pull-left img-responsive" src="">  -->
+        <!--   <span class="name-holder">自己満足プログラミング</span> -->
+        <!-- </a> -->
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li><a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li><a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li><a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li><a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li><a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -91,9 +97,9 @@ MathJax.Hub.Config({
 });
 </script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-  </head>
 
-  <body>
+</header>
+
     <div style="text-align: center;">
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <script>
@@ -103,134 +109,41 @@ MathJax.Hub.Config({
         });
       </script>
     </div>
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container-narrow">
-          <a class="brand" href="/">自己満足プログラミング</a>
-          <ul class="nav">
-            
-            
-            
-
-
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/archive">Archive</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/categories">Categories</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/pages">Pages</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/policy">Policy</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/profile">About</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-  
-    
-      
-      	
-      	<li><a href="/tags">Tags</a></li>
-      	
-      
-    
-  
-    
-  
-    
-  
-
-
-
-          </ul>
-        </div>
-      </div>
+  <div class="blog-header">
+    <div class="span3">
+      <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     </div>
+  </div>
+  
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
 
-    <div class="container-narrow">
-      <div class="row-fluid">
-        <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        </div>
-        <div class="span9"
-             <!-- Html Elements for Search -->
-             <div id="search-container" align="right">
-               <input type="text" id="search-input" placeholder="search...">
-               <ul id="results-container"></ul>
-             </div>
-             <div class="results"></div>
-        </div>
-      </div>
-<script type="text/javascript">
-  SimpleJekyllSearch.init({
-    searchInput: document.getElementById('search-input'),
-    resultsContainer: document.getElementById('results-container'),
-    json: '/search.json',
-    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
-    noResultsText: 'No results found',
-    limit: 15,
-    fuzzy: false,
-  })
-</script>
-      <div class="content">
-        
-<div class="page-header">
-  <h1>曲線回帰で強化を試みる </h1>
-</div>
+        <header class="page-header">
+          <h2 class="page-title"><a href="/software/2015-12-25/log-linear">曲線回帰で強化を試みる</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Friday, December 25, 2015
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">software</span>
+                
+                  <span class="label label-tag">tictactoe</span>
+                
+                  <span class="label label-tag">ruby</span>
+                
+            </div>
+          </div>
 
-<div class="row-fluid post-full">
-  <div class="span12">
-    <div class="date">
-      <span>25 December 2015</span>
-    </div>
-    <div class="content">
-      <h3 id="闇雲ってこういうことかも">闇雲ってこういうことかも</h3>
+        </header>
+
+        <article class="page-content">
+          <h3 id="闇雲ってこういうことかも">闇雲ってこういうことかも</h3>
 <p>　次に記事を書く時は別の話題にしようと思っていたのですが、三目並べの強化学習に関して試さずにはいられなかったので、闇雲と言われようが思いつくままにやってみたことを書いておきます。<br />
 　以前、<a href="https://hb.afl.rakuten.co.jp/hgc/18980d66.5ec24871.18980d67.e8ecef93/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F5271872%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F12693001%2F&amp;link_type=text&amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJ0ZXh0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImxlZnQiLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjF9">「STATISTICS HACKS」</a>の中で序盤より終盤の手を重視する方法について記述されていることに触れました、そして今まで試した方法は報酬を与えるにしても罰するにしても選択した全ての局面で同じ値を加算したり減算したりしていましたが、今回は手数毎に違う値を加減算する方法を試してみました。</p>
 
@@ -245,15 +158,15 @@ MathJax.Hub.Config({
 　まず、最終手が１になるように１を手数で割った値を係数にして、勝ちなら３負けなら−１を掛けた値を反映させるようにしてみました。x 手目の局面の報酬を決めるための係数を y で表します。</p>
 
 <div style="width:320px; margin: 0 auto;">
-  <p><script type="math/tex">y = \frac{1}{総手数} x \hspace{3.5em}\tag{方程式 1}</script></p>
+  <p>\(y = \frac{1}{総手数} x \hspace{3.5em}\tag{方程式 1}\)</p>
 </div>
 
-<p>　最短手数６（初期盤面を含む）で勝負がついたとすると、最終手番の局面は x = 6 で y = 1 となり、勝った場合は<script type="math/tex">y\times3=3</script>、負けた場合は<script type="math/tex">y\times-1=-1</script>の値を各局面のデータ（score配列）に加算します。その一つ前の手番のデータはx = 4, y = <script type="math/tex">\frac{4}{6}</script>となり、勝ちなら<script type="math/tex">y \times3=2</script>、負けなら<script type="math/tex">y \times -1=-0.6666</script>が加算されます。<br />
-　例えば１０手（初期盤面を含む）で学習ソフトが勝ったとすると、最終盤面から初期盤面まで順番にソフトの手番の局面データに <script type="math/tex">3, 2.4, 1.8, 1.2, 0.6</script>の値が加算され、終盤の局面ほど大きな報酬が与えられるわけです。<br />
+<p>　最短手数６（初期盤面を含む）で勝負がついたとすると、最終手番の局面は x = 6 で y = 1 となり、勝った場合は\(y\times3=3\)、負けた場合は\(y\times-1=-1\)の値を各局面のデータ（score配列）に加算します。その一つ前の手番のデータはx = 4, y = \(\frac{4}{6}\)となり、勝ちなら\(y \times3=2\)、負けなら\(y \times -1=-0.6666\)が加算されます。<br />
+　例えば１０手（初期盤面を含む）で学習ソフトが勝ったとすると、最終盤面から初期盤面まで順番にソフトの手番の局面データに \(3, 2.4, 1.8, 1.2, 0.6\)の値が加算され、終盤の局面ほど大きな報酬が与えられるわけです。<br />
 　総手数６手で終了した場合の係数（求める値 y は、あくまで３や−１に掛ける係数です）は以下の方程式で表され</p>
 
 <div style="width:320px; margin: 0 auto;">
-  <script type="math/tex; mode=display">y = \frac{1}{6}x \hspace{3.5em}\tag{方程式 1.1}</script>
+\[y = \frac{1}{6}x \hspace{3.5em}\tag{方程式 1.1}\]
 
   <table>
     <thead>
@@ -372,10 +285,10 @@ MathJax.Hub.Config({
   </tbody>
 </table>
 
-<p>　その横に y′ としてこんな感じになるんじゃないかという値を捏造して、その値をLibreOffice（Excelでも可）を使って回帰して得られた方程式が以下のものです<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。</p>
+<p>　その横に y′ としてこんな感じになるんじゃないかという値を捏造して、その値をLibreOffice（Excelでも可）を使って回帰して得られた方程式が以下のものです<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>。</p>
 
 <div style="width:320px; margin: 0 auto;">
-  <p>　<script type="math/tex">y = 0.029 \times 1.882^x \hspace{3.5em}\tag{方程式 2}</script></p>
+  <p>　\(y = 0.029 \times 1.882^x \hspace{3.5em}\tag{方程式 2}\)</p>
 </div>
 
 <p>　グラフは以下の青のラインです</p>
@@ -470,7 +383,7 @@ MathJax.Hub.Config({
 </table>
 
 <div style="width:320px; margin: 0 auto;">
-  <p>　<script type="math/tex">y = 0.188 \times 1.588^x \hspace{3.5em}\tag{方程式 3}</script></p>
+  <p>　\(y = 0.188 \times 1.588^x \hspace{3.5em}\tag{方程式 3}\)</p>
 </div>
 
 <p>　グラフは以下です</p>
@@ -589,7 +502,7 @@ MathJax.Hub.Config({
 <p>　それに方程式 2 や方程式 3 の指数関数と違ってこの方程式のいいところは、根拠のない数値から回帰したものではないところです。線形関数の方程式 1 と同様に、総手数と何手目かという変数 x だけで値が決まります。</p>
 
 <div style="width:320px; margin: 0 auto;">
-  <p>　<script type="math/tex">y = \frac{1}{総手数} + \log{x} 総手数 \hspace{3.5em}\tag{方程式 4}</script></p>
+  <p>　\(y = \frac{1}{総手数} + \log{x} 総手数 \hspace{3.5em}\tag{方程式 4}\)</p>
 </div>
 
 <p>　根拠がある、無いの話をしだすと、勝ちの時は３を掛けて引き分けは１を掛けるというのはどういう根拠なの？となりますが、これは<a href="https://hb.afl.rakuten.co.jp/hgc/18980d66.5ec24871.18980d67.e8ecef93/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F5271872%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F12693001%2F&amp;link_type=text&amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJ0ZXh0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImxlZnQiLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjF9">「STATISTICS HACKS」</a>に書いていたのと、Jリーグなどの多くのスポーツで勝てば勝ち点３、引き分けで勝ち点１となっているので何か（経験則的な？）根拠があるのだろうと思います。<br />
@@ -637,127 +550,43 @@ MathJax.Hub.Config({
 
 <hr />
 
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1">
-      <p>intercept関数とslope関数を使って x と y の表の範囲を指定すれば係数と切片（定数項）が得られます。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:1" role="doc-endnote">
+      <p>intercept関数とslope関数を使って x と y の表の範囲を指定すれば係数と切片（定数項）が得られます。 <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>
 
+        </article>
+      </div>
     </div>
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-folder-open"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/categories.html#software-ref">
-    		software <span>31</span>
-    	</a></li>
-    
-  
-
-
-    </ul>
-    
-
-  
-    <ul class="tag_box inline">
-      <li><i class="icon-tags"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/tags.html#software-ref">software <span>15</span></a></li>
-     
-    	<li><a href="/tags.html#tictactoe-ref">tictactoe <span>33</span></a></li>
-     
-    	<li><a href="/tags.html#ruby-ref">ruby <span>34</span></a></li>
-    
-  
-
-
-
-    </ul>
-    
-
-    <hr>
-    <div class="pagination">
-      <ul>
-      
-        <li class="prev"><a href="/software/2015-11-27/reinforcement" title="強化学習の修正">&larr; Previous</a></li>
-      
-        <li><a href="/archive.html">Archive</a></li>
-      
-        <li class="next"><a href="/software/2016-01-07/correlation" title="三目並べプログラムの強化学習効率を上げる">Next &rarr;</a></li>
-      
-      </ul>
-    </div>
-    <hr>
-    
-
-
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'hello-my-world'; // required: replace example with your forum shortname
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';        
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
-
-
   </div>
 </div>
 
-<div id="disqus_thread"></div>
-<script>
 
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://hello-my-world.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
 
+<footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-offset-3 col-lg-6">
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                <small>&copy; rifyll theme, 2014</small>
+              </div>
+            </div>
+        </div>
       </div>
-      <hr>
-      <footer>
-        <p>&copy; 2021 happyclam
-          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-        </p>
-      </footer>
-
     </div>
+  </footer>
 
-    
-  </body>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+
+</body>
+
 </html>
-
