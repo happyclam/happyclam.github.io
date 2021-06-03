@@ -195,6 +195,7 @@ h2 {
   margin:40px auto 40px;
   text-align: center;
   font-size: 1.5em;
+  display: inline-block;
 }
 
 table { border-collapse: collapse; border-spacing: 0; }
