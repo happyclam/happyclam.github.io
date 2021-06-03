@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 03 Jun 2021 22:32:41 +0900</pubDate>
-    <lastBuildDate>Thu, 03 Jun 2021 22:32:41 +0900</lastBuildDate>
+    <pubDate>Thu, 03 Jun 2021 23:01:32 +0900</pubDate>
+    <lastBuildDate>Thu, 03 Jun 2021 23:01:32 +0900</lastBuildDate>
     <generator>Jekyll v3.9.1</generator>
     
       <item>
@@ -479,6 +479,15 @@ int32_t karah_think(int32_t* pResult, int32_t* pBoard, int32_t turn, int32_t dep
 　Windows用のライブラリと違って、様々なCPUに合わせたAndroid端末毎のDLLが簡単なGUI操作（中で活躍してるのはgradleですが）でビルド出来るのはすごいです。&lt;br /&gt;
 　将棋関連アプリも早くこの形でリリースしたいところですが、マンカラのように一つの固定長配列を渡すだけでは済まないので、いろいろ試してみないと分からないことが多く道のりは遠いです。&lt;/p&gt;
 
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
+
 &lt;hr /&gt;
 
 </description>
@@ -599,6 +608,15 @@ $ ./mancala.out
 
 &lt;h3 id=&quot;マンカラの必勝法は&quot;&gt;マンカラの必勝法は？&lt;/h3&gt;
 &lt;p&gt;　今回、マンカラの先読みプログラムをC++に移植したのは、以前の&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;マンカラの記事&lt;/a&gt;、&lt;a href=&quot;/software/2020-08-09/mancala_easy&quot;&gt;続編&lt;/a&gt;の課題である、マンカラカラハ（６×２列で種子４つ）の必勝法を見つける目論見も兼ねていたのですが、C++版で実行時間が短縮されたと言っても、この程度では必勝法を見つけることが出来るかどうかは分かりません。１時間掛かった作業が１０分で可能になったと言っても、もし読み切るのに１年以上掛かる作業だとしたら、やはり数ヶ月以上掛かることには変わりませんから。&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
 
 &lt;hr /&gt;
 
@@ -783,6 +801,15 @@ $ ./mancala.out
   &lt;li&gt;豆の数（３〜７）別に対戦成績が記録されます。表の左上の数字はゲーム開始時に配置されている豆の数です。&lt;/li&gt;
   &lt;li&gt;ゲーム成績を初期化する場合は、ゲームアイコンを長押しし、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;アプリ情報&lt;/code&gt;-&amp;gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ストレージとキャッシュ&lt;/code&gt;-&amp;gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ストレージを消去&lt;/code&gt;で初期化して下さい。全ての設定がゲームインストール時と同様に初期化されます。&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
 
 &lt;hr /&gt;
 
@@ -1398,6 +1425,15 @@ result = second.think(board, first, 50, SECOND_WIN);
 &lt;h3 id=&quot;カラハのルール&quot;&gt;カラハのルール&lt;/h3&gt;
 &lt;p&gt;　マンカラカラハにもいろいろな派生ルールが存在するようで、ゲーム終了時に残った石は相手の物になるというルールも存在するようです。&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.marcnadero.kahalagame&quot;&gt;このアプリ&lt;/a&gt;ではどちらのルールにするかオプションで選べるようになっていて、残った石は相手に取られるルールの方が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;popular&lt;/code&gt;、自分の石になるルールが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;classic&lt;/code&gt;となっています。残った石が相手のものになるルールの方が海外ではポピュラーなんでしょうか？&lt;br /&gt;
 　任天堂のアソビ大全５１に収録されているマンカラは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;classic&lt;/code&gt;ルールのようですが、日本ではこのルールがメジャーになると思われるので、今後マンカラに関する記事はアソビ大全５１のルールに絞ろうと思います。&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;も&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;classic&lt;/code&gt;ルールにしています。&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
 
 &lt;hr /&gt;
 
@@ -2427,6 +2463,15 @@ result = [4, 5], depth = 16
 &lt;p&gt;　&lt;a href=&quot;/software/2014-09-23/tictactoe_arrange&quot;&gt;以前の記事&lt;/a&gt;の「３手前に打った駒が消える特殊なルールの三目並べ」のように&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/arrange&quot;&gt;github&lt;/a&gt;でソースを公開しようと思っていたのですが、google play内の日本製のマンカラアプリで遊んでみて、少し惜しくなったというのが本音です。アプリのアクティブユーザー数が1,000に達したらこの記事で使用しているソース（=アプリからGUI部分を除いたソース）を公開しようと思ってます。&lt;br /&gt;
 　またMIN-MAX法やαβ法のアルゴリズムに興味のある方は、よろしければ&lt;a href=&quot;https://www.amazon.co.jp/HTML5-CoffeeScriptで作る最強の三目並べプログラム-MIN-MAX法からαβ法へ-happyclam-ebook/dp/B01D1IJ0S0/ref=sr_1_1?s=digital-text&amp;amp;ie=UTF8&amp;amp;qid=1473938717&amp;amp;Sr=1-1&amp;amp;keywords=三目並べ&quot;&gt;この本&lt;/a&gt;を買ってみてください。使用言語はCoffeeScript（JavaScript）ですが、本の中の相互再帰のやり方と今回の検証プログラムはほとんど同じやり方で、マンカラの場合は連続で指し手が続くケースがあるのでその部分だけif文（数行）が追加されている感じです。&lt;/p&gt;
 
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
+
 &lt;hr /&gt;
 
 &lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
@@ -2555,6 +2600,15 @@ result = [4, 5], depth = 16
 
   &lt;p&gt;&lt;a href=&quot;/images/saddle_bag.png&quot;&gt;&lt;img src=&quot;/images/saddle_bag.png&quot; alt=&quot;サドルバッグ&quot; width=&quot;320&quot; title=&quot;サドルバッグ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
+&lt;/div&gt;
+
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
 &lt;/div&gt;
 
 &lt;hr /&gt;
@@ -2705,6 +2759,15 @@ result = [4, 5], depth = 16
 &lt;h3 id=&quot;日本人は自転車の乗り方を分かっていない&quot;&gt;日本人は自転車の乗り方を分かっていない&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;http://kaigai-matome.net/archives/35598234.html&quot;&gt;「日本人は自転車の乗り方を分かっていない」&lt;/a&gt;という記事を見かけたのですが、自分もこのミニベロのカスタマイズを通じて自転車に対する理解が深まってからは同感です。海外とは道路事情が違いますし、どっしりとサドルに腰掛けて傘を差して&lt;sup id=&quot;fnref:6&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:6&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;6&lt;/a&gt;&lt;/sup&gt;歩道をポタポタと走る日本の自転車文化を一概に否定するわけではありませんが、一度スポーツ系と言われるバイクに乗って見て欲しいと思います。そうするとママチャリしか乗ったことがない人は、自転車は本来こういう乗り方をするものだったのかという驚きがあると思います。&lt;br /&gt;
 　そして自転車を買う時は自分のように適当に買うのではなく、自分の身長に合ったサイズのバイクを選ぶことをお勧めします。&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
 
 &lt;hr /&gt;
 
@@ -2878,6 +2941,15 @@ result = [4, 5], depth = 16
 &lt;ul&gt;
   &lt;li&gt;対戦相手にＡＩを選択すると、対戦中に局面の評価値を赤字で表示します。先手（White）が有利な場合は正の方向、後手（Black）が有利な場合は負の方向に評価値が変動します。&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
 
 &lt;hr /&gt;
 
