@@ -3,6 +3,17 @@
   
     
     <url>
+      <loc>/miscellaneous/2021-06-03/pagespeed</loc>
+      
+        <lastmod>2021-06-03T00:00:00+09:00</lastmod>
+      
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+    </url>
+    
+  
+    
+    <url>
       <loc>/software/2021-01-22/mancala_evaluate02</loc>
       
         <lastmod>2021-01-22T00:00:00+09:00</lastmod>
@@ -1062,7 +1073,7 @@
     <url>
       <loc>/404.html</loc>
       
-        <lastmod>2021-06-04T07:21:28+09:00</lastmod>
+        <lastmod>2021-06-04T16:00:16+09:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>0.5</priority>
@@ -1073,7 +1084,7 @@
     <url>
       <loc>/feed.xml</loc>
       
-        <lastmod>2021-06-04T07:21:28+09:00</lastmod>
+        <lastmod>2021-06-04T16:00:16+09:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>0.5</priority>
@@ -1084,7 +1095,7 @@
     <url>
       <loc>/categories/</loc>
       
-        <lastmod>2021-06-04T07:21:28+09:00</lastmod>
+        <lastmod>2021-06-04T16:00:16+09:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>0.5</priority>
@@ -1095,7 +1106,7 @@
     <url>
       <loc>/policy/</loc>
       
-        <lastmod>2021-06-04T07:21:28+09:00</lastmod>
+        <lastmod>2021-06-04T16:00:16+09:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>0.5</priority>
@@ -1117,7 +1128,7 @@
     <url>
       <loc>/about/</loc>
       
-        <lastmod>2021-06-04T07:21:28+09:00</lastmod>
+        <lastmod>2021-06-04T16:00:16+09:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>0.5</priority>
@@ -1128,7 +1139,7 @@
     <url>
       <loc>/tags/</loc>
       
-        <lastmod>2021-06-04T07:21:28+09:00</lastmod>
+        <lastmod>2021-06-04T16:00:16+09:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>0.5</priority>
@@ -1141,7 +1152,7 @@
     <url>
       <loc>/robots.txt</loc>
       
-        <lastmod>2021-06-04T07:21:28+09:00</lastmod>
+        <lastmod>2021-06-04T16:00:16+09:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>0.5</priority>

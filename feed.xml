@@ -5,9 +5,131 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 04 Jun 2021 07:21:28 +0900</pubDate>
-    <lastBuildDate>Fri, 04 Jun 2021 07:21:28 +0900</lastBuildDate>
+    <pubDate>Fri, 04 Jun 2021 16:00:16 +0900</pubDate>
+    <lastBuildDate>Fri, 04 Jun 2021 16:00:16 +0900</lastBuildDate>
     <generator>Jekyll v3.9.1</generator>
+    
+      <item>
+        <title>ページエクスペリエンス向上</title>
+        <description>&lt;h3 id=&quot;特に対策していなかったコンテンツの表示速度&quot;&gt;特に対策していなかったコンテンツの表示速度&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://ring-and-link.co.jp/dream2000/user/notice/seo/4817&quot;&gt;この記事&lt;/a&gt;によると2021年5月からgoogleの検索ランキングに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ページエクスペリエンス&lt;/code&gt;という指標が導入されたようです。Jekyll製の静的サイトなので今までは特に表示速度については特に対策はしていませんでしたが、自分のサイトも以下のように５月５日を境に多くのページが「改善が必要なURL」としてGoogle様から指摘されるようになりました。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/google_ux.png&quot;&gt;&lt;img src=&quot;/images/google_ux.png&quot; alt=&quot;ウェブに関する主な指標&quot; width=&quot;480&quot; title=&quot;ウェブに関する主な指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/google_experience.png&quot;&gt;&lt;img src=&quot;/images/google_experience.png&quot; alt=&quot;モバイルでのページエクスペリエンス&quot; width=&quot;480&quot; title=&quot;モバイルでのページエクスペリエンス&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/google_signal.png&quot;&gt;&lt;img src=&quot;/images/google_signal.png&quot; alt=&quot;モバイルでの指標&quot; width=&quot;480&quot; title=&quot;モバイルでの指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;　
+&lt;span id=&quot;back&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;　今までもいろいろgoogle様からの指摘に対応してきました。「テキストが小さすぎて読めません」、「クリック可能な要素同士が近すぎます」、「コンテンツの幅が画面の幅を超えています」などなど、その度にCSSを弄って対策を施してきました。そして、４月まではSearch Console&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;内で&lt;strong&gt;「サイトに優れたページ エクスペリエンスの URL が 100% 件あります」&lt;/strong&gt;と表示されていて気分を良くしていたのです。でも、５月になって急に表示が変わって、「またか」って感じです。どこまでもgoogle様に振り回される状況は変わらないようです:weary:&lt;br /&gt;
+　でも、今までから気にはなっていたことがあったので、コンテンツ表示速度改善に取り組んでみました。&lt;br /&gt;
+　あと、問題があるのはモバイルユーザビリティであって、今のところPC環境では特に問題は無さそうです。&lt;/p&gt;
+
+&lt;h3 id=&quot;今までから気になっていたこと&quot;&gt;今までから気になっていたこと&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;http://jekyllbootstrap.com/&quot;&gt;Jekyll Bootstrap&lt;/a&gt;の多機能なテーマを使用していること&lt;br /&gt;
+&lt;a href=&quot;http://jekyllbootstrap.com/&quot;&gt;ここにあるJekyllBootstrap&lt;/a&gt;のテンプレートを使えば、サイトのテーマ（Theme,テンプレート）を簡単に差し替えることが出来るようになっていて、機能も豊富でコメント機能も付いていたりしますが、自分のサイトでは今までコメントをしてくれた人はいませんので無駄な機能でした。&lt;br /&gt;
+　また、テーマを差し替えることが出来ると言っても気に入ったものがなく、結局今まで一度もテーマを変更することはありませんでした。現在は&lt;a href=&quot;https://github.com/jekyllbootstrap&quot;&gt;テーマの種類&lt;/a&gt;も追加・更新はされていないようです。&lt;/li&gt;
+  &lt;li&gt;大き目の画像を使用していること&lt;br /&gt;
+ほとんどの記事で画像を使う時は、小さく表示してクリックすると原寸表示（拡大表示）出来るような作りにしているので元々の画像サイズが大き目であることが気にはなっていました。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;　ということで、1.に関してはJekyllのテンプレートをもっと軽いものに変更、2.に関してはimgタグを使う時はサイズ指定するように変更してみました。&lt;/p&gt;
+
+&lt;h3 id=&quot;修正前のpagespeed-insightsの結果&quot;&gt;修正前の&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/?hl=ja&quot;&gt;PageSpeed Insights&lt;/a&gt;の結果&lt;/h3&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/pagespeed01.png&quot;&gt;&lt;img src=&quot;/images/pagespeed01.png&quot; alt=&quot;修正前の測定結果&quot; width=&quot;480&quot; title=&quot;修正前の測定結果&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;２５&lt;/code&gt;というのは結構酷い状態かも知れません。&lt;/p&gt;
+
+&lt;h3 id=&quot;imgタグにサイズ指定&quot;&gt;imgタグにサイズ指定&lt;/h3&gt;
+&lt;p&gt;　今までこう書いていたのを&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;img src=&quot;/images/results_3beans.png&quot; alt=&quot;豆３つ&quot; title=&quot;豆３つ&quot; /&amp;gt;&lt;/code&gt;&lt;br /&gt;
+　このようにサイズを記述するようにしただけです。&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;img src=&quot;/images/results_3beans.png&quot; alt=&quot;豆３つ&quot; width=&quot;480&quot; title=&quot;豆３つ&quot; /&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/pagespeed02.png&quot;&gt;&lt;img src=&quot;/images/pagespeed02.png&quot; alt=&quot;imgタグにサイズ指定&quot; width=&quot;480&quot; title=&quot;imgタグにサイズ指定&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　若干改善しました。対象の記事はスクショを撮り忘れて、上の画像のURLは画像を使っていないのですが、だいたいこれぐらいの数値の改善がありました。&lt;br /&gt;
+　imgタグのサイズ指定は昔は必須だったのがレスポンシブな時代にはサイズ指定しないようになって来たけど、ブラウザにレイアウトシフトを避ける機能が実装されてきて、今は速度アップのためにサイズ指定する方が良いという流れがあるようです。&lt;br /&gt;
+　画像に関してはフォーマットも色々あるのでもっと突き詰める余地がありそうです。&lt;/p&gt;
+
+&lt;h3 id=&quot;jekyllテンプレートを交換&quot;&gt;Jekyllテンプレートを交換&lt;/h3&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/pagespeed03.png&quot;&gt;&lt;img src=&quot;/images/pagespeed03.png&quot; alt=&quot;Jekyllテンプレートを交換&quot; width=&quot;480&quot; title=&quot;Jekyllテンプレートを交換&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　今までの無駄な機能が多いテンプレートから、&lt;a href=&quot;http://jekyllthemes.org&quot;&gt;Jekyll Themesというサイト&lt;/a&gt;で探して、&lt;a href=&quot;https://github.com/itsrifat/rifyll&quot;&gt;シンプルなJekyllテンプレート&lt;/a&gt;に交換してカスタマイズしました。&lt;/p&gt;
+
+&lt;h3 id=&quot;改善後の状態&quot;&gt;改善後の状態&lt;/h3&gt;
+&lt;p&gt;　ページによってまちまちですが、&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/?hl=ja&quot;&gt;PageSpeed Insights&lt;/a&gt;で確認すると上記の改善後も多くの指摘事項があります。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/speedinsights.png&quot;&gt;&lt;img src=&quot;/images/speedinsights.png&quot; alt=&quot;PageSpeed Insightsの指摘事項&quot; width=&quot;480&quot; title=&quot;Pagespeed Insightsの指摘事項&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/?hl=ja&quot;&gt;PageSpeed Insights&lt;/a&gt;を使えばページ毎の問題点を指摘してくれるのですが、やはり一番の問題は画像サイズにあるページが多いようです。モバイルユーザーに焦点を当てて、これからは大きな画像は使わないようにしようかと思ってます。&lt;/p&gt;
+
+&lt;h3 id=&quot;pc並の数値にするのは大変そう&quot;&gt;PC並の数値にするのは大変そう&lt;/h3&gt;
+&lt;p&gt;　ちなみに対象を「パソコン」にすると以下の数値です。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/pagespeed05.png&quot;&gt;&lt;img src=&quot;/images/pagespeed05.png&quot; alt=&quot;パソコンの結果&quot; width=&quot;480&quot; title=&quot;パソコンの結果&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;９９！&lt;/code&gt;だからこそ今まではSearch Console内で「サイトに優れたページ エクスペリエンスの URL が 100% 件あります」という評価だったわけです。&lt;/p&gt;
+
+&lt;p&gt;　&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/?hl=ja&quot;&gt;PageSpeed Insights&lt;/a&gt;の指摘の中に「JavaScriptの削減」という項目があったので、試しにadsenseとanalyticsのjsコードを除去すると、数値を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;８１&lt;/code&gt;まで上げることが出来ましたが、これでは意味がないので他の改善方法を探る必要がありそうですが、自前のWebサーバーで運用しているわけではなく、&lt;a href=&quot;https://github.com/happyclam/happyclam.github.io&quot;&gt;github&lt;/a&gt;に静的ファイルを置いているだけなので方法は限られそうです。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/pagespeed04.png&quot;&gt;&lt;img src=&quot;/images/pagespeed04.png&quot; alt=&quot;adsenseとanalyticsのjsコードを除去&quot; width=&quot;480&quot; title=&quot;adsenseとanalyticsのjsコードを除去&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　&lt;a href=&quot;https://www.suzukikenichi.com/blog/page-experience-ranking-is-coming-to-desktop/&quot;&gt;この記事&lt;/a&gt;によるとページエクスペリエンスのランキングはPC検索についても今後適用していくようです。&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;Google Search Console通称「サチコ」というらしいです。&lt;a href=&quot;#back&quot;&gt;戻る&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Thu, 03 Jun 2021 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/miscellaneous/2021-06-03/pagespeed</link>
+        <guid isPermaLink="true">https://happyclam.github.io/miscellaneous/2021-06-03/pagespeed</guid>
+        
+        <category>android</category>
+        
+        <category>google</category>
+        
+        
+        <category>miscellaneous</category>
+        
+      </item>
     
       <item>
         <title>マンカラは後手でも勝てるか？</title>
@@ -2802,174 +2924,6 @@ result = [4, 5], depth = 16
         
         
         <category>miscellaneous</category>
-        
-      </item>
-    
-      <item>
-        <title>「Mini Chess - チェス６６」アプリリリース</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=chess66.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;チェス６６&quot; title=&quot;Mini Chess - チェス６６&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
-&lt;!-- [![チェス６６](/images/amazon-appstore-badge-jp-white.png){: title=&quot;Mini Chess - チェス６６&quot; width=&quot;155&quot; height=&quot;60&quot;}][chess66app-amazon] --&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;mini-chess---チェス６６について&quot;&gt;「Mini Chess - チェス６６」について&lt;/h3&gt;
-&lt;p&gt;　６×６の盤で遊ぶミニチェスです。普通のチェスに飽きた方や、リリース済の&lt;a href=&quot;https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam&quot;&gt;「お気楽チェス」&lt;/a&gt;ではＡＩが弱すぎると感じている方にお勧めです。盤が小さくなったことでＡＩが若干強くなっていると思います。&lt;br /&gt;
-　チェス盤の初期配置を編集・保存する機能があります。予め４つの初期配置を用意していますが、編集して独自の配置にして楽しんで下さい。&lt;/p&gt;
-
-&lt;h3 id=&quot;ルール&quot;&gt;ルール&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;ポーンのダブルムーブ、アンパッサンはありません。キャスリングも無しです。&lt;/li&gt;
-  &lt;li&gt;ポーンが成れる駒は初期配置によって決まります。初期配置にクイーンがない場合、クイーンには成れません。&lt;/li&gt;
-  &lt;li&gt;ステイルメイトは引き分けです。&lt;/li&gt;
-  &lt;li&gt;同一局面３回で千日手、引き分けです（ＡＩはなるべく千日手を避けるようになっています）。&lt;/li&gt;
-  &lt;li&gt;その他はチェスのルールに準じます。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;機能&quot;&gt;機能&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;３つのＡＩレベル選択&lt;/li&gt;
-  &lt;li&gt;ＡＩ対ＡＩ、人対ＡＩ、人対人の対戦&lt;/li&gt;
-  &lt;li&gt;駒の可動箇所ガイド機能&lt;/li&gt;
-  &lt;li&gt;ゲーム中断、途中再開機能&lt;/li&gt;
-  &lt;li&gt;二ヶ国語対応（日本語、英語）&lt;/li&gt;
-  &lt;li&gt;初期配置の選択機能&lt;/li&gt;
-  &lt;li&gt;対局自動保存機能&lt;/li&gt;
-  &lt;li&gt;４種類の初期配置の編集、保存機能&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;盤面&quot;&gt;盤面&lt;/h3&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/chess66app_board01.png&quot;&gt;&lt;img src=&quot;/images/chess66app_board01.png&quot; alt=&quot;チェス盤面１&quot; width=&quot;320&quot; title=&quot;チェス盤面１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;駒は二種類から選べます。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/chess66app_board02.png&quot;&gt;&lt;img src=&quot;/images/chess66app_board02.png&quot; alt=&quot;チェス盤面２&quot; width=&quot;320&quot; title=&quot;チェス盤面２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;ゲームを中断して前の局面に戻って再開することも出来ます。&lt;/li&gt;
-  &lt;li&gt;ゲーム中に歯車のアイコンをタップすると強制的にゲームを中断して設定メニュー画面に移行します。ゲーム盤面に戻って再開ボタンをタップすれば続きからゲームを再開出来ます。&lt;/li&gt;
-  &lt;li&gt;右上の矢印アイコンをタップすると盤面を回転表示します。&lt;/li&gt;
-  &lt;li&gt;右上のキャレット（∧、∨）アイコンをタップすると取った駒の数と手数を表示します。もう一度タップすると非表示にします。端末の画面サイズに合わせてご利用ください。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;ａｉレベル&quot;&gt;ＡＩレベル&lt;/h3&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/chess66app_menu01.png&quot;&gt;&lt;img src=&quot;/images/chess66app_menu01.png&quot; alt=&quot;ＡＩレベル&quot; width=&quot;320&quot; title=&quot;ＡＩレベル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;ＡＩのレベルは３段階。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;初期配置選択&quot;&gt;初期配置選択&lt;/h3&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/chess66app_menu03.png&quot;&gt;&lt;img src=&quot;/images/chess66app_menu03.png&quot; alt=&quot;初期配置選択&quot; width=&quot;320&quot; title=&quot;初期配置選択&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;初期配置は一応４つのパターンを用意しましたが、編集可能なので好きな配置で楽しんで下さい。保存出来るのは４パターンです。ルールはすべてのパターンで同じになります。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;初期配置編集機能&quot;&gt;初期配置編集機能&lt;/h3&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/chess66app_menu04.png&quot;&gt;&lt;img src=&quot;/images/chess66app_menu04.png&quot; alt=&quot;初期配置編集&quot; width=&quot;320&quot; title=&quot;初期配置編集&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;左上のチェックマークアイコンをタップすると編集モードになります。&lt;/li&gt;
-  &lt;li&gt;空いてる場所をタップすると駒選択ダイアログが表示されるので、駒を選ぶと新しく駒が配置されます。&lt;/li&gt;
-  &lt;li&gt;既に駒があるところをタップすると駒が削除されます。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/chess66app_menu05.png&quot;&gt;&lt;img src=&quot;/images/chess66app_menu05.png&quot; alt=&quot;初期配置保存&quot; width=&quot;320&quot; title=&quot;初期配置保存&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;編集モード中はメニュー操作は出来ません。盤面を編集し終えたら保存か中止を選んで下さい。保存すると初期配置選択画面に反映されます。中止を選ぶと編集は無かったことになります。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;駒の動き&quot;&gt;駒の動き&lt;/h3&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/chess66app_menu02.png&quot;&gt;&lt;img src=&quot;/images/chess66app_menu02.png&quot; alt=&quot;移動ガイド&quot; width=&quot;320&quot; title=&quot;移動ガイド&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;駒の略号のアルファベットは棋譜に使用します。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/chess66app_board03.png&quot;&gt;&lt;img src=&quot;/images/chess66app_board03.png&quot; alt=&quot;チェス盤面３&quot; width=&quot;320&quot; title=&quot;チェス盤面３&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;駒をタップすると移動可能なマス目を表示します。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;自動保存機能&quot;&gt;自動保存機能&lt;/h3&gt;
-&lt;p&gt;　メモリ逼迫時にAndroidによってアプリが強制終了されるケースがあるので、一手指す毎に棋譜を自動保存する機能があります。&lt;br /&gt;
-不意にアプリが落ちても起動後「再開」ボタンをタップすることで対局の続きが可能です。&lt;br /&gt;
-　※もし「Loading…」の表示が消えない場合は一度右上の歯車アイコンをタップして設定メニューを表示してから再開してください。&lt;br /&gt;
-　※万が一自動保存に失敗して何らかのエラーが発生しても、「新規開始」すれば新たにファイルが作成されるので問題ありません。それでもエラーが表示される場合は、「アプリ情報」メニューから「ストレージ」を選んで「ストレージを消去」の操作をしてください。その際には対局データは消失し各種設定も初期化されますがご了承ください。&lt;/p&gt;
-
-&lt;h3 id=&quot;評価値表示&quot;&gt;評価値表示&lt;/h3&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/chess66app_board04.png&quot;&gt;&lt;img src=&quot;/images/chess66app_board04.png&quot; alt=&quot;チェス盤面４&quot; width=&quot;320&quot; title=&quot;チェス盤面４&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;対戦相手にＡＩを選択すると、対戦中に局面の評価値を赤字で表示します。先手（White）が有利な場合は正の方向、後手（Black）が有利な場合は負の方向に評価値が変動します。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-</description>
-        <pubDate>Sun, 23 Feb 2020 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/project/2020-02-23/chess66app</link>
-        <guid isPermaLink="true">https://happyclam.github.io/project/2020-02-23/chess66app</guid>
-        
-        <category>coffeescript</category>
-        
-        <category>cordova</category>
-        
-        <category>android</category>
-        
-        <category>javascript</category>
-        
-        <category>chess</category>
-        
-        
-        <category>project</category>
         
       </item>
     
