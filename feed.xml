@@ -5,14 +5,14 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 04 Jun 2021 16:00:16 +0900</pubDate>
-    <lastBuildDate>Fri, 04 Jun 2021 16:00:16 +0900</lastBuildDate>
+    <pubDate>Fri, 04 Jun 2021 18:14:58 +0900</pubDate>
+    <lastBuildDate>Fri, 04 Jun 2021 18:14:58 +0900</lastBuildDate>
     <generator>Jekyll v3.9.1</generator>
     
       <item>
         <title>ページエクスペリエンス向上</title>
         <description>&lt;h3 id=&quot;特に対策していなかったコンテンツの表示速度&quot;&gt;特に対策していなかったコンテンツの表示速度&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;https://ring-and-link.co.jp/dream2000/user/notice/seo/4817&quot;&gt;この記事&lt;/a&gt;によると2021年5月からgoogleの検索ランキングに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ページエクスペリエンス&lt;/code&gt;という指標が導入されたようです。Jekyll製の静的サイトなので今までは特に表示速度については特に対策はしていませんでしたが、自分のサイトも以下のように５月５日を境に多くのページが「改善が必要なURL」としてGoogle様から指摘されるようになりました。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&quot;https://ring-and-link.co.jp/dream2000/user/notice/seo/4817&quot;&gt;この記事&lt;/a&gt;によると2021年5月からgoogleの検索ランキングに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ページエクスペリエンス&lt;/code&gt;という指標が導入されたようです。自分のサイトはJekyll製の静的サイトなので今までは表示速度については特に対策はしていませんでしたが、自分のサイトも以下のように５月５日を境に多くのページが「改善が必要なURL」としてGoogle様から指摘されるようになりました。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;a href=&quot;/images/google_ux.png&quot;&gt;&lt;img src=&quot;/images/google_ux.png&quot; alt=&quot;ウェブに関する主な指標&quot; width=&quot;480&quot; title=&quot;ウェブに関する主な指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
@@ -28,7 +28,7 @@
 &lt;p&gt;　
 &lt;span id=&quot;back&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 
-&lt;p&gt;　今までもいろいろgoogle様からの指摘に対応してきました。「テキストが小さすぎて読めません」、「クリック可能な要素同士が近すぎます」、「コンテンツの幅が画面の幅を超えています」などなど、その度にCSSを弄って対策を施してきました。そして、４月まではSearch Console&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;内で&lt;strong&gt;「サイトに優れたページ エクスペリエンスの URL が 100% 件あります」&lt;/strong&gt;と表示されていて気分を良くしていたのです。でも、５月になって急に表示が変わって、「またか」って感じです。どこまでもgoogle様に振り回される状況は変わらないようです:weary:&lt;br /&gt;
+&lt;p&gt;　今までもいろいろgoogle様からの指摘に対応してきました。「テキストが小さすぎて読めません」、「クリック可能な要素同士が近すぎます」、「コンテンツの幅が画面の幅を超えています」などなど、その度にCSSを弄って対策を施してきました。そして、４月まではSearch Console&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;内で&lt;strong&gt;「サイトに優れたページ エクスペリエンスの URL が 100% 件あります」&lt;/strong&gt;と表示されていて気分を良くしていました。でも、５月になって急に上の画像のように表示が変わって、「またか」って感じです。どこまでもgoogle様に振り回される状況は変わらないようです:weary:&lt;br /&gt;
 　でも、今までから気にはなっていたことがあったので、コンテンツ表示速度改善に取り組んでみました。&lt;br /&gt;
 　あと、問題があるのはモバイルユーザビリティであって、今のところPC環境では特に問題は無さそうです。&lt;/p&gt;
 
@@ -89,7 +89,7 @@
   &lt;p&gt;&lt;a href=&quot;/images/pagespeed05.png&quot;&gt;&lt;img src=&quot;/images/pagespeed05.png&quot; alt=&quot;パソコンの結果&quot; width=&quot;480&quot; title=&quot;パソコンの結果&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;９９！&lt;/code&gt;だからこそ今まではSearch Console内で「サイトに優れたページ エクスペリエンスの URL が 100% 件あります」という評価だったわけです。&lt;/p&gt;
+&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;９９！&lt;/code&gt;だからこそ今まではSearch Console内で「サイトに優れたページ エクスペリエンスの URL が 100% 件あります」（←googleによる変な日本語）という評価だったわけです。&lt;/p&gt;
 
 &lt;p&gt;　&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/?hl=ja&quot;&gt;PageSpeed Insights&lt;/a&gt;の指摘の中に「JavaScriptの削減」という項目があったので、試しにadsenseとanalyticsのjsコードを除去すると、数値を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;８１&lt;/code&gt;まで上げることが出来ましたが、これでは意味がないので他の改善方法を探る必要がありそうですが、自前のWebサーバーで運用しているわけではなく、&lt;a href=&quot;https://github.com/happyclam/happyclam.github.io&quot;&gt;github&lt;/a&gt;に静的ファイルを置いているだけなので方法は限られそうです。&lt;/p&gt;
 

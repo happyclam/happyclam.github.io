@@ -141,7 +141,7 @@
 
         <article class="page-content">
           <h3 id="特に対策していなかったコンテンツの表示速度">特に対策していなかったコンテンツの表示速度</h3>
-<p>　<a href="https://ring-and-link.co.jp/dream2000/user/notice/seo/4817">この記事</a>によると2021年5月からgoogleの検索ランキングに<code class="language-plaintext highlighter-rouge">ページエクスペリエンス</code>という指標が導入されたようです。Jekyll製の静的サイトなので今までは特に表示速度については特に対策はしていませんでしたが、自分のサイトも以下のように５月５日を境に多くのページが「改善が必要なURL」としてGoogle様から指摘されるようになりました。</p>
+<p>　<a href="https://ring-and-link.co.jp/dream2000/user/notice/seo/4817">この記事</a>によると2021年5月からgoogleの検索ランキングに<code class="language-plaintext highlighter-rouge">ページエクスペリエンス</code>という指標が導入されたようです。自分のサイトはJekyll製の静的サイトなので今までは表示速度については特に対策はしていませんでしたが、自分のサイトも以下のように５月５日を境に多くのページが「改善が必要なURL」としてGoogle様から指摘されるようになりました。</p>
 
 <div style="width:480px; margin: 0 auto;">
   <p><a href="/images/google_ux.png"><img src="/images/google_ux.png" alt="ウェブに関する主な指標" width="480" title="ウェブに関する主な指標"></a></p>
@@ -157,7 +157,7 @@
 <p>　
 <span id="back"></span></p>
 
-<p>　今までもいろいろgoogle様からの指摘に対応してきました。「テキストが小さすぎて読めません」、「クリック可能な要素同士が近すぎます」、「コンテンツの幅が画面の幅を超えています」などなど、その度にCSSを弄って対策を施してきました。そして、４月まではSearch Console<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>内で<strong>「サイトに優れたページ エクスペリエンスの URL が 100% 件あります」</strong>と表示されていて気分を良くしていたのです。でも、５月になって急に表示が変わって、「またか」って感じです。どこまでもgoogle様に振り回される状況は変わらないようです<img class="emoji" title=":weary:" alt=":weary:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f629.png" height="20" width="20"><br>
+<p>　今までもいろいろgoogle様からの指摘に対応してきました。「テキストが小さすぎて読めません」、「クリック可能な要素同士が近すぎます」、「コンテンツの幅が画面の幅を超えています」などなど、その度にCSSを弄って対策を施してきました。そして、４月まではSearch Console<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>内で<strong>「サイトに優れたページ エクスペリエンスの URL が 100% 件あります」</strong>と表示されていて気分を良くしていました。でも、５月になって急に上の画像のように表示が変わって、「またか」って感じです。どこまでもgoogle様に振り回される状況は変わらないようです<img class="emoji" title=":weary:" alt=":weary:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f629.png" height="20" width="20"><br>
 　でも、今までから気にはなっていたことがあったので、コンテンツ表示速度改善に取り組んでみました。<br>
 　あと、問題があるのはモバイルユーザビリティであって、今のところPC環境では特に問題は無さそうです。</p>
 
@@ -219,7 +219,7 @@
   <p><a href="/images/pagespeed05.png"><img src="/images/pagespeed05.png" alt="パソコンの結果" width="480" title="パソコンの結果"></a></p>
 </div>
 
-<p>　<code class="language-plaintext highlighter-rouge">９９！</code>だからこそ今まではSearch Console内で「サイトに優れたページ エクスペリエンスの URL が 100% 件あります」という評価だったわけです。</p>
+<p>　<code class="language-plaintext highlighter-rouge">９９！</code>だからこそ今まではSearch Console内で「サイトに優れたページ エクスペリエンスの URL が 100% 件あります」（←googleによる変な日本語）という評価だったわけです。</p>
 
 <p>　<a href="https://developers.google.com/speed/pagespeed/insights/?hl=ja">PageSpeed Insights</a>の指摘の中に「JavaScriptの削減」という項目があったので、試しにadsenseとanalyticsのjsコードを除去すると、数値を<code class="language-plaintext highlighter-rouge">８１</code>まで上げることが出来ましたが、これでは意味がないので他の改善方法を探る必要がありそうですが、自前のWebサーバーで運用しているわけではなく、<a href="https://github.com/happyclam/happyclam.github.io">github</a>に静的ファイルを置いているだけなので方法は限られそうです。</p>
 
