@@ -5,6 +5,8 @@ body {
   font-family: 'Lato', 'sans-serif';
   padding-bottom:60px;
   padding-top:50px;
+  /* font-size: 1.1rem; */
+  /* line-height: 1.80rem; */
 }
 
 .page-header{
@@ -182,6 +184,10 @@ a:active {
 }
 
 /* original */
+p {
+  line-height: normal;
+}
+
 h2 {
   font-weight: bold;    
   position: relative;
