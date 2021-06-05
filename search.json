@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "ページエクスペリエンス向上",
+      "category" : "miscellaneous",
+      "tags"     : "android, google",
+      "url"      : "/miscellaneous/2021-06-03/pagespeed",
+      "date"     : "2021-06-03 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "マンカラは後手でも勝てるか？",
       "category" : "software",
       "tags"     : "dart, android, flutter, c++, mancala",
@@ -163,7 +171,7 @@
     {
       "title"    : "Google Play からアプリが削除された話",
       "category" : "miscellaneous",
-      "tags"     : "cordova, android, coffeescript",
+      "tags"     : "cordova, android, coffeescript, google",
       "url"      : "/miscellaneous/2019-06-28/appdeleted",
       "date"     : "2019-06-28 00:00:00 +0900"
     } ,
@@ -475,7 +483,7 @@
     {
       "title"    : "モバイルプリンター PX-S05B",
       "category" : "hardware",
-      "tags"     : "hardware, macbook, miscellaneous",
+      "tags"     : "hardware, macbook",
       "url"      : "/hardware/2016-03-21/pr_epson",
       "date"     : "2016-03-21 00:00:00 +0900"
     } ,
@@ -702,14 +710,6 @@
       "tags"     : "ruby, programming, tictactoe",
       "url"      : "/project/2014-08-05/tictactoe",
       "date"     : "2014-08-05 00:00:00 +0900"
-    } ,
-  
-    {
-      "title"    : "BlueToothマウス",
-      "category" : "hardware",
-      "tags"     : "miscellaneous",
-      "url"      : "/hardware/2014-07-12/bt_mouse",
-      "date"     : "2014-07-12 00:00:00 +0900"
     } ,
   
     {

@@ -94,6 +94,8 @@
   </nav>
 </header>
 
+  <!-- <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script> -->
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
   <div style="text-align: center;">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
@@ -104,12 +106,32 @@
     </script>
   </div>
   <div class="blog-header">
-    <div class="span3">
-      <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+      <div class="span9">
+        <!-- Html Elements for Search -->
+        <div id="search-container" align="right">
+          <input type="text" id="search-input" placeholder="search...">
+          <ul class="searchresult" id="results-container"></ul>
+        </div>
+        <div class="results"></div>
+      </div>
     </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
   </div>
-  
   <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
@@ -251,7 +273,6 @@ state_machine gemを利用してサーバースクリプトの状態を管理し
 
   <!--<script src="/assets/js/prism.js"></script> -->
   <script src="/assets/js/site.js"></script>
-
 </body>
 
 </html>
