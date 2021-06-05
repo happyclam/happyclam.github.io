@@ -132,7 +132,10 @@
   })
 </script>
   </div>
-  <div class="container">
+  <!-- <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script type="text/javascript" src="/assets/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
       <div class="page">
@@ -157,26 +160,7 @@
         </header>
 
         <article class="page-content">
-          <!-- mathjax config similar to math.stackexchange -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  jax: ["input/TeX", "output/HTML-CSS"],
-  tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$']],
-    processEscapes: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-  },
-  messageStyle: "none",
-  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-});
-</script>
-
-<!-- <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script> -->
-<script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js??config=TeX-AMS_HTML">
-</script>
-
-<h3 id="インプライドボラティリティivとヒストリカルボラティリティhv">インプライド・ボラティリティ（IV）とヒストリカル・ボラティリティ（HV）</h3>
+          <h3 id="インプライドボラティリティivとヒストリカルボラティリティhv">インプライド・ボラティリティ（IV）とヒストリカル・ボラティリティ（HV）</h3>
 <p>　ボラティリティには２種類ありますが、ニュースの記者や市況解説者が「ボラティリティ」という言葉を理解していないまま使っていることが多いと感じるので、以前から一言言っておきたいと思っていたことを書いておこうと思います。<br />
 　市況解説の中でも現物市場ではなく特に先物市場の解説をしている人が、先物価格の値動きが荒かった日などに「今日はボラの大きな一日でした」と解説しているのを聞くと「(・_・)……ン?」となることがあります、そういう日でもインプライドボラティリティ(IV)が低い日も結構あるからです。オプションの買いで勝負する時はボラが高い時が有利、逆に売りはボラが低い時が有利なのですが、IVが低い日に「今日は（オプション買いに）手出ししなくてよかった」と思っているところに、市況解説で「ボラの高い一日でした」なんて言われると「(‾△‾;)エッ・・そうだっけ？」となるわけです。実際にIVが高かったかどうかはスマイルチャートなどで確認できます。<br />
 　<a href="https://www.option-dojo.com/kn/225_latest.html">直近1年のボラティリティー</a>をみればよく分かりますが、ヒストリカル・ボラティリティ（HV）とインプライド・ボラティリティ（IV）の動きは必ずしも一致していません。原資産である先物の動きがそれ程なくても、オプションの値動きが激しい日もあるということです。それにオプションは先物と違い、満期(SQ)が近づくとボラ(IV)が高くなるという性質（時間価値の減少に伴うもの）もあります。また、日経２２５先物とそれを原資産とする派生商品である日経２２５オプションの関係だけでなく、現物株とそれを原資産とする派生商品（株オプ等）の間でも同じことが言えます。<br />
@@ -213,7 +197,7 @@ MathJax.Hub.Config({
 <script type="math/tex; mode=display">
 y = ax\\
 </script>
-オプションの実際の価格が $ y_1 $ であった時に、導き出されるものがインプライド・ボラティリティ $ x_1 $ である。<br />
+オプションの実際の価格が\(y_1\)であった時に、導き出されるものがインプライド・ボラティリティ\(x_1\)である。<br />
 <script type="math/tex; mode=display">
 x_1 = \frac{y_1}{a}\\
 </script>
