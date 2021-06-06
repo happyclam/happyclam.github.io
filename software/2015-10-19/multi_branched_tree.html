@@ -353,15 +353,15 @@ end until buf == nil
 
 <div style="width:320px; margin: 0 auto;">
 
-  <p><a href="/images/goback.png" target="_blank"><img src="/images/goback.png" alt="スクリプト実行結果" width="480" title="スクリプト実行結果" /></a></p>
+  <p><a href="/images/goback.png" target="_blank"><img src="/images/goback.png" alt="スクリプト実行結果" width="480" height="408" title="スクリプト実行結果" /></a></p>
 
 </div>
 
 <p>　自分でも作ってから気がついたのですが、迷路の場合なら解答の表示に使えそうなこのメソッドですが、上にも書いてきたように、この多分木データは局面を省略してかなり歪なツリー構造になっているので、parentメソッドを呼び出して自分の局面の一つ前の局面（親データ）に戻ることが出来るといっても、この局面に至った一例を示しているにすぎないということに気をつけなければいけません。三目並べで出現する可能性があるすべての局面データをツリー状態で保持していることは間違いないのですが、その局面に至る手順は本当は幾通りもあるけどデータとして持っているのは一通りだけということです。</p>
 
 <ol>
-  <li><img src="/images/terminal_ex1.png" alt="例１" /></li>
-  <li><img src="/images/terminal_ex2.png" alt="例２" /></li>
+  <li><img src="/images/terminal_ex1.png" alt="例１" width="524" height="87" /></li>
+  <li><img src="/images/terminal_ex2.png" alt="例２" width="523" height="109" /></li>
 </ol>
 
 <p>　１も２も右端の局面は同じで重複データなので一つしか持ってません。だから、１の経過を辿ったのか２の経過を辿ったのか多分木データだけでは知りようがないのですが、それは別途実際に打った手を一つの配列で保持することにします。とにかく出来上がった多分木データはこの例のような子ノードを省いた状態の親ノードが非常に多いということです。<br />
