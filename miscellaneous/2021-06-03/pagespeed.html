@@ -166,15 +166,15 @@
 <p>　<a href="https://ring-and-link.co.jp/dream2000/user/notice/seo/4817">この記事</a>によると2021年5月からgoogleの検索ランキングに<code class="language-plaintext highlighter-rouge">ページエクスペリエンス</code>という指標が導入されたようです。自分のサイトはJekyll製の静的サイトなので今までは表示速度については特に対策はしていませんでしたが、自分のサイトも以下のように５月５日を境に多くのページが「改善が必要なURL」としてGoogle様から指摘されるようになりました。</p>
 
 <div style="width:480px; margin: 0 auto;">
-  <p><a href="/images/google_ux.png"><img src="/images/google_ux.png" alt="ウェブに関する主な指標" width="480" title="ウェブに関する主な指標"></a></p>
+  <p><a href="/images/google_ux.png"><img src="/images/google_ux.png" alt="ウェブに関する主な指標" width="480" height="359" title="ウェブに関する主な指標"></a></p>
 </div>
 
 <div style="width:480px; margin: 0 auto;">
-  <p><a href="/images/google_experience.png"><img src="/images/google_experience.png" alt="モバイルでのページエクスペリエンス" width="480" title="モバイルでのページエクスペリエンス"></a></p>
+  <p><a href="/images/google_experience.png"><img src="/images/google_experience.png" alt="モバイルでのページエクスペリエンス" width="480" height="614" title="モバイルでのページエクスペリエンス"></a></p>
 </div>
 
 <div style="width:480px; margin: 0 auto;">
-  <p><a href="/images/google_signal.png"><img src="/images/google_signal.png" alt="モバイルでの指標" width="480" title="モバイルでの指標"></a></p>
+  <p><a href="/images/google_signal.png"><img src="/images/google_signal.png" alt="モバイルでの指標" width="480" height="416" title="モバイルでの指標"></a></p>
 </div>
 <p>　
 <span id="back"></span></p>
@@ -198,7 +198,7 @@
 <h3 id="修正前のpagespeed-insightsの結果">修正前の<a href="https://developers.google.com/speed/pagespeed/insights/?hl=ja">PageSpeed Insights</a>の結果</h3>
 
 <div style="width:480px; margin: 0 auto;">
-  <p><a href="/images/pagespeed01.png"><img src="/images/pagespeed01.png" alt="修正前の測定結果" width="480" title="修正前の測定結果"></a></p>
+  <p><a href="/images/pagespeed01.png"><img src="/images/pagespeed01.png" alt="修正前の測定結果" width="480" height="296" title="修正前の測定結果"></a></p>
 </div>
 
 <p>　<code class="language-plaintext highlighter-rouge">２５</code>というのは結構酷い状態かも知れません。</p>
@@ -206,21 +206,21 @@
 <h3 id="imgタグにサイズ指定">imgタグにサイズ指定</h3>
 <p>　今までこう書いていたのを<br>
 <code class="language-plaintext highlighter-rouge">&lt;img src="/images/results_3beans.png" alt="豆３つ" title="豆３つ" /&gt;</code><br>
-　このようにサイズを記述するようにしただけです。<br>
-<code class="language-plaintext highlighter-rouge">&lt;img src="/images/results_3beans.png" alt="豆３つ" width="480" title="豆３つ" /&gt;</code></p>
+　このようにサイズの記述を追加しただけです。<br>
+<code class="language-plaintext highlighter-rouge">&lt;img src="/images/results_3beans.png" alt="豆３つ" width="480" height="270" title="豆３つ" /&gt;</code></p>
 
 <div style="width:480px; margin: 0 auto;">
-  <p><a href="/images/pagespeed02.png"><img src="/images/pagespeed02.png" alt="imgタグにサイズ指定" width="480" title="imgタグにサイズ指定"></a></p>
+  <p><a href="/images/pagespeed02.png"><img src="/images/pagespeed02.png" alt="imgタグにサイズ指定" width="480" height="306" title="imgタグにサイズ指定"></a></p>
 </div>
 
-<p>　若干改善しました。対象の記事はスクショを撮り忘れて、上の画像のURLは画像を使っていないのですが、だいたいこれぐらいの数値の改善がありました。<br>
+<p>　画像の実際の表示サイズは親要素で拡大・縮小表示するケースが多いと思いますが、imgタグで画像を読み込む時に縦横比をブラウザに教えてあげることが大事らしいです。対策した結果、若干改善しました。対象の記事はスクショを撮り忘れて、上の画像のURLは画像を使っていないのですが、だいたいこれぐらいの数値の改善がありました。<br>
 　imgタグのサイズ指定は昔は必須だったのがレスポンシブな時代にはサイズ指定しないようになって来たけど、ブラウザにレイアウトシフトを避ける機能が実装されてきて、今は速度アップのためにサイズ指定する方が良いという流れがあるようです。<br>
 　画像に関してはフォーマットも色々あるのでもっと突き詰める余地がありそうです。</p>
 
 <h3 id="jekyllテンプレートを交換">Jekyllテンプレートを交換</h3>
 
 <div style="width:480px; margin: 0 auto;">
-  <p><a href="/images/pagespeed03.png"><img src="/images/pagespeed03.png" alt="Jekyllテンプレートを交換" width="480" title="Jekyllテンプレートを交換"></a></p>
+  <p><a href="/images/pagespeed03.png"><img src="/images/pagespeed03.png" alt="Jekyllテンプレートを交換" width="480" height="288" title="Jekyllテンプレートを交換"></a></p>
 </div>
 
 <p>　今までの無駄な機能が多いテンプレートから、<a href="http://jekyllthemes.org">Jekyll Themesというサイト</a>で探して、<a href="https://github.com/itsrifat/rifyll">シンプルなJekyllテンプレート</a>に交換してカスタマイズしました。</p>
@@ -229,7 +229,7 @@
 <p>　ページによってまちまちですが、<a href="https://developers.google.com/speed/pagespeed/insights/?hl=ja">PageSpeed Insights</a>で確認すると上記の改善後も多くの指摘事項があります。</p>
 
 <div style="width:480px; margin: 0 auto;">
-  <p><a href="/images/speedinsights.png"><img src="/images/speedinsights.png" alt="PageSpeed Insightsの指摘事項" width="480" title="Pagespeed Insightsの指摘事項"></a></p>
+  <p><a href="/images/speedinsights.png"><img src="/images/speedinsights.png" alt="PageSpeed Insightsの指摘事項" width="480" height="181" title="Pagespeed Insightsの指摘事項"></a></p>
 </div>
 
 <p>　<a href="https://developers.google.com/speed/pagespeed/insights/?hl=ja">PageSpeed Insights</a>を使えばページ毎の問題点を指摘してくれるのですが、やはり一番の問題は画像サイズにあるページが多いようです。モバイルユーザーに焦点を当てて、これからは大きな画像は使わないようにしようかと思ってます。</p>
@@ -238,7 +238,7 @@
 <p>　ちなみに対象を「パソコン」にすると以下の数値です。</p>
 
 <div style="width:480px; margin: 0 auto;">
-  <p><a href="/images/pagespeed05.png"><img src="/images/pagespeed05.png" alt="パソコンの結果" width="480" title="パソコンの結果"></a></p>
+  <p><a href="/images/pagespeed05.png"><img src="/images/pagespeed05.png" alt="パソコンの結果" width="480" height="291" title="パソコンの結果"></a></p>
 </div>
 
 <p>　<code class="language-plaintext highlighter-rouge">９９！</code>だからこそ今まではSearch Console内で「サイトに優れたページ エクスペリエンスの URL が 100% 件あります」（←googleによる変な日本語）という評価だったわけです。</p>
@@ -246,7 +246,7 @@
 <p>　<a href="https://developers.google.com/speed/pagespeed/insights/?hl=ja">PageSpeed Insights</a>の指摘の中に「JavaScriptの削減」という項目があったので、試しにadsenseとanalyticsのjsコードを除去すると、数値を<code class="language-plaintext highlighter-rouge">８１</code>まで上げることが出来ましたが、これでは意味がないので他の改善方法を探る必要がありそうですが、自前のWebサーバーで運用しているわけではなく、<a href="https://github.com/happyclam/happyclam.github.io">github</a>に静的ファイルを置いているだけなので方法は限られそうです。</p>
 
 <div style="width:480px; margin: 0 auto;">
-  <p><a href="/images/pagespeed04.png"><img src="/images/pagespeed04.png" alt="adsenseとanalyticsのjsコードを除去" width="480" title="adsenseとanalyticsのjsコードを除去"></a></p>
+  <p><a href="/images/pagespeed04.png"><img src="/images/pagespeed04.png" alt="adsenseとanalyticsのjsコードを除去" width="480" height="291" title="adsenseとanalyticsのjsコードを除去"></a></p>
 </div>
 
 <p>　<a href="https://www.suzukikenichi.com/blog/page-experience-ranking-is-coming-to-desktop/">この記事</a>によるとページエクスペリエンスのランキングはPC検索についても今後適用していくようです。</p>

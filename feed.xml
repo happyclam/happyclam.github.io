@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 07 Jun 2021 10:29:13 +0900</pubDate>
-    <lastBuildDate>Mon, 07 Jun 2021 10:29:13 +0900</lastBuildDate>
+    <pubDate>Mon, 07 Jun 2021 12:12:31 +0900</pubDate>
+    <lastBuildDate>Mon, 07 Jun 2021 12:12:31 +0900</lastBuildDate>
     <generator>Jekyll v3.9.1</generator>
     
       <item>
@@ -15,15 +15,15 @@
 &lt;p&gt;　&lt;a href=&quot;https://ring-and-link.co.jp/dream2000/user/notice/seo/4817&quot;&gt;この記事&lt;/a&gt;によると2021年5月からgoogleの検索ランキングに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ページエクスペリエンス&lt;/code&gt;という指標が導入されたようです。自分のサイトはJekyll製の静的サイトなので今までは表示速度については特に対策はしていませんでしたが、自分のサイトも以下のように５月５日を境に多くのページが「改善が必要なURL」としてGoogle様から指摘されるようになりました。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/google_ux.png&quot;&gt;&lt;img src=&quot;/images/google_ux.png&quot; alt=&quot;ウェブに関する主な指標&quot; width=&quot;480&quot; title=&quot;ウェブに関する主な指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/google_ux.png&quot;&gt;&lt;img src=&quot;/images/google_ux.png&quot; alt=&quot;ウェブに関する主な指標&quot; width=&quot;480&quot; height=&quot;359&quot; title=&quot;ウェブに関する主な指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/google_experience.png&quot;&gt;&lt;img src=&quot;/images/google_experience.png&quot; alt=&quot;モバイルでのページエクスペリエンス&quot; width=&quot;480&quot; title=&quot;モバイルでのページエクスペリエンス&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/google_experience.png&quot;&gt;&lt;img src=&quot;/images/google_experience.png&quot; alt=&quot;モバイルでのページエクスペリエンス&quot; width=&quot;480&quot; height=&quot;614&quot; title=&quot;モバイルでのページエクスペリエンス&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/google_signal.png&quot;&gt;&lt;img src=&quot;/images/google_signal.png&quot; alt=&quot;モバイルでの指標&quot; width=&quot;480&quot; title=&quot;モバイルでの指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/google_signal.png&quot;&gt;&lt;img src=&quot;/images/google_signal.png&quot; alt=&quot;モバイルでの指標&quot; width=&quot;480&quot; height=&quot;416&quot; title=&quot;モバイルでの指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;　
 &lt;span id=&quot;back&quot;&gt;&lt;/span&gt;&lt;/p&gt;
@@ -46,7 +46,7 @@
 &lt;h3 id=&quot;修正前のpagespeed-insightsの結果&quot;&gt;修正前の&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/?hl=ja&quot;&gt;PageSpeed Insights&lt;/a&gt;の結果&lt;/h3&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/pagespeed01.png&quot;&gt;&lt;img src=&quot;/images/pagespeed01.png&quot; alt=&quot;修正前の測定結果&quot; width=&quot;480&quot; title=&quot;修正前の測定結果&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/pagespeed01.png&quot;&gt;&lt;img src=&quot;/images/pagespeed01.png&quot; alt=&quot;修正前の測定結果&quot; width=&quot;480&quot; height=&quot;296&quot; title=&quot;修正前の測定結果&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;２５&lt;/code&gt;というのは結構酷い状態かも知れません。&lt;/p&gt;
@@ -54,21 +54,21 @@
 &lt;h3 id=&quot;imgタグにサイズ指定&quot;&gt;imgタグにサイズ指定&lt;/h3&gt;
 &lt;p&gt;　今までこう書いていたのを&lt;br /&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;img src=&quot;/images/results_3beans.png&quot; alt=&quot;豆３つ&quot; title=&quot;豆３つ&quot; /&amp;gt;&lt;/code&gt;&lt;br /&gt;
-　このようにサイズを記述するようにしただけです。&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;img src=&quot;/images/results_3beans.png&quot; alt=&quot;豆３つ&quot; width=&quot;480&quot; title=&quot;豆３つ&quot; /&amp;gt;&lt;/code&gt;&lt;/p&gt;
+　このようにサイズの記述を追加しただけです。&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;img src=&quot;/images/results_3beans.png&quot; alt=&quot;豆３つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆３つ&quot; /&amp;gt;&lt;/code&gt;&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/pagespeed02.png&quot;&gt;&lt;img src=&quot;/images/pagespeed02.png&quot; alt=&quot;imgタグにサイズ指定&quot; width=&quot;480&quot; title=&quot;imgタグにサイズ指定&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/pagespeed02.png&quot;&gt;&lt;img src=&quot;/images/pagespeed02.png&quot; alt=&quot;imgタグにサイズ指定&quot; width=&quot;480&quot; height=&quot;306&quot; title=&quot;imgタグにサイズ指定&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;　若干改善しました。対象の記事はスクショを撮り忘れて、上の画像のURLは画像を使っていないのですが、だいたいこれぐらいの数値の改善がありました。&lt;br /&gt;
+&lt;p&gt;　画像の実際の表示サイズは親要素で拡大・縮小表示するケースが多いと思いますが、imgタグで画像を読み込む時に縦横比をブラウザに教えてあげることが大事らしいです。対策した結果、若干改善しました。対象の記事はスクショを撮り忘れて、上の画像のURLは画像を使っていないのですが、だいたいこれぐらいの数値の改善がありました。&lt;br /&gt;
 　imgタグのサイズ指定は昔は必須だったのがレスポンシブな時代にはサイズ指定しないようになって来たけど、ブラウザにレイアウトシフトを避ける機能が実装されてきて、今は速度アップのためにサイズ指定する方が良いという流れがあるようです。&lt;br /&gt;
 　画像に関してはフォーマットも色々あるのでもっと突き詰める余地がありそうです。&lt;/p&gt;
 
 &lt;h3 id=&quot;jekyllテンプレートを交換&quot;&gt;Jekyllテンプレートを交換&lt;/h3&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/pagespeed03.png&quot;&gt;&lt;img src=&quot;/images/pagespeed03.png&quot; alt=&quot;Jekyllテンプレートを交換&quot; width=&quot;480&quot; title=&quot;Jekyllテンプレートを交換&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/pagespeed03.png&quot;&gt;&lt;img src=&quot;/images/pagespeed03.png&quot; alt=&quot;Jekyllテンプレートを交換&quot; width=&quot;480&quot; height=&quot;288&quot; title=&quot;Jekyllテンプレートを交換&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　今までの無駄な機能が多いテンプレートから、&lt;a href=&quot;http://jekyllthemes.org&quot;&gt;Jekyll Themesというサイト&lt;/a&gt;で探して、&lt;a href=&quot;https://github.com/itsrifat/rifyll&quot;&gt;シンプルなJekyllテンプレート&lt;/a&gt;に交換してカスタマイズしました。&lt;/p&gt;
@@ -77,7 +77,7 @@
 &lt;p&gt;　ページによってまちまちですが、&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/?hl=ja&quot;&gt;PageSpeed Insights&lt;/a&gt;で確認すると上記の改善後も多くの指摘事項があります。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/speedinsights.png&quot;&gt;&lt;img src=&quot;/images/speedinsights.png&quot; alt=&quot;PageSpeed Insightsの指摘事項&quot; width=&quot;480&quot; title=&quot;Pagespeed Insightsの指摘事項&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/speedinsights.png&quot;&gt;&lt;img src=&quot;/images/speedinsights.png&quot; alt=&quot;PageSpeed Insightsの指摘事項&quot; width=&quot;480&quot; height=&quot;181&quot; title=&quot;Pagespeed Insightsの指摘事項&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/?hl=ja&quot;&gt;PageSpeed Insights&lt;/a&gt;を使えばページ毎の問題点を指摘してくれるのですが、やはり一番の問題は画像サイズにあるページが多いようです。モバイルユーザーに焦点を当てて、これからは大きな画像は使わないようにしようかと思ってます。&lt;/p&gt;
@@ -86,7 +86,7 @@
 &lt;p&gt;　ちなみに対象を「パソコン」にすると以下の数値です。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/pagespeed05.png&quot;&gt;&lt;img src=&quot;/images/pagespeed05.png&quot; alt=&quot;パソコンの結果&quot; width=&quot;480&quot; title=&quot;パソコンの結果&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/pagespeed05.png&quot;&gt;&lt;img src=&quot;/images/pagespeed05.png&quot; alt=&quot;パソコンの結果&quot; width=&quot;480&quot; height=&quot;291&quot; title=&quot;パソコンの結果&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;９９！&lt;/code&gt;だからこそ今まではSearch Console内で「サイトに優れたページ エクスペリエンスの URL が 100% 件あります」（←googleによる変な日本語）という評価だったわけです。&lt;/p&gt;
@@ -94,7 +94,7 @@
 &lt;p&gt;　&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/?hl=ja&quot;&gt;PageSpeed Insights&lt;/a&gt;の指摘の中に「JavaScriptの削減」という項目があったので、試しにadsenseとanalyticsのjsコードを除去すると、数値を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;８１&lt;/code&gt;まで上げることが出来ましたが、これでは意味がないので他の改善方法を探る必要がありそうですが、自前のWebサーバーで運用しているわけではなく、&lt;a href=&quot;https://github.com/happyclam/happyclam.github.io&quot;&gt;github&lt;/a&gt;に静的ファイルを置いているだけなので方法は限られそうです。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/pagespeed04.png&quot;&gt;&lt;img src=&quot;/images/pagespeed04.png&quot; alt=&quot;adsenseとanalyticsのjsコードを除去&quot; width=&quot;480&quot; title=&quot;adsenseとanalyticsのjsコードを除去&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/pagespeed04.png&quot;&gt;&lt;img src=&quot;/images/pagespeed04.png&quot; alt=&quot;adsenseとanalyticsのjsコードを除去&quot; width=&quot;480&quot; height=&quot;291&quot; title=&quot;adsenseとanalyticsのjsコードを除去&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　&lt;a href=&quot;https://www.suzukikenichi.com/blog/page-experience-ranking-is-coming-to-desktop/&quot;&gt;この記事&lt;/a&gt;によるとページエクスペリエンスのランキングはPC検索についても今後適用していくようです。&lt;/p&gt;
