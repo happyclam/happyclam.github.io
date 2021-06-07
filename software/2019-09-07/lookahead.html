@@ -188,14 +188,14 @@
 
 <div style="width:320px; margin: 0 auto;">
   <p>局面１：
-<a href="/images/tictactoe_sample1.png"><img src="/images/tictactoe_sample1.png" alt="序盤画面１" width="320" title="序盤画面１"></a></p>
+<a href="/images/tictactoe_sample1.png"><img src="/images/tictactoe_sample1.png" alt="序盤画面１" width="320" height="332" title="序盤画面１"></a></p>
 </div>
 
 <p>　しかし、ＡＩを自己対戦させると地道に全ての局面を学習していきます。</p>
 
 <div style="width:320px; margin: 0 auto;">
   <p>局面２：
-<a href="/images/tictactoe_sample2.png"><img src="/images/tictactoe_sample2.png" alt="序盤画面２" width="320" title="序盤画面２"></a></p>
+<a href="/images/tictactoe_sample2.png"><img src="/images/tictactoe_sample2.png" alt="序盤画面２" width="320" height="332" title="序盤画面２"></a></p>
 </div>
 
 <p>　そして、仮に上図のように後手（○）が左上を選択した時に、まだ学習が十分でないＡＩ（先手×）が下段真ん中を選ばずに後手（○）が最終的に勝ったりすると、後手が報酬を受け取って「局面１」で左上を選んだのが良い手だったと学習してしまいます。こういうことが何回も繰り返されているわけです。ただ、「局面２」のようにあと一手で勝てる局面では、下段真ん中に打ちさえすればその時点でゲーム終了して勝ち点３の報酬を貰えるので、比較的早い段階で学習できるようです。問題は「局面１」の段階で相手のラインが揃うのを防ぐ手がなかなか学習出来ないことで、「局面１」で下段真ん中を選ばなかった後の展開も非常に多岐に渡りますし、後手が偶々下段真ん中を選んだとしてもそのあとの展開で後手が負けたりすると、結局下段真ん中に打った手が悪い手だったと学習してしまい、それを修正するのにまた多くの対戦を必要とし学習効率が非常に悪くなります<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>。</p>
@@ -203,7 +203,7 @@
 <h3 id="実戦には現れない局面を先に学習している">実戦には現れない局面を先に学習している</h3>
 <p>　下の図は<a href="/software/2019-07-19/self-play">前回の記事</a>のプログラムを自己対戦で５００局程度対戦させた後の「局面１」と「局面２」での重みデータを表示しているものですが、</p>
 <div style="width:480px; margin: 0 auto;">
-  <p><a href="/images/tictactoe_sample3.png"><img src="/images/tictactoe_sample3.png" alt="重みデータ画面" width="480" title="重みデータ画面"></a></p>
+  <p><a href="/images/tictactoe_sample3.png"><img src="/images/tictactoe_sample3.png" alt="重みデータ画面" width="480" height="240" title="重みデータ画面"></a></p>
 </div>
 
 <p>　局面２では下段真ん中が<code class="language-plaintext highlighter-rouge">0.6815</code>と一番大きな値となっていて、最善手だと学習していることがわかりますが、局面１の学習データは値がバラついていて、まだどこが選ばれるかわからない、学習が十分に進んでいない状況です。「局面２」のようにあと一手で勝ちという局面に関しては比較的早い段階で最善手を学習するのですが、その前の段階で間違えるために非常に無駄な学習を続けることになります。「局面１」で最善手を選べれば「局面２」とそれ以後の局面はお互いに最善手を選ぶ実戦では現れない局面で、学習しなくていいとは言いませんが、後回しにしたいところです<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>。<br>

@@ -183,7 +183,7 @@
 
 <div style="width:600px; margin: 0 auto;">
 
-  <p><a href="/images/utifudume.png"><img src="/images/utifudume.png" alt="ゲーム木 - 打ち歩詰め判定" width="600" title="ゲーム木 - 打ち歩詰め判定"></a></p>
+  <p><a href="/images/utifudume.png"><img src="/images/utifudume.png" alt="ゲーム木 - 打ち歩詰め判定" width="600" height="358" title="ゲーム木 - 打ち歩詰め判定"></a></p>
 
 </div>
 
@@ -205,7 +205,7 @@
 　以下の局面は<a href="/software/2018-01-27/utifudume">以前の記事</a>で紹介した判定に失敗する「特殊な打ち歩詰め」のケースですが、</p>
 
 <div style="width:320px; margin: 0 auto;">
-  <p><img src="/images/utifu_sente.png" alt="打ち歩詰め先手" width="320" title="打ち歩詰め先手"></p>
+  <p><img src="/images/utifu_sente.png" alt="打ち歩詰め先手" width="320" height="427" title="打ち歩詰め先手"></p>
 </div>
 
 <p>　この局面で先手が１二歩と打った場合に後手は玉以外の味方の駒（飛車）で同飛と取れるから打ち歩詰めではないと誤った判断をしてしまうのを防止するために、王手で打たれた歩を玉以外の駒（玉で取る場合はチェック済み）で取った場合には、その時点で呼び出す先読みメソッドの戻り値が最大値あるいは最小値だった場合（勝負がついた場合）には−１を掛けて値を反転させる（打ち歩の王手を掛けた方が負け）というやり方です。<strong>打ち歩による王手なら不完全な打ち歩詰め判定メソッドでチェックして、そこで打ち歩詰めと判定されればその手は指さない（事前チェック）、打ち歩詰めでないと判定されてもその手を指した直後（次の階層を読む時）に打ち歩詰めだとわかったら（先読みメソッドの戻り値が最大値か最小値なら）負けの評価値を与える（事後チェック）</strong>ということです。<br>
@@ -213,7 +213,7 @@
 
 <div style="width:600px; margin: 0 auto;">
 
-  <p><a href="/images/utifudume_new.png"><img src="/images/utifudume_new.png" alt="ゲーム木 - 打ち歩詰め判定2" width="600" title="ゲーム木 - 打ち歩詰め判定2"></a></p>
+  <p><a href="/images/utifudume_new.png"><img src="/images/utifudume_new.png" alt="ゲーム木 - 打ち歩詰め判定2" width="600" height="386" title="ゲーム木 - 打ち歩詰め判定2"></a></p>
 
 </div>
 

@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 06 Jun 2021 22:08:26 +0900</pubDate>
-    <lastBuildDate>Sun, 06 Jun 2021 22:08:26 +0900</lastBuildDate>
+    <pubDate>Mon, 07 Jun 2021 10:29:13 +0900</pubDate>
+    <lastBuildDate>Mon, 07 Jun 2021 10:29:13 +0900</lastBuildDate>
     <generator>Jekyll v3.9.1</generator>
     
       <item>
@@ -144,31 +144,31 @@
 &lt;h4 id=&quot;-豆３つの対戦成績&quot;&gt;* 豆３つの対戦成績&lt;/h4&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_3beans.png&quot;&gt;&lt;img src=&quot;/images/results_3beans.png&quot; alt=&quot;豆３つ&quot; width=&quot;480&quot; title=&quot;豆３つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/results_3beans.png&quot;&gt;&lt;img src=&quot;/images/results_3beans.png&quot; alt=&quot;豆３つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆３つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&quot;-豆４つの対戦成績&quot;&gt;* 豆４つの対戦成績&lt;/h4&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_4beans.png&quot;&gt;&lt;img src=&quot;/images/results_4beans.png&quot; alt=&quot;豆４つ&quot; width=&quot;480&quot; title=&quot;豆４つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/results_4beans.png&quot;&gt;&lt;img src=&quot;/images/results_4beans.png&quot; alt=&quot;豆４つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆４つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&quot;-豆５つの対戦成績&quot;&gt;* 豆５つの対戦成績&lt;/h4&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_5beans.png&quot;&gt;&lt;img src=&quot;/images/results_5beans.png&quot; alt=&quot;豆５つ&quot; width=&quot;480&quot; title=&quot;豆５つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/results_5beans.png&quot;&gt;&lt;img src=&quot;/images/results_5beans.png&quot; alt=&quot;豆５つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆５つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&quot;-豆６つの対戦成績&quot;&gt;* 豆６つの対戦成績&lt;/h4&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_6beans.png&quot;&gt;&lt;img src=&quot;/images/results_6beans.png&quot; alt=&quot;豆６つ&quot; width=&quot;480&quot; title=&quot;豆６つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/results_6beans.png&quot;&gt;&lt;img src=&quot;/images/results_6beans.png&quot; alt=&quot;豆６つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆６つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&quot;-豆７つの対戦成績&quot;&gt;* 豆７つの対戦成績&lt;/h4&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_7beans.png&quot;&gt;&lt;img src=&quot;/images/results_7beans.png&quot; alt=&quot;豆７つ&quot; width=&quot;480&quot; title=&quot;豆７つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/results_7beans.png&quot;&gt;&lt;img src=&quot;/images/results_7beans.png&quot; alt=&quot;豆７つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆７つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　対戦成績表の見方ですが、&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラナッツ&lt;/a&gt;では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やばい&lt;/code&gt;モード以外では初手をランダムに決めるようにしていて、勝負に拘っていないので、アプリが勝てるのかどうかを判断する場合は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やばい&lt;/code&gt;モード以外は見る必要がありません。勝ちの欄の数字はＡＩ対戦で人間側が勝った数字、つまり比較対象となっているアプリが勝ったということです。また比較するために選んだアプリが初手をランダムに決めているものもあるので、一回だけの対戦ではなく何回か対戦させました。&lt;br /&gt;
@@ -292,7 +292,7 @@
 
 &lt;p&gt;&lt;span&gt;※クリックで拡大&lt;/span&gt;&lt;/p&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose07.png&quot;&gt;&lt;img src=&quot;/images/ai_lose07.png&quot; alt=&quot;詰み07&quot; width=&quot;480&quot; title=&quot;詰み07&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_lose07.png&quot;&gt;&lt;img src=&quot;/images/ai_lose07.png&quot; alt=&quot;詰み07&quot; width=&quot;480&quot; height=&quot;240&quot; title=&quot;詰み07&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　マンカラに慣れている人だと&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4&lt;/code&gt;と&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;5&lt;/code&gt;の豆は動かさずに済ませられるならと思い、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;か&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;か&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;がいいんじゃないかと見当が付くのではないでしょうか？順に見ていきます。&lt;/p&gt;
@@ -300,7 +300,7 @@
 &lt;p&gt;　ＡＩは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;12&lt;/code&gt;と進めて以下の局面になります。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_001.png&quot;&gt;&lt;img src=&quot;/images/ai_001.png&quot; alt=&quot;詰めマンカラ&quot; width=&quot;480&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_001.png&quot;&gt;&lt;img src=&quot;/images/ai_001.png&quot; alt=&quot;詰めマンカラ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　こうなると次に先手（下側）は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;を選んでも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;を選んでも、いずれ豆を溜め込んでいる&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4&lt;/code&gt;や&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;5&lt;/code&gt;のポケットを選ばざるを得なくなり、勝負が紛れます。というより逆転して後手が有利になります。この後、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;を選べばＡＩは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;11&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;を選んでもＡＩは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;11&lt;/code&gt;（横取り２つ）で形勢逆転です。&lt;/p&gt;
@@ -309,7 +309,7 @@
 &lt;p&gt;　ＡＩは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;12&lt;/code&gt;-&amp;gt;横取り（２つ）となって以下の局面になります。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_002.png&quot;&gt;&lt;img src=&quot;/images/ai_002.png&quot; alt=&quot;詰めマンカラ&quot; width=&quot;480&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_002.png&quot;&gt;&lt;img src=&quot;/images/ai_002.png&quot; alt=&quot;詰めマンカラ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　この場合も次に先手（下側）は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;を選んでも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;6&lt;/code&gt;を選んでも、パスは出来ないので豆を溜め込んでいる&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4&lt;/code&gt;や&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;5&lt;/code&gt;のポケットを選ばざるを得なくなり後手が有利になります。&lt;/p&gt;
@@ -318,7 +318,7 @@
 &lt;p&gt;　ＡＩは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;12&lt;/code&gt;-&amp;gt;横取り（２つ）となって以下の局面になります。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_003.png&quot;&gt;&lt;img src=&quot;/images/ai_003.png&quot; alt=&quot;詰めマンカラ&quot; width=&quot;480&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_003.png&quot;&gt;&lt;img src=&quot;/images/ai_003.png&quot; alt=&quot;詰めマンカラ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　こうなれば次に先手（下側）が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;を選べば、相手の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;11&lt;/code&gt;のポケットの豆を横取りしてゲーム終了。先手の勝ちになります。&lt;br /&gt;
@@ -326,25 +326,25 @@
 　念のため確認すると&lt;br /&gt;
 　ＡＩが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;でなく&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;11&lt;/code&gt;を選んだ場合&lt;/p&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_004.png&quot;&gt;&lt;img src=&quot;/images/ai_004.png&quot; alt=&quot;詰めマンカラ&quot; width=&quot;480&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_004.png&quot;&gt;&lt;img src=&quot;/images/ai_004.png&quot; alt=&quot;詰めマンカラ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;　先手は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;を選んでも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;を選んでも後手はピッタリ（連続して着手出来る）が仇となり、自陣の豆が無くなります。&lt;br /&gt;
 　ＡＩが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;でなく&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;12&lt;/code&gt;を選んだ場合&lt;/p&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_005.png&quot;&gt;&lt;img src=&quot;/images/ai_005.png&quot; alt=&quot;詰めマンカラ&quot; width=&quot;480&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_005.png&quot;&gt;&lt;img src=&quot;/images/ai_005.png&quot; alt=&quot;詰めマンカラ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;　先手が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;を選べば&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;11&lt;/code&gt;の豆を横取りして、次にＡＩは自陣の豆が無くなります。&lt;br /&gt;
 　ということで&lt;strong&gt;問題１の正解は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;です&lt;/strong&gt;。&lt;/p&gt;
 
 &lt;h3 id=&quot;長手数問題&quot;&gt;長手数問題&lt;/h3&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose01.png&quot;&gt;&lt;img src=&quot;/images/ai_lose01.png&quot; alt=&quot;詰めマンカラ01&quot; width=&quot;480&quot; title=&quot;詰めマンカラ01&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_lose01.png&quot;&gt;&lt;img src=&quot;/images/ai_lose01.png&quot; alt=&quot;詰めマンカラ01&quot; width=&quot;480&quot; height=&quot;240&quot; title=&quot;詰めマンカラ01&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　上の画面から先手が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;6&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;と進むと以下の局面になります。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose02.png&quot;&gt;&lt;img src=&quot;/images/ai_lose02.png&quot; alt=&quot;詰めマンカラ02&quot; width=&quot;480&quot; title=&quot;詰めマンカラ02&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_lose02.png&quot;&gt;&lt;img src=&quot;/images/ai_lose02.png&quot; alt=&quot;詰めマンカラ02&quot; width=&quot;480&quot; height=&quot;240&quot; title=&quot;詰めマンカラ02&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　この段階でＡＩの形勢Emojiが:tired_face:になりました。ＡＩは負けを覚悟したようです。負けを覚悟しながらもＡＩは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;を選びました。&lt;br /&gt;
@@ -352,14 +352,14 @@
 
 &lt;h4 id=&quot;問題２&quot;&gt;問題２&lt;/h4&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose03.png&quot;&gt;&lt;img src=&quot;/images/ai_lose03.png&quot; alt=&quot;詰めマンカラ03&quot; width=&quot;480&quot; title=&quot;詰めマンカラ03&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_lose03.png&quot;&gt;&lt;img src=&quot;/images/ai_lose03.png&quot; alt=&quot;詰めマンカラ03&quot; width=&quot;480&quot; height=&quot;240&quot; title=&quot;詰めマンカラ03&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　この局面で何番のポケットが先手の最善手でしょう？&lt;/p&gt;
 
 &lt;h5 id=&quot;1を選んでみると-1&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;を選んでみると&lt;/h5&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_win01.png&quot;&gt;&lt;img src=&quot;/images/ai_win01.png&quot; alt=&quot;ＡＩ勝ち01&quot; width=&quot;480&quot; title=&quot;ＡＩ勝ち01&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_win01.png&quot;&gt;&lt;img src=&quot;/images/ai_win01.png&quot; alt=&quot;ＡＩ勝ち01&quot; width=&quot;480&quot; height=&quot;240&quot; title=&quot;ＡＩ勝ち01&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　上図のようになりＡＩの形勢Emojiが:frowning:に変わりました。これは詰みを逃したことを意味します。&lt;br /&gt;
@@ -367,21 +367,21 @@
 　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;10&lt;/code&gt;と進めて以下の局面になって、ピッタリが防がれてしまいます。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_win02.png&quot;&gt;&lt;img src=&quot;/images/ai_win02.png&quot; alt=&quot;ＡＩ勝ち02&quot; width=&quot;480&quot; title=&quot;ＡＩ勝ち02&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_win02.png&quot;&gt;&lt;img src=&quot;/images/ai_win02.png&quot; alt=&quot;ＡＩ勝ち02&quot; width=&quot;480&quot; height=&quot;240&quot; title=&quot;ＡＩ勝ち02&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　この後はどう変化しても&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4&lt;/code&gt;と&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;5&lt;/code&gt;のポケットに溜め込んでいる豆を吐き出すことになり、逆転してＡＩが有利になります。&lt;/p&gt;
 
 &lt;h5 id=&quot;2を選んでみると-1&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;を選んでみると&lt;/h5&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose04.png&quot;&gt;&lt;img src=&quot;/images/ai_lose04.png&quot; alt=&quot;詰み04&quot; width=&quot;480&quot; title=&quot;詰み04&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_lose04.png&quot;&gt;&lt;img src=&quot;/images/ai_lose04.png&quot; alt=&quot;詰み04&quot; width=&quot;480&quot; height=&quot;240&quot; title=&quot;詰み04&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　上図のようになりＡＩの形勢Emojiも:tired_face:のままです。ＡＩが次に
 　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;10&lt;/code&gt;と進めて以下の局面になりますが、&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose07.png&quot;&gt;&lt;img src=&quot;/images/ai_lose07.png&quot; alt=&quot;詰み07&quot; width=&quot;480&quot; title=&quot;詰み07&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_lose07.png&quot;&gt;&lt;img src=&quot;/images/ai_lose07.png&quot; alt=&quot;詰み07&quot; width=&quot;480&quot; height=&quot;240&quot; title=&quot;詰み07&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　この後は先手（下側）が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;のポケットを選べば、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;の豆は取られてしまいますが、先手が勝ちます。&lt;br /&gt;
@@ -389,27 +389,27 @@
 
 &lt;h5 id=&quot;3を選んでみると-1&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;を選んでみると&lt;/h5&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose05.png&quot;&gt;&lt;img src=&quot;/images/ai_lose05.png&quot; alt=&quot;詰み05&quot; width=&quot;480&quot; title=&quot;詰み05&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_lose05.png&quot;&gt;&lt;img src=&quot;/images/ai_lose05.png&quot; alt=&quot;詰み05&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;詰み05&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　上図のようになりＡＩの形勢Emojiも:tired_face:のままです。ＡＩが次に
 　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;10&lt;/code&gt;と進めて以下の局面になりますが、&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose06.png&quot;&gt;&lt;img src=&quot;/images/ai_lose06.png&quot; alt=&quot;詰み06&quot; width=&quot;480&quot; title=&quot;詰み06&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_lose06.png&quot;&gt;&lt;img src=&quot;/images/ai_lose06.png&quot; alt=&quot;詰み06&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;詰み06&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　先手（下側）は今度は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;のポケットを選んで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;11&lt;/code&gt;の豆を横取り、&lt;br /&gt;
 　後手が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;12&lt;/code&gt;で以下の画面。&lt;/p&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose08.png&quot;&gt;&lt;img src=&quot;/images/ai_lose08.png&quot; alt=&quot;詰み08&quot; width=&quot;480&quot; title=&quot;詰み08&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_lose08.png&quot;&gt;&lt;img src=&quot;/images/ai_lose08.png&quot; alt=&quot;詰み08&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;詰み08&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　この局面を新たな３手詰問題としてもいいかも知れません。相手陣に豆は一つしか残っていないのですが、間違えると勝負が紛れます。先手はどこを選んでも相手陣に豆が渡ってしまう状態になっています。こういう時、自分に勝ちがあることに気づかず着手する人が結構多いのでは無いでしょうか？また、少し慣れた人だと、「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4&lt;/code&gt;を選べば相手の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;の豆を横取り出来るぞ」なんて読んでしまう人がいるかも知れません。&lt;br /&gt;
 　でも正解は相手陣に無駄に豆を供給しない手、一番豆の少ない&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;が好手です。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose09.png&quot;&gt;&lt;img src=&quot;/images/ai_lose09.png&quot; alt=&quot;詰み09&quot; width=&quot;480&quot; title=&quot;詰み09&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/ai_lose09.png&quot;&gt;&lt;img src=&quot;/images/ai_lose09.png&quot; alt=&quot;詰み09&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;詰み09&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　こうなると先手の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;5&lt;/code&gt;の９個の豆は横取りされてしまうのですが、先手には&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;に一個残っている（一手パスするような手が残っている）のでＡＩが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;8&lt;/code&gt;を選んでも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;を選んでも自陣に豆が無くなり先手の勝ちになります。&lt;br /&gt;
@@ -820,7 +820,7 @@ $ ./mancala.out
 
 &lt;h3 id=&quot;ａｉ対戦&quot;&gt;ＡＩ対戦&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen1.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen1.png&quot; alt=&quot;ＡＩ対戦画面&quot; width=&quot;320&quot; title=&quot;ＡＩ対戦画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen1.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen1.png&quot; alt=&quot;ＡＩ対戦画面&quot; width=&quot;320&quot; height=&quot;180&quot; title=&quot;ＡＩ対戦画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;ul&gt;
@@ -839,7 +839,7 @@ $ ./mancala.out
 
 &lt;h4 id=&quot;形勢emoji表示&quot;&gt;形勢Emoji表示&lt;/h4&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen5.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen5.png&quot; alt=&quot;ＡＩ形勢Emoji&quot; width=&quot;320&quot; title=&quot;ＡＩ形勢Emoji&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen5.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen5.png&quot; alt=&quot;ＡＩ形勢Emoji&quot; width=&quot;320&quot; height=&quot;180&quot; title=&quot;ＡＩ形勢Emoji&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AI対戦(One Player)&lt;/code&gt;時に画面右上に形勢判断用のEmojiを表示します。&lt;/p&gt;
@@ -885,7 +885,7 @@ $ ./mancala.out
 
 &lt;h3 id=&quot;対人対戦&quot;&gt;対人対戦&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen2.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen2.png&quot; alt=&quot;対人対戦画面&quot; width=&quot;320&quot; title=&quot;対人対戦画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen2.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen2.png&quot; alt=&quot;対人対戦画面&quot; width=&quot;320&quot; height=&quot;180&quot; title=&quot;対人対戦画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;ul&gt;
@@ -897,7 +897,7 @@ $ ./mancala.out
 
 &lt;h3 id=&quot;設定画面&quot;&gt;設定画面&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen3.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen3.png&quot; alt=&quot;設定画面&quot; width=&quot;320&quot; title=&quot;設定画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen3.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen3.png&quot; alt=&quot;設定画面&quot; width=&quot;320&quot; height=&quot;160&quot; title=&quot;設定画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;ul&gt;
@@ -914,7 +914,7 @@ $ ./mancala.out
 
 &lt;h3 id=&quot;ゲーム成績画面&quot;&gt;ゲーム成績画面&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen4.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen4.png&quot; alt=&quot;ＡＩ対戦成績画面&quot; width=&quot;320&quot; title=&quot;ＡＩ対戦成績画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen4.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen4.png&quot; alt=&quot;ＡＩ対戦成績画面&quot; width=&quot;320&quot; height=&quot;180&quot; title=&quot;ＡＩ対戦成績画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;ul&gt;
@@ -2647,20 +2647,20 @@ result = [4, 5], depth = 16
 
 &lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
 &lt;div style=&quot;float:left; margin: 0px 0px 0px&quot;&gt;
-&lt;a href=&quot;/images/pre_rear_fender.png&quot;&gt;&lt;img width=&quot;120&quot; src=&quot;/images/pre_rear_fender.png&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;/images/pre_rear_fender.png&quot;&gt;&lt;img width=&quot;120&quot; height=&quot;176&quot; src=&quot;/images/pre_rear_fender.png&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 &lt;div style=&quot;float:left; margin: 0px 5px 0px&quot;&gt;
-&lt;a href=&quot;/images/crack01.png&quot;&gt;&lt;img width=&quot;120&quot; src=&quot;/images/crack01.png&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;/images/crack01.png&quot;&gt;&lt;img width=&quot;120&quot; height=&quot;213&quot; src=&quot;/images/crack01.png&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 &lt;div&gt;
-&lt;a href=&quot;/images/crack02.png&quot;&gt;&lt;img width=&quot;120&quot; src=&quot;/images/crack02.png&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;/images/crack02.png&quot;&gt;&lt;img width=&quot;120&quot; height=&quot;213&quot; src=&quot;/images/crack02.png&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　タイヤを外して中を確認すると、亀裂はタイヤの中までは達していなかったのですが&lt;/p&gt;
 &lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
 &lt;div&gt;
-&lt;a href=&quot;/images/crack03.png&quot;&gt;&lt;img width=&quot;160&quot; src=&quot;/images/crack03.png&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;/images/crack03.png&quot;&gt;&lt;img width=&quot;160&quot; height=&quot;264&quot; src=&quot;/images/crack03.png&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -2668,10 +2668,10 @@ result = [4, 5], depth = 16
 
 &lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
 &lt;div style=&quot;float:left; margin: 0px 20px 0px;&quot;&gt;
-&lt;a href=&quot;/images/old_tire01.png&quot;&gt;&lt;img width=&quot;160&quot; src=&quot;/images/old_tire01.png&quot; alt=&quot;外したタイヤ&quot; title=&quot;外したタイヤ&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;/images/old_tire01.png&quot;&gt;&lt;img width=&quot;160&quot; height=&quot;284&quot; src=&quot;/images/old_tire01.png&quot; alt=&quot;外したタイヤ&quot; title=&quot;外したタイヤ&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 &lt;div&gt;
-&lt;a href=&quot;/images/new_tire01.png&quot;&gt;&lt;img width=&quot;160&quot; src=&quot;/images/new_tire01.png&quot; alt=&quot;新しいタイヤ&quot; title=&quot;新しいタイヤ&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;/images/new_tire01.png&quot;&gt;&lt;img width=&quot;160&quot; height=&quot;284&quot; src=&quot;/images/new_tire01.png&quot; alt=&quot;新しいタイヤ&quot; title=&quot;新しいタイヤ&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -2679,7 +2679,7 @@ result = [4, 5], depth = 16
 
 &lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
 &lt;div&gt;
-&lt;a href=&quot;/images/compare_tire.png&quot;&gt;&lt;img width=&quot;320&quot; src=&quot;/images/compare_tire.png&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;/images/compare_tire.png&quot;&gt;&lt;img width=&quot;320&quot; height=&quot;180&quot; src=&quot;/images/compare_tire.png&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -2687,14 +2687,14 @@ result = [4, 5], depth = 16
 &lt;p&gt;　タイヤを付け替えた次の日の朝に注油しようと思いタイヤを回そうとするとタイヤが回りません。何が引っかかっているのかよく確認すると、後輪ブレーキに付けていた&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1baf65b2.49d34a94.1baf65b3.a627089c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffalcon-bike%2Fpa_xmaruix_gds01100%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjB9&quot;&gt;リアフェンダー&lt;/a&gt;の金具がタイヤと接触していました。わずかに触れるという程度ではなくピッタリ密着していて指一本ではタイヤが動かせないって感じです。&lt;/p&gt;
 
 &lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
-&lt;a href=&quot;/images/rear_fender.png&quot;&gt;&lt;img width=&quot;160&quot; src=&quot;/images/rear_fender.png&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;/images/rear_fender.png&quot;&gt;&lt;img width=&quot;160&quot; height=&quot;90&quot; src=&quot;/images/rear_fender.png&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　金具の厚みは3mm程でしょうか。タイヤを付け替えた時は気がつかなかったのですが、一晩で膨らんで高さが変わったことになります。こんなことってあるんですねぇ:sweat_smile:&lt;br /&gt;
 　これだけ変わるとタイヤ周長もかなり変わりそうです。&lt;/p&gt;
 &lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
 &lt;div&gt;
-&lt;a href=&quot;/images/no_fender.png&quot;&gt;&lt;img width=&quot;320&quot; src=&quot;/images/no_fender.png&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;/images/no_fender.png&quot;&gt;&lt;img width=&quot;320&quot; height=&quot;569&quot; src=&quot;/images/no_fender.png&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -2709,7 +2709,7 @@ result = [4, 5], depth = 16
 &lt;p&gt;　以前&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ETRTO 23-451&lt;/code&gt;から&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ETRTO 28-451&lt;/code&gt;に変えた時は、はっきり乗り心地が変わりました。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/kenda_23c.png&quot;&gt;&lt;img src=&quot;/images/kenda_23c.png&quot; alt=&quot;KENDA23CとSCHWALBE28C&quot; width=&quot;320&quot; title=&quot;KENDA23CとSCHWALBE28C&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/kenda_23c.png&quot;&gt;&lt;img src=&quot;/images/kenda_23c.png&quot; alt=&quot;KENDA23CとSCHWALBE28C&quot; width=&quot;320&quot; height=&quot;427&quot; title=&quot;KENDA23CとSCHWALBE28C&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2720,7 +2720,7 @@ result = [4, 5], depth = 16
 &lt;p&gt;　&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1bc8f4a0.6e824d6a.1bc8f4a1.d36f627c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fa-price%2F4589946139044%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjB9&quot;&gt;DOPPELGANGER(ドッペルギャンガー) 超大容量サドルバッグ&lt;/a&gt;を買いました。これ普段は&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1baf65b2.49d34a94.1baf65b3.a627089c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffalcon-bike%2Fpa_xmaruix_gds01100%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjB9&quot;&gt;リアフェンダー&lt;/a&gt;の代わりになりますし、出かけた帰り道に食料品などを買って帰ることが出来るので重宝します。細長いので荷物の入れ方に工夫が必要ですが、１７リットルの容量なので結構な量を格納できます。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/saddle_bag.png&quot;&gt;&lt;img src=&quot;/images/saddle_bag.png&quot; alt=&quot;サドルバッグ&quot; width=&quot;320&quot; title=&quot;サドルバッグ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/saddle_bag.png&quot;&gt;&lt;img src=&quot;/images/saddle_bag.png&quot; alt=&quot;サドルバッグ&quot; width=&quot;320&quot; height=&quot;180&quot; title=&quot;サドルバッグ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2763,7 +2763,7 @@ result = [4, 5], depth = 16
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/idiom2_2010.png&quot;&gt;&lt;img src=&quot;/images/idiom2_2010.png&quot; alt=&quot;IDIOM2 2010&quot; width=&quot;320&quot; title=&quot;IDIOM2 2010&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/idiom2_2010.png&quot;&gt;&lt;img src=&quot;/images/idiom2_2010.png&quot; alt=&quot;IDIOM2 2010&quot; width=&quot;320&quot; height=&quot;240&quot; title=&quot;IDIOM2 2010&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2775,7 +2775,7 @@ result = [4, 5], depth = 16
 &lt;p&gt;　今ではどんなサドルであってもロングライドでお尻が痛くなるなんてことはないのですが、当時はお尻が痛くなるのはサドルが原因じゃないか？なんて思って&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1b4a07c8.5ec8c127.1b4a07c9.a4619934/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpalmy%2F888984%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjB9&quot;&gt;スパイダーサドル ツインテール&lt;/a&gt;というサドルを購入して交換しました。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/spider_saddle.png&quot;&gt;&lt;img src=&quot;/images/spider_saddle.png&quot; alt=&quot;Spider Saddle&quot; width=&quot;320&quot; title=&quot;Spider Saddle&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/spider_saddle.png&quot;&gt;&lt;img src=&quot;/images/spider_saddle.png&quot; alt=&quot;Spider Saddle&quot; width=&quot;320&quot; height=&quot;240&quot; title=&quot;Spider Saddle&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;p&gt;　このスパイダーサドルはIDIOM2デフォルトのサドルより確かに柔らかいのですが、お尻が痛くなる原因はサドルではなく、主に乗車姿勢によるものだと思います。サドルにどっかり座るのではなく、自分の体重をしっかり足で支える意識を持って自転車に乗っていればどれだけ長距離乗っていてもお尻は痛くなりません。この頃、そのことが徐々に分かってきました。&lt;/p&gt;
@@ -2786,7 +2786,7 @@ result = [4, 5], depth = 16
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/spider_pedal.png&quot;&gt;&lt;img src=&quot;/images/spider_pedal.png&quot; alt=&quot;Spider Pedal&quot; width=&quot;320&quot; title=&quot;Spider Pedal&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/spider_pedal.png&quot;&gt;&lt;img src=&quot;/images/spider_pedal.png&quot; alt=&quot;Spider Pedal&quot; width=&quot;320&quot; height=&quot;240&quot; title=&quot;Spider Pedal&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2795,7 +2795,7 @@ result = [4, 5], depth = 16
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/column_cut.png&quot;&gt;&lt;img src=&quot;/images/column_cut.png&quot; alt=&quot;Column Cut&quot; width=&quot;320&quot; title=&quot;Column Cut&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/column_cut.png&quot;&gt;&lt;img src=&quot;/images/column_cut.png&quot; alt=&quot;Column Cut&quot; width=&quot;320&quot; height=&quot;240&quot; title=&quot;Column Cut&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2812,7 +2812,7 @@ result = [4, 5], depth = 16
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/bull_horn.png&quot;&gt;&lt;img src=&quot;/images/bull_horn.png&quot; alt=&quot;Bull Horn&quot; width=&quot;320&quot; title=&quot;Bull Horn&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/bull_horn.png&quot;&gt;&lt;img src=&quot;/images/bull_horn.png&quot; alt=&quot;Bull Horn&quot; width=&quot;320&quot; height=&quot;240&quot; title=&quot;Bull Horn&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2820,7 +2820,7 @@ result = [4, 5], depth = 16
 &lt;p&gt;　さらにハンドル位置を下げてみようと&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1b4ebe8f.7a15ae9e.1b4ebe90.9bb5cd88/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbebike%2Fdeda-0333630001%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjEsInByb2QiOjB9&quot;&gt;ドロップハンドル&lt;/a&gt;にした時もありました。でもこれだとブレーキを使うためには常に下ハン（ハンドルの下を持った状態）になるので少し辛かったです。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/drop_handle.png&quot;&gt;&lt;img src=&quot;/images/drop_handle.png&quot; alt=&quot;Drop Handle&quot; width=&quot;320&quot; title=&quot;Drop Handle&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/drop_handle.png&quot;&gt;&lt;img src=&quot;/images/drop_handle.png&quot; alt=&quot;Drop Handle&quot; width=&quot;320&quot; height=&quot;240&quot; title=&quot;Drop Handle&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2829,20 +2829,20 @@ result = [4, 5], depth = 16
 &lt;h3 id=&quot;最終的にはフラットタイプのブルホーンに&quot;&gt;最終的にはフラットタイプのブルホーンに&lt;/h3&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/flat_bullhorn.png&quot;&gt;&lt;img src=&quot;/images/flat_bullhorn.png&quot; alt=&quot;Flat Bull Horn&quot; width=&quot;320&quot; title=&quot;Flat Bull Horn&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/flat_bullhorn.png&quot;&gt;&lt;img src=&quot;/images/flat_bullhorn.png&quot; alt=&quot;Flat Bull Horn&quot; width=&quot;320&quot; height=&quot;180&quot; title=&quot;Flat Bull Horn&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
 &lt;p&gt;　前回の&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1b4d851f.029a4119.1b4d8522.d009d163/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcycle-yoshida%2F00600005%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjEsInByb2QiOjB9&quot;&gt;ブルホーンハンドル&lt;/a&gt;は両肩が下がっていたのですが、&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1b4d851f.029a4119.1b4d8522.d009d163/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcycle-yoshida%2F00615884%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjEsInByb2QiOjB9&quot;&gt;フラットなブルホーン&lt;/a&gt;にしてブレーキは手前につけることにしました。&lt;/p&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/compared.png&quot;&gt;&lt;img src=&quot;/images/compared.png&quot; alt=&quot;Bull Horn Compared&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/compared.png&quot;&gt;&lt;img src=&quot;/images/compared.png&quot; alt=&quot;Bull Horn Compared&quot; width=&quot;320&quot; height=&quot;240&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/cycon.png&quot;&gt;&lt;img src=&quot;/images/cycon.png&quot; alt=&quot;ハンドル周り&quot; width=&quot;320&quot; title=&quot;ハンドル周り&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/cycon.png&quot;&gt;&lt;img src=&quot;/images/cycon.png&quot; alt=&quot;ハンドル周り&quot; width=&quot;320&quot; height=&quot;240&quot; title=&quot;ハンドル周り&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1b503d9f.bf04a72c.1b503da0.e1442817/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fi-selection%2Fb0106519%2F&amp;amp;link_type=pict&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjEsInByb2QiOjB9&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot; style=&quot;word-wrap:break-word;&quot;&gt;&lt;img src=&quot;https://hbb.afl.rakuten.co.jp/hgb/1b503d9f.bf04a72c.1b503da0.e1442817/?me_id=1276554&amp;amp;item_id=10023586&amp;amp;m=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fi-selection%2Fcabinet%2Fimg08%2Fb0106519.jpg%3F_ex%3D80x80&amp;amp;pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fi-selection%2Fcabinet%2Fimg08%2Fb0106519.jpg%3F_ex%3D240x240&amp;amp;s=240x240&amp;amp;t=pict&quot; border=&quot;0&quot; style=&quot;margin:2px&quot; alt=&quot;&quot; title=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -2852,7 +2852,7 @@ result = [4, 5], depth = 16
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/break01.png&quot;&gt;&lt;img src=&quot;/images/break01.png&quot; alt=&quot;ブレーキング改善前&quot; width=&quot;320&quot; title=&quot;ブレーキング改善前&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/break01.png&quot;&gt;&lt;img src=&quot;/images/break01.png&quot; alt=&quot;ブレーキング改善前&quot; width=&quot;320&quot; height=&quot;180&quot; title=&quot;ブレーキング改善前&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2860,7 +2860,7 @@ result = [4, 5], depth = 16
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/break02.png&quot;&gt;&lt;img src=&quot;/images/break02.png&quot; alt=&quot;ブレーキング改善後1&quot; width=&quot;320&quot; title=&quot;ブレーキング改善後1&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/break02.png&quot;&gt;&lt;img src=&quot;/images/break02.png&quot; alt=&quot;ブレーキング改善後1&quot; width=&quot;320&quot; height=&quot;180&quot; title=&quot;ブレーキング改善後1&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -2868,7 +2868,7 @@ result = [4, 5], depth = 16
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/break03.png&quot;&gt;&lt;img src=&quot;/images/break03.png&quot; alt=&quot;ブレーキング改善後2&quot; width=&quot;320&quot; title=&quot;ブレーキング改善後2&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/break03.png&quot;&gt;&lt;img src=&quot;/images/break03.png&quot; alt=&quot;ブレーキング改善後2&quot; width=&quot;320&quot; height=&quot;569&quot; title=&quot;ブレーキング改善後2&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
