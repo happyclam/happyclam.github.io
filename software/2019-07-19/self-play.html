@@ -228,25 +228,32 @@
 <p>　指し手を決める部分を修正した後に自己対戦で学習を進めたところ以下のグラフのような推移になりました。学習が進めば引き分けが多くなっていくはずですが、ＡＩ同士の対戦なので勝った方が正しい手を選択したとか負けた方が間違ってるとは言えませんので、このグラフだと学習が進んでいるのかどうかよく分かりません。</p>
 
 <h4 id="グラフ１">グラフ１</h4>
-<div id="self_play" style="width:600px;height:300px;"></div>
+<div class="graph-wrap">
+    <div id="self_play" style="width:600px;height:300px;"></div>
+</div>
 
 <p>　最強プログラムと対戦させると以下のようになりました。学習の進み具合に関しては、<a href="/project/2017-07-07/neuralnw2">以前の記事</a>で紹介した最強プログラムとの対戦結果より結果が悪くなっています（当たり前？）。<a href="/project/2017-07-07/neuralnw2">以前の記事</a>で紹介した最強プログラムとの対戦経過のグラフは6,000回以上対戦した後はほぼ負けなくなりましたが、今回（以下のグラフ）はそれ以降も結構指し手を間違えて負けてます。重みデータが負数であっても選択されるようになったからです。</p>
 <h4 id="グラフ２">グラフ２</h4>
-<div id="self_saikyo" style="width:600px;height:300px;"></div>
+<div class="graph-wrap">
+    <div id="self_saikyo" style="width:600px;height:300px;"></div>
+</div>
 
 <h3 id="試しに">試しに</h3>
 <p>　新しいアプリではＡＩ対ＡＩの<strong>自己対戦時だけ</strong>学習フェーズと看做して修正後の指し手選択機能（<code class="language-plaintext highlighter-rouge">正の値に再正規化してルーレット選択</code>）を使い、人との対戦時には修正前の方法（<code class="language-plaintext highlighter-rouge">学習データからそのままルーレット選択</code>）で指し手を決めるようにしようかと思い、自己対戦で10,000回対戦（学習）させて(=グラフ１と同じことをやって)、その学習データを使ってMIN-MAX法（+αβ法）で作成した最強の三目並べプログラムと対戦させた結果が以下のグラフです。</p>
 
 <h4 id="グラフ３">グラフ３</h4>
-<div id="saikyo_after_self" style="width:600px;height:300px;"></div>
-<!-- <div id="saikyo_after_saikyo" style="width:600px;height:300px;"></div>     -->
+<div class="graph-wrap">
+    <div id="saikyo_after_self" style="width:600px;height:300px;"></div>
+</div>
 
 <p>　最強プログラムと対戦しながら、学習データの更新もしてます。約1,000回対戦後ぐらいから最強プログラムに対応して１００％間違えずに引き分けに持ち込んでいます<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>。</p>
 
 <h3 id="結局">結局</h3>
 <p>　でも、<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">現在のアプリ（Tic-tac-toe Evo）</a>は「ピロリ菌から人間」に進化するのが目的だったんですけど、重みの変化も表示出来るようにしてリニューアルするつもりなので、一度学習した重みが人と対戦する時だけ全く修正されなくなる（負数の重みの箇所は選択されない）のはおかしいので、結局リニューアル版アプリでは人と対戦する場合でも、修正後の指し手選択機能（<code class="language-plaintext highlighter-rouge">正の値に再正規化してルーレット選択</code>）を使うことにしました<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>。</p>
 
-<div id="saikyo_after_self2" style="width:600px;height:300px;"></div>
+<div class="graph-wrap">
+    <div id="saikyo_after_self2" style="width:600px;height:300px;"></div>
+</div>
 
 <p>　学習率（0.03）をもっと上げればもう少し学習速度が上がることを確認していますが、<a href="/project/2017-07-07/neuralnw2">前回の記事</a>との比較のために同じ値にしています。</p>
 

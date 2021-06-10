@@ -194,14 +194,22 @@
 
 <h5 id="-最強プログラムとの対戦結果-">– 最強プログラムとの対戦結果 –</h5>
 
-<div id="neural_saikyo" style="width:600px;height:300px;"></div>
-<div id="new_saikyo" style="width:600px;height:300px;"></div>
+<div class="graph-wrap">
+    <div id="neural_saikyo" style="width:600px;height:300px;"></div>
+</div>
+<div class="graph-wrap">
+    <div id="new_saikyo" style="width:600px;height:300px;"></div>
+</div>
 
 <p>　上の２つのグラフのうち下側のグラフは<a href="/project/2016-12-23/compressed_gametree">以前掲載したグラフ</a>と同じ（現在リリース中の<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">「進化する三目並べ（Tic-tac-toe Evo）」</a>と同じ）ものです。上側のニューラルネットワークのグラフは下側のグラフに比べると、一気に学習が進んで引き分け率（対最強プログラムなので勝つことは出来ない）が９０％程度に上昇しますが、その後８０％〜９９％の間を行ったり来たりしています。何度か試しましたがこの傾向は変わらないようで、一様に強くなり続けるというわけにはいかないようです。これが<strong>過学習</strong>というやつでしょうか？同じプログラム相手に10,000回も学習させる必要はないと言うことでしょう。このグラフを見る限り1,000回程度対戦させれば学習がピークに達するようです。対して従来の方法はニューラルネットワークに比べると学習速度は劣りますが、学習がピークに達した後も安定して指し手を間違えない（負けない手、最善手を選ぶ）ようです。</p>
 
 <h5 id="-乱数プログラムとの対戦結果-">– 乱数プログラムとの対戦結果 –</h5>
-<div id="neural_random" style="width:600px;height:300px;"></div>
-<div id="new_random" style="width:600px;height:300px;"></div>
+<div class="graph-wrap">
+    <div id="neural_random" style="width:600px;height:300px;"></div>
+</div>
+<div class="graph-wrap">
+    <div id="new_random" style="width:600px;height:300px;"></div>
+</div>
 
 <p>　乱数で指し手を決める弱いプログラム相手でも、今までより対戦回数が少ない段階で勝率が上がっていることがわかります。個人的には重みデータの総量が減ったことが学習速度がアップした大きな要因（<a href="/software/2016-01-07/correlation">過去記事参照</a>）になった気がしてます。</p>
 

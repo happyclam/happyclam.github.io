@@ -185,6 +185,14 @@ a:active {
 }
 
 /* original */
+.graph-wrap {
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  width:100%;
+  display:flex;
+}
 div.span9 {
   background-color: #f8f8f8;
   overflow: hidden;

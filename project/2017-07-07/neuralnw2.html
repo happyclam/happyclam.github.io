@@ -205,8 +205,12 @@
 
 <h5 id="-最強プログラムとの対戦結果-">– 最強プログラムとの対戦結果 –</h5>
 
-<div id="neural_saikyo" style="width:600px;height:300px;"></div>
-<div id="new_saikyo" style="width:600px;height:300px;"></div>
+<div class="graph-wrap">
+    <div id="neural_saikyo" style="width:600px;height:300px;"></div>
+</div>
+<div class="graph-wrap">
+    <div id="new_saikyo" style="width:600px;height:300px;"></div>
+</div>
 
 <p>　上の２つのグラフのうち下側のグラフは現在リリース中の<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">「進化する三目並べ（Tic-tac-toe Evo）」</a>と同じものです。上側のニューラルネットワークのグラフは、前回間違ったプログラムを使って「学習速度が速い」なんて書いてしまいましたが、グラフを見る限りむしろ遅くなった感じです。それより特徴的なことは、学習がピークまで達すると間違った手を指さないようになっていることです。重みデータを加減算で操作している方法（下のグラフ）だと６０００回対戦後も５％ぐらいは間違った指し手を選んで負けているのに、勾配法を使ってる上のグラフだと６０００回対戦後は１００％引分に持ち込んでいます（間違った手を指していない）。指し手を選ぶ推論部分（重みデータの比率で指し手を選ぶ方法）は全く同じなのにこの差が出るのは、重みデータが圧倒的に偏った値になっているということです。<br>
 　例えばゲームスタート時の初期盤面の学習データ（報酬データ）は、従来の加減算によるものでは<a href="/software/2015-10-25/machine_learning">以前の記事</a>にも書いたように、だいたい以下のような感じのデータになります。</p>
@@ -227,8 +231,12 @@
 →<strong>この結果に喜んでいたのですが、機械学習プログラムとしてはこのやり方はよくなかったようです。詳しくは<a href="/software/2019-07-19/self-play">この記事</a>を参照してください。</strong></p>
 
 <h5 id="-乱数プログラムとの対戦結果-">– 乱数プログラムとの対戦結果 –</h5>
-<div id="neural_random" style="width:600px;height:300px;"></div>
-<div id="new_random" style="width:600px;height:300px;"></div>
+<div class="graph-wrap">
+    <div id="neural_random" style="width:600px;height:300px;"></div>
+</div>
+<div class="graph-wrap">
+    <div id="new_random" style="width:600px;height:300px;"></div>
+</div>
 
 <p>　乱数で指し手を決める弱いプログラム相手では、多少勝率が高いようですがほぼ似たような結果になりました。</p>
 

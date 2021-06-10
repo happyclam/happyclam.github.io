@@ -213,11 +213,15 @@
 
 <h5 id="推移グラフ">推移グラフ</h5>
 
-<div id="rand-allten-int" style="width:600px;height:300px;"></div>
-
-<div id="rand-allone-int" style="width:600px;height:300px;"></div>
-
-<div id="rand-linear" style="width:600px;height:300px;"></div>
+<div class="graph-wrap">
+    <div id="rand-allten-int" style="width:600px;height:300px;"></div>
+</div>
+<div class="graph-wrap">
+    <div id="rand-allone-int" style="width:600px;height:300px;"></div>
+</div>
+<div class="graph-wrap">
+    <div id="rand-linear" style="width:600px;height:300px;"></div>
+</div>
 
 <p>　このグラフを見ると弱い対戦相手（乱数プログラム）を使っていくら学習を続けても、ある回数（３、４万回）に達すると限界に達してそれ以上続けても学習効果が望めなくなる（強くならない）ことが推測できます。これは人間が将棋や囲碁を学習する際にも当てはまりそうです。また、３つのグラフを比較すると学習し始めた頃は学習の仕方によって伸び方が違ってくるということも見て取れますが、これも人間と同じだと言えそうです。</p>
 
@@ -258,11 +262,15 @@
 
 <h5 id="推移グラフ-1">推移グラフ</h5>
 
-<div id="dfs-allten-int" style="width:600px;height:300px;"></div>
-
-<div id="dfs-allone-int" style="width:600px;height:300px;"></div>
-
-<div id="dfs-linear" style="width:600px;height:300px;"></div>
+<div class="graph-wrap">
+    <div id="dfs-allten-int" style="width:600px;height:300px;"></div>
+</div>
+<div class="graph-wrap">
+    <div id="dfs-allone-int" style="width:600px;height:300px;"></div>
+</div>
+<div class="graph-wrap">
+    <div id="dfs-linear" style="width:600px;height:300px;"></div>
+</div>
 
 <p>　人間の実力と並んでいるであろうと考えられる「引き分け率９割７分」に達するのは、学習方法１が約44,000回後、学習方法２が約17,000回後、学習方法３が約9,000回後です。小石の総数を減らすことと終盤を重要視する方法を組み入れることで、学習効果が向上することがグラフからはっきりと見てとれます。</p>
 
@@ -271,7 +279,9 @@
 <h3 id="グラフの傾きを変えることによる影響">グラフの傾きを変えることによる影響</h3>
 <p>　<a href="/software/2015-12-25/log-linear">前々回の記事</a>でいろいろな方程式を使って結果を比較しましたが、途中経過がなかったので違いがよく分かりませんでした。対最強プログラムに対する引き分け数だけを取り出してみて同一グラフ上に学習度合いの推移を描画し比較してみました。</p>
 
-<div id="dfs-regression" style="width:600px;height:300px;"></div>
+<div class="graph-wrap">
+    <div id="dfs-regression" style="width:600px;height:300px;"></div>
+</div>
 
 <p>　<a href="/software/2015-12-25/log-linear">前々回の記事</a>の方程式１（青、\(y = \frac{1}{総手数} x\)）と方程式２（黄緑、\(y = 0.029 \times 1.882^x\)）が、わずかですが他の２つの方程式より学習効率がいいということがグラフから分かります。<br />
 　でも、グラフが少し見にくいですね。１０万回分の対戦データを取らなくても、２万回分程度のデータでグラフを描画すべきだったのでしょうか？でも、そうするともっと対戦を続けた場合どうなるか知りたくなるので、これはこれでいいと思います。こういう時こそ今回導入したグラフライブラリの出番です。<br />
