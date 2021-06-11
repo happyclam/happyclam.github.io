@@ -185,6 +185,14 @@ a:active {
 }
 
 /* original */
+dt {
+  text-align: center;
+}
+dt img {
+  width:auto;
+  height:auto;
+  max-width:400px;
+}
 .graph-wrap {
   -webkit-overflow-scrolling: touch;
   overflow-scrolling: touch;
