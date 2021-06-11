@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 11 Jun 2021 17:18:50 +0900</pubDate>
-    <lastBuildDate>Fri, 11 Jun 2021 17:18:50 +0900</lastBuildDate>
+    <pubDate>Fri, 11 Jun 2021 17:38:20 +0900</pubDate>
+    <lastBuildDate>Fri, 11 Jun 2021 17:38:20 +0900</lastBuildDate>
     <generator>Jekyll v3.9.1</generator>
     
       <item>
@@ -137,7 +137,7 @@
         <link>https://happyclam.github.io/miscellaneous/2021-06-03/pagespeed</link>
         <guid isPermaLink="true">https://happyclam.github.io/miscellaneous/2021-06-03/pagespeed</guid>
         
-        <category>android</category>
+        <category>jekyll</category>
         
         <category>google</category>
         
