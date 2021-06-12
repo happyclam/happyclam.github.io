@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 11 Jun 2021 17:38:20 +0900</pubDate>
-    <lastBuildDate>Fri, 11 Jun 2021 17:38:20 +0900</lastBuildDate>
+    <pubDate>Sat, 12 Jun 2021 10:03:27 +0900</pubDate>
+    <lastBuildDate>Sat, 12 Jun 2021 10:03:27 +0900</lastBuildDate>
     <generator>Jekyll v3.9.1</generator>
     
       <item>
@@ -112,6 +112,17 @@
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;a href=&quot;/images/google_signal_new.png&quot;&gt;&lt;img src=&quot;/images/google_signal_new.png&quot; alt=&quot;モバイルでの指標&quot; width=&quot;480&quot; height=&quot;359&quot; title=&quot;モバイルでの指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;五日後の状況&quot;&gt;五日後の状況&lt;/h3&gt;
+&lt;p&gt;　画像ファイルを縮小したり全ての記事を見直してモバイル対応を意識した変更をした結果「良好なURL」が以前より増えたようです。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/google_ux_5.png&quot;&gt;&lt;img src=&quot;/images/google_ux_5.png&quot; alt=&quot;ウェブに関する主な指標&quot; width=&quot;480&quot; height=&quot;450&quot; title=&quot;ウェブに関する主な指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/google_experience_5.png&quot;&gt;&lt;img src=&quot;/images/google_experience_5.png&quot; alt=&quot;モバイルでのページエクスペリエンス&quot; width=&quot;480&quot; height=&quot;630&quot; title=&quot;モバイルでのページエクスペリエンス&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div&gt;
