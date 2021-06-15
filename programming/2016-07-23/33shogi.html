@@ -35,6 +35,7 @@
   <meta name="twitter:image:src" content="https://happyclam.github.io/images/33shogi_screen_19_mini.png">
   
 
+  <link rel="canonical" href="https://happyclam.github.io/programming/2016-07-23/33shogi" />
   <!-- stylesheets -->
   <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
   <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -165,11 +166,9 @@
           <h3 id="たかが３３の狭い空間でも完全読み切りは大変だ">たかが３×３の狭い空間でも完全読み切りは大変だ</h3>
 <p>　Twitterで<a href="https://mainichi.jp/articles/20160612/k00/00e/040/105000c">９マス将棋発売</a>というニュースが流れていたので、検索してみると同じ９マス（３×３）と言えどもいろいろなパターンがあるようです<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>。Androidアプリで見つけた<a href="https://play.google.com/store/apps/details?id=org.dyndns.vivi.SkskShogi33">「３×３将棋」</a>というのをやってみると玉頭戦を戦っている気分になれて、想像していた以上に楽しめました。他にも一番シンプルなものでは盤上には玉だけを配置して、持ち駒に銀と歩を持ったところからゲームを開始する<a href="http://www.nakajim.net/?3三将棋">「３三将棋」</a>というルールもあるようです。</p>
 
-<div style="width:320px; margin: 0 auto;">
-
+<div style="width:480px; margin: 0 auto;">
   <p><span>３三将棋の初期盤面</span>
-<a href="/images/33shogi_screen_00.png" target="_blank"><img src="/images/33shogi_screen_00.png" alt="３三将棋の初期盤面" width="320" title="３三将棋の初期盤面" /></a></p>
-
+<a href="/images/33shogi_screen_00.png" target="_blank"><img src="/images/33shogi_screen_00.png" alt="３三将棋の初期盤面" width="480" height="415" title="３三将棋の初期盤面" /></a></p>
 </div>
 
 <p>　<a href="/software/2014-09-09/pre_shogi">以前の記事</a>でShoesとRubyで作成した将棋プログラムの記事を書きましたが、この３三将棋のルールなら先手必勝あるいは後手必勝の手順が見つけられるかもと思い、ちょっとだけ試してみました。<br />
@@ -233,7 +232,7 @@
     <input type="button" value="&lt;" onclick="prev_png(document.board.pngscreen, pngs);" />
     <input type="button" value="&gt;" onclick="next_png(document.board.pngscreen, pngs);" />
     <input type="button" value="&gt;&gt;" onclick="last_png(document.board.pngscreen, pngs);" /><br />    
-　　<img id="pngscreen" name="screen" src="/images/33shogi_screen_01.png" width="640" height="480" vspace="10" />
+　　<img id="pngscreen" name="screen" src="/images/33shogi_screen_01.png" width="480" height="415" vspace="10" />
 </form>
 
 <p>　最終局面は後手の指す手が無くなって、先手勝ちになってます。この例のように自分が試した多くの結果が先手か後手か一方が指す手が無くなって負けるパターンでした。一度形勢を損ねたら指す手が悪手しかなくなり更に形勢を悪くしていく感じです。<br />

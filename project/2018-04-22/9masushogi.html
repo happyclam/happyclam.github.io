@@ -35,6 +35,7 @@
   <meta name="twitter:image:src" content="https://happyclam.github.io/images/33shogi_logo.png">
   
 
+  <link rel="canonical" href="https://happyclam.github.io/project/2018-04-22/9masushogi" />
   <!-- stylesheets -->
   <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
   <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -175,34 +176,34 @@
 <h3 id="先手が勝てないことはない">「先手が勝てない」ことはない</h3>
 <p>　下の初期配置は<a href="https://hb.afl.rakuten.co.jp/hgc/1898184c.61df42d5.1898184d.aee9e867/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenkobo-ebooks%2Fa9b8e0edfad33fbcb089d3786912dae2%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenkobo-ebooks%2Fi%2F16530252%2F&amp;link_type=text&amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJ0ZXh0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImxlZnQiLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjF9">「９マス将棋の本 (幻冬舎単行本) Kindle版」</a>の最初の方に、飛車と角を左右対称に置き換えた形で紹介されている配置です。</p>
 
-<div style="width:480px; margin: 0 auto;">
+<div style="width:320px; margin: 0 auto;">
 
-  <p><a href="/images/9masu_case1.png"><img src="/images/9masu_case1.png" alt="Arrange02" width="480" height="640" title="Arrange02"></a></p>
+  <p><a href="/images/9masu_case1.png"><img src="/images/9masu_case1.png" alt="Arrange02" width="320" height="427" title="Arrange02"></a></p>
 
 </div>
 
 <p>　本の説明を読んでいるといろんな変化を紹介した後に、この配置は<strong>「結論として、第３図の配置では先手が勝てないということになります。」</strong>なんて断言されています。本を読んでいるときはふむふむと読んでいたのですが、この配置は既にアプリに用意していたんじゃないか？と思って、アプリを確認してみるとArrange02として左右対称の形で用意していました。ソフトを作り始めた極初期の段階で適当に配置したものだと思います。で、早速AI同士で対戦させてみました。</p>
 
-<div style="width:480px; margin: 0 auto;">
+<div style="width:320px; margin: 0 auto;">
 
-  <p><a href="/images/9masu_case2.png"><img src="/images/9masu_case2.png" alt="AIレベル＝弱い・普通" width="480" height="640" title="AIレベル＝弱い・普通"></a></p>
+  <p><a href="/images/9masu_case2.png"><img src="/images/9masu_case2.png" alt="AIレベル＝弱い・普通" width="320" height="427" title="AIレベル＝弱い・普通"></a></p>
 
 </div>
 
 <p>　AIレベルを「弱い」か「普通」にセットすると、初形から３二飛、２二歩、３三玉、１二玉、３一飛成、２三歩成で、本の解説通りに後手が勝ちます（上の画像）。</p>
 
-<div style="width:480px; margin: 0 auto;">
+<div style="width:320px; margin: 0 auto;">
 
-  <p><a href="/images/9masu_case3.png"><img src="/images/9masu_case3.png" alt="AIレベル＝長考・瞑想" width="480" height="640" title="AIレベル＝長考・瞑想"></a></p>
+  <p><a href="/images/9masu_case3.png"><img src="/images/9masu_case3.png" alt="AIレベル＝長考・瞑想" width="320" height="427" title="AIレベル＝長考・瞑想"></a></p>
 
 </div>
 
 <p>　でもAIレベルを「長考」か「瞑想」モードにすると、初形から３二飛、２二歩、３三玉、１二玉、２三歩、１三玉、２二歩、２二角、２二飛で、先手勝ちになります（上の画像）。<br>
 　本の解説の「先手が勝てない」という結論のどこに問題があるかというと、３二飛、２二歩、３三玉、１二玉と進んだ下の画像の局面で２三に歩を合わせる手が抜けていることです。</p>
 
-<div style="width:480px; margin: 0 auto;">
+<div style="width:320px; margin: 0 auto;">
 
-  <p><a href="/images/9masu_case4.png"><img src="/images/9masu_case4.png" alt="AIレベル＝長考・瞑想、途中図" width="480" height="640" title="AIレベル＝長考・瞑想、途中図"></a></p>
+  <p><a href="/images/9masu_case4.png"><img src="/images/9masu_case4.png" alt="AIレベル＝長考・瞑想、途中図" width="320" height="427" title="AIレベル＝長考・瞑想、途中図"></a></p>
 
 </div>
 
@@ -212,15 +213,15 @@
 <h3 id="アタック９マス将棋">アタック！９マス将棋</h3>
 <p>　上記の例以外にも本の解説が本当かどうか納得出来ないケースがあるのですが、説明するのが大変なのでとりあえず触れずにおきます。それより<a href="https://hb.afl.rakuten.co.jp/hgc/1898184c.61df42d5.1898184d.aee9e867/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenkobo-ebooks%2Fa9b8e0edfad33fbcb089d3786912dae2%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenkobo-ebooks%2Fi%2F16530252%2F&amp;link_type=text&amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJ0ZXh0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImxlZnQiLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjF9">「９マス将棋の本 (幻冬舎単行本) Kindle版」</a>の最後の方に、解説文はないのですがオリジナルの上級編の問題（「アタック！９マス将棋」）として下記の初期配置が紹介されていたので<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">「３三将棋」アプリ</a>に解かせてみました。</p>
 
-<div style="width:480px; margin: 0 auto;">
+<div style="width:320px; margin: 0 auto;">
 
-  <p><a href="/images/9masu_case5.png"><img src="/images/9masu_case5.png" alt="上級編の問題の初期配置" width="480" height="660" title="上級編の問題の初期配置"></a></p>
+  <p><a href="/images/9masu_case5.png"><img src="/images/9masu_case5.png" alt="上級編の問題の初期配置" width="320" height="440" title="上級編の問題の初期配置"></a></p>
 
 </div>
 
 <p>　問題の趣旨としては先手が勝つ順を見つけてくださいということだと思います。</p>
 
-<div style="width:480px; margin: 0 auto;">
+<div style="width:320px; margin: 0 auto;">
 
   <p><a href="/images/meisou_depth7.gif"><img src="/images/meisou_depth7.gif" alt="AIレベル＝瞑想９手読み" width="360" height="240" title="AIレベル＝瞑想９手読み"></a></p>
 
@@ -229,7 +230,7 @@
 <p>　上のgifファイルの手順（１三角、同歩成、２二角、１二玉、１三角、同玉、３一歩成、１二角、３二玉、２三角成、２一玉、２二馬までで後手勝ち）のように標準のアプリの設定では「瞑想」モードにしていても読みが足りないようで、正解に辿り着けない（＝先手が勝てない）ようです。<br>
 　そこで、アプリの設定を弄くって特別に深く読むように修正したバージョンで解かせてみたのが以下の手順です。</p>
 
-<div style="width:480px; margin: 0 auto;">
+<div style="width:320px; margin: 0 auto;">
 
   <p><a href="/images/meisou_depth9.gif"><img src="/images/meisou_depth9.gif" alt="AIレベル＝瞑想１１手読み" width="360" height="240" title="瞑想１１手読み"></a></p>
 
