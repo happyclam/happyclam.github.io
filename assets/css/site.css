@@ -185,6 +185,10 @@ a:active {
 }
 
 /* original */
+.tag_box {
+  line-height: 1.7;
+}
+
 dt {
   text-align: center;
 }
