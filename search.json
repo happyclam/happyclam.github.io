@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "HerokuのDBを削除＆再構築",
+      "category" : "programming",
+      "tags"     : "rails, heroku, MongoDB, node, javascript",
+      "url"      : "/programming/2021-06-30/heroku_delete",
+      "date"     : "2021-06-30 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "ページエクスペリエンス向上",
       "category" : "miscellaneous",
       "tags"     : "jekyll, google",
@@ -203,7 +211,7 @@
     {
       "title"    : "Heroku環境をUpgrade",
       "category" : "programming",
-      "tags"     : "rails, cordova, android, heroku, node, mongo, tictactoe",
+      "tags"     : "rails, cordova, android, heroku, node, MongoDB, tictactoe",
       "url"      : "/programming/2019-05-04/heroku_upgrade",
       "date"     : "2019-05-04 00:00:00 +0900"
     } ,
@@ -611,7 +619,7 @@
     {
       "title"    : "HerokuでNodeとMongoDBを使う",
       "category" : "programming",
-      "tags"     : "javascript, android, cordova, tictactoe, node, mongo",
+      "tags"     : "javascript, android, cordova, tictactoe, node, MongoDB",
       "url"      : "/programming/2015-04-25/mongo_upsert",
       "date"     : "2015-04-25 00:00:00 +0900"
     } ,

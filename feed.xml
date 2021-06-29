@@ -5,9 +5,128 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 29 Jun 2021 07:12:13 +0900</pubDate>
-    <lastBuildDate>Tue, 29 Jun 2021 07:12:13 +0900</lastBuildDate>
+    <pubDate>Wed, 30 Jun 2021 08:42:17 +0900</pubDate>
+    <lastBuildDate>Wed, 30 Jun 2021 08:42:17 +0900</lastBuildDate>
     <generator>Jekyll v3.9.1</generator>
+    
+      <item>
+        <title>HerokuのDBを削除＆再構築</title>
+        <description>&lt;h3 id=&quot;herokuの無料枠&quot;&gt;Herokuの無料枠&lt;/h3&gt;
+&lt;p&gt;　Herokuから&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;「[Warning] Approaching row limit for hobby-dev database on Heroku app kwl-books」&lt;/code&gt;というタイトルのメールが届きました。「データベースには7,322行が含まれています。Hobby-devプランでは、最大10,000行まで許容されています。サービスの中断を避けるためには、データベースをベーシック（$9/月）以上のプランに移行してください」。とのこと。&lt;br /&gt;
+　&lt;a href=&quot;https://kwl-books.herokuapp.com&quot;&gt;このサイト（「楽天Kobo電子書籍新着チェッカー」）&lt;/a&gt;では、&lt;a href=&quot;/project/2016-03-30/koboAPI&quot;&gt;以前の記事&lt;/a&gt;に書いたように、電子書籍の新着データをDBに保存して表示しているのですが、そのデータが溜まって制限に届きそうだという警告なので対処することにしました。&lt;/p&gt;
+
+&lt;h3 id=&quot;deleteだけではダメ&quot;&gt;DELETEだけではダメ？&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://kwl-books.herokuapp.com&quot;&gt;「楽天Kobo電子書籍新着チェッカー」&lt;/a&gt;は、SQLのDELETE文を走らせて古い日付のレコードはその都度削除してデータを溜め込まないようにしているつもりなので容量の心配をせずに運用出来ると思っていました。だからメールを受け取った時は、データを物理削除（TRUNCATE）しなければダメってことだろうとすぐに思い当たったのですが、DBごと削除して再構築する方が簡単そうなのでそうすることにしました。&lt;br /&gt;
+　&lt;a href=&quot;https://kwl-books.herokuapp.com&quot;&gt;「楽天Kobo電子書籍新着チェッカー」&lt;/a&gt;では、設定で必要なのは環境変数だけで、全てのデータをWebAPIで取得して保存しているので、予め必要なマスターデータと呼ぶものがありません。と言うことでDB毎削除しても問題ありません。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ heroku addons:add pgbackups --app kwl-books
+ ›   Warning: heroku update available from 7.52.0 to 7.54.1.
+Creating pgbackups on ⬢ kwl-books... !
+ ▸    Couldn't find either the add-on service or the add-on plan of &quot;pgbackups&quot;.
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　念の為バックアップしようとしたのですが、無料枠（Free Dynos）では使えないようです:sweat_smile:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ heroku pg:reset DATABASE --confirm kwl-books
+ ›   Warning: heroku update available from 7.52.0 to 7.54.1.
+Resetting postgresql-opaque-46906... done
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　呆気なく削除完了&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ heroku pg:info --app kwl-books
+ ›   Warning: heroku update available from 7.52.0 to 7.54.1.
+=== DATABASE_URL
+Plan:                  Hobby-dev
+Status:                Available
+Connections:           0/20
+PG Version:            11.12
+Created:               2016-03-28 10:18 UTC
+Data Size:             7.8 MB
+Tables:                0
+Rows:                  0/10000 (In compliance)
+Fork/Follow:           Unsupported
+Rollback:              Unsupported
+Continuous Protection: Off
+Add-on:                postgresql-opaque-46906
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rows&lt;/code&gt;が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;になってます。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ heroku run rake db:migrate:reset
+ ›   Warning: heroku update available from 7.52.0 to 7.54.1.
+Running rake db:migrate:reset on ⬢ kwl-books... up, run.9942 (Free)
+The PGconn, PGresult, and PGError constants are deprecated, and will be
+removed as of version 1.0.
+:
+:省略
+:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/kwl-books-screen.png&quot;&gt;&lt;img src=&quot;/images/kwl-books-screen.png&quot; alt=&quot;動作確認&quot; width=&quot;480&quot; height=&quot;691&quot; title=&quot;動作確認&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　動作確認。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ heroku pg:info --app kwl-books
+ ›   Warning: heroku update available from 7.52.0 to 7.54.1.
+=== DATABASE_URL
+Plan:                  Hobby-dev
+Status:                Available
+Connections:           1/20
+PG Version:            11.12
+Created:               2016-03-28 10:18 UTC
+Data Size:             8.2 MB
+Tables:                3
+Rows:                  53/10000 (In compliance)
+Fork/Follow:           Unsupported
+Rollback:              Unsupported
+Continuous Protection: Off
+Add-on:                postgresql-opaque-46906
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rows&lt;/code&gt;が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;53&lt;/code&gt;になりました。&lt;/p&gt;
+
+&lt;p&gt;　勢いで作業をしてしまって結局TRUNCATEしていたらどうだったのか分からないのですが、少なくともSQL文でDELETEするだけでは、ダメ（Herokuの最大容量制限の対象としてカウントされたままになる）なのだと思います。&lt;/p&gt;
+
+&lt;h3 id=&quot;paasplatform-as-a-serviceでの運用&quot;&gt;PaaS(Platform as a Service)での運用&lt;/h3&gt;
+&lt;p&gt;　それにしてもHerokuからの通知は、普段安心しきっているところに唐突に来るので嫌なものですが、これはオンプレミスやVPSでの運用より安心し切っている反動のような気がします。Rails＋Herokuを業務で使った場合の運用コストは詳しくありませんが、開発に専念出来る点は非常に楽だと思います。&lt;br /&gt;
+　以前&lt;a href=&quot;https://github.com/happyclam/tictactoe-cf/wiki&quot;&gt;HerokuでNode.jsとMongoDBを使って運用していたアプリ&lt;/a&gt;があったのですが、突然Herokuから「MongoDBアドオンを削除します（The mLab MongoDB add-on will be removed from all Heroku apps on November 10, 2020. ） 」と通知が来て、取り急ぎやむなくアプリを非公開にした（どうせユーザーも殆どいなかったし）ことがあったのですが、ちゃんと調べれば代替手段はあったようで、今検索してみると&lt;a href=&quot;https://qiita.com/nobu17/items/ca9ae3d60dc837ca0de0&quot;&gt;こんな記事&lt;/a&gt;がありました。&lt;br /&gt;
+　対応はそれなりに面倒そうですが、そもそもMongoDBアドオンが使えなくなったのはHerokuの都合ではないので仕方がないって感じですね。&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+</description>
+        <pubDate>Wed, 30 Jun 2021 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/programming/2021-06-30/heroku_delete</link>
+        <guid isPermaLink="true">https://happyclam.github.io/programming/2021-06-30/heroku_delete</guid>
+        
+        <category>rails</category>
+        
+        <category>heroku</category>
+        
+        <category>MongoDB</category>
+        
+        <category>node</category>
+        
+        <category>javascript</category>
+        
+        
+        <category>programming</category>
+        
+      </item>
     
       <item>
         <title>ページエクスペリエンス向上</title>
@@ -2772,186 +2891,6 @@ result = [4, 5], depth = 16
         <pubDate>Thu, 21 May 2020 00:00:00 +0900</pubDate>
         <link>https://happyclam.github.io/miscellaneous/2020-05-21/bicycle02</link>
         <guid isPermaLink="true">https://happyclam.github.io/miscellaneous/2020-05-21/bicycle02</guid>
-        
-        <category>bicycle</category>
-        
-        
-        <category>miscellaneous</category>
-        
-      </item>
-    
-      <item>
-        <title>ロード系ミニベロのカスタマイズ</title>
-        <description>&lt;h3 id=&quot;昔は買い物カゴ付きのママチャリで不満はなかった&quot;&gt;昔は買い物カゴ付きのママチャリで不満はなかった&lt;/h3&gt;
-&lt;p&gt;　偶にロードバイクで出かけることがあるのですが、このブログでは自転車について全然触れたことがありませんでした。今まで自転車に関する記事を書かなかったのは、自分が自転車に嵌っていたのがこのブログを始める少し前だったというのが主な理由ですが、最近久しぶりにミニベロのカスタマイズをしたので、ちょっと自転車について書いてみたくなりました。&lt;br /&gt;
-　自分で自転車のカスタマイズをしようなんて思う人は少ないかもしれませんが、自転車への理解が深まっていくと、これが結構嵌るものなんです。プログラミングから自作パソコン弄りに凝りだすのと似ていると思います。&lt;br /&gt;
-　ママチャリしか知らなかった自分がどんな風に自転車弄りに嵌っていったか昔を思い出して紹介します。&lt;/p&gt;
-
-&lt;h3 id=&quot;ママチャリで山を登るのは辛い&quot;&gt;ママチャリで山を登るのは辛い&lt;/h3&gt;
-&lt;p&gt;　変速機付きの自転車（ママチャリ）で近くの山に行ってみたことが始まりです。５段変速なので普通に登れると思っていたら、頂上までの道程の多くは自転車を押しながら歩く羽目になりました。当時は自転車を押して歩くことには全然抵抗なかったのですが、山に行くと多くのローディ（ロードバイク乗り）が、息を切らしながら自転車を押している自分の横をスイスイと追い抜いて行くんです。ヘルメット被ってレーパン（レーサーパンツ）とピチピチジャージでロードバイクに乗っている人たちには全然興味がなかった（むしろ避けたかった）のですが、この時に「いい自転車、高級な自転車というのは軽い自転車なんだ」ということを知りました。&lt;br /&gt;
-　そこでロードバイクじゃなくても、もう少しグレードアップしてなんとなくママチャリよりはかっこいい自転車が欲しいと思ってロード系ミニベロ（小径車）と呼ばれる自転車を買った&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;ことが、自転車に嵌り出した切っ掛けです。
-　&lt;/p&gt;
-&lt;h3 id=&quot;自転車には自分に合ったサイズがある&quot;&gt;自転車には自分に合ったサイズがある&lt;/h3&gt;
-&lt;p&gt;　自転車についてよく分かっていなかった自分が最初に選んだママチャリ以外の自転車は、とにかく軽くてカッコイイという理由で当時発売されたばかりのGIANTのIDIOM2というものでした↓。&lt;/p&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/idiom2_2010.png&quot;&gt;&lt;img src=&quot;/images/idiom2_2010.png&quot; alt=&quot;IDIOM2 2010&quot; width=&quot;320&quot; height=&quot;240&quot; title=&quot;IDIOM2 2010&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　サドルよりハンドル位置が高くて、今見るとカッコ悪いと感じるのですが、ママチャリしか知らなかった購入当時はそんな風には思いませんでした。目が肥えてくるとそう感じるようになると思います。&lt;br /&gt;
-　また、このIDIOM2というバイクはトップチューブ550mmという非常に身長の高い人向けにも対応している製品で、自分には全然サイズが合っていないバイクなのですが、当時は分かっていませんでした。&lt;br /&gt;
-　ここから徐々にバイクのカスタマイズが始まります。&lt;/p&gt;
-
-&lt;h3 id=&quot;お尻が痛いサドル交換&quot;&gt;お尻が痛い（サドル交換）&lt;/h3&gt;
-&lt;p&gt;　今ではどんなサドルであってもロングライドでお尻が痛くなるなんてことはないのですが、当時はお尻が痛くなるのはサドルが原因じゃないか？なんて思って&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1b4a07c8.5ec8c127.1b4a07c9.a4619934/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpalmy%2F888984%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjB9&quot;&gt;スパイダーサドル ツインテール&lt;/a&gt;というサドルを購入して交換しました。&lt;/p&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/spider_saddle.png&quot;&gt;&lt;img src=&quot;/images/spider_saddle.png&quot; alt=&quot;Spider Saddle&quot; width=&quot;320&quot; height=&quot;240&quot; title=&quot;Spider Saddle&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;p&gt;　このスパイダーサドルはIDIOM2デフォルトのサドルより確かに柔らかいのですが、お尻が痛くなる原因はサドルではなく、主に乗車姿勢によるものだと思います。サドルにどっかり座るのではなく、自分の体重をしっかり足で支える意識を持って自転車に乗っていればどれだけ長距離乗っていてもお尻は痛くなりません。この頃、そのことが徐々に分かってきました。&lt;/p&gt;
-
-&lt;h3 id=&quot;引き足を覚えるペダル交換&quot;&gt;引き足を覚える（ペダル交換）&lt;/h3&gt;
-&lt;p&gt;　次に交換したのはペダルです。多くのローディはビンディングシューズを履いてペダルと靴を固定して自転車を漕ぎますが、自分は自転車はあくまで移動手段、ビンディングシューズのまま目的地や街中を歩くなんて嫌だったので、&lt;a href=&quot;https://www.amazon.co.jp/タイオガ-TIOGA-PDL07700-スパイダーペダル-ブラック/dp/B004BU9H7M&quot;&gt;スパイダーペダル&lt;/a&gt;を買って試しました&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。このペダルは普通のペダルと違い、写真のように縦長で数個の鋲が飛び出していて靴の裏にピッタリ引っかかります。ですので、ペダルを踏み込んだ後、足を引き上げる時にもペダルを回す感覚があります。&lt;br /&gt;
-　ただこれを長期間使っていると靴底が傷んできます。&lt;/p&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/spider_pedal.png&quot;&gt;&lt;img src=&quot;/images/spider_pedal.png&quot; alt=&quot;Spider Pedal&quot; width=&quot;320&quot; height=&quot;240&quot; title=&quot;Spider Pedal&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;h3 id=&quot;ハンドル位置を下げるコラムカット&quot;&gt;ハンドル位置を下げる（コラムカット）&lt;/h3&gt;
-&lt;p&gt;　IDIOM2は折り畳み式のハンドルという特殊な構造で、フォークコラムに折り畳み可能な機構を持つパイプが乗っかっている形になっています。その折り畳み可能なパイプの代替となる鉄製パイプ（白色しかなかった）とコラム固定リングを自転車屋さんで入手出来た&lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;のでそれに付け替えました。&lt;/p&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/column_cut.png&quot;&gt;&lt;img src=&quot;/images/column_cut.png&quot; alt=&quot;Column Cut&quot; width=&quot;320&quot; height=&quot;240&quot; title=&quot;Column Cut&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　30mmほどコラムカットもしました。&lt;br /&gt;
-　これでようやくサドルとハンドルが水平になって見てくれもマシになったのと、ハンドル位置がこれぐらい下がると非常に自転車が漕ぎやすくなります。&lt;/p&gt;
-
-&lt;h3 id=&quot;桐谷七段の爆走&quot;&gt;桐谷七段の爆走&lt;/h3&gt;
-&lt;p&gt;　一頃テレビでよく&lt;a href=&quot;https://matome.naver.jp/odai/2136427379984682001&quot;&gt;桐谷七段が自転車で爆走するシーン&lt;/a&gt;をよく見ましたが、両肘張って上体を起こして自転車を漕ぐこの態勢では、風の抵抗も大きくかなり疲れると思います。テレビを見ながらもっとハンドル下げれば楽にスピード出せるのにと思ったものです。&lt;br /&gt;
-　当時の私を含めてママチャリばかり乗っている日本人の多くは、サドルよりハンドル位置が低い態勢で乗ったことがなくてそのメリットが分からない人が多いと思うのですが、是非一度ハンドル位置を下げて乗ってみて欲しいと思います。自転車ってこういう風に乗るものだったのかと気付くと思います。&lt;br /&gt;
-　また、自転車に長時間乗っているとお尻が痛くなるという人は、ハンドルを下げて前傾姿勢になれば、お尻への負担も減るので痛くなくなるかもしれません。&lt;/p&gt;
-
-&lt;h3 id=&quot;ブルホーンハンドルに交換&quot;&gt;ブルホーンハンドルに交換&lt;/h3&gt;
-&lt;p&gt;　さらにハンドル位置を下げたくなって、フラットバー（ライザーバー）ハンドルから&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1b4d851f.029a4119.1b4d8522.d009d163/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcycle-yoshida%2F00600005%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjEsInByb2QiOjB9&quot;&gt;ブルホーンハンドル&lt;/a&gt;に交換しました。ただブルホーンハンドルに交換するだけだとブレーキ位置が遠くなるため、ステムも一番短い50mmのものに変更したので少し不格好です。&lt;/p&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/bull_horn.png&quot;&gt;&lt;img src=&quot;/images/bull_horn.png&quot; alt=&quot;Bull Horn&quot; width=&quot;320&quot; height=&quot;240&quot; title=&quot;Bull Horn&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;h3 id=&quot;ドロップハンドルに交換&quot;&gt;ドロップハンドルに交換&lt;/h3&gt;
-&lt;p&gt;　さらにハンドル位置を下げてみようと&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1b4ebe8f.7a15ae9e.1b4ebe90.9bb5cd88/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbebike%2Fdeda-0333630001%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjEsInByb2QiOjB9&quot;&gt;ドロップハンドル&lt;/a&gt;にした時もありました。でもこれだとブレーキを使うためには常に下ハン（ハンドルの下を持った状態）になるので少し辛かったです。&lt;/p&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/drop_handle.png&quot;&gt;&lt;img src=&quot;/images/drop_handle.png&quot; alt=&quot;Drop Handle&quot; width=&quot;320&quot; height=&quot;240&quot; title=&quot;Drop Handle&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　やはり元々のフレームサイズが自分にあってないのだと思います。&lt;/p&gt;
-
-&lt;h3 id=&quot;最終的にはフラットタイプのブルホーンに&quot;&gt;最終的にはフラットタイプのブルホーンに&lt;/h3&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/flat_bullhorn.png&quot;&gt;&lt;img src=&quot;/images/flat_bullhorn.png&quot; alt=&quot;Flat Bull Horn&quot; width=&quot;320&quot; height=&quot;180&quot; title=&quot;Flat Bull Horn&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　前回の&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1b4d851f.029a4119.1b4d8522.d009d163/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcycle-yoshida%2F00600005%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjEsInByb2QiOjB9&quot;&gt;ブルホーンハンドル&lt;/a&gt;は両肩が下がっていたのですが、&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1b4d851f.029a4119.1b4d8522.d009d163/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcycle-yoshida%2F00615884%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjEsInByb2QiOjB9&quot;&gt;フラットなブルホーン&lt;/a&gt;にしてブレーキは手前につけることにしました。&lt;/p&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/compared.png&quot;&gt;&lt;img src=&quot;/images/compared.png&quot; alt=&quot;Bull Horn Compared&quot; width=&quot;320&quot; height=&quot;240&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/cycon.png&quot;&gt;&lt;img src=&quot;/images/cycon.png&quot; alt=&quot;ハンドル周り&quot; width=&quot;320&quot; height=&quot;240&quot; title=&quot;ハンドル周り&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1b503d9f.bf04a72c.1b503da0.e1442817/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fi-selection%2Fb0106519%2F&amp;amp;link_type=pict&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjEsInByb2QiOjB9&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot; style=&quot;word-wrap:break-word;&quot;&gt;&lt;img src=&quot;https://hbb.afl.rakuten.co.jp/hgb/1b503d9f.bf04a72c.1b503da0.e1442817/?me_id=1276554&amp;amp;item_id=10023586&amp;amp;m=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fi-selection%2Fcabinet%2Fimg08%2Fb0106519.jpg%3F_ex%3D80x80&amp;amp;pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fi-selection%2Fcabinet%2Fimg08%2Fb0106519.jpg%3F_ex%3D240x240&amp;amp;s=240x240&amp;amp;t=pict&quot; border=&quot;0&quot; style=&quot;margin:2px&quot; alt=&quot;&quot; title=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;ブレーキングに不満&quot;&gt;ブレーキングに不満&lt;/h3&gt;
-&lt;p&gt;　肩下がりのブルホーンではなく、フラットタイプのブルホーンにしてブレーキをブラットバー部分に持ってきたことで乗車姿勢も楽になり、見た目のブレーキ位置も収まりがいい感じになりましたが、これではブルホーンの角部分を握っている時にブレーキが引けません。&lt;/p&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/break01.png&quot;&gt;&lt;img src=&quot;/images/break01.png&quot; alt=&quot;ブレーキング改善前&quot; width=&quot;320&quot; height=&quot;180&quot; title=&quot;ブレーキング改善前&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　上の写真のように薬指と小指でなんとかブレーキを引っ掛けることはできるのですが、心許ない感じです。ブルホーンハンドルではこの角の部分を握って走るのが一番気持ちよく走れるので、なんとかしたいと思いながらもミニベロに乗る機会が減っていたので長年放置していたのですが、つい最近&lt;a href=&quot;https://www.amazon.co.jp/SENQI自転車ホーンハンドルバーブレーキレバー-固定ギア-左右セット-22-2mm-23-8mm-2色/dp/B06XDYVK3F/ref=sr_1_10?__mk_ja_JP=カタカナ&amp;amp;dchild=1&amp;amp;keywords=senqi&amp;amp;qid=1589193186&amp;amp;sr=8-10&amp;amp;th=1&quot;&gt;こんな製品&lt;/a&gt;&lt;sup id=&quot;fnref:4&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;があることを知って買いました。&lt;/p&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/break02.png&quot;&gt;&lt;img src=&quot;/images/break02.png&quot; alt=&quot;ブレーキング改善後1&quot; width=&quot;320&quot; height=&quot;180&quot; title=&quot;ブレーキング改善後1&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　これでようやく長年の不満が無くなった感じです。&lt;/p&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/break03.png&quot;&gt;&lt;img src=&quot;/images/break03.png&quot; alt=&quot;ブレーキング改善後2&quot; width=&quot;320&quot; height=&quot;569&quot; title=&quot;ブレーキング改善後2&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　紹介した上記のカスタマイズはコラムカット以外は全部ネットで部品や道具を買って自分でやりました&lt;sup id=&quot;fnref:5&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
-
-&lt;h3 id=&quot;知的好奇心によって目的が変わっていく&quot;&gt;知的好奇心によって目的が変わっていく&lt;/h3&gt;
-&lt;p&gt;　自転車に関する本なども何冊か読んで理解が深まるほどいろいろ試したくなって、上記のようにいろいろ弄りまくったのですが、PCの自作も似ているところがあります。PCを自作したりカスタマイズすると何かプログラムを作る気力が湧いてくるように感じることがあるのですが、自転車も同じで、何かカスタマイズする度にロングライドに出かけていました。このバイクではせいぜい100kmぐらいですが、もう一つ持っている700Cのロードバイクでは夜通し丸１日かけて300km以上走ったこともあります。今は夜通し乗るなんていう気力はありませんが…。&lt;br /&gt;
-　こうなってくると、最初は移動手段として自転車に乗っていたものが、自転車に乗ることが目的になって来たりします。この点もプログラミングと似ていて、何かの問題の解決手段であるはずのプログラミングがいつの間にかプログラミング自体が目的になって来たりします。それが良いとか悪いとかここで主張する気はありませんが、楽しいから続けているという感じです。&lt;/p&gt;
-
-&lt;h3 id=&quot;日本人は自転車の乗り方を分かっていない&quot;&gt;日本人は自転車の乗り方を分かっていない&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;http://kaigai-matome.net/archives/35598234.html&quot;&gt;「日本人は自転車の乗り方を分かっていない」&lt;/a&gt;という記事を見かけたのですが、自分もこのミニベロのカスタマイズを通じて自転車に対する理解が深まってからは同感です。海外とは道路事情が違いますし、どっしりとサドルに腰掛けて傘を差して&lt;sup id=&quot;fnref:6&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:6&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;6&lt;/a&gt;&lt;/sup&gt;歩道をポタポタと走る日本の自転車文化を一概に否定するわけではありませんが、一度スポーツ系と言われるバイクに乗って見て欲しいと思います。そうするとママチャリしか乗ったことがない人は、自転車は本来こういう乗り方をするものだったのかという驚きがあると思います。&lt;br /&gt;
-　そして自転車を買う時は自分のように適当に買うのではなく、自分の身長に合ったサイズのバイクを選ぶことをお勧めします。&lt;/p&gt;
-
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;当時は分かっていなかったのですが、今ならミニベロなんて特殊なバイクを買うより、自分のサイズにあったロードバイクを最初に買うことをお勧めします。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;現在はスパイダーペダルは売っていないようです。似たようなペダルで、自分が持っているロードバイクの方は&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1b4d49cd.6bbf085f.1b4d49ce.c5e66119/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Faris%2F10-tioga-sf8%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjEsInByb2QiOjB9&quot;&gt;このペダル&lt;/a&gt;を使っています。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:3&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;なんでこんな特殊な部品が存在したのかは今でも謎ですが、ニーズが多かったのかもしれません。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:4&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;似たような製品で&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1b5d9f91.956dd233.1b5d9f92.9c201623/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fworldcycle%2Fdix-i-jc-brake%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjEsInByb2QiOjB9&quot;&gt;DIXNAのこんな製品&lt;/a&gt;もあります。この製品、本来はドロップハンドルに使用する想定（ギドネットレバーのような感じ）のようですが、Amazonのレビューでもブルホーンで利用していると書かれています。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:5&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;ママチャリの後輪バンク修理を近所の自転車屋さんに頼んだ時に「バック拡げ」という日本のママチャリ独自の工具を使う現場を目撃してからは、むしろ街の自転車屋さんに自分のバイクのメンテナンスを任せたくない、自分でやりたいって感じです。 &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:6&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;ロードバイク乗るようになってからは、持っているママチャリもそれなりにカスタマイズしていて、傘を差しながら自転車に乗ることはなくなりました。というか、やってみると分かりますが、ハンドル位置を下げると、傘を差しながら自転車に乗るのが非常に難しいというか不安定になります。その所為かどうか分かりませんが、海外では傘を差して自転車に乗る習慣は無いようです。日本でも北海道では傘を差して自転車には乗らないと聞いたことがあります。 &lt;a href=&quot;#fnref:6&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Sat, 16 May 2020 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/miscellaneous/2020-05-16/bicycle01</link>
-        <guid isPermaLink="true">https://happyclam.github.io/miscellaneous/2020-05-16/bicycle01</guid>
         
         <category>bicycle</category>
         

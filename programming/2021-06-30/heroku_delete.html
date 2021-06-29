@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="author" content="happyclam">
+  <meta name="description"
+    content="HerokuのDBを削除＆再構築 hobby-devデータベースの行数制限に近づいています Reinventing the wheel.">
+  <title> HerokuのDBを削除＆再構築 - 自己満足プログラミング </title>
+
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-1752720-7');
+  </script>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="HerokuのDBを削除＆再構築">
+  
+  
+  <meta name="twitter:url" content="/programming/2021-06-30/heroku_delete">
+  
+  
+  <meta name="twitter:description" content="Herokuの無料枠（hobby-dev）の制限に近づいてきたのでデータベースを再構築">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/kwlchecker_small.png">
+  
+
+  <link rel="canonical" href="https://happyclam.github.io/programming/2021-06-30/heroku_delete" />
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="site-title" class="navbar-brand" href="/">
+          <img class="pull-left img-responsive" src="">
+          <span class="name-holder">自己満足プログラミング</span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li>
+<a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li>
+<a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li>
+<a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li>
+<a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li>
+<a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <!-- <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script> -->
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <div style="text-align: center;">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-9018029357773039",
+          enable_page_level_ads: true
+      });
+    </script>
+  </div>
+  <div class="blog-header">
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+      <div class="span9">
+        <!-- Html Elements for Search -->
+        <div id="search-container" align="right">
+          <input type="text" id="search-input" placeholder="search...">
+          <ul class="searchresult" id="results-container"></ul>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+  <script src="/assets/js/jquery.min.js"></script>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
+
+        <header class="page-header">
+          <h2 class="page-title"><a href="/programming/2021-06-30/heroku_delete">HerokuのDBを削除＆再構築</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Wednesday, June 30, 2021
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">rails</span>
+                
+                  <span class="label label-tag">heroku</span>
+                
+                  <span class="label label-tag">MongoDB</span>
+                
+                  <span class="label label-tag">node</span>
+                
+                  <span class="label label-tag">javascript</span>
+                
+            </div>
+          </div>
+
+        </header>
+
+        <article class="page-content">
+          <h3 id="herokuの無料枠">Herokuの無料枠</h3>
+<p>　Herokuから<code class="language-plaintext highlighter-rouge">「[Warning] Approaching row limit for hobby-dev database on Heroku app kwl-books」</code>というタイトルのメールが届きました。「データベースには7,322行が含まれています。Hobby-devプランでは、最大10,000行まで許容されています。サービスの中断を避けるためには、データベースをベーシック（$9/月）以上のプランに移行してください」。とのこと。<br>
+　<a href="https://kwl-books.herokuapp.com">このサイト（「楽天Kobo電子書籍新着チェッカー」）</a>では、<a href="/project/2016-03-30/koboAPI">以前の記事</a>に書いたように、電子書籍の新着データをDBに保存して表示しているのですが、そのデータが溜まって制限に届きそうだという警告なので対処することにしました。</p>
+
+<h3 id="deleteだけではダメ">DELETEだけではダメ？</h3>
+<p>　<a href="https://kwl-books.herokuapp.com">「楽天Kobo電子書籍新着チェッカー」</a>は、SQLのDELETE文を走らせて古い日付のレコードはその都度削除してデータを溜め込まないようにしているつもりなので容量の心配をせずに運用出来ると思っていました。だからメールを受け取った時は、データを物理削除（TRUNCATE）しなければダメってことだろうとすぐに思い当たったのですが、DBごと削除して再構築する方が簡単そうなのでそうすることにしました。<br>
+　<a href="https://kwl-books.herokuapp.com">「楽天Kobo電子書籍新着チェッカー」</a>では、設定で必要なのは環境変数だけで、全てのデータをWebAPIで取得して保存しているので、予め必要なマスターデータと呼ぶものがありません。と言うことでDB毎削除しても問題ありません。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ heroku addons:add pgbackups --app kwl-books
+ ›   Warning: heroku update available from 7.52.0 to 7.54.1.
+Creating pgbackups on ⬢ kwl-books... !
+ ▸    Couldn't find either the add-on service or the add-on plan of "pgbackups".
+
+</code></pre></div></div>
+
+<p>　念の為バックアップしようとしたのですが、無料枠（Free Dynos）では使えないようです<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ heroku pg:reset DATABASE --confirm kwl-books
+ ›   Warning: heroku update available from 7.52.0 to 7.54.1.
+Resetting postgresql-opaque-46906... done
+</code></pre></div></div>
+
+<p>　呆気なく削除完了</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ heroku pg:info --app kwl-books
+ ›   Warning: heroku update available from 7.52.0 to 7.54.1.
+=== DATABASE_URL
+Plan:                  Hobby-dev
+Status:                Available
+Connections:           0/20
+PG Version:            11.12
+Created:               2016-03-28 10:18 UTC
+Data Size:             7.8 MB
+Tables:                0
+Rows:                  0/10000 (In compliance)
+Fork/Follow:           Unsupported
+Rollback:              Unsupported
+Continuous Protection: Off
+Add-on:                postgresql-opaque-46906
+
+</code></pre></div></div>
+
+<p>　<code class="language-plaintext highlighter-rouge">Rows</code>が<code class="language-plaintext highlighter-rouge">0</code>になってます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ heroku run rake db:migrate:reset
+ ›   Warning: heroku update available from 7.52.0 to 7.54.1.
+Running rake db:migrate:reset on ⬢ kwl-books... up, run.9942 (Free)
+The PGconn, PGresult, and PGError constants are deprecated, and will be
+removed as of version 1.0.
+:
+:省略
+:
+</code></pre></div></div>
+
+<div style="width:480px; margin: 0 auto;">
+  <p><a href="/images/kwl-books-screen.png"><img src="/images/kwl-books-screen.png" alt="動作確認" width="480" height="691" title="動作確認"></a></p>
+</div>
+
+<p>　動作確認。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ heroku pg:info --app kwl-books
+ ›   Warning: heroku update available from 7.52.0 to 7.54.1.
+=== DATABASE_URL
+Plan:                  Hobby-dev
+Status:                Available
+Connections:           1/20
+PG Version:            11.12
+Created:               2016-03-28 10:18 UTC
+Data Size:             8.2 MB
+Tables:                3
+Rows:                  53/10000 (In compliance)
+Fork/Follow:           Unsupported
+Rollback:              Unsupported
+Continuous Protection: Off
+Add-on:                postgresql-opaque-46906
+
+</code></pre></div></div>
+<p>　<code class="language-plaintext highlighter-rouge">Rows</code>が<code class="language-plaintext highlighter-rouge">53</code>になりました。</p>
+
+<p>　勢いで作業をしてしまって結局TRUNCATEしていたらどうだったのか分からないのですが、少なくともSQL文でDELETEするだけでは、ダメ（Herokuの最大容量制限の対象としてカウントされたままになる）なのだと思います。</p>
+
+<h3 id="paasplatform-as-a-serviceでの運用">PaaS(Platform as a Service)での運用</h3>
+<p>　それにしてもHerokuからの通知は、普段安心しきっているところに唐突に来るので嫌なものですが、これはオンプレミスやVPSでの運用より安心し切っている反動のような気がします。Rails＋Herokuを業務で使った場合の運用コストは詳しくありませんが、開発に専念出来る点は非常に楽だと思います。<br>
+　以前<a href="https://github.com/happyclam/tictactoe-cf/wiki">HerokuでNode.jsとMongoDBを使って運用していたアプリ</a>があったのですが、突然Herokuから「MongoDBアドオンを削除します（The mLab MongoDB add-on will be removed from all Heroku apps on November 10, 2020. ） 」と通知が来て、取り急ぎやむなくアプリを非公開にした（どうせユーザーも殆どいなかったし）ことがあったのですが、ちゃんと調べれば代替手段はあったようで、今検索してみると<a href="https://qiita.com/nobu17/items/ca9ae3d60dc837ca0de0">こんな記事</a>がありました。<br>
+　対応はそれなりに面倒そうですが、そもそもMongoDBアドオンが使えなくなったのはHerokuの都合ではないので仕方がないって感じですね。</p>
+
+<div>
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- display01 -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9018029357773039" data-ad-slot="3925247388" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+<hr>
+
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <small>© rifyll theme, 2014</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+</body>
+
+</html>
