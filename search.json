@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "FlutterアプリのNull Safety対応",
+      "category" : "software",
+      "tags"     : "mancala, dart, android, flutter",
+      "url"      : "/software/2021-07-10/null_safety",
+      "date"     : "2021-07-10 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "HerokuのDBを削除＆再構築",
       "category" : "programming",
       "tags"     : "rails, heroku, MongoDB, node, javascript",

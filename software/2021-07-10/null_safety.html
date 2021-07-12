@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="author" content="happyclam">
+  <meta name="description"
+    content="FlutterアプリのNull Safety対応 Null Safetyって、テスト書かない人が困ってるだけじゃないの？ Reinventing the wheel.">
+  <title> FlutterアプリのNull Safety対応 - 自己満足プログラミング </title>
+
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-1752720-7');
+  </script>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="FlutterアプリのNull Safety対応">
+  
+  
+  <meta name="twitter:url" content="/software/2021-07-10/null_safety">
+  
+  
+  <meta name="twitter:description" content="世の流れには逆らえず、面倒だけどNull Safety対応しました">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/mancala_screen5_thumb.png">
+  
+
+  <link rel="canonical" href="https://happyclam.github.io/software/2021-07-10/null_safety" />
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="site-title" class="navbar-brand" href="/">
+          <img class="pull-left img-responsive" src="">
+          <span class="name-holder">自己満足プログラミング</span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li>
+<a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li>
+<a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li>
+<a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li>
+<a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li>
+<a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <!-- <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script> -->
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <div style="text-align: center;">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-9018029357773039",
+          enable_page_level_ads: true
+      });
+    </script>
+  </div>
+  <div class="blog-header">
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+      <div class="span9">
+        <!-- Html Elements for Search -->
+        <div id="search-container" align="right">
+          <input type="text" id="search-input" placeholder="search...">
+          <ul class="searchresult" id="results-container"></ul>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+  <script src="/assets/js/jquery.min.js"></script>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
+
+        <header class="page-header">
+          <h2 class="page-title"><a href="/software/2021-07-10/null_safety">FlutterアプリのNull Safety対応</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Saturday, July 10, 2021
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">mancala</span>
+                
+                  <span class="label label-tag">dart</span>
+                
+                  <span class="label label-tag">android</span>
+                
+                  <span class="label label-tag">flutter</span>
+                
+            </div>
+          </div>
+
+        </header>
+
+        <article class="page-content">
+          <p><a href="https://taimienphi.vn/download-mancala-nuts-90337"><img src="/images/tmp2.png" alt="マンカラアプリ" title="マンカラ ナッツ" width="155" height="60"></a>
+<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam"><img src="/images/ja_badge_web_generic.png" alt="マンカラアプリ" title="マンカラ ナッツ" width="155" height="60"></a>
+<a href="https://www.amazon.co.jp/happyclam-%E3%83%9E%E3%83%B3%E3%82%AB%E3%83%A9-%E3%83%8A%E3%83%83%E3%83%84/dp/B08D8QVVQY/ref=sr_1_2"><img src="/images/amazon-appstore-badge-jp-white.png" alt="マンカラアプリ" title="マンカラ ナッツ" width="155" height="60"></a>
+<br><a href="https://taimienphi.vn" title="download">taimienphi.vn</a></p>
+
+<h3 id="はっきり言って面倒臭い">はっきり言って面倒臭い</h3>
+<p>　プログラミングの際にオブジェクトを代入する変数を<code class="language-plaintext highlighter-rouge">null</code>で初期化して、その変数が<code class="language-plaintext highlighter-rouge">null</code>かどうかで条件分岐する、なんてコードをよく書いていたので、また面倒なことが増えたって気がしますが、実行時のNull Pointer Exceptionを避ける意味はあるのでしょう。はっきり言ってこういう仕組みは普段テストを書く習慣が無い人のためにあるんじゃないの？って気もしますが、世の流れには逆らえずFlutter製の<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">アプリ（マンカラナッツ）</a>でも対応することにしました。</p>
+
+<h3 id="パッケージの依存状況を調べる">パッケージの依存状況を調べる</h3>
+<p>　<code class="language-plaintext highlighter-rouge">flutter pub outdated --mode=null-safety</code>と打てば、使用しているパッケージがNull Safety対応済みかどうか分かります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ flutter pub outdated --mode=null-safety
+Showing dependencies that are currently not opted in to null-safety.
+[✗] indicates versions without null safety support.
+[✓] indicates versions opting in to null safety.
+
+Package Name               Current  Upgradable  Resolvable  Latest
+
+direct dependencies:
+flutter_google_ad_manager  ✗0.11.1  ✗0.11.1     ✗0.11.1     ✗0.11.1
+
+dev_dependencies: all support null safety.
+You are already using the newest resolvable versions listed in the 'Resolvable' column.
+Newer versions, listed in 'Latest', may not be mutually compatible.
+
+</code></pre></div></div>
+
+<p>　以前にも少し作業したので、<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">マンカラナッツ</a>の場合はNull Safetyに対応していないのは<code class="language-plaintext highlighter-rouge">flutter_google_ad_manager</code>だけです。というかこのパッケージ（<code class="language-plaintext highlighter-rouge">flutter_google_ad_manager</code>）が対応されるのを待っていた状態でした。対応作業する前は<a href="/software/2020-10-01/flutter_plugin">自分で作ったパッケージ（karah_think.so）</a>もこのリストに表示されていたのですが、既に修正したので、今回は<code class="language-plaintext highlighter-rouge">flutter_google_ad_manager</code>の代わりに<a href="https://pub.dev/packages/admob_flutter/versions/2.0.0-nullsafety.1"><code class="language-plaintext highlighter-rouge">admob_flutter</code></a>を使うことで対応しました。作業内容は<a href="https://pub.dev/packages/admob_flutter/versions/2.0.0-nullsafety.1/example">使用例</a>に書かれているので簡単でした。</p>
+
+<h3 id="コードの修正">コードの修正</h3>
+<p>　以前にNull Safety対応作業した時には既にFlutter2.0だったのですが、今回<code class="language-plaintext highlighter-rouge">Flutter upgrade</code>してから作業するといくつか追加の作業が必要でした。以前<code class="language-plaintext highlighter-rouge">flutter_google_ad_manager</code>部分をコメントにしてビルドした時には既に<code class="language-plaintext highlighter-rouge">Sound Null Safety</code>と表示されていたのですが、Flutter自体が完全にNull Safetyになっていなかったのでしょうか？今回AndroidStudioのバージョンアップ（<code class="language-plaintext highlighter-rouge">4.2.2</code>）もしたので、それも関係あるのかも知れませんがよく分かりません。</p>
+
+<p>　今回の環境は以下の通りです。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ flutter --version
+Flutter 2.2.3 • channel stable • https://github.com/flutter/flutter
+Framework • revision f4abaa0735 (8 days ago) • 2021-07-01 12:46:11 -0700
+Engine • revision 241c87ad80
+Tools • Dart 2.13.4
+</code></pre></div></div>
+
+<h3 id="修正例">修正例</h3>
+<p>　修正前</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  GlobalKey _keyBoard = GlobalKey();
+  RenderBox _box;
+
+    if (_box == null)
+      WidgetsBinding.instance.addPostFrameCallback((_afterLayout){
+        setState(() {
+          _box = _keyBoard.currentContext.findRenderObject();
+        });
+      });
+
+</code></pre></div></div>
+
+<p>　修正後</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  final GlobalKey _keyBoard = GlobalKey();
+  late RenderBox _box;
+
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      setState(() {
+        _box = _keyBoard.currentContext!.findRenderObject() as RenderBox;
+      });
+    });
+</code></pre></div></div>
+
+<p>　遅延初期化のための<code class="language-plaintext highlighter-rouge">late</code>キーワードが使えるようになったのはDart2.12からだそうです。また、<code class="language-plaintext highlighter-rouge">as</code>を使って明確に型を指定しないとビルド出来なくなっていました。C++のように型にうるさくなっていくのでしょう。</p>
+
+<h3 id="修正後">修正後</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ flutter pub outdated --mode=null-safety
+Showing dependencies that are currently not opted in to null-safety.
+[✗] indicates versions without null safety support.
+[✓] indicates versions opting in to null safety.
+
+All your dependencies declare support for null-safety.
+</code></pre></div></div>
+
+<p>　AdMob用のパッケージを<a href="https://pub.dev/packages/admob_flutter/versions/2.0.0-nullsafety.1"><code class="language-plaintext highlighter-rouge">admob_flutter</code></a>に変えたことで、Null Safety非対応のプラグインはなくなりました。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ flutter build apk --release
+
+💪 Building with sound null safety 💪
+
+Picked up _JAVA_OPTIONS: -Djava.net.preferIPv6Addresses=true
+Running Gradle task 'assembleRelease'...
+Running Gradle task 'assembleRelease'... Done                     121.0s
+✓  Built build/app/outputs/flutter-apk/app-release.apk (60.1MB).
+
+</code></pre></div></div>
+
+<p>　ビルド時に<img class="emoji" title=":muscle:" alt=":muscle:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4aa.png" height="20" width="20">絵文字が出て、<code class="language-plaintext highlighter-rouge">Sound Null Safety</code>と表示されます。<br>
+　目出度く<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">マンカラナッツ</a>はVersion1.2.2から<code class="language-plaintext highlighter-rouge">Null Safety</code>になりました。</p>
+
+<div>
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- display01 -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9018029357773039" data-ad-slot="3925247388" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+<hr>
+
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <small>© rifyll theme, 2014</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+</body>
+
+</html>

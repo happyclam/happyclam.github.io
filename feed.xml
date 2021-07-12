@@ -5,9 +5,136 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 30 Jun 2021 08:42:17 +0900</pubDate>
-    <lastBuildDate>Wed, 30 Jun 2021 08:42:17 +0900</lastBuildDate>
+    <pubDate>Mon, 12 Jul 2021 12:56:07 +0900</pubDate>
+    <lastBuildDate>Mon, 12 Jul 2021 12:56:07 +0900</lastBuildDate>
     <generator>Jekyll v3.9.1</generator>
+    
+      <item>
+        <title>FlutterアプリのNull Safety対応</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://taimienphi.vn/download-mancala-nuts-90337&quot;&gt;&lt;img src=&quot;/images/tmp2.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;https://www.amazon.co.jp/happyclam-マンカラ-ナッツ/dp/B08D8QVVQY/ref=sr_1_2&quot;&gt;&lt;img src=&quot;/images/amazon-appstore-badge-jp-white.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
+&lt;br /&gt;&lt;a href=&quot;https://taimienphi.vn&quot; title=&quot;download&quot;&gt;taimienphi.vn&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;はっきり言って面倒臭い&quot;&gt;はっきり言って面倒臭い&lt;/h3&gt;
+&lt;p&gt;　プログラミングの際にオブジェクトを代入する変数を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;null&lt;/code&gt;で初期化して、その変数が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;null&lt;/code&gt;かどうかで条件分岐する、なんてコードをよく書いていたので、また面倒なことが増えたって気がしますが、実行時のNull Pointer Exceptionを避ける意味はあるのでしょう。はっきり言ってこういう仕組みは普段テストを書く習慣が無い人のためにあるんじゃないの？って気もしますが、世の流れには逆らえずFlutter製の&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ（マンカラナッツ）&lt;/a&gt;でも対応することにしました。&lt;/p&gt;
+
+&lt;h3 id=&quot;パッケージの依存状況を調べる&quot;&gt;パッケージの依存状況を調べる&lt;/h3&gt;
+&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flutter pub outdated --mode=null-safety&lt;/code&gt;と打てば、使用しているパッケージがNull Safety対応済みかどうか分かります。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ flutter pub outdated --mode=null-safety
+Showing dependencies that are currently not opted in to null-safety.
+[✗] indicates versions without null safety support.
+[✓] indicates versions opting in to null safety.
+
+Package Name               Current  Upgradable  Resolvable  Latest
+
+direct dependencies:
+flutter_google_ad_manager  ✗0.11.1  ✗0.11.1     ✗0.11.1     ✗0.11.1
+
+dev_dependencies: all support null safety.
+You are already using the newest resolvable versions listed in the 'Resolvable' column.
+Newer versions, listed in 'Latest', may not be mutually compatible.
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　以前にも少し作業したので、&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラナッツ&lt;/a&gt;の場合はNull Safetyに対応していないのは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flutter_google_ad_manager&lt;/code&gt;だけです。というかこのパッケージ（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flutter_google_ad_manager&lt;/code&gt;）が対応されるのを待っていた状態でした。対応作業する前は&lt;a href=&quot;/software/2020-10-01/flutter_plugin&quot;&gt;自分で作ったパッケージ（karah_think.so）&lt;/a&gt;もこのリストに表示されていたのですが、既に修正したので、今回は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flutter_google_ad_manager&lt;/code&gt;の代わりに&lt;a href=&quot;https://pub.dev/packages/admob_flutter/versions/2.0.0-nullsafety.1&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;admob_flutter&lt;/code&gt;&lt;/a&gt;を使うことで対応しました。作業内容は&lt;a href=&quot;https://pub.dev/packages/admob_flutter/versions/2.0.0-nullsafety.1/example&quot;&gt;使用例&lt;/a&gt;に書かれているので簡単でした。&lt;/p&gt;
+
+&lt;h3 id=&quot;コードの修正&quot;&gt;コードの修正&lt;/h3&gt;
+&lt;p&gt;　以前にNull Safety対応作業した時には既にFlutter2.0だったのですが、今回&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flutter upgrade&lt;/code&gt;してから作業するといくつか追加の作業が必要でした。以前&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flutter_google_ad_manager&lt;/code&gt;部分をコメントにしてビルドした時には既に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Sound Null Safety&lt;/code&gt;と表示されていたのですが、Flutter自体が完全にNull Safetyになっていなかったのでしょうか？今回AndroidStudioのバージョンアップ（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4.2.2&lt;/code&gt;）もしたので、それも関係あるのかも知れませんがよく分かりません。&lt;/p&gt;
+
+&lt;p&gt;　今回の環境は以下の通りです。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ flutter --version
+Flutter 2.2.3 • channel stable • https://github.com/flutter/flutter
+Framework • revision f4abaa0735 (8 days ago) • 2021-07-01 12:46:11 -0700
+Engine • revision 241c87ad80
+Tools • Dart 2.13.4
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;修正例&quot;&gt;修正例&lt;/h3&gt;
+&lt;p&gt;　修正前&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  GlobalKey _keyBoard = GlobalKey();
+  RenderBox _box;
+
+    if (_box == null)
+      WidgetsBinding.instance.addPostFrameCallback((_afterLayout){
+        setState(() {
+          _box = _keyBoard.currentContext.findRenderObject();
+        });
+      });
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　修正後&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  final GlobalKey _keyBoard = GlobalKey();
+  late RenderBox _box;
+
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      setState(() {
+        _box = _keyBoard.currentContext!.findRenderObject() as RenderBox;
+      });
+    });
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　遅延初期化のための&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;late&lt;/code&gt;キーワードが使えるようになったのはDart2.12からだそうです。また、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;as&lt;/code&gt;を使って明確に型を指定しないとビルド出来なくなっていました。C++のように型にうるさくなっていくのでしょう。&lt;/p&gt;
+
+&lt;h3 id=&quot;修正後&quot;&gt;修正後&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ flutter pub outdated --mode=null-safety
+Showing dependencies that are currently not opted in to null-safety.
+[✗] indicates versions without null safety support.
+[✓] indicates versions opting in to null safety.
+
+All your dependencies declare support for null-safety.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　AdMob用のパッケージを&lt;a href=&quot;https://pub.dev/packages/admob_flutter/versions/2.0.0-nullsafety.1&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;admob_flutter&lt;/code&gt;&lt;/a&gt;に変えたことで、Null Safety非対応のプラグインはなくなりました。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ flutter build apk --release
+
+💪 Building with sound null safety 💪
+
+Picked up _JAVA_OPTIONS: -Djava.net.preferIPv6Addresses=true
+Running Gradle task 'assembleRelease'...
+Running Gradle task 'assembleRelease'... Done                     121.0s
+✓  Built build/app/outputs/flutter-apk/app-release.apk (60.1MB).
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　ビルド時に:muscle:絵文字が出て、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Sound Null Safety&lt;/code&gt;と表示されます。&lt;br /&gt;
+　目出度く&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラナッツ&lt;/a&gt;はVersion1.2.2から&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Null Safety&lt;/code&gt;になりました。&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+</description>
+        <pubDate>Sat, 10 Jul 2021 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/software/2021-07-10/null_safety</link>
+        <guid isPermaLink="true">https://happyclam.github.io/software/2021-07-10/null_safety</guid>
+        
+        <category>mancala</category>
+        
+        <category>dart</category>
+        
+        <category>android</category>
+        
+        <category>flutter</category>
+        
+        
+        <category>software</category>
+        
+      </item>
     
       <item>
         <title>HerokuのDBを削除＆再構築</title>
@@ -937,7 +1064,7 @@ $ ./mancala.out
         <title>マンカラアプリについて</title>
         <description>&lt;p&gt;&lt;a href=&quot;https://taimienphi.vn/download-mancala-nuts-90337&quot;&gt;&lt;img src=&quot;/images/tmp2.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
 &lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
-&lt;a href=&quot;https://www.amazon.co.jp/happyclam-マンカラ-ナッツ/dp/B08D8QVVQY/ref=sr_1_10?__mk_ja_JP=カタカナ&amp;amp;dchild=1&amp;amp;keywords=マンカラ&amp;amp;qid=1595382601&amp;amp;s=mobile-apps&amp;amp;sr=1-10&quot;&gt;&lt;img src=&quot;/images/amazon-appstore-badge-jp-white.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;https://www.amazon.co.jp/happyclam-マンカラ-ナッツ/dp/B08D8QVVQY/ref=sr_1_2&quot;&gt;&lt;img src=&quot;/images/amazon-appstore-badge-jp-white.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
 &lt;br /&gt;&lt;a href=&quot;https://taimienphi.vn&quot; title=&quot;download&quot;&gt;taimienphi.vn&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;マンカラ-ナッツについて&quot;&gt;「マンカラ ナッツ」について&lt;/h3&gt;
@@ -1124,7 +1251,7 @@ $ ./mancala.out
       <item>
         <title>マンカラの必勝手順の有無（続編）</title>
         <description>&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
-&lt;a href=&quot;https://www.amazon.co.jp/happyclam-マンカラ-ナッツ/dp/B08D8QVVQY/ref=sr_1_10?__mk_ja_JP=カタカナ&amp;amp;dchild=1&amp;amp;keywords=マンカラ&amp;amp;qid=1595382601&amp;amp;s=mobile-apps&amp;amp;sr=1-10&quot;&gt;&lt;img src=&quot;/images/amazon-appstore-badge-jp-white.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;https://www.amazon.co.jp/happyclam-マンカラ-ナッツ/dp/B08D8QVVQY/ref=sr_1_2&quot;&gt;&lt;img src=&quot;/images/amazon-appstore-badge-jp-white.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;結構アクセスがあったので続編&quot;&gt;結構アクセスがあったので続編&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;前回の記事&lt;/a&gt;が意外に多くのアクセスがあった&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;ので続編を書いてみます。おそらく&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;前回の記事&lt;/a&gt;にアクセスした人はプログラムにはあまり関心はないけど、マンカラの攻略法・勝ち方・必勝手順を知りたくてアクセスした人が多いのだと思いますが、それを知るには&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;前回の記事&lt;/a&gt;の最後に追記したように非常に時間がかかるので、いつかまとめて最も遊ばれていると思われる６×２列のカラハに関してだけ別の記事で書こうと思ってます。時間かけて先読みした結果、結局５０手読みでは結論出なかったという可能性もあります。&lt;br /&gt;
@@ -1739,7 +1866,7 @@ result = second.think(board, first, 50, SECOND_WIN);
       <item>
         <title>マンカラは先手必勝？後手必勝？</title>
         <description>&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
-&lt;a href=&quot;https://www.amazon.co.jp/happyclam-マンカラ-ナッツ/dp/B08D8QVVQY/ref=sr_1_10?__mk_ja_JP=カタカナ&amp;amp;dchild=1&amp;amp;keywords=マンカラ&amp;amp;qid=1595382601&amp;amp;s=mobile-apps&amp;amp;sr=1-10&quot;&gt;&lt;img src=&quot;/images/amazon-appstore-badge-jp-white.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;https://www.amazon.co.jp/happyclam-マンカラ-ナッツ/dp/B08D8QVVQY/ref=sr_1_2&quot;&gt;&lt;img src=&quot;/images/amazon-appstore-badge-jp-white.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;最古のボードゲームらしい&quot;&gt;最古のボードゲームらしい&lt;/h3&gt;
 &lt;p&gt;　世界最古のボードゲームらしいのですが、存在自体知りませんでした。早速アプリをダウンロードして遊んでみたところ、何回か遊んでいるうちに勝つためのコツというのが少しずつ見えてきて楽しめましたが、それよりもこの単純なルールならすぐに人間に負けないＡＩが作れるんじゃないか？と思い試してみることにしました。&lt;/p&gt;
@@ -2786,116 +2913,6 @@ result = [4, 5], depth = 16
         
         
         <category>software</category>
-        
-      </item>
-    
-      <item>
-        <title>同じ規格でもタイヤの高さは違うことがある</title>
-        <description>&lt;h3 id=&quot;新たなネタ&quot;&gt;新たなネタ&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/miscellaneous/2020-05-16/bicycle01&quot;&gt;前回&lt;/a&gt;初めて自転車ネタをブログに書いた後、淀川沿いを走ってきたら、またブログネタが降って湧いてきたので続けて自転車の話題を書いてみます。&lt;/p&gt;
-
-&lt;h3 id=&quot;ガラス片でタイヤに裂け目が&quot;&gt;ガラス片でタイヤに裂け目が&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/miscellaneous/2020-05-16/bicycle01&quot;&gt;前回の記事&lt;/a&gt;で書いた通り新しいブレーキにして試乗して家に帰ったら、タイヤに亀裂が出来て中のカーカスが飛び出していました。道中ガラス片が散らばっている場所をうっかり通ったので、その時に切れたのだと思います。&lt;/p&gt;
-
-&lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
-&lt;div style=&quot;float:left; margin: 0px 0px 0px&quot;&gt;
-&lt;a href=&quot;/images/pre_rear_fender.png&quot;&gt;&lt;img width=&quot;120&quot; height=&quot;176&quot; src=&quot;/images/pre_rear_fender.png&quot; /&gt;&lt;/a&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 5px 0px&quot;&gt;
-&lt;a href=&quot;/images/crack01.png&quot;&gt;&lt;img width=&quot;120&quot; height=&quot;213&quot; src=&quot;/images/crack01.png&quot; /&gt;&lt;/a&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;a href=&quot;/images/crack02.png&quot;&gt;&lt;img width=&quot;120&quot; height=&quot;213&quot; src=&quot;/images/crack02.png&quot; /&gt;&lt;/a&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　タイヤを外して中を確認すると、亀裂はタイヤの中までは達していなかったのですが&lt;/p&gt;
-&lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
-&lt;div&gt;
-&lt;a href=&quot;/images/crack03.png&quot;&gt;&lt;img width=&quot;160&quot; height=&quot;264&quot; src=&quot;/images/crack03.png&quot; /&gt;&lt;/a&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　せっかく外したので、ついでに新しいタイヤに変えることにしました。&lt;/p&gt;
-
-&lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
-&lt;div style=&quot;float:left; margin: 0px 20px 0px;&quot;&gt;
-&lt;a href=&quot;/images/old_tire01.png&quot;&gt;&lt;img width=&quot;160&quot; height=&quot;284&quot; src=&quot;/images/old_tire01.png&quot; alt=&quot;外したタイヤ&quot; title=&quot;外したタイヤ&quot; /&gt;&lt;/a&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;a href=&quot;/images/new_tire01.png&quot;&gt;&lt;img width=&quot;160&quot; height=&quot;284&quot; src=&quot;/images/new_tire01.png&quot; alt=&quot;新しいタイヤ&quot; title=&quot;新しいタイヤ&quot; /&gt;&lt;/a&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　上の新旧二つのタイヤは規格上同じサイズ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ETRTO 28-451&lt;/code&gt;サイズです。&lt;/p&gt;
-
-&lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
-&lt;div&gt;
-&lt;a href=&quot;/images/compare_tire.png&quot;&gt;&lt;img width=&quot;320&quot; height=&quot;180&quot; src=&quot;/images/compare_tire.png&quot; /&gt;&lt;/a&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;一晩経つとサイズが変わっていた&quot;&gt;一晩経つとサイズが変わっていた&lt;/h3&gt;
-&lt;p&gt;　タイヤを付け替えた次の日の朝に注油しようと思いタイヤを回そうとするとタイヤが回りません。何が引っかかっているのかよく確認すると、後輪ブレーキに付けていた&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1baf65b2.49d34a94.1baf65b3.a627089c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffalcon-bike%2Fpa_xmaruix_gds01100%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjB9&quot;&gt;リアフェンダー&lt;/a&gt;の金具がタイヤと接触していました。わずかに触れるという程度ではなくピッタリ密着していて指一本ではタイヤが動かせないって感じです。&lt;/p&gt;
-
-&lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
-&lt;a href=&quot;/images/rear_fender.png&quot;&gt;&lt;img width=&quot;160&quot; height=&quot;90&quot; src=&quot;/images/rear_fender.png&quot; /&gt;&lt;/a&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　金具の厚みは3mm程でしょうか。タイヤを付け替えた時は気がつかなかったのですが、一晩で膨らんで高さが変わったことになります。こんなことってあるんですねぇ:sweat_smile:&lt;br /&gt;
-　これだけ変わるとタイヤ周長もかなり変わりそうです。&lt;/p&gt;
-&lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
-&lt;div&gt;
-&lt;a href=&quot;/images/no_fender.png&quot;&gt;&lt;img width=&quot;320&quot; height=&quot;569&quot; src=&quot;/images/no_fender.png&quot; /&gt;&lt;/a&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　仕方がないのでリアフェンダーを取り外して乗ることにしましたが、確かにブレーキと後輪の隙間はほとんどなく、リアフェンダー用の金具を取り付ける隙間は無くなっています。&lt;/p&gt;
-
-&lt;h3 id=&quot;同じ規格のタイヤでも高さと周長は変わる&quot;&gt;同じ規格のタイヤでも高さ（と周長）は変わる&lt;/h3&gt;
-&lt;p&gt;　今ではシュワルベワン（SCHWALBE ONE）に製品ラインアップが変わって入手出来ないのですが、外したタイヤ（シュワルベ デュラノ 20×1*1/8(451) BK DURANO）と&lt;a href=&quot;https://www.amazon.co.jp/SCHWALBE-%E3%82%B7%E3%83%A5%E3%83%AF%E3%83%AB%E3%83%99-%E3%80%90%E6%AD%A3%E8%A6%8F%E5%93%81%E3%80%91%E3%83%87%E3%83%A5%E3%83%A9%E3%83%8E-%E3%82%AF%E3%83%AA%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC%E3%82%BF%E3%82%A4%E3%83%A4-%E3%80%90%E3%83%AD%E3%83%BC%E3%83%89%E3%83%BB%E5%B0%8F%E5%BE%84%E8%BB%8A%E3%83%BB%E3%83%9F%E3%83%8B%E3%83%99%E3%83%AD%E3%80%91/dp/B00MJO6XUG&quot;&gt;新しいタイヤ&lt;/a&gt;はどちらも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ETRTO 28-451&lt;/code&gt;規格ですが、タイヤの高さは製品によって違うってことですね。&lt;br /&gt;
-　でもこれってどう考えればいいのでしょう？タイヤが伸び易い素材に変わった？品質が落ちて薄っぺらいタイヤになったから伸びた？でも空気圧の規定は同じ85psi~115psiなので品質の違いではなく、おそらく型番が変わってタイヤそのものの面積が大きくなったのだと思います。新しく装着したタイヤを外してビードから反対側のビードのまでの長さを測れば判ると思うのですが、面倒なので止めておきます。&lt;br /&gt;
-　とにかく今までより空気を入れた状態でのタイヤの高さが大きくなったということは、空気圧も同じだから中の空気量は増えているはずです (ホイールは変えてませんし) 。空気量が変われば乗り心地も変わることが多いですが、はっきりとは分かりませんでした。言われてみれば幾分滑らかになったかなぁという気がします。&lt;/p&gt;
-
-&lt;h3 id=&quot;大きなタイヤは乗り心地が滑らか&quot;&gt;大きなタイヤは乗り心地が滑らか&lt;/h3&gt;
-&lt;p&gt;　以前&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ETRTO 23-451&lt;/code&gt;から&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ETRTO 28-451&lt;/code&gt;に変えた時は、はっきり乗り心地が変わりました。&lt;/p&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/kenda_23c.png&quot;&gt;&lt;img src=&quot;/images/kenda_23c.png&quot; alt=&quot;KENDA23CとSCHWALBE28C&quot; width=&quot;320&quot; height=&quot;427&quot; title=&quot;KENDA23CとSCHWALBE28C&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　左がバイク（IDIOM2）購入時に元から付いていた23Cのタイヤで、右が今回裂けて取り外した28Cのタイヤの装着当時の写真です。これだけタイヤ幅が違う（＝空気量が違う）とお尻や腕への振動の伝わり方が全然違って、乗っていて楽ですしペダルを踏んでいない時のタイヤの転がりもスムースに感じました。一般的に細いタイヤの方がスピードが出ると言われていますが、レースに出るつもりなんて無い自分には断然28Cの方が快適でした。&lt;br /&gt;
-　と言いながらも持っているロードバイクの方は今でも23Cを付けているのですが、次は25Cか28Cにしようと思っています。世間的にも太めのタイヤが見直されているようです。&lt;/p&gt;
-
-&lt;h3 id=&quot;追記&quot;&gt;追記&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1bc8f4a0.6e824d6a.1bc8f4a1.d36f627c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fa-price%2F4589946139044%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjB9&quot;&gt;DOPPELGANGER(ドッペルギャンガー) 超大容量サドルバッグ&lt;/a&gt;を買いました。これ普段は&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/1baf65b2.49d34a94.1baf65b3.a627089c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffalcon-bike%2Fpa_xmaruix_gds01100%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjB9&quot;&gt;リアフェンダー&lt;/a&gt;の代わりになりますし、出かけた帰り道に食料品などを買って帰ることが出来るので重宝します。細長いので荷物の入れ方に工夫が必要ですが、１７リットルの容量なので結構な量を格納できます。&lt;/p&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/saddle_bag.png&quot;&gt;&lt;img src=&quot;/images/saddle_bag.png&quot; alt=&quot;サドルバッグ&quot; width=&quot;320&quot; height=&quot;180&quot; title=&quot;サドルバッグ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-</description>
-        <pubDate>Thu, 21 May 2020 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/miscellaneous/2020-05-21/bicycle02</link>
-        <guid isPermaLink="true">https://happyclam.github.io/miscellaneous/2020-05-21/bicycle02</guid>
-        
-        <category>bicycle</category>
-        
-        
-        <category>miscellaneous</category>
         
       </item>
     
