@@ -438,6 +438,10 @@ console.log "経過時間: #{elapsed}ミリ秒"
 <h3 id="余談">余談</h3>
 <p>　自分のブログは「BFS DFS 違い」とか「BFS 用途」とかの検索ワードで来訪される人が偶にいるのですが、対戦ゲームに使用するとすればBFS（幅優先探索）の使い途は定跡データや学習データの格納・検索、DFS（深さ優先探索）の使い途は局面の先読み（MIN-MAX法を使った有利不利判定）ってことになるんじゃないでしょうか。<a href="https://play.google.com/store/apps/details?id=io.github.happyclam">進化する三目並べ</a>でも学習データの保存・検索にBFSを使用しています。</p>
 
+<h3 id="githubにソース公開20210715">githubにソース公開（2021−07−15）</h3>
+<p>　既に公開している<a href="https://github.com/happyclam/shogi33simple">３三将棋のソース</a>を使えば記事で紹介しているプログラムを試せるのですが、若干の修正が必要になるので、githubに<a href="https://github.com/happyclam/shogi_puzzle">将棋パズル専用のリポジトリ</a>を作って纏めて公開しました。<code class="language-plaintext highlighter-rouge">git clone</code>すればすぐにプログラムを試すことが出来ます。記事で触れている６０手の長手数問題もコメント化して載せています。<br>
+　<a href="https://play.google.com/store/apps/details?id=jp.co.roue.spz&amp;hl=ja">結将棋アプリ</a>の<code class="language-plaintext highlighter-rouge">全国ランキング問題</code>を解かせてみたところ全問正解しました（ランキング１位を取れました）のでバグは今のところ無いと思います。<a href="https://play.google.com/store/apps/details?id=jp.co.roue.spz&amp;hl=ja">結将棋アプリ</a>の全国ランキング問題（正解手順はすべて４０手以下）を解かせてみて分かったのですが、問題を解くのに必要な時間が６０手の長手数問題よりかなり長くなるものがあります。正解を得たところで終了せずに全局面を読んでいる所為もありますが、BFSでは<code class="language-plaintext highlighter-rouge">読む深さ</code>よりも<code class="language-plaintext highlighter-rouge">読む幅</code>の多い問題ほど解くのに時間が掛かるということでしょう。</p>
+
 <div>
     <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- display01 -->
