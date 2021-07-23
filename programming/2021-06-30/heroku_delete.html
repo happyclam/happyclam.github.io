@@ -256,6 +256,73 @@ Add-on:                postgresql-opaque-46906
 　以前<a href="https://github.com/happyclam/tictactoe-cf/wiki">HerokuでNode.jsとMongoDBを使って運用していたアプリ</a>があったのですが、突然Herokuから「MongoDBアドオンを削除します（The mLab MongoDB add-on will be removed from all Heroku apps on November 10, 2020. ） 」と通知が来て、取り急ぎやむなくアプリを非公開にした（どうせユーザーも殆どいなかったし）ことがあったのですが、ちゃんと調べれば代替手段はあったようで、今検索してみると<a href="https://qiita.com/nobu17/items/ca9ae3d60dc837ca0de0">こんな記事</a>がありました。<br>
 　対応はそれなりに面倒そうですが、そもそもMongoDBアドオンが使えなくなったのはHerokuの都合ではないので仕方がないって感じですね。</p>
 
+<h3 id="追記2021-07-22">追記（2021-07-22）</h3>
+<p>　二週間ぐらい経ったある日また同じような文面の警告メールをHerokuから受け取りました。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ heroku pg:info --app kwl-books
+=== DATABASE_URL
+Plan:                  Hobby-dev
+Status:                Available
+Connections:           1/20
+PG Version:            11.12
+Created:               2016-03-28 10:18 UTC
+Data Size:             21.6 MB
+Tables:                3
+Rows:                  7440/10000 (In compliance, close to row limit)
+Fork/Follow:           Unsupported
+Rollback:              Unsupported
+Continuous Protection: Off
+Add-on:                postgresql-opaque-46906
+</code></pre></div></div>
+
+<p>　<code class="language-plaintext highlighter-rouge">Rows: 7440/10000</code>となっていて、消したはずのレコードが復活しているようです？？？<br>
+　何が起きたのかよく分かりませんが、もう一度<code class="language-plaintext highlighter-rouge">heroku pg:reset DATABASE --confirm kwl-books</code>と<code class="language-plaintext highlighter-rouge">heroku run rake db:migrate:reset</code>を実行した後、<a href="https://devcenter.heroku.com/ja/articles/managing-vacuum-on-heroku-postgres">「Heroku Postgres での VACUUM の管理」</a>に書かれている通り<code class="language-plaintext highlighter-rouge">VACUUM</code>してみました。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$heroku pg:bloat DATABASE_URL --app kwl-books
+:
+:省略
+:
+$heroku pg:vacuum_stats DATABASE_URL --app kwl-books
+$heroku pg:psql
+kwl-books::DATABASE=&gt; VACUUM;
+WARNING:  skipping "pg_authid" --- only superuser can vacuum it
+WARNING:  skipping "pg_subscription" --- only superuser can vacuum it
+WARNING:  skipping "pg_database" --- only superuser can vacuum it
+WARNING:  skipping "pg_db_role_setting" --- only superuser can vacuum it
+WARNING:  skipping "pg_tablespace" --- only superuser can vacuum it
+WARNING:  skipping "pg_pltemplate" --- only superuser can vacuum it
+WARNING:  skipping "pg_auth_members" --- only superuser can vacuum it
+WARNING:  skipping "pg_shdepend" --- only superuser can vacuum it
+WARNING:  skipping "pg_shdescription" --- only superuser can vacuum it
+WARNING:  skipping "pg_replication_origin" --- only superuser can vacuum it
+WARNING:  skipping "pg_shseclabel" --- only superuser can vacuum it
+VACUUM
+kwl-books::DATABASE=&gt; VACUUM genres;
+VACUUM
+kwl-books::DATABASE=&gt; VACUUM books;
+VACUUM
+kwl-books::DATABASE=&gt; exit
+
+$ heroku pg:info --app kwl-books
+=== DATABASE_URL
+Plan:                  Hobby-dev
+Status:                Available
+Connections:           1/20
+PG Version:            11.12
+Created:               2016-03-28 10:18 UTC
+Data Size:             8.4 MB
+Tables:                3
+Rows:                  64/10000 (In compliance)
+Fork/Follow:           Unsupported
+Rollback:              Unsupported
+Continuous Protection: Off
+Add-on:                postgresql-opaque-46906
+
+</code></pre></div></div>
+
+<p>　動作確認後<code class="language-plaintext highlighter-rouge">Rows: 64/10000</code>となっていて、<a href="https://kwl-books.herokuapp.com">サイト</a>も問題なく動作しているようです。<br>
+　消したはずのデータがなぜ復活したのか分かりませんし、データの中身までチェックした訳ではないのですが、今度は大丈夫だろうと思います。</p>
+
 <div>
     <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- display01 -->
