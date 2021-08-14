@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 25 Jul 2021 19:34:38 +0900</pubDate>
-    <lastBuildDate>Sun, 25 Jul 2021 19:34:38 +0900</lastBuildDate>
+    <pubDate>Sat, 14 Aug 2021 16:46:12 +0900</pubDate>
+    <lastBuildDate>Sat, 14 Aug 2021 16:46:12 +0900</lastBuildDate>
     <generator>Jekyll v3.9.1</generator>
     
       <item>
@@ -289,7 +289,8 @@ Add-on:                postgresql-opaque-46906
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;　動作確認後&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rows: 64/10000&lt;/code&gt;となっていて、&lt;a href=&quot;https://kwl-books.herokuapp.com&quot;&gt;サイト&lt;/a&gt;も問題なく動作しているようです。&lt;br /&gt;
-　消したはずのデータがなぜ復活したのか分かりませんし、データの中身までチェックした訳ではないのですが、今度は大丈夫だろうと思います。&lt;/p&gt;
+　消したはずのデータがなぜ復活したのか分かりませんし、データの中身までチェックした訳ではないのですが、&lt;del&gt;今度は大丈夫だろうと思います。&lt;/del&gt;&lt;br /&gt;
+　また二週間ほどしたら同様のメールが来てデータも復活してました。よく分からないので当面メンテナンスモードをonにすることにしました。&lt;/p&gt;
 
 &lt;div&gt;
     &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
