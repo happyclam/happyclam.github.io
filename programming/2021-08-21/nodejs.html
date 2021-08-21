@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="author" content="happyclam">
+  <meta name="description"
+    content="５五将棋アプリのオンライン対戦機能？ Node.jsの運用環境はどうする？取り敢えず動作確認は無料で試したい Reinventing the wheel.">
+  <title> ５五将棋アプリのオンライン対戦機能？ - 自己満足プログラミング </title>
+
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-1752720-7');
+  </script>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="５五将棋アプリのオンライン対戦機能？">
+  
+  
+  <meta name="twitter:url" content="/programming/2021-08-21/nodejs">
+  
+  
+  <meta name="twitter:description" content="将棋のオンライン対戦機能、WebAPIだけでは大変そうだけどWebSocket(socket.io)使えば簡単かも。">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/55shogi_logo.png">
+  
+
+  <link rel="canonical" href="https://happyclam.github.io/programming/2021-08-21/nodejs" />
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="site-title" class="navbar-brand" href="/">
+          <img class="pull-left img-responsive" src="">
+          <span class="name-holder">自己満足プログラミング</span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li><a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li><a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li><a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li><a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li><a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <!-- <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script> -->
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <div style="text-align: center;">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-9018029357773039",
+          enable_page_level_ads: true
+      });
+    </script>
+  </div>
+  <div class="blog-header">
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+      <div class="span9">
+        <!-- Html Elements for Search -->
+        <div id="search-container" align="right">
+          <input type="text" id="search-input" placeholder="search...">
+          <ul class="searchresult" id="results-container"></ul>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+  <script src="/assets/js/jquery.min.js"></script>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
+
+        <header class="page-header">
+          <h2 class="page-title"><a href="/programming/2021-08-21/nodejs">５五将棋アプリのオンライン対戦機能？</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Saturday, August 21, 2021
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">javascript</span>
+                
+                  <span class="label label-tag">android</span>
+                
+                  <span class="label label-tag">cordova</span>
+                
+                  <span class="label label-tag">shogi</span>
+                
+                  <span class="label label-tag">heroku</span>
+                
+                  <span class="label label-tag">node</span>
+                
+                  <span class="label label-tag">MongoDB</span>
+                
+            </div>
+          </div>
+
+        </header>
+
+        <article class="page-content">
+          <h3 id="リリースするかは未定だけど">リリースするかは未定だけど</h3>
+<p>　以前から将棋関連アプリのオンライン対戦機能を作ってみようかと、FirebaseのCloud FunctionsをJavaScriptで使ってみたりしていたのですが、従量制なので実際運用し始めたらどれぐらいの費用が掛かるのか分からないので、なかなか本気になれませんでした。開発することを考えるとオンライン対戦機能をどのように実現するかという問題の方が先ですが、運用コストを考えるといろいろ迷います。そこで定額制で運用することを考えると自分の場合はRailsかNode.jsかな〜と思い、取り敢えずNode.jsで着手してみました。</p>
+
+<h3 id="結局herokuで試すことに">結局Herokuで試すことに</h3>
+<p>　ローカル環境である程度作ったところでリモートサーバーで試してみたいと思って、定額制でNode.jsの運用先を探したところ<a href="https://paiza.cloud/ja/">Paiza Cloud</a>というのを見つけたのですが、ここは無料プランやライトプランではサービスを公開出来ないようです。<br />
+　<a href="/programming/2021-06-30/heroku_delete">以前の記事</a>で<a href="/programming/2015-04-25/mongo_upsert">Node.jsを使ったアプリ</a>を、MongoDBのアドオンが使えなくなったために仕方なく非公開にしたことを書きましたが、そんなことがあったのでもうHerokuでMongoDBを使うのは止めようと思っていたのですが、無料でリモート環境で試せるHerokuはやはり魅力的です。実際にリリースするかどうかも決めてないので尚更です。</p>
+
+<h3 id="mongodb-atlasを使う">MongoDB Atlasを使う</h3>
+<p>　HerokuでMongoDBのアドオン（mLabアドオン）が使えなくなったので、代替方法であるMongoDB Atlasを使うと料金が発生するかもと心配しましたが、Atlasの方は新たなアカウントを作らずにgoogleアカウントでログインするだけでデータベース一つだけなら無料で使えるらしいです。<a href="https://qiita.com/Molly95554907/items/43b89c8eec475e9f1ed8">こちらの記事</a>の通りにすれば、簡単に環境が作れました。</p>
+
+<h3 id="heroku本番で使うかどうかは未定で動作確認">Heroku（本番で使うかどうかは未定）で動作確認</h3>
+<p>　ブラウザを２つ立ち上げて２台のスマホ端末に見立てて動作確認してみました。</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/y1_h8-bk1TI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>　ちゃんと動いて一安心です。</p>
+
+<h3 id="全体の３割ぐらい完成か">全体の３割ぐらい完成か？</h3>
+<p>　自分の将棋関連アプリの中から<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>を選んでここまで作りましたが、今になって５五将棋は既に<a href="http://sdin.jp/browser/board/55shogi/">SDINサイト</a>でオンライン対戦が可能なので、他のアプリ（例えば禽将棋アプリ）にした方がよかったかも？なんて考えてます。まぁ他のアプリでも使えるように考えながらサーバーサイドを作っているつもりですが、最終的にどうするかは決めてません。<br />
+　あと、<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>は初期配置をユーザーが自由に編集可能なので、対戦申し込みする時に初期配置を相手に表示して「この初期配置だけど、いいですか？」という意志を確認するために対戦申し込みする側の初期配置を相手側に通知する機能の実装が面倒だったのですが、開発時の苦労話や技術的なTipsみたいな物も今後記事にするかも知れません。</p>
+
+<div>
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- display01 -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9018029357773039" data-ad-slot="3925247388" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+<hr />
+
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <small>&copy; rifyll theme, 2014</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+</body>
+
+</html>
