@@ -190,6 +190,72 @@
 <p>　自分の将棋関連アプリの中から<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>を選んでここまで作りましたが、今になって５五将棋は既に<a href="http://sdin.jp/browser/board/55shogi/">SDINサイト</a>でオンライン対戦が可能なので、他のアプリ（例えば禽将棋アプリ）にした方がよかったかも？なんて考えてます。まぁ他のアプリでも使えるように考えながらサーバーサイドを作っているつもりですが、最終的にどうするかは決めてません。<br />
 　あと、<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>は初期配置をユーザーが自由に編集可能なので、対戦申し込みする時に初期配置を相手に表示して「この初期配置だけど、いいですか？」という意志を確認するために対戦申し込みする側の初期配置を相手側に通知する機能の実装が面倒だったのですが、開発時の苦労話や技術的なTipsみたいな物も今後記事にするかも知れません。</p>
 
+<h3 id="mongodbnosqlとrdbとの違い">MongoDB（NoSQL）とRDBとの違い</h3>
+<p>　例えば棋譜テーブルは以下のように定義しています。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var kifuSchema = new Schema(
+  {
+    description: {
+      type: String
+    },
+    firstPlayer: {
+      type: String,
+      required: true
+    },
+    secondPlayer: {
+      type: String,
+      required: true
+    },
+    applicant: {
+      type: String,
+      required: true
+    },
+    koma: {
+      type: Array,
+      default: []
+    },
+    histories: {
+      type: Array,
+      default: []
+    },
+    users: [{ type: Schema.Types.ObjectId, ref: "User" }]
+  },
+  {
+    timestamps: true,
+  }
+);
+</code></pre></div></div>
+
+<p>　配列型のカラム（histories）を用意して、指し手が進む毎にスマホ端末から貰ったJSON形式の棋譜データをそのまま追加してます。このやり方なら禽将棋であろうが５五将棋であろうがテーブル構造を変える必要がありません。<br />
+　以下のコードは対局が一手進んだ時のサーバー側の処理です。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    client.on("gameMove", data =&gt; {
+      let filter = {_id: data.kifuId};
+      let update = {$push: {koma: data.koma, histories: data.record}};
+      Kifu.findOneAndUpdate(filter, update, {returnDocument: 'after'})
+        .then(kifu =&gt; {
+          return kifu;
+        })
+        .then(kifu =&gt; {
+          User.find({_id: {$in: [kifu.users[0], kifu.users[1]]}})
+            .then(users =&gt; {
+              if (users[0].socketId == client.id){
+                io.to(users[1].socketId).emit("gameMoved", kifu);
+              } else {
+                io.to(users[0].socketId).emit("gameMoved", kifu);
+              }
+            })
+        })
+        .catch(error =&gt; {
+          console.log(`Error in io.on.gameMove:${error.message}`);
+        });
+    });
+
+</code></pre></div></div>
+
+<p>　RDB（リレーショナルデータベース）だと配列型のカラムではなく別テーブルにすると思いますが、そうすると将棋の種類が変わるとテーブル構造が変わりなかなか汎用的に作れません。NoSQLデータベース（MongoDB）ではテーブルの正規化とかあまり考えずに緩く定義（冗長化）して使えるのが利点だと思います。最近のRDBでは配列型のカラムを使用することは出来るかも知れませんが（私は使ったことがありません）、今のところNode.js＋MongoDBで作ることにしてよかったなと思ってます。<br />
+　<a href="https://atmarkit.itmedia.co.jp/ait/articles/1103/25/news131_3.html">この記事</a>によると「NoSQLデータベースの設計では、正規化をしてはいけない」と言う人もいるそうです。それは極端かも知れませんが、RDBで配列型のカラムを使うぐらいならNoSQLデータベースを使う方がいいような気がします。</p>
+
 <div>
     <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- display01 -->

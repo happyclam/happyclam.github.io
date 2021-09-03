@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 01 Sep 2021 17:39:06 +0900</pubDate>
-    <lastBuildDate>Wed, 01 Sep 2021 17:39:06 +0900</lastBuildDate>
+    <pubDate>Fri, 03 Sep 2021 20:17:36 +0900</pubDate>
+    <lastBuildDate>Fri, 03 Sep 2021 20:17:36 +0900</lastBuildDate>
     <generator>Jekyll v3.9.1</generator>
     
       <item>
@@ -31,6 +31,72 @@
 &lt;h3 id=&quot;全体の３割ぐらい完成か&quot;&gt;全体の３割ぐらい完成か？&lt;/h3&gt;
 &lt;p&gt;　自分の将棋関連アプリの中から&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;を選んでここまで作りましたが、今になって５五将棋は既に&lt;a href=&quot;http://sdin.jp/browser/board/55shogi/&quot;&gt;SDINサイト&lt;/a&gt;でオンライン対戦が可能なので、他のアプリ（例えば禽将棋アプリ）にした方がよかったかも？なんて考えてます。まぁ他のアプリでも使えるように考えながらサーバーサイドを作っているつもりですが、最終的にどうするかは決めてません。&lt;br /&gt;
 　あと、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;は初期配置をユーザーが自由に編集可能なので、対戦申し込みする時に初期配置を相手に表示して「この初期配置だけど、いいですか？」という意志を確認するために対戦申し込みする側の初期配置を相手側に通知する機能の実装が面倒だったのですが、開発時の苦労話や技術的なTipsみたいな物も今後記事にするかも知れません。&lt;/p&gt;
+
+&lt;h3 id=&quot;mongodbnosqlとrdbとの違い&quot;&gt;MongoDB（NoSQL）とRDBとの違い&lt;/h3&gt;
+&lt;p&gt;　例えば棋譜テーブルは以下のように定義しています。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var kifuSchema = new Schema(
+  {
+    description: {
+      type: String
+    },
+    firstPlayer: {
+      type: String,
+      required: true
+    },
+    secondPlayer: {
+      type: String,
+      required: true
+    },
+    applicant: {
+      type: String,
+      required: true
+    },
+    koma: {
+      type: Array,
+      default: []
+    },
+    histories: {
+      type: Array,
+      default: []
+    },
+    users: [{ type: Schema.Types.ObjectId, ref: &quot;User&quot; }]
+  },
+  {
+    timestamps: true,
+  }
+);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　配列型のカラム（histories）を用意して、指し手が進む毎にスマホ端末から貰ったJSON形式の棋譜データをそのまま追加してます。このやり方なら禽将棋であろうが５五将棋であろうがテーブル構造を変える必要がありません。&lt;br /&gt;
+　以下のコードは対局が一手進んだ時のサーバー側の処理です。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    client.on(&quot;gameMove&quot;, data =&amp;gt; {
+      let filter = {_id: data.kifuId};
+      let update = {$push: {koma: data.koma, histories: data.record}};
+      Kifu.findOneAndUpdate(filter, update, {returnDocument: 'after'})
+        .then(kifu =&amp;gt; {
+          return kifu;
+        })
+        .then(kifu =&amp;gt; {
+          User.find({_id: {$in: [kifu.users[0], kifu.users[1]]}})
+            .then(users =&amp;gt; {
+              if (users[0].socketId == client.id){
+                io.to(users[1].socketId).emit(&quot;gameMoved&quot;, kifu);
+              } else {
+                io.to(users[0].socketId).emit(&quot;gameMoved&quot;, kifu);
+              }
+            })
+        })
+        .catch(error =&amp;gt; {
+          console.log(`Error in io.on.gameMove:${error.message}`);
+        });
+    });
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　RDB（リレーショナルデータベース）だと配列型のカラムではなく別テーブルにすると思いますが、そうすると将棋の種類が変わるとテーブル構造が変わりなかなか汎用的に作れません。NoSQLデータベース（MongoDB）ではテーブルの正規化とかあまり考えずに緩く定義（冗長化）して使えるのが利点だと思います。最近のRDBでは配列型のカラムを使用することは出来るかも知れませんが（私は使ったことがありません）、今のところNode.js＋MongoDBで作ることにしてよかったなと思ってます。&lt;br /&gt;
+　&lt;a href=&quot;https://atmarkit.itmedia.co.jp/ait/articles/1103/25/news131_3.html&quot;&gt;この記事&lt;/a&gt;によると「NoSQLデータベースの設計では、正規化をしてはいけない」と言う人もいるそうです。それは極端かも知れませんが、RDBで配列型のカラムを使うぐらいならNoSQLデータベースを使う方がいいような気がします。&lt;/p&gt;
 
 &lt;div&gt;
     &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
