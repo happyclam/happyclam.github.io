@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Ubuntuで使えるBluetoothマウス",
+      "category" : "hardware",
+      "tags"     : "ubuntu, logicool",
+      "url"      : "/hardware/2021-11-10/logicool",
+      "date"     : "2021-11-10 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "５五将棋アプリのオンライン対戦機能？",
       "category" : "programming",
       "tags"     : "javascript, android, cordova, shogi, heroku, node, MongoDB",

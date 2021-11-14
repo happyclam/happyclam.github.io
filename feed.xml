@@ -5,9 +5,85 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 18 Oct 2021 20:37:02 +0900</pubDate>
-    <lastBuildDate>Mon, 18 Oct 2021 20:37:02 +0900</lastBuildDate>
-    <generator>Jekyll v3.9.1</generator>
+    <pubDate>Sun, 14 Nov 2021 13:46:22 +0900</pubDate>
+    <lastBuildDate>Sun, 14 Nov 2021 13:46:22 +0900</lastBuildDate>
+    <generator>Jekyll v4.2.1</generator>
+    
+      <item>
+        <title>Ubuntuで使えるBluetoothマウス</title>
+        <description>&lt;h3 id=&quot;macbookproを買って貯まったヨドバシのポイント&quot;&gt;MacbookProを買って貯まったヨドバシのポイント&lt;/h3&gt;
+&lt;p&gt;　ヨドバシのポイントが貯まるとすぐに使い切ってしまいたくなる質なので、キーボードとBluetoothマウスを新調しました。&lt;/p&gt;
+
+&lt;h3 id=&quot;悩まされてきたbluetoothマウス&quot;&gt;悩まされてきたBluetoothマウス&lt;/h3&gt;
+&lt;p&gt;　自分だけかも知れませんが、今までUbuntu機でいくつかBluetoothマウスを試して長く愛用出来るものには出会えませんでした。マウスポインタの動きがおかしかったり、少しの間快適に使えていてもUbuntuのUpdateをするとまたおかしくなったりしてました。値段の高いトラックボールなんかだとUbuntuの設定を弄ってなんとか使えるようにしてましたが、マウスだとすぐに諦めて有線に戻していた所為もあるでしょう。&lt;br /&gt;
+　今回買ったのはマウスとしては少々高めのお値段ですが、&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/220691a2.603e89c9.220691a3.4b08f26e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flogicool%2Fm720r%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9&quot;&gt;logicoolのM720rトライアスロンマルチデバイスマウス&lt;/a&gt;と言うものです。&lt;/p&gt;
+
+&lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/logi_m720r01.png&quot;&gt;&lt;img src=&quot;/images/logi_m720r01.png&quot; alt=&quot;M720r&quot; width=&quot;360&quot; height=&quot;309&quot; title=&quot;M720r&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　今までUbuntu機で使ったことのあるBluetoothマウスは全て汎用のBluetoothアダプタ（ドングル）と通信して使うものでしたが、この&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/220691a2.603e89c9.220691a3.4b08f26e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flogicool%2Fm720r%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9&quot;&gt;M720r&lt;/a&gt;は付属の専用アダプタと通信して使うタイプです。専用アダプタが付属するものは自分の経験ではUbuntuでは使えないものばかりでしたが、この製品はアダプタをUbuntu機に挿したらいきなり使えました（Ubuntu 20.04）。&lt;br /&gt;
+　おまけに付属のアダプタを使わずにBluetooth接続も出来ると聞いていたので、MacbookProで試したところ、&lt;a href=&quot;https://www.logitech.com/assets/64937/4/m720-web-qsg.pdf&quot;&gt;取扱説明書&lt;/a&gt;を読むまでもなく使用できました。マウス側面のデバイス切り替えボタンで３台のPCで使えるそうですが、一番手前のボタンを長押しすれば簡単にペアリング出来ます。&lt;/p&gt;
+
+&lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/logi_m720r02.png&quot;&gt;&lt;img src=&quot;/images/logi_m720r02.png&quot; alt=&quot;M720r&quot; width=&quot;360&quot; height=&quot;282&quot; title=&quot;M720r&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　専用レシーバーは電池横のポケットに収納出来るようになっていて、紛失の可能性も軽減。まだ分かりませんが、このマウスは長く使っていけそうな気がします。&lt;/p&gt;
+
+&lt;h3 id=&quot;初めてのメカニカルキーボード&quot;&gt;初めてのメカニカルキーボード&lt;/h3&gt;
+&lt;p&gt;　ヨドバシでキーボードのコーナーを何気なく見ていたら、見た目がとてもスマートだなと思って目が止まったのが&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/2207b93f.46532365.2207b940.7c241670/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fakindo%2Fk835gpb%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9&quot;&gt;ロジクール キーボード K835 TKL 赤軸&lt;/a&gt;、スマホで検索してみるとメカニカルキーボードじゃないですか。メカニカルキーボードと言えば、昔秋葉原でCherry社の高級キーボードを触ったことがありますが、値段が高過ぎて（確か３万円ぐらい？）とても買ってみようなんて思わなかったのですが、当時を思い出しすぐに買いたくなりました。&lt;/p&gt;
+
+&lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/logi_k83501.png&quot;&gt;&lt;img src=&quot;/images/logi_k83501.png&quot; alt=&quot;K835&quot; width=&quot;360&quot; height=&quot;148&quot; title=&quot;K835&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/logi_k83502.png&quot;&gt;&lt;img src=&quot;/images/logi_k83502.png&quot; alt=&quot;K835&quot; width=&quot;360&quot; height=&quot;227&quot; title=&quot;K835&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　赤軸と青軸があるのですが、音が控えめな赤軸の方にしました。音が控えめと言っても普通のメンブレン式キーボードに較べたら音は大きめです。メンブレン式キーボードでも&lt;a href=&quot;https://yukirai.com/2017/08/17/hhkb-lite2-review/&quot;&gt;HHKB Lite2&lt;/a&gt;はかなり煩かったですが、それよりは静かです。&lt;/p&gt;
+
+&lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/logi_k83503.png&quot;&gt;&lt;img src=&quot;/images/logi_k83503.png&quot; alt=&quot;K835&quot; width=&quot;360&quot; height=&quot;227&quot; title=&quot;K835&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　それとこのキーボード、キートップがキーボードの筐体に埋まっていないのでキーとキーの隙間に埃やゴミが溜まりにくそうです。写真のようにキートップを外すと非常に掃除がし易そうで、これなら無精な自分でも掃除をする気にさせてくれるのではないかと思ってます。&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+</description>
+        <pubDate>Wed, 10 Nov 2021 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/hardware/2021-11-10/logicool</link>
+        <guid isPermaLink="true">https://happyclam.github.io/hardware/2021-11-10/logicool</guid>
+        
+        <category>ubuntu</category>
+        
+        <category>logicool</category>
+        
+        
+        <category>hardware</category>
+        
+      </item>
     
       <item>
         <title>５五将棋アプリのオンライン対戦機能？</title>
@@ -74,7 +150,7 @@
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    client.on(&quot;gameMove&quot;, data =&amp;gt; {
       let filter = {_id: data.kifuId};
       let update = {$push: {koma: data.koma, histories: data.record}};
-      Kifu.findOneAndUpdate(filter, update, {returnDocument: 'after'})
+      Kifu.findOneAndUpdate(filter, update, {returnDocument: &apos;after&apos;})
         .then(kifu =&amp;gt; {
           return kifu;
         })
@@ -157,8 +233,8 @@ direct dependencies:
 flutter_google_ad_manager  ✗0.11.1  ✗0.11.1     ✗0.11.1     ✗0.11.1
 
 dev_dependencies: all support null safety.
-You are already using the newest resolvable versions listed in the 'Resolvable' column.
-Newer versions, listed in 'Latest', may not be mutually compatible.
+You are already using the newest resolvable versions listed in the &apos;Resolvable&apos; column.
+Newer versions, listed in &apos;Latest&apos;, may not be mutually compatible.
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -222,8 +298,8 @@ All your dependencies declare support for null-safety.
 💪 Building with sound null safety 💪
 
 Picked up _JAVA_OPTIONS: -Djava.net.preferIPv6Addresses=true
-Running Gradle task 'assembleRelease'...
-Running Gradle task 'assembleRelease'... Done                     121.0s
+Running Gradle task &apos;assembleRelease&apos;...
+Running Gradle task &apos;assembleRelease&apos;... Done                     121.0s
 ✓  Built build/app/outputs/flutter-apk/app-release.apk (60.1MB).
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -273,7 +349,7 @@ Running Gradle task 'assembleRelease'... Done                     121.0s
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ heroku addons:add pgbackups --app kwl-books
  ›   Warning: heroku update available from 7.52.0 to 7.54.1.
 Creating pgbackups on ⬢ kwl-books... !
- ▸    Couldn't find either the add-on service or the add-on plan of &quot;pgbackups&quot;.
+ ▸    Couldn&apos;t find either the add-on service or the add-on plan of &quot;pgbackups&quot;.
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -1005,10 +1081,10 @@ dependencies:
 　引数は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;評価値と指し手を受け取るための配列&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;マンカラの盤面情報を渡す配列&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;手番（先手・後手）&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;読みの深さ&lt;/code&gt;になってます。&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#mancala/lib/main.dart
-import 'dart:typed_data';
-import 'dart:ffi'; // For FFI
-import 'dart:io'; // For Platform.isX
-import 'package:ffi/ffi.dart';
+import &apos;dart:typed_data&apos;;
+import &apos;dart:ffi&apos;; // For FFI
+import &apos;dart:io&apos;; // For Platform.isX
+import &apos;package:ffi/ffi.dart&apos;;
 final DynamicLibrary karahThinkLib = Platform.isAndroid
     ? DynamicLibrary.open(&quot;libkarah_think.so&quot;)
     : DynamicLibrary.process();
@@ -1444,621 +1520,6 @@ $ ./mancala.out
         
         
         <category>project</category>
-        
-      </item>
-    
-      <item>
-        <title>マンカラの必勝手順の有無（続編）</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
-&lt;a href=&quot;https://www.amazon.co.jp/happyclam-マンカラ-ナッツ/dp/B08D8QVVQY/ref=sr_1_2&quot;&gt;&lt;img src=&quot;/images/amazon-appstore-badge-jp-white.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;結構アクセスがあったので続編&quot;&gt;結構アクセスがあったので続編&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;前回の記事&lt;/a&gt;が意外に多くのアクセスがあった&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;ので続編を書いてみます。おそらく&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;前回の記事&lt;/a&gt;にアクセスした人はプログラムにはあまり関心はないけど、マンカラの攻略法・勝ち方・必勝手順を知りたくてアクセスした人が多いのだと思いますが、それを知るには&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;前回の記事&lt;/a&gt;の最後に追記したように非常に時間がかかるので、いつかまとめて最も遊ばれていると思われる６×２列のカラハに関してだけ別の記事で書こうと思ってます。時間かけて先読みした結果、結局５０手読みでは結論出なかったという可能性もあります。&lt;br /&gt;
-　今回はマンカライージーに関して、前回同様必勝手順の有無についての実験結果を書いてみます。マンカライージーのルールについては&lt;a href=&quot;https://hugkum.sho.jp/96590&quot;&gt;ここ&lt;/a&gt;にベーシックとカラハと比較して書かれています。相手のストアには石を撒かない点と自分のストアに溜まった石の数で勝敗を決める点でカラハと同じです。カラハと違うのは相手の石を横取り（Capture）するルールが無いことです。&lt;/p&gt;
-
-&lt;h3 id=&quot;実験結果３２列イージー&quot;&gt;実験結果（３×２列イージー）&lt;/h3&gt;
-&lt;p&gt;　石の数を１〜５個にして、５０手先読みしたそれぞれの結果です。&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;石の数&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;１&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;２&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;３&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;４&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;５&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;戻り値&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[0, 1]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[0, 3]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[999, 1]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[0, 1]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[0, 1]&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;読みの深さ&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;５０手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;５０手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;２５手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;５０手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;５０手&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;結論&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;引分け&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;引分け&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;引分け&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;引分け&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&quot;検証&quot;&gt;検証&lt;/h4&gt;
-&lt;p&gt;　相変わらず石３個でも２０手以上かかるので、遷移を書いて検証するのは大変です。そこでさらに計算量が少ない２×２列で検証することにしました。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;div style=&quot;float:left; margin: 0px 0px 0px&quot;&gt;
-    &lt;table&gt;
-    &lt;tr&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;0&lt;br /&gt;(0)&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;br /&gt;(5)&lt;/td&gt;    
-    &lt;td align=&quot;center&quot;&gt;2&lt;br /&gt;(4)&lt;/td&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;0&lt;br /&gt;(3)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;br /&gt;(1)&lt;/td&gt;    
-    &lt;td align=&quot;center&quot;&gt;2&lt;br /&gt;(2)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br clear=&quot;all&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;※( )内の数字は配列（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;board = [0,2,2,0,2,2]&lt;/code&gt;）の添字です。添字の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;と&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;がストアになります。&lt;/p&gt;
-
-&lt;h3 id=&quot;実験結果２２列イージー&quot;&gt;実験結果（２×２列イージー）&lt;/h3&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;石の数&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;１&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;２&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;３&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;４&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;５&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;６&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;７&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;８&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;９&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;戻り値&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[0, 2]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[-999, 2]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[0, 1]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[0, 2]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[-999, 2]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[999, 2]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[999, 1]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[0, 1]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[-999, 2]&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;読みの深さ&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;５０手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;５手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;５０手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;５０手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;１８手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;２０手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;２１手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;５０手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;２５手&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;結論&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;引分け&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;後手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;引分け&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;引分け&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;後手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;引分け&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;後手必勝&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;　※連続で指し手を進めている場合一手と数えているケースがあるので手数はやや不正確です。&lt;/p&gt;
-
-&lt;h4 id=&quot;検証１２２イージー&quot;&gt;検証１（２×２イージー）&lt;/h4&gt;
-&lt;p&gt;　上の表を見て分かるように&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;前回&lt;/a&gt;同様反復深化で調べると、２×２列で石の数が２個の場合５手読みで後手必勝となります。この手数なら短いので表を書いて確認出来そうです。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-Dart&quot;&gt;[0, 2, 2, 0, 2, 2]
-=== result = 0, 2, i = 1
-=== result = 1, 2, i = 2
-=== result = 0, 2, i = 3
-=== result = -999, 2, i = 4
-
-[-999, 2]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;　先読みメソッドからの戻り値は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[-999, 2]&lt;/code&gt;となっていますが、先手は初手にどこを選んでも負けるけど最善手として&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;を選んだという意味です。&lt;br /&gt;
-　まず、先手が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;を選んだ場合を見てみます。先手が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;を選んだら、自分のストアで撒き終わるのでもう一度先手の番となり、以下のように遷移します。&lt;/p&gt;
-
-&lt;div style=&quot;width:500px; margin: 0 auto;&quot;&gt;
-&lt;div style=&quot;float:left; margin: 0px 0px 0px&quot;&gt;
-    &lt;table&gt;
-    &lt;tr&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-&lt;span&gt;→&lt;/span&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-    &lt;table&gt;
-    &lt;tr&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-&lt;span&gt;→&lt;/span&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-    &lt;table&gt;
-    &lt;tr&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;3&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;3&lt;/td&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-&lt;span&gt;→&lt;/span&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-    &lt;table&gt;
-    &lt;tr&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;6&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br clear=&quot;all&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;　なんと後手の手番を迎えること無く、いきなり先手サイドの石が無くなってゲーム終了。イージーのルールの場合カラハと同じで、残った石は自分のストアに集めて数えるので、先手&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;対後手&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;6&lt;/code&gt;で後手の勝ちになります。&lt;br /&gt;
-　だから先読みメソッドで先手の最善手として&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;ではなく&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;を返してきたわけです。&lt;br /&gt;
-　では先手が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;を選んだ場合を見てみます。&lt;/p&gt;
-
-&lt;div style=&quot;width:500px; margin: 0 auto;&quot;&gt;
-&lt;div style=&quot;float:left; margin: 0px 0px 0px&quot;&gt;
-    &lt;table&gt;
-    &lt;tr&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-&lt;span&gt;→&lt;/span&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-    &lt;table&gt;
-    &lt;tr&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;3&lt;/td&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br clear=&quot;all&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;　上の局面で後手は２通りの手（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4&lt;/code&gt;か&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;5&lt;/code&gt;）がありますが、この局面から後手の手番で先読みしてみると&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-Dart&quot;&gt;final List board = [0,2,0,1,3,2];
-result = second.think(board, first, 50, SECOND_WIN);
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;result = [-999, 4]&lt;/code&gt;となり&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4&lt;/code&gt;を選べば後手が勝てると言ってます。&lt;br /&gt;
-　後手が２手目に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4&lt;/code&gt;を選んだら以下のようになります。&lt;/p&gt;
-
-&lt;div style=&quot;width:500px; margin: 0 auto;&quot;&gt;
-&lt;div style=&quot;float:left; margin: 0px 0px 0px&quot;&gt;
-    &lt;table&gt;
-    &lt;tr&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-&lt;span&gt;→&lt;/span&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-    &lt;table&gt;
-    &lt;tr&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;3&lt;/td&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-&lt;span&gt;→&lt;/span&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-    &lt;table&gt;
-    &lt;tr&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;1&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;3&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;3&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br clear=&quot;all&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;　次の先手は指し手が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;に限定されるので進めると以下のようになります。&lt;/p&gt;
-
-&lt;div style=&quot;width:500px; margin: 0 auto;&quot;&gt;
-&lt;div style=&quot;float:left; margin: 0px 0px 0px&quot;&gt;
-    &lt;table&gt;
-    &lt;tr&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;1&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;3&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;1&lt;/td&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br clear=&quot;all&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;　この局面で後手の指し手は２通りありますが、ここまで来れば後手がもう一度&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4&lt;/code&gt;を選べば勝てることが分かると思います。お互いが最善手を選ぶことが前提となっていますので、ここで後手が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4&lt;/code&gt;を選んだ場合を初手から省略せずに書くと以下のようになります。&lt;/p&gt;
-
-&lt;div style=&quot;width:500px; margin: 0 auto;&quot;&gt;
-&lt;div style=&quot;float:left; margin: 0px 0px 0px&quot;&gt;
-    &lt;table&gt;
-    &lt;tr&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-&lt;span&gt;→&lt;/span&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-    &lt;table&gt;
-    &lt;tr&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;3&lt;/td&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-&lt;span&gt;→&lt;/span&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-    &lt;table&gt;
-    &lt;tr&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;1&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;3&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;3&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-&lt;span&gt;→&lt;/span&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-    &lt;table&gt;
-    &lt;tr&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;1&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;3&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;1&lt;/td&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-&lt;span&gt;→&lt;/span&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-    &lt;table&gt;
-    &lt;tr&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;1&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;4&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;2&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-&lt;span&gt;→&lt;/span&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-    &lt;table&gt;
-    &lt;tr&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;1&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;4&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-&lt;span&gt;→&lt;/span&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-    &lt;table&gt;
-    &lt;tr&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;5&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br clear=&quot;all&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;　通算５手読みで後手必勝の結論は正しいようです。&lt;br /&gt;
-　ちなみに後手が２手目に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;5&lt;/code&gt;を選んだ場合は、遷移は省略しますが先手が勝つ変化もあるようです。&lt;/p&gt;
-
-&lt;h3 id=&quot;相変わらず派生ルールが多過ぎ&quot;&gt;相変わらず派生ルールが多過ぎ&lt;/h3&gt;
-&lt;p&gt;　ここまで書いてからマンカライージーのルールについて、&lt;strong&gt;「終了時にポケットにある石は無効になります。どちらの数にも入れません」&lt;/strong&gt;と書かれている&lt;a href=&quot;https://genki-up.recreation.or.jp/top/mancala/rule&quot;&gt;サイト&lt;/a&gt;を見つけてしまいました。そう言えば&lt;a href=&quot;https://hugkum.sho.jp/96590&quot;&gt;上で紹介したサイト&lt;/a&gt;には、「基本はベーシックと同じ」と書かれているだけでゲーム終了時に残った石の扱いについては書かれていません。カラハと同じでいいだろうと勝手に判断してしまいました。折角コツコツと遷移表を書いたのが勿体ないので上の文はそのままにして、表だけ「終了時にポケットにある石は無効にする」ルールで更新しておきます。&lt;/p&gt;
-
-&lt;h3 id=&quot;実験結果３２列イージー終了時にポケットにある石は無効にするルール&quot;&gt;実験結果（３×２列イージー、終了時にポケットにある石は無効にするルール）&lt;/h3&gt;
-&lt;p&gt;（2020-10-28一部訂正）&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;石の数&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;１&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;２&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;３&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;４&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;５&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;戻り値&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[999, 1]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[-999, 3]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[999, 1]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[0, 1]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[0, 1]&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;読みの深さ&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;５手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;１６手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;２３手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;５０手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;５０手&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;結論&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;後手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;引分け&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;引分け&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;実験結果２２列イージー終了時にポケットにある石は無効にするルール&quot;&gt;実験結果（２×２列イージー、終了時にポケットにある石は無効にするルール）&lt;/h3&gt;
-&lt;p&gt;（2020-10-28一部訂正）&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;石の数&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;１&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;２&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;３&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;４&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;５&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;６&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;７&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;８&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;９&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;戻り値&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[999, 2]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[999, 1]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[-999, 2]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[999, 1]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[-999, 2]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[999, 2]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[999, 1]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[999, 2]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;[-999, 2]&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;読みの深さ&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;５手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;１手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;７手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;５手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;１４手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;１８手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;２１手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;２５手&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;２４手&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;結論&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;後手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;後手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;後手必勝&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;　上の検証で説明していた２×２列で石が２個のケースも全く逆の結論になります。&lt;br /&gt;
-　上の説明で書いた先読みメソッドの実行結果も以下のように変わります。戻り値は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[999, 1]&lt;/code&gt;で、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;を選べば先手必勝と返してきます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-Dart&quot;&gt;[0, 2, 2, 0, 2, 2]
-=== result = 999, 1, i = 1
-
-[999, 1]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;　「終了時にポケットにある石は無効にする」ルールだと、本文の検証を読んで貰えれば一手で先手必勝になることは分かると思います。ルールが変わると結果が真逆になるいい例として説明文も無駄にならなくてよかったです。&lt;/p&gt;
-
-&lt;h3 id=&quot;カラハのルール&quot;&gt;カラハのルール&lt;/h3&gt;
-&lt;p&gt;　マンカラカラハにもいろいろな派生ルールが存在するようで、ゲーム終了時に残った石は相手の物になるというルールも存在するようです。&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.marcnadero.kahalagame&quot;&gt;このアプリ&lt;/a&gt;ではどちらのルールにするかオプションで選べるようになっていて、残った石は相手に取られるルールの方が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;popular&lt;/code&gt;、自分の石になるルールが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;classic&lt;/code&gt;となっています。残った石が相手のものになるルールの方が海外ではポピュラーなんでしょうか？&lt;br /&gt;
-　任天堂のアソビ大全５１に収録されているマンカラは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;classic&lt;/code&gt;ルールのようですが、日本ではこのルールがメジャーになると思われるので、今後マンカラに関する記事はアソビ大全５１のルールに絞ろうと思います。&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;も&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;classic&lt;/code&gt;ルールにしています。&lt;/p&gt;
-
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/HTML5-CoffeeScriptで作る最強の三目並べプログラム-MIN-MAX法からαβ法へ-happyclam-ebook/dp/B01D1IJ0S0/ref=sr_1_1?s=digital-text&amp;amp;ie=UTF8&amp;amp;qid=1473938717&amp;amp;Sr=1-1&amp;amp;keywords=三目並べ&quot;&gt;電子書籍&lt;/a&gt;を買っていただいた方も数人いたようです、有難うございます。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Sun, 09 Aug 2020 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/software/2020-08-09/mancala_easy</link>
-        <guid isPermaLink="true">https://happyclam.github.io/software/2020-08-09/mancala_easy</guid>
-        
-        <category>dart</category>
-        
-        <category>android</category>
-        
-        <category>flutter</category>
-        
-        <category>mancala</category>
-        
-        
-        <category>software</category>
         
       </item>
     
