@@ -5,9 +5,231 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 14 Nov 2021 18:00:32 +0900</pubDate>
-    <lastBuildDate>Sun, 14 Nov 2021 18:00:32 +0900</lastBuildDate>
-    <generator>Jekyll v4.2.1</generator>
+    <pubDate>Mon, 22 Nov 2021 13:26:16 +0900</pubDate>
+    <lastBuildDate>Mon, 22 Nov 2021 13:26:16 +0900</lastBuildDate>
+    <generator>Jekyll v3.9.1</generator>
+    
+      <item>
+        <title>M1 Macbook ProのCPU性能</title>
+        <description>&lt;h3 id=&quot;macbook12インチでスマホアプリ開発してた人&quot;&gt;Macbook12インチでスマホアプリ開発してた人&lt;/h3&gt;
+&lt;p&gt;&lt;span id=&quot;back1&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;　リリース済みのアプリの多くはCordova製なので、最初はブラウザさえあれば開発出来るものでした。でも途中からアプリにファイル保存機能を付けたり、Firebaseの機能を使い始めるとエミュレータを使った開発が必要になって来て、非力なMacbook12で開発作業をするのは苦行に近いものでした&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
+　で、ようやく以前から欲しかったMacbookProを購入し、別世界を体感しています。&lt;/p&gt;
+
+&lt;div style=&quot;width:640px; margin: 0 auto;&quot;&gt;
+&lt;div style=&quot;float:left; margin: 0px 20px 0px;&quot;&gt;
+&lt;a href=&quot;/images/macbook_pro1.png&quot;&gt;&lt;img width=&quot;240&quot; height=&quot;183&quot; src=&quot;/images/macbook_pro1.png&quot; alt=&quot;Macbook Pro 2021 表&quot; title=&quot;M1 Macbook Pro 14インチ 表&quot; /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;a href=&quot;/images/macbook_pro2.png&quot;&gt;&lt;img width=&quot;240&quot; height=&quot;186&quot; src=&quot;/images/macbook_pro2.png&quot; alt=&quot;Macbook Pro 2021 裏&quot; title=&quot;M1 Macbook Pro 14インチ 裏&quot; /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br clear=&quot;all&quot; /&gt;&lt;/p&gt;
+&lt;div style=&quot;width:640px; margin: 0 auto;&quot;&gt;
+&lt;div style=&quot;float:left; margin: 0px 20px 0px;&quot;&gt;
+&lt;a href=&quot;/images/macbook_comp1.png&quot;&gt;&lt;img width=&quot;240&quot; height=&quot;181&quot; src=&quot;/images/macbook_comp1.png&quot; alt=&quot;Macbook12との比較 上&quot; title=&quot;Macbook12との比較 真上から&quot; /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;a href=&quot;/images/macbook_comp2.png&quot;&gt;&lt;img width=&quot;240&quot; height=&quot;126&quot; src=&quot;/images/macbook_comp2.png&quot; alt=&quot;Macbook12との比較 横&quot; title=&quot;Macbook12との比較 側面&quot; /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br clear=&quot;all&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;　Macbook12と比較するとかなり大きく、重い（1.6Kg）ので持ち歩く気にはなりません。&lt;/p&gt;
+
+&lt;h3 id=&quot;cpu性能比較１&quot;&gt;CPU性能比較１&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/software/2020-09-19/js_dart_cpp&quot;&gt;以前の記事&lt;/a&gt;で２×６列のマンカラカラハで先手必勝を読み切るまでに要する時間を３つのプログラミング言語（Dart,TypeScript,C++）で比較しましたが、今回は同じC++のソースを使ってCPUによる比較をしてみたいと思います。Intelの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core i7-2600K&lt;/code&gt;とARM系&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Apple M1 Pro&lt;/code&gt;、４コアと１０コア、比較の基準がバラバラですが、単に自分が持っているPCでどれだけ性能が上がったか知りたいだけです。&lt;br /&gt;
+　まずは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core i7-2600K&lt;/code&gt;（Ubuntu機）側から。&lt;a href=&quot;/software/2020-09-19/js_dart_cpp&quot;&gt;前回の記事&lt;/a&gt;と出力内容が違うのは、&lt;a href=&quot;/software/2020-09-19/js_dart_cpp&quot;&gt;前回の記事&lt;/a&gt;にも書いた通りバグがあったためです。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ./mancala.out
+0,2,2,2,2,2,2,0,2,2,2,2,2,2,
+=== result = 4, 5, i = 1
+=== result = 3, 5, i = 2
+=== result = 1, 6, i = 3
+=== result = 3, 5, i = 4
+=== result = 5, 5, i = 5
+=== result = 4, 5, i = 6
+=== result = 5, 5, i = 7
+=== result = 4, 5, i = 8
+=== result = 4, 5, i = 9
+=== result = 5, 6, i = 10
+=== result = 5, 6, i = 11
+=== result = 5, 5, i = 12
+=== result = 5, 5, i = 13
+=== result = 5, 5, i = 14
+=== result = 6, 5, i = 15
+=== result = 12, 5, i = 16
+=== result = 999, 5, i = 17
+467263.232000[ms]
+999, 5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;span id=&quot;back2&quot;&gt;&lt;/span&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;　&lt;a href=&quot;/software/2020-09-19/js_dart_cpp&quot;&gt;前回の記事&lt;/a&gt;より実行時間が短縮しているのもバグを修正した所為で、前回と同じPCで実行しています。&lt;br /&gt;
+　続いて、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Apple M1 Pro&lt;/code&gt;側です。初めてのARMベースのCPUということでコンパイルするのも一手間&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;だったのですが、&lt;a href=&quot;https://zenn.dev/ress/articles/069baf1c305523dfca3d&quot;&gt;この記事&lt;/a&gt;を参考にして解決できました。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;% ./mancala.out 
+0,2,2,2,2,2,2,0,2,2,2,2,2,2,
+=== result = 4, 5, i = 1
+=== result = 3, 5, i = 2
+=== result = 1, 6, i = 3
+=== result = 3, 5, i = 4
+=== result = 5, 5, i = 5
+=== result = 4, 5, i = 6
+=== result = 5, 5, i = 7
+=== result = 4, 5, i = 8
+=== result = 4, 5, i = 9
+=== result = 5, 6, i = 10
+=== result = 5, 6, i = 11
+=== result = 5, 5, i = 12
+=== result = 5, 5, i = 13
+=== result = 5, 5, i = 14
+=== result = 6, 5, i = 15
+=== result = 12, 5, i = 16
+=== result = 999, 5, i = 17
+274362.594000[ms]
+999, 5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　同じ結果を得るのに要した時間は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core i7-2600K&lt;/code&gt;が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;467秒&lt;/code&gt;だったのに対して、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Apple M1 Pro&lt;/code&gt;では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;274秒&lt;/code&gt;でした。
+　ちなみに実行結果の最後の行、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;999, 5&lt;/code&gt;は、以下の表の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;5&lt;/code&gt;の位置を先手が初手に選べば、先手が勝てることを意味しています。２×６列のマンカラカラハは先手必勝のゲームです、詳しくは&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;こちらの記事&lt;/a&gt;に書いています。&lt;/p&gt;
+
+&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
+    &lt;table&gt;
+    &lt;tr&gt;
+    &lt;td rowspan=&quot;4&quot; align=&quot;center&quot;&gt;0↓&lt;/td&gt;
+    &lt;td colspan=&quot;6&quot; align=&quot;center&quot;&gt;後手&lt;/td&gt;    
+    &lt;td rowspan=&quot;4&quot; align=&quot;center&quot;&gt;7↑&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td align=&quot;center&quot;&gt;13&lt;br /&gt;←&lt;/td&gt;    
+    &lt;td align=&quot;center&quot;&gt;12&lt;br /&gt;←&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;11&lt;br /&gt;←&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;10&lt;br /&gt;←&lt;/td&gt;    
+    &lt;td align=&quot;center&quot;&gt;9&lt;br /&gt;←&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;8&lt;br /&gt;←&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td colspan=&quot;6&quot; align=&quot;center&quot;&gt;先手&lt;/td&gt;    
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td align=&quot;center&quot;&gt;1&lt;br /&gt;→&lt;/td&gt;    
+    &lt;td align=&quot;center&quot;&gt;2&lt;br /&gt;→&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;3&lt;br /&gt;→&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;4&lt;br /&gt;→&lt;/td&gt;    
+    &lt;td align=&quot;center&quot;&gt;&lt;font color=&quot;red&quot;&gt;5&lt;/font&gt;&lt;br /&gt;→&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;6&lt;br /&gt;→&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br clear=&quot;all&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;　３×６列や４×６列のカラハでどうなるのか確認したいところですが、CPUがそこそこ速くなったぐらいでは結果を得るのに数ヶ月以上掛かると思われるので他の工夫が必要だと思ってます。&lt;/p&gt;
+
+&lt;p&gt;　ついでにMacbook12インチでも試してみました。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;% ./mancala.out
+0,2,2,2,2,2,2,0,2,2,2,2,2,2,
+=== result = 4, 5, i = 1
+=== result = 3, 5, i = 2
+=== result = 1, 6, i = 3
+=== result = 3, 5, i = 4
+=== result = 5, 5, i = 5
+=== result = 4, 5, i = 6
+=== result = 5, 5, i = 7
+=== result = 4, 5, i = 8
+=== result = 4, 5, i = 9
+=== result = 5, 6, i = 10
+=== result = 5, 6, i = 11
+=== result = 5, 5, i = 12
+=== result = 5, 5, i = 13
+=== result = 5, 5, i = 14
+=== result = 6, 5, i = 15
+=== result = 12, 5, i = 16
+=== result = 999, 5, i = 17
+440331.482000[ms]
+999, 5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;440秒&lt;/code&gt;ということで意外だったのですが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core i7-2600K&lt;/code&gt;（Ubuntu機）よりMacbook12インチ（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Intel Core M-5Y51&lt;/code&gt;）の方が速いんですね。普段メインで使っていたUbuntu機の方が断然レスポンスが良いと感じていたのはメモリ（12GB）の差でしょうか？Macbook12インチ（メモリ8GB）もメモリ増設していればそこそこ開発用として使えていたのかも知れません。&lt;br /&gt;
+　ちょっと気になったので検索したら&lt;a href=&quot;https://www.cpu-monkey.com/ja/compare_cpu-intel_core_m_5y51-454-vs-intel_core_i7_2600k-6&quot;&gt;こんなページ&lt;/a&gt;がありました。シングルコアで比較すると結構いい勝負しているようです。それでもCoreMの方が速いというのはやはり合点がいかないのですが、Ubuntu機の方は他の多くのプログラムが動いている中で試していたのでその所為だと思われます。&lt;/p&gt;
+
+&lt;h3 id=&quot;cpu性能比較２&quot;&gt;CPU性能比較２&lt;/h3&gt;
+&lt;p&gt;　話が逸れましたがもう一つ、&lt;a href=&quot;/software/2018-10-27/unpromote&quot;&gt;以前の記事&lt;/a&gt;で「歩不成の詰将棋」を読み切るのに２週間掛かったことを紹介しましたが、この時使ったスクリプトを今回購入したMacbook Proで実行してみました。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ coffee game.coffee 
+hmmxxxggggkkkkyyyffffffffffff
+ 9 8 7 6 5 4 3 2 1
+| | | | | |f|T| |y|1
+| | | | | | | | | |2
+| | | | |H| |F|o| |3
+| | | | | |X| |f|f|4
+| | | | | | | | | |5
+| | | | | | | | | |6
+| | | | | | | | | |7
+| | | | | | | | | |8
+|O| | | | | | | | |9
+F
+first: i = 1, kind = Hi, temp = [{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[5,3],&quot;id&quot;:&quot;q6owepmi&quot;},[5,2],-589,1,{&quot;koma&quot;:{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[9,9],&quot;id&quot;:&quot;ribd4do4&quot;},&quot;posi&quot;:[9,8],&quot;score&quot;:-614,&quot;status&quot;:0}]
+first: i = 2, kind = Fu, temp = [{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[3,3],&quot;id&quot;:&quot;g8a244eb&quot;},[3,2],-532,1,{&quot;koma&quot;:{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[5,3],&quot;id&quot;:&quot;q6owepmi&quot;},&quot;posi&quot;:[5,2],&quot;score&quot;:-542,&quot;status&quot;:1}]
+first: i = 4, kind = Fu, temp = [{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[3,3],&quot;id&quot;:&quot;g8a244eb&quot;},[3,2],-522,1,{&quot;koma&quot;:{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[3,3],&quot;id&quot;:&quot;g8a244eb&quot;},&quot;posi&quot;:[3,2],&quot;score&quot;:-554,&quot;status&quot;:0}]
+first: i = 5, kind = Fu, temp = [{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[3,3],&quot;id&quot;:&quot;g8a244eb&quot;},[3,2],-594,0,{&quot;koma&quot;:{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[4,4],&quot;id&quot;:&quot;a7qa7o3i&quot;},&quot;posi&quot;:[3,4],&quot;score&quot;:-702,&quot;status&quot;:0}]
+hmmxxxggggkkkkyyyffffffffffff
+ 9 8 7 6 5 4 3 2 1
+| | | | | |f|T| |y|1
+| | | | | | |F| | |2
+| | | | |H| | |o| |3
+| | | | | |X| |f|f|4
+| | | | | | | | | |5
+| | | | | | | | | |6
+| | | | | | | | | |7
+| | | | | | | | | |8
+|O| | | | | | | | |9
+F
+初手経過時間: 370448881ミリ秒
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core i7-2600K&lt;/code&gt;で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1208445383ミリ秒（約２週間）&lt;/code&gt;掛かった処理が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Apple M1 Pro&lt;/code&gt;だと&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;370448881ミリ秒（約４日）&lt;/code&gt;でした。やはり断然速いですね。&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;Flutter製アプリは別のUbuntu機を使って開発してます。&lt;a href=&quot;#back1&quot;&gt;戻る&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;Rosettaって何？状態だったのでM1 Macbookのコンパイル環境を作るのに手間取りましたが、ソースコードそのものの修正は不要でした。&lt;a href=&quot;#back2&quot;&gt;戻る&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Tue, 23 Nov 2021 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/hardware/2021-11-23/macbookpro</link>
+        <guid isPermaLink="true">https://happyclam.github.io/hardware/2021-11-23/macbookpro</guid>
+        
+        <category>macbook</category>
+        
+        <category>cordova</category>
+        
+        
+        <category>hardware</category>
+        
+      </item>
     
       <item>
         <title>Ubuntuで使えるBluetoothマウス</title>
@@ -150,7 +372,7 @@
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    client.on(&quot;gameMove&quot;, data =&amp;gt; {
       let filter = {_id: data.kifuId};
       let update = {$push: {koma: data.koma, histories: data.record}};
-      Kifu.findOneAndUpdate(filter, update, {returnDocument: &apos;after&apos;})
+      Kifu.findOneAndUpdate(filter, update, {returnDocument: 'after'})
         .then(kifu =&amp;gt; {
           return kifu;
         })
@@ -233,8 +455,8 @@ direct dependencies:
 flutter_google_ad_manager  ✗0.11.1  ✗0.11.1     ✗0.11.1     ✗0.11.1
 
 dev_dependencies: all support null safety.
-You are already using the newest resolvable versions listed in the &apos;Resolvable&apos; column.
-Newer versions, listed in &apos;Latest&apos;, may not be mutually compatible.
+You are already using the newest resolvable versions listed in the 'Resolvable' column.
+Newer versions, listed in 'Latest', may not be mutually compatible.
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -298,8 +520,8 @@ All your dependencies declare support for null-safety.
 💪 Building with sound null safety 💪
 
 Picked up _JAVA_OPTIONS: -Djava.net.preferIPv6Addresses=true
-Running Gradle task &apos;assembleRelease&apos;...
-Running Gradle task &apos;assembleRelease&apos;... Done                     121.0s
+Running Gradle task 'assembleRelease'...
+Running Gradle task 'assembleRelease'... Done                     121.0s
 ✓  Built build/app/outputs/flutter-apk/app-release.apk (60.1MB).
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -349,7 +571,7 @@ Running Gradle task &apos;assembleRelease&apos;... Done                     121.
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ heroku addons:add pgbackups --app kwl-books
  ›   Warning: heroku update available from 7.52.0 to 7.54.1.
 Creating pgbackups on ⬢ kwl-books... !
- ▸    Couldn&apos;t find either the add-on service or the add-on plan of &quot;pgbackups&quot;.
+ ▸    Couldn't find either the add-on service or the add-on plan of &quot;pgbackups&quot;.
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -727,7 +949,8 @@ Add-on:                postgresql-opaque-46906
 &lt;p&gt;　対戦成績表の見方ですが、&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラナッツ&lt;/a&gt;では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やばい&lt;/code&gt;モード以外では初手をランダムに決めるようにしていて、勝負に拘っていないので、アプリが勝てるのかどうかを判断する場合は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やばい&lt;/code&gt;モード以外は見る必要がありません。勝ちの欄の数字はＡＩ対戦で人間側が勝った数字、つまり比較対象となっているアプリが勝ったということです。また比較するために選んだアプリが初手をランダムに決めているものもあるので、一回だけの対戦ではなく何回か対戦させました。&lt;br /&gt;
 　注目すべきは黄色い丸で囲んだ部分の数字です。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;後手で勝つことが出来るか&lt;/code&gt;です。豆の数が３、４、５、７の時は後手の勝ち星が全て&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;で、比較対象のアプリが後手の場合は、何度やっても&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;に勝てません。&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;が数あるマンカラアプリの中で最強だと主張しているのではなく、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;マンカラカラハというゲームはお互いが最善を尽くせば先手必勝&lt;/code&gt;なのではないか？ということです。負けの欄の数字（比較対象のアプリが負けた数字＝&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;が勝った数字）を見ると、勝ちの欄の数字より大きいので勝率は良い方だと思いますが、先に言ったように比較対象のアプリは初手をランダムに決めている（＝勝負に拘ってない）ものもあるので一概には言えません。マンカラでは初手で悪手を選択するとそれだけで勝てなくなるような気がします。&lt;br /&gt;
 　また豆の数が６の時は先手でも後手でも勝ったり負けたりなので、どちらとも言えませんが双方が最善を尽くしたら引分けなのかもしれません。上の対戦成績結果以外で試していた時も引分けになる頻度が結構高かったです。&lt;br /&gt;
-　豆の数３、４、５、７で後手で自分のアプリに勝てるアプリを見つけた方は是非教えて欲しいと思います。但し、マンカラカラハと称していてもアプリによっては違うルールになっているものがあるのでその場合は連絡不要です。自分のアプリは&lt;a href=&quot;https://www.nintendo.co.jp/switch/as7ta/&quot;&gt;Nintendo Switchの世界のアソビ大全51&lt;/a&gt;に収録されているマンカラと同じルールです。&lt;/p&gt;
+　豆の数３、４、５、７で後手で自分のアプリに勝てるアプリを見つけた方は是非教えて頂きたいと思います。読みの深さが勝っていれば勝てることもあり得るので、自分のアプリをより深く読むように設定して確認したいと思ってます。また、単純に読みを深くするだけでなく、機械学習等の別のアルゴリズムを使って別の指し手を導き出すアプリが存在するかも知れないと思ってます。&lt;br /&gt;
+　但し、マンカラカラハと称していてもアプリによっては違うルールになっているものがあるのでその場合は連絡不要です。自分のアプリは&lt;a href=&quot;https://www.nintendo.co.jp/switch/as7ta/&quot;&gt;Nintendo Switchの世界のアソビ大全51&lt;/a&gt;に収録されているマンカラと同じルールです。&lt;/p&gt;
 
 &lt;h3 id=&quot;結論&quot;&gt;結論&lt;/h3&gt;
 &lt;p&gt;　豆の数１の時と２の時は&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;以前の記事&lt;/a&gt;で結論が出ていると思っているので、以下のように推測します。&lt;/p&gt;
@@ -1081,10 +1304,10 @@ dependencies:
 　引数は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;評価値と指し手を受け取るための配列&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;マンカラの盤面情報を渡す配列&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;手番（先手・後手）&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;読みの深さ&lt;/code&gt;になってます。&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#mancala/lib/main.dart
-import &apos;dart:typed_data&apos;;
-import &apos;dart:ffi&apos;; // For FFI
-import &apos;dart:io&apos;; // For Platform.isX
-import &apos;package:ffi/ffi.dart&apos;;
+import 'dart:typed_data';
+import 'dart:ffi'; // For FFI
+import 'dart:io'; // For Platform.isX
+import 'package:ffi/ffi.dart';
 final DynamicLibrary karahThinkLib = Platform.isAndroid
     ? DynamicLibrary.open(&quot;libkarah_think.so&quot;)
     : DynamicLibrary.process();
@@ -1332,194 +1555,6 @@ $ ./mancala.out
         
         
         <category>software</category>
-        
-      </item>
-    
-      <item>
-        <title>マンカラアプリについて</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://taimienphi.vn/download-mancala-nuts-90337&quot;&gt;&lt;img src=&quot;/images/tmp2.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
-&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
-&lt;a href=&quot;https://www.amazon.co.jp/happyclam-マンカラ-ナッツ/dp/B08D8QVVQY/ref=sr_1_2&quot;&gt;&lt;img src=&quot;/images/amazon-appstore-badge-jp-white.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
-&lt;br /&gt;&lt;a href=&quot;https://taimienphi.vn&quot; title=&quot;download&quot;&gt;taimienphi.vn&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;マンカラ-ナッツについて&quot;&gt;「マンカラ ナッツ」について&lt;/h3&gt;
-&lt;p&gt;　対人戦の途中でＡＩ対戦に切り替えたり、ＡＩ対戦の途中で対人戦に切り替えたりして、マンカラの特定の局面での最善手の研究にも使えるように配慮したマンカラアプリです。&lt;br /&gt;
-　Version1.1.6で豆の数を３個〜７個から選べるようにしました。また、対戦成績を先手番・後手番別に保存するようにしました。豆の数によって先手有利・後手有利の違いがあります。&lt;br /&gt;
-　勝ちパターンを覚えてしまうとゲームを楽しめないので、Version1.1.9から&lt;strong&gt;ランダム配置機能&lt;/strong&gt;を追加しました。&lt;/p&gt;
-
-&lt;h3 id=&quot;ルール&quot;&gt;ルール&lt;/h3&gt;
-&lt;p&gt;　数あるマンカラのルールの中で、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;カラハ（Karah）&lt;/code&gt;と呼ばれるルールを採用しています。&lt;br /&gt;
-　上下２列に並んだ６つのポケットに豆が入っていて、上がAI、下があなたです。丸い６つのポケットからどれかを選んで豆を取り出し、反時計回りに豆を一つずつポケットに撒いていきます。どちらかの６つのポケットが全て空になったらゲーム終了し、右側の四角い自分の貯蔵所に残った豆の数で勝ち負けを判定します。&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;相手の貯蔵所には豆を撒きません。&lt;/li&gt;
-  &lt;li&gt;豆を撒き終わったポケットが自分の貯蔵所の場合、もう一度ポケットを選んで豆を撒くことが出来ます（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ピッタリ&lt;/code&gt;）。&lt;/li&gt;
-  &lt;li&gt;自分の空のポケットで豆を撒き終わった時にその対称に位置する相手のポケットに豆が存在する場合、その豆を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;横取り&lt;/code&gt;（Capture）して自分の貯蔵所に加えることが出来ます。&lt;/li&gt;
-  &lt;li&gt;ゲーム終了時にポケットに残った豆は全て自分の貯蔵所に加えます。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;　同じ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;カラハ（Karah）&lt;/code&gt;と称するルールでも細かな違いがあるケースが存在しますが、&lt;a href=&quot;https://www.nintendo.co.jp/switch/as7ta/&quot;&gt;Nintendo Switchの世界のアソビ大全51&lt;/a&gt;に収録されているマンカラと同じルールにしています。&lt;/p&gt;
-
-&lt;h3 id=&quot;機能&quot;&gt;機能&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;ＡＩ対戦（レベルは３段階）&lt;/li&gt;
-  &lt;li&gt;対人対戦&lt;/li&gt;
-  &lt;li&gt;待った機能&lt;/li&gt;
-  &lt;li&gt;豆選択（コーヒー、ピスタチオ、アーモンド）機能&lt;/li&gt;
-  &lt;li&gt;豆の数選択機能（３個〜７個）&lt;/li&gt;
-  &lt;li&gt;先手後手別、対戦成績保存機能（ゲーム途中で設定を変更しり、「待った」した場合は対戦成績には記録されません）&lt;/li&gt;
-  &lt;li&gt;多言語対応、日&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ja&lt;/code&gt;, 英&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;en&lt;/code&gt;, 越&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vi&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;AI対戦時の形勢判断Emoji表示機能&lt;/li&gt;
-  &lt;li&gt;ランダム配置機能&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;ａｉ対戦&quot;&gt;ＡＩ対戦&lt;/h3&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen1.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen1.png&quot; alt=&quot;ＡＩ対戦画面&quot; width=&quot;320&quot; height=&quot;180&quot; title=&quot;ＡＩ対戦画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;新規ゲーム(New Game)&lt;/code&gt;ボタンで新規対局開始されます。&lt;/li&gt;
-  &lt;li&gt;ＡＩの対戦途中に強さ設定を変更すると、そのゲーム結果は対戦成績に記録されません。&lt;/li&gt;
-  &lt;li&gt;ＡＩ対戦の場合は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;戻す(Undo)&lt;/code&gt;ボタンで一つ前の人間の手番まで戻ります。ＡＩが連続で複数回着手していた場合も複数手分のＡＩの指し手を飛ばして、一つ前の人間の手番の局面に戻ります。&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;戻す(Undo)&lt;/code&gt;ボタンを使用すると対戦成績には記録されません。&lt;/li&gt;
-  &lt;li&gt;AIの静的評価関数は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;先手の貯蔵所に溜まった豆の数 - 後手の貯蔵所に溜まった豆の数&lt;/code&gt;で、MIN-MAX法（+ αβ法）を使って先読みを行い指し手を決めます。
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;弱い(Easy)&lt;/code&gt; = ３手読み&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;強い(Hard)&lt;/code&gt; = ８手読み&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やばい(Expert)&lt;/code&gt; = １１手読み&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;形勢emoji表示&quot;&gt;形勢Emoji表示&lt;/h4&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen5.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen5.png&quot; alt=&quot;ＡＩ形勢Emoji&quot; width=&quot;320&quot; height=&quot;180&quot; title=&quot;ＡＩ形勢Emoji&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AI対戦(One Player)&lt;/code&gt;時に画面右上に形勢判断用のEmojiを表示します。&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Emoji&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;文字コード&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;意味&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;:laughing:&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;U+1F923&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ＡＩが勝ちを確信。逆転は難しいでしょう。&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;:grin:&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;U+1F601&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ＡＩが優勢を意識。&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;:neutral_face:&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;U+1F610&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ＡＩは互角と判断。&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;:frowning:&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;U+1F641&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ＡＩは劣勢を意識。&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;:tired_face:&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;U+1F62B&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ＡＩが負けを覚悟。但し、勝負はあなたの着手しだいです&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;※このページのEmojiは実際のAndroid端末で表示されるEmojiとは若干表示が異なるケースがあります。&lt;/p&gt;
-
-&lt;h3 id=&quot;対人対戦&quot;&gt;対人対戦&lt;/h3&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen2.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen2.png&quot; alt=&quot;対人対戦画面&quot; width=&quot;320&quot; height=&quot;180&quot; title=&quot;対人対戦画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;新規ゲーム(Play)&lt;/code&gt;ボタンでゲーム開始、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;中止(Stop)&lt;/code&gt;ボタンでゲームを中断します。&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;先手&lt;/code&gt;が画面下側、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;後手&lt;/code&gt;が画面上側です。&lt;/li&gt;
-  &lt;li&gt;ゲーム途中でＡＩ対戦に戻すことも出来ます。途中からＡＩ対戦に切り替えても、勝敗は対戦成績には記録されません。&lt;/li&gt;
-  &lt;li&gt;対人対戦の場合は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;戻す(Undo)&lt;/code&gt;ボタンで一手ずつ前の局面に戻ります。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;設定画面&quot;&gt;設定画面&lt;/h3&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen3.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen3.png&quot; alt=&quot;設定画面&quot; width=&quot;320&quot; height=&quot;160&quot; title=&quot;設定画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;ゲームに使用する豆は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;コーヒー(Coffee)&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ピスタチオ(Pistachio)&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;アーモンド(Almond)&lt;/code&gt;の３種類から選べます。&lt;/li&gt;
-  &lt;li&gt;初期の豆の数は３個〜７個の５種類から選べます（Version1.1.6以降）。&lt;/li&gt;
-  &lt;li&gt;ＡＩの強さレベルは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;弱い(Easy)&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;強い(Hard)&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やばい(Expert)&lt;/code&gt;の３種類から選べます。&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AI対戦(One Player)&lt;/code&gt;を選ぶとＡＩ対戦、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;二人対戦(Two Players)&lt;/code&gt;を選ぶと対人戦が可能です。&lt;/li&gt;
-  &lt;li&gt;ＡＩ対戦途中で設定内容を変更した場合そのＡＩ対戦の結果は対戦成績に保存されません。&lt;/li&gt;
-  &lt;li&gt;同じパターンの指し手を避けるため、ＡＩのレベル&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;弱い(Easy)&lt;/code&gt;と&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;強い(Hard)&lt;/code&gt;では、初手はランダムに選ぶようにしています。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やばい(Expert)&lt;/code&gt;はガチで指し手を決めます&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/li&gt;
-  &lt;li&gt;全てのＡＩのレベルで、同じ評価値の場合はランダムに指し手を選択するようにしていますので、同じ局面で常に同じ指し手を選ぶとは限りません&lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。&lt;/li&gt;
-  &lt;li&gt;ＡＩ対戦時に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;先手&lt;/code&gt;か&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;後手&lt;/code&gt;かを選べます。この設定は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;二人対戦(Two Players)&lt;/code&gt;時には意味はありません。&lt;/li&gt;
-  &lt;li&gt;対戦を重ねると同じパターンで決着し、ゲームを楽しめなくなるのを防ぐため&lt;strong&gt;ランダム配置機能&lt;/strong&gt;追加しました（Version1.1.9以降）。設定画面で「ランダム」を選ぶと豆の初期配置が先手・後手同じでランダムな配置になります&lt;sup id=&quot;fnref:4&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;ゲーム成績画面&quot;&gt;ゲーム成績画面&lt;/h3&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/mancala_screen4.png&quot;&gt;&lt;img src=&quot;/images/mancala_screen4.png&quot; alt=&quot;ＡＩ対戦成績画面&quot; width=&quot;320&quot; height=&quot;180&quot; title=&quot;ＡＩ対戦成績画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;ＡＩ対戦の対戦成績を閲覧出来ます（Version1.1.6から、対戦成績を先手・後手別に保存するようにしました）。&lt;br /&gt;
-※旧バージョンから新バージョンにバージョンアップすると、旧バージョンには先手番後手番の情報が無いので、全て先手番の成績として移行します。&lt;/li&gt;
-  &lt;li&gt;豆の数（３〜７）別に対戦成績が記録されます。表の左上の数字はゲーム開始時に配置されている豆の数です。&lt;/li&gt;
-  &lt;li&gt;ゲーム成績を初期化する場合は、ゲームアイコンを長押しし、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;アプリ情報&lt;/code&gt;-&amp;gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ストレージとキャッシュ&lt;/code&gt;-&amp;gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ストレージを消去&lt;/code&gt;で初期化して下さい。全ての設定がゲームインストール時と同様に初期化されます。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;ＡＩのレベル毎の先読みの手数（３手、８手、１１手）以内に勝ちがある（将棋で言うと詰みがある）状態です。よく考えて着手してください。:tired_face:の絵文字が表示された後の着手でＡＩの表情が他のものに変わった場合、勝ち（詰み）を逃したことを意味します。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;一時期&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やばい(Expert)&lt;/code&gt;モードでも初手をランダムにしてリリースしていた時期がありましたが、マンカラの場合、初手に悪手を選ぶとその段階で回復不可能な程形勢を大きく損ねるようなので、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やばい(Expert)&lt;/code&gt;の時だけは初手のランダム指し手を止めました。将棋やチェスなどと較べると初手から既に勝敗に大きく影響するようです。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:3&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;戻す(Undo)&lt;/code&gt;ボタンで数手前の局面に戻してからAI対戦を再開しても、前回と同じ局面になるとは限りませんのでご注意ください。ゲーム途中で設定を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;二人対戦(Two Players)&lt;/code&gt;に変更して、気になる局面を再現してから&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AI対戦(One Player)&lt;/code&gt;に切り替えることは可能です。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:4&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;ランダムと言っても豆の数が０にはならないようにしています。また、豆の合計数は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;４&lt;/code&gt;を選んだ場合と同じ４×６×２＝４８個です。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Mon, 10 Aug 2020 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/project/2020-08-10/mancalanuts</link>
-        <guid isPermaLink="true">https://happyclam.github.io/project/2020-08-10/mancalanuts</guid>
-        
-        <category>flutter</category>
-        
-        <category>dart</category>
-        
-        <category>android</category>
-        
-        <category>mancala</category>
-        
-        
-        <category>project</category>
         
       </item>
     

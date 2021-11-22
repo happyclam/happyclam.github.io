@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="author" content="happyclam">
+  <meta name="description"
+    content="M1 Macbook ProのCPU性能 Macbook12から乗り換え,所有PCの中で最速に Reinventing the wheel.">
+  <title> M1 Macbook ProのCPU性能 - 自己満足プログラミング </title>
+
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-1752720-7');
+  </script>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="M1 Macbook ProのCPU性能">
+  
+  
+  <meta name="twitter:url" content="/hardware/2021-11-23/macbookpro">
+  
+  
+  <meta name="twitter:description" content="最速PCで時間のかかる処理を試してみた">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/macbookpro_thumb.png">
+  
+
+  <link rel="canonical" href="https://happyclam.github.io/hardware/2021-11-23/macbookpro" />
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="site-title" class="navbar-brand" href="/">
+          <img class="pull-left img-responsive" src="">
+          <span class="name-holder">自己満足プログラミング</span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li><a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li><a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li><a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li><a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li><a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <!-- <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script> -->
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <div style="text-align: center;">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-9018029357773039",
+          enable_page_level_ads: true
+      });
+    </script>
+  </div>
+  <div class="blog-header">
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+      <div class="span9">
+        <!-- Html Elements for Search -->
+        <div id="search-container" align="right">
+          <input type="text" id="search-input" placeholder="search...">
+          <ul class="searchresult" id="results-container"></ul>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+  <script src="/assets/js/jquery.min.js"></script>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
+
+        <header class="page-header">
+          <h2 class="page-title"><a href="/hardware/2021-11-23/macbookpro">M1 Macbook ProのCPU性能</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Tuesday, November 23, 2021
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">macbook</span>
+                
+                  <span class="label label-tag">cordova</span>
+                
+            </div>
+          </div>
+
+        </header>
+
+        <article class="page-content">
+          <h3 id="macbook12インチでスマホアプリ開発してた人">Macbook12インチでスマホアプリ開発してた人</h3>
+<p><span id="back1"></span></p>
+
+<p>　リリース済みのアプリの多くはCordova製なので、最初はブラウザさえあれば開発出来るものでした。でも途中からアプリにファイル保存機能を付けたり、Firebaseの機能を使い始めるとエミュレータを使った開発が必要になって来て、非力なMacbook12で開発作業をするのは苦行に近いものでした<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>。<br />
+　で、ようやく以前から欲しかったMacbookProを購入し、別世界を体感しています。</p>
+
+<div style="width:640px; margin: 0 auto;">
+<div style="float:left; margin: 0px 20px 0px;">
+<a href="/images/macbook_pro1.png"><img width="240" height="183" src="/images/macbook_pro1.png" alt="Macbook Pro 2021 表" title="M1 Macbook Pro 14インチ 表" /></a>
+</div>
+<div>
+<a href="/images/macbook_pro2.png"><img width="240" height="186" src="/images/macbook_pro2.png" alt="Macbook Pro 2021 裏" title="M1 Macbook Pro 14インチ 裏" /></a>
+</div>
+</div>
+<p><br clear="all" /></p>
+<div style="width:640px; margin: 0 auto;">
+<div style="float:left; margin: 0px 20px 0px;">
+<a href="/images/macbook_comp1.png"><img width="240" height="181" src="/images/macbook_comp1.png" alt="Macbook12との比較 上" title="Macbook12との比較 真上から" /></a>
+</div>
+<div>
+<a href="/images/macbook_comp2.png"><img width="240" height="126" src="/images/macbook_comp2.png" alt="Macbook12との比較 横" title="Macbook12との比較 側面" /></a>
+</div>
+</div>
+<p><br clear="all" /></p>
+
+<p>　Macbook12と比較するとかなり大きく、重い（1.6Kg）ので持ち歩く気にはなりません。</p>
+
+<h3 id="cpu性能比較１">CPU性能比較１</h3>
+<p>　<a href="/software/2020-09-19/js_dart_cpp">以前の記事</a>で２×６列のマンカラカラハで先手必勝を読み切るまでに要する時間を３つのプログラミング言語（Dart,TypeScript,C++）で比較しましたが、今回は同じC++のソースを使ってCPUによる比較をしてみたいと思います。Intelの<code class="language-plaintext highlighter-rouge">Core i7-2600K</code>とARM系<code class="language-plaintext highlighter-rouge">Apple M1 Pro</code>、４コアと１０コア、比較の基準がバラバラですが、単に自分が持っているPCでどれだけ性能が上がったか知りたいだけです。<br />
+　まずは<code class="language-plaintext highlighter-rouge">Core i7-2600K</code>（Ubuntu機）側から。<a href="/software/2020-09-19/js_dart_cpp">前回の記事</a>と出力内容が違うのは、<a href="/software/2020-09-19/js_dart_cpp">前回の記事</a>にも書いた通りバグがあったためです。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./mancala.out
+0,2,2,2,2,2,2,0,2,2,2,2,2,2,
+=== result = 4, 5, i = 1
+=== result = 3, 5, i = 2
+=== result = 1, 6, i = 3
+=== result = 3, 5, i = 4
+=== result = 5, 5, i = 5
+=== result = 4, 5, i = 6
+=== result = 5, 5, i = 7
+=== result = 4, 5, i = 8
+=== result = 4, 5, i = 9
+=== result = 5, 6, i = 10
+=== result = 5, 6, i = 11
+=== result = 5, 5, i = 12
+=== result = 5, 5, i = 13
+=== result = 5, 5, i = 14
+=== result = 6, 5, i = 15
+=== result = 12, 5, i = 16
+=== result = 999, 5, i = 17
+467263.232000[ms]
+999, 5
+</code></pre></div></div>
+
+<p><span id="back2"></span>
+<br />
+<br />
+<br /></p>
+
+<p>　<a href="/software/2020-09-19/js_dart_cpp">前回の記事</a>より実行時間が短縮しているのもバグを修正した所為で、前回と同じPCで実行しています。<br />
+　続いて、<code class="language-plaintext highlighter-rouge">Apple M1 Pro</code>側です。初めてのARMベースのCPUということでコンパイルするのも一手間<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>だったのですが、<a href="https://zenn.dev/ress/articles/069baf1c305523dfca3d">この記事</a>を参考にして解決できました。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>% ./mancala.out 
+0,2,2,2,2,2,2,0,2,2,2,2,2,2,
+=== result = 4, 5, i = 1
+=== result = 3, 5, i = 2
+=== result = 1, 6, i = 3
+=== result = 3, 5, i = 4
+=== result = 5, 5, i = 5
+=== result = 4, 5, i = 6
+=== result = 5, 5, i = 7
+=== result = 4, 5, i = 8
+=== result = 4, 5, i = 9
+=== result = 5, 6, i = 10
+=== result = 5, 6, i = 11
+=== result = 5, 5, i = 12
+=== result = 5, 5, i = 13
+=== result = 5, 5, i = 14
+=== result = 6, 5, i = 15
+=== result = 12, 5, i = 16
+=== result = 999, 5, i = 17
+274362.594000[ms]
+999, 5
+</code></pre></div></div>
+
+<p>　同じ結果を得るのに要した時間は<code class="language-plaintext highlighter-rouge">Core i7-2600K</code>が<code class="language-plaintext highlighter-rouge">467秒</code>だったのに対して、<code class="language-plaintext highlighter-rouge">Apple M1 Pro</code>では<code class="language-plaintext highlighter-rouge">274秒</code>でした。
+　ちなみに実行結果の最後の行、<code class="language-plaintext highlighter-rouge">999, 5</code>は、以下の表の<code class="language-plaintext highlighter-rouge">5</code>の位置を先手が初手に選べば、先手が勝てることを意味しています。２×６列のマンカラカラハは先手必勝のゲームです、詳しくは<a href="/software/2020-06-07/mancala">こちらの記事</a>に書いています。</p>
+
+<div style="float:left; margin: 0px 15px 0px">
+    <table>
+    <tr>
+    <td rowspan="4" align="center">0↓</td>
+    <td colspan="6" align="center">後手</td>    
+    <td rowspan="4" align="center">7↑</td>
+    </tr>
+    <tr>
+    <td align="center">13<br />←</td>    
+    <td align="center">12<br />←</td>
+    <td align="center">11<br />←</td>
+    <td align="center">10<br />←</td>    
+    <td align="center">9<br />←</td>
+    <td align="center">8<br />←</td>
+    </tr>
+    <tr>
+    <td colspan="6" align="center">先手</td>    
+    </tr>
+    <tr>
+    <td align="center">1<br />→</td>    
+    <td align="center">2<br />→</td>
+    <td align="center">3<br />→</td>
+    <td align="center">4<br />→</td>    
+    <td align="center"><font color="red">5</font><br />→</td>
+    <td align="center">6<br />→</td>
+    </tr>
+    </table>
+</div>
+<p><br clear="all" /></p>
+
+<p>　３×６列や４×６列のカラハでどうなるのか確認したいところですが、CPUがそこそこ速くなったぐらいでは結果を得るのに数ヶ月以上掛かると思われるので他の工夫が必要だと思ってます。</p>
+
+<p>　ついでにMacbook12インチでも試してみました。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>% ./mancala.out
+0,2,2,2,2,2,2,0,2,2,2,2,2,2,
+=== result = 4, 5, i = 1
+=== result = 3, 5, i = 2
+=== result = 1, 6, i = 3
+=== result = 3, 5, i = 4
+=== result = 5, 5, i = 5
+=== result = 4, 5, i = 6
+=== result = 5, 5, i = 7
+=== result = 4, 5, i = 8
+=== result = 4, 5, i = 9
+=== result = 5, 6, i = 10
+=== result = 5, 6, i = 11
+=== result = 5, 5, i = 12
+=== result = 5, 5, i = 13
+=== result = 5, 5, i = 14
+=== result = 6, 5, i = 15
+=== result = 12, 5, i = 16
+=== result = 999, 5, i = 17
+440331.482000[ms]
+999, 5
+</code></pre></div></div>
+
+<p>　<code class="language-plaintext highlighter-rouge">440秒</code>ということで意外だったのですが<code class="language-plaintext highlighter-rouge">Core i7-2600K</code>（Ubuntu機）よりMacbook12インチ（<code class="language-plaintext highlighter-rouge">Intel Core M-5Y51</code>）の方が速いんですね。普段メインで使っていたUbuntu機の方が断然レスポンスが良いと感じていたのはメモリ（12GB）の差でしょうか？Macbook12インチ（メモリ8GB）もメモリ増設していればそこそこ開発用として使えていたのかも知れません。<br />
+　ちょっと気になったので検索したら<a href="https://www.cpu-monkey.com/ja/compare_cpu-intel_core_m_5y51-454-vs-intel_core_i7_2600k-6">こんなページ</a>がありました。シングルコアで比較すると結構いい勝負しているようです。それでもCoreMの方が速いというのはやはり合点がいかないのですが、Ubuntu機の方は他の多くのプログラムが動いている中で試していたのでその所為だと思われます。</p>
+
+<h3 id="cpu性能比較２">CPU性能比較２</h3>
+<p>　話が逸れましたがもう一つ、<a href="/software/2018-10-27/unpromote">以前の記事</a>で「歩不成の詰将棋」を読み切るのに２週間掛かったことを紹介しましたが、この時使ったスクリプトを今回購入したMacbook Proで実行してみました。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ coffee game.coffee 
+hmmxxxggggkkkkyyyffffffffffff
+ 9 8 7 6 5 4 3 2 1
+| | | | | |f|T| |y|1
+| | | | | | | | | |2
+| | | | |H| |F|o| |3
+| | | | | |X| |f|f|4
+| | | | | | | | | |5
+| | | | | | | | | |6
+| | | | | | | | | |7
+| | | | | | | | | |8
+|O| | | | | | | | |9
+F
+first: i = 1, kind = Hi, temp = [{"turn":-1,"status":0,"posi":[5,3],"id":"q6owepmi"},[5,2],-589,1,{"koma":{"turn":-1,"status":0,"posi":[9,9],"id":"ribd4do4"},"posi":[9,8],"score":-614,"status":0}]
+first: i = 2, kind = Fu, temp = [{"turn":-1,"status":0,"posi":[3,3],"id":"g8a244eb"},[3,2],-532,1,{"koma":{"turn":-1,"status":0,"posi":[5,3],"id":"q6owepmi"},"posi":[5,2],"score":-542,"status":1}]
+first: i = 4, kind = Fu, temp = [{"turn":-1,"status":0,"posi":[3,3],"id":"g8a244eb"},[3,2],-522,1,{"koma":{"turn":-1,"status":0,"posi":[3,3],"id":"g8a244eb"},"posi":[3,2],"score":-554,"status":0}]
+first: i = 5, kind = Fu, temp = [{"turn":-1,"status":0,"posi":[3,3],"id":"g8a244eb"},[3,2],-594,0,{"koma":{"turn":-1,"status":0,"posi":[4,4],"id":"a7qa7o3i"},"posi":[3,4],"score":-702,"status":0}]
+hmmxxxggggkkkkyyyffffffffffff
+ 9 8 7 6 5 4 3 2 1
+| | | | | |f|T| |y|1
+| | | | | | |F| | |2
+| | | | |H| | |o| |3
+| | | | | |X| |f|f|4
+| | | | | | | | | |5
+| | | | | | | | | |6
+| | | | | | | | | |7
+| | | | | | | | | |8
+|O| | | | | | | | |9
+F
+初手経過時間: 370448881ミリ秒
+</code></pre></div></div>
+
+<p>　<code class="language-plaintext highlighter-rouge">Core i7-2600K</code>で<code class="language-plaintext highlighter-rouge">1208445383ミリ秒（約２週間）</code>掛かった処理が<code class="language-plaintext highlighter-rouge">Apple M1 Pro</code>だと<code class="language-plaintext highlighter-rouge">370448881ミリ秒（約４日）</code>でした。やはり断然速いですね。</p>
+
+<div>
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- display01 -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9018029357773039" data-ad-slot="3925247388" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+<hr />
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Flutter製アプリは別のUbuntu機を使って開発してます。<a href="#back1">戻る</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>Rosettaって何？状態だったのでM1 Macbookのコンパイル環境を作るのに手間取りましたが、ソースコードそのものの修正は不要でした。<a href="#back2">戻る</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <small>&copy; rifyll theme, 2014</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+</body>
+
+</html>

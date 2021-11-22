@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "M1 Macbook ProのCPU性能",
+      "category" : "hardware",
+      "tags"     : "macbook, cordova",
+      "url"      : "/hardware/2021-11-23/macbookpro",
+      "date"     : "2021-11-23 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "Ubuntuで使えるBluetoothマウス",
       "category" : "hardware",
       "tags"     : "ubuntu, logicool",
