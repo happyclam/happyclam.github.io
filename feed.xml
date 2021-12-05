@@ -5,9 +5,123 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 22 Nov 2021 13:26:16 +0900</pubDate>
-    <lastBuildDate>Mon, 22 Nov 2021 13:26:16 +0900</lastBuildDate>
+    <pubDate>Sun, 05 Dec 2021 19:13:29 +0900</pubDate>
+    <lastBuildDate>Sun, 05 Dec 2021 19:13:29 +0900</lastBuildDate>
     <generator>Jekyll v3.9.1</generator>
+    
+      <item>
+        <title>ミニベロは上り坂で有利なのか？</title>
+        <description>&lt;h3 id=&quot;ロードバイクで登れるけどミニベロで登れない坂がある&quot;&gt;ロードバイクで登れるけど、ミニベロで登れない坂がある&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/miscellaneous/2020-05-16/bicycle01&quot;&gt;以前の記事「ロード系ミニベロのカスタマイズ」&lt;/a&gt;が結構読まれているようなので、また自転車ネタを書いてみます。&lt;br /&gt;
+　新しく自転車を買ってみようかと思っているのですが、その自転車に求める条件の一つに「近所にある山を登り切りたい」という変な拘りがあります。全国的に有名な急坂とかそういう大層なものではないのですが、&lt;a href=&quot;/miscellaneous/2020-05-16/bicycle01&quot;&gt;以前の記事&lt;/a&gt;で紹介したIDIOM2では登れないけど、今年売っ払ったロードバイクなら登れた坂というのが近所にあって、IDIOM2よりかは上り坂に強い自転車を選びたいと思ってます。&lt;br /&gt;
+　そこでフロントシングルでどんなギアが用意されていればいいか考えてみました。&lt;/p&gt;
+
+&lt;h3 id=&quot;ロードとidiom2の比較&quot;&gt;ロードとIDIOM2の比較&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt; &lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;ロード　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;　IDIOM2　&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;クランク長&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;165mm&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;165mm&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;フロント&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;50-34T&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;48T&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ギア&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;11-25T&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;12-25T&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;タイヤ&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;23-700&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;28-451&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　自分が持っている2010年式IDIOM2はロード系と言われるだけあってフロントギアは大きめ（48T）ですがスプロケット（SHIMANO HG50 8S 12-25T）のレンジが狭く、ローギアがロードと同じ25Tで坂には向いていません。&lt;br /&gt;
+　一般的にミニベロは上り坂で有利なんて言われたりしますが、車体の重さやクランク長の違いなどの要素もあるものの、ペダルを回す負荷を考えたら結局ギア比で決まると思います。大きな車輪を回すより小さな車輪を回す方が負荷は低くはなりますが、その分を考慮した値で比較すれば700Cも小径車も同じだと思います。700Cと451のタイヤを回す負荷を比較する場合、ギア比を掛けてやれば求められるので&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;タイヤの外径×ギア比&lt;/code&gt;の値を比較すればいいはずです。&lt;br /&gt;
+　タイヤの外径をタイヤサイズ表記に使われている&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;700&lt;/code&gt;や&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;451&lt;/code&gt;を使って計算してもいいのですが、700Cのタイヤのビード座直径は実際には700mmではないようですし、同じタイヤサイズでもタイヤの太さによってタイヤの高さ（外径）も変わるのでここではタイヤの外径の代わりに、タイヤ周長を使おうと思います。タイヤ周長は多くのサイクルコンピュータに予め用意されているのでタイヤの太さによる違いなども考慮されているのでより正確だと思います。それと、タイヤ外径とタイヤ周長の違いは定数である円周率（3.14）を掛けただけなので、タイヤ外径の代わりに周長を使っても問題ありません。&lt;/p&gt;
+
+&lt;p&gt;　ここでは&lt;a href=&quot;https://www.cyclabo.com/ja/topics/vnu1m1awr7/&quot;&gt;このサイト&lt;/a&gt;からタイヤ周長の数値を引っ張ってきて、ロードとミニベロのペダルを回す負荷値（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;タイヤ周長×ギア比&lt;/code&gt;）を計算してみました。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt; &lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;ロード　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;　IDIOM2　&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;タイヤサイズ&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;700x23C(ETRTO 23-622)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;20x1-1/8(ETRTO 28-451)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;トップギア&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2096 * (50 / 11.0) = 9.527m&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1545 * (48 / 12.0) = 6.180m&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ローギア&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2096 * (34 / 25.0) = 2.850m&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1545 * (48 / 25.0) =  2.966m&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　IDIOM2の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2.966m&lt;/code&gt;よりロードの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2.850m&lt;/code&gt;の方が小さい負荷なのでロードで坂が登れたということだと思ってます。&lt;br /&gt;
+　ペダルを回す負荷値なんて書きましたが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;タイヤ周長×ギア比&lt;/code&gt;というのは結局&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ペダル一漕ぎで進む距離&lt;/code&gt;のことです。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ペダル一漕ぎで進む距離&lt;/code&gt;が上り坂を克服し易さを表す指標と考えていいと思いますが、あまりそういう話を周りで聞かないので不思議です。もっとこの認識が拡がればいいのにと思ってます。&lt;/p&gt;
+
+&lt;h3 id=&quot;一輪車は上り坂で有利&quot;&gt;一輪車は上り坂で有利？&lt;/h3&gt;
+&lt;p&gt;　一輪車には乗ったことはないのですが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ペダル一漕ぎで進む距離&lt;/code&gt;が小さいほど坂が登り易いのであれば、一輪車は坂を登り易いということになりますが、どうなのでしょう？&lt;a href=&quot;https://www.youtube.com/watch?v=WhFdxguU_dY&quot;&gt;こんな動画&lt;/a&gt;を見つけましたが、斜度も分からないし何とも言えませんがスピードを無視してペダルを回せるかどうかだけを考えれば一輪車は上り坂に強いような気もします。それに一輪車のクランク長は一般的には自転車よりも短いらしいので、スピードのことは考えず登ることだけを考えて長めのクランクを付けたらさらに楽に登れそうです。&lt;br /&gt;
+　でも、自転車（二輪車）であれば、やろうと思えばギア比を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;以下にすることも出来るので自転車の方が有利であることに間違いないでしょう。&lt;br /&gt;
+　それと上で比較したロードとIDIOM2のクランク長は偶々同じサイズですが、クランク長まで考慮しだすと面倒なので購入する自転車を選ぶ際には今のところ無視しています。&lt;/p&gt;
+
+&lt;h3 id=&quot;ペダルを回せるかどうかが大事&quot;&gt;ペダルを回せるかどうかが大事&lt;/h3&gt;
+&lt;p&gt;　自転車で坂を登れるかどうかっていうのは第一にペダルを回せるかどうかが大事です。全く疲労していない状態でも急勾配な坂だと、力一杯ペダルを踏み込んでも全く回せないので、こういう状態だとギア比を変えるしかありません。&lt;br /&gt;
+　かなり昔のことですが、男６、７人で遠乗りしたことがあって、クロスバイクやロードバイクの人達の中で私だけがミニベロのIDIOM2でした。そして上り坂になった時、私が他のメンバーをグイグイ追い抜いて先頭になって坂の中腹でみんなを待つ状態になったことがあったのですが、「気合い入ってるね」とか「速いね」とか言われたのですが、何の事は無い、自分としてはもっと軽いギアでクルクルペダルを回してゆっくり上りたいのですが、軽いギアが無いために無理やり他の人より重いギアで漕いでいただけのことです。ギア比のことに思い至っていない人だと、上り坂はミニベロが有利なんだと勘違いするかも知れません。&lt;br /&gt;
+　この時は、その後山の頂上が近づくにつれて坂が急勾配になっていき、私がペダルが踏めなくなって自転車を押して歩く羽目になったのとは対照的に、軽い高級ロードバイクの人が先頭を走っていました。&lt;/p&gt;
+
+&lt;h3 id=&quot;坂だけを考えたらクロスバイク&quot;&gt;坂だけを考えたらクロスバイク？&lt;/h3&gt;
+&lt;p&gt;　冒頭に書いたIDIOM2で登れない坂を克服することを考えながら自転車を物色していると、クロスバイクの方が良さそうな気がしています。購入後にギアだけ変えるのは面倒なので、取り敢えず最初から用意されているギア比を見ているとクロスバイクの方がワイドレンジになっていて坂には有利なようですし、リアキャリアを付けたいのでダボ穴が用意されているクロスバイクになりそうです。&lt;br /&gt;
+　購入したらまた記事を書いてみようと思います。&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+</description>
+        <pubDate>Sun, 05 Dec 2021 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/miscellaneous/2021-12-05/minivelo</link>
+        <guid isPermaLink="true">https://happyclam.github.io/miscellaneous/2021-12-05/minivelo</guid>
+        
+        <category>bicycle</category>
+        
+        
+        <category>miscellaneous</category>
+        
+      </item>
     
       <item>
         <title>M1 Macbook ProのCPU性能</title>
@@ -1399,157 +1513,6 @@ int32_t karah_think(int32_t* pResult, int32_t* pBoard, int32_t turn, int32_t dep
         <category>android</category>
         
         <category>flutter</category>
-        
-        <category>c++</category>
-        
-        
-        <category>software</category>
-        
-      </item>
-    
-      <item>
-        <title>Dartは遅いけど、FlutterでGUIは有り</title>
-        <description>&lt;h3 id=&quot;dartに絶望flutterでguiは有り&quot;&gt;Dartに絶望FlutterでGUIは有り&lt;/h3&gt;
-&lt;p&gt;　Qiitaのどなたかの記事でDartはJavaScriptより実行速度が倍程速いと書かれているのを見かけて、期待しながら今リリースしているCoffeeScript（JavaScript）製の&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;のGUI以外の部分をDartで書き直して比較したのですが、テストの結果からDartの方が遅いことが分かりました。Flutter(Dart)で&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラアプリ&lt;/a&gt;を作ってみてGUIの作り易さに感動した&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;だけに非常に失望しました。&lt;br /&gt;
-　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;今のアプリ&lt;/a&gt;よりも実行速度が遅いのならFlutterで将棋関連のアプリを作り直す意味がないので、どうしようかと思い、&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;以前の記事&lt;/a&gt;で書いたマンカラアプリなら行数も少ないのでとりあえずこれを題材にTypeScriptとC++で書き直して比較してみました。&lt;/p&gt;
-
-&lt;h3 id=&quot;比較の元となるdartの実行結果&quot;&gt;比較の元となるDartの実行結果&lt;/h3&gt;
-&lt;p&gt;　６×２列のマンカラカラハの先読みプログラムの実行結果です。何をやっているかは&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;以前の記事&lt;/a&gt;を参照してください。&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ dart mancala.dart
-[0, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2]
-=== result = 1, 5, i = 1
-=== result = 0, 5, i = 2
-=== result = 3, 5, i = 3
-=== result = 4, 5, i = 4
-=== result = 5, 5, i = 5
-=== result = 4, 5, i = 6
-=== result = 5, 5, i = 7
-=== result = 4, 5, i = 8
-=== result = 4, 5, i = 9
-=== result = 4, 5, i = 10
-=== result = 3, 5, i = 11
-=== result = 5, 5, i = 12
-=== result = 4, 5, i = 13
-=== result = 5, 5, i = 14
-=== result = 6, 5, i = 15
-=== result = 2, 6, i = 16
-=== result = 3, 6, i = 17
-=== result = 999, 5, i = 18
-4040941
-[999, 5]
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　１８手で先手必勝を読み切るまでに4040秒（１時間強）&lt;/p&gt;
-
-&lt;h3 id=&quot;まずはtypescript&quot;&gt;まずはTypeScript&lt;/h3&gt;
-&lt;p&gt;　好きなCoffeeScriptはマイナーになってしまったので、Dartの存在を知る前から今の将棋関連アプリをいずれTypeScriptに書き換えるべきかなと思っていたのでまずはこれで試しました。&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ts-node mancala.ts
-[ 0, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2 ]
-result = [ 1, 5, [length]: 2 ], i = 1
-result = [ 0, 5, [length]: 2 ], i = 2
-result = [ 3, 5, [length]: 2 ], i = 3
-result = [ 4, 5, [length]: 2 ], i = 4
-result = [ 5, 5, [length]: 2 ], i = 5
-result = [ 4, 5, [length]: 2 ], i = 6
-result = [ 5, 5, [length]: 2 ], i = 7
-result = [ 4, 5, [length]: 2 ], i = 8
-result = [ 4, 5, [length]: 2 ], i = 9
-result = [ 4, 5, [length]: 2 ], i = 10
-result = [ 3, 5, [length]: 2 ], i = 11
-result = [ 5, 5, [length]: 2 ], i = 12
-result = [ 4, 5, [length]: 2 ], i = 13
-result = [ 5, 5, [length]: 2 ], i = 14
-result = [ 6, 5, [length]: 2 ], i = 15
-result = [ 2, 6, [length]: 2 ], i = 16
-result = [ 3, 6, [length]: 2 ], i = 17
-result = [ 999, 5, [length]: 2 ], i = 18
-ms = 2862324
-[ 999, 5 ]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　同じ結果を得るまでに2862秒（１時間弱）で、やはりDartよりJSの方が速いようです。将棋の場合これ以上に明確な差がありました。&lt;/p&gt;
-
-&lt;h3 id=&quot;cはやはり最強&quot;&gt;C++はやはり最強&lt;/h3&gt;
-&lt;p&gt;　苦労してC++で将棋関連アプリを書き直しても、そのままではスマホアプリに出来ないので今までは避けていました。でもFlutterでGUI部分を作って思考部分だけC++で作ればいいんじゃないかなんて考えて試してみました&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
-　C言語を使うのが久しぶりでよく調べずに一度間違った記事をアップしてしまったのですが、以下がC++の結果です&lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ g++ mancala.cpp -O2 -o mancala.out
-$ ./mancala.out
-0,2,2,2,2,2,2,0,2,2,2,2,2,2,
-=== result = 1, 5, i = 1
-=== result = 0, 5, i = 2
-=== result = 3, 5, i = 3
-=== result = 4, 5, i = 4
-=== result = 5, 5, i = 5
-=== result = 4, 5, i = 6
-=== result = 5, 5, i = 7
-=== result = 4, 5, i = 8
-=== result = 4, 5, i = 9
-=== result = 4, 5, i = 10
-=== result = 3, 5, i = 11
-=== result = 5, 5, i = 12
-=== result = 4, 5, i = 13
-=== result = 5, 5, i = 14
-=== result = 6, 5, i = 15
-=== result = 2, 6, i = 16
-=== result = 3, 6, i = 17
-=== result = 999, 5, i = 18
-700673.273000[ms]
-999, 5
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　結果は、700秒（約１１分）!!やはり最強でした。&lt;/p&gt;
-
-&lt;p&gt;　プログラムを他の言語に移植すると言っても同じオブジェクト指向言語であればほとんどコードは一対一に書き換え可能で、写経に近いものがあります&lt;sup id=&quot;fnref:4&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;。元々のDartのプログラムにはまだまだ改良の余地があると思いますが、拙いコードであってもバグがあったとしても、今回比較した３つのプログラムは行数も少なく同じ処理をしていますので、拙いコードもバグも同じまま、実行時間だけを比較していると言えると思います&lt;sup id=&quot;fnref:5&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;。実行結果も同じです。&lt;/p&gt;
-
-&lt;h3 id=&quot;マンカラの必勝法は&quot;&gt;マンカラの必勝法は？&lt;/h3&gt;
-&lt;p&gt;　今回、マンカラの先読みプログラムをC++に移植したのは、以前の&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;マンカラの記事&lt;/a&gt;、&lt;a href=&quot;/software/2020-08-09/mancala_easy&quot;&gt;続編&lt;/a&gt;の課題である、マンカラカラハ（６×２列で種子４つ）の必勝法を見つける目論見も兼ねていたのですが、C++版で実行時間が短縮されたと言っても、この程度では必勝法を見つけることが出来るかどうかは分かりません。１時間掛かった作業が１０分で可能になったと言っても、もし読み切るのに１年以上掛かる作業だとしたら、やはり数ヶ月以上掛かることには変わりませんから。&lt;/p&gt;
-
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;アニメーションなんてほとんど経験ないのにネットでググりながら進めたら簡単に作れました。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;昔、GUIはVisualBasicで作って内部処理はVisualC++で作る（DLL）なんて仕事をよくしていました。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:3&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;コンパイルオプション(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-O&lt;/code&gt;、または&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-O2&lt;/code&gt;)を付加することで末尾最適化してくれるそうです。そう言えば昔はスタックサイズやらいろいろコンパイルオプションを付けなければ上手くいかなかった記憶があります。自分がC言語から遠ざかっている間にコンパイラも進化しているようです。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:4&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;プログラムの行数もほぼ同じ、コードもほぼ一対一で書式だけが違う感じで、C++だけクラス変数の初期化部分が少し違う程度です。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:5&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;実際に微妙なバグがあったので出力内容は現在では違う内容になってます。&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;の方は修正済みです。 &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Sat, 19 Sep 2020 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/software/2020-09-19/js_dart_cpp</link>
-        <guid isPermaLink="true">https://happyclam.github.io/software/2020-09-19/js_dart_cpp</guid>
-        
-        <category>dart</category>
-        
-        <category>android</category>
-        
-        <category>flutter</category>
-        
-        <category>typescript</category>
         
         <category>c++</category>
         
