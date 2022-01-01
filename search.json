@@ -1,19 +1,11 @@
 [
   
     {
-      "title"    : "ミニベロは上り坂で有利なのか？",
-      "category" : "miscellaneous",
-      "tags"     : "bicycle",
-      "url"      : "/miscellaneous/2021-12-05/minivelo",
-      "date"     : "2021-12-05 00:00:00 +0900"
-    } ,
-  
-    {
-      "title"    : "M1 Macbook ProのCPU性能",
-      "category" : "hardware",
-      "tags"     : "macbook, cordova",
-      "url"      : "/hardware/2021-11-23/macbookpro",
-      "date"     : "2021-11-23 00:00:00 +0900"
+      "title"    : "lishogi(Minishogi)に挑戦",
+      "category" : "project",
+      "tags"     : "coffeescript, cordova, android, javascript, shogi",
+      "url"      : "/project/2022-01-02/lishogi",
+      "date"     : "2022-01-02 00:00:00 +0900"
     } ,
   
     {

@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="author" content="happyclam">
+  <meta name="description"
+    content="lishogi(Minishogi)に挑戦 最新将棋AIにどこまで迫れるか？スマホを買い換えたので試してみた Reinventing the wheel.">
+  <title> lishogi(Minishogi)に挑戦 - 自己満足プログラミング </title>
+
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-1752720-7');
+  </script>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="lishogi(Minishogi)に挑戦">
+  
+  
+  <meta name="twitter:url" content="/project/2022-01-02/lishogi">
+  
+  
+  <meta name="twitter:description" content="最新将棋ソフトにどこまで迫れるか試してみました。">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/55shogi_logo.png">
+  
+
+  <link rel="canonical" href="https://happyclam.github.io/project/2022-01-02/lishogi" />
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="site-title" class="navbar-brand" href="/">
+          <img class="pull-left img-responsive" src="">
+          <span class="name-holder">自己満足プログラミング</span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li><a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li><a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li><a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li><a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li><a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <!-- <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script> -->
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <div style="text-align: center;">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-9018029357773039",
+          enable_page_level_ads: true
+      });
+    </script>
+  </div>
+  <div class="blog-header">
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+      <div class="span9">
+        <!-- Html Elements for Search -->
+        <div id="search-container" align="right">
+          <input type="text" id="search-input" placeholder="search...">
+          <ul class="searchresult" id="results-container"></ul>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+  <script src="/assets/js/jquery.min.js"></script>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
+
+        <header class="page-header">
+          <h2 class="page-title"><a href="/project/2022-01-02/lishogi">lishogi(Minishogi)に挑戦</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Sunday, January 02, 2022
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">coffeescript</span>
+                
+                  <span class="label label-tag">cordova</span>
+                
+                  <span class="label label-tag">android</span>
+                
+                  <span class="label label-tag">javascript</span>
+                
+                  <span class="label label-tag">shogi</span>
+                
+            </div>
+          </div>
+
+        </header>
+
+        <article class="page-content">
+          <h3 id="lishogiと５五将棋アプリを対戦させてみた"><a href="https://lishogi.org">lishogi</a>と<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>を対戦させてみた</h3>
+<p>　<a href="https://lishogi.org">lishogi</a>に５五将棋（Minishogi）が実装されたようです。ちょうど<a href="http://happyclam.github.io/project/2020-01-02/minishogi">２年前の記事</a>で<a href="http://hgm.nubati.net/miniShogi.html">GNU mini-shogi</a>のサイトで公開されているフリーソフトのPC用５五将棋エンジンと<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>と対戦させて、アプリが勝てなかったことを書きました。<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>のAI部分は２年前と同じですので、普通に考えれば前回同様アプリの惨敗になることが予想されますが、どうなったでしょうか</p>
+
+<h3 id="スマホのハードウェア進化に期待">スマホのハードウェア進化に期待</h3>
+<p>　<a href="http://hgm.nubati.net/miniShogi.html">GNU mini-shogi</a>で公開されているフリーのPCエンジンは１対１の対戦用なので一手に数十秒使っていましたが、<a href="https://lishogi.org">lishogi</a>は複数人が利用するWebアプリなので一人に多くのリソースを割けません、そこに勝機があるかもと思いました。<br />
+　また、<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>側もスマホの性能が上がったので、アプリを最強レベルに設定して何とか使える状態になってきました。<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>を既にお使いの方はご存知だと思いますが、AIを最強レベルに設定すると一手に時間がかかり過ぎるので、作った本人が言うのもなんですが、とてもAIの指し手を待ってられませんでした。自分も今まではスマホで最強レベルではほとんど使っていません。PC上でCUI環境でテストするか、PC上でエミュレータを使って遊んでいました。<br />
+　でも最近自分もスマホの機種変更（Xperia 10 Ⅲ、RAM6GB）をして、これなら最強レベル（瞑想モード）でも何とか使えるなと感じたので試してみることにしました。</p>
+
+<h3 id="まずは最強レベルで試してみる">まずは最強レベルで試してみる</h3>
+<p>　流石に最強レベルには勝てないだろうと思いながらも、まずは最強モード（YaneuraOu V6.00 レベル８）で、先手と後手一局ずつ手動で対戦してみました。持ち時間設定は最長にしました。</p>
+
+<p>　※以下はアプリから出力した棋譜（CSA形式）です。<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>にコピペすれば棋譜を再現出来ます。</p>
+
+<div class="cp_actab">
+    <input id="kifu01" type="radio" name="kifu" />
+    <label for="kifu01">01. 先手:アプリ　後手:lishogi　４０手まで後手の勝ち</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam 
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  * 
+P4+FU *  *  *  * 
+P5+OU+KI+GI+KA+HI
++
++4544KI
+-4132KA
++5453FU
+-5141HI
++4433KI
+-2122KI
++3332KI
+-3132GI
++0054KA
+-2233KI
++1514HI
+-0043KI
++5445KA
+-3323KI
++4523KA
+-3223GI
++2543KA
+-0022KA
++5554OU
+-2314GI
++0044KI
+-4143HI
++5443OU
+-0021KA
++0032KI
+-0041HI
++0042HI
+-2132KA
++4332OU
+-0031KI
++3243OU
+-3142KI
++4354OU
+-4243KI
++5445OU
+-4344KI
++3544GI
+-4144HI
++4535OU
+-0045HI
+        </code></pre>
+    </p>
+    </div>
+</div>
+<div class="cp_actab">
+    <input id="kifu02" type="radio" name="kifu" />
+    <label for="kifu02">02. 先手:lishogi　後手:アプリ　１９手まで先手勝ち</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam 
+'No. 0
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  * 
+P4+FU *  *  *  * 
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-4132KA
++2534KA
+-3142GI
++3445KA
+-2122KI
++1525HI
+-4243GI
++2522HI
+-4344GI
++3544GI
+-1122OU
++0033GI
+-2231OU
++0042KI
+-3121OU
++4232KI
+-2111OU
++3322GI
+        </code></pre>
+    </p>
+    </div>
+</div>
+
+<p>　結果は２局とも<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>の完敗でした。とても勝てそうな気がしなかったので、今度はlishogiのレベルを下げてレベル５で先手と後手３局ずつ計６局対戦させてみました。</p>
+
+<h3 id="lishogiをレベル５に下げて６局対戦">lishogiをレベル５に下げて６局対戦</h3>
+
+<div class="cp_actab">
+    <input id="kifu03" type="radio" name="kifu" />
+    <label for="kifu03">03. 先手:lishogi　後手:アプリ　３０手まで後手勝ち</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam 
+'No. 0
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  * 
+P4+FU *  *  *  * 
+P5+OU+KI+GI+KA+HI
++
++4544KI
+-4132KA
++2534KA
+-3142GI
++5545OU
+-5131HI
++1525HI
+-3241KA
++3524GI
+-3134HI
++4434KI
+-2122KI
++2535HI
+-4114KA
++0052HI
+-2232KI
++3515HI
+-0025KA
++2435GI
+-3243KI
++1525HI
+-1425UM
++0055KA
+-0033HI
++3433KI
+-4333KI
++5242HI
+-0034KI
++3534GI
+-2534UM
+        </code></pre>
+    </p>
+    </div>
+</div>
+
+<div class="cp_actab">
+    <input id="kifu04" type="radio" name="kifu" />
+    <label for="kifu04">04. 先手:lishogi　後手:アプリ　２６手まで後手勝ち</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam 
+'No. 0
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  * 
+P4+FU *  *  *  * 
+P5+OU+KI+GI+KA+HI
++
++4544KI
+-4132KA
++2534KA
+-3142GI
++3425KA
+-2122KI
++3524GI
+-5131HI
++4445KI
+-3241KA
++4534KI
+-4152KA
++3423KI
+-2223KI
++2552KA
+-2324KI
++0044KA
+-0033GI
++1545HI
+-3344GI
++4544HI
+-3135RY
++0045GI
+-0022KA
++5243KA
+-2244KA
+        </code></pre>
+    </p>
+    </div>
+</div>
+
+<div class="cp_actab">
+    <input id="kifu05" type="radio" name="kifu" />
+    <label for="kifu05">05. 先手:lishogi　後手:アプリ　２０手まで後手勝ち</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam 
+'No. 0
+'
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  * 
+P4+FU *  *  *  * 
+P5+OU+KI+GI+KA+HI
++
++2534KA
+-4132KA
++1525HI
+-5141HI
++2524HI
+-2122KI
++5453FU
+-2233KI
++4554KI
+-3254KA
++3412KA
+-3324KI
++5554OU
+-0043KI
++5455OU
+-0054HI
++5545OU
+-5444HI
++3544GI
+-4344KI
+        </code></pre>
+    </p>
+    </div>
+</div>
+
+<div class="cp_actab">
+    <input id="kifu06" type="radio" name="kifu" />
+    <label for="kifu06">06. 先手:アプリ　後手:lishogi　４６手まで後手勝ち</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam 
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  * 
+P4+FU *  *  *  * 
+P5+OU+KI+GI+KA+HI
++
++4544KI
+-2122KI
++5453FU
+-1213FU
++2534KA
+-3142GI
++1525HI
+-4253GI
++4453KI
+-5153HI
++0054GI
+-5352HI
++3452KA
+-4152KA
++0051HI
+-0041KA
++3534GI
+-0031KI
++5443GI
+-5243KA
++3443GI
+-0033GI
++0015KA
+-0024FU
++2535HI
+-1121OU
++5545OU
+-4123KA
++4555OU
+-2332KA
++4332GI
+-2232KI
++3533HI
+-3233KI
++0054KA
+-0043GI
++0012GI
+-2112OU
++5445KA
+-1222OU
++5131RY
+-2231OU
++0035KI
+-0044GI
++3544KI
+-3344KI
+        </code></pre>
+    </p>
+    </div>
+</div>
+
+<div class="cp_actab">
+    <input id="kifu07" type="radio" name="kifu" />
+    <label for="kifu07">07. 先手:アプリ　後手:lishogi　５５手まで先手勝ち</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam 
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  * 
+P4+FU *  *  *  * 
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-2122KI
++5453FU
+-1213FU
++2534KA
+-3142GI
++1525HI
+-4253GI
++4453KI
+-5153HI
++0054GI
+-5352HI
++3452KA
+-4152KA
++0051HI
+-0041KA
++3534GI
+-0031KI
++5443GI
+-5243KA
++3443GI
+-0042FU
++2522HI
+-0044GI
++5544OU
+-4243FU
++4443OU
+-3122KI
++5141HI
+-0021HI
++0012FU
+-1112OU
++0034KA
+-0023FU
++0031KI
+-0032GI
++3132KI
+-2141HI
++3241KI
+-0033HI
++4344OU
+-3334HI
++4434OU
+-0052KA
++3445OU
+-2232KI
++0044KA
+-3222KI
++0032HI
+-5234KA
++4534OU
+-1221OU
++3231HI
+-2112OU
++0011HI
+        </code></pre>
+    </p>
+    </div>
+</div>
+
+<div class="cp_actab">
+    <input id="kifu08" type="radio" name="kifu" />
+    <label for="kifu08">08. 先手:アプリ　後手:lishogi　７３手まで先手勝ち</label>
+    <div class="cp_actab-content">
+    <p>
+        <pre><code>' #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam 
+'No. 0
+'
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  * 
+P4+FU *  *  *  * 
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-2122KI
++5453FU
+-1213FU
++2534KA
+-3142GI
++1525HI
+-4253GI
++4453KI
+-5153HI
++0054GI
+-5352HI
++3452KA
+-4152KA
++0051HI
+-0041KI
++5152HI
+-0033KA
++0044KA
+-3344KA
++3544GI
+-4152KI
++0031KA
+-0032HI
++3122KA
+-3222HI
++0023KI
+-0021FU
++2322KI
+-2122FU
++0041HI
+-0021KI
++4433GI
+-0031KA
++2515HI
+-0014KA
++1514HI
+-1314FU
++4145RY
+-0015HI
++0025KA
+-3142KA
++3342GI
+-5242KI
++0024KA
+-0033GI
++2415KA
+-1415TO
++0013HI
+-0012KA
++1315HI
+-2132KI
++1514HI
+-3223KI
++1412HI
+-1112OU
++0013FU
+-1211OU
++4542RY
+-0035HI
++0045KA
+-3545RY
++5445GI
+-0021KA
++0031HI
+-2313KI
++3133RY
+-0054FU
++4554GI
+-1323KI
++3323RY
+-2112KA
++2322RY
+        </code></pre>
+    </p>
+    </div>
+</div>
+
+<p>　結果はアプリの５勝１敗でレベル５なら勝てそうですが、lishogiは序盤の指し手を結構変えてくるので、余裕かましてる感じがありますね。</p>
+
+<h3 id="lishogiのレベルは何が基準なのか">lishogiのレベルは何が基準なのか</h3>
+<p>　<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>のAIレベルの違いは、主に読みの深さ（３手〜５手読み）の違いだけで、瞑想モードだけは絞り込む候補手の数を多めにしています。また、同じ局面ではほとんど同じ手を選びます（評価値が同じ場合はランダム選択にしてますが、同じ評価値になる時はあまり無いと思います）が、lishogiは結構指し手を変えてくるようです。lishogiは機械学習型のAIだと思うので、レベルの違いはどうやっているのでしょう？<br />
+　もしかしてレベルが高いと第１候補手、低いと第２、第３と下げているのかなとか考えましたが、それだとこの局面ではこの一手という絶対手が存在するときに困ります。第１候補手以外は自玉が詰んでしまうような局面だと、低いレベルでも第１候補手を選ばないとすぐに負けてしまうからです。おそらく<a href="http://yaneuraou.yaneu.com/2020/12/20/deep-learning-shogi-features/">この記事（「Deep Learning将棋は従来の将棋ソフトとここが違うぞ」）</a>に書いてあるような方法で、特に評価値に大きな違いがある局面ではCPUを使った先読みの結果を優先して、それ以外の通常の指し手はGPUを使った候補手を選択しているような気がしますが、あくまで想像です。</p>
+
+<h3 id="５五将棋アプリの今後"><a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>の今後</h3>
+<p>　<a href="/programming/2021-08-21/nodejs">以前の記事</a>でネットワーク対戦機能を付けるみたいなことを書きましたが、lishogiでスマホを使った５五将棋のネットワーク対戦が出来るようなのでニーズは減った気がするし、やはり運用が大変そうなので後回しにしようかと思ってます。<br />
+　それより今回の対戦で<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>の評価関数の出来自体はそこそこ良いんじゃないかなんて思ってまして、<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>のAI部分をC++で作り直してもっと深く読めるようにして再度対戦させてみたいと思ってます。でもそうすると、AI部分はそれほどでもないのですが、今のJavascript製のGUI部分を一から作る必要がある？ので、その作業量が大きいのでなかなか手をつける気になりません。<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>を使っていただいている方は、気長にお待ち頂きたいと思います。<br />
+　あと、<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>は遅過ぎて使えないと思っていた方もスマホをハイスペックなものに変える機会があれば、もう一度試して欲しいと思います。</p>
+
+<p>　それから<a href="http://hgm.nubati.net/miniShogi.html">GNU mini-shogiのサイト</a>でかなり昔から公開されているフリーのPC用の５五将棋エンジンは後発の<a href="https://lishogi.org">lishogi</a>に勝てないのか？も少し気になるのですが、どなたか試す人はいないのでしょうか？lishogiを作った人たちは絶対既に試していると思うので、勝つことは確認済みなのでしょうねぇ。暇な時に一度試してみたいと思ってます。</p>
+
+<div>
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- display01 -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9018029357773039" data-ad-slot="3925247388" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+<hr />
+
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <small>&copy; rifyll theme, 2014</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+</body>
+
+</html>

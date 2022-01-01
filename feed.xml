@@ -5,100 +5,525 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 05 Dec 2021 19:13:29 +0900</pubDate>
-    <lastBuildDate>Sun, 05 Dec 2021 19:13:29 +0900</lastBuildDate>
-    <generator>Jekyll v3.9.1</generator>
+    <pubDate>Sun, 02 Jan 2022 07:24:42 +0900</pubDate>
+    <lastBuildDate>Sun, 02 Jan 2022 07:24:42 +0900</lastBuildDate>
+    <generator>Jekyll v4.2.1</generator>
     
       <item>
-        <title>ミニベロは上り坂で有利なのか？</title>
-        <description>&lt;h3 id=&quot;ロードバイクで登れるけどミニベロで登れない坂がある&quot;&gt;ロードバイクで登れるけど、ミニベロで登れない坂がある&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/miscellaneous/2020-05-16/bicycle01&quot;&gt;以前の記事「ロード系ミニベロのカスタマイズ」&lt;/a&gt;が結構読まれているようなので、また自転車ネタを書いてみます。&lt;br /&gt;
-　新しく自転車を買ってみようかと思っているのですが、その自転車に求める条件の一つに「近所にある山を登り切りたい」という変な拘りがあります。全国的に有名な急坂とかそういう大層なものではないのですが、&lt;a href=&quot;/miscellaneous/2020-05-16/bicycle01&quot;&gt;以前の記事&lt;/a&gt;で紹介したIDIOM2では登れないけど、今年売っ払ったロードバイクなら登れた坂というのが近所にあって、IDIOM2よりかは上り坂に強い自転車を選びたいと思ってます。&lt;br /&gt;
-　そこでフロントシングルでどんなギアが用意されていればいいか考えてみました。&lt;/p&gt;
+        <title>lishogi(Minishogi)に挑戦</title>
+        <description>&lt;h3 id=&quot;lishogiと５五将棋アプリを対戦させてみた&quot;&gt;&lt;a href=&quot;https://lishogi.org&quot;&gt;lishogi&lt;/a&gt;と&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;を対戦させてみた&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://lishogi.org&quot;&gt;lishogi&lt;/a&gt;に５五将棋（Minishogi）が実装されたようです。ちょうど&lt;a href=&quot;http://happyclam.github.io/project/2020-01-02/minishogi&quot;&gt;２年前の記事&lt;/a&gt;で&lt;a href=&quot;http://hgm.nubati.net/miniShogi.html&quot;&gt;GNU mini-shogi&lt;/a&gt;のサイトで公開されているフリーソフトのPC用５五将棋エンジンと&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;と対戦させて、アプリが勝てなかったことを書きました。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;のAI部分は２年前と同じですので、普通に考えれば前回同様アプリの惨敗になることが予想されますが、どうなったでしょうか&lt;/p&gt;
 
-&lt;h3 id=&quot;ロードとidiom2の比較&quot;&gt;ロードとIDIOM2の比較&lt;/h3&gt;
+&lt;h3 id=&quot;スマホのハードウェア進化に期待&quot;&gt;スマホのハードウェア進化に期待&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;http://hgm.nubati.net/miniShogi.html&quot;&gt;GNU mini-shogi&lt;/a&gt;で公開されているフリーのPCエンジンは１対１の対戦用なので一手に数十秒使っていましたが、&lt;a href=&quot;https://lishogi.org&quot;&gt;lishogi&lt;/a&gt;は複数人が利用するWebアプリなので一人に多くのリソースを割けません、そこに勝機があるかもと思いました。&lt;br /&gt;
+　また、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;側もスマホの性能が上がったので、アプリを最強レベルに設定して何とか使える状態になってきました。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;を既にお使いの方はご存知だと思いますが、AIを最強レベルに設定すると一手に時間がかかり過ぎるので、作った本人が言うのもなんですが、とてもAIの指し手を待ってられませんでした。自分も今まではスマホで最強レベルではほとんど使っていません。PC上でCUI環境でテストするか、PC上でエミュレータを使って遊んでいました。&lt;br /&gt;
+　でも最近自分もスマホの機種変更（Xperia 10 Ⅲ、RAM6GB）をして、これなら最強レベル（瞑想モード）でも何とか使えるなと感じたので試してみることにしました。&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt; &lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;ロード　　&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;　IDIOM2　&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;クランク長&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;165mm&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;165mm&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;フロント&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;50-34T&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;48T&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ギア&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;11-25T&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;12-25T&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;タイヤ&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;23-700&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;28-451&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;h3 id=&quot;まずは最強レベルで試してみる&quot;&gt;まずは最強レベルで試してみる&lt;/h3&gt;
+&lt;p&gt;　流石に最強レベルには勝てないだろうと思いながらも、まずは最強モード（YaneuraOu V6.00 レベル８）で、先手と後手一局ずつ手動で対戦してみました。持ち時間設定は最長にしました。&lt;/p&gt;
 
-&lt;p&gt;　自分が持っている2010年式IDIOM2はロード系と言われるだけあってフロントギアは大きめ（48T）ですがスプロケット（SHIMANO HG50 8S 12-25T）のレンジが狭く、ローギアがロードと同じ25Tで坂には向いていません。&lt;br /&gt;
-　一般的にミニベロは上り坂で有利なんて言われたりしますが、車体の重さやクランク長の違いなどの要素もあるものの、ペダルを回す負荷を考えたら結局ギア比で決まると思います。大きな車輪を回すより小さな車輪を回す方が負荷は低くはなりますが、その分を考慮した値で比較すれば700Cも小径車も同じだと思います。700Cと451のタイヤを回す負荷を比較する場合、ギア比を掛けてやれば求められるので&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;タイヤの外径×ギア比&lt;/code&gt;の値を比較すればいいはずです。&lt;br /&gt;
-　タイヤの外径をタイヤサイズ表記に使われている&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;700&lt;/code&gt;や&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;451&lt;/code&gt;を使って計算してもいいのですが、700Cのタイヤのビード座直径は実際には700mmではないようですし、同じタイヤサイズでもタイヤの太さによってタイヤの高さ（外径）も変わるのでここではタイヤの外径の代わりに、タイヤ周長を使おうと思います。タイヤ周長は多くのサイクルコンピュータに予め用意されているのでタイヤの太さによる違いなども考慮されているのでより正確だと思います。それと、タイヤ外径とタイヤ周長の違いは定数である円周率（3.14）を掛けただけなので、タイヤ外径の代わりに周長を使っても問題ありません。&lt;/p&gt;
+&lt;p&gt;　※以下はアプリから出力した棋譜（CSA形式）です。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;にコピペすれば棋譜を再現出来ます。&lt;/p&gt;
 
-&lt;p&gt;　ここでは&lt;a href=&quot;https://www.cyclabo.com/ja/topics/vnu1m1awr7/&quot;&gt;このサイト&lt;/a&gt;からタイヤ周長の数値を引っ張ってきて、ロードとミニベロのペダルを回す負荷値（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;タイヤ周長×ギア比&lt;/code&gt;）を計算してみました。&lt;/p&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu01&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu01&quot;&gt;01. 先手:アプリ　後手:lishogi　４０手まで後手の勝ち&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;&apos; #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam 
+&apos;No. 0
+&apos;
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  * 
+P4+FU *  *  *  * 
+P5+OU+KI+GI+KA+HI
++
++4544KI
+-4132KA
++5453FU
+-5141HI
++4433KI
+-2122KI
++3332KI
+-3132GI
++0054KA
+-2233KI
++1514HI
+-0043KI
++5445KA
+-3323KI
++4523KA
+-3223GI
++2543KA
+-0022KA
++5554OU
+-2314GI
++0044KI
+-4143HI
++5443OU
+-0021KA
++0032KI
+-0041HI
++0042HI
+-2132KA
++4332OU
+-0031KI
++3243OU
+-3142KI
++4354OU
+-4243KI
++5445OU
+-4344KI
++3544GI
+-4144HI
++4535OU
+-0045HI
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu02&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu02&quot;&gt;02. 先手:lishogi　後手:アプリ　１９手まで先手勝ち&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;&apos; #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam 
+&apos;No. 0
+&apos;
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  * 
+P4+FU *  *  *  * 
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-4132KA
++2534KA
+-3142GI
++3445KA
+-2122KI
++1525HI
+-4243GI
++2522HI
+-4344GI
++3544GI
+-1122OU
++0033GI
+-2231OU
++0042KI
+-3121OU
++4232KI
+-2111OU
++3322GI
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt; &lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;ロード　　&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;　IDIOM2　&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;タイヤサイズ&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;700x23C(ETRTO 23-622)&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;20x1-1/8(ETRTO 28-451)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;トップギア&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;2096 * (50 / 11.0) = 9.527m&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1545 * (48 / 12.0) = 6.180m&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ローギア&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;2096 * (34 / 25.0) = 2.850m&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1545 * (48 / 25.0) =  2.966m&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;　結果は２局とも&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;の完敗でした。とても勝てそうな気がしなかったので、今度はlishogiのレベルを下げてレベル５で先手と後手３局ずつ計６局対戦させてみました。&lt;/p&gt;
 
-&lt;p&gt;　IDIOM2の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2.966m&lt;/code&gt;よりロードの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2.850m&lt;/code&gt;の方が小さい負荷なのでロードで坂が登れたということだと思ってます。&lt;br /&gt;
-　ペダルを回す負荷値なんて書きましたが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;タイヤ周長×ギア比&lt;/code&gt;というのは結局&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ペダル一漕ぎで進む距離&lt;/code&gt;のことです。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ペダル一漕ぎで進む距離&lt;/code&gt;が上り坂を克服し易さを表す指標と考えていいと思いますが、あまりそういう話を周りで聞かないので不思議です。もっとこの認識が拡がればいいのにと思ってます。&lt;/p&gt;
+&lt;h3 id=&quot;lishogiをレベル５に下げて６局対戦&quot;&gt;lishogiをレベル５に下げて６局対戦&lt;/h3&gt;
 
-&lt;h3 id=&quot;一輪車は上り坂で有利&quot;&gt;一輪車は上り坂で有利？&lt;/h3&gt;
-&lt;p&gt;　一輪車には乗ったことはないのですが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ペダル一漕ぎで進む距離&lt;/code&gt;が小さいほど坂が登り易いのであれば、一輪車は坂を登り易いということになりますが、どうなのでしょう？&lt;a href=&quot;https://www.youtube.com/watch?v=WhFdxguU_dY&quot;&gt;こんな動画&lt;/a&gt;を見つけましたが、斜度も分からないし何とも言えませんがスピードを無視してペダルを回せるかどうかだけを考えれば一輪車は上り坂に強いような気もします。それに一輪車のクランク長は一般的には自転車よりも短いらしいので、スピードのことは考えず登ることだけを考えて長めのクランクを付けたらさらに楽に登れそうです。&lt;br /&gt;
-　でも、自転車（二輪車）であれば、やろうと思えばギア比を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;以下にすることも出来るので自転車の方が有利であることに間違いないでしょう。&lt;br /&gt;
-　それと上で比較したロードとIDIOM2のクランク長は偶々同じサイズですが、クランク長まで考慮しだすと面倒なので購入する自転車を選ぶ際には今のところ無視しています。&lt;/p&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu03&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu03&quot;&gt;03. 先手:lishogi　後手:アプリ　３０手まで後手勝ち&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;&apos; #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam 
+&apos;No. 0
+&apos;
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  * 
+P4+FU *  *  *  * 
+P5+OU+KI+GI+KA+HI
++
++4544KI
+-4132KA
++2534KA
+-3142GI
++5545OU
+-5131HI
++1525HI
+-3241KA
++3524GI
+-3134HI
++4434KI
+-2122KI
++2535HI
+-4114KA
++0052HI
+-2232KI
++3515HI
+-0025KA
++2435GI
+-3243KI
++1525HI
+-1425UM
++0055KA
+-0033HI
++3433KI
+-4333KI
++5242HI
+-0034KI
++3534GI
+-2534UM
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-&lt;h3 id=&quot;ペダルを回せるかどうかが大事&quot;&gt;ペダルを回せるかどうかが大事&lt;/h3&gt;
-&lt;p&gt;　自転車で坂を登れるかどうかっていうのは第一にペダルを回せるかどうかが大事です。全く疲労していない状態でも急勾配な坂だと、力一杯ペダルを踏み込んでも全く回せないので、こういう状態だとギア比を変えるしかありません。&lt;br /&gt;
-　かなり昔のことですが、男６、７人で遠乗りしたことがあって、クロスバイクやロードバイクの人達の中で私だけがミニベロのIDIOM2でした。そして上り坂になった時、私が他のメンバーをグイグイ追い抜いて先頭になって坂の中腹でみんなを待つ状態になったことがあったのですが、「気合い入ってるね」とか「速いね」とか言われたのですが、何の事は無い、自分としてはもっと軽いギアでクルクルペダルを回してゆっくり上りたいのですが、軽いギアが無いために無理やり他の人より重いギアで漕いでいただけのことです。ギア比のことに思い至っていない人だと、上り坂はミニベロが有利なんだと勘違いするかも知れません。&lt;br /&gt;
-　この時は、その後山の頂上が近づくにつれて坂が急勾配になっていき、私がペダルが踏めなくなって自転車を押して歩く羽目になったのとは対照的に、軽い高級ロードバイクの人が先頭を走っていました。&lt;/p&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu04&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu04&quot;&gt;04. 先手:lishogi　後手:アプリ　２６手まで後手勝ち&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;&apos; #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam 
+&apos;No. 0
+&apos;
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  * 
+P4+FU *  *  *  * 
+P5+OU+KI+GI+KA+HI
++
++4544KI
+-4132KA
++2534KA
+-3142GI
++3425KA
+-2122KI
++3524GI
+-5131HI
++4445KI
+-3241KA
++4534KI
+-4152KA
++3423KI
+-2223KI
++2552KA
+-2324KI
++0044KA
+-0033GI
++1545HI
+-3344GI
++4544HI
+-3135RY
++0045GI
+-0022KA
++5243KA
+-2244KA
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-&lt;h3 id=&quot;坂だけを考えたらクロスバイク&quot;&gt;坂だけを考えたらクロスバイク？&lt;/h3&gt;
-&lt;p&gt;　冒頭に書いたIDIOM2で登れない坂を克服することを考えながら自転車を物色していると、クロスバイクの方が良さそうな気がしています。購入後にギアだけ変えるのは面倒なので、取り敢えず最初から用意されているギア比を見ているとクロスバイクの方がワイドレンジになっていて坂には有利なようですし、リアキャリアを付けたいのでダボ穴が用意されているクロスバイクになりそうです。&lt;br /&gt;
-　購入したらまた記事を書いてみようと思います。&lt;/p&gt;
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu05&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu05&quot;&gt;05. 先手:lishogi　後手:アプリ　２０手まで後手勝ち&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;&apos; #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam 
+&apos;No. 0
+&apos;
+V2.2
+N+Player
+N-AI
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  * 
+P4+FU *  *  *  * 
+P5+OU+KI+GI+KA+HI
++
++2534KA
+-4132KA
++1525HI
+-5141HI
++2524HI
+-2122KI
++5453FU
+-2233KI
++4554KI
+-3254KA
++3412KA
+-3324KI
++5554OU
+-0043KI
++5455OU
+-0054HI
++5545OU
+-5444HI
++3544GI
+-4344KI
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu06&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu06&quot;&gt;06. 先手:アプリ　後手:lishogi　４６手まで後手勝ち&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;&apos; #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam 
+&apos;No. 0
+&apos;
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  * 
+P4+FU *  *  *  * 
+P5+OU+KI+GI+KA+HI
++
++4544KI
+-2122KI
++5453FU
+-1213FU
++2534KA
+-3142GI
++1525HI
+-4253GI
++4453KI
+-5153HI
++0054GI
+-5352HI
++3452KA
+-4152KA
++0051HI
+-0041KA
++3534GI
+-0031KI
++5443GI
+-5243KA
++3443GI
+-0033GI
++0015KA
+-0024FU
++2535HI
+-1121OU
++5545OU
+-4123KA
++4555OU
+-2332KA
++4332GI
+-2232KI
++3533HI
+-3233KI
++0054KA
+-0043GI
++0012GI
+-2112OU
++5445KA
+-1222OU
++5131RY
+-2231OU
++0035KI
+-0044GI
++3544KI
+-3344KI
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu07&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu07&quot;&gt;07. 先手:アプリ　後手:lishogi　５５手まで先手勝ち&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;&apos; #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam 
+&apos;No. 0
+&apos;
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  * 
+P4+FU *  *  *  * 
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-2122KI
++5453FU
+-1213FU
++2534KA
+-3142GI
++1525HI
+-4253GI
++4453KI
+-5153HI
++0054GI
+-5352HI
++3452KA
+-4152KA
++0051HI
+-0041KA
++3534GI
+-0031KI
++5443GI
+-5243KA
++3443GI
+-0042FU
++2522HI
+-0044GI
++5544OU
+-4243FU
++4443OU
+-3122KI
++5141HI
+-0021HI
++0012FU
+-1112OU
++0034KA
+-0023FU
++0031KI
+-0032GI
++3132KI
+-2141HI
++3241KI
+-0033HI
++4344OU
+-3334HI
++4434OU
+-0052KA
++3445OU
+-2232KI
++0044KA
+-3222KI
++0032HI
+-5234KA
++4534OU
+-1221OU
++3231HI
+-2112OU
++0011HI
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;cp_actab&quot;&gt;
+    &lt;input id=&quot;kifu08&quot; type=&quot;radio&quot; name=&quot;kifu&quot; /&gt;
+    &lt;label for=&quot;kifu08&quot;&gt;08. 先手:アプリ　後手:lishogi　７３手まで先手勝ち&lt;/label&gt;
+    &lt;div class=&quot;cp_actab-content&quot;&gt;
+    &lt;p&gt;
+        &lt;pre&gt;&lt;code&gt;&apos; #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam 
+&apos;No. 0
+&apos;
+V2.2
+N+AI
+N-Player
+P1-HI-KA-GI-KI-OU
+P2 *  *  *  * -FU
+P3 *  *  *  *  * 
+P4+FU *  *  *  * 
+P5+OU+KI+GI+KA+HI
+-
++4544KI
+-2122KI
++5453FU
+-1213FU
++2534KA
+-3142GI
++1525HI
+-4253GI
++4453KI
+-5153HI
++0054GI
+-5352HI
++3452KA
+-4152KA
++0051HI
+-0041KI
++5152HI
+-0033KA
++0044KA
+-3344KA
++3544GI
+-4152KI
++0031KA
+-0032HI
++3122KA
+-3222HI
++0023KI
+-0021FU
++2322KI
+-2122FU
++0041HI
+-0021KI
++4433GI
+-0031KA
++2515HI
+-0014KA
++1514HI
+-1314FU
++4145RY
+-0015HI
++0025KA
+-3142KA
++3342GI
+-5242KI
++0024KA
+-0033GI
++2415KA
+-1415TO
++0013HI
+-0012KA
++1315HI
+-2132KI
++1514HI
+-3223KI
++1412HI
+-1112OU
++0013FU
+-1211OU
++4542RY
+-0035HI
++0045KA
+-3545RY
++5445GI
+-0021KA
++0031HI
+-2313KI
++3133RY
+-0054FU
++4554GI
+-1323KI
++3323RY
+-2112KA
++2322RY
+        &lt;/code&gt;&lt;/pre&gt;
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　結果はアプリの５勝１敗でレベル５なら勝てそうですが、lishogiは序盤の指し手を結構変えてくるので、余裕かましてる感じがありますね。&lt;/p&gt;
+
+&lt;h3 id=&quot;lishogiのレベルは何が基準なのか&quot;&gt;lishogiのレベルは何が基準なのか&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;のAIレベルの違いは、主に読みの深さ（３手〜５手読み）の違いだけで、瞑想モードだけは絞り込む候補手の数を多めにしています。また、同じ局面ではほとんど同じ手を選びます（評価値が同じ場合はランダム選択にしてますが、同じ評価値になる時はあまり無いと思います）が、lishogiは結構指し手を変えてくるようです。lishogiは機械学習型のAIだと思うので、レベルの違いはどうやっているのでしょう？&lt;br /&gt;
+　もしかしてレベルが高いと第１候補手、低いと第２、第３と下げているのかなとか考えましたが、それだとこの局面ではこの一手という絶対手が存在するときに困ります。第１候補手以外は自玉が詰んでしまうような局面だと、低いレベルでも第１候補手を選ばないとすぐに負けてしまうからです。おそらく&lt;a href=&quot;http://yaneuraou.yaneu.com/2020/12/20/deep-learning-shogi-features/&quot;&gt;この記事（「Deep Learning将棋は従来の将棋ソフトとここが違うぞ」）&lt;/a&gt;に書いてあるような方法で、特に評価値に大きな違いがある局面ではCPUを使った先読みの結果を優先して、それ以外の通常の指し手はGPUを使った候補手を選択しているような気がしますが、あくまで想像です。&lt;/p&gt;
+
+&lt;h3 id=&quot;５五将棋アプリの今後&quot;&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;の今後&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/programming/2021-08-21/nodejs&quot;&gt;以前の記事&lt;/a&gt;でネットワーク対戦機能を付けるみたいなことを書きましたが、lishogiでスマホを使った５五将棋のネットワーク対戦が出来るようなのでニーズは減った気がするし、やはり運用が大変そうなので後回しにしようかと思ってます。&lt;br /&gt;
+　それより今回の対戦で&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;の評価関数の出来自体はそこそこ良いんじゃないかなんて思ってまして、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;のAI部分をC++で作り直してもっと深く読めるようにして再度対戦させてみたいと思ってます。でもそうすると、AI部分はそれほどでもないのですが、今のJavascript製のGUI部分を一から作る必要がある？ので、その作業量が大きいのでなかなか手をつける気になりません。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;を使っていただいている方は、気長にお待ち頂きたいと思います。&lt;br /&gt;
+　あと、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;は遅過ぎて使えないと思っていた方もスマホをハイスペックなものに変える機会があれば、もう一度試して欲しいと思います。&lt;/p&gt;
+
+&lt;p&gt;　それから&lt;a href=&quot;http://hgm.nubati.net/miniShogi.html&quot;&gt;GNU mini-shogiのサイト&lt;/a&gt;でかなり昔から公開されているフリーのPC用の５五将棋エンジンは後発の&lt;a href=&quot;https://lishogi.org&quot;&gt;lishogi&lt;/a&gt;に勝てないのか？も少し気になるのですが、どなたか試す人はいないのでしょうか？lishogiを作った人たちは絶対既に試していると思うので、勝つことは確認済みなのでしょうねぇ。暇な時に一度試してみたいと思ってます。&lt;/p&gt;
 
 &lt;div&gt;
     &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
@@ -112,236 +537,22 @@
 &lt;hr /&gt;
 
 </description>
-        <pubDate>Sun, 05 Dec 2021 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/miscellaneous/2021-12-05/minivelo</link>
-        <guid isPermaLink="true">https://happyclam.github.io/miscellaneous/2021-12-05/minivelo</guid>
+        <pubDate>Sun, 02 Jan 2022 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/project/2022-01-02/lishogi</link>
+        <guid isPermaLink="true">https://happyclam.github.io/project/2022-01-02/lishogi</guid>
         
-        <category>bicycle</category>
-        
-        
-        <category>miscellaneous</category>
-        
-      </item>
-    
-      <item>
-        <title>M1 Macbook ProのCPU性能</title>
-        <description>&lt;h3 id=&quot;macbook12インチでスマホアプリ開発してた人&quot;&gt;Macbook12インチでスマホアプリ開発してた人&lt;/h3&gt;
-&lt;p&gt;&lt;span id=&quot;back1&quot;&gt;&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;　リリース済みのアプリの多くはCordova製なので、最初はブラウザさえあれば開発出来るものでした。でも途中からアプリにファイル保存機能を付けたり、Firebaseの機能を使い始めるとエミュレータを使った開発が必要になって来て、非力なMacbook12で開発作業をするのは苦行に近いものでした&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
-　で、ようやく以前から欲しかったMacbookProを購入し、別世界を体感しています。&lt;/p&gt;
-
-&lt;div style=&quot;width:640px; margin: 0 auto;&quot;&gt;
-&lt;div style=&quot;float:left; margin: 0px 20px 0px;&quot;&gt;
-&lt;a href=&quot;/images/macbook_pro1.png&quot;&gt;&lt;img width=&quot;240&quot; height=&quot;183&quot; src=&quot;/images/macbook_pro1.png&quot; alt=&quot;Macbook Pro 2021 表&quot; title=&quot;M1 Macbook Pro 14インチ 表&quot; /&gt;&lt;/a&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;a href=&quot;/images/macbook_pro2.png&quot;&gt;&lt;img width=&quot;240&quot; height=&quot;186&quot; src=&quot;/images/macbook_pro2.png&quot; alt=&quot;Macbook Pro 2021 裏&quot; title=&quot;M1 Macbook Pro 14インチ 裏&quot; /&gt;&lt;/a&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br clear=&quot;all&quot; /&gt;&lt;/p&gt;
-&lt;div style=&quot;width:640px; margin: 0 auto;&quot;&gt;
-&lt;div style=&quot;float:left; margin: 0px 20px 0px;&quot;&gt;
-&lt;a href=&quot;/images/macbook_comp1.png&quot;&gt;&lt;img width=&quot;240&quot; height=&quot;181&quot; src=&quot;/images/macbook_comp1.png&quot; alt=&quot;Macbook12との比較 上&quot; title=&quot;Macbook12との比較 真上から&quot; /&gt;&lt;/a&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;a href=&quot;/images/macbook_comp2.png&quot;&gt;&lt;img width=&quot;240&quot; height=&quot;126&quot; src=&quot;/images/macbook_comp2.png&quot; alt=&quot;Macbook12との比較 横&quot; title=&quot;Macbook12との比較 側面&quot; /&gt;&lt;/a&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br clear=&quot;all&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;　Macbook12と比較するとかなり大きく、重い（1.6Kg）ので持ち歩く気にはなりません。&lt;/p&gt;
-
-&lt;h3 id=&quot;cpu性能比較１&quot;&gt;CPU性能比較１&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/software/2020-09-19/js_dart_cpp&quot;&gt;以前の記事&lt;/a&gt;で２×６列のマンカラカラハで先手必勝を読み切るまでに要する時間を３つのプログラミング言語（Dart,TypeScript,C++）で比較しましたが、今回は同じC++のソースを使ってCPUによる比較をしてみたいと思います。Intelの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core i7-2600K&lt;/code&gt;とARM系&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Apple M1 Pro&lt;/code&gt;、４コアと１０コア、比較の基準がバラバラですが、単に自分が持っているPCでどれだけ性能が上がったか知りたいだけです。&lt;br /&gt;
-　まずは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core i7-2600K&lt;/code&gt;（Ubuntu機）側から。&lt;a href=&quot;/software/2020-09-19/js_dart_cpp&quot;&gt;前回の記事&lt;/a&gt;と出力内容が違うのは、&lt;a href=&quot;/software/2020-09-19/js_dart_cpp&quot;&gt;前回の記事&lt;/a&gt;にも書いた通りバグがあったためです。&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ./mancala.out
-0,2,2,2,2,2,2,0,2,2,2,2,2,2,
-=== result = 4, 5, i = 1
-=== result = 3, 5, i = 2
-=== result = 1, 6, i = 3
-=== result = 3, 5, i = 4
-=== result = 5, 5, i = 5
-=== result = 4, 5, i = 6
-=== result = 5, 5, i = 7
-=== result = 4, 5, i = 8
-=== result = 4, 5, i = 9
-=== result = 5, 6, i = 10
-=== result = 5, 6, i = 11
-=== result = 5, 5, i = 12
-=== result = 5, 5, i = 13
-=== result = 5, 5, i = 14
-=== result = 6, 5, i = 15
-=== result = 12, 5, i = 16
-=== result = 999, 5, i = 17
-467263.232000[ms]
-999, 5
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;span id=&quot;back2&quot;&gt;&lt;/span&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;　&lt;a href=&quot;/software/2020-09-19/js_dart_cpp&quot;&gt;前回の記事&lt;/a&gt;より実行時間が短縮しているのもバグを修正した所為で、前回と同じPCで実行しています。&lt;br /&gt;
-　続いて、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Apple M1 Pro&lt;/code&gt;側です。初めてのARMベースのCPUということでコンパイルするのも一手間&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;だったのですが、&lt;a href=&quot;https://zenn.dev/ress/articles/069baf1c305523dfca3d&quot;&gt;この記事&lt;/a&gt;を参考にして解決できました。&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;% ./mancala.out 
-0,2,2,2,2,2,2,0,2,2,2,2,2,2,
-=== result = 4, 5, i = 1
-=== result = 3, 5, i = 2
-=== result = 1, 6, i = 3
-=== result = 3, 5, i = 4
-=== result = 5, 5, i = 5
-=== result = 4, 5, i = 6
-=== result = 5, 5, i = 7
-=== result = 4, 5, i = 8
-=== result = 4, 5, i = 9
-=== result = 5, 6, i = 10
-=== result = 5, 6, i = 11
-=== result = 5, 5, i = 12
-=== result = 5, 5, i = 13
-=== result = 5, 5, i = 14
-=== result = 6, 5, i = 15
-=== result = 12, 5, i = 16
-=== result = 999, 5, i = 17
-274362.594000[ms]
-999, 5
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　同じ結果を得るのに要した時間は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core i7-2600K&lt;/code&gt;が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;467秒&lt;/code&gt;だったのに対して、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Apple M1 Pro&lt;/code&gt;では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;274秒&lt;/code&gt;でした。
-　ちなみに実行結果の最後の行、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;999, 5&lt;/code&gt;は、以下の表の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;5&lt;/code&gt;の位置を先手が初手に選べば、先手が勝てることを意味しています。２×６列のマンカラカラハは先手必勝のゲームです、詳しくは&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;こちらの記事&lt;/a&gt;に書いています。&lt;/p&gt;
-
-&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
-    &lt;table&gt;
-    &lt;tr&gt;
-    &lt;td rowspan=&quot;4&quot; align=&quot;center&quot;&gt;0↓&lt;/td&gt;
-    &lt;td colspan=&quot;6&quot; align=&quot;center&quot;&gt;後手&lt;/td&gt;    
-    &lt;td rowspan=&quot;4&quot; align=&quot;center&quot;&gt;7↑&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;13&lt;br /&gt;←&lt;/td&gt;    
-    &lt;td align=&quot;center&quot;&gt;12&lt;br /&gt;←&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;11&lt;br /&gt;←&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;10&lt;br /&gt;←&lt;/td&gt;    
-    &lt;td align=&quot;center&quot;&gt;9&lt;br /&gt;←&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;8&lt;br /&gt;←&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td colspan=&quot;6&quot; align=&quot;center&quot;&gt;先手&lt;/td&gt;    
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;1&lt;br /&gt;→&lt;/td&gt;    
-    &lt;td align=&quot;center&quot;&gt;2&lt;br /&gt;→&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;3&lt;br /&gt;→&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;4&lt;br /&gt;→&lt;/td&gt;    
-    &lt;td align=&quot;center&quot;&gt;&lt;font color=&quot;red&quot;&gt;5&lt;/font&gt;&lt;br /&gt;→&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;6&lt;br /&gt;→&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br clear=&quot;all&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;　３×６列や４×６列のカラハでどうなるのか確認したいところですが、CPUがそこそこ速くなったぐらいでは結果を得るのに数ヶ月以上掛かると思われるので他の工夫が必要だと思ってます。&lt;/p&gt;
-
-&lt;p&gt;　ついでにMacbook12インチでも試してみました。&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;% ./mancala.out
-0,2,2,2,2,2,2,0,2,2,2,2,2,2,
-=== result = 4, 5, i = 1
-=== result = 3, 5, i = 2
-=== result = 1, 6, i = 3
-=== result = 3, 5, i = 4
-=== result = 5, 5, i = 5
-=== result = 4, 5, i = 6
-=== result = 5, 5, i = 7
-=== result = 4, 5, i = 8
-=== result = 4, 5, i = 9
-=== result = 5, 6, i = 10
-=== result = 5, 6, i = 11
-=== result = 5, 5, i = 12
-=== result = 5, 5, i = 13
-=== result = 5, 5, i = 14
-=== result = 6, 5, i = 15
-=== result = 12, 5, i = 16
-=== result = 999, 5, i = 17
-440331.482000[ms]
-999, 5
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;440秒&lt;/code&gt;ということで意外だったのですが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core i7-2600K&lt;/code&gt;（Ubuntu機）よりMacbook12インチ（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Intel Core M-5Y51&lt;/code&gt;）の方が速いんですね。普段メインで使っていたUbuntu機の方が断然レスポンスが良いと感じていたのはメモリ（12GB）の差でしょうか？Macbook12インチ（メモリ8GB）もメモリ増設していればそこそこ開発用として使えていたのかも知れません。&lt;br /&gt;
-　ちょっと気になったので検索したら&lt;a href=&quot;https://www.cpu-monkey.com/ja/compare_cpu-intel_core_m_5y51-454-vs-intel_core_i7_2600k-6&quot;&gt;こんなページ&lt;/a&gt;がありました。シングルコアで比較すると結構いい勝負しているようです。それでもCoreMの方が速いというのはやはり合点がいかないのですが、Ubuntu機の方は他の多くのプログラムが動いている中で試していたのでその所為だと思われます。&lt;/p&gt;
-
-&lt;h3 id=&quot;cpu性能比較２&quot;&gt;CPU性能比較２&lt;/h3&gt;
-&lt;p&gt;　話が逸れましたがもう一つ、&lt;a href=&quot;/software/2018-10-27/unpromote&quot;&gt;以前の記事&lt;/a&gt;で「歩不成の詰将棋」を読み切るのに２週間掛かったことを紹介しましたが、この時使ったスクリプトを今回購入したMacbook Proで実行してみました。&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ coffee game.coffee 
-hmmxxxggggkkkkyyyffffffffffff
- 9 8 7 6 5 4 3 2 1
-| | | | | |f|T| |y|1
-| | | | | | | | | |2
-| | | | |H| |F|o| |3
-| | | | | |X| |f|f|4
-| | | | | | | | | |5
-| | | | | | | | | |6
-| | | | | | | | | |7
-| | | | | | | | | |8
-|O| | | | | | | | |9
-F
-first: i = 1, kind = Hi, temp = [{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[5,3],&quot;id&quot;:&quot;q6owepmi&quot;},[5,2],-589,1,{&quot;koma&quot;:{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[9,9],&quot;id&quot;:&quot;ribd4do4&quot;},&quot;posi&quot;:[9,8],&quot;score&quot;:-614,&quot;status&quot;:0}]
-first: i = 2, kind = Fu, temp = [{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[3,3],&quot;id&quot;:&quot;g8a244eb&quot;},[3,2],-532,1,{&quot;koma&quot;:{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[5,3],&quot;id&quot;:&quot;q6owepmi&quot;},&quot;posi&quot;:[5,2],&quot;score&quot;:-542,&quot;status&quot;:1}]
-first: i = 4, kind = Fu, temp = [{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[3,3],&quot;id&quot;:&quot;g8a244eb&quot;},[3,2],-522,1,{&quot;koma&quot;:{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[3,3],&quot;id&quot;:&quot;g8a244eb&quot;},&quot;posi&quot;:[3,2],&quot;score&quot;:-554,&quot;status&quot;:0}]
-first: i = 5, kind = Fu, temp = [{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[3,3],&quot;id&quot;:&quot;g8a244eb&quot;},[3,2],-594,0,{&quot;koma&quot;:{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[4,4],&quot;id&quot;:&quot;a7qa7o3i&quot;},&quot;posi&quot;:[3,4],&quot;score&quot;:-702,&quot;status&quot;:0}]
-hmmxxxggggkkkkyyyffffffffffff
- 9 8 7 6 5 4 3 2 1
-| | | | | |f|T| |y|1
-| | | | | | |F| | |2
-| | | | |H| | |o| |3
-| | | | | |X| |f|f|4
-| | | | | | | | | |5
-| | | | | | | | | |6
-| | | | | | | | | |7
-| | | | | | | | | |8
-|O| | | | | | | | |9
-F
-初手経過時間: 370448881ミリ秒
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core i7-2600K&lt;/code&gt;で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1208445383ミリ秒（約２週間）&lt;/code&gt;掛かった処理が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Apple M1 Pro&lt;/code&gt;だと&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;370448881ミリ秒（約４日）&lt;/code&gt;でした。やはり断然速いですね。&lt;/p&gt;
-
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;Flutter製アプリは別のUbuntu機を使って開発してます。&lt;a href=&quot;#back1&quot;&gt;戻る&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;Rosettaって何？状態だったのでM1 Macbookのコンパイル環境を作るのに手間取りましたが、ソースコードそのものの修正は不要でした。&lt;a href=&quot;#back2&quot;&gt;戻る&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Tue, 23 Nov 2021 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/hardware/2021-11-23/macbookpro</link>
-        <guid isPermaLink="true">https://happyclam.github.io/hardware/2021-11-23/macbookpro</guid>
-        
-        <category>macbook</category>
+        <category>coffeescript</category>
         
         <category>cordova</category>
         
+        <category>android</category>
         
-        <category>hardware</category>
+        <category>javascript</category>
+        
+        <category>shogi</category>
+        
+        
+        <category>project</category>
         
       </item>
     
@@ -486,7 +697,7 @@ F
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    client.on(&quot;gameMove&quot;, data =&amp;gt; {
       let filter = {_id: data.kifuId};
       let update = {$push: {koma: data.koma, histories: data.record}};
-      Kifu.findOneAndUpdate(filter, update, {returnDocument: 'after'})
+      Kifu.findOneAndUpdate(filter, update, {returnDocument: &apos;after&apos;})
         .then(kifu =&amp;gt; {
           return kifu;
         })
@@ -569,8 +780,8 @@ direct dependencies:
 flutter_google_ad_manager  ✗0.11.1  ✗0.11.1     ✗0.11.1     ✗0.11.1
 
 dev_dependencies: all support null safety.
-You are already using the newest resolvable versions listed in the 'Resolvable' column.
-Newer versions, listed in 'Latest', may not be mutually compatible.
+You are already using the newest resolvable versions listed in the &apos;Resolvable&apos; column.
+Newer versions, listed in &apos;Latest&apos;, may not be mutually compatible.
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -634,8 +845,8 @@ All your dependencies declare support for null-safety.
 💪 Building with sound null safety 💪
 
 Picked up _JAVA_OPTIONS: -Djava.net.preferIPv6Addresses=true
-Running Gradle task 'assembleRelease'...
-Running Gradle task 'assembleRelease'... Done                     121.0s
+Running Gradle task &apos;assembleRelease&apos;...
+Running Gradle task &apos;assembleRelease&apos;... Done                     121.0s
 ✓  Built build/app/outputs/flutter-apk/app-release.apk (60.1MB).
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -685,7 +896,7 @@ Running Gradle task 'assembleRelease'... Done                     121.0s
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ heroku addons:add pgbackups --app kwl-books
  ›   Warning: heroku update available from 7.52.0 to 7.54.1.
 Creating pgbackups on ⬢ kwl-books... !
- ▸    Couldn't find either the add-on service or the add-on plan of &quot;pgbackups&quot;.
+ ▸    Couldn&apos;t find either the add-on service or the add-on plan of &quot;pgbackups&quot;.
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -1063,8 +1274,7 @@ Add-on:                postgresql-opaque-46906
 &lt;p&gt;　対戦成績表の見方ですが、&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラナッツ&lt;/a&gt;では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やばい&lt;/code&gt;モード以外では初手をランダムに決めるようにしていて、勝負に拘っていないので、アプリが勝てるのかどうかを判断する場合は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やばい&lt;/code&gt;モード以外は見る必要がありません。勝ちの欄の数字はＡＩ対戦で人間側が勝った数字、つまり比較対象となっているアプリが勝ったということです。また比較するために選んだアプリが初手をランダムに決めているものもあるので、一回だけの対戦ではなく何回か対戦させました。&lt;br /&gt;
 　注目すべきは黄色い丸で囲んだ部分の数字です。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;後手で勝つことが出来るか&lt;/code&gt;です。豆の数が３、４、５、７の時は後手の勝ち星が全て&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;で、比較対象のアプリが後手の場合は、何度やっても&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;に勝てません。&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;が数あるマンカラアプリの中で最強だと主張しているのではなく、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;マンカラカラハというゲームはお互いが最善を尽くせば先手必勝&lt;/code&gt;なのではないか？ということです。負けの欄の数字（比較対象のアプリが負けた数字＝&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;が勝った数字）を見ると、勝ちの欄の数字より大きいので勝率は良い方だと思いますが、先に言ったように比較対象のアプリは初手をランダムに決めている（＝勝負に拘ってない）ものもあるので一概には言えません。マンカラでは初手で悪手を選択するとそれだけで勝てなくなるような気がします。&lt;br /&gt;
 　また豆の数が６の時は先手でも後手でも勝ったり負けたりなので、どちらとも言えませんが双方が最善を尽くしたら引分けなのかもしれません。上の対戦成績結果以外で試していた時も引分けになる頻度が結構高かったです。&lt;br /&gt;
-　豆の数３、４、５、７で後手で自分のアプリに勝てるアプリを見つけた方は是非教えて頂きたいと思います。読みの深さが勝っていれば勝てることもあり得るので、自分のアプリをより深く読むように設定して確認したいと思ってます。また、単純に読みを深くするだけでなく、機械学習等の別のアルゴリズムを使って別の指し手を導き出すアプリが存在するかも知れないと思ってます。&lt;br /&gt;
-　但し、マンカラカラハと称していてもアプリによっては違うルールになっているものがあるのでその場合は連絡不要です。自分のアプリは&lt;a href=&quot;https://www.nintendo.co.jp/switch/as7ta/&quot;&gt;Nintendo Switchの世界のアソビ大全51&lt;/a&gt;に収録されているマンカラと同じルールです。&lt;/p&gt;
+　豆の数３、４、５、７で後手で自分のアプリに勝てるアプリを見つけた方は是非教えて欲しいと思います。但し、マンカラカラハと称していてもアプリによっては違うルールになっているものがあるのでその場合は連絡不要です。自分のアプリは&lt;a href=&quot;https://www.nintendo.co.jp/switch/as7ta/&quot;&gt;Nintendo Switchの世界のアソビ大全51&lt;/a&gt;に収録されているマンカラと同じルールです。&lt;/p&gt;
 
 &lt;h3 id=&quot;結論&quot;&gt;結論&lt;/h3&gt;
 &lt;p&gt;　豆の数１の時と２の時は&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;以前の記事&lt;/a&gt;で結論が出ていると思っているので、以下のように推測します。&lt;/p&gt;
@@ -1418,10 +1628,10 @@ dependencies:
 　引数は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;評価値と指し手を受け取るための配列&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;マンカラの盤面情報を渡す配列&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;手番（先手・後手）&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;読みの深さ&lt;/code&gt;になってます。&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#mancala/lib/main.dart
-import 'dart:typed_data';
-import 'dart:ffi'; // For FFI
-import 'dart:io'; // For Platform.isX
-import 'package:ffi/ffi.dart';
+import &apos;dart:typed_data&apos;;
+import &apos;dart:ffi&apos;; // For FFI
+import &apos;dart:io&apos;; // For Platform.isX
+import &apos;package:ffi/ffi.dart&apos;;
 final DynamicLibrary karahThinkLib = Platform.isAndroid
     ? DynamicLibrary.open(&quot;libkarah_think.so&quot;)
     : DynamicLibrary.process();
@@ -1513,6 +1723,157 @@ int32_t karah_think(int32_t* pResult, int32_t* pBoard, int32_t turn, int32_t dep
         <category>android</category>
         
         <category>flutter</category>
+        
+        <category>c++</category>
+        
+        
+        <category>software</category>
+        
+      </item>
+    
+      <item>
+        <title>Dartは遅いけど、FlutterでGUIは有り</title>
+        <description>&lt;h3 id=&quot;dartに絶望flutterでguiは有り&quot;&gt;Dartに絶望FlutterでGUIは有り&lt;/h3&gt;
+&lt;p&gt;　Qiitaのどなたかの記事でDartはJavaScriptより実行速度が倍程速いと書かれているのを見かけて、期待しながら今リリースしているCoffeeScript（JavaScript）製の&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;のGUI以外の部分をDartで書き直して比較したのですが、テストの結果からDartの方が遅いことが分かりました。Flutter(Dart)で&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラアプリ&lt;/a&gt;を作ってみてGUIの作り易さに感動した&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;だけに非常に失望しました。&lt;br /&gt;
+　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;今のアプリ&lt;/a&gt;よりも実行速度が遅いのならFlutterで将棋関連のアプリを作り直す意味がないので、どうしようかと思い、&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;以前の記事&lt;/a&gt;で書いたマンカラアプリなら行数も少ないのでとりあえずこれを題材にTypeScriptとC++で書き直して比較してみました。&lt;/p&gt;
+
+&lt;h3 id=&quot;比較の元となるdartの実行結果&quot;&gt;比較の元となるDartの実行結果&lt;/h3&gt;
+&lt;p&gt;　６×２列のマンカラカラハの先読みプログラムの実行結果です。何をやっているかは&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;以前の記事&lt;/a&gt;を参照してください。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ dart mancala.dart
+[0, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2]
+=== result = 1, 5, i = 1
+=== result = 0, 5, i = 2
+=== result = 3, 5, i = 3
+=== result = 4, 5, i = 4
+=== result = 5, 5, i = 5
+=== result = 4, 5, i = 6
+=== result = 5, 5, i = 7
+=== result = 4, 5, i = 8
+=== result = 4, 5, i = 9
+=== result = 4, 5, i = 10
+=== result = 3, 5, i = 11
+=== result = 5, 5, i = 12
+=== result = 4, 5, i = 13
+=== result = 5, 5, i = 14
+=== result = 6, 5, i = 15
+=== result = 2, 6, i = 16
+=== result = 3, 6, i = 17
+=== result = 999, 5, i = 18
+4040941
+[999, 5]
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　１８手で先手必勝を読み切るまでに4040秒（１時間強）&lt;/p&gt;
+
+&lt;h3 id=&quot;まずはtypescript&quot;&gt;まずはTypeScript&lt;/h3&gt;
+&lt;p&gt;　好きなCoffeeScriptはマイナーになってしまったので、Dartの存在を知る前から今の将棋関連アプリをいずれTypeScriptに書き換えるべきかなと思っていたのでまずはこれで試しました。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ts-node mancala.ts
+[ 0, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2 ]
+result = [ 1, 5, [length]: 2 ], i = 1
+result = [ 0, 5, [length]: 2 ], i = 2
+result = [ 3, 5, [length]: 2 ], i = 3
+result = [ 4, 5, [length]: 2 ], i = 4
+result = [ 5, 5, [length]: 2 ], i = 5
+result = [ 4, 5, [length]: 2 ], i = 6
+result = [ 5, 5, [length]: 2 ], i = 7
+result = [ 4, 5, [length]: 2 ], i = 8
+result = [ 4, 5, [length]: 2 ], i = 9
+result = [ 4, 5, [length]: 2 ], i = 10
+result = [ 3, 5, [length]: 2 ], i = 11
+result = [ 5, 5, [length]: 2 ], i = 12
+result = [ 4, 5, [length]: 2 ], i = 13
+result = [ 5, 5, [length]: 2 ], i = 14
+result = [ 6, 5, [length]: 2 ], i = 15
+result = [ 2, 6, [length]: 2 ], i = 16
+result = [ 3, 6, [length]: 2 ], i = 17
+result = [ 999, 5, [length]: 2 ], i = 18
+ms = 2862324
+[ 999, 5 ]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　同じ結果を得るまでに2862秒（１時間弱）で、やはりDartよりJSの方が速いようです。将棋の場合これ以上に明確な差がありました。&lt;/p&gt;
+
+&lt;h3 id=&quot;cはやはり最強&quot;&gt;C++はやはり最強&lt;/h3&gt;
+&lt;p&gt;　苦労してC++で将棋関連アプリを書き直しても、そのままではスマホアプリに出来ないので今までは避けていました。でもFlutterでGUI部分を作って思考部分だけC++で作ればいいんじゃないかなんて考えて試してみました&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
+　C言語を使うのが久しぶりでよく調べずに一度間違った記事をアップしてしまったのですが、以下がC++の結果です&lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ g++ mancala.cpp -O2 -o mancala.out
+$ ./mancala.out
+0,2,2,2,2,2,2,0,2,2,2,2,2,2,
+=== result = 1, 5, i = 1
+=== result = 0, 5, i = 2
+=== result = 3, 5, i = 3
+=== result = 4, 5, i = 4
+=== result = 5, 5, i = 5
+=== result = 4, 5, i = 6
+=== result = 5, 5, i = 7
+=== result = 4, 5, i = 8
+=== result = 4, 5, i = 9
+=== result = 4, 5, i = 10
+=== result = 3, 5, i = 11
+=== result = 5, 5, i = 12
+=== result = 4, 5, i = 13
+=== result = 5, 5, i = 14
+=== result = 6, 5, i = 15
+=== result = 2, 6, i = 16
+=== result = 3, 6, i = 17
+=== result = 999, 5, i = 18
+700673.273000[ms]
+999, 5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　結果は、700秒（約１１分）!!やはり最強でした。&lt;/p&gt;
+
+&lt;p&gt;　プログラムを他の言語に移植すると言っても同じオブジェクト指向言語であればほとんどコードは一対一に書き換え可能で、写経に近いものがあります&lt;sup id=&quot;fnref:4&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;。元々のDartのプログラムにはまだまだ改良の余地があると思いますが、拙いコードであってもバグがあったとしても、今回比較した３つのプログラムは行数も少なく同じ処理をしていますので、拙いコードもバグも同じまま、実行時間だけを比較していると言えると思います&lt;sup id=&quot;fnref:5&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;。実行結果も同じです。&lt;/p&gt;
+
+&lt;h3 id=&quot;マンカラの必勝法は&quot;&gt;マンカラの必勝法は？&lt;/h3&gt;
+&lt;p&gt;　今回、マンカラの先読みプログラムをC++に移植したのは、以前の&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;マンカラの記事&lt;/a&gt;、&lt;a href=&quot;/software/2020-08-09/mancala_easy&quot;&gt;続編&lt;/a&gt;の課題である、マンカラカラハ（６×２列で種子４つ）の必勝法を見つける目論見も兼ねていたのですが、C++版で実行時間が短縮されたと言っても、この程度では必勝法を見つけることが出来るかどうかは分かりません。１時間掛かった作業が１０分で可能になったと言っても、もし読み切るのに１年以上掛かる作業だとしたら、やはり数ヶ月以上掛かることには変わりませんから。&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;アニメーションなんてほとんど経験ないのにネットでググりながら進めたら簡単に作れました。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;昔、GUIはVisualBasicで作って内部処理はVisualC++で作る（DLL）なんて仕事をよくしていました。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;コンパイルオプション(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-O&lt;/code&gt;、または&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-O2&lt;/code&gt;)を付加することで末尾最適化してくれるそうです。そう言えば昔はスタックサイズやらいろいろコンパイルオプションを付けなければ上手くいかなかった記憶があります。自分がC言語から遠ざかっている間にコンパイラも進化しているようです。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;プログラムの行数もほぼ同じ、コードもほぼ一対一で書式だけが違う感じで、C++だけクラス変数の初期化部分が少し違う程度です。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:5&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;実際に微妙なバグがあったので出力内容は現在では違う内容になってます。&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;の方は修正済みです。 &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Sat, 19 Sep 2020 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/software/2020-09-19/js_dart_cpp</link>
+        <guid isPermaLink="true">https://happyclam.github.io/software/2020-09-19/js_dart_cpp</guid>
+        
+        <category>dart</category>
+        
+        <category>android</category>
+        
+        <category>flutter</category>
+        
+        <category>typescript</category>
         
         <category>c++</category>
         
