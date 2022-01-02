@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 02 Jan 2022 07:24:42 +0900</pubDate>
-    <lastBuildDate>Sun, 02 Jan 2022 07:24:42 +0900</lastBuildDate>
+    <pubDate>Sun, 02 Jan 2022 10:35:04 +0900</pubDate>
+    <lastBuildDate>Sun, 02 Jan 2022 10:35:04 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -553,6 +553,342 @@ P5+OU+KI+GI+KA+HI
         
         
         <category>project</category>
+        
+      </item>
+    
+      <item>
+        <title>ミニベロは上り坂で有利なのか？</title>
+        <description>&lt;h3 id=&quot;ロードバイクで登れるけどミニベロで登れない坂がある&quot;&gt;ロードバイクで登れるけど、ミニベロで登れない坂がある&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/miscellaneous/2020-05-16/bicycle01&quot;&gt;以前の記事「ロード系ミニベロのカスタマイズ」&lt;/a&gt;が結構読まれているようなので、また自転車ネタを書いてみます。&lt;br /&gt;
+　新しく自転車を買ってみようかと思っているのですが、その自転車に求める条件の一つに「近所にある山を登り切りたい」という変な拘りがあります。全国的に有名な急坂とかそういう大層なものではないのですが、&lt;a href=&quot;/miscellaneous/2020-05-16/bicycle01&quot;&gt;以前の記事&lt;/a&gt;で紹介したIDIOM2では登れないけど、今年売っ払ったロードバイクなら登れた坂というのが近所にあって、IDIOM2よりかは上り坂に強い自転車を選びたいと思ってます。&lt;br /&gt;
+　そこでフロントシングルでどんなギアが用意されていればいいか考えてみました。&lt;/p&gt;
+
+&lt;h3 id=&quot;ロードとidiom2の比較&quot;&gt;ロードとIDIOM2の比較&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt; &lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;ロード　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;　IDIOM2　&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;クランク長&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;165mm&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;165mm&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;フロント&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;50-34T&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;48T&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ギア&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;11-25T&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;12-25T&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;タイヤ&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;23-700&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;28-451&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　自分が持っている2010年式IDIOM2はロード系と言われるだけあってフロントギアは大きめ（48T）ですがスプロケット（SHIMANO HG50 8S 12-25T）のレンジが狭く、ローギアがロードと同じ25Tで坂には向いていません。&lt;br /&gt;
+　一般的にミニベロは上り坂で有利なんて言われたりしますが、車体の重さやクランク長の違いなどの要素もあるものの、ペダルを回す負荷を考えたら結局ギア比で決まると思います。大きな車輪を回すより小さな車輪を回す方が負荷は低くはなりますが、その分を考慮した値で比較すれば700Cも小径車も同じだと思います。700Cと451のタイヤを回す負荷を比較する場合、ギア比を掛けてやれば求められるので&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;タイヤの外径×ギア比&lt;/code&gt;の値を比較すればいいはずです。&lt;br /&gt;
+　タイヤの外径をタイヤサイズ表記に使われている&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;700&lt;/code&gt;や&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;451&lt;/code&gt;を使って計算してもいいのですが、700Cのタイヤのビード座直径は実際には700mmではないようですし、同じタイヤサイズでもタイヤの太さによってタイヤの高さ（外径）も変わるのでここではタイヤの外径の代わりに、タイヤ周長を使おうと思います。タイヤ周長は多くのサイクルコンピュータに予め用意されているのでタイヤの太さによる違いなども考慮されているのでより正確だと思います。それと、タイヤ外径とタイヤ周長の違いは定数である円周率（3.14）を掛けただけなので、タイヤ外径の代わりに周長を使っても問題ありません。&lt;/p&gt;
+
+&lt;p&gt;　ここでは&lt;a href=&quot;https://www.cyclabo.com/ja/topics/vnu1m1awr7/&quot;&gt;このサイト&lt;/a&gt;からタイヤ周長の数値を引っ張ってきて、ロードとミニベロのペダルを回す負荷値（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;タイヤ周長×ギア比&lt;/code&gt;）を計算してみました。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt; &lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;ロード　　&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;　IDIOM2　&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;タイヤサイズ&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;700x23C(ETRTO 23-622)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;20x1-1/8(ETRTO 28-451)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;トップギア&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2096 * (50 / 11.0) = 9.527m&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1545 * (48 / 12.0) = 6.180m&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ローギア&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2096 * (34 / 25.0) = 2.850m&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1545 * (48 / 25.0) =  2.966m&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　IDIOM2の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2.966m&lt;/code&gt;よりロードの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2.850m&lt;/code&gt;の方が小さい負荷なのでロードで坂が登れたということだと思ってます。&lt;br /&gt;
+　ペダルを回す負荷値なんて書きましたが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;タイヤ周長×ギア比&lt;/code&gt;というのは結局&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ペダル一漕ぎで進む距離&lt;/code&gt;のことです。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ペダル一漕ぎで進む距離&lt;/code&gt;が上り坂を克服し易さを表す指標と考えていいと思いますが、あまりそういう話を周りで聞かないので不思議です。もっとこの認識が拡がればいいのにと思ってます。&lt;/p&gt;
+
+&lt;h3 id=&quot;一輪車は上り坂で有利&quot;&gt;一輪車は上り坂で有利？&lt;/h3&gt;
+&lt;p&gt;　一輪車には乗ったことはないのですが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ペダル一漕ぎで進む距離&lt;/code&gt;が小さいほど坂が登り易いのであれば、一輪車は坂を登り易いということになりますが、どうなのでしょう？&lt;a href=&quot;https://www.youtube.com/watch?v=WhFdxguU_dY&quot;&gt;こんな動画&lt;/a&gt;を見つけましたが、斜度も分からないし何とも言えませんがスピードを無視してペダルを回せるかどうかだけを考えれば一輪車は上り坂に強いような気もします。それに一輪車のクランク長は一般的には自転車よりも短いらしいので、スピードのことは考えず登ることだけを考えて長めのクランクを付けたらさらに楽に登れそうです。&lt;br /&gt;
+　でも、自転車（二輪車）であれば、やろうと思えばギア比を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;以下にすることも出来るので自転車の方が有利であることに間違いないでしょう。&lt;br /&gt;
+　それと上で比較したロードとIDIOM2のクランク長は偶々同じサイズですが、クランク長まで考慮しだすと面倒なので購入する自転車を選ぶ際には今のところ無視しています。&lt;/p&gt;
+
+&lt;h3 id=&quot;ペダルを回せるかどうかが大事&quot;&gt;ペダルを回せるかどうかが大事&lt;/h3&gt;
+&lt;p&gt;　自転車で坂を登れるかどうかっていうのは第一にペダルを回せるかどうかが大事です。全く疲労していない状態でも急勾配な坂だと、力一杯ペダルを踏み込んでも全く回せないので、こういう状態だとギア比を変えるしかありません。&lt;br /&gt;
+　かなり昔のことですが、男６、７人で遠乗りしたことがあって、クロスバイクやロードバイクの人達の中で私だけがミニベロのIDIOM2でした。そして上り坂になった時、私が他のメンバーをグイグイ追い抜いて先頭になって坂の中腹でみんなを待つ状態になったことがあったのですが、「気合い入ってるね」とか「速いね」とか言われたのですが、何の事は無い、自分としてはもっと軽いギアでクルクルペダルを回してゆっくり上りたいのですが、軽いギアが無いために無理やり他の人より重いギアで漕いでいただけのことです。ギア比のことに思い至っていない人だと、上り坂はミニベロが有利なんだと勘違いするかも知れません。&lt;br /&gt;
+　この時は、その後山の頂上が近づくにつれて坂が急勾配になっていき、私がペダルが踏めなくなって自転車を押して歩く羽目になったのとは対照的に、軽い高級ロードバイクの人が先頭を走っていました。&lt;/p&gt;
+
+&lt;h3 id=&quot;坂だけを考えたらクロスバイク&quot;&gt;坂だけを考えたらクロスバイク？&lt;/h3&gt;
+&lt;p&gt;　冒頭に書いたIDIOM2で登れない坂を克服することを考えながら自転車を物色していると、クロスバイクの方が良さそうな気がしています。購入後にギアだけ変えるのは面倒なので、取り敢えず最初から用意されているギア比を見ているとクロスバイクの方がワイドレンジになっていて坂には有利なようですし、リアキャリアを付けたいのでダボ穴が用意されているクロスバイクになりそうです。&lt;br /&gt;
+　購入したらまた記事を書いてみようと思います。&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+</description>
+        <pubDate>Sun, 05 Dec 2021 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/miscellaneous/2021-12-05/minivelo</link>
+        <guid isPermaLink="true">https://happyclam.github.io/miscellaneous/2021-12-05/minivelo</guid>
+        
+        <category>bicycle</category>
+        
+        
+        <category>miscellaneous</category>
+        
+      </item>
+    
+      <item>
+        <title>M1 Macbook ProのCPU性能</title>
+        <description>&lt;h3 id=&quot;macbook12インチでスマホアプリ開発してた人&quot;&gt;Macbook12インチでスマホアプリ開発してた人&lt;/h3&gt;
+&lt;p&gt;&lt;span id=&quot;back1&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;　リリース済みのアプリの多くはCordova製なので、最初はブラウザさえあれば開発出来るものでした。でも途中からアプリにファイル保存機能を付けたり、Firebaseの機能を使い始めるとエミュレータを使った開発が必要になって来て、非力なMacbook12で開発作業をするのは苦行に近いものでした&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
+　で、ようやく以前から欲しかったMacbookProを購入し、別世界を体感しています。&lt;/p&gt;
+
+&lt;div style=&quot;width:640px; margin: 0 auto;&quot;&gt;
+&lt;div style=&quot;float:left; margin: 0px 20px 0px;&quot;&gt;
+&lt;a href=&quot;/images/macbook_pro1.png&quot;&gt;&lt;img width=&quot;240&quot; height=&quot;183&quot; src=&quot;/images/macbook_pro1.png&quot; alt=&quot;Macbook Pro 2021 表&quot; title=&quot;M1 Macbook Pro 14インチ 表&quot; /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;a href=&quot;/images/macbook_pro2.png&quot;&gt;&lt;img width=&quot;240&quot; height=&quot;186&quot; src=&quot;/images/macbook_pro2.png&quot; alt=&quot;Macbook Pro 2021 裏&quot; title=&quot;M1 Macbook Pro 14インチ 裏&quot; /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br clear=&quot;all&quot; /&gt;&lt;/p&gt;
+&lt;div style=&quot;width:640px; margin: 0 auto;&quot;&gt;
+&lt;div style=&quot;float:left; margin: 0px 20px 0px;&quot;&gt;
+&lt;a href=&quot;/images/macbook_comp1.png&quot;&gt;&lt;img width=&quot;240&quot; height=&quot;181&quot; src=&quot;/images/macbook_comp1.png&quot; alt=&quot;Macbook12との比較 上&quot; title=&quot;Macbook12との比較 真上から&quot; /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;a href=&quot;/images/macbook_comp2.png&quot;&gt;&lt;img width=&quot;240&quot; height=&quot;126&quot; src=&quot;/images/macbook_comp2.png&quot; alt=&quot;Macbook12との比較 横&quot; title=&quot;Macbook12との比較 側面&quot; /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br clear=&quot;all&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;　Macbook12と比較するとかなり大きく、重い（1.6Kg）ので持ち歩く気にはなりません。&lt;/p&gt;
+
+&lt;h3 id=&quot;cpu性能比較１&quot;&gt;CPU性能比較１&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/software/2020-09-19/js_dart_cpp&quot;&gt;以前の記事&lt;/a&gt;で２×６列のマンカラカラハで先手必勝を読み切るまでに要する時間を３つのプログラミング言語（Dart,TypeScript,C++）で比較しましたが、今回は同じC++のソースを使ってCPUによる比較をしてみたいと思います。Intelの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core i7-2600K&lt;/code&gt;とARM系&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Apple M1 Pro&lt;/code&gt;、４コアと１０コア、比較の基準がバラバラですが、単に自分が持っているPCでどれだけ性能が上がったか知りたいだけです。&lt;br /&gt;
+　まずは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core i7-2600K&lt;/code&gt;（Ubuntu機）側から。&lt;a href=&quot;/software/2020-09-19/js_dart_cpp&quot;&gt;前回の記事&lt;/a&gt;と出力内容が違うのは、&lt;a href=&quot;/software/2020-09-19/js_dart_cpp&quot;&gt;前回の記事&lt;/a&gt;にも書いた通りバグがあったためです。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ./mancala.out
+0,2,2,2,2,2,2,0,2,2,2,2,2,2,
+=== result = 4, 5, i = 1
+=== result = 3, 5, i = 2
+=== result = 1, 6, i = 3
+=== result = 3, 5, i = 4
+=== result = 5, 5, i = 5
+=== result = 4, 5, i = 6
+=== result = 5, 5, i = 7
+=== result = 4, 5, i = 8
+=== result = 4, 5, i = 9
+=== result = 5, 6, i = 10
+=== result = 5, 6, i = 11
+=== result = 5, 5, i = 12
+=== result = 5, 5, i = 13
+=== result = 5, 5, i = 14
+=== result = 6, 5, i = 15
+=== result = 12, 5, i = 16
+=== result = 999, 5, i = 17
+467263.232000[ms]
+999, 5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;span id=&quot;back2&quot;&gt;&lt;/span&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;　&lt;a href=&quot;/software/2020-09-19/js_dart_cpp&quot;&gt;前回の記事&lt;/a&gt;より実行時間が短縮しているのもバグを修正した所為で、前回と同じPCで実行しています。&lt;br /&gt;
+　続いて、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Apple M1 Pro&lt;/code&gt;側です。初めてのARMベースのCPUということでコンパイルするのも一手間&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;だったのですが、&lt;a href=&quot;https://zenn.dev/ress/articles/069baf1c305523dfca3d&quot;&gt;この記事&lt;/a&gt;を参考にして解決できました。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;% ./mancala.out 
+0,2,2,2,2,2,2,0,2,2,2,2,2,2,
+=== result = 4, 5, i = 1
+=== result = 3, 5, i = 2
+=== result = 1, 6, i = 3
+=== result = 3, 5, i = 4
+=== result = 5, 5, i = 5
+=== result = 4, 5, i = 6
+=== result = 5, 5, i = 7
+=== result = 4, 5, i = 8
+=== result = 4, 5, i = 9
+=== result = 5, 6, i = 10
+=== result = 5, 6, i = 11
+=== result = 5, 5, i = 12
+=== result = 5, 5, i = 13
+=== result = 5, 5, i = 14
+=== result = 6, 5, i = 15
+=== result = 12, 5, i = 16
+=== result = 999, 5, i = 17
+274362.594000[ms]
+999, 5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　同じ結果を得るのに要した時間は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core i7-2600K&lt;/code&gt;が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;467秒&lt;/code&gt;だったのに対して、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Apple M1 Pro&lt;/code&gt;では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;274秒&lt;/code&gt;でした。
+　ちなみに実行結果の最後の行、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;999, 5&lt;/code&gt;は、以下の表の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;5&lt;/code&gt;の位置を先手が初手に選べば、先手が勝てることを意味しています。２×６列のマンカラカラハは先手必勝のゲームです、詳しくは&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;こちらの記事&lt;/a&gt;に書いています。&lt;/p&gt;
+
+&lt;div style=&quot;float:left; margin: 0px 15px 0px&quot;&gt;
+    &lt;table&gt;
+    &lt;tr&gt;
+    &lt;td rowspan=&quot;4&quot; align=&quot;center&quot;&gt;0↓&lt;/td&gt;
+    &lt;td colspan=&quot;6&quot; align=&quot;center&quot;&gt;後手&lt;/td&gt;    
+    &lt;td rowspan=&quot;4&quot; align=&quot;center&quot;&gt;7↑&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td align=&quot;center&quot;&gt;13&lt;br /&gt;←&lt;/td&gt;    
+    &lt;td align=&quot;center&quot;&gt;12&lt;br /&gt;←&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;11&lt;br /&gt;←&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;10&lt;br /&gt;←&lt;/td&gt;    
+    &lt;td align=&quot;center&quot;&gt;9&lt;br /&gt;←&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;8&lt;br /&gt;←&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td colspan=&quot;6&quot; align=&quot;center&quot;&gt;先手&lt;/td&gt;    
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td align=&quot;center&quot;&gt;1&lt;br /&gt;→&lt;/td&gt;    
+    &lt;td align=&quot;center&quot;&gt;2&lt;br /&gt;→&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;3&lt;br /&gt;→&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;4&lt;br /&gt;→&lt;/td&gt;    
+    &lt;td align=&quot;center&quot;&gt;&lt;font color=&quot;red&quot;&gt;5&lt;/font&gt;&lt;br /&gt;→&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;6&lt;br /&gt;→&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br clear=&quot;all&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;　３×６列や４×６列のカラハでどうなるのか確認したいところですが、CPUがそこそこ速くなったぐらいでは結果を得るのに数ヶ月以上掛かると思われるので他の工夫が必要だと思ってます。&lt;/p&gt;
+
+&lt;p&gt;　ついでにMacbook12インチでも試してみました。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;% ./mancala.out
+0,2,2,2,2,2,2,0,2,2,2,2,2,2,
+=== result = 4, 5, i = 1
+=== result = 3, 5, i = 2
+=== result = 1, 6, i = 3
+=== result = 3, 5, i = 4
+=== result = 5, 5, i = 5
+=== result = 4, 5, i = 6
+=== result = 5, 5, i = 7
+=== result = 4, 5, i = 8
+=== result = 4, 5, i = 9
+=== result = 5, 6, i = 10
+=== result = 5, 6, i = 11
+=== result = 5, 5, i = 12
+=== result = 5, 5, i = 13
+=== result = 5, 5, i = 14
+=== result = 6, 5, i = 15
+=== result = 12, 5, i = 16
+=== result = 999, 5, i = 17
+440331.482000[ms]
+999, 5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;440秒&lt;/code&gt;ということで意外だったのですが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core i7-2600K&lt;/code&gt;（Ubuntu機）よりMacbook12インチ（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Intel Core M-5Y51&lt;/code&gt;）の方が速いんですね。普段メインで使っていたUbuntu機の方が断然レスポンスが良いと感じていたのはメモリ（12GB）の差でしょうか？Macbook12インチ（メモリ8GB）もメモリ増設していればそこそこ開発用として使えていたのかも知れません。&lt;br /&gt;
+　ちょっと気になったので検索したら&lt;a href=&quot;https://www.cpu-monkey.com/ja/compare_cpu-intel_core_m_5y51-454-vs-intel_core_i7_2600k-6&quot;&gt;こんなページ&lt;/a&gt;がありました。シングルコアで比較すると結構いい勝負しているようです。それでもCoreMの方が速いというのはやはり合点がいかないのですが、Ubuntu機の方は他の多くのプログラムが動いている中で試していたのでその所為だと思われます。&lt;/p&gt;
+
+&lt;h3 id=&quot;cpu性能比較２&quot;&gt;CPU性能比較２&lt;/h3&gt;
+&lt;p&gt;　話が逸れましたがもう一つ、&lt;a href=&quot;/software/2018-10-27/unpromote&quot;&gt;以前の記事&lt;/a&gt;で「歩不成の詰将棋」を読み切るのに２週間掛かったことを紹介しましたが、この時使ったスクリプトを今回購入したMacbook Proで実行してみました。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ coffee game.coffee 
+hmmxxxggggkkkkyyyffffffffffff
+ 9 8 7 6 5 4 3 2 1
+| | | | | |f|T| |y|1
+| | | | | | | | | |2
+| | | | |H| |F|o| |3
+| | | | | |X| |f|f|4
+| | | | | | | | | |5
+| | | | | | | | | |6
+| | | | | | | | | |7
+| | | | | | | | | |8
+|O| | | | | | | | |9
+F
+first: i = 1, kind = Hi, temp = [{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[5,3],&quot;id&quot;:&quot;q6owepmi&quot;},[5,2],-589,1,{&quot;koma&quot;:{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[9,9],&quot;id&quot;:&quot;ribd4do4&quot;},&quot;posi&quot;:[9,8],&quot;score&quot;:-614,&quot;status&quot;:0}]
+first: i = 2, kind = Fu, temp = [{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[3,3],&quot;id&quot;:&quot;g8a244eb&quot;},[3,2],-532,1,{&quot;koma&quot;:{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[5,3],&quot;id&quot;:&quot;q6owepmi&quot;},&quot;posi&quot;:[5,2],&quot;score&quot;:-542,&quot;status&quot;:1}]
+first: i = 4, kind = Fu, temp = [{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[3,3],&quot;id&quot;:&quot;g8a244eb&quot;},[3,2],-522,1,{&quot;koma&quot;:{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[3,3],&quot;id&quot;:&quot;g8a244eb&quot;},&quot;posi&quot;:[3,2],&quot;score&quot;:-554,&quot;status&quot;:0}]
+first: i = 5, kind = Fu, temp = [{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[3,3],&quot;id&quot;:&quot;g8a244eb&quot;},[3,2],-594,0,{&quot;koma&quot;:{&quot;turn&quot;:-1,&quot;status&quot;:0,&quot;posi&quot;:[4,4],&quot;id&quot;:&quot;a7qa7o3i&quot;},&quot;posi&quot;:[3,4],&quot;score&quot;:-702,&quot;status&quot;:0}]
+hmmxxxggggkkkkyyyffffffffffff
+ 9 8 7 6 5 4 3 2 1
+| | | | | |f|T| |y|1
+| | | | | | |F| | |2
+| | | | |H| | |o| |3
+| | | | | |X| |f|f|4
+| | | | | | | | | |5
+| | | | | | | | | |6
+| | | | | | | | | |7
+| | | | | | | | | |8
+|O| | | | | | | | |9
+F
+初手経過時間: 370448881ミリ秒
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core i7-2600K&lt;/code&gt;で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1208445383ミリ秒（約２週間）&lt;/code&gt;掛かった処理が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Apple M1 Pro&lt;/code&gt;だと&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;370448881ミリ秒（約４日）&lt;/code&gt;でした。やはり断然速いですね。&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;Flutter製アプリは別のUbuntu機を使って開発してます。&lt;a href=&quot;#back1&quot;&gt;戻る&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;Rosettaって何？状態だったのでM1 Macbookのコンパイル環境を作るのに手間取りましたが、ソースコードそのものの修正は不要でした。&lt;a href=&quot;#back2&quot;&gt;戻る&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Tue, 23 Nov 2021 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/hardware/2021-11-23/macbookpro</link>
+        <guid isPermaLink="true">https://happyclam.github.io/hardware/2021-11-23/macbookpro</guid>
+        
+        <category>macbook</category>
+        
+        <category>cordova</category>
+        
+        
+        <category>hardware</category>
         
       </item>
     
@@ -1274,7 +1610,8 @@ Add-on:                postgresql-opaque-46906
 &lt;p&gt;　対戦成績表の見方ですが、&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラナッツ&lt;/a&gt;では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やばい&lt;/code&gt;モード以外では初手をランダムに決めるようにしていて、勝負に拘っていないので、アプリが勝てるのかどうかを判断する場合は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やばい&lt;/code&gt;モード以外は見る必要がありません。勝ちの欄の数字はＡＩ対戦で人間側が勝った数字、つまり比較対象となっているアプリが勝ったということです。また比較するために選んだアプリが初手をランダムに決めているものもあるので、一回だけの対戦ではなく何回か対戦させました。&lt;br /&gt;
 　注目すべきは黄色い丸で囲んだ部分の数字です。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;後手で勝つことが出来るか&lt;/code&gt;です。豆の数が３、４、５、７の時は後手の勝ち星が全て&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;で、比較対象のアプリが後手の場合は、何度やっても&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;に勝てません。&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;が数あるマンカラアプリの中で最強だと主張しているのではなく、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;マンカラカラハというゲームはお互いが最善を尽くせば先手必勝&lt;/code&gt;なのではないか？ということです。負けの欄の数字（比較対象のアプリが負けた数字＝&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;が勝った数字）を見ると、勝ちの欄の数字より大きいので勝率は良い方だと思いますが、先に言ったように比較対象のアプリは初手をランダムに決めている（＝勝負に拘ってない）ものもあるので一概には言えません。マンカラでは初手で悪手を選択するとそれだけで勝てなくなるような気がします。&lt;br /&gt;
 　また豆の数が６の時は先手でも後手でも勝ったり負けたりなので、どちらとも言えませんが双方が最善を尽くしたら引分けなのかもしれません。上の対戦成績結果以外で試していた時も引分けになる頻度が結構高かったです。&lt;br /&gt;
-　豆の数３、４、５、７で後手で自分のアプリに勝てるアプリを見つけた方は是非教えて欲しいと思います。但し、マンカラカラハと称していてもアプリによっては違うルールになっているものがあるのでその場合は連絡不要です。自分のアプリは&lt;a href=&quot;https://www.nintendo.co.jp/switch/as7ta/&quot;&gt;Nintendo Switchの世界のアソビ大全51&lt;/a&gt;に収録されているマンカラと同じルールです。&lt;/p&gt;
+　豆の数３、４、５、７で後手で自分のアプリに勝てるアプリを見つけた方は是非教えて頂きたいと思います。読みの深さが勝っていれば勝てることもあり得るので、自分のアプリをより深く読むように設定して確認したいと思ってます。また、単純に読みを深くするだけでなく、機械学習等の別のアルゴリズムを使って別の指し手を導き出すアプリが存在するかも知れないと思ってます。&lt;br /&gt;
+　但し、マンカラカラハと称していてもアプリによっては違うルールになっているものがあるのでその場合は連絡不要です。自分のアプリは&lt;a href=&quot;https://www.nintendo.co.jp/switch/as7ta/&quot;&gt;Nintendo Switchの世界のアソビ大全51&lt;/a&gt;に収録されているマンカラと同じルールです。&lt;/p&gt;
 
 &lt;h3 id=&quot;結論&quot;&gt;結論&lt;/h3&gt;
 &lt;p&gt;　豆の数１の時と２の時は&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;以前の記事&lt;/a&gt;で結論が出ていると思っているので、以下のように推測します。&lt;/p&gt;
@@ -1561,321 +1898,6 @@ Add-on:                postgresql-opaque-46906
         <category>c++</category>
         
         <category>mancala</category>
-        
-        
-        <category>software</category>
-        
-      </item>
-    
-      <item>
-        <title>C++でFlutterアプリのライブラリ作成</title>
-        <description>&lt;h3 id=&quot;その簡単さに驚く&quot;&gt;その簡単さに驚く&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/software/2020-09-19/js_dart_cpp&quot;&gt;前回の記事&lt;/a&gt;で作ったC++製のプログラムをアプリで利用しない手は無いと思いちょっと調べてみたら非常に簡単に作れそうなのでやってみました。自分の場合は取り敢えずandroid版しか考えていないので、&lt;a href=&quot;https://flutter.dev/docs/development/platform-integration/c-interop&quot;&gt;公式サイト&lt;/a&gt;に書かれている僅かな手順を踏めば、ライブラリ（Plugin）とそのテストをするためのExampleプロジェクトが出来上がります。&lt;/p&gt;
-
-&lt;h3 id=&quot;情報が少なめ&quot;&gt;情報が少なめ&lt;/h3&gt;
-&lt;p&gt;　Flutter,Pluginで検索するとPluginを公開する前提で書かれている記事が多くて、自分のアプリ用のライブラリとして使うケースについては情報が少ないような気がします。Java（あるいはKotlin）やSwiftを経由してC++のライブラリを使う方法なんかもあるようですが、C++だけで済ませたかった自分には参考になる記事は少なかったです。&lt;br /&gt;
-　&lt;a href=&quot;https://flutter.dev/docs/development/platform-integration/c-interop&quot;&gt;前述の公式サイトの記事&lt;/a&gt;で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dart:ffi&lt;/code&gt;を使えばint型のデータだけなら簡単にやり取りできるのは分かったのですが、intだけじゃ大変だなと思っていたところ、&lt;a href=&quot;https://www.google.co.jp/search?sxsrf=ALeKk0278rFY7cQTrFc34ZLGoL92Ncc_3w%3A1601382825947&amp;amp;source=hp&amp;amp;ei=qSlzX7TPNsuNoASIrIagBw&amp;amp;q=Flutter%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%A7dart%3Affi%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B&amp;amp;oq=Flutter%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%A7dart%3Affi%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B&amp;amp;gs_lcp=CgZwc3ktYWIQAzoICAAQsQMQgwE6BwgAELEDEAQ6BggAEAQQAzoECAAQBDoFCAAQsQM6AggAOggIABAFEAQQHjoGCAAQBRAeOgUIABDNAlCBF1j5c2D9dGgGcAB4AIABdIgB5x2SAQUyMy4xNpgBAKABAaoBB2d3cy13aXo&amp;amp;sclient=psy-ab&amp;amp;ved=0ahUKEwj0x_Lzr47sAhXLBogKHQiWAXQQ4dUDCAw&amp;amp;uact=5&quot;&gt;「Flutterプラグインでdart:ffiを使ってみる」というPDFファイル&lt;/a&gt;を読んでポインタ経由なら他のデータでもやり取り出来そうなことが分かって、やってみる気になりました。Dart:ffiだけで不足している機能は&lt;a href=&quot;https://pub.dev/packages/ffi&quot;&gt;ffiパッケージ&lt;/a&gt;として公開されているものを使います。&lt;/p&gt;
-
-&lt;h3 id=&quot;ライブラリplugin用のプロジェクト作成&quot;&gt;ライブラリ（Plugin）用のプロジェクト作成&lt;/h3&gt;
-&lt;p&gt;　iosでの利用も考えている人は違ってくると思います。&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;flutter create --org io.github.happyclam --template=plugin --platforms=android karah_think
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　プロジェクトを作成したら&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flutter build apk&lt;/code&gt;で一度ビルドした後、android/下のCMakeList.txtの編集&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# CMakeList.txt
-cmake_minimum_required(VERSION 3.4.1)  # for example
-set(CMAKE_CXX_FLAGS &quot;-O2 -std=c++11 -Wall&quot;)
-add_library( karah_think
-
-             # Sets the library as a shared library.
-             SHARED
-
-             # Provides a relative path to your source file(s).
-             ../android/Classes/karah_think.cpp )
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　android/下にClassesという名のディレクトリを作成（何でもいい）して、C++のソースは全てそこに入れました。/android/Classes/karah_think.cppがアプリから呼び出される関数（エクスポート関数）が書かれているファイルです。&lt;a href=&quot;/software/2020-09-19/js_dart_cpp&quot;&gt;前回の記事&lt;/a&gt;でも書いたコンパイルオプションもこのファイル（CMakeList.txt）で定義します。&lt;br /&gt;
-　これだけでライブラリ開発環境が出来て、karah_thinkプロジェクト内に自動作成されたExampleプロジェクトをAndroid Studioで読み込めばライブラリの開発＆テストが出来ます。Exampleプロジェクトをビルドすればライブラリ（libkarah_think.so）もビルドされます。&lt;br /&gt;
-　ここまでは上記の公式サイトに書かれている内容です。&lt;/p&gt;
-
-&lt;h3 id=&quot;作ったライブラリpluginをアプリのプロジェクトで使う&quot;&gt;作ったライブラリ（Plugin）をアプリのプロジェクトで使う&lt;/h3&gt;
-&lt;p&gt;　ライブラリの中身はマンカラで使う要素１４個の固定長配列、手番（先手・後手）、読みの深さを渡して最善手を返して貰うラッパー関数を書くだけなのですぐに実装出来ました。でも、この出来上がったライブラリをどうやって元々存在するマンカラアプリのプロジェクトから使うのか分からなかったのですが、Flutterで公開されているパッケージを使う時と同じように、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pubspec.yaml&lt;/code&gt;に依存関係を記述するだけでした。&lt;br /&gt;
-　マンカラアプリのプロジェクトの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pubspec.yaml&lt;/code&gt;内の依存関係に、ライブラリのプロジェクトが存在するローカルのPathを追記します。&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#pubspec.yaml
-dependencies:
-  flutter:
-    sdk: flutter
-  karah_think:
-    path: &quot;../karah_think/&quot;
-  ffi: ^0.1.3
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　マンカラアプリプロジェクト（mancala）とC++ライプラリプロジェクト（karah_think）とライブラリ動作確認用プロジェクト（example）の関係は以下のようになっています。&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;├── mancala
-│   ├── pubspec.yaml
-├── karah_think
-│   ├── example
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　ライブラリを使う側のマンカラアプリプロジェクトの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/main.dart&lt;/code&gt;の宣言部分はこんな感じです。&lt;br /&gt;
-　引数は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;評価値と指し手を受け取るための配列&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;マンカラの盤面情報を渡す配列&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;手番（先手・後手）&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;読みの深さ&lt;/code&gt;になってます。&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#mancala/lib/main.dart
-import &apos;dart:typed_data&apos;;
-import &apos;dart:ffi&apos;; // For FFI
-import &apos;dart:io&apos;; // For Platform.isX
-import &apos;package:ffi/ffi.dart&apos;;
-final DynamicLibrary karahThinkLib = Platform.isAndroid
-    ? DynamicLibrary.open(&quot;libkarah_think.so&quot;)
-    : DynamicLibrary.process();
-
-final int Function(Pointer&amp;lt;Int32&amp;gt; pResult, Pointer&amp;lt;Int32&amp;gt; board, int turn, int depth) karahThink =
-karahThinkLib
-    .lookup&amp;lt;NativeFunction&amp;lt;Int32 Function(Pointer&amp;lt;Int32&amp;gt;, Pointer&amp;lt;Int32&amp;gt;, Int32, Int32)&amp;gt;&amp;gt;(&quot;karah_think&quot;)
-    .asFunction();
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　ライブラリ（libkarah_think.so）のエクスポート関数を呼び出す部分&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#mancala/lib/main.dart
-  List _cppThink(List board, int turn, int depth){
-    final pBoard32 = allocate&amp;lt;Int32&amp;gt;(count: board.length);
-    Pointer&amp;lt;Int32&amp;gt; pResult32 = allocate&amp;lt;Int32&amp;gt;(count: 2);
-    for (var i = 0; i &amp;lt; board.length; i++){
-      pBoard32[i] = board[i];
-    }
-    int ret = karahThink(pResult32, pBoard32, turn, depth);
-    Int32List list = pResult32.asTypedList(2);
-    List result = List.from(list);
-    free(pBoard32);
-    free(pResult32);
-    return result;
-  }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　ライブラリのエクスポート関数&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/* karah_think/android/Classes/karah_think.cpp */
-#include &amp;lt;stdint.h&amp;gt;
-#include &amp;lt;iostream&amp;gt;
-#include &amp;lt;array&amp;gt;
-#include &amp;lt;map&amp;gt;
-#include &quot;./const.cpp&quot;
-#include &quot;./player.cpp&quot;
-
-extern &quot;C&quot; __attribute__((visibility(&quot;default&quot;))) __attribute__((used))
-int32_t karah_think(int32_t* pResult, int32_t* pBoard, int32_t turn, int32_t depth) {
-  int32_t ret = 0;
-  std::array&amp;lt;int, DENTS&amp;gt; board{0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-  std::array&amp;lt;int, 2&amp;gt; result{0, 0};
-  for(int i = 0; i &amp;lt; DENTS; i++){
-    board[i] = pBoard[i];
-  }
-  Player *pFirst = new Player(FIRST);
-  Player *pSecond = new Player(SECOND);
-  if (turn == FIRST){
-    result = pFirst-&amp;gt;think(board, pSecond, depth, FIRST_WIN);
-  } else {
-    result = pSecond-&amp;gt;think(board, pFirst, depth, SECOND_WIN);
-  }
-  ret = result[0];
-  pResult[0] = result[0];
-  pResult[1] = result[1];
-  delete pFirst;
-  delete pSecond;
-  return ret;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　C++側はSTLを使っているので型に合わせた変数に代入し直して利用します。&lt;/p&gt;
-
-&lt;h3 id=&quot;効果は歴然&quot;&gt;効果は歴然&lt;/h3&gt;
-&lt;p&gt;　今まではマンカラアプリのAIのレベルを「やばい」にすると一手毎に待たされていたのですが、C++製ライブラリを使ったものは他のAIレベルと同じぐらいのレスポンスになりました。&lt;br /&gt;
-　Windows用のライブラリと違って、様々なCPUに合わせたAndroid端末毎のDLLが簡単なGUI操作（中で活躍してるのはgradleですが）でビルド出来るのはすごいです。&lt;br /&gt;
-　将棋関連アプリも早くこの形でリリースしたいところですが、マンカラのように一つの固定長配列を渡すだけでは済まないので、いろいろ試してみないと分からないことが多く道のりは遠いです。&lt;/p&gt;
-
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-</description>
-        <pubDate>Thu, 01 Oct 2020 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/software/2020-10-01/flutter_plugin</link>
-        <guid isPermaLink="true">https://happyclam.github.io/software/2020-10-01/flutter_plugin</guid>
-        
-        <category>dart</category>
-        
-        <category>android</category>
-        
-        <category>flutter</category>
-        
-        <category>c++</category>
-        
-        
-        <category>software</category>
-        
-      </item>
-    
-      <item>
-        <title>Dartは遅いけど、FlutterでGUIは有り</title>
-        <description>&lt;h3 id=&quot;dartに絶望flutterでguiは有り&quot;&gt;Dartに絶望FlutterでGUIは有り&lt;/h3&gt;
-&lt;p&gt;　Qiitaのどなたかの記事でDartはJavaScriptより実行速度が倍程速いと書かれているのを見かけて、期待しながら今リリースしているCoffeeScript（JavaScript）製の&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;のGUI以外の部分をDartで書き直して比較したのですが、テストの結果からDartの方が遅いことが分かりました。Flutter(Dart)で&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラアプリ&lt;/a&gt;を作ってみてGUIの作り易さに感動した&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;だけに非常に失望しました。&lt;br /&gt;
-　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;今のアプリ&lt;/a&gt;よりも実行速度が遅いのならFlutterで将棋関連のアプリを作り直す意味がないので、どうしようかと思い、&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;以前の記事&lt;/a&gt;で書いたマンカラアプリなら行数も少ないのでとりあえずこれを題材にTypeScriptとC++で書き直して比較してみました。&lt;/p&gt;
-
-&lt;h3 id=&quot;比較の元となるdartの実行結果&quot;&gt;比較の元となるDartの実行結果&lt;/h3&gt;
-&lt;p&gt;　６×２列のマンカラカラハの先読みプログラムの実行結果です。何をやっているかは&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;以前の記事&lt;/a&gt;を参照してください。&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ dart mancala.dart
-[0, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2]
-=== result = 1, 5, i = 1
-=== result = 0, 5, i = 2
-=== result = 3, 5, i = 3
-=== result = 4, 5, i = 4
-=== result = 5, 5, i = 5
-=== result = 4, 5, i = 6
-=== result = 5, 5, i = 7
-=== result = 4, 5, i = 8
-=== result = 4, 5, i = 9
-=== result = 4, 5, i = 10
-=== result = 3, 5, i = 11
-=== result = 5, 5, i = 12
-=== result = 4, 5, i = 13
-=== result = 5, 5, i = 14
-=== result = 6, 5, i = 15
-=== result = 2, 6, i = 16
-=== result = 3, 6, i = 17
-=== result = 999, 5, i = 18
-4040941
-[999, 5]
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　１８手で先手必勝を読み切るまでに4040秒（１時間強）&lt;/p&gt;
-
-&lt;h3 id=&quot;まずはtypescript&quot;&gt;まずはTypeScript&lt;/h3&gt;
-&lt;p&gt;　好きなCoffeeScriptはマイナーになってしまったので、Dartの存在を知る前から今の将棋関連アプリをいずれTypeScriptに書き換えるべきかなと思っていたのでまずはこれで試しました。&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ts-node mancala.ts
-[ 0, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2 ]
-result = [ 1, 5, [length]: 2 ], i = 1
-result = [ 0, 5, [length]: 2 ], i = 2
-result = [ 3, 5, [length]: 2 ], i = 3
-result = [ 4, 5, [length]: 2 ], i = 4
-result = [ 5, 5, [length]: 2 ], i = 5
-result = [ 4, 5, [length]: 2 ], i = 6
-result = [ 5, 5, [length]: 2 ], i = 7
-result = [ 4, 5, [length]: 2 ], i = 8
-result = [ 4, 5, [length]: 2 ], i = 9
-result = [ 4, 5, [length]: 2 ], i = 10
-result = [ 3, 5, [length]: 2 ], i = 11
-result = [ 5, 5, [length]: 2 ], i = 12
-result = [ 4, 5, [length]: 2 ], i = 13
-result = [ 5, 5, [length]: 2 ], i = 14
-result = [ 6, 5, [length]: 2 ], i = 15
-result = [ 2, 6, [length]: 2 ], i = 16
-result = [ 3, 6, [length]: 2 ], i = 17
-result = [ 999, 5, [length]: 2 ], i = 18
-ms = 2862324
-[ 999, 5 ]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　同じ結果を得るまでに2862秒（１時間弱）で、やはりDartよりJSの方が速いようです。将棋の場合これ以上に明確な差がありました。&lt;/p&gt;
-
-&lt;h3 id=&quot;cはやはり最強&quot;&gt;C++はやはり最強&lt;/h3&gt;
-&lt;p&gt;　苦労してC++で将棋関連アプリを書き直しても、そのままではスマホアプリに出来ないので今までは避けていました。でもFlutterでGUI部分を作って思考部分だけC++で作ればいいんじゃないかなんて考えて試してみました&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
-　C言語を使うのが久しぶりでよく調べずに一度間違った記事をアップしてしまったのですが、以下がC++の結果です&lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ g++ mancala.cpp -O2 -o mancala.out
-$ ./mancala.out
-0,2,2,2,2,2,2,0,2,2,2,2,2,2,
-=== result = 1, 5, i = 1
-=== result = 0, 5, i = 2
-=== result = 3, 5, i = 3
-=== result = 4, 5, i = 4
-=== result = 5, 5, i = 5
-=== result = 4, 5, i = 6
-=== result = 5, 5, i = 7
-=== result = 4, 5, i = 8
-=== result = 4, 5, i = 9
-=== result = 4, 5, i = 10
-=== result = 3, 5, i = 11
-=== result = 5, 5, i = 12
-=== result = 4, 5, i = 13
-=== result = 5, 5, i = 14
-=== result = 6, 5, i = 15
-=== result = 2, 6, i = 16
-=== result = 3, 6, i = 17
-=== result = 999, 5, i = 18
-700673.273000[ms]
-999, 5
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　結果は、700秒（約１１分）!!やはり最強でした。&lt;/p&gt;
-
-&lt;p&gt;　プログラムを他の言語に移植すると言っても同じオブジェクト指向言語であればほとんどコードは一対一に書き換え可能で、写経に近いものがあります&lt;sup id=&quot;fnref:4&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;。元々のDartのプログラムにはまだまだ改良の余地があると思いますが、拙いコードであってもバグがあったとしても、今回比較した３つのプログラムは行数も少なく同じ処理をしていますので、拙いコードもバグも同じまま、実行時間だけを比較していると言えると思います&lt;sup id=&quot;fnref:5&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;。実行結果も同じです。&lt;/p&gt;
-
-&lt;h3 id=&quot;マンカラの必勝法は&quot;&gt;マンカラの必勝法は？&lt;/h3&gt;
-&lt;p&gt;　今回、マンカラの先読みプログラムをC++に移植したのは、以前の&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;マンカラの記事&lt;/a&gt;、&lt;a href=&quot;/software/2020-08-09/mancala_easy&quot;&gt;続編&lt;/a&gt;の課題である、マンカラカラハ（６×２列で種子４つ）の必勝法を見つける目論見も兼ねていたのですが、C++版で実行時間が短縮されたと言っても、この程度では必勝法を見つけることが出来るかどうかは分かりません。１時間掛かった作業が１０分で可能になったと言っても、もし読み切るのに１年以上掛かる作業だとしたら、やはり数ヶ月以上掛かることには変わりませんから。&lt;/p&gt;
-
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;アニメーションなんてほとんど経験ないのにネットでググりながら進めたら簡単に作れました。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;昔、GUIはVisualBasicで作って内部処理はVisualC++で作る（DLL）なんて仕事をよくしていました。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:3&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;コンパイルオプション(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-O&lt;/code&gt;、または&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-O2&lt;/code&gt;)を付加することで末尾最適化してくれるそうです。そう言えば昔はスタックサイズやらいろいろコンパイルオプションを付けなければ上手くいかなかった記憶があります。自分がC言語から遠ざかっている間にコンパイラも進化しているようです。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:4&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;プログラムの行数もほぼ同じ、コードもほぼ一対一で書式だけが違う感じで、C++だけクラス変数の初期化部分が少し違う程度です。 &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:5&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;実際に微妙なバグがあったので出力内容は現在では違う内容になってます。&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;の方は修正済みです。 &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Sat, 19 Sep 2020 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/software/2020-09-19/js_dart_cpp</link>
-        <guid isPermaLink="true">https://happyclam.github.io/software/2020-09-19/js_dart_cpp</guid>
-        
-        <category>dart</category>
-        
-        <category>android</category>
-        
-        <category>flutter</category>
-        
-        <category>typescript</category>
-        
-        <category>c++</category>
         
         
         <category>software</category>
