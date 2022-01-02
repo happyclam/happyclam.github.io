@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 02 Jan 2022 10:35:04 +0900</pubDate>
-    <lastBuildDate>Sun, 02 Jan 2022 10:35:04 +0900</lastBuildDate>
+    <pubDate>Sun, 02 Jan 2022 12:31:55 +0900</pubDate>
+    <lastBuildDate>Sun, 02 Jan 2022 12:31:55 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -422,7 +422,7 @@ P5+OU+KI+GI+KA+HI
     &lt;label for=&quot;kifu08&quot;&gt;08. 先手:アプリ　後手:lishogi　７３手まで先手勝ち&lt;/label&gt;
     &lt;div class=&quot;cp_actab-content&quot;&gt;
     &lt;p&gt;
-        &lt;pre&gt;&lt;code&gt;&apos; #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam 
+        &lt;pre style=&quot;font-size: 80%;&quot;&gt;&lt;code&gt;&apos; #５五将棋 https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam 
 &apos;No. 0
 &apos;
 V2.2
