@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "shogi55.io.github.happyclam",
+    "sha256_cert_fingerprints":
+    ["9C:59:6F:11:72:6D:42:17:A5:58:07:2D:07:BF:0F:01:FC:43:E7:A6:E9:89:C2:41:ED:E4:93:CB:B1:5C:49:E0"]
+  }
+}]
