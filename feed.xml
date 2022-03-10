@@ -5,9 +5,298 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 27 Jan 2022 18:10:23 +0900</pubDate>
-    <lastBuildDate>Thu, 27 Jan 2022 18:10:23 +0900</lastBuildDate>
+    <pubDate>Thu, 10 Mar 2022 19:27:48 +0900</pubDate>
+    <lastBuildDate>Thu, 10 Mar 2022 19:27:48 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
+    
+      <item>
+        <title>マンカラカラハで後手でも勝てるケース</title>
+        <description>&lt;h3 id=&quot;後手でも勝てるケース&quot;&gt;後手でも勝てるケース&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/software/2021-01-22/mancala_evaluate02&quot;&gt;去年の記事&lt;/a&gt;の最後に追記しましたが、&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;の設定を「やばい」（＝最強）にしていても後手で人間が勝てるケース（豆４つ）を見つけてしまいました。適当に遊んでいて見つけたぐらいですから、&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;のユーザーの中にも後手で勝てた人はいると思います。でも&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;のAIは完全に読み切っている訳では無いのでこういうことがあっても不思議はないと思っていて、豆４つのケースでは先手必勝の結論に変わりはないと思っています。１１手読みでは必勝手順を間違えてしまうことがあるということだと思います。&lt;br /&gt;
+　単純な評価関数（勝ちか負けかだけを判断）でも十分強いだろうと思っていましたが、評価関数を工夫した方がいいのかもしれません。&lt;/p&gt;
+
+&lt;h3 id=&quot;途中の局面からなら読み切れる&quot;&gt;途中の局面からなら読み切れる&lt;/h3&gt;
+&lt;p&gt;　たまたま後手で勝つことが出来た時その手順を再現出来なくて困っていたのですが、記憶を頼りに途中まで局面を進めていって、その途中の局面からプログラムで先読みさせれば勝ち（将棋で言う「詰み」）を読み切れる場合があります。そういうやり方で後手での勝ち手順を確認したので、一例として紹介したいと思います。&lt;br /&gt;
+　マンカラの棋譜をどのように表現するか、標準的なものは無いと思うので、ここでは以下の表の番号に従って、指し手を表現します。&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;の画面と対比し易いように上側（Upper）を先手、下側（Lower）を後手にして、それぞれ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;U&lt;/code&gt;と&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;L&lt;/code&gt;の次に場所を表す数字を付加して棋譜を表現しました。&lt;/p&gt;
+
+&lt;div style=&quot;float:left; margin: 0px 0px 0px&quot;&gt;
+    &lt;table&gt;
+    &lt;tr&gt;
+    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;&lt;br /&gt;上側のストア&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;U6&lt;/td&gt;    
+    &lt;td align=&quot;center&quot;&gt;U5&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;U4&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;U3&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;U2&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;U1&lt;/td&gt;    
+    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;&lt;br /&gt;下側のストア&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td align=&quot;center&quot;&gt;L1&lt;/td&gt;    
+    &lt;td align=&quot;center&quot;&gt;L2&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;L3&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;L4&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;L5&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;L6&lt;/td&gt;        
+    &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br clear=&quot;all&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;後手勝ちの棋譜の一例５１手でゲーム終了後手の勝ち&quot;&gt;後手勝ちの棋譜の一例（５１手でゲーム終了、後手の勝ち）&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;手数&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;01&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;02&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;03&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;04&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;05&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;06&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;07&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;08&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;09&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;10&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;11&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;12&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;13&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;14&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;15&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;16&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;17&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;18&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;19&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;20&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;指し手&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U3*&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L2*&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U6*&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U2*&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U6*&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U6*&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U1*&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U6*&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U4*&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U5*&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L4&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;手数&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;21&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;22&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;23&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;24&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;25&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;26&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;27&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;28&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;29&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;30&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;31&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;32&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;33&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;34&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;35&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;36&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;37&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;38&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;39&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;40&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;指し手&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L6!&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L2*&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L6*&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U4*&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L5*&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L6*&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L6*&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U6!&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L1*&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L6*&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;手数&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;41&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;42&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;43&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;44&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;45&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;46&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;47&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;48&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;49&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;50&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;51&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;指し手&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L5*&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L6*&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L4*&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L6*&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;L1!&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;※指し手の最後にピッタリなら&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*&lt;/code&gt;、横取りなら&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;!&lt;/code&gt;を付加しています。
+※アプリのバージョン 1.2.4&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/yabai01.png&quot;&gt;&lt;img src=&quot;/images/yabai01.png&quot; alt=&quot;AI先手&quot; width=&quot;480&quot; height=&quot;206&quot; title=&quot;AI先手&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;※画像はゲーム開始から、U3*（ピッタリ）,U6と２手進んだ局面です。&lt;/p&gt;
+
+&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;は評価値が同じ場合、乱数選択させているので上記の手順通りにならないケースもありますが、２１手目ぐらいまでは毎回同じようです。そして、そこまでいけば形勢はかなり後手有利なので、序盤を上の手順通りなぞれば後手でAIに勝つことが出来ます。&lt;/p&gt;
+
+&lt;h3 id=&quot;負ける原因は評価関数読みの深さ&quot;&gt;負ける原因は評価関数？読みの深さ？&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;が先手で負ける原因は、序盤の局面評価が単純過ぎる所為と言えますが、勝ち、負けの判定をするには今の評価関数で間違い無いので、読みが浅いのが原因とも言えます。&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;の評価関数はアプリの紹介ページにも書いていますが、&lt;br /&gt;
+　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;（先手の貯蔵所に溜まった豆の数 - 後手の貯蔵所に溜まった豆の数）&lt;/code&gt;&lt;br /&gt;
+となっていて、単にその局面でどちらの豆が多いかしか評価していません。１１手先を読んでその時点でどちらの豆が多いかを評価値としています。これは先読みの手数以内にゲームが終了すれば正確なものになりますが、ゲーム途中の局面の形勢判断には向いていません。マンカラカラハのルールではゲーム終了時に自陣に残った豆を全て自分の貯蔵所に入れて数えますが、ゲームが終わっていないのに貯蔵所の豆の数で優劣を判定するのはあまり良くありません。ただ１１手も先を読んでいるので、終盤は十分強いので、そういう仕様にしていました。&lt;br /&gt;
+　将棋で言えば詰み判定の時に使用する評価関数のようなものなので、序盤の形勢判断に使用すると悪手を選ぶケースがあります。&lt;/p&gt;
+
+&lt;h3 id=&quot;悪手を特定する&quot;&gt;悪手を特定する&lt;/h3&gt;
+&lt;p&gt;　初手からの必勝手順を読み切るのは今までの記事で書いてきたように時間がかかりますが、上で説明したようにある程度指し手を進めた局面から先読み、ダメなら元に戻して他の手を試すっていう方法を繰り返して徐々に序盤に遡れば、どの手が悪手だったかある程度特定出来ます。将棋と違って一局面で選べる手は最大６手しか無いのでそういうやり方が可能です。&lt;br /&gt;
+　自分なりに調べたところ以下の局面でAIが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;U4&lt;/code&gt;（上記の棋譜の10手目、豆が７個あるところ）と指す手が悪手のようです。&lt;/p&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/akusyu01.png&quot;&gt;&lt;img src=&quot;/images/akusyu01.png&quot; alt=&quot;AIの悪手&quot; width=&quot;480&quot; height=&quot;206&quot; title=&quot;AIの悪手&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;※上の局面は二人対戦モードにして上記の表の棋譜を再現した途中の画像です。&lt;/p&gt;
+
+&lt;p&gt;　上の局面でAIは11手先を読んで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;U4&lt;/code&gt;（豆が７つあるところ）が好手だと判断するのですが、パッと見だと&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;U5&lt;/code&gt;や&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;U1&lt;/code&gt;を選べば下段の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;L1&lt;/code&gt;の場所にある相手の豆を１個横取り出来るのでその手の方が良さそうに思えます。実際その後の変化を調べてみると、この局面では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;U5&lt;/code&gt;を選んで相手の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;L1&lt;/code&gt;の豆を一個横取りするのが最善手のようです。&lt;br /&gt;
+　今の評価関数のまま何手先まで読めばその最善手が選ばれるか調べてみました。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;% ./mancala.out                                      
+2,5,0,2,7,1,0,6,1,2,8,0,7,7,
+=== result = 6, 1, i = 0
+=== result = 4, 4, i = 1
+=== result = 5, 4, i = 2
+=== result = 6, 4, i = 3
+=== result = 7, 4, i = 4
+=== result = 10, 4, i = 5
+=== result = 9, 4, i = 6
+=== result = 10, 4, i = 7
+=== result = 11, 4, i = 8
+=== result = 10, 4, i = 9
+=== result = 11, 4, i = 10
+=== result = 12, 4, i = 11
+=== result = 10, 4, i = 12
+=== result = 10, 4, i = 13
+=== result = 9, 4, i = 14
+=== result = 8, 5, i = 15
+=== result = 11, 5, i = 16
+=== result = 12, 5, i = 17
+=== result = 14, 5, i = 18
+=== result = 12, 5, i = 19
+=== result = 19, 5, i = 20
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;以前の記事&lt;/a&gt;に書きましたが、AI（先読みメソッド）の戻り値は、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;評価値, 指し手&lt;/code&gt;となっていて&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i&lt;/code&gt;は読みの深さを表すループカウンターです（i=0は一手読み）。&lt;br /&gt;
+　一手読み（i=0）だと当然相手の豆を横取り出来る手（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;U1&lt;/code&gt;）を選びますが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;U1&lt;/code&gt;を選ぶとその直後に相手に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;U2&lt;/code&gt;を指されて豆３個を横取りされます。そのため２手読み以上ではずっと&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;U4&lt;/code&gt;を最善手と判定しますが、１６手読みの時（i=15）に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;U5&lt;/code&gt;が最善手と変わります。１６手読んでようやく最善手に辿り着くようです。でもこの辺りの読みの深さは一手読みを深くする毎に消費時間も指数関数的に増大します。２０手先まで読むのにハイスペックPC（Apple M1 Pro搭載のM1 MacBook Pro 14インチ）でも一晩掛かりますし、１６手読みでも２分ぐらいかかりますので、スマホアプリにそのまま適用するわけにはいきません。やはり今より強くするには読みの深さより、評価関数を修正するべきでしょう。&lt;br /&gt;
+　あるいは時間をかけて全ての手を読んで序盤だけを定石データ化するのがいいと思いますが、今までの記事で書いているように普通のやり方で全ての手を読み切るには何ヶ月あるいは何年も掛かると思います。それか既にどこかにマンカラの定石データがあるのかも知れませんが、どうなんでしょう？&lt;/p&gt;
+
+&lt;h3 id=&quot;他のアプリにも後手で勝てるか&quot;&gt;他のアプリにも後手で勝てるか&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/software/2021-01-22/mancala_evaluate02&quot;&gt;「マンカラは後手でも勝てるか？」の記事&lt;/a&gt;で対戦成績を紹介したように、&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラナッツ&lt;/a&gt;は後手で他のアプリに何度も勝っていますが、先手で他のアプリには負けていませんでした。その時の棋譜を保存しているわけではないのですが、新しいアプリも増えているので改めて確認してみると、&lt;a href=&quot;/software/2021-01-22/mancala_evaluate02&quot;&gt;「マンカラは後手でも勝てるか？」の記事&lt;/a&gt;で対戦させたアプリは最強レベルにすると初手に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;U3&lt;/code&gt;か&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;U6&lt;/code&gt;を選ぶものが多く、&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラナッツ&lt;/a&gt;が後手で勝っていたのは相手のAIが初手に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;U6&lt;/code&gt;を選んだ場合がほとんどで、初手に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;U3&lt;/code&gt;（ピッタリ）を選ばれた場合には、後手を持って勝つ手順を見つけることは出来ませんでした。&lt;/p&gt;
+
+&lt;h3 id=&quot;現状は粘りが効かない&quot;&gt;現状は粘りが効かない&lt;/h3&gt;
+&lt;p&gt;　現状の&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラナッツ&lt;/a&gt;はもう一つ問題があって、先読みの過程で最善手を続けても負けることが確定すると１個差での負けでも１０個差の負けでも同じ負けと判断して、時間短縮のために先読みを省略していました。その結果もう少し僅差の負けに持ち込める場合でも大差の負けを喫するケースがあります。これは元々マンカラというゲームが先手必勝なのか後手必勝なのかを確認するために作ったアプリだったのでこういう仕様にしていたのですが、この点も改善する必要があると思っていました。&lt;br /&gt;
+　&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;のユーザーの中には、終盤に&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;が自分の豆を取られる手を選んできて、「このアプリおかしい」、「バグってる」と思った方もいると思いますが、&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;の右上に表示している絵文字による勝ち負けの判定自体は間違っていないはずです。&lt;br /&gt;
+　でもこのままだと誤解され易いので、探索時に勝ちが確定した時に評価値を最大値（先手勝ち）あるいは最小値（後手勝ち）に置き換えていたのを、評価値と勝ち負け判定の数値は別々に返すように局面の先読みメソッドを修正しました（バージョン1.3.0以降）。これでゲーム終了まで最善を尽くす（最大個数差で勝つ、あるいは最小個数差で負ける）ようになったはずです。&lt;/p&gt;
+
+&lt;h3 id=&quot;評価関数は今のまま&quot;&gt;評価関数は今のまま？&lt;/h3&gt;
+&lt;p&gt;　評価関数についてピッタリや横取りが出来る局面をプラス評価（＝相手のピッタリや横取りを防ぐマイナス評価）することなど局面評価の材料をちょっと考えてみましたが、なかなか良い案が思いつきません。「連続して着手出来る手（ピッタリ）がなるべく多い形（自分の貯蔵所から１個、２個、３個…と並ぶ形）を理想として、それとのズレを評価値にしてみてはどうか」なんて考えてみましたが、横取りされることも考慮しなければならないので静的評価のやり方がよく分かりません。こういう時こそ機械学習を使ってみたい気もしますが、将棋ほど複雑じゃないので今の評価関数で十分な気もするので、取り敢えず今の評価関数が&lt;br /&gt;
+　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;（先手の貯蔵所に溜まった豆の数 - 後手の貯蔵所に溜まった豆の数）&lt;/code&gt;  &lt;br /&gt;
+となっているところを、&lt;br /&gt;
+　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;（先手の自陣の全ての豆の数 - 後手の自陣の全ての豆の数）&lt;/code&gt;&lt;br /&gt;
+に変更して試してみました。&lt;br /&gt;
+　既に書きましたが、マンカラカラハのルールではゲーム終了時に自陣に残った豆を全て自分の貯蔵所に入れて数えますので、評価関数内で貯蔵所に溜まった豆の数だけを数えるのではなく、ゲーム終了時と同じように自陣の豆全てを数えてその数が勝っている方を有利と考えてみれば何か変化があるかもと思ってやってみました。&lt;br /&gt;
+　そうすると上で紹介した局面にはなりませんが、すぐに人間が後手で勝てる他の手順を見つけることが出来ました。将棋の駒得だけを考慮する評価関数のように、自陣に豆を溜め込んで中盤で相手に豆を大量に横取りされる感じです。ということでこれはすぐにボツにしましたが、序盤だけこの評価関数を使って終盤は今使用している評価関数を使う方法もアリかもしれません。&lt;/p&gt;
+
+&lt;h3 id=&quot;読みを一手深くしてみる&quot;&gt;読みを一手深くしてみる&lt;/h3&gt;
+&lt;p&gt;　今度は「やばい」モードの時だけ試しに読みを一手深くしてみました（バージョン1.3.0以降）。古いスマホだとちょっと待たされる感じにはなりましたが、上で説明した悪手を指す局面になる前に着手を変えてきました。しばらくこれで様子を見ようと思います。&lt;br /&gt;
+　当面はバージョン1.3.0を&lt;a href=&quot;https://play.google.com/apps/testing/mancala.io.github.happyclam&quot;&gt;ベータ版のまま公開&lt;/a&gt;しておきますので違いを試すことも出来ます。スマホからの場合は&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリのページ&lt;/a&gt;からダウンロード可能です。&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+</description>
+        <pubDate>Thu, 10 Mar 2022 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/software/2022-03-10/mancala_evaluate03</link>
+        <guid isPermaLink="true">https://happyclam.github.io/software/2022-03-10/mancala_evaluate03</guid>
+        
+        <category>dart</category>
+        
+        <category>android</category>
+        
+        <category>flutter</category>
+        
+        <category>c++</category>
+        
+        <category>mancala</category>
+        
+        <category>shogi</category>
+        
+        
+        <category>software</category>
+        
+      </item>
     
       <item>
         <title>lishogi(Minishogi)に挑戦</title>
@@ -887,6 +1176,10 @@ F
         
         <category>cordova</category>
         
+        <category>mancala</category>
+        
+        <category>shogi</category>
+        
         
         <category>hardware</category>
         
@@ -1683,222 +1976,6 @@ Add-on:                postgresql-opaque-46906
         <pubDate>Fri, 22 Jan 2021 00:00:00 +0900</pubDate>
         <link>https://happyclam.github.io/software/2021-01-22/mancala_evaluate02</link>
         <guid isPermaLink="true">https://happyclam.github.io/software/2021-01-22/mancala_evaluate02</guid>
-        
-        <category>dart</category>
-        
-        <category>android</category>
-        
-        <category>flutter</category>
-        
-        <category>c++</category>
-        
-        <category>mancala</category>
-        
-        
-        <category>software</category>
-        
-      </item>
-    
-      <item>
-        <title>詰将棋ならぬ詰マンカラ</title>
-        <description>&lt;h3 id=&quot;マンカラも将棋も二人零和有限確定完全情報ゲーム&quot;&gt;マンカラも将棋も二人零和有限確定完全情報ゲーム&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;「マンカラ ナッツ」&lt;/a&gt;の評価関数は&lt;a href=&quot;/software/2020-08-10/mancalanuts&quot;&gt;アプリの説明ページ&lt;/a&gt;にも書いていますが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;先手の貯蔵所に溜まった豆の数 - 後手の貯蔵所に溜まった豆の数&lt;/code&gt;を返すようになっています。これは局面の形勢判断をするというよりズバリどっちが勝ちかを判断するための単純な評価関数で、将棋で言えば詰将棋専用の評価関数&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;のようなものです。将棋でよく駒得とか駒の働きとかの局面の特徴を捉えて形勢判断をしますが、マンカラの形勢判断をどうすればいいのか、いいアイデアが浮かばなかったので単純な豆の数の差だけを評価する評価関数を使っています。&lt;br /&gt;
-　マンカラは将棋ほど変化が膨大ではなく、ゲーム終了までの手数も短いので、いきなり初手から詰み（勝ち）を読みに行くような評価関数を使ってるわけですが、今のところこれで良いかな？と思ってます&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
-
-&lt;h4 id=&quot;マンカラの棋譜&quot;&gt;マンカラの棋譜？&lt;/h4&gt;
-&lt;p&gt;　マンカラは棋譜の記述方法が決まっていない？と思うので、指し手の位置を示すために以下の表を使います。&lt;/p&gt;
-
-&lt;div style=&quot;float:left; margin: 0px 0px 0px&quot;&gt;
-    &lt;table&gt;
-    &lt;tr&gt;
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;0&lt;br /&gt;後手のストア&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;13&lt;/td&gt;    
-    &lt;td align=&quot;center&quot;&gt;12&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;11&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;10&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&amp;nbsp;9&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&amp;nbsp;8&lt;/td&gt;    
-    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;7&lt;br /&gt;先手のストア&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td align=&quot;center&quot;&gt;&amp;nbsp;1&lt;/td&gt;    
-    &lt;td align=&quot;center&quot;&gt;&amp;nbsp;2&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&amp;nbsp;3&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&amp;nbsp;4&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&amp;nbsp;5&lt;/td&gt;
-    &lt;td align=&quot;center&quot;&gt;&amp;nbsp;6&lt;/td&gt;        
-    &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br clear=&quot;all&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;　０が後手のストア、７が先手のストア、１〜６で先手のポケット、８〜１３で後手のポケットを示します。&lt;/p&gt;
-
-&lt;h3 id=&quot;詰めマンカラ詰めカラハ&quot;&gt;詰めマンカラ（詰めカラハ）&lt;/h3&gt;
-&lt;h4 id=&quot;問題１&quot;&gt;問題１&lt;/h4&gt;
-&lt;p&gt;　まずは簡単な問題から。&lt;br /&gt;
-　下の図で先手（下側）は何番のポケットを選ぶのが最善でしょうか？&lt;/p&gt;
-
-&lt;p&gt;&lt;span&gt;※クリックで拡大&lt;/span&gt;&lt;/p&gt;
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose07.png&quot;&gt;&lt;img src=&quot;/images/ai_lose07.png&quot; alt=&quot;詰み07&quot; width=&quot;480&quot; height=&quot;240&quot; title=&quot;詰み07&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　マンカラに慣れている人だと&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4&lt;/code&gt;と&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;5&lt;/code&gt;の豆は動かさずに済ませられるならと思い、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;か&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;か&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;がいいんじゃないかと見当が付くのではないでしょうか？順に見ていきます。&lt;/p&gt;
-&lt;h5 id=&quot;1を選んでみると&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;を選んでみると&lt;/h5&gt;
-&lt;p&gt;　ＡＩは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;12&lt;/code&gt;と進めて以下の局面になります。&lt;/p&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_001.png&quot;&gt;&lt;img src=&quot;/images/ai_001.png&quot; alt=&quot;詰めマンカラ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　こうなると次に先手（下側）は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;を選んでも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;を選んでも、いずれ豆を溜め込んでいる&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4&lt;/code&gt;や&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;5&lt;/code&gt;のポケットを選ばざるを得なくなり、勝負が紛れます。というより逆転して後手が有利になります。この後、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;を選べばＡＩは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;11&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;を選んでもＡＩは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;11&lt;/code&gt;（横取り２つ）で形勢逆転です。&lt;/p&gt;
-
-&lt;h5 id=&quot;2を選んでみると&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;を選んでみると&lt;/h5&gt;
-&lt;p&gt;　ＡＩは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;12&lt;/code&gt;-&amp;gt;横取り（２つ）となって以下の局面になります。&lt;/p&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_002.png&quot;&gt;&lt;img src=&quot;/images/ai_002.png&quot; alt=&quot;詰めマンカラ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　この場合も次に先手（下側）は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;を選んでも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;6&lt;/code&gt;を選んでも、パスは出来ないので豆を溜め込んでいる&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4&lt;/code&gt;や&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;5&lt;/code&gt;のポケットを選ばざるを得なくなり後手が有利になります。&lt;/p&gt;
-
-&lt;h5 id=&quot;3を選んでみると&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;を選んでみると&lt;/h5&gt;
-&lt;p&gt;　ＡＩは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;12&lt;/code&gt;-&amp;gt;横取り（２つ）となって以下の局面になります。&lt;/p&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_003.png&quot;&gt;&lt;img src=&quot;/images/ai_003.png&quot; alt=&quot;詰めマンカラ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　こうなれば次に先手（下側）が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;を選べば、相手の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;11&lt;/code&gt;のポケットの豆を横取りしてゲーム終了。先手の勝ちになります。&lt;br /&gt;
-　先手が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;を選んだ後、もしＡＩが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;を選ばずに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;12&lt;/code&gt;や&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;11&lt;/code&gt;を選んだとしても、先手は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4&lt;/code&gt;や&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;5&lt;/code&gt;のポケットを選ばずに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;〜&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;のポケットを選ぶだけで後手は自陣の豆が無くなっていきゲーム終了、先手の勝ちになります。&lt;br /&gt;
-　念のため確認すると&lt;br /&gt;
-　ＡＩが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;でなく&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;11&lt;/code&gt;を選んだ場合&lt;/p&gt;
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_004.png&quot;&gt;&lt;img src=&quot;/images/ai_004.png&quot; alt=&quot;詰めマンカラ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;　先手は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;を選んでも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;を選んでも後手はピッタリ（連続して着手出来る）が仇となり、自陣の豆が無くなります。&lt;br /&gt;
-　ＡＩが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;でなく&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;12&lt;/code&gt;を選んだ場合&lt;/p&gt;
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_005.png&quot;&gt;&lt;img src=&quot;/images/ai_005.png&quot; alt=&quot;詰めマンカラ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;詰めマンカラ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;　先手が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;を選べば&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;11&lt;/code&gt;の豆を横取りして、次にＡＩは自陣の豆が無くなります。&lt;br /&gt;
-　ということで&lt;strong&gt;問題１の正解は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;です&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;h3 id=&quot;長手数問題&quot;&gt;長手数問題&lt;/h3&gt;
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose01.png&quot;&gt;&lt;img src=&quot;/images/ai_lose01.png&quot; alt=&quot;詰めマンカラ01&quot; width=&quot;480&quot; height=&quot;240&quot; title=&quot;詰めマンカラ01&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　上の画面から先手が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;6&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;と進むと以下の局面になります。&lt;/p&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose02.png&quot;&gt;&lt;img src=&quot;/images/ai_lose02.png&quot; alt=&quot;詰めマンカラ02&quot; width=&quot;480&quot; height=&quot;240&quot; title=&quot;詰めマンカラ02&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　この段階でＡＩの形勢Emojiが:tired_face:になりました。ＡＩは負けを覚悟したようです。負けを覚悟しながらもＡＩは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;を選びました。&lt;br /&gt;
-　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;12&lt;/code&gt;と進んだ局面が以下です。&lt;/p&gt;
-
-&lt;h4 id=&quot;問題２&quot;&gt;問題２&lt;/h4&gt;
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose03.png&quot;&gt;&lt;img src=&quot;/images/ai_lose03.png&quot; alt=&quot;詰めマンカラ03&quot; width=&quot;480&quot; height=&quot;240&quot; title=&quot;詰めマンカラ03&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　この局面で何番のポケットが先手の最善手でしょう？&lt;/p&gt;
-
-&lt;h5 id=&quot;1を選んでみると-1&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;を選んでみると&lt;/h5&gt;
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_win01.png&quot;&gt;&lt;img src=&quot;/images/ai_win01.png&quot; alt=&quot;ＡＩ勝ち01&quot; width=&quot;480&quot; height=&quot;240&quot; title=&quot;ＡＩ勝ち01&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　上図のようになりＡＩの形勢Emojiが:frowning:に変わりました。これは詰みを逃したことを意味します。&lt;br /&gt;
-　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;のポケットが５個になり、次にピッタリを狙って一見得しそうですが、ＡＩが次に
-　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;10&lt;/code&gt;と進めて以下の局面になって、ピッタリが防がれてしまいます。&lt;/p&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_win02.png&quot;&gt;&lt;img src=&quot;/images/ai_win02.png&quot; alt=&quot;ＡＩ勝ち02&quot; width=&quot;480&quot; height=&quot;240&quot; title=&quot;ＡＩ勝ち02&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　この後はどう変化しても&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4&lt;/code&gt;と&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;5&lt;/code&gt;のポケットに溜め込んでいる豆を吐き出すことになり、逆転してＡＩが有利になります。&lt;/p&gt;
-
-&lt;h5 id=&quot;2を選んでみると-1&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;を選んでみると&lt;/h5&gt;
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose04.png&quot;&gt;&lt;img src=&quot;/images/ai_lose04.png&quot; alt=&quot;詰み04&quot; width=&quot;480&quot; height=&quot;240&quot; title=&quot;詰み04&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　上図のようになりＡＩの形勢Emojiも:tired_face:のままです。ＡＩが次に
-　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;10&lt;/code&gt;と進めて以下の局面になりますが、&lt;/p&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose07.png&quot;&gt;&lt;img src=&quot;/images/ai_lose07.png&quot; alt=&quot;詰み07&quot; width=&quot;480&quot; height=&quot;240&quot; title=&quot;詰み07&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　この後は先手（下側）が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;のポケットを選べば、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;の豆は取られてしまいますが、先手が勝ちます。&lt;br /&gt;
-　気付いた人がいるかも知れませんが、この局面は&lt;strong&gt;問題１&lt;/strong&gt;の局面と同じです。&lt;/p&gt;
-
-&lt;h5 id=&quot;3を選んでみると-1&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;を選んでみると&lt;/h5&gt;
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose05.png&quot;&gt;&lt;img src=&quot;/images/ai_lose05.png&quot; alt=&quot;詰み05&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;詰み05&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　上図のようになりＡＩの形勢Emojiも:tired_face:のままです。ＡＩが次に
-　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;10&lt;/code&gt;と進めて以下の局面になりますが、&lt;/p&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose06.png&quot;&gt;&lt;img src=&quot;/images/ai_lose06.png&quot; alt=&quot;詰み06&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;詰み06&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　先手（下側）は今度は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;のポケットを選んで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;11&lt;/code&gt;の豆を横取り、&lt;br /&gt;
-　後手が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;-&amp;gt;ピッタリ-&amp;gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;12&lt;/code&gt;で以下の画面。&lt;/p&gt;
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose08.png&quot;&gt;&lt;img src=&quot;/images/ai_lose08.png&quot; alt=&quot;詰み08&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;詰み08&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　この局面を新たな３手詰問題としてもいいかも知れません。相手陣に豆は一つしか残っていないのですが、間違えると勝負が紛れます。先手はどこを選んでも相手陣に豆が渡ってしまう状態になっています。こういう時、自分に勝ちがあることに気づかず着手する人が結構多いのでは無いでしょうか？また、少し慣れた人だと、「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4&lt;/code&gt;を選べば相手の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;の豆を横取り出来るぞ」なんて読んでしまう人がいるかも知れません。&lt;br /&gt;
-　でも正解は相手陣に無駄に豆を供給しない手、一番豆の少ない&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;が好手です。&lt;/p&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/ai_lose09.png&quot;&gt;&lt;img src=&quot;/images/ai_lose09.png&quot; alt=&quot;詰み09&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;詰み09&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　こうなると先手の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;5&lt;/code&gt;の９個の豆は横取りされてしまうのですが、先手には&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;に一個残っている（一手パスするような手が残っている）のでＡＩが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;8&lt;/code&gt;を選んでも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;を選んでも自陣に豆が無くなり先手の勝ちになります。&lt;br /&gt;
-　ということで&lt;strong&gt;問題２の正解は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;か&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;です&lt;/strong&gt;。&lt;br /&gt;
-　正解が二つあるということで詰将棋で言えば余詰めがあるようなものなので、詰マンカラの例としては良くないのかも知れません。&lt;/p&gt;
-
-&lt;p&gt;　ＡＩは&lt;strong&gt;問題２&lt;/strong&gt;の局面の前から既に&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;の形勢Emojiが:tired_face:に変わっていて、詰みを読み切っていたわけです。人間が読み切るのは大変かもしれませんが、形勢Emojiが:tired_face:に変わったら詰み（勝ち）があるということなので、マンカラを詰将棋を解く気持ちで楽しんでみるのも面白いと思います。&lt;/p&gt;
-
-&lt;h3 id=&quot;ボードゲームは必勝法追求より楽しんだ者勝ち&quot;&gt;ボードゲームは必勝法追求より楽しんだ者勝ち&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;をリリースしてからは、テストも兼ねてgoogle play内のマンカラアプリをいろいろダウンロードして試しに遊んでみました。必ずしもダウンロード数が多いアプリが強いわけではなく、強さとユーザーの評価とはあまり関係ないようです。宣伝にどれだけ金かけているかの違いだと思いますが、強いソフトが商売として成功するとは限らない点は将棋アプリについても言えることでしょう。&lt;br /&gt;
-　ただ、強いアプリはどれもだいたい似たような指し手になるようで、何度も対戦していると勝ちパターンも分かってきて楽しめなくなります。将棋ほど変化が多くないので仕方がないのかも知れません。そこで&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;「マンカラ ナッツ」&lt;/a&gt;では、最強の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やばい&lt;/code&gt;モード以外の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;強い&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;弱い&lt;/code&gt;モードでは初手を評価値とは関係なく乱数で選ぶようにしています&lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;。初手を乱数に変えるだけで全てのパターンに対応するのは難しく、勝ったり負けたりゲームを楽しめると思います。自分は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やばい&lt;/code&gt;モードでは先手の時の勝ちパターンが分かってきたのですが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;強い&lt;/code&gt;モードでは先手でも勝てない時が多いのでいつも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;強い&lt;/code&gt;モードで遊んでます。&lt;/p&gt;
-
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;詰将棋専用の評価関数と書きましたが、実際にそういう専用の評価関数が使われているソフトが存在するかは知りません。ただ全局面を完全に読み切れるのであれば本将棋でもこういう単純な評価関数で十分なわけです。将棋の場合完全には読み切れないので、形勢判断のためにいろいろな特徴量（駒得、玉の固さ等を数値化）を使って評価する必要が出てくるのですが、その形勢判断の精度が高い評価関数であれば、詰将棋用とか形勢判断用とか分けなくて済みます。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;マンカラで形勢判断するとしたら、自陣にある種子（豆）の数とか、横取りされ易さ（対称の位置にある相手のポケットが空かどうか）とかを数値化するのでしょうか？よく分かりません。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:3&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;全てのモードで評価値が同じ場合は乱数で着手を選ぶようになっていますが、初手に関しては評価値が低い手を敢えて選ばせているという意味です。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Sat, 21 Nov 2020 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/software/2020-11-21/mancala_evaluate01</link>
-        <guid isPermaLink="true">https://happyclam.github.io/software/2020-11-21/mancala_evaluate01</guid>
         
         <category>dart</category>
         

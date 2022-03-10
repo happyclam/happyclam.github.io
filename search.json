@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "マンカラカラハで後手でも勝てるケース",
+      "category" : "software",
+      "tags"     : "dart, android, flutter, c++, mancala, shogi",
+      "url"      : "/software/2022-03-10/mancala_evaluate03",
+      "date"     : "2022-03-10 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "lishogi(Minishogi)に挑戦",
       "category" : "project",
       "tags"     : "coffeescript, cordova, android, javascript, shogi",
@@ -19,7 +27,7 @@
     {
       "title"    : "M1 Macbook ProのCPU性能",
       "category" : "hardware",
-      "tags"     : "macbook, cordova",
+      "tags"     : "macbook, cordova, mancala, shogi",
       "url"      : "/hardware/2021-11-23/macbookpro",
       "date"     : "2021-11-23 00:00:00 +0900"
     } ,
@@ -91,7 +99,7 @@
     {
       "title"    : "Dartは遅いけど、FlutterでGUIは有り",
       "category" : "software",
-      "tags"     : "dart, android, flutter, typescript, c++",
+      "tags"     : "dart, android, flutter, typescript, c++, mancala",
       "url"      : "/software/2020-09-19/js_dart_cpp",
       "date"     : "2020-09-19 00:00:00 +0900"
     } ,
@@ -115,7 +123,7 @@
     {
       "title"    : "マンカラは先手必勝？後手必勝？",
       "category" : "software",
-      "tags"     : "dart, android, flutter",
+      "tags"     : "dart, android, flutter, mancala",
       "url"      : "/software/2020-06-07/mancala",
       "date"     : "2020-06-07 00:00:00 +0900"
     } ,
