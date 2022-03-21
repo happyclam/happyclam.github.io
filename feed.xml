@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 10 Mar 2022 19:27:48 +0900</pubDate>
-    <lastBuildDate>Thu, 10 Mar 2022 19:27:48 +0900</lastBuildDate>
+    <pubDate>Mon, 21 Mar 2022 22:01:29 +0900</pubDate>
+    <lastBuildDate>Mon, 21 Mar 2022 22:01:29 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -1949,7 +1949,7 @@ Add-on:                postgresql-opaque-46906
 ところがどうしても手順を思い出せなくて、再現しようとしても出来なくて困っています。&lt;br /&gt;
 それにしても、人間がやるよりアプリの方が強いだろうと思って、他のアプリを使って何十局も手動で一生懸命対戦させたのに、ダメじゃん。&lt;br /&gt;
 　おそらく他のアプリも&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラナッツ&lt;/a&gt;と同様に単純な評価関数（勝ちか負けかだけを判断）とMIN-MAX法を使った先読みで指し手を決めていると思うので、アプリ間の強さの違いはあまり無いのだと思います。違いは読みの深さだけになりますが、それも限界があるので自ずと似たような指し手しか選択しないようになると思われます。&lt;br /&gt;
-　近いうちに別の記事にまとめようと思います。&lt;/p&gt;
+　豆４つの場合先手必勝だとは思いますが、アプリが先手で負ける原因については&lt;a href=&quot;/software/2022-03-10/mancala_evaluate03&quot;&gt;別の記事&lt;/a&gt;にまとめました。&lt;/p&gt;
 
 &lt;div&gt;
     &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
