@@ -243,16 +243,18 @@ karahThinkLib
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#mancala/lib/main.dart
   List _cppThink(List board, int turn, int depth){
-    final pBoard32 = allocate&lt;Int32&gt;(count: board.length);
-    Pointer&lt;Int32&gt; pResult32 = allocate&lt;Int32&gt;(count: 2);
+    final pBoard32 = calloc&lt;Int32&gt;(board.length);
+    Pointer&lt;Int32&gt; pResult32 = calloc&lt;Int32&gt;(3);
+    pResult32[0] = 0; pResult32[1] = 0; pResult32[2] = 0;
     for (var i = 0; i &lt; board.length; i++){
       pBoard32[i] = board[i];
     }
     int ret = karahThink(pResult32, pBoard32, turn, depth);
-    Int32List list = pResult32.asTypedList(2);
+    Int32List list = pResult32.asTypedList(3);
     List result = List.from(list);
-    free(pBoard32);
-    free(pResult32);
+    // print("=== result = ${result}");
+    calloc.free(pBoard32);
+    calloc.free(pResult32);
     return result;
   }
 </code></pre></div></div>
@@ -297,6 +299,10 @@ int32_t karah_think(int32_t* pResult, int32_t* pBoard, int32_t turn, int32_t dep
 <p>　今まではマンカラアプリのAIのレベルを「やばい」にすると一手毎に待たされていたのですが、C++製ライブラリを使ったものは他のAIレベルと同じぐらいのレスポンスになりました。<br />
 　Windows用のライブラリと違って、様々なCPUに合わせたAndroid端末毎のDLLが簡単なGUI操作（中で活躍してるのはgradleですが）でビルド出来るのはすごいです。<br />
 　将棋関連アプリも早くこの形でリリースしたいところですが、マンカラのように一つの固定長配列を渡すだけでは済まないので、いろいろ試してみないと分からないことが多く道のりは遠いです。</p>
+
+<h3 id="追記2023-09-20">追記（2023-09-20）</h3>
+<p>　上で紹介している<a href="https://flutter.dev/docs/development/platform-integration/c-interop">公式サイトのURL</a>が変わった？ｰ&gt;現在は<a href="https://flutter-ko.dev/development/platform-integration/android/c-interop">ここ</a>です<br />
+　あと、ffiパッケージの記述も古かったので現在アプリで使っているバージョン（ffi: ^2.1.0）のコードに修正しました。</p>
 
 <div>
     <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
