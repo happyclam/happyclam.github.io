@@ -1,14 +1,6 @@
 [
   
     {
-      "title"    : "マンカラカラハで後手でも勝てるケース",
-      "category" : "software",
-      "tags"     : "dart, android, flutter, c++, mancala, shogi",
-      "url"      : "/software/2022-03-10/mancala_evaluate03",
-      "date"     : "2022-03-10 00:00:00 +0900"
-    } ,
-  
-    {
       "title"    : "lishogi(Minishogi)に挑戦",
       "category" : "project",
       "tags"     : "coffeescript, cordova, android, javascript, shogi",
