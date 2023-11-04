@@ -291,3 +291,7 @@ th { border: solid 2px #003333; }
 .cp_actab input[type=radio]:checked + label::after {
 	transform: rotateX(180deg);
 }
+
+blockquote {
+  font-size: 1.0em;
+}

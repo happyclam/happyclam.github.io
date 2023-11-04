@@ -3,10 +3,10 @@
   <channel>
     <title>自己満足プログラミング</title>
     <description>Reinventing the wheel.</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 13 Oct 2023 20:00:44 +0900</pubDate>
-    <lastBuildDate>Fri, 13 Oct 2023 20:00:44 +0900</lastBuildDate>
+    <link>https://happyclam.github.io/</link>
+    <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sat, 04 Nov 2023 13:31:13 +0900</pubDate>
+    <lastBuildDate>Sat, 04 Nov 2023 13:31:13 +0900</lastBuildDate>
     <generator>Jekyll v3.9.2</generator>
     
       <item>
@@ -538,8 +538,8 @@ P5+OU+KI+GI+KA+HI
 
 </description>
         <pubDate>Sun, 02 Jan 2022 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/project/2022-01-02/lishogi</link>
-        <guid isPermaLink="true">http://localhost:4000/project/2022-01-02/lishogi</guid>
+        <link>https://happyclam.github.io/project/2022-01-02/lishogi</link>
+        <guid isPermaLink="true">https://happyclam.github.io/project/2022-01-02/lishogi</guid>
         
         <category>coffeescript</category>
         
@@ -660,8 +660,8 @@ P5+OU+KI+GI+KA+HI
 
 </description>
         <pubDate>Sun, 05 Dec 2021 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/miscellaneous/2021-12-05/minivelo</link>
-        <guid isPermaLink="true">http://localhost:4000/miscellaneous/2021-12-05/minivelo</guid>
+        <link>https://happyclam.github.io/miscellaneous/2021-12-05/minivelo</link>
+        <guid isPermaLink="true">https://happyclam.github.io/miscellaneous/2021-12-05/minivelo</guid>
         
         <category>bicycle</category>
         
@@ -880,8 +880,8 @@ F
 &lt;/div&gt;
 </description>
         <pubDate>Tue, 23 Nov 2021 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/hardware/2021-11-23/macbookpro</link>
-        <guid isPermaLink="true">http://localhost:4000/hardware/2021-11-23/macbookpro</guid>
+        <link>https://happyclam.github.io/hardware/2021-11-23/macbookpro</link>
+        <guid isPermaLink="true">https://happyclam.github.io/hardware/2021-11-23/macbookpro</guid>
         
         <category>macbook</category>
         
@@ -960,8 +960,8 @@ F
 
 </description>
         <pubDate>Wed, 10 Nov 2021 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/hardware/2021-11-10/logicool</link>
-        <guid isPermaLink="true">http://localhost:4000/hardware/2021-11-10/logicool</guid>
+        <link>https://happyclam.github.io/hardware/2021-11-10/logicool</link>
+        <guid isPermaLink="true">https://happyclam.github.io/hardware/2021-11-10/logicool</guid>
         
         <category>ubuntu</category>
         
@@ -1074,8 +1074,8 @@ F
 
 </description>
         <pubDate>Sat, 21 Aug 2021 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/programming/2021-08-21/nodejs</link>
-        <guid isPermaLink="true">http://localhost:4000/programming/2021-08-21/nodejs</guid>
+        <link>https://happyclam.github.io/programming/2021-08-21/nodejs</link>
+        <guid isPermaLink="true">https://happyclam.github.io/programming/2021-08-21/nodejs</guid>
         
         <category>javascript</category>
         
@@ -1207,8 +1207,8 @@ Running Gradle task &apos;assembleRelease&apos;... Done                     121.
 
 </description>
         <pubDate>Sat, 10 Jul 2021 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/software/2021-07-10/null_safety</link>
-        <guid isPermaLink="true">http://localhost:4000/software/2021-07-10/null_safety</guid>
+        <link>https://happyclam.github.io/software/2021-07-10/null_safety</link>
+        <guid isPermaLink="true">https://happyclam.github.io/software/2021-07-10/null_safety</guid>
         
         <category>mancala</category>
         
@@ -1398,8 +1398,8 @@ Add-on:                postgresql-opaque-46906
 
 </description>
         <pubDate>Wed, 30 Jun 2021 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/programming/2021-06-30/heroku_delete</link>
-        <guid isPermaLink="true">http://localhost:4000/programming/2021-06-30/heroku_delete</guid>
+        <link>https://happyclam.github.io/programming/2021-06-30/heroku_delete</link>
+        <guid isPermaLink="true">https://happyclam.github.io/programming/2021-06-30/heroku_delete</guid>
         
         <category>rails</category>
         
@@ -1559,8 +1559,8 @@ Add-on:                postgresql-opaque-46906
 &lt;/div&gt;
 </description>
         <pubDate>Thu, 03 Jun 2021 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/miscellaneous/2021-06-03/pagespeed</link>
-        <guid isPermaLink="true">http://localhost:4000/miscellaneous/2021-06-03/pagespeed</guid>
+        <link>https://happyclam.github.io/miscellaneous/2021-06-03/pagespeed</link>
+        <guid isPermaLink="true">https://happyclam.github.io/miscellaneous/2021-06-03/pagespeed</guid>
         
         <category>jekyll</category>
         
@@ -1674,8 +1674,8 @@ Add-on:                postgresql-opaque-46906
 &lt;/div&gt;
 </description>
         <pubDate>Fri, 22 Jan 2021 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/software/2021-01-22/mancala_evaluate02</link>
-        <guid isPermaLink="true">http://localhost:4000/software/2021-01-22/mancala_evaluate02</guid>
+        <link>https://happyclam.github.io/software/2021-01-22/mancala_evaluate02</link>
+        <guid isPermaLink="true">https://happyclam.github.io/software/2021-01-22/mancala_evaluate02</guid>
         
         <category>dart</category>
         
@@ -1890,8 +1890,8 @@ Add-on:                postgresql-opaque-46906
 &lt;/div&gt;
 </description>
         <pubDate>Sat, 21 Nov 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/software/2020-11-21/mancala_evaluate01</link>
-        <guid isPermaLink="true">http://localhost:4000/software/2020-11-21/mancala_evaluate01</guid>
+        <link>https://happyclam.github.io/software/2020-11-21/mancala_evaluate01</link>
+        <guid isPermaLink="true">https://happyclam.github.io/software/2020-11-21/mancala_evaluate01</guid>
         
         <category>dart</category>
         
