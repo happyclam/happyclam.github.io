@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 08 Nov 2023 12:32:27 +0900</pubDate>
-    <lastBuildDate>Wed, 08 Nov 2023 12:32:27 +0900</lastBuildDate>
+    <pubDate>Wed, 08 Nov 2023 12:54:25 +0900</pubDate>
+    <lastBuildDate>Wed, 08 Nov 2023 12:54:25 +0900</lastBuildDate>
     <generator>Jekyll v3.9.2</generator>
     
       <item>
@@ -22,13 +22,13 @@
 　おかしいなと思い&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;psensor&lt;/code&gt;でメモリー使用状況を確認したのが以下の画像です。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/dart_memory.png&quot;&gt;&lt;img src=&quot;/images/dart_memory.png&quot; alt=&quot;Dartメモリ使用状況&quot; width=&quot;480&quot; height=&quot;289&quot; title=&quot;Dartメモリ使用状況&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/dart_memory.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/dart_memory.png&quot; alt=&quot;Dartメモリ使用状況&quot; width=&quot;480&quot; height=&quot;289&quot; title=&quot;Dartメモリ使用状況&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;以前の記事「マンカラは先手必勝？後手必勝？」&lt;/a&gt;を書いたときよりPCはハイスペックになっていて、今は128GBのメモリを積んでいるのですが、理由は分かりませんが、どうやら&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dart&lt;/code&gt;では64GB以上のメモリーを使ってくれないようです:cold_sweat:ガベージコレクションが関係しているのでしょうか？兎に角こういうことをやるのには&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dart&lt;/code&gt;(Version3.1.2)は向いてませんね。仕方なく&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;で書き直して試してみると、&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/cplus_memory.png&quot;&gt;&lt;img src=&quot;/images/cplus_memory.png&quot; alt=&quot;C++メモリ使用状況&quot; width=&quot;480&quot; height=&quot;289&quot; title=&quot;C++メモリ使用状況&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/cplus_memory.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/cplus_memory.png&quot; alt=&quot;C++メモリ使用状況&quot; width=&quot;480&quot; height=&quot;289&quot; title=&quot;C++メモリ使用状況&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　それでも搭載されているメモリーすべて使い切って、重複局面は排除したのですが、ノード数を数え切れませんでした:cold_sweat:&lt;br /&gt;
@@ -54,13 +54,13 @@
 　結果は&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;の負けでした、残念:sweat_smile:&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/6x6karah_game01.png&quot;&gt;&lt;img src=&quot;/images/6x6karah_game01.png&quot; alt=&quot;対先手必勝AI&quot; width=&quot;480&quot; height=&quot;234&quot; title=&quot;対先手必勝AI&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/6x6karah_game01.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/6x6karah_game01.png&quot; alt=&quot;対先手必勝AI&quot; width=&quot;480&quot; height=&quot;234&quot; title=&quot;対先手必勝AI&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　&lt;a href=&quot;http://kalaha.krus.dk/&quot;&gt;このゲーム&lt;/a&gt;で遊ぶときは左下の&lt;button type=&quot;button&quot;&gt;Change Rules&lt;/button&gt;のボタンをクリックして、以下のようにチェックマークをOnにしないと同じルールにならない（Capture=横取りの動作が異なります）ので注意が必要です。Nintendo Switch『世界のアソビ大全51』のマンカラソフトもこれと同じルールです。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/6x6karah_game02.png&quot;&gt;&lt;img src=&quot;/images/6x6karah_game02.png&quot; alt=&quot;先手必勝AIの設定&quot; width=&quot;480&quot; height=&quot;92&quot; title=&quot;先手必勝AIの設定&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/6x6karah_game02.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/6x6karah_game02.png&quot; alt=&quot;先手必勝AIの設定&quot; width=&quot;480&quot; height=&quot;92&quot; title=&quot;先手必勝AIの設定&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;　
 　次に、&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;では最強に設定しても１１手読みなので１５手読みに設定してPCで試してみました。&lt;/p&gt;
@@ -69,7 +69,7 @@
   &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/ovR4V5R6Lt0?si=fhltwApvJmgzRyKO&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/6x6karah_game03.png&quot;&gt;&lt;img src=&quot;/images/6x6karah_game03.png&quot; alt=&quot;対先手必勝ゲーム-15手読み&quot; width=&quot;480&quot; height=&quot;230&quot; title=&quot;対先手必勝AI-15手読み&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/6x6karah_game03.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/6x6karah_game03.png&quot; alt=&quot;対先手必勝ゲーム-15手読み&quot; width=&quot;480&quot; height=&quot;230&quot; title=&quot;対先手必勝AI-15手読み&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　ですよねぇ:sweat_smile:１５手読みにするとRyzen7 5700Gでも一手５分ぐらい掛かるのですが、それでもやはり勝てません。&lt;br /&gt;
@@ -768,19 +768,19 @@ P5+OU+KI+GI+KA+HI
 
 &lt;div style=&quot;width:640px; margin: 0 auto;&quot;&gt;
 &lt;div style=&quot;float:left; margin: 0px 20px 0px;&quot;&gt;
-&lt;a href=&quot;/images/macbook_pro1.png&quot;&gt;&lt;img width=&quot;240&quot; height=&quot;183&quot; src=&quot;/images/macbook_pro1.png&quot; alt=&quot;Macbook Pro 2021 表&quot; title=&quot;M1 Macbook Pro 14インチ 表&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;/images/macbook_pro1.png&quot;&gt;&lt;img width=&quot;240&quot; height=&quot;183&quot; src=&quot;https://happyclam.github.io/images/macbook_pro1.png&quot; alt=&quot;Macbook Pro 2021 表&quot; title=&quot;M1 Macbook Pro 14インチ 表&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 &lt;div&gt;
-&lt;a href=&quot;/images/macbook_pro2.png&quot;&gt;&lt;img width=&quot;240&quot; height=&quot;186&quot; src=&quot;/images/macbook_pro2.png&quot; alt=&quot;Macbook Pro 2021 裏&quot; title=&quot;M1 Macbook Pro 14インチ 裏&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;/images/macbook_pro2.png&quot;&gt;&lt;img width=&quot;240&quot; height=&quot;186&quot; src=&quot;https://happyclam.github.io/images/macbook_pro2.png&quot; alt=&quot;Macbook Pro 2021 裏&quot; title=&quot;M1 Macbook Pro 14インチ 裏&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;br clear=&quot;all&quot; /&gt;&lt;/p&gt;
 &lt;div style=&quot;width:640px; margin: 0 auto;&quot;&gt;
 &lt;div style=&quot;float:left; margin: 0px 20px 0px;&quot;&gt;
-&lt;a href=&quot;/images/macbook_comp1.png&quot;&gt;&lt;img width=&quot;240&quot; height=&quot;181&quot; src=&quot;/images/macbook_comp1.png&quot; alt=&quot;Macbook12との比較 上&quot; title=&quot;Macbook12との比較 真上から&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;/images/macbook_comp1.png&quot;&gt;&lt;img width=&quot;240&quot; height=&quot;181&quot; src=&quot;https://happyclam.github.io/images/macbook_comp1.png&quot; alt=&quot;Macbook12との比較 上&quot; title=&quot;Macbook12との比較 真上から&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 &lt;div&gt;
-&lt;a href=&quot;/images/macbook_comp2.png&quot;&gt;&lt;img width=&quot;240&quot; height=&quot;126&quot; src=&quot;/images/macbook_comp2.png&quot; alt=&quot;Macbook12との比較 横&quot; title=&quot;Macbook12との比較 側面&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;/images/macbook_comp2.png&quot;&gt;&lt;img width=&quot;240&quot; height=&quot;126&quot; src=&quot;https://happyclam.github.io/images/macbook_comp2.png&quot; alt=&quot;Macbook12との比較 横&quot; title=&quot;Macbook12との比較 側面&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;br clear=&quot;all&quot; /&gt;&lt;/p&gt;
@@ -995,7 +995,7 @@ F
 
 &lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/logi_m720r01.png&quot;&gt;&lt;img src=&quot;/images/logi_m720r01.png&quot; alt=&quot;M720r&quot; width=&quot;360&quot; height=&quot;309&quot; title=&quot;M720r&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/logi_m720r01.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/logi_m720r01.png&quot; alt=&quot;M720r&quot; width=&quot;360&quot; height=&quot;309&quot; title=&quot;M720r&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -1004,7 +1004,7 @@ F
 
 &lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/logi_m720r02.png&quot;&gt;&lt;img src=&quot;/images/logi_m720r02.png&quot; alt=&quot;M720r&quot; width=&quot;360&quot; height=&quot;282&quot; title=&quot;M720r&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/logi_m720r02.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/logi_m720r02.png&quot; alt=&quot;M720r&quot; width=&quot;360&quot; height=&quot;282&quot; title=&quot;M720r&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -1015,13 +1015,13 @@ F
 
 &lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/logi_k83501.png&quot;&gt;&lt;img src=&quot;/images/logi_k83501.png&quot; alt=&quot;K835&quot; width=&quot;360&quot; height=&quot;148&quot; title=&quot;K835&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/logi_k83501.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/logi_k83501.png&quot; alt=&quot;K835&quot; width=&quot;360&quot; height=&quot;148&quot; title=&quot;K835&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
 &lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/logi_k83502.png&quot;&gt;&lt;img src=&quot;/images/logi_k83502.png&quot; alt=&quot;K835&quot; width=&quot;360&quot; height=&quot;227&quot; title=&quot;K835&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/logi_k83502.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/logi_k83502.png&quot; alt=&quot;K835&quot; width=&quot;360&quot; height=&quot;227&quot; title=&quot;K835&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -1029,7 +1029,7 @@ F
 
 &lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/images/logi_k83503.png&quot;&gt;&lt;img src=&quot;/images/logi_k83503.png&quot; alt=&quot;K835&quot; width=&quot;360&quot; height=&quot;227&quot; title=&quot;K835&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/logi_k83503.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/logi_k83503.png&quot; alt=&quot;K835&quot; width=&quot;360&quot; height=&quot;227&quot; title=&quot;K835&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -1186,9 +1186,9 @@ F
     
       <item>
         <title>FlutterアプリのNull Safety対応</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://taimienphi.vn/download-mancala-nuts-90337&quot;&gt;&lt;img src=&quot;/images/tmp2.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
-&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;&lt;img src=&quot;/images/ja_badge_web_generic.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
-&lt;a href=&quot;https://www.amazon.co.jp/happyclam-マンカラ-ナッツ/dp/B08D8QVVQY/ref=sr_1_2&quot;&gt;&lt;img src=&quot;/images/amazon-appstore-badge-jp-white.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
+        <description>&lt;p&gt;&lt;a href=&quot;https://taimienphi.vn/download-mancala-nuts-90337&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/tmp2.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/ja_badge_web_generic.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;https://www.amazon.co.jp/happyclam-マンカラ-ナッツ/dp/B08D8QVVQY/ref=sr_1_2&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/amazon-appstore-badge-jp-white.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
 &lt;br /&gt;&lt;a href=&quot;https://taimienphi.vn&quot; title=&quot;download&quot;&gt;taimienphi.vn&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;はっきり言って面倒臭い&quot;&gt;はっきり言って面倒臭い&lt;/h3&gt;
@@ -1368,7 +1368,7 @@ removed as of version 1.0.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/kwl-books-screen.png&quot;&gt;&lt;img src=&quot;/images/kwl-books-screen.png&quot; alt=&quot;動作確認&quot; width=&quot;480&quot; height=&quot;691&quot; title=&quot;動作確認&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/kwl-books-screen.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/kwl-books-screen.png&quot; alt=&quot;動作確認&quot; width=&quot;480&quot; height=&quot;691&quot; title=&quot;動作確認&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　動作確認。&lt;/p&gt;
@@ -1510,15 +1510,15 @@ Add-on:                postgresql-opaque-46906
 &lt;p&gt;　&lt;a href=&quot;https://ring-and-link.co.jp/dream2000/user/notice/seo/4817&quot;&gt;この記事&lt;/a&gt;によると2021年5月からgoogleの検索ランキングに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ページエクスペリエンス&lt;/code&gt;という指標が導入されたようです。自分のサイトはJekyll製の静的サイトなので今までは表示速度については特に対策はしていませんでしたが、自分のサイトも以下のように５月５日を境に多くのページが「改善が必要なURL」としてGoogle様から指摘されるようになりました。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/google_ux.png&quot;&gt;&lt;img src=&quot;/images/google_ux.png&quot; alt=&quot;ウェブに関する主な指標&quot; width=&quot;480&quot; height=&quot;359&quot; title=&quot;ウェブに関する主な指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/google_ux.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/google_ux.png&quot; alt=&quot;ウェブに関する主な指標&quot; width=&quot;480&quot; height=&quot;359&quot; title=&quot;ウェブに関する主な指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/google_experience.png&quot;&gt;&lt;img src=&quot;/images/google_experience.png&quot; alt=&quot;モバイルでのページエクスペリエンス&quot; width=&quot;480&quot; height=&quot;614&quot; title=&quot;モバイルでのページエクスペリエンス&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/google_experience.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/google_experience.png&quot; alt=&quot;モバイルでのページエクスペリエンス&quot; width=&quot;480&quot; height=&quot;614&quot; title=&quot;モバイルでのページエクスペリエンス&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/google_signal.png&quot;&gt;&lt;img src=&quot;/images/google_signal.png&quot; alt=&quot;モバイルでの指標&quot; width=&quot;480&quot; height=&quot;416&quot; title=&quot;モバイルでの指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/google_signal.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/google_signal.png&quot; alt=&quot;モバイルでの指標&quot; width=&quot;480&quot; height=&quot;416&quot; title=&quot;モバイルでの指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;　
 &lt;span id=&quot;back&quot;&gt;&lt;/span&gt;&lt;/p&gt;
@@ -1541,19 +1541,19 @@ Add-on:                postgresql-opaque-46906
 &lt;h3 id=&quot;修正前のpagespeed-insightsの結果&quot;&gt;修正前の&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/?hl=ja&quot;&gt;PageSpeed Insights&lt;/a&gt;の結果&lt;/h3&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/pagespeed01.png&quot;&gt;&lt;img src=&quot;/images/pagespeed01.png&quot; alt=&quot;修正前の測定結果&quot; width=&quot;480&quot; height=&quot;296&quot; title=&quot;修正前の測定結果&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/pagespeed01.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/pagespeed01.png&quot; alt=&quot;修正前の測定結果&quot; width=&quot;480&quot; height=&quot;296&quot; title=&quot;修正前の測定結果&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;２５&lt;/code&gt;というのは結構酷い状態かも知れません。&lt;/p&gt;
 
 &lt;h3 id=&quot;imgタグにサイズ指定&quot;&gt;imgタグにサイズ指定&lt;/h3&gt;
 &lt;p&gt;　今までこう書いていたのを&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;img src=&quot;/images/results_3beans.png&quot; alt=&quot;豆３つ&quot; title=&quot;豆３つ&quot; /&amp;gt;&lt;/code&gt;&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;img src=&quot;https://happyclam.github.io/images/results_3beans.png&quot; alt=&quot;豆３つ&quot; title=&quot;豆３つ&quot; /&amp;gt;&lt;/code&gt;&lt;br /&gt;
 　このようにサイズの記述を追加しただけです。&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;img src=&quot;/images/results_3beans.png&quot; alt=&quot;豆３つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆３つ&quot; /&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;img src=&quot;https://happyclam.github.io/images/results_3beans.png&quot; alt=&quot;豆３つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆３つ&quot; /&amp;gt;&lt;/code&gt;&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/pagespeed02.png&quot;&gt;&lt;img src=&quot;/images/pagespeed02.png&quot; alt=&quot;imgタグにサイズ指定&quot; width=&quot;480&quot; height=&quot;306&quot; title=&quot;imgタグにサイズ指定&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/pagespeed02.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/pagespeed02.png&quot; alt=&quot;imgタグにサイズ指定&quot; width=&quot;480&quot; height=&quot;306&quot; title=&quot;imgタグにサイズ指定&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　画像の実際の表示サイズは親要素で拡大・縮小表示するケースが多いと思いますが、imgタグで画像を読み込む時に縦横比をブラウザに教えてあげることが大事らしいです。対策した結果、若干改善しました。対象の記事はスクショを撮り忘れて、上の画像のURLは画像を使っていないのですが、だいたいこれぐらいの数値の改善がありました。&lt;br /&gt;
@@ -1563,7 +1563,7 @@ Add-on:                postgresql-opaque-46906
 &lt;h3 id=&quot;jekyllテンプレートを交換&quot;&gt;Jekyllテンプレートを交換&lt;/h3&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/pagespeed03.png&quot;&gt;&lt;img src=&quot;/images/pagespeed03.png&quot; alt=&quot;Jekyllテンプレートを交換&quot; width=&quot;480&quot; height=&quot;288&quot; title=&quot;Jekyllテンプレートを交換&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/pagespeed03.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/pagespeed03.png&quot; alt=&quot;Jekyllテンプレートを交換&quot; width=&quot;480&quot; height=&quot;288&quot; title=&quot;Jekyllテンプレートを交換&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　今までの無駄な機能が多いテンプレートから、&lt;a href=&quot;http://jekyllthemes.org&quot;&gt;Jekyll Themesというサイト&lt;/a&gt;で探して、&lt;a href=&quot;https://github.com/itsrifat/rifyll&quot;&gt;シンプルなJekyllテンプレート&lt;/a&gt;に交換してカスタマイズしました。&lt;/p&gt;
@@ -1572,7 +1572,7 @@ Add-on:                postgresql-opaque-46906
 &lt;p&gt;　ページによってまちまちですが、&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/?hl=ja&quot;&gt;PageSpeed Insights&lt;/a&gt;で確認すると上記の改善後も多くの指摘事項があります。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/speedinsights.png&quot;&gt;&lt;img src=&quot;/images/speedinsights.png&quot; alt=&quot;PageSpeed Insightsの指摘事項&quot; width=&quot;480&quot; height=&quot;181&quot; title=&quot;Pagespeed Insightsの指摘事項&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/speedinsights.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/speedinsights.png&quot; alt=&quot;PageSpeed Insightsの指摘事項&quot; width=&quot;480&quot; height=&quot;181&quot; title=&quot;Pagespeed Insightsの指摘事項&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/?hl=ja&quot;&gt;PageSpeed Insights&lt;/a&gt;を使えばページ毎の問題点を指摘してくれるのですが、やはり一番の問題は画像サイズにあるページが多いようです。モバイルユーザーに焦点を当てて、これからは大きな画像は使わないようにしようかと思ってます。&lt;/p&gt;
@@ -1581,7 +1581,7 @@ Add-on:                postgresql-opaque-46906
 &lt;p&gt;　ちなみに対象を「パソコン」にすると以下の数値です。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/pagespeed05.png&quot;&gt;&lt;img src=&quot;/images/pagespeed05.png&quot; alt=&quot;パソコンの結果&quot; width=&quot;480&quot; height=&quot;291&quot; title=&quot;パソコンの結果&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/pagespeed05.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/pagespeed05.png&quot; alt=&quot;パソコンの結果&quot; width=&quot;480&quot; height=&quot;291&quot; title=&quot;パソコンの結果&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;９９！&lt;/code&gt;だからこそ今まではSearch Console内で「サイトに優れたページ エクスペリエンスの URL が 100% 件あります」（←googleによる変な日本語）という評価だったわけです。&lt;/p&gt;
@@ -1589,7 +1589,7 @@ Add-on:                postgresql-opaque-46906
 &lt;p&gt;　&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/?hl=ja&quot;&gt;PageSpeed Insights&lt;/a&gt;の指摘の中に「JavaScriptの削減」という項目があったので、試しにadsenseとanalyticsのjsコードを除去すると、数値を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;８１&lt;/code&gt;まで上げることが出来ましたが、これでは意味がないので他の改善方法を探る必要がありそうですが、自前のWebサーバーで運用しているわけではなく、&lt;a href=&quot;https://github.com/happyclam/happyclam.github.io&quot;&gt;github&lt;/a&gt;に静的ファイルを置いているだけなので方法は限られそうです。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/pagespeed04.png&quot;&gt;&lt;img src=&quot;/images/pagespeed04.png&quot; alt=&quot;adsenseとanalyticsのjsコードを除去&quot; width=&quot;480&quot; height=&quot;291&quot; title=&quot;adsenseとanalyticsのjsコードを除去&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/pagespeed04.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/pagespeed04.png&quot; alt=&quot;adsenseとanalyticsのjsコードを除去&quot; width=&quot;480&quot; height=&quot;291&quot; title=&quot;adsenseとanalyticsのjsコードを除去&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　&lt;a href=&quot;https://www.suzukikenichi.com/blog/page-experience-ranking-is-coming-to-desktop/&quot;&gt;この記事&lt;/a&gt;によるとページエクスペリエンスのランキングはPC検索についても今後適用していくようです。&lt;/p&gt;
@@ -1598,33 +1598,33 @@ Add-on:                postgresql-opaque-46906
 &lt;p&gt;　サイトを修正して三日後に確認すると、とりあえず「改善が必要」なURLは０になって、「優れたページエクスペリエンス」の割合も増加傾向にあるようです。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/google_ux_new.png&quot;&gt;&lt;img src=&quot;/images/google_ux_new.png&quot; alt=&quot;ウェブに関する主な指標&quot; width=&quot;480&quot; height=&quot;359&quot; title=&quot;ウェブに関する主な指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/google_ux_new.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/google_ux_new.png&quot; alt=&quot;ウェブに関する主な指標&quot; width=&quot;480&quot; height=&quot;359&quot; title=&quot;ウェブに関する主な指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/google_experience_new.png&quot;&gt;&lt;img src=&quot;/images/google_experience_new.png&quot; alt=&quot;モバイルでのページエクスペリエンス&quot; width=&quot;480&quot; height=&quot;359&quot; title=&quot;モバイルでのページエクスペリエンス&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/google_experience_new.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/google_experience_new.png&quot; alt=&quot;モバイルでのページエクスペリエンス&quot; width=&quot;480&quot; height=&quot;359&quot; title=&quot;モバイルでのページエクスペリエンス&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/google_signal_new.png&quot;&gt;&lt;img src=&quot;/images/google_signal_new.png&quot; alt=&quot;モバイルでの指標&quot; width=&quot;480&quot; height=&quot;359&quot; title=&quot;モバイルでの指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/google_signal_new.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/google_signal_new.png&quot; alt=&quot;モバイルでの指標&quot; width=&quot;480&quot; height=&quot;359&quot; title=&quot;モバイルでの指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;五日後の状況&quot;&gt;五日後の状況&lt;/h3&gt;
 &lt;p&gt;　画像ファイルを縮小したり全ての記事を見直してモバイル対応を意識した変更をした結果「良好なURL」が以前より増えたようです。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/google_ux_5.png&quot;&gt;&lt;img src=&quot;/images/google_ux_5.png&quot; alt=&quot;ウェブに関する主な指標&quot; width=&quot;480&quot; height=&quot;450&quot; title=&quot;ウェブに関する主な指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/google_ux_5.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/google_ux_5.png&quot; alt=&quot;ウェブに関する主な指標&quot; width=&quot;480&quot; height=&quot;450&quot; title=&quot;ウェブに関する主な指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/google_experience_5.png&quot;&gt;&lt;img src=&quot;/images/google_experience_5.png&quot; alt=&quot;モバイルでのページエクスペリエンス&quot; width=&quot;480&quot; height=&quot;630&quot; title=&quot;モバイルでのページエクスペリエンス&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/google_experience_5.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/google_experience_5.png&quot; alt=&quot;モバイルでのページエクスペリエンス&quot; width=&quot;480&quot; height=&quot;630&quot; title=&quot;モバイルでのページエクスペリエンス&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;十日後の状況&quot;&gt;十日後の状況&lt;/h3&gt;
 &lt;p&gt;　96.7%まで戻りました。とりあえずこの辺りで良しとします。&lt;/p&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/google_experience_6.png&quot;&gt;&lt;img src=&quot;/images/google_experience_6.png&quot; alt=&quot;モバイルでのページエクスペリエンス&quot; width=&quot;480&quot; height=&quot;641&quot; title=&quot;モバイルでのページエクスペリエンス&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/google_experience_6.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/google_experience_6.png&quot; alt=&quot;モバイルでのページエクスペリエンス&quot; width=&quot;480&quot; height=&quot;641&quot; title=&quot;モバイルでのページエクスペリエンス&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div&gt;
@@ -1672,31 +1672,31 @@ Add-on:                postgresql-opaque-46906
 &lt;h4 id=&quot;-豆３つの対戦成績&quot;&gt;* 豆３つの対戦成績&lt;/h4&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_3beans.png&quot;&gt;&lt;img src=&quot;/images/results_3beans.png&quot; alt=&quot;豆３つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆３つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/results_3beans.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/results_3beans.png&quot; alt=&quot;豆３つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆３つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&quot;-豆４つの対戦成績&quot;&gt;* 豆４つの対戦成績&lt;/h4&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_4beans.png&quot;&gt;&lt;img src=&quot;/images/results_4beans.png&quot; alt=&quot;豆４つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆４つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/results_4beans.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/results_4beans.png&quot; alt=&quot;豆４つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆４つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&quot;-豆５つの対戦成績&quot;&gt;* 豆５つの対戦成績&lt;/h4&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_5beans.png&quot;&gt;&lt;img src=&quot;/images/results_5beans.png&quot; alt=&quot;豆５つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆５つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/results_5beans.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/results_5beans.png&quot; alt=&quot;豆５つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆５つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&quot;-豆６つの対戦成績&quot;&gt;* 豆６つの対戦成績&lt;/h4&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_6beans.png&quot;&gt;&lt;img src=&quot;/images/results_6beans.png&quot; alt=&quot;豆６つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆６つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/results_6beans.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/results_6beans.png&quot; alt=&quot;豆６つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆６つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&quot;-豆７つの対戦成績&quot;&gt;* 豆７つの対戦成績&lt;/h4&gt;
 
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_7beans.png&quot;&gt;&lt;img src=&quot;/images/results_7beans.png&quot; alt=&quot;豆７つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆７つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/images/results_7beans.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/results_7beans.png&quot; alt=&quot;豆７つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆７つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;　対戦成績表の見方ですが、&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラナッツ&lt;/a&gt;では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やばい&lt;/code&gt;モード以外では初手をランダムに決めるようにしていて、勝負に拘っていないので、アプリが勝てるのかどうかを判断する場合は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やばい&lt;/code&gt;モード以外は見る必要がありません。勝ちの欄の数字はＡＩ対戦で人間側が勝った数字、つまり比較対象となっているアプリが勝ったということです。また比較するために選んだアプリが初手をランダムに決めているものもあるので、一回だけの対戦ではなく何回か対戦させました。&lt;br /&gt;
