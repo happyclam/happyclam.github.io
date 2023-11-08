@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "カラハ問題、根強い人気？",
+      "category" : "software",
+      "tags"     : "dart, android, flutter, c++, mancala",
+      "url"      : "/software/2023-11-07/karah_problem",
+      "date"     : "2023-11-07 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "lishogi(Minishogi)に挑戦",
       "category" : "project",
       "tags"     : "coffeescript, cordova, android, javascript, shogi",

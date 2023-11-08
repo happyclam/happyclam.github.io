@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="author" content="happyclam">
+  <meta name="description"
+    content="カラハ問題、根強い人気？ マンカラのノード数はバカに出来ない Reinventing the wheel.">
+  <title> カラハ問題、根強い人気？ - 自己満足プログラミング </title>
+
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-1752720-7');
+  </script>
+
+<script async type="application/javascript"
+        src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
+<script>
+  (self.SWG_BASIC = self.SWG_BASIC || []).push( basicSubscriptions => {
+    basicSubscriptions.init({
+      type: "NewsArticle",
+      isPartOfType: ["Product"],
+      isPartOfProductId: "CAow99qlDA:openaccess",
+      clientOptions: { theme: "light", lang: "ja" },
+    });
+  });
+</script>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="カラハ問題、根強い人気？">
+  
+  
+  <meta name="twitter:url" content="/software/2023-11-07/karah_problem">
+  
+  
+  <meta name="twitter:description" content="マンカラの完全解析は意外に手強い">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/mancala_screen2_thumb.png">
+  
+
+  <link rel="canonical" href="https://happyclam.github.io/software/2023-11-07/karah_problem" />
+  <link rel="alternate" type="application/rss+xml" title="自己満足プログラミング" href="/feed.xml" />
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="site-title" class="navbar-brand" href="/">
+          <img class="pull-left img-responsive" src="">
+          <span class="name-holder">自己満足プログラミング</span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li>
+<a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li>
+<a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li>
+<a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li>
+<a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li>
+<a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <!-- <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script> -->
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <div style="text-align: center;">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1238485061299241" crossorigin="anonymous"></script>
+  </div>
+  <div class="blog-header">
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        <button swg-standard-button="contribution"></button>        
+      </div>
+      <div class="span9">
+        <!-- Html Elements for Search -->
+        <div id="search-container" align="right">
+          <input type="text" id="search-input" placeholder="search...">
+          <ul class="searchresult" id="results-container"></ul>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+  <script src="/assets/js/jquery.min.js"></script>
+  </div>
+  <!-- <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script type="text/javascript" src="/assets/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
+
+        <header class="page-header">
+          <h2 class="page-title"><a href="/software/2023-11-07/karah_problem">カラハ問題、根強い人気？</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Tuesday, November 07, 2023
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">dart</span>
+                
+                  <span class="label label-tag">android</span>
+                
+                  <span class="label label-tag">flutter</span>
+                
+                  <span class="label label-tag">c++</span>
+                
+                  <span class="label label-tag">mancala</span>
+                
+            </div>
+          </div>
+
+        </header>
+
+        <article class="page-content">
+          <h3 id="ブログ内トップの関心事">ブログ内トップの関心事</h3>
+<p>　以前<a href="/software/2020-06-07/mancala">「マンカラは先手必勝？後手必勝？」</a>という記事を書いてからは、当ブログに流入してくる検索ワードはずっとマンカラに関するものが一番多いです。「マンカラ 完全解析」とか「マンカラ 先手必勝」とかで検索すると未だに<a href="/software/2020-06-07/mancala">前述の記事</a>が検索上位に表示されます。<br>
+　ブログもアプリも永らく放置していたのですが、googleに<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">アプリ</a>の更新を催促されたのを機会に、久しぶりにマンカラに関して試したことを記事に書いてみようと思います。</p>
+
+<h3 id="マンカラのノード数は">マンカラのノード数は？</h3>
+<p>　マンカラの全ノードをメモリーに持つことが出来れば、<a href="/software/2019-07-19/self-play">以前の記事</a>で三目並べでやったようにモンテカルロ法を使って先手必勝か後手必勝が証明できるし、全ノードを保持出来なくても工夫すれば序盤の定石データの作成等何か出来るかもと思いノード数を数えてみることにしました。<br>
+　やったことは以前<a href="/software/2018-08-18/puzzle">「BFSで将棋パズルを解く」</a>に書いたのと同じ方法です。全ての指し手を一手ずつ進めて重複局面を省きながらゲーム木を作る方法なので概算ではなく正確なノード数が求まるはずです。<br>
+　プログラムは<code class="language-plaintext highlighter-rouge">Dart</code>で作ったのですが、まずは豆１つのケースで試したら数秒でノード数は1,182,341ノード（重複局面削除済み）と判明しましたが、豆２つでやってみると一日待って<code class="language-plaintext highlighter-rouge">Out of Memory</code>が出てプログラムが終了してしまいました<img class="emoji" title=":cold_sweat:" alt=":cold_sweat:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f630.png" height="20" width="20"><br>
+　おかしいなと思い<code class="language-plaintext highlighter-rouge">psensor</code>でメモリー使用状況を確認したのが以下の画像です。</p>
+
+<div style="width:480px; margin: 0 auto;">
+  <p><a href="/images/dart_memory.png"><img src="/images/dart_memory.png" alt="Dartメモリ使用状況" width="480" height="289" title="Dartメモリ使用状況"></a></p>
+</div>
+
+<p>　<a href="/software/2020-06-07/mancala">以前の記事「マンカラは先手必勝？後手必勝？」</a>を書いたときよりPCはハイスペックになっていて、今は128GBのメモリを積んでいるのですが、理由は分かりませんが、どうやら<code class="language-plaintext highlighter-rouge">Dart</code>では64GB以上のメモリーを使ってくれないようです<img class="emoji" title=":cold_sweat:" alt=":cold_sweat:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f630.png" height="20" width="20">ガベージコレクションが関係しているのでしょうか？兎に角こういうことをやるのには<code class="language-plaintext highlighter-rouge">Dart</code>(Version3.1.2)は向いてませんね。仕方なく<code class="language-plaintext highlighter-rouge">C++</code>で書き直して試してみると、</p>
+
+<div style="width:480px; margin: 0 auto;">
+  <p><a href="/images/cplus_memory.png"><img src="/images/cplus_memory.png" alt="C++メモリ使用状況" width="480" height="289" title="C++メモリ使用状況"></a></p>
+</div>
+
+<p>　それでも搭載されているメモリーすべて使い切って、重複局面は排除したのですが、ノード数を数え切れませんでした<img class="emoji" title=":cold_sweat:" alt=":cold_sweat:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f630.png" height="20" width="20"><br>
+　マンカラの完全解析は意外と手強いです。作成したNodeクラスは後にプログラムで使用するつもりの余計な要素も含まれているのですが、<code class="language-plaintext highlighter-rouge">sizeof</code>で確認すると１つのNodeオブジェクトは88バイトだったので、128GBで足りないとなると<code class="language-plaintext highlighter-rouge">128GB / 88B</code>で15億ノード以上あるということでしょうか？しかも豆２つでこの状況ですから三目並べと同様のアプローチは無理ですね<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"></p>
+
+<h3 id="chatgptに聞いてみる">ChatGPTに聞いてみる</h3>
+<p>　無料版のChatGPT(GPT3.5)に「マンカラカラハは先手必勝のゲームと証明されていますか？」と聞いてみたところ以下の回答でした。</p>
+
+<blockquote>
+  <p>マンカラ（またはカラハ）が「先手必勝」であるという一般的な証拠や公式な証明は存在しません。このゲームは非常に複雑で、初期配置やプレイヤーのスキルに依存するため、先手と後&gt;手の優劣は局面や戦術によって変化します。</p>
+
+  <p>マンカラは多くのバリエーションが存在し、さまざまなルールでプレイされることもあるため、先手必勝かどうかについて一般的な結論を出すことは難しいです。一部のバリエーションでは、特定の初期配置や戦術によって先手が有利になることがあるかもしれませんが、一般的なルールでのマンカラは均衡のゲームとされており、どちらが優勢であるかは状況に依存します。</p>
+
+  <p>したがって、特定の局面やルールにおいて先手必勝であるかどうかを証明するには、数学的な証拠や研究が必要です。一般的なマンカラゲームが先手必勝であるかどうかについての確かな証拠は提供されていないと言えます。</p>
+</blockquote>
+
+<p>　他にもいろいろ試しましたが、ChatGPTでは明確な回答は得られませんでした。</p>
+
+<h3 id="wikipediaによると解決済みらしい">Wikipediaによると解決済みらしい</h3>
+<p>　ネットを検索すると<a href="https://en.wikipedia.org/wiki/Kalah">Wikipediaのこの記事</a>で先手必勝が確認されていると出てくるのですが、<a href="https://en.wikipedia.org/wiki/Kalah">この記事</a>がどういう理屈で先手必勝を証明しているのか自分にはよく理解できません<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"><br>
+　そこで<a href="https://en.wikipedia.org/wiki/Kalah">同じ記事</a>内の下の方に用意してある<a href="http://kalaha.krus.dk/">Webゲーム</a>と<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">自分のアプリ</a>を対戦させてみました。「先手必勝の理屈が分からない奴は<a href="http://kalaha.krus.dk/">このWebゲーム</a>に後手で勝ってみろ！出来ないだろ？だから先手必勝の結論に間違いないんだよ！」という理屈のようです<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"><a href="http://kalaha.krus.dk/">このゲーム</a>の作者の意図はそういうものではないかもしれませんが、自分はそのように解釈しました<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"><br>
+　<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">自分のアプリ</a>も豆６個に対応しているので、<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">自分のアプリ</a>が後手で勝ったらおもしろいなぁなんて思いながら対戦させてみました。<br>
+　結果は<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">自分のアプリ</a>の負けでした、残念<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"></p>
+
+<div style="width:480px; margin: 0 auto;">
+  <p><a href="/images/6x6karah_game01.png"><img src="/images/6x6karah_game01.png" alt="対先手必勝AI" width="480" height="234" title="対先手必勝AI"></a></p>
+</div>
+
+<p>　<a href="http://kalaha.krus.dk/">このゲーム</a>で遊ぶときは左下の<button type="button">Change Rules</button>のボタンをクリックして、以下のようにチェックマークをOnにしないと同じルールにならない（Capture=横取りの動作が異なります）ので注意が必要です。Nintendo Switch『世界のアソビ大全51』のマンカラソフトもこれと同じルールです。</p>
+
+<div style="width:480px; margin: 0 auto;">
+  <p><a href="/images/6x6karah_game02.png"><img src="/images/6x6karah_game02.png" alt="先手必勝AIの設定" width="480" height="92" title="先手必勝AIの設定"></a></p>
+</div>
+<p>　
+　次に、<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">アプリ</a>では最強に設定しても１１手読みなので１５手読みに設定してPCで試してみました。</p>
+
+<div style="width:480px; margin: 0 auto;">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/ovR4V5R6Lt0?si=fhltwApvJmgzRyKO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+</div>
+<div style="width:480px; margin: 0 auto;">
+  <p><a href="/images/6x6karah_game03.png"><img src="/images/6x6karah_game03.png" alt="対先手必勝ゲーム-15手読み" width="480" height="230" title="対先手必勝AI-15手読み"></a></p>
+</div>
+
+<p>　ですよねぇ<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20">１５手読みにするとRyzen7 5700Gでも一手５分ぐらい掛かるのですが、それでもやはり勝てません。<br>
+　<a href="http://kalaha.krus.dk/">このWebゲーム</a>は豆６個しか試せないようですが、<a href="https://en.wikipedia.org/wiki/Kalah">Wikipedia</a>に書いてある通り３個、４個、５個でもすべて先手必勝は間違いなさそうですね。</p>
+
+<hr>
+
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <small>© rifyll theme, 2014</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+</body>
+
+</html>
