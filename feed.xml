@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 08 Nov 2023 23:20:14 +0900</pubDate>
-    <lastBuildDate>Wed, 08 Nov 2023 23:20:14 +0900</lastBuildDate>
+    <pubDate>Thu, 09 Nov 2023 07:34:45 +0900</pubDate>
+    <lastBuildDate>Thu, 09 Nov 2023 07:34:45 +0900</lastBuildDate>
     <generator>Jekyll v3.9.2</generator>
     
       <item>
@@ -31,7 +31,7 @@
   &lt;p&gt;&lt;a href=&quot;/images/cplus_memory.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/cplus_memory.png&quot; alt=&quot;C++メモリ使用状況&quot; width=&quot;480&quot; height=&quot;289&quot; title=&quot;C++メモリ使用状況&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;　それでも搭載されているメモリーすべて使い切って、重複局面は排除したのですが、ノード数を数え切れませんでした:cold_sweat:&lt;br /&gt;
+&lt;p&gt;　それでも１５分ほどで搭載されているメモリーすべて使い切って、重複局面は排除したのですがノード数を数え切れませんでした:cold_sweat:&lt;br /&gt;
 　マンカラの完全解析は意外と手強いです。作成したNodeクラスは後にプログラムで使用するつもりの余計な要素も含まれているのですが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sizeof&lt;/code&gt;で確認すると１つのNodeオブジェクトは88バイトだったので、128GBで足りないとなると&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;128GB / 88B&lt;/code&gt;で15億ノード以上あるということでしょうか？しかも豆２つでこの状況ですから三目並べと同様のアプローチは無理ですね:sweat_smile:&lt;/p&gt;
 
 &lt;h3 id=&quot;chatgptに聞いてみる&quot;&gt;ChatGPTに聞いてみる&lt;/h3&gt;
