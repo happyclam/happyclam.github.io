@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 09 Nov 2023 19:54:31 +0900</pubDate>
-    <lastBuildDate>Thu, 09 Nov 2023 19:54:31 +0900</lastBuildDate>
+    <pubDate>Fri, 10 Nov 2023 22:03:23 +0900</pubDate>
+    <lastBuildDate>Fri, 10 Nov 2023 22:03:23 +0900</lastBuildDate>
     <generator>Jekyll v3.9.2</generator>
     
       <item>
@@ -74,6 +74,16 @@
 
 &lt;p&gt;　ですよねぇ:sweat_smile:１５手読みにするとRyzen7 5700Gでも一手５分ぐらい掛かるのですが、それでもやはり勝てません。&lt;br /&gt;
 　&lt;a href=&quot;http://kalaha.krus.dk/&quot;&gt;このWebゲーム&lt;/a&gt;は豆６個しか試せないようですが、&lt;a href=&quot;https://en.wikipedia.org/wiki/Kalah&quot;&gt;Wikipedia&lt;/a&gt;に書いてある通り３個、４個、５個でもすべて先手必勝は間違いなさそうですね。&lt;/p&gt;
+
+&lt;h3 id=&quot;追記2023-11-10&quot;&gt;追記（2023-11-10）&lt;/h3&gt;
+&lt;p&gt;　ノード数を数える時に手番データを含めて重複局面を保存しないようにしていたのですが、手番データを含めずにノード数をカウントしたところ、豆２個でもカウント完了出来ました。先手番の局面か後手番の局面かを気にせずに豆の配置の違いだけを数えれば大幅にノード数は減りますが、データとしては使いにくいのであまり意味はありませんけど一応記しておきます。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;豆１個のケース-&amp;gt;647,826ノード&lt;/li&gt;
+  &lt;li&gt;豆２個のケース-&amp;gt;495,196,185ノード&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;　豆の配置は同じだけど手番が違う局面というのがかなり存在するということみたいです。&lt;/p&gt;
 
 &lt;hr /&gt;
 
