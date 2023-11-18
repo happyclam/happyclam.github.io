@@ -5,9 +5,221 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 10 Nov 2023 22:03:23 +0900</pubDate>
-    <lastBuildDate>Fri, 10 Nov 2023 22:03:23 +0900</lastBuildDate>
+    <pubDate>Sat, 18 Nov 2023 09:30:16 +0900</pubDate>
+    <lastBuildDate>Sat, 18 Nov 2023 09:30:16 +0900</lastBuildDate>
     <generator>Jekyll v3.9.2</generator>
+    
+      <item>
+        <title>一回休み（パス）があるゲームでのαβ法</title>
+        <description>&lt;h3 id=&quot;気になっていたこと&quot;&gt;気になっていたこと&lt;/h3&gt;
+&lt;p&gt;　以前&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;「マンカラは先手必勝？後手必勝？」&lt;/a&gt;という記事の中で、&lt;a href=&quot;https://www.amazon.co.jp/HTML5-CoffeeScriptで作る最強の三目並べプログラム-MIN-MAX法からαβ法へ-happyclam-ebook/dp/B01D1IJ0S0/ref=sr_1_1?s=digital-text&amp;amp;ie=UTF8&amp;amp;qid=1473938717&quot;&gt;自分が書いた本（「HTML5+CoffeeScriptで作る最強の三目並べプログラム」）&lt;/a&gt;を紹介して、「マンカラは三目並べと違ってパス（一回休み）があるので少しコードを変更する必要がある」と書いたまま詳細は説明してなかったことが気になってたので書くことにしました。本を買って頂いた方にとっては今更な感じはありますが、マンカラの&lt;a href=&quot;https://github.com/happyclam/mancala_karah&quot;&gt;ソースコード&lt;/a&gt;を元に説明しようと思います。&lt;/p&gt;
+
+&lt;h3 id=&quot;αβ法の実装手順&quot;&gt;αβ法の実装手順&lt;/h3&gt;
+&lt;p&gt;　当ブログも昔は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;αβ法&lt;/code&gt;で検索すると&lt;a href=&quot;/software/2014-09-16/ab_method&quot;&gt;この記事&lt;/a&gt;が上位に表示されていたのですが、今は他にもっと丁寧な説明のあるサイトが増えたので&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;圏外&lt;/code&gt;になってるみたいですね:sweat_smile:でもαβ法の解説に納得出来てもいざコードを書こうとすると出来ないという意見も見かけます。&lt;a href=&quot;https://www.amazon.co.jp/HTML5-CoffeeScriptで作る最強の三目並べプログラム-MIN-MAX法からαβ法へ-happyclam-ebook/dp/B01D1IJ0S0/ref=sr_1_1?s=digital-text&amp;amp;ie=UTF8&amp;amp;qid=1473938717&quot;&gt;この本&lt;/a&gt;では３つのソースコードを用意して、この手順でソースを変更していけばαβ法が実装できますよという例を示しましたが、ここでマンカラを例にして簡単におさらいします。&lt;br /&gt;
+　まず、前提として先手は大きい値が有利、後手は小さい値が有利（逆でも可）という静的評価関数を用意します。静的評価関数はマンカラの場合なら&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(先手のストア内の豆の数 - 後手のストア内の豆の数)&lt;/code&gt;になります。&lt;br /&gt;
+　その後以下のように局面の先読みを行う関数を実装します。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;１つの階層におけるすべての着手を試して静的評価を行い、先手なら一番大きい後手なら一番小さい評価値を得る着手とその時の評価値を返す関数を作る。&lt;/li&gt;
+  &lt;li&gt;1で作った関数をゲームが終了するか指定された手数（読みの深さ）に達することを終了条件とする再帰関数に書き換える
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-&amp;gt;ミニマックス法完成&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;2で作った関数に下層ノードに評価値を渡すための引数（閾値）を追加して、その閾値と現在の階層の評価値を比較して読みを中断（枝刈り、αβカット）してリターンするか、読みを続けるかの条件を書き加える
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-&amp;gt;αβ法完成&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;3で作った関数に先手、後手、先手という風に順番に着手したのか、先手、先手、先手と連続着手したのか区別するための引数を追加して、αβカットをしている部分に連続着手した場合はαβカットをしないように条件を書き加える&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;　この4.の作業をすれば、&lt;strong&gt;一回休み（パス）があるゲームでのαβ法が完成します&lt;/strong&gt;。要は先手か後手が連続着手した場合は何回連続であってもすべて無視して一回の着手と考えて、その最後の一回の評価値と閾値を比較してαβカットを行うようにすればいいだけです。&lt;/p&gt;
+
+&lt;h3 id=&quot;実際のコード&quot;&gt;実際のコード&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://github.com/happyclam/mancala_karah&quot;&gt;githubのレポジトリ内のソースコード&lt;/a&gt;は&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;以前の記事&lt;/a&gt;で使ったコードと大体同じなのですが、&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;以前の記事&lt;/a&gt;では先手必勝か後手必勝かを確認するためのものだったので、そのままでは先手あるいは後手の負けが確定したときに最善手を逃します。「勝ちあるいは負けが確定した時点で最善かどうかに拘らず読みを打ち切ってReturn」するようになってました。&lt;br /&gt;
+　でも、&lt;a href=&quot;https://github.com/happyclam/mancala_karah&quot;&gt;ここで解説するコード&lt;/a&gt;は、&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;実際のアプリ（マンカラナッツ）&lt;/a&gt;で使ってるコードと同じで負けが確定しても最善で負けるようになってます。&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラナッツ&lt;/a&gt;では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;で作成していますがそれの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dart&lt;/code&gt;版です。&lt;/p&gt;
+
+&lt;p&gt;　マンカラのゲーム盤は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;board&lt;/code&gt;変数で表され、14要素の固定長配列になってます。&lt;/p&gt;
+
+&lt;div style=&quot;float:left; margin: 0px 0px 0px&quot;&gt;
+    &lt;table&gt;
+    &lt;tr&gt;
+    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;&lt;br /&gt;後手のストア&lt;br /&gt; 0&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;&amp;nbsp;13&amp;nbsp;&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;&amp;nbsp;12&amp;nbsp;&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;&amp;nbsp;11&amp;nbsp;&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;&amp;nbsp;10&amp;nbsp; &lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;&amp;nbsp;&amp;nbsp;9&amp;nbsp;&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;&amp;nbsp;&amp;nbsp;8&amp;nbsp;&lt;/td&gt;
+    &lt;td rowspan=&quot;2&quot; align=&quot;center&quot;&gt;&lt;br /&gt;先手のストア&lt;br /&gt; 7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td align=&quot;center&quot;&gt;&amp;nbsp;&amp;nbsp;1&amp;nbsp;&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;&amp;nbsp;&amp;nbsp;2&amp;nbsp;&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;&amp;nbsp;&amp;nbsp;3&amp;nbsp;&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;&amp;nbsp;&amp;nbsp;4&amp;nbsp;&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;&amp;nbsp;&amp;nbsp;5&amp;nbsp;&lt;/td&gt;
+    &lt;td align=&quot;center&quot;&gt;&amp;nbsp;&amp;nbsp;6&amp;nbsp;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br clear=&quot;all&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;　マンカラのルールを実装している部分は省略して先読みを行うAI部分だけ、行番号を付けて解説します。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;01---  List think(List board, Player oppo, int limit, int pre_value, bool pre_turn){
+02---    List result =  List&amp;lt;int&amp;gt;.filled(2, 0, growable: false);
+03---    int moved = 0;
+04---    int score = 0;
+05---    int ret = 0;
+06---    int lastscore = (this.turn == FIRST) ? SECOND_WIN : FIRST_WIN;
+07---    int lastposi = -1;
+08---    var goal = (this.turn == FIRST) ? FIRST_GOAL : DENTS;
+09---    var start = (this.turn == FIRST) ? FIRST_START : SECOND_START;
+
+10---    List temp = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+11---    for (var i = start; i &amp;lt; goal; i++){
+12---      temp = List.from(board);
+13---      if (temp[i] == 0) continue;
+14---      moved = karahaMove(temp, i, this.turn);
+15---      ret = gameEnd(temp);
+16---      if (ret == ONGAME &amp;amp;&amp;amp; limit &amp;gt; 0){
+17---        if (moved == FIRST_GOAL || moved == SECOND_GOAL){
+18---          result = this.think(temp, oppo, limit - 1, lastscore, false);
+19---        } else {
+20---          result = oppo.think(temp, this, limit - 1, lastscore, true);
+21---        }
+22---        score = result[0];
+23---      } else {
+24---        score = evaluate(temp);
+25---        lastscore = score;
+26---        lastposi = i;
+27---        break;
+28---      }
+29---      if ((score &amp;gt;= lastscore &amp;amp;&amp;amp; this.turn == FIRST) || (score &amp;lt;= lastscore &amp;amp;&amp;amp; this.turn == SECOND)){
+30---        lastscore = score;
+31---        lastposi = i;
+32---      }
+33---      if (pre_turn == true &amp;amp;&amp;amp; ((pre_value &amp;lt; score &amp;amp;&amp;amp; this.turn == FIRST) || (pre_value &amp;gt; score &amp;amp;&amp;amp; this.turn == SECOND))) {
+34---        break;
+35---      }
+36---    }
+37---    result[0] = lastscore;
+38---    result[1] = lastposi;
+39---    return result;
+40---  }
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;01: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;戻り値&lt;/code&gt;:[評価値, 着手]の2要素の配列&lt;br /&gt;
+    &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;board&lt;/code&gt;:マンカラのBoardオブジェクト＝要素数14の固定長配列です&lt;br /&gt;
+    &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;oppo&lt;/code&gt;:対戦相手のPlayerオブジェクト&lt;br /&gt;
+    &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;limit&lt;/code&gt;:何手先まで読むのか（読みの深さ）の制限値、0になれば先読みを止める&lt;br /&gt;
+    &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pre_value&lt;/code&gt;:αβカットの閾値（下層ノードに伝える評価値）&lt;br /&gt;
+    &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pre_turn&lt;/code&gt;:連続着手か交互の着手かのフラグ（Falseなら連続着手なのでαβカットは行わない）&lt;/li&gt;
+  &lt;li&gt;02: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;result&lt;/code&gt;:戻り値&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[評価値, 着手]&lt;/code&gt;の2要素の配列&lt;/li&gt;
+  &lt;li&gt;03: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;moved&lt;/code&gt;:着手後に最後に豆を巻き終わった位置、自分のストアで豆を巻き終わったら連続で着手可能&lt;/li&gt;
+  &lt;li&gt;04: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;score&lt;/code&gt;:同じ階層での一手毎の評価値を格納&lt;/li&gt;
+  &lt;li&gt;05: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ret&lt;/code&gt;:ゲーム継続中（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ONGAME&lt;/code&gt;）かどうかを格納&lt;/li&gt;
+  &lt;li&gt;06: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lastscore&lt;/code&gt;:最終的な評価値を格納。最初の比較時に必ず値が代入されるように先手の時は最小値、後手の時は最大値で初期化しておく&lt;/li&gt;
+  &lt;li&gt;07: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lastposi&lt;/code&gt;:最終的に選ばれた着手を格納&lt;/li&gt;
+  &lt;li&gt;08: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;goal&lt;/code&gt;:Board配列の添字。先手、後手、それぞれの着手の末端。先手なら6、後手なら13&lt;/li&gt;
+  &lt;li&gt;09: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;start&lt;/code&gt;:Board配列の添字。先手、後手、それぞれの着手開始位置。先手なら1、後手なら8&lt;/li&gt;
+  &lt;li&gt;10: マンカラの場合一度着手した盤面を元に戻す作業が煩雑なので、引数で渡された盤面データ（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;board&lt;/code&gt;）を元に戻すための作業用の配列を用意&lt;/li&gt;
+  &lt;li&gt;11: 同じ階層で最善手を選択するためのforループ。このfor文は横（同じ手番）との比較で、再帰呼出しは上下（先手と後手）の評価値の比較、階層間の比較になります。&lt;/li&gt;
+  &lt;li&gt;12: 作業用配列に盤面データをコピー&lt;/li&gt;
+  &lt;li&gt;13: 穴に豆がなければ次の穴へ&lt;/li&gt;
+  &lt;li&gt;14: 一手着手&lt;/li&gt;
+  &lt;li&gt;15: ゲームが終了していないか確認&lt;/li&gt;
+  &lt;li&gt;16: 再帰関数の終了条件を満たしていなければ（＝ゲームが終了していなくて、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;limit&lt;/code&gt;で指定された深さまで達していなければ）、再帰呼出しして先読み。&lt;br /&gt;
+    この時引数の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pre_value&lt;/code&gt;には、現時点でのその階層での最善手（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lastscore&lt;/code&gt;、先手なら最大評価値、後手なら最小評価値）を渡す。&lt;/li&gt;
+  &lt;li&gt;18: 自分のストアで豆を巻き終われば、手番を替えずにもう一手先読み。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pre_turn&lt;/code&gt;引数に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;false&lt;/code&gt;を渡して、手番が変わっていないことを下層ノードに伝える。&lt;/li&gt;
+  &lt;li&gt;20: それ以外は手番を交代してもう一手先読み。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pre_turn&lt;/code&gt;引数に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt;を渡して、手番が変わったことを下層ノードに伝える。&lt;/li&gt;
+  &lt;li&gt;22: 戻ってきた評価値を格納、同じ階層での評価値の比較に使う。&lt;/li&gt;
+  &lt;li&gt;24: 再帰関数の終了条件を満たしていれば（＝ゲームが終了したか、指定された深さまで読み終わったら）静的評価を行って呼び出し元にリターン&lt;/li&gt;
+  &lt;li&gt;27: 戻り値（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;result&lt;/code&gt;）に値をセットしてリターンするのと同じ&lt;/li&gt;
+  &lt;li&gt;29: 同じ階層での評価値の比較作業。先手の場合はより大きな評価値、後手の場合はより小さな評価値を選択し、その評価値と指し手を保存。&lt;/li&gt;
+  &lt;li&gt;33: 連続着手ではない時（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pre_turn == true&lt;/code&gt;）だけαβカット。上層から引数で渡されてきた閾値（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pre_value&lt;/code&gt;）と現局面の評価値を比較し、先手の場合は閾値（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pre_value&lt;/code&gt;）より大きな評価値だった時、後手の場合は閾値（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pre_value&lt;/code&gt;）より小さな評価値だった時に読みを中断（その先を読む必要がない）して呼び出し元にリターン&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;　大して長くもないのでソースコードを追いかけていって、何をしているのかわからない部分は、解説を見るという感じで理解できるのではないでしょうか？&lt;/p&gt;
+
+&lt;h3 id=&quot;αβ法の確認&quot;&gt;αβ法の確認&lt;/h3&gt;
+&lt;p&gt;　実装したαβ法がうまく機能しているかどうか確認するのに一番簡単な方法は、αβ法を実装している部分をコメントアウトしてみて実装した場合と同じ出力が得られるかどうかです。計算量を削減するのがαβ法なので、ただのミニマックス法で実行した時と同じ結果が得られて尚且つ実行時間が大幅に短縮されるはずです。&lt;br /&gt;
+　上のコードで33行目から35行目までをコメントアウトして&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dart mancala.dart&lt;/code&gt;を実行したところ出力結果は同じで、実行時間は２０分と４時間弱の違いがありました。&lt;/p&gt;
+
+&lt;h5 id=&quot;αβ法無し&quot;&gt;αβ法無し&lt;/h5&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ dart mancala.dart
+[0, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2]
+=== result = 1, 6, i = 1
+=== result = 4, 5, i = 2
+=== result = 3, 5, i = 3
+=== result = 2, 5, i = 4
+=== result = 4, 5, i = 5
+=== result = 5, 5, i = 6
+=== result = 4, 5, i = 7
+=== result = 5, 5, i = 8
+=== result = 5, 5, i = 9
+=== result = 4, 5, i = 10
+=== result = 5, 6, i = 11
+=== result = 5, 6, i = 12
+=== result = 5, 5, i = 13
+=== result = 5, 5, i = 14
+=== result = 7, 5, i = 15
+=== result = 12, 5, i = 16
+=== result = 999, 5, i = 17
+14208572
+[999, 5]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h5 id=&quot;αβ法有り&quot;&gt;αβ法有り&lt;/h5&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ dart mancala.dart
+[0, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2]
+=== result = 1, 6, i = 1
+=== result = 4, 5, i = 2
+=== result = 3, 5, i = 3
+=== result = 2, 5, i = 4
+=== result = 4, 5, i = 5
+=== result = 5, 5, i = 6
+=== result = 4, 5, i = 7
+=== result = 5, 5, i = 8
+=== result = 5, 5, i = 9
+=== result = 4, 5, i = 10
+=== result = 5, 6, i = 11
+=== result = 5, 6, i = 12
+=== result = 5, 5, i = 13
+=== result = 5, 5, i = 14
+=== result = 7, 5, i = 15
+=== result = 12, 5, i = 16
+=== result = 999, 5, i = 17
+1276771
+[999, 5]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;先手必勝か後手必勝かだけを確認したい場合&quot;&gt;先手必勝か後手必勝かだけを確認したい場合&lt;/h3&gt;
+&lt;p&gt;　前述しましたが、最善手に拘らずに先手必勝なのか、後手必勝なのかだけを調べたい場合は、同じ階層での評価値の比較の際に、１個差の負けでも大差の負けでも同じと考えて、先手勝ちあるいは後手勝ちの結論が出た段階ですぐに呼び出し元にReturnすればいいだけです。例えば以下のコードを32行目と33行目の間に入れれば、&lt;strong&gt;指定された読みの深さ内で&lt;/strong&gt;先手勝ちあるいは後手勝ちの結論が出たことになるので、そこで探索を打ち切り呼び出し元にリターンすれば探索時間を大幅に短縮できます。&lt;br /&gt;
+　ただこの時に使用する静的評価関数は単に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(先手のストア内の豆の数 - 後手のストア内の豆の数)&lt;/code&gt;とするだけではなく、ゲームが終了しているかどうかを確認して先手勝ち（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FIRST_WIN&lt;/code&gt;）、後手勝ち（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SECOND_WIN&lt;/code&gt;）の特別な値を返すようにしておく必要があります。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;      if ((score &amp;gt;= FIRST_WIN &amp;amp;&amp;amp; this.turn == FIRST)||(score &amp;lt;= SECOND_WIN &amp;amp;&amp;amp; this.turn == SECOND)) {
+        lastscore = score;
+        lastposi = i;
+        break;
+      }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;　上記のコードを追加した後、豆２個のケースで試したら、自分の環境では約半分近くの時間で先手必勝を読み切れました。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+</description>
+        <pubDate>Sat, 18 Nov 2023 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/software/2023-11-18/abmethod_skipped</link>
+        <guid isPermaLink="true">https://happyclam.github.io/software/2023-11-18/abmethod_skipped</guid>
+        
+        <category>dart</category>
+        
+        <category>flutter</category>
+        
+        <category>mancala</category>
+        
+        
+        <category>software</category>
+        
+      </item>
     
       <item>
         <title>カラハ問題、根強い人気？</title>
@@ -38,7 +250,7 @@
 &lt;p&gt;　無料版のChatGPT(GPT3.5)に「マンカラカラハは先手必勝のゲームと証明されていますか？」と聞いてみたところ以下の回答でした。&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;マンカラ（またはカラハ）が「先手必勝」であるという一般的な証拠や公式な証明は存在しません。このゲームは非常に複雑で、初期配置やプレイヤーのスキルに依存するため、先手と後&amp;gt;手の優劣は局面や戦術によって変化します。&lt;/p&gt;
+  &lt;p&gt;マンカラ（またはカラハ）が「先手必勝」であるという一般的な証拠や公式な証明は存在しません。このゲームは非常に複雑で、初期配置やプレイヤーのスキルに依存するため、先手と後手の優劣は局面や戦術によって変化します。&lt;/p&gt;
 
   &lt;p&gt;マンカラは多くのバリエーションが存在し、さまざまなルールでプレイされることもあるため、先手必勝かどうかについて一般的な結論を出すことは難しいです。一部のバリエーションでは、特定の初期配置や戦術によって先手が有利になることがあるかもしれませんが、一般的なルールでのマンカラは均衡のゲームとされており、どちらが優勢であるかは状況に依存します。&lt;/p&gt;
 
@@ -1666,127 +1878,6 @@ Add-on:                postgresql-opaque-46906
         
         
         <category>miscellaneous</category>
-        
-      </item>
-    
-      <item>
-        <title>マンカラは後手でも勝てるか？</title>
-        <description>&lt;h3 id=&quot;自分のアプリと他のアプリを手動で対戦させてみた&quot;&gt;自分のアプリと他のアプリを手動で対戦させてみた&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;以前の記事&lt;/a&gt;で６×２列のマンカラが先手必勝なのか後手必勝なのかを自作プログラムで調べましたが、時間がかかり過ぎるので結論が得られないままでした。そこで自分のアプリと他の強いアプリを対戦させてみて、その結果から石の数（豆の数）毎に先手必勝なのか後手必勝なのかを推測してみようと思います。&lt;br /&gt;
-　google playに公開されているマンカラアプリの中で、マンカラカラハ（classicルール&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;）で遊ぶことが出来て、初期配置の石の数を３個から７個まで選択出来るアプリを３つ選んで、先手・後手の対戦結果から推測します。どのアプリと比較したかは別に公開しても構わないと思うのですが、もしかしたら作者に歓迎されない可能性もあるので使用したアプリ名は一応伏せておきます。また比較する時はアプリの強さ設定で全て&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;最強&lt;/code&gt;に設定して比較しています。&lt;/p&gt;
-
-&lt;h3 id=&quot;対戦成績&quot;&gt;対戦成績&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;は対戦結果を先手・後手別に記録出来る様にしているの&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;で、そのスクリーンショットを以下に並べます。&lt;br /&gt;
-※画像クリックで拡大表示&lt;/p&gt;
-
-&lt;h4 id=&quot;-豆３つの対戦成績&quot;&gt;* 豆３つの対戦成績&lt;/h4&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_3beans.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/results_3beans.png&quot; alt=&quot;豆３つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆３つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;-豆４つの対戦成績&quot;&gt;* 豆４つの対戦成績&lt;/h4&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_4beans.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/results_4beans.png&quot; alt=&quot;豆４つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆４つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;-豆５つの対戦成績&quot;&gt;* 豆５つの対戦成績&lt;/h4&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_5beans.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/results_5beans.png&quot; alt=&quot;豆５つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆５つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;-豆６つの対戦成績&quot;&gt;* 豆６つの対戦成績&lt;/h4&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_6beans.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/results_6beans.png&quot; alt=&quot;豆６つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆６つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;-豆７つの対戦成績&quot;&gt;* 豆７つの対戦成績&lt;/h4&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/results_7beans.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/results_7beans.png&quot; alt=&quot;豆７つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆７つ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　対戦成績表の見方ですが、&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラナッツ&lt;/a&gt;では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やばい&lt;/code&gt;モード以外では初手をランダムに決めるようにしていて、勝負に拘っていないので、アプリが勝てるのかどうかを判断する場合は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やばい&lt;/code&gt;モード以外は見る必要がありません。勝ちの欄の数字はＡＩ対戦で人間側が勝った数字、つまり比較対象となっているアプリが勝ったということです。また比較するために選んだアプリが初手をランダムに決めているものもあるので、一回だけの対戦ではなく何回か対戦させました。&lt;br /&gt;
-　注目すべきは黄色い丸で囲んだ部分の数字です。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;後手で勝つことが出来るか&lt;/code&gt;です。豆の数が３、４、５、７の時は後手の勝ち星が全て&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;で、比較対象のアプリが後手の場合は、何度やっても&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;に勝てません。&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;が数あるマンカラアプリの中で最強だと主張しているのではなく、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;マンカラカラハというゲームはお互いが最善を尽くせば先手必勝&lt;/code&gt;なのではないか？ということです。負けの欄の数字（比較対象のアプリが負けた数字＝&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;が勝った数字）を見ると、勝ちの欄の数字より大きいので勝率は良い方だと思いますが、先に言ったように比較対象のアプリは初手をランダムに決めている（＝勝負に拘ってない）ものもあるので一概には言えません。マンカラでは初手で悪手を選択するとそれだけで勝てなくなるような気がします。&lt;br /&gt;
-　また豆の数が６の時は先手でも後手でも勝ったり負けたりなので、どちらとも言えませんが双方が最善を尽くしたら引分けなのかもしれません。上の対戦成績結果以外で試していた時も引分けになる頻度が結構高かったです。&lt;br /&gt;
-　&lt;del&gt;豆の数３、４、５、７で後手で自分のアプリに勝てるアプリを見つけた方は是非教えて頂きたいと思います。読みの深さが勝っていれば勝てることもあり得るので、自分のアプリをより深く読むように設定して確認したいと思ってます。&lt;/del&gt;また、単純に読みを深くするだけでなく、機械学習等の別のアルゴリズムを使って別の指し手を導き出すアプリが存在するかも知れないと思ってます。&lt;br /&gt;
-　&lt;del&gt;但し、マンカラカラハと称していてもアプリによっては違うルールになっているものがあるのでその場合は連絡不要です。&lt;/del&gt;自分のアプリは&lt;a href=&quot;https://www.nintendo.co.jp/switch/as7ta/&quot;&gt;Nintendo Switchの世界のアソビ大全51&lt;/a&gt;に収録されているマンカラと同じルールです。&lt;/p&gt;
-
-&lt;h3 id=&quot;結論&quot;&gt;結論&lt;/h3&gt;
-&lt;p&gt;　豆の数１の時と２の時は&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;以前の記事&lt;/a&gt;で結論が出ていると思っているので、以下のように推測します。&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;豆の数&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;１&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;２&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;３&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;４&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;５&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;６&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;７&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;カラハClassic&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;引分け？&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;先手必勝&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;　強さの比較に使用したアプリも&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;自分のアプリ&lt;/a&gt;もおそらく似たような評価関数と、MIN-MAX法及びαβ法を使った先読み探索で指し手を決めていると思うので、この推測が絶対正しいとは言えません。先読みの手数に制限があるからです。&lt;br /&gt;
-　今将棋や囲碁で流行っている機械学習（Deep Learning等）によるＡＩだと違う指し手を選んで全てのマンカラアプリに後手でも勝つなんてことがないとは言い切れませんが、マンカラは将棋や囲碁に較べたら変化の幅が狭いので、将棋や囲碁のように劇的な強さの向上はないでしょう。でも誰か試している人はいないのでしょうか？機械学習を使ったらどうなるか、ちょっと興味あります。&lt;br /&gt;
-　機械学習（強化学習）を使った&lt;a href=&quot;https://play.google.com/store/apps/details?id=tictactoe_evo.io.github.happyclam&quot;&gt;三目並べアプリ&lt;/a&gt;では、結局MIN-MAX法を使ったものと同じ結果（双方が最善を尽くせば常に引分け）になるので、マンカラの場合も結局同じ結果が得られるだけかもしれません。&lt;/p&gt;
-
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;カラハのclassicルールについては&lt;a href=&quot;/software/2020-08-09/mancala_easy&quot;&gt;以前の記事&lt;/a&gt;を見て下さい。 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;先手・後手別の対戦結果を自分が知りたかったのでこの機能を付けました。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Fri, 22 Jan 2021 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/software/2021-01-22/mancala_evaluate02</link>
-        <guid isPermaLink="true">https://happyclam.github.io/software/2021-01-22/mancala_evaluate02</guid>
-        
-        <category>dart</category>
-        
-        <category>android</category>
-        
-        <category>flutter</category>
-        
-        <category>c++</category>
-        
-        <category>mancala</category>
-        
-        
-        <category>software</category>
         
       </item>
     

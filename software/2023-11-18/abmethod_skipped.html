@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="author" content="happyclam">
+  <meta name="description"
+    content="一回休み（パス）があるゲームでのαβ法 オセロやマンカラの連続着手時のノードは無視すればいい Reinventing the wheel.">
+  <title> 一回休み（パス）があるゲームでのαβ法 - 自己満足プログラミング </title>
+
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-1752720-7');
+  </script>
+
+<script async type="application/javascript"
+        src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
+<script>
+  (self.SWG_BASIC = self.SWG_BASIC || []).push( basicSubscriptions => {
+    basicSubscriptions.init({
+      type: "NewsArticle",
+      isPartOfType: ["Product"],
+      isPartOfProductId: "CAow99qlDA:openaccess",
+      clientOptions: { theme: "light", lang: "ja" },
+    });
+  });
+</script>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="一回休み（パス）があるゲームでのαβ法">
+  
+  
+  <meta name="twitter:url" content="/software/2023-11-18/abmethod_skipped">
+  
+  
+  <meta name="twitter:description" content="オセロやマンカラのように連続着手があるゲームでのαβ法">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/mancala_screen2_thumb.png">
+  
+
+  <link rel="canonical" href="https://happyclam.github.io/software/2023-11-18/abmethod_skipped" />
+  <link rel="alternate" type="application/rss+xml" title="自己満足プログラミング" href="/feed.xml" />
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="site-title" class="navbar-brand" href="/">
+          <img class="pull-left img-responsive" src="">
+          <span class="name-holder">自己満足プログラミング</span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li>
+<a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li>
+<a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li>
+<a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li>
+<a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li>
+<a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <!-- <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script> -->
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <div style="text-align: center;">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1238485061299241" crossorigin="anonymous"></script>
+  </div>
+  <div class="blog-header">
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        <button swg-standard-button="contribution"></button>        
+      </div>
+      <div class="span9">
+        <!-- Html Elements for Search -->
+        <div id="search-container" align="right">
+          <input type="text" id="search-input" placeholder="search...">
+          <ul class="searchresult" id="results-container"></ul>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+  <script src="/assets/js/jquery.min.js"></script>
+  </div>
+  <!-- <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script type="text/javascript" src="/assets/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
+
+        <header class="page-header">
+          <h2 class="page-title"><a href="/software/2023-11-18/abmethod_skipped">一回休み（パス）があるゲームでのαβ法</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Saturday, November 18, 2023
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">dart</span>
+                
+                  <span class="label label-tag">flutter</span>
+                
+                  <span class="label label-tag">mancala</span>
+                
+            </div>
+          </div>
+
+        </header>
+
+        <article class="page-content">
+          <h3 id="気になっていたこと">気になっていたこと</h3>
+<p>　以前<a href="/software/2020-06-07/mancala">「マンカラは先手必勝？後手必勝？」</a>という記事の中で、<a href="https://www.amazon.co.jp/HTML5-CoffeeScript%E3%81%A7%E4%BD%9C%E3%82%8B%E6%9C%80%E5%BC%B7%E3%81%AE%E4%B8%89%E7%9B%AE%E4%B8%A6%E3%81%B9%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0-MIN-MAX%E6%B3%95%E3%81%8B%E3%82%89%CE%B1%CE%B2%E6%B3%95%E3%81%B8-happyclam-ebook/dp/B01D1IJ0S0/ref=sr_1_1?s=digital-text&amp;ie=UTF8&amp;qid=1473938717">自分が書いた本（「HTML5+CoffeeScriptで作る最強の三目並べプログラム」）</a>を紹介して、「マンカラは三目並べと違ってパス（一回休み）があるので少しコードを変更する必要がある」と書いたまま詳細は説明してなかったことが気になってたので書くことにしました。本を買って頂いた方にとっては今更な感じはありますが、マンカラの<a href="https://github.com/happyclam/mancala_karah">ソースコード</a>を元に説明しようと思います。</p>
+
+<h3 id="αβ法の実装手順">αβ法の実装手順</h3>
+<p>　当ブログも昔は<code class="language-plaintext highlighter-rouge">αβ法</code>で検索すると<a href="/software/2014-09-16/ab_method">この記事</a>が上位に表示されていたのですが、今は他にもっと丁寧な説明のあるサイトが増えたので<code class="language-plaintext highlighter-rouge">圏外</code>になってるみたいですね<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20">でもαβ法の解説に納得出来てもいざコードを書こうとすると出来ないという意見も見かけます。<a href="https://www.amazon.co.jp/HTML5-CoffeeScript%E3%81%A7%E4%BD%9C%E3%82%8B%E6%9C%80%E5%BC%B7%E3%81%AE%E4%B8%89%E7%9B%AE%E4%B8%A6%E3%81%B9%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0-MIN-MAX%E6%B3%95%E3%81%8B%E3%82%89%CE%B1%CE%B2%E6%B3%95%E3%81%B8-happyclam-ebook/dp/B01D1IJ0S0/ref=sr_1_1?s=digital-text&amp;ie=UTF8&amp;qid=1473938717">この本</a>では３つのソースコードを用意して、この手順でソースを変更していけばαβ法が実装できますよという例を示しましたが、ここでマンカラを例にして簡単におさらいします。<br>
+　まず、前提として先手は大きい値が有利、後手は小さい値が有利（逆でも可）という静的評価関数を用意します。静的評価関数はマンカラの場合なら<code class="language-plaintext highlighter-rouge">(先手のストア内の豆の数 - 後手のストア内の豆の数)</code>になります。<br>
+　その後以下のように局面の先読みを行う関数を実装します。</p>
+
+<ol>
+  <li>１つの階層におけるすべての着手を試して静的評価を行い、先手なら一番大きい後手なら一番小さい評価値を得る着手とその時の評価値を返す関数を作る。</li>
+  <li>1で作った関数をゲームが終了するか指定された手数（読みの深さ）に達することを終了条件とする再帰関数に書き換える
+<code class="language-plaintext highlighter-rouge">-&gt;ミニマックス法完成</code>
+</li>
+  <li>2で作った関数に下層ノードに評価値を渡すための引数（閾値）を追加して、その閾値と現在の階層の評価値を比較して読みを中断（枝刈り、αβカット）してリターンするか、読みを続けるかの条件を書き加える
+<code class="language-plaintext highlighter-rouge">-&gt;αβ法完成</code>
+</li>
+  <li>3で作った関数に先手、後手、先手という風に順番に着手したのか、先手、先手、先手と連続着手したのか区別するための引数を追加して、αβカットをしている部分に連続着手した場合はαβカットをしないように条件を書き加える</li>
+</ol>
+
+<p>　この4.の作業をすれば、<strong>一回休み（パス）があるゲームでのαβ法が完成します</strong>。要は先手か後手が連続着手した場合は何回連続であってもすべて無視して一回の着手と考えて、その最後の一回の評価値と閾値を比較してαβカットを行うようにすればいいだけです。</p>
+
+<h3 id="実際のコード">実際のコード</h3>
+<p>　<a href="https://github.com/happyclam/mancala_karah">githubのレポジトリ内のソースコード</a>は<a href="/software/2020-06-07/mancala">以前の記事</a>で使ったコードと大体同じなのですが、<a href="/software/2020-06-07/mancala">以前の記事</a>では先手必勝か後手必勝かを確認するためのものだったので、そのままでは先手あるいは後手の負けが確定したときに最善手を逃します。「勝ちあるいは負けが確定した時点で最善かどうかに拘らず読みを打ち切ってReturn」するようになってました。<br>
+　でも、<a href="https://github.com/happyclam/mancala_karah">ここで解説するコード</a>は、<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">実際のアプリ（マンカラナッツ）</a>で使ってるコードと同じで負けが確定しても最善で負けるようになってます。<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">マンカラナッツ</a>では<code class="language-plaintext highlighter-rouge">C++</code>で作成していますがそれの<code class="language-plaintext highlighter-rouge">Dart</code>版です。</p>
+
+<p>　マンカラのゲーム盤は<code class="language-plaintext highlighter-rouge">board</code>変数で表され、14要素の固定長配列になってます。</p>
+
+<div style="float:left; margin: 0px 0px 0px">
+    <table>
+    <tr>
+    <td rowspan="2" align="center">
+<br>後手のストア<br> 0</td>
+    <td align="center"> 13 </td>
+    <td align="center"> 12 </td>
+    <td align="center"> 11 </td>
+    <td align="center"> 10  </td>
+    <td align="center">  9 </td>
+    <td align="center">  8 </td>
+    <td rowspan="2" align="center">
+<br>先手のストア<br> 7</td>
+    </tr>
+    <tr>
+    <td align="center">  1 </td>
+    <td align="center">  2 </td>
+    <td align="center">  3 </td>
+    <td align="center">  4 </td>
+    <td align="center">  5 </td>
+    <td align="center">  6 </td>
+    </tr>
+    </table>
+</div>
+<p><br clear="all"></p>
+
+<p>　マンカラのルールを実装している部分は省略して先読みを行うAI部分だけ、行番号を付けて解説します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>01---  List think(List board, Player oppo, int limit, int pre_value, bool pre_turn){
+02---    List result =  List&lt;int&gt;.filled(2, 0, growable: false);
+03---    int moved = 0;
+04---    int score = 0;
+05---    int ret = 0;
+06---    int lastscore = (this.turn == FIRST) ? SECOND_WIN : FIRST_WIN;
+07---    int lastposi = -1;
+08---    var goal = (this.turn == FIRST) ? FIRST_GOAL : DENTS;
+09---    var start = (this.turn == FIRST) ? FIRST_START : SECOND_START;
+
+10---    List temp = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+11---    for (var i = start; i &lt; goal; i++){
+12---      temp = List.from(board);
+13---      if (temp[i] == 0) continue;
+14---      moved = karahaMove(temp, i, this.turn);
+15---      ret = gameEnd(temp);
+16---      if (ret == ONGAME &amp;&amp; limit &gt; 0){
+17---        if (moved == FIRST_GOAL || moved == SECOND_GOAL){
+18---          result = this.think(temp, oppo, limit - 1, lastscore, false);
+19---        } else {
+20---          result = oppo.think(temp, this, limit - 1, lastscore, true);
+21---        }
+22---        score = result[0];
+23---      } else {
+24---        score = evaluate(temp);
+25---        lastscore = score;
+26---        lastposi = i;
+27---        break;
+28---      }
+29---      if ((score &gt;= lastscore &amp;&amp; this.turn == FIRST) || (score &lt;= lastscore &amp;&amp; this.turn == SECOND)){
+30---        lastscore = score;
+31---        lastposi = i;
+32---      }
+33---      if (pre_turn == true &amp;&amp; ((pre_value &lt; score &amp;&amp; this.turn == FIRST) || (pre_value &gt; score &amp;&amp; this.turn == SECOND))) {
+34---        break;
+35---      }
+36---    }
+37---    result[0] = lastscore;
+38---    result[1] = lastposi;
+39---    return result;
+40---  }
+
+</code></pre></div></div>
+
+<ul>
+  <li>01: <code class="language-plaintext highlighter-rouge">戻り値</code>:[評価値, 着手]の2要素の配列<br>
+    <code class="language-plaintext highlighter-rouge">board</code>:マンカラのBoardオブジェクト＝要素数14の固定長配列です<br>
+    <code class="language-plaintext highlighter-rouge">oppo</code>:対戦相手のPlayerオブジェクト<br>
+    <code class="language-plaintext highlighter-rouge">limit</code>:何手先まで読むのか（読みの深さ）の制限値、0になれば先読みを止める<br>
+    <code class="language-plaintext highlighter-rouge">pre_value</code>:αβカットの閾値（下層ノードに伝える評価値）<br>
+    <code class="language-plaintext highlighter-rouge">pre_turn</code>:連続着手か交互の着手かのフラグ（Falseなら連続着手なのでαβカットは行わない）</li>
+  <li>02: <code class="language-plaintext highlighter-rouge">result</code>:戻り値<code class="language-plaintext highlighter-rouge">[評価値, 着手]</code>の2要素の配列</li>
+  <li>03: <code class="language-plaintext highlighter-rouge">moved</code>:着手後に最後に豆を巻き終わった位置、自分のストアで豆を巻き終わったら連続で着手可能</li>
+  <li>04: <code class="language-plaintext highlighter-rouge">score</code>:同じ階層での一手毎の評価値を格納</li>
+  <li>05: <code class="language-plaintext highlighter-rouge">ret</code>:ゲーム継続中（<code class="language-plaintext highlighter-rouge">ONGAME</code>）かどうかを格納</li>
+  <li>06: <code class="language-plaintext highlighter-rouge">lastscore</code>:最終的な評価値を格納。最初の比較時に必ず値が代入されるように先手の時は最小値、後手の時は最大値で初期化しておく</li>
+  <li>07: <code class="language-plaintext highlighter-rouge">lastposi</code>:最終的に選ばれた着手を格納</li>
+  <li>08: <code class="language-plaintext highlighter-rouge">goal</code>:Board配列の添字。先手、後手、それぞれの着手の末端。先手なら6、後手なら13</li>
+  <li>09: <code class="language-plaintext highlighter-rouge">start</code>:Board配列の添字。先手、後手、それぞれの着手開始位置。先手なら1、後手なら8</li>
+  <li>10: マンカラの場合一度着手した盤面を元に戻す作業が煩雑なので、引数で渡された盤面データ（<code class="language-plaintext highlighter-rouge">board</code>）を元に戻すための作業用の配列を用意</li>
+  <li>11: 同じ階層で最善手を選択するためのforループ。このfor文は横（同じ手番）との比較で、再帰呼出しは上下（先手と後手）の評価値の比較、階層間の比較になります。</li>
+  <li>12: 作業用配列に盤面データをコピー</li>
+  <li>13: 穴に豆がなければ次の穴へ</li>
+  <li>14: 一手着手</li>
+  <li>15: ゲームが終了していないか確認</li>
+  <li>16: 再帰関数の終了条件を満たしていなければ（＝ゲームが終了していなくて、<code class="language-plaintext highlighter-rouge">limit</code>で指定された深さまで達していなければ）、再帰呼出しして先読み。<br>
+    この時引数の<code class="language-plaintext highlighter-rouge">pre_value</code>には、現時点でのその階層での最善手（<code class="language-plaintext highlighter-rouge">lastscore</code>、先手なら最大評価値、後手なら最小評価値）を渡す。</li>
+  <li>18: 自分のストアで豆を巻き終われば、手番を替えずにもう一手先読み。<code class="language-plaintext highlighter-rouge">pre_turn</code>引数に<code class="language-plaintext highlighter-rouge">false</code>を渡して、手番が変わっていないことを下層ノードに伝える。</li>
+  <li>20: それ以外は手番を交代してもう一手先読み。<code class="language-plaintext highlighter-rouge">pre_turn</code>引数に<code class="language-plaintext highlighter-rouge">true</code>を渡して、手番が変わったことを下層ノードに伝える。</li>
+  <li>22: 戻ってきた評価値を格納、同じ階層での評価値の比較に使う。</li>
+  <li>24: 再帰関数の終了条件を満たしていれば（＝ゲームが終了したか、指定された深さまで読み終わったら）静的評価を行って呼び出し元にリターン</li>
+  <li>27: 戻り値（<code class="language-plaintext highlighter-rouge">result</code>）に値をセットしてリターンするのと同じ</li>
+  <li>29: 同じ階層での評価値の比較作業。先手の場合はより大きな評価値、後手の場合はより小さな評価値を選択し、その評価値と指し手を保存。</li>
+  <li>33: 連続着手ではない時（<code class="language-plaintext highlighter-rouge">pre_turn == true</code>）だけαβカット。上層から引数で渡されてきた閾値（<code class="language-plaintext highlighter-rouge">pre_value</code>）と現局面の評価値を比較し、先手の場合は閾値（<code class="language-plaintext highlighter-rouge">pre_value</code>）より大きな評価値だった時、後手の場合は閾値（<code class="language-plaintext highlighter-rouge">pre_value</code>）より小さな評価値だった時に読みを中断（その先を読む必要がない）して呼び出し元にリターン</li>
+</ul>
+
+<p>　大して長くもないのでソースコードを追いかけていって、何をしているのかわからない部分は、解説を見るという感じで理解できるのではないでしょうか？</p>
+
+<h3 id="αβ法の確認">αβ法の確認</h3>
+<p>　実装したαβ法がうまく機能しているかどうか確認するのに一番簡単な方法は、αβ法を実装している部分をコメントアウトしてみて実装した場合と同じ出力が得られるかどうかです。計算量を削減するのがαβ法なので、ただのミニマックス法で実行した時と同じ結果が得られて尚且つ実行時間が大幅に短縮されるはずです。<br>
+　上のコードで33行目から35行目までをコメントアウトして<code class="language-plaintext highlighter-rouge">dart mancala.dart</code>を実行したところ出力結果は同じで、実行時間は２０分と４時間弱の違いがありました。</p>
+
+<h5 id="αβ法無し">αβ法無し</h5>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dart mancala.dart
+[0, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2]
+=== result = 1, 6, i = 1
+=== result = 4, 5, i = 2
+=== result = 3, 5, i = 3
+=== result = 2, 5, i = 4
+=== result = 4, 5, i = 5
+=== result = 5, 5, i = 6
+=== result = 4, 5, i = 7
+=== result = 5, 5, i = 8
+=== result = 5, 5, i = 9
+=== result = 4, 5, i = 10
+=== result = 5, 6, i = 11
+=== result = 5, 6, i = 12
+=== result = 5, 5, i = 13
+=== result = 5, 5, i = 14
+=== result = 7, 5, i = 15
+=== result = 12, 5, i = 16
+=== result = 999, 5, i = 17
+14208572
+[999, 5]
+</code></pre></div></div>
+<h5 id="αβ法有り">αβ法有り</h5>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dart mancala.dart
+[0, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2]
+=== result = 1, 6, i = 1
+=== result = 4, 5, i = 2
+=== result = 3, 5, i = 3
+=== result = 2, 5, i = 4
+=== result = 4, 5, i = 5
+=== result = 5, 5, i = 6
+=== result = 4, 5, i = 7
+=== result = 5, 5, i = 8
+=== result = 5, 5, i = 9
+=== result = 4, 5, i = 10
+=== result = 5, 6, i = 11
+=== result = 5, 6, i = 12
+=== result = 5, 5, i = 13
+=== result = 5, 5, i = 14
+=== result = 7, 5, i = 15
+=== result = 12, 5, i = 16
+=== result = 999, 5, i = 17
+1276771
+[999, 5]
+</code></pre></div></div>
+
+<h3 id="先手必勝か後手必勝かだけを確認したい場合">先手必勝か後手必勝かだけを確認したい場合</h3>
+<p>　前述しましたが、最善手に拘らずに先手必勝なのか、後手必勝なのかだけを調べたい場合は、同じ階層での評価値の比較の際に、１個差の負けでも大差の負けでも同じと考えて、先手勝ちあるいは後手勝ちの結論が出た段階ですぐに呼び出し元にReturnすればいいだけです。例えば以下のコードを32行目と33行目の間に入れれば、<strong>指定された読みの深さ内で</strong>先手勝ちあるいは後手勝ちの結論が出たことになるので、そこで探索を打ち切り呼び出し元にリターンすれば探索時間を大幅に短縮できます。<br>
+　ただこの時に使用する静的評価関数は単に<code class="language-plaintext highlighter-rouge">(先手のストア内の豆の数 - 後手のストア内の豆の数)</code>とするだけではなく、ゲームが終了しているかどうかを確認して先手勝ち（<code class="language-plaintext highlighter-rouge">FIRST_WIN</code>）、後手勝ち（<code class="language-plaintext highlighter-rouge">SECOND_WIN</code>）の特別な値を返すようにしておく必要があります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      if ((score &gt;= FIRST_WIN &amp;&amp; this.turn == FIRST)||(score &lt;= SECOND_WIN &amp;&amp; this.turn == SECOND)) {
+        lastscore = score;
+        lastposi = i;
+        break;
+      }
+</code></pre></div></div>
+<p>　上記のコードを追加した後、豆２個のケースで試したら、自分の環境では約半分近くの時間で先手必勝を読み切れました。</p>
+
+<hr>
+
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <small>© rifyll theme, 2014</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+</body>
+
+</html>
