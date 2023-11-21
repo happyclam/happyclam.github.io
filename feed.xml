@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 18 Nov 2023 09:30:16 +0900</pubDate>
-    <lastBuildDate>Sat, 18 Nov 2023 09:30:16 +0900</lastBuildDate>
+    <pubDate>Tue, 21 Nov 2023 17:48:11 +0900</pubDate>
+    <lastBuildDate>Tue, 21 Nov 2023 17:48:11 +0900</lastBuildDate>
     <generator>Jekyll v3.9.2</generator>
     
       <item>
@@ -223,7 +223,13 @@
     
       <item>
         <title>カラハ問題、根強い人気？</title>
-        <description>&lt;h3 id=&quot;ブログ内トップの関心事&quot;&gt;ブログ内トップの関心事&lt;/h3&gt;
+        <description>&lt;h3 id=&quot;先手必勝aiと自作aiとのマンカラ対戦&quot;&gt;先手必勝AIと自作AIとのマンカラ対戦&lt;/h3&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+  &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/ovR4V5R6Lt0?si=fhltwApvJmgzRyKO&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;ブログ内トップの関心事&quot;&gt;ブログ内トップの関心事&lt;/h3&gt;
 &lt;p&gt;　以前&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;「マンカラは先手必勝？後手必勝？」&lt;/a&gt;という記事を書いてからは、当ブログに流入してくる検索ワードはずっとマンカラに関するものが一番多いです。「マンカラ 完全解析」とか「マンカラ 先手必勝」とかで検索すると未だに&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;前述の記事&lt;/a&gt;が検索上位に表示されます。&lt;br /&gt;
 　ブログもアプリも永らく放置していたのですが、googleに&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;の更新を催促されたのを機会に、久しぶりにマンカラに関して試したことを記事に書いてみようと思います。&lt;/p&gt;
 
@@ -275,17 +281,14 @@
   &lt;p&gt;&lt;a href=&quot;/images/6x6karah_game02.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/6x6karah_game02.png&quot; alt=&quot;先手必勝AIの設定&quot; width=&quot;480&quot; height=&quot;92&quot; title=&quot;先手必勝AIの設定&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;　
-　次に、&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;では最強に設定しても１１手読みなので１５手読みに設定してPCで試してみました。&lt;/p&gt;
+　次に、&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ&lt;/a&gt;では最強に設定しても１１手読みなので１５手読みに設定してPCで試してみたのが冒頭の動画です。&lt;/p&gt;
 
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/ovR4V5R6Lt0?si=fhltwApvJmgzRyKO&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
 &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
   &lt;p&gt;&lt;a href=&quot;/images/6x6karah_game03.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/6x6karah_game03.png&quot; alt=&quot;対先手必勝ゲーム-15手読み&quot; width=&quot;480&quot; height=&quot;230&quot; title=&quot;対先手必勝AI-15手読み&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;　ですよねぇ:sweat_smile:１５手読みにするとRyzen7 5700Gでも一手５分ぐらい掛かるのですが、それでもやはり勝てません。&lt;br /&gt;
-　&lt;a href=&quot;http://kalaha.krus.dk/&quot;&gt;このWebゲーム&lt;/a&gt;は豆６個しか試せないようですが、&lt;a href=&quot;https://en.wikipedia.org/wiki/Kalah&quot;&gt;Wikipedia&lt;/a&gt;に書いてある通り３個、４個、５個でもすべて先手必勝は間違いなさそうですね。&lt;/p&gt;
+&lt;p&gt;　１５手読みにするとRyzen7 5700Gでも一手５分ぐらい掛かるのですが、それでもやはり勝てません。あと一個で引き分けという惜敗ですが、試しに自分の頭で考えてやってみるとゲームの最後までプレイ出来ずに途中で大差で負けます:sweat_smile:&lt;br /&gt;
+&lt;a href=&quot;http://kalaha.krus.dk/&quot;&gt;このWebゲーム&lt;/a&gt;は豆６個しか試せないようですが、&lt;a href=&quot;https://en.wikipedia.org/wiki/Kalah&quot;&gt;Wikipedia&lt;/a&gt;に書いてある通り３個、４個、５個でもすべて先手必勝は間違いなさそうですね。&lt;/p&gt;
 
 &lt;h3 id=&quot;追記2023-11-10&quot;&gt;追記（2023-11-10）&lt;/h3&gt;
 &lt;p&gt;　ノード数を数える時に手番データを含めて重複局面を保存しないようにしていたのですが、手番データを含めずにノード数をカウントしたところ、豆２個でもカウント完了出来ました。先手番の局面か後手番の局面かを気にせずに豆の配置の違いだけを数えれば大幅にノード数は減りますが、データとしては使いにくいのであまり意味はありませんけど一応記しておきます。&lt;/p&gt;
