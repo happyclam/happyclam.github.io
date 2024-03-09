@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "固定ギア（ピスト）に乗ってみたい",
+      "category" : "miscellaneous",
+      "tags"     : "bicycle",
+      "url"      : "/miscellaneous/2024-03-10/stroll01",
+      "date"     : "2024-03-10 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "一回休み（パス）があるゲームでのαβ法",
       "category" : "software",
       "tags"     : "dart, flutter, mancala",

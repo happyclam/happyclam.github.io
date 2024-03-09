@@ -5,9 +5,83 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 12 Dec 2023 10:17:23 +0900</pubDate>
-    <lastBuildDate>Tue, 12 Dec 2023 10:17:23 +0900</lastBuildDate>
-    <generator>Jekyll v3.9.3</generator>
+    <pubDate>Sat, 09 Mar 2024 17:19:31 +0900</pubDate>
+    <lastBuildDate>Sat, 09 Mar 2024 17:19:31 +0900</lastBuildDate>
+    <generator>Jekyll v3.9.4</generator>
+    
+      <item>
+        <title>固定ギア（ピスト）に乗ってみたい</title>
+        <description>&lt;h3 id=&quot;買い物用ママチャリの代替車&quot;&gt;買い物用ママチャリの代替車&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/miscellaneous/2021-12-05/minivelo&quot;&gt;以前の記事&lt;/a&gt;でクロスバイクを買うつもりだと書きましたが、「IDIOM2で登れない坂」の件は、結局スプロケットを交換（12-25Tから11-32Tに交換）することで解決したので新しい自転車の購買欲は失せていました。&lt;br /&gt;
+　でも今度は、現在買い物に使っているママチャリ（ブリジストンのマークローザ）が変速機が壊れたまま数年使っていて、そろそろ代替車を買おうかと考えているうちに変速機使ってないのならシングルギアでいいじゃないか？となり、シングルギアなら一度固定ギア（ピスト）を試してみるのもいいかも？となり、youtubeでピストの動画を見ていたらピストに乗りたくなってきたので買うことにしました。&lt;/p&gt;
+
+&lt;h3 id=&quot;自転車買うときはサイズが大事&quot;&gt;自転車買うときはサイズが大事&lt;/h3&gt;
+&lt;p&gt;　今使っているマークローザは15年前に買ったもので年式によって違うのですが、フレームサイズが確か450mmのものです。スレッドステムを交換してハンドルを下げてカスタムしているのですが、最近まで乗っていた470mmのロードバイクよりサイズ的には楽で自分に合ってるなぁと感じていました。ピストを買うと決めても何を買うかとなったときに、自分の場合は小さなフレームサイズが用意されている車種に限定されます。&lt;br /&gt;
+　最初は今のママチャリと同じ26インチタイヤで尚且つホリゾンタルフレームの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TOKYOBIKEのMONO&lt;/code&gt;が候補になったのですが、実物を見てみると細くて小さなフレームで26インチだとなんだか子ども用の自転車に見えるんですよねぇ。700Cの自転車にすれば今持っているタイヤチューブのストックも流用出来るし26インチと違ってタイヤの種類も色々選べるので、ホリゾンタルフレームには惹かれるものの思い直して700Cのバイクから候補を探すことにしました。&lt;br /&gt;
+　次に見つけた候補&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CinelliのTutto&lt;/code&gt;は小さいサイズがありませんし、460mmサイズがある&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;All CityのBig Block&lt;/code&gt;もいいなぁと思ったのですが、固定ギアを試してみたい、買い物用に使いたいというだけの自分にはどちらも値段が高過ぎて買う気になれません。いずれリアキャリアを付けるつもりなのでフレームにダボ穴があることも条件です。ということで430mmサイズがある&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FujiのStroll&lt;/code&gt;に行き着きました。470mmのロードバイクが少し大きいと感じて、450mmで26インチタイヤのマークローザが楽だと感じていた自分には丁度いいサイズかなぁと思ってます。&lt;br /&gt;
+　聞いた話では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;股下長 - 250mm = シートポスト長(CC)&lt;/code&gt;になるフレームサイズがちょうど良いらしいです。自分の場合430mmのStorollだと若干小さめとなりますが、少し小さめのフレームの方が乗りやすいとも聞きます。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/stroll_2023.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stroll_2023.png&quot; alt=&quot;STROLL 2023&quot; width=&quot;320&quot; height=&quot;240&quot; title=&quot;Stroll 2023&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h3 id=&quot;fuji-strollはフリップフロップハブ&quot;&gt;Fuji Strollはフリップフロップハブ&lt;/h3&gt;
+&lt;p&gt;　上に挙げた候補の車種は全てフリップフロップというハブが採用されていて、２種類のコグを取り付けて後輪を外して向きをひっくり返して取り付ければ固定ギアとフリーギアを切り替えるなんて使い方が出来ます。自転車のカスタムをいろいろやりましたが、フリーギアしか触ったことがない自分はそういうハブが存在することも知りませんでした。自転車は奥が深いですねぇ、固定ギアとフリーギアを簡単に切り替えられると知ったことも固定ギアを試してみようと思った動機の一つです。固定ギアの自転車を買ってみて自分には合わないと感じた場合に、すぐに今まで使っていた自転車と同じフリーギアに戻せる点は購入の動機になりますよねぇ。FujiのStrollはデフォルトではフリーギアしか付いていませんが、このフリップフロップハブが採用されていることが購入の決め手になりました。あとは3000円程度の固定ギア（コグ）を購入するだけで済みます。&lt;/p&gt;
+
+&lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
+&lt;div style=&quot;float:left; margin: 0px 0px 0px&quot;&gt;
+&lt;a href=&quot;/images/rench.png&quot;&gt;&lt;img width=&quot;120&quot; height=&quot;160&quot; src=&quot;https://happyclam.github.io/images/rench.png&quot; alt=&quot;15mmBox レンチ&quot; title=&quot;15mm Boxレンチ&quot; /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div style=&quot;float:left; margin: 0px 5px 0px&quot;&gt;
+&lt;a href=&quot;/images/free_gear.png&quot;&gt;&lt;img width=&quot;120&quot; height=&quot;160&quot; src=&quot;https://happyclam.github.io/images/free_gear.png&quot; alt=&quot;フリーギア 16T&quot; title=&quot;フリーギア 16T&quot; /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;a href=&quot;/images/fixed_gear.png&quot;&gt;&lt;img width=&quot;120&quot; height=&quot;160&quot; src=&quot;https://happyclam.github.io/images/fixed_gear.png&quot; alt=&quot;固定ギア 17T&quot; title=&quot;固定ギア 17T&quot; /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br clear=&quot;left&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;初乗車でいきなりピストの洗礼を受ける&quot;&gt;初乗車でいきなりピストの洗礼を受ける&lt;/h3&gt;
+&lt;p&gt;　とりあえず購入時のフリーギアで河川敷まで行ってから固定ギアに切り替えて練習することにしました。固定ギアで走り出して特に問題は無さそうだなと、たぶん20Km/hぐらいスピード出していたと思いますが、止まろうとしたら右前方に投げ出される感じで転倒してしまいました:sweat_smile:&lt;br /&gt;
+　何が起こったか分からないって感じでしたが、止まるために軽くブレーキを握って足の回転を止めたのでしょう、足を止めてもペダルは動き続けるので止めた足をペダルが持ち上げて前方にぶっ飛んだ感じです。どこで打撲したのか分からないのですが、グローブをしていたのに軽く手を擦りむいてハンドルも曲がってしまいました。ブレーキ掛けてもすぐに足の回転を止めてはいけません。頭では分かっていたつもりなんですが…。&lt;br /&gt;
+　前輪を両足に挟んでハンドルの曲がりを直していると、通りがかった見知らぬおばちゃんが「大丈夫？」と声を掛けてきました、転倒現場を見られていたようです。「大丈夫です」と笑って答えておきましたが、固定ギアの自転車に乗ってるなんて想像もしてないであろうおばちゃんには「なんてドン臭い人だろう」と思われたことでしょう:sweat_smile:でも、車道で試さなくてよかったと思うとともに、今は転倒シーンを動画に残しておきたかったなぁなんて思ってます（自分が見たい）。みなさんもピスト初めて乗るときは車道は避けましょう。そして停車の感覚が身に付くまではスピードを出さないことですね。&lt;/p&gt;
+
+&lt;h3 id=&quot;徐々に分かってきた&quot;&gt;徐々に分かってきた&lt;/h3&gt;
+&lt;p&gt;　その後一時間ぐらい慎重に乗りながら、上り坂や下り坂を試してみたり&lt;strong&gt;クロス降り（左足をペダルに置いたまま左ペダルが上昇するタイミングで右足でフレームを跨いで降車）&lt;/strong&gt;と言われる降り方を練習してました。Youtubeで見たときは&lt;strong&gt;クロス降り&lt;/strong&gt;なんてすぐ出来ると思っていたのですが練習が必要でした。&lt;strong&gt;スキッド(後輪をスライドさせてブレーキング)&lt;/strong&gt;も最初は全く出来る気がしませんでしたが、ブレーキを使えばそれっぽいことが出来ると分かってきました。街なかでノーブレーキピストなんて言うものが存在するのだからブレーキは使わないものだと思っていたのですが、ペダルが足を持ち上げる力が予想以上に強くてとてもブレーキ無しではペダルを後方に踏むなんて自分には無理な気がしました。前輪ブレーキを使って減速すると同時にペダルを後方に踏んで後輪をズッズッーっと短く滑らせることは何回か出来ましたが、ブレーキを使っていては&lt;strong&gt;スキッド&lt;/strong&gt;とは言えないでしょうね:sweat_smile:もう少し固定ギアに慣れてペダルにストラップを付けて前足でペダルを持ち上げる動作も加えれば可能なのかもしれませんが、ビンディングとかストラップって、何か危ない気がするんですよねぇ。転倒した時も、もし足をペダルに固定していたら骨折してたかもしれないと思うと、怖いのでとりあえず今のところはストラップは使わないつもりです。でも使うとしたらトゥークリップやビンディングではなくストラップにしようと思ってます、一番簡単に足が抜けそうですし。&lt;/p&gt;
+
+&lt;h3 id=&quot;ピストバイクは休めない&quot;&gt;ピストバイクは休めない&lt;/h3&gt;
+&lt;p&gt;　とりあえず&lt;strong&gt;クロス降り&lt;/strong&gt;が出来るようになったので満足して帰ることにしました。&lt;strong&gt;クロス降り&lt;/strong&gt;気に入りました。ただ自転車を降りるというだけの動作なのに、フリーギアとは違った難しさや面白さがあります。私もそうですが、ピストバイク乗る人は実用性よりも、こういう難しさを克服したときの達成感とか未知なものへの好奇心・探究心を満たすことを優先しているのではないでしょうか？&lt;br /&gt;
+　帰路につく時にフリーギアに戻すかどうか迷いましたが、フリーギアに戻してそれに慣れてしまうと次固定ギアにした時に今回の二の舞になるかもしれないし、フリーギアに戻すと一回固定ギアを体験しただけで音を上げてピストを諦めてしまうような感じでなんだか悔しい気がしたので、しばらく固定ギアに慣れるためにそのまま固定ギアで帰路につきました。この「出来ないと悔しい」と言う感じ、プログラミングに通じるものがあると思います。&lt;br /&gt;
+　家までの道中なにが辛かったかといえばピストバイクは一瞬たりとも休めないってことです。フリーギアなら足が疲れたと感じたときや、おしりが少し痛いと感じた時に漕ぐのを止めてペダルの上で立ち上がりサドルからおしりを離して惰性で進むことがあると思いますが、それが出来ないのが一番つらかったです。常にペダルを回していなければならず、おしりをサドルから離したければ立ち漕ぎを強いられ汗で密着したパンツを摘んでシワを直そうと思ったら片手離して立ち漕ぎを継続しなければなりません（そんなの無理）。河川敷から家までわずか数キロなのに２回自転車を降りて歩いて休憩しました。よく100キロ以上のロングライドに出かけてた自分にとっては、数キロで休憩なんて考えられないことです。ピストはやはり短距離競技用だなぁと痛感しました。競輪選手が乗っている自転車ですからねぇ。&lt;br /&gt;
+　買い物・街乗りに使うだけなら短距離用で問題ないので、とりあえずもう少し固定ギアで様子を見ようと思ってます。また進展があれば記事を書こうと思います。&lt;/p&gt;
+
+&lt;h3 id=&quot;ピストでおならは出来ない&quot;&gt;ピストでおならは出来ない？&lt;/h3&gt;
+&lt;p&gt;　あと、「ピストバイク乗っているとおならは出来ない」と聞いたことがあります。googleで検索しても回答は得られなかったのですが、Twitterで検索すると何人かが「ピストでおならをするのは難しい」とか「おならしたら転けそうになった」という呟きを見かけたので、そういうことなんでしょう。出来ないってことはないみたいですね。&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+</description>
+        <pubDate>Sun, 10 Mar 2024 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/miscellaneous/2024-03-10/stroll01</link>
+        <guid isPermaLink="true">https://happyclam.github.io/miscellaneous/2024-03-10/stroll01</guid>
+        
+        <category>bicycle</category>
+        
+        
+        <category>miscellaneous</category>
+        
+      </item>
     
       <item>
         <title>一回休み（パス）があるゲームでのαβ法</title>
@@ -203,6 +277,15 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;　上記のコードを追加した後、豆２個のケースで試したら、自分の環境では約半分近くの時間で先手必勝を読み切れました。&lt;/p&gt;
 
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
+
 &lt;hr /&gt;
 
 </description>
@@ -299,6 +382,15 @@
 &lt;/ul&gt;
 
 &lt;p&gt;　豆の配置は同じだけど手番が違う局面というのがかなり存在するということみたいです。&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
 
 &lt;hr /&gt;
 
@@ -1726,161 +1818,6 @@ Add-on:                postgresql-opaque-46906
         
         
         <category>programming</category>
-        
-      </item>
-    
-      <item>
-        <title>ページエクスペリエンス向上</title>
-        <description>&lt;h3 id=&quot;特に対策していなかったコンテンツの表示速度&quot;&gt;特に対策していなかったコンテンツの表示速度&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;https://ring-and-link.co.jp/dream2000/user/notice/seo/4817&quot;&gt;この記事&lt;/a&gt;によると2021年5月からgoogleの検索ランキングに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ページエクスペリエンス&lt;/code&gt;という指標が導入されたようです。自分のサイトはJekyll製の静的サイトなので今までは表示速度については特に対策はしていませんでしたが、自分のサイトも以下のように５月５日を境に多くのページが「改善が必要なURL」としてGoogle様から指摘されるようになりました。&lt;/p&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/google_ux.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/google_ux.png&quot; alt=&quot;ウェブに関する主な指標&quot; width=&quot;480&quot; height=&quot;359&quot; title=&quot;ウェブに関する主な指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/google_experience.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/google_experience.png&quot; alt=&quot;モバイルでのページエクスペリエンス&quot; width=&quot;480&quot; height=&quot;614&quot; title=&quot;モバイルでのページエクスペリエンス&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/google_signal.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/google_signal.png&quot; alt=&quot;モバイルでの指標&quot; width=&quot;480&quot; height=&quot;416&quot; title=&quot;モバイルでの指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;　
-&lt;span id=&quot;back&quot;&gt;&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;　今までもいろいろgoogle様からの指摘に対応してきました。「テキストが小さすぎて読めません」、「クリック可能な要素同士が近すぎます」、「コンテンツの幅が画面の幅を超えています」などなど、その度にCSSを弄って対策を施してきました。そして、４月まではSearch Console&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;内で&lt;strong&gt;「サイトに優れたページ エクスペリエンスの URL が 100% 件あります」&lt;/strong&gt;と表示されていて気分を良くしていました。でも、５月になって急に上の画像のように表示が変わって、「またか」って感じです。どこまでもgoogle様に振り回される状況は変わらないようです:weary:&lt;br /&gt;
-　でも、今までから気にはなっていたことがあったので、コンテンツ表示速度改善に取り組んでみました。&lt;br /&gt;
-　あと、問題があるのはモバイルユーザビリティであって、今のところPC環境では特に問題は無さそうです。&lt;/p&gt;
-
-&lt;h3 id=&quot;今までから気になっていたこと&quot;&gt;今までから気になっていたこと&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;http://jekyllbootstrap.com/&quot;&gt;Jekyll Bootstrap&lt;/a&gt;の多機能なテーマを使用していること&lt;br /&gt;
-&lt;a href=&quot;http://jekyllbootstrap.com/&quot;&gt;ここにあるJekyllBootstrap&lt;/a&gt;のテンプレートを使えば、サイトのテーマ（Theme,テンプレート）を簡単に差し替えることが出来るようになっていて、機能も豊富でコメント機能も付いていたりしますが、自分のサイトでは今までコメントをしてくれた人はいませんので無駄な機能でした。&lt;br /&gt;
-　また、テーマを差し替えることが出来ると言っても気に入ったものがなく、結局今まで一度もテーマを変更することはありませんでした。現在は&lt;a href=&quot;https://github.com/jekyllbootstrap&quot;&gt;テーマの種類&lt;/a&gt;も追加・更新はされていないようです。&lt;/li&gt;
-  &lt;li&gt;大き目の画像を使用していること&lt;br /&gt;
-ほとんどの記事で画像を使う時は、小さく表示してクリックすると原寸表示（拡大表示）出来るような作りにしているので元々の画像サイズが大き目であることが気にはなっていました。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;　ということで、1.に関してはJekyllのテンプレートをもっと軽いものに変更、2.に関してはimgタグを使う時はサイズ指定するように変更してみました。&lt;/p&gt;
-
-&lt;h3 id=&quot;修正前のpagespeed-insightsの結果&quot;&gt;修正前の&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/?hl=ja&quot;&gt;PageSpeed Insights&lt;/a&gt;の結果&lt;/h3&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/pagespeed01.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/pagespeed01.png&quot; alt=&quot;修正前の測定結果&quot; width=&quot;480&quot; height=&quot;296&quot; title=&quot;修正前の測定結果&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;２５&lt;/code&gt;というのは結構酷い状態かも知れません。&lt;/p&gt;
-
-&lt;h3 id=&quot;imgタグにサイズ指定&quot;&gt;imgタグにサイズ指定&lt;/h3&gt;
-&lt;p&gt;　今までこう書いていたのを&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;img src=&quot;https://happyclam.github.io/images/results_3beans.png&quot; alt=&quot;豆３つ&quot; title=&quot;豆３つ&quot; /&amp;gt;&lt;/code&gt;&lt;br /&gt;
-　このようにサイズの記述を追加しただけです。&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;img src=&quot;https://happyclam.github.io/images/results_3beans.png&quot; alt=&quot;豆３つ&quot; width=&quot;480&quot; height=&quot;270&quot; title=&quot;豆３つ&quot; /&amp;gt;&lt;/code&gt;&lt;/p&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/pagespeed02.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/pagespeed02.png&quot; alt=&quot;imgタグにサイズ指定&quot; width=&quot;480&quot; height=&quot;306&quot; title=&quot;imgタグにサイズ指定&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　画像の実際の表示サイズは親要素で拡大・縮小表示するケースが多いと思いますが、imgタグで画像を読み込む時に縦横比をブラウザに教えてあげることが大事らしいです。対策した結果、若干改善しました。対象の記事はスクショを撮り忘れて、上の画像のURLは画像を使っていないのですが、だいたいこれぐらいの数値の改善がありました。&lt;br /&gt;
-　imgタグのサイズ指定は昔は必須だったのがレスポンシブな時代にはサイズ指定しないようになって来たけど、ブラウザにレイアウトシフトを避ける機能が実装されてきて、今は速度アップのためにサイズ指定する方が良いという流れがあるようです。&lt;br /&gt;
-　画像に関してはフォーマットも色々あるのでもっと突き詰める余地がありそうです。&lt;/p&gt;
-
-&lt;h3 id=&quot;jekyllテンプレートを交換&quot;&gt;Jekyllテンプレートを交換&lt;/h3&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/pagespeed03.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/pagespeed03.png&quot; alt=&quot;Jekyllテンプレートを交換&quot; width=&quot;480&quot; height=&quot;288&quot; title=&quot;Jekyllテンプレートを交換&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　今までの無駄な機能が多いテンプレートから、&lt;a href=&quot;http://jekyllthemes.org&quot;&gt;Jekyll Themesというサイト&lt;/a&gt;で探して、&lt;a href=&quot;https://github.com/itsrifat/rifyll&quot;&gt;シンプルなJekyllテンプレート&lt;/a&gt;に交換してカスタマイズしました。&lt;/p&gt;
-
-&lt;h3 id=&quot;改善後の状態&quot;&gt;改善後の状態&lt;/h3&gt;
-&lt;p&gt;　ページによってまちまちですが、&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/?hl=ja&quot;&gt;PageSpeed Insights&lt;/a&gt;で確認すると上記の改善後も多くの指摘事項があります。&lt;/p&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/speedinsights.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/speedinsights.png&quot; alt=&quot;PageSpeed Insightsの指摘事項&quot; width=&quot;480&quot; height=&quot;181&quot; title=&quot;Pagespeed Insightsの指摘事項&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/?hl=ja&quot;&gt;PageSpeed Insights&lt;/a&gt;を使えばページ毎の問題点を指摘してくれるのですが、やはり一番の問題は画像サイズにあるページが多いようです。モバイルユーザーに焦点を当てて、これからは大きな画像は使わないようにしようかと思ってます。&lt;/p&gt;
-
-&lt;h3 id=&quot;pc並の数値にするのは大変そう&quot;&gt;PC並の数値にするのは大変そう&lt;/h3&gt;
-&lt;p&gt;　ちなみに対象を「パソコン」にすると以下の数値です。&lt;/p&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/pagespeed05.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/pagespeed05.png&quot; alt=&quot;パソコンの結果&quot; width=&quot;480&quot; height=&quot;291&quot; title=&quot;パソコンの結果&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;９９！&lt;/code&gt;だからこそ今まではSearch Console内で「サイトに優れたページ エクスペリエンスの URL が 100% 件あります」（←googleによる変な日本語）という評価だったわけです。&lt;/p&gt;
-
-&lt;p&gt;　&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/?hl=ja&quot;&gt;PageSpeed Insights&lt;/a&gt;の指摘の中に「JavaScriptの削減」という項目があったので、試しにadsenseとanalyticsのjsコードを除去すると、数値を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;８１&lt;/code&gt;まで上げることが出来ましたが、これでは意味がないので他の改善方法を探る必要がありそうですが、自前のWebサーバーで運用しているわけではなく、&lt;a href=&quot;https://github.com/happyclam/happyclam.github.io&quot;&gt;github&lt;/a&gt;に静的ファイルを置いているだけなので方法は限られそうです。&lt;/p&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/pagespeed04.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/pagespeed04.png&quot; alt=&quot;adsenseとanalyticsのjsコードを除去&quot; width=&quot;480&quot; height=&quot;291&quot; title=&quot;adsenseとanalyticsのjsコードを除去&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　&lt;a href=&quot;https://www.suzukikenichi.com/blog/page-experience-ranking-is-coming-to-desktop/&quot;&gt;この記事&lt;/a&gt;によるとページエクスペリエンスのランキングはPC検索についても今後適用していくようです。&lt;/p&gt;
-
-&lt;h3 id=&quot;三日後の状況&quot;&gt;三日後の状況&lt;/h3&gt;
-&lt;p&gt;　サイトを修正して三日後に確認すると、とりあえず「改善が必要」なURLは０になって、「優れたページエクスペリエンス」の割合も増加傾向にあるようです。&lt;/p&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/google_ux_new.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/google_ux_new.png&quot; alt=&quot;ウェブに関する主な指標&quot; width=&quot;480&quot; height=&quot;359&quot; title=&quot;ウェブに関する主な指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/google_experience_new.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/google_experience_new.png&quot; alt=&quot;モバイルでのページエクスペリエンス&quot; width=&quot;480&quot; height=&quot;359&quot; title=&quot;モバイルでのページエクスペリエンス&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/google_signal_new.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/google_signal_new.png&quot; alt=&quot;モバイルでの指標&quot; width=&quot;480&quot; height=&quot;359&quot; title=&quot;モバイルでの指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;五日後の状況&quot;&gt;五日後の状況&lt;/h3&gt;
-&lt;p&gt;　画像ファイルを縮小したり全ての記事を見直してモバイル対応を意識した変更をした結果「良好なURL」が以前より増えたようです。&lt;/p&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/google_ux_5.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/google_ux_5.png&quot; alt=&quot;ウェブに関する主な指標&quot; width=&quot;480&quot; height=&quot;450&quot; title=&quot;ウェブに関する主な指標&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/google_experience_5.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/google_experience_5.png&quot; alt=&quot;モバイルでのページエクスペリエンス&quot; width=&quot;480&quot; height=&quot;630&quot; title=&quot;モバイルでのページエクスペリエンス&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;十日後の状況&quot;&gt;十日後の状況&lt;/h3&gt;
-&lt;p&gt;　96.7%まで戻りました。とりあえずこの辺りで良しとします。&lt;/p&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;/images/google_experience_6.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/google_experience_6.png&quot; alt=&quot;モバイルでのページエクスペリエンス&quot; width=&quot;480&quot; height=&quot;641&quot; title=&quot;モバイルでのページエクスペリエンス&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;Google Search Console通称「サチコ」というらしいです。&lt;a href=&quot;#back&quot;&gt;戻る&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Thu, 03 Jun 2021 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/miscellaneous/2021-06-03/pagespeed</link>
-        <guid isPermaLink="true">https://happyclam.github.io/miscellaneous/2021-06-03/pagespeed</guid>
-        
-        <category>jekyll</category>
-        
-        <category>google</category>
-        
-        
-        <category>miscellaneous</category>
         
       </item>
     
