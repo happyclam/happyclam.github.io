@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="author" content="happyclam">
+  <meta name="description"
+    content="チェスAIとテスト駆動開発 形から入るのではなく、必要に迫られてアジャイル開発する Reinventing the wheel.">
+  <title> チェスAIとテスト駆動開発 - 自己満足プログラミング </title>
+
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-1752720-7');
+  </script>
+
+<script async type="application/javascript"
+        src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
+<script>
+  (self.SWG_BASIC = self.SWG_BASIC || []).push( basicSubscriptions => {
+    basicSubscriptions.init({
+      type: "NewsArticle",
+      isPartOfType: ["Product"],
+      isPartOfProductId: "CAow99qlDA:openaccess",
+      clientOptions: { theme: "light", lang: "ja" },
+    });
+  });
+</script>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="チェスAIとテスト駆動開発">
+  
+  
+  <meta name="twitter:url" content="/software/2024-04-07/tdd">
+  
+  
+  <meta name="twitter:description" content="テスト駆動開発(TDD)によるチェスアプリ作成">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/chess_icon.png">
+  
+
+  <link rel="canonical" href="https://happyclam.github.io/software/2024-04-07/tdd" />
+  <link rel="alternate" type="application/rss+xml" title="自己満足プログラミング" href="/feed.xml" />
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="site-title" class="navbar-brand" href="/">
+          <img class="pull-left img-responsive" src="">
+          <span class="name-holder">自己満足プログラミング</span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li>
+<a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li>
+<a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li>
+<a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li>
+<a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li>
+<a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <!-- <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script> -->
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <div style="text-align: center;">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1238485061299241" crossorigin="anonymous"></script>
+  </div>
+  <div class="blog-header">
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        <button swg-standard-button="contribution"></button>        
+      </div>
+      <div class="span9">
+        <!-- Html Elements for Search -->
+        <div id="search-container" align="right">
+          <input type="text" id="search-input" placeholder="search...">
+          <ul class="searchresult" id="results-container"></ul>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+  <script src="/assets/js/jquery.min.js"></script>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
+
+        <header class="page-header">
+          <h2 class="page-title"><a href="/software/2024-04-07/tdd">チェスAIとテスト駆動開発</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Sunday, April 07, 2024
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">coffeescript</span>
+                
+                  <span class="label label-tag">javascript</span>
+                
+                  <span class="label label-tag">shogi</span>
+                
+                  <span class="label label-tag">chess</span>
+                
+            </div>
+          </div>
+
+        </header>
+
+        <article class="page-content">
+          <h3 id="ステイルメイトという特殊なルール">ステイルメイトという特殊なルール</h3>
+<p>　以前の記事（<a href="/software/2019-10-27/stalemate">「将棋の評価関数とチェスの評価関数-1」</a>、<a href="/software/2019-11-02/stalemate2">「将棋の評価関数とチェスの評価関数-2」</a>、<a href="/software/2019-11-09/stalemate3">「将棋の評価関数とチェスの評価関数-3」</a>）で自作の将棋AIをチェスAIに書き換える作業をしようとして、チェスのステイルメイトという特殊なルールに対応するために将棋AIを書き換える必要が出てきたことを書きましたが、分かりづらかったと思うので実際の開発の過程でどういう作業が必要になったか、辿った経緯をもう少し詳しく書こうと思います。<br>
+　そしてこの開発を通じて、テスト駆動開発という開発手法の有用性を身を以て感じたということを書いてみます。</p>
+
+<h3 id="２種類の詰み判定ゲーム終了判定メソッド">２種類の詰み判定（ゲーム終了判定）メソッド</h3>
+<p>　詰み判定（ゲーム終了判定）のやり方が２通りあって、チェスのステイルメイトのルールに対応するにはやり方を変えなければならなかったということは<a href="/software/2019-10-27/stalemate">以前の記事</a>に書いたとおりですが、なぜ「相手玉を取ったらゲーム終了」という将棋では問題がなかった方法を、チェスだと変える必要が出てきたのでしょうか。<br>
+　ゲームの局面（ゲーム木）を辿っていって（先読みしていって）、先手が後手玉に王手をかけたAという局面に行き着いたとします。その局面から後手の手番でまたB1、B2、B3…と幾つもの局面が枝分かれしていくわけですが、その後手の着手したBの全ての局面でもう一手先のCの局面で相手玉（後手玉）を取ることが出来ることが分かって初めて評価値が最大値（先手勝ち）になる訳ですが、この相手玉を取ることが出来ると判明したCの局面の中には後手が非合法手を着手したケースも混じっているわけです。非合法手というのは角の効き筋を止めていた味方の駒を動かしたケース（王手放置）や、後手玉が先手の駒の効いている場所に動いたケース（自爆）です。将棋なら合法手であっても非合法手であっても、後手玉を取ってしまえばいいのでCの局面で先手勝ちの評価は変わりません。しかし、チェスの場合はBの局面で非合法手しか着手できなかった場合は引き分け（ステイルメイト）と判定しなければなりません。将棋では局面Bで選んだ後手の手が合法手だろうが非合法手だろうが、Cの局面で先手が玉を取れれば先手勝ちと判断出来るのに対して、チェスの場合はBの局面で非合法手しかない場合はステイルメイト、合法手と非合法手が混じっている場合（＝合法手は存在するけど後手玉が取られる）は先手の勝ちと場合分けする必要があるということです。つまり、局面Bから先読みして後手玉が取れるから先手勝ちと判断することは出来ないので、一手先読みするのではなく局面Bの段階で手番と駒の効きの情報を使って後手に非合法手しか存在しない（ステイルメイト）かどうかを判断する必要があります。と言うことでチェスではプログラムを書き換える必要がありました。<br>
+　将棋の場合は「相手玉を取ったらゲーム終了」とするやり方と「手番と局面情報からゲーム終了判定する」やり方、どちらのやり方を採用しても対応できるので、将棋のソースコードを使って比較してみます。<br>
+　現在<a href="https://github.com/happyclam/shogi33simple">github</a>に公開している３三将棋（簡易版）の詰み判定メソッド(check_tumiメソッド)は以下のようになっています。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    check_tumi = (board) -&gt;
+        first = 0; second = 0
+        kings = (v for v in board.pieces when v.kind() == 'Ou' &amp;&amp; v.turn == Const.FIRST)
+        switch kings.length
+            when 2
+                return Const.MAX_VALUE
+            when 0
+                return Const.MIN_VALUE
+            else
+                for v in board.pieces
+                    first += v.omomi() if v.turn == Const.FIRST
+                    second += v.omomi() if v.turn == Const.SECOND
+                return (first - second)
+</code></pre></div></div>
+
+<p>　先手の玉が２枚あれば先手が勝ちの評価値、０枚なら後手の勝ちの評価値を返して、それ以外は局面の静的評価値を返してゲームを続行します。<br>
+　つまり玉が取られたかどうかでゲームの終了判定をしています。<br>
+　一方で３三将棋を除く将棋関連アプリとチェスアプリでは以下のようになっています。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    check_tumi: (turn, utifudume_flg = null) -&gt;
+        #：
+        #　前処理省略        
+        #：        
+        
+        # 先手が王手掛かっていて指したのが先手なら後手勝ち
+        if f_oute &amp;&amp; turn == Const.FIRST
+            return [true, Const.MIN_VALUE]
+        # 後手が王手掛かっていて指したのが後手なら先手勝ち
+        else if s_oute &amp;&amp; turn == Const.SECOND
+            return [true, Const.MAX_VALUE]
+        # 先手玉が動けなくて王手が掛かっていたら後手勝ち
+        else if f_canmove == false &amp;&amp; f_oute
+            # 後手が王手放置していて指したのが後手なら先手勝ち
+            if s_oute &amp;&amp; turn == Const.SECOND
+                return [true, Const.MAX_VALUE]
+            else if utifudume_flg
+                return [true, Const.UTIFUDUME]
+            else
+                return [true, Const.CHECKMATE]
+        # 後手玉が動けなくて王手が掛かっていたら先手勝ち
+        else if s_canmove == false &amp;&amp; s_oute
+            # 先手が王手放置していて指したのが先手なら後手勝ち
+            if f_oute &amp;&amp; turn == Const.FIRST
+                return [true, Const.MIN_VALUE]
+            else if utifudume_flg
+                return [true, Const.UTIFUDUME]
+            else
+                return [true, Const.CHECKMATE]
+        # 上記条件に当てはまらなければ、ゲーム継続で評価値を返す
+        for v in @pieces
+            first += v.omomi() if v.turn == Const.FIRST
+            second += v.omomi() if v.turn == Const.SECOND
+        return [false, (first - second)]
+
+</code></pre></div></div>
+<p>　チェスの場合はこのソースに加えてステイルメイトのケース（else if文）を追加しており、打ち歩詰めのif文はありません、でもその他の部分は将棋と同じです。<br>
+　現在の手番と局面の情報だけを使ってゲーム終了したかを判断し、ゲーム終了していなければ局面の静的評価値を返します。玉を取る一手前の局面でゲームの終了判定をしようとすると前述のソースとはかなり違ってくることが分かると思います。それにしても10個足らずの条件分岐（if文）で済んだのは予想外に少なかったなぁと思ってます。<br>
+　実際の開発の順番としては、まず将棋（３三将棋アプリ以外）の詰み判定（ゲーム終了判定）を書き換えてテストした後、それをチェスアプリに適応しました。なぜ３三将棋は変更しなかったかについては<a href="/software/2019-11-09/stalemate3">以前の記事</a>で書いたように局面の評価より深く読むことに注力したかったからです。<br>
+　もうアプリをリリースしてから何年も経つので、このコード自体には問題（バグ）はないと思っています。ただ、ここにソースを載せていないステイルメイトの判定部分に関しては、まだちょっと不安があったりするのですが、それに関しては別の記事を書くかもしれません。</p>
+
+<h3 id="演繹法と帰納法">演繹法と帰納法</h3>
+<p>　将棋というゲームが終了したかどうかを判断する場合、一番単純なやり方としては、頭金で詰んだケース、吊るし桂で詰んだケース等、詰みの形を一つ一つ定義して行き、それ以外はゲーム継続とするやり方を思いつきますが、そんなことをしていけばif文が幾つになるか見当もつかない程大変な作業を強いられます。とても人間が出来る作業ではないと思います。でも、機械学習型のAIの場合はその作業をやっているわけです。一つ一つの詰みのケースを学習して帰納的に法則性を見出してゲームが終了したかどうかを判断するわけです。<br>
+　では、自分は人間なんだからもっと演繹的にゲーム終了の条件を定義してみようと思って、上の10個足らずのif文からなるゲーム終了条件をパッと思いつく人がいるでしょうか？頭金や吊るし桂の詰み形をどんどん抽象化していき、頭の中だけでその条件文を構成できる人は少ないと思います。自分の場合もいきなり上で書いた10個足らずの条件文を思いついたわけではなく、一つ一つテストしていきながら条件を付け加えたり削除したりを繰り返しながら所謂スパイラルモデルで作り上げた感じです。決してウォーターフォールモデルのように上から下に流れ作業のように開発が進んだわけではありません。徐々に抽象度を上げていくという感じではなく、アイデアを出しては試していくの繰り返しという感じでした。将棋の世界に<strong>直感精読</strong>という言葉がありますが、この言葉プログラミングにも通じると思います。論理的思考というのは<strong>精読</strong>の部分に当たりますが、アイデアを出す<strong>直感</strong>の部分が結構大事だと思っています。将棋では「見えないと読めない」なんて言葉もありますよね。いくら局面を先に読んでいく力があっても、手が見えないと好手は指せません。</p>
+
+<h3 id="プログラミングは設計行為">プログラミングは設計行為</h3>
+<p>　TDD（テスト駆動開発）とはアジャイル開発における一つの開発手法とされていて、全開発工程の後半にテスト工程を設けるウォータフォールモデルとは全然違う代物です。まずテストを書いて実行し、リファクタリングしてまたテストの繰り返しです。ソフトウェア開発に於いて、巷ではいきなりコードを書き出す人を批判する人がいますが、コードを書きながら設計しているので極々自然な成り行きだと思います。業務に精通しているから設計書を書ける訳ではなく、将棋に精通しているからと言ってコンピュータへの指示書をいきなり書ける訳でもないのです。やってみなければ分からないという部分を、効率よく実装する手段としてTDDは非常に優れていると思います。<br>
+　ただテスト駆動開発と言っても、先程の例で言えば、頭金の詰み判定のテストを書く、吊るし桂の詰み判定のテストを書くというのは設計行為とは言えないでしょう。これは所謂普通のテストであって、TDD（テスト駆動開発）とはもっと上流工程にテストを活用していくと言うことだと思います。メディアや情報誌に振り回されるのではなく、実体験としてアジャイル開発をやってみる人が増えることを望んでます。<br>
+　それとTDDは、効率よく設計・開発を進められるだけではなく、何か新しい機能を追加する際にも「以前は上手く動いていたのに、おかしくなった〜」という所謂デグレード（リグレッション）の防止にも書き溜めたテストが役立ちます。実際に将棋関連アプリを「相手玉を取ったらゲーム終了」というロジックで作っていたテストを、「手番と局面情報からゲーム終了判定する」ロジックに書き換えた後も、書き換える前に使っていたテストスクリプトをそのまま動作確認に使えました。<br>
+　<a href="/project/2020-08-10/mancalanuts">現在リリース中のマンカラアプリ</a>は結構長い期間バグのあるバージョンがリリースされていたのですが、これはDartからC++に書き換える時にテストコードを省略したために起きたことです<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20">現在は<a href="http://opencv.jp/googletestdocs/primer.html#primer-where-to-go">GoogleTest</a>を導入して、C++でもテストコードを書いているので今後は大丈夫だと思います<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"></p>
+
+<h3 id="スマホアプリについて">スマホアプリについて</h3>
+<p>　もう何年も前の話ですが、<a href="https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;refinements=p_4%3Ahappyclam&amp;s=mobile-apps&amp;search-type=ss&amp;sr=1-1">現在Amazonで公開しているチェスアプリ</a>は以前はGoogle Playにも公開していましたが、よく分からない理由でGoogleから削除されました。また、<a href="https://play.google.com/store/apps/details?id=chess66.io.github.happyclam">現在Google Playで公開しているミニチェスアプリ</a>は、これもよく分からない理由でAmazonの審査で落とされました。<br>
+　去年は<a href="https://forest.watch.impress.co.jp/docs/serial/yajiuma/1546061.html">こういうニュース</a>もありましたし、AmazonもGoogleもAppleもアプリ公開のプラットフォーム利用に対する規制が数年前よりさらに強くなってきてる気がするので、全部PWA（Progressive Web Apps）化しようかなんて考えていますが、スマホアプリでさえそれほど多くの利用者がいるわけでもないのに、PWA化してもユーザーが増えることはないでしょう。<br>
+　でも自分のアプリの多くはJavaScript製なのでPWA化＝ソース公開にもなるのでニーズがあるかもしれませんし、PWA化すればスマホよりハイスペックなPCで動かせるのでソースを書き換えて読みの深さの数値を変えたりするとスマホより深く読めるようになったりします。もちろんユーザーがダウンロードして自分用に作り変えることも出来ます。自分でも少し試したりしたのですが、PWA化したらその辺りの話も書いてみようと思います。</p>
+
+<div>
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- display01 -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9018029357773039" data-ad-slot="3925247388" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+<hr>
+
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <small>© rifyll theme, 2014</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+</body>
+
+</html>

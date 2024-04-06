@@ -5,9 +5,125 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 02 Apr 2024 19:01:00 +0900</pubDate>
-    <lastBuildDate>Tue, 02 Apr 2024 19:01:00 +0900</lastBuildDate>
+    <pubDate>Sat, 06 Apr 2024 10:51:51 +0900</pubDate>
+    <lastBuildDate>Sat, 06 Apr 2024 10:51:51 +0900</lastBuildDate>
     <generator>Jekyll v3.9.4</generator>
+    
+      <item>
+        <title>チェスAIとテスト駆動開発</title>
+        <description>&lt;h3 id=&quot;ステイルメイトという特殊なルール&quot;&gt;ステイルメイトという特殊なルール&lt;/h3&gt;
+&lt;p&gt;　以前の記事（&lt;a href=&quot;/software/2019-10-27/stalemate&quot;&gt;「将棋の評価関数とチェスの評価関数-1」&lt;/a&gt;、&lt;a href=&quot;/software/2019-11-02/stalemate2&quot;&gt;「将棋の評価関数とチェスの評価関数-2」&lt;/a&gt;、&lt;a href=&quot;/software/2019-11-09/stalemate3&quot;&gt;「将棋の評価関数とチェスの評価関数-3」&lt;/a&gt;）で自作の将棋AIをチェスAIに書き換える作業をしようとして、チェスのステイルメイトという特殊なルールに対応するために将棋AIを書き換える必要が出てきたことを書きましたが、分かりづらかったと思うので実際の開発の過程でどういう作業が必要になったか、辿った経緯をもう少し詳しく書こうと思います。&lt;br /&gt;
+　そしてこの開発を通じて、テスト駆動開発という開発手法の有用性を身を以て感じたということを書いてみます。&lt;/p&gt;
+
+&lt;h3 id=&quot;２種類の詰み判定ゲーム終了判定メソッド&quot;&gt;２種類の詰み判定（ゲーム終了判定）メソッド&lt;/h3&gt;
+&lt;p&gt;　詰み判定（ゲーム終了判定）のやり方が２通りあって、チェスのステイルメイトのルールに対応するにはやり方を変えなければならなかったということは&lt;a href=&quot;/software/2019-10-27/stalemate&quot;&gt;以前の記事&lt;/a&gt;に書いたとおりですが、なぜ「相手玉を取ったらゲーム終了」という将棋では問題がなかった方法を、チェスだと変える必要が出てきたのでしょうか。&lt;br /&gt;
+　ゲームの局面（ゲーム木）を辿っていって（先読みしていって）、先手が後手玉に王手をかけたAという局面に行き着いたとします。その局面から後手の手番でまたB1、B2、B3…と幾つもの局面が枝分かれしていくわけですが、その後手の着手したBの全ての局面でもう一手先のCの局面で相手玉（後手玉）を取ることが出来ることが分かって初めて評価値が最大値（先手勝ち）になる訳ですが、この相手玉を取ることが出来ると判明したCの局面の中には後手が非合法手を着手したケースも混じっているわけです。非合法手というのは角の効き筋を止めていた味方の駒を動かしたケース（王手放置）や、後手玉が先手の駒の効いている場所に動いたケース（自爆）です。将棋なら合法手であっても非合法手であっても、後手玉を取ってしまえばいいのでCの局面で先手勝ちの評価は変わりません。しかし、チェスの場合はBの局面で非合法手しか着手できなかった場合は引き分け（ステイルメイト）と判定しなければなりません。将棋では局面Bで選んだ後手の手が合法手だろうが非合法手だろうが、Cの局面で先手が玉を取れれば先手勝ちと判断出来るのに対して、チェスの場合はBの局面で非合法手しかない場合はステイルメイト、合法手と非合法手が混じっている場合（＝合法手は存在するけど後手玉が取られる）は先手の勝ちと場合分けする必要があるということです。つまり、局面Bから先読みして後手玉が取れるから先手勝ちと判断することは出来ないので、一手先読みするのではなく局面Bの段階で手番と駒の効きの情報を使って後手に非合法手しか存在しない（ステイルメイト）かどうかを判断する必要があります。と言うことでチェスではプログラムを書き換える必要がありました。&lt;br /&gt;
+　将棋の場合は「相手玉を取ったらゲーム終了」とするやり方と「手番と局面情報からゲーム終了判定する」やり方、どちらのやり方を採用しても対応できるので、将棋のソースコードを使って比較してみます。&lt;br /&gt;
+　現在&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;github&lt;/a&gt;に公開している３三将棋（簡易版）の詰み判定メソッド(check_tumiメソッド)は以下のようになっています。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    check_tumi = (board) -&amp;gt;
+        first = 0; second = 0
+        kings = (v for v in board.pieces when v.kind() == &apos;Ou&apos; &amp;amp;&amp;amp; v.turn == Const.FIRST)
+        switch kings.length
+            when 2
+                return Const.MAX_VALUE
+            when 0
+                return Const.MIN_VALUE
+            else
+                for v in board.pieces
+                    first += v.omomi() if v.turn == Const.FIRST
+                    second += v.omomi() if v.turn == Const.SECOND
+                return (first - second)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　先手の玉が２枚あれば先手が勝ちの評価値、０枚なら後手の勝ちの評価値を返して、それ以外は局面の静的評価値を返してゲームを続行します。&lt;br /&gt;
+　つまり玉が取られたかどうかでゲームの終了判定をしています。&lt;br /&gt;
+　一方で３三将棋を除く将棋関連アプリとチェスアプリでは以下のようになっています。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    check_tumi: (turn, utifudume_flg = null) -&amp;gt;
+        #：
+        #　前処理省略        
+        #：        
+        
+        # 先手が王手掛かっていて指したのが先手なら後手勝ち
+        if f_oute &amp;amp;&amp;amp; turn == Const.FIRST
+            return [true, Const.MIN_VALUE]
+        # 後手が王手掛かっていて指したのが後手なら先手勝ち
+        else if s_oute &amp;amp;&amp;amp; turn == Const.SECOND
+            return [true, Const.MAX_VALUE]
+        # 先手玉が動けなくて王手が掛かっていたら後手勝ち
+        else if f_canmove == false &amp;amp;&amp;amp; f_oute
+            # 後手が王手放置していて指したのが後手なら先手勝ち
+            if s_oute &amp;amp;&amp;amp; turn == Const.SECOND
+                return [true, Const.MAX_VALUE]
+            else if utifudume_flg
+                return [true, Const.UTIFUDUME]
+            else
+                return [true, Const.CHECKMATE]
+        # 後手玉が動けなくて王手が掛かっていたら先手勝ち
+        else if s_canmove == false &amp;amp;&amp;amp; s_oute
+            # 先手が王手放置していて指したのが先手なら後手勝ち
+            if f_oute &amp;amp;&amp;amp; turn == Const.FIRST
+                return [true, Const.MIN_VALUE]
+            else if utifudume_flg
+                return [true, Const.UTIFUDUME]
+            else
+                return [true, Const.CHECKMATE]
+        # 上記条件に当てはまらなければ、ゲーム継続で評価値を返す
+        for v in @pieces
+            first += v.omomi() if v.turn == Const.FIRST
+            second += v.omomi() if v.turn == Const.SECOND
+        return [false, (first - second)]
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;　チェスの場合はこのソースに加えてステイルメイトのケース（else if文）を追加しており、打ち歩詰めのif文はありません、でもその他の部分は将棋と同じです。&lt;br /&gt;
+　現在の手番と局面の情報だけを使ってゲーム終了したかを判断し、ゲーム終了していなければ局面の静的評価値を返します。玉を取る一手前の局面でゲームの終了判定をしようとすると前述のソースとはかなり違ってくることが分かると思います。それにしても10個足らずの条件分岐（if文）で済んだのは予想外に少なかったなぁと思ってます。&lt;br /&gt;
+　実際の開発の順番としては、まず将棋（３三将棋アプリ以外）の詰み判定（ゲーム終了判定）を書き換えてテストした後、それをチェスアプリに適応しました。なぜ３三将棋は変更しなかったかについては&lt;a href=&quot;/software/2019-11-09/stalemate3&quot;&gt;以前の記事&lt;/a&gt;で書いたように局面の評価より深く読むことに注力したかったからです。&lt;br /&gt;
+　もうアプリをリリースしてから何年も経つので、このコード自体には問題（バグ）はないと思っています。ただ、ここにソースを載せていないステイルメイトの判定部分に関しては、まだちょっと不安があったりするのですが、それに関しては別の記事を書くかもしれません。&lt;/p&gt;
+
+&lt;h3 id=&quot;演繹法と帰納法&quot;&gt;演繹法と帰納法&lt;/h3&gt;
+&lt;p&gt;　将棋というゲームが終了したかどうかを判断する場合、一番単純なやり方としては、頭金で詰んだケース、吊るし桂で詰んだケース等、詰みの形を一つ一つ定義して行き、それ以外はゲーム継続とするやり方を思いつきますが、そんなことをしていけばif文が幾つになるか見当もつかない程大変な作業を強いられます。とても人間が出来る作業ではないと思います。でも、機械学習型のAIの場合はその作業をやっているわけです。一つ一つの詰みのケースを学習して帰納的に法則性を見出してゲームが終了したかどうかを判断するわけです。&lt;br /&gt;
+　では、自分は人間なんだからもっと演繹的にゲーム終了の条件を定義してみようと思って、上の10個足らずのif文からなるゲーム終了条件をパッと思いつく人がいるでしょうか？頭金や吊るし桂の詰み形をどんどん抽象化していき、頭の中だけでその条件文を構成できる人は少ないと思います。自分の場合もいきなり上で書いた10個足らずの条件文を思いついたわけではなく、一つ一つテストしていきながら条件を付け加えたり削除したりを繰り返しながら所謂スパイラルモデルで作り上げた感じです。決してウォーターフォールモデルのように上から下に流れ作業のように開発が進んだわけではありません。徐々に抽象度を上げていくという感じではなく、アイデアを出しては試していくの繰り返しという感じでした。将棋の世界に&lt;strong&gt;直感精読&lt;/strong&gt;という言葉がありますが、この言葉プログラミングにも通じると思います。論理的思考というのは&lt;strong&gt;精読&lt;/strong&gt;の部分に当たりますが、アイデアを出す&lt;strong&gt;直感&lt;/strong&gt;の部分が結構大事だと思っています。将棋では「見えないと読めない」なんて言葉もありますよね。いくら局面を先に読んでいく力があっても、手が見えないと好手は指せません。&lt;/p&gt;
+
+&lt;h3 id=&quot;プログラミングは設計行為&quot;&gt;プログラミングは設計行為&lt;/h3&gt;
+&lt;p&gt;　TDD（テスト駆動開発）とはアジャイル開発における一つの開発手法とされていて、全開発工程の後半にテスト工程を設けるウォータフォールモデルとは全然違う代物です。まずテストを書いて実行し、リファクタリングしてまたテストの繰り返しです。ソフトウェア開発に於いて、巷ではいきなりコードを書き出す人を批判する人がいますが、コードを書きながら設計しているので極々自然な成り行きだと思います。業務に精通しているから設計書を書ける訳ではなく、将棋に精通しているからと言ってコンピュータへの指示書をいきなり書ける訳でもないのです。やってみなければ分からないという部分を、効率よく実装する手段としてTDDは非常に優れていると思います。&lt;br /&gt;
+　ただテスト駆動開発と言っても、先程の例で言えば、頭金の詰み判定のテストを書く、吊るし桂の詰み判定のテストを書くというのは設計行為とは言えないでしょう。これは所謂普通のテストであって、TDD（テスト駆動開発）とはもっと上流工程にテストを活用していくと言うことだと思います。メディアや情報誌に振り回されるのではなく、実体験としてアジャイル開発をやってみる人が増えることを望んでます。&lt;br /&gt;
+　それとTDDは、効率よく設計・開発を進められるだけではなく、何か新しい機能を追加する際にも「以前は上手く動いていたのに、おかしくなった〜」という所謂デグレード（リグレッション）の防止にも書き溜めたテストが役立ちます。実際に将棋関連アプリを「相手玉を取ったらゲーム終了」というロジックで作っていたテストを、「手番と局面情報からゲーム終了判定する」ロジックに書き換えた後も、書き換える前に使っていたテストスクリプトをそのまま動作確認に使えました。&lt;br /&gt;
+　&lt;a href=&quot;/project/2020-08-10/mancalanuts&quot;&gt;現在リリース中のマンカラアプリ&lt;/a&gt;は結構長い期間バグのあるバージョンがリリースされていたのですが、これはDartからC++に書き換える時にテストコードを省略したために起きたことです:sweat_smile:現在は&lt;a href=&quot;http://opencv.jp/googletestdocs/primer.html#primer-where-to-go&quot;&gt;GoogleTest&lt;/a&gt;を導入して、C++でもテストコードを書いているので今後は大丈夫だと思います:sweat_smile:&lt;/p&gt;
+
+&lt;h3 id=&quot;スマホアプリについて&quot;&gt;スマホアプリについて&lt;/h3&gt;
+&lt;p&gt;　もう何年も前の話ですが、&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;現在Amazonで公開しているチェスアプリ&lt;/a&gt;は以前はGoogle Playにも公開していましたが、よく分からない理由でGoogleから削除されました。また、&lt;a href=&quot;https://play.google.com/store/apps/details?id=chess66.io.github.happyclam&quot;&gt;現在Google Playで公開しているミニチェスアプリ&lt;/a&gt;は、これもよく分からない理由でAmazonの審査で落とされました。&lt;br /&gt;
+　去年は&lt;a href=&quot;https://forest.watch.impress.co.jp/docs/serial/yajiuma/1546061.html&quot;&gt;こういうニュース&lt;/a&gt;もありましたし、AmazonもGoogleもAppleもアプリ公開のプラットフォーム利用に対する規制が数年前よりさらに強くなってきてる気がするので、全部PWA（Progressive Web Apps）化しようかなんて考えていますが、スマホアプリでさえそれほど多くの利用者がいるわけでもないのに、PWA化してもユーザーが増えることはないでしょう。&lt;br /&gt;
+　でも自分のアプリの多くはJavaScript製なのでPWA化＝ソース公開にもなるのでニーズがあるかもしれませんし、PWA化すればスマホよりハイスペックなPCで動かせるのでソースを書き換えて読みの深さの数値を変えたりするとスマホより深く読めるようになったりします。もちろんユーザーがダウンロードして自分用に作り変えることも出来ます。自分でも少し試したりしたのですが、PWA化したらその辺りの話も書いてみようと思います。&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+</description>
+        <pubDate>Sun, 07 Apr 2024 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/software/2024-04-07/tdd</link>
+        <guid isPermaLink="true">https://happyclam.github.io/software/2024-04-07/tdd</guid>
+        
+        <category>coffeescript</category>
+        
+        <category>javascript</category>
+        
+        <category>shogi</category>
+        
+        <category>chess</category>
+        
+        
+        <category>software</category>
+        
+      </item>
     
       <item>
         <title>Fuji Stroll、さっそくカスタマイズ</title>
@@ -1628,133 +1744,6 @@ F
         
         
         <category>programming</category>
-        
-      </item>
-    
-      <item>
-        <title>FlutterアプリのNull Safety対応</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://taimienphi.vn/download-mancala-nuts-90337&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/tmp2.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
-&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/ja_badge_web_generic.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
-&lt;a href=&quot;https://www.amazon.co.jp/happyclam-マンカラ-ナッツ/dp/B08D8QVVQY/ref=sr_1_2&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/amazon-appstore-badge-jp-white.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;155&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;
-&lt;br /&gt;&lt;a href=&quot;https://taimienphi.vn&quot; title=&quot;download&quot;&gt;taimienphi.vn&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;はっきり言って面倒臭い&quot;&gt;はっきり言って面倒臭い&lt;/h3&gt;
-&lt;p&gt;　プログラミングの際にオブジェクトを代入する変数を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;null&lt;/code&gt;で初期化して、その変数が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;null&lt;/code&gt;かどうかで条件分岐する、なんてコードをよく書いていたので、また面倒なことが増えたって気がしますが、実行時のNull Pointer Exceptionを避ける意味はあるのでしょう。はっきり言ってこういう仕組みは普段テストを書く習慣が無い人のためにあるんじゃないの？って気もしますが、世の流れには逆らえずFlutter製の&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;アプリ（マンカラナッツ）&lt;/a&gt;でも対応することにしました。&lt;/p&gt;
-
-&lt;h3 id=&quot;パッケージの依存状況を調べる&quot;&gt;パッケージの依存状況を調べる&lt;/h3&gt;
-&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flutter pub outdated --mode=null-safety&lt;/code&gt;と打てば、使用しているパッケージがNull Safety対応済みかどうか分かります。&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ flutter pub outdated --mode=null-safety
-Showing dependencies that are currently not opted in to null-safety.
-[✗] indicates versions without null safety support.
-[✓] indicates versions opting in to null safety.
-
-Package Name               Current  Upgradable  Resolvable  Latest
-
-direct dependencies:
-flutter_google_ad_manager  ✗0.11.1  ✗0.11.1     ✗0.11.1     ✗0.11.1
-
-dev_dependencies: all support null safety.
-You are already using the newest resolvable versions listed in the &apos;Resolvable&apos; column.
-Newer versions, listed in &apos;Latest&apos;, may not be mutually compatible.
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　以前にも少し作業したので、&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラナッツ&lt;/a&gt;の場合はNull Safetyに対応していないのは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flutter_google_ad_manager&lt;/code&gt;だけです。というかこのパッケージ（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flutter_google_ad_manager&lt;/code&gt;）が対応されるのを待っていた状態でした。対応作業する前は&lt;a href=&quot;/software/2020-10-01/flutter_plugin&quot;&gt;自分で作ったパッケージ（karah_think.so）&lt;/a&gt;もこのリストに表示されていたのですが、既に修正したので、今回は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flutter_google_ad_manager&lt;/code&gt;の代わりに&lt;a href=&quot;https://pub.dev/packages/admob_flutter/versions/2.0.0-nullsafety.1&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;admob_flutter&lt;/code&gt;&lt;/a&gt;を使うことで対応しました。作業内容は&lt;a href=&quot;https://pub.dev/packages/admob_flutter/versions/2.0.0-nullsafety.1/example&quot;&gt;使用例&lt;/a&gt;に書かれているので簡単でした。&lt;/p&gt;
-
-&lt;h3 id=&quot;コードの修正&quot;&gt;コードの修正&lt;/h3&gt;
-&lt;p&gt;　以前にNull Safety対応作業した時には既にFlutter2.0だったのですが、今回&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flutter upgrade&lt;/code&gt;してから作業するといくつか追加の作業が必要でした。以前&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flutter_google_ad_manager&lt;/code&gt;部分をコメントにしてビルドした時には既に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Sound Null Safety&lt;/code&gt;と表示されていたのですが、Flutter自体が完全にNull Safetyになっていなかったのでしょうか？今回AndroidStudioのバージョンアップ（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4.2.2&lt;/code&gt;）もしたので、それも関係あるのかも知れませんがよく分かりません。&lt;/p&gt;
-
-&lt;p&gt;　今回の環境は以下の通りです。&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ flutter --version
-Flutter 2.2.3 • channel stable • https://github.com/flutter/flutter
-Framework • revision f4abaa0735 (8 days ago) • 2021-07-01 12:46:11 -0700
-Engine • revision 241c87ad80
-Tools • Dart 2.13.4
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;修正例&quot;&gt;修正例&lt;/h3&gt;
-&lt;p&gt;　修正前&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  GlobalKey _keyBoard = GlobalKey();
-  RenderBox _box;
-
-    if (_box == null)
-      WidgetsBinding.instance.addPostFrameCallback((_afterLayout){
-        setState(() {
-          _box = _keyBoard.currentContext.findRenderObject();
-        });
-      });
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　修正後&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  final GlobalKey _keyBoard = GlobalKey();
-  late RenderBox _box;
-
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
-      setState(() {
-        _box = _keyBoard.currentContext!.findRenderObject() as RenderBox;
-      });
-    });
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　遅延初期化のための&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;late&lt;/code&gt;キーワードが使えるようになったのはDart2.12からだそうです。また、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;as&lt;/code&gt;を使って明確に型を指定しないとビルド出来なくなっていました。C++のように型にうるさくなっていくのでしょう。&lt;/p&gt;
-
-&lt;h3 id=&quot;修正後&quot;&gt;修正後&lt;/h3&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ flutter pub outdated --mode=null-safety
-Showing dependencies that are currently not opted in to null-safety.
-[✗] indicates versions without null safety support.
-[✓] indicates versions opting in to null safety.
-
-All your dependencies declare support for null-safety.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　AdMob用のパッケージを&lt;a href=&quot;https://pub.dev/packages/admob_flutter/versions/2.0.0-nullsafety.1&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;admob_flutter&lt;/code&gt;&lt;/a&gt;に変えたことで、Null Safety非対応のプラグインはなくなりました。&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ flutter build apk --release
-
-💪 Building with sound null safety 💪
-
-Picked up _JAVA_OPTIONS: -Djava.net.preferIPv6Addresses=true
-Running Gradle task &apos;assembleRelease&apos;...
-Running Gradle task &apos;assembleRelease&apos;... Done                     121.0s
-✓  Built build/app/outputs/flutter-apk/app-release.apk (60.1MB).
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　ビルド時に:muscle:絵文字が出て、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Sound Null Safety&lt;/code&gt;と表示されます。&lt;br /&gt;
-　目出度く&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラナッツ&lt;/a&gt;はVersion1.2.2から&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Null Safety&lt;/code&gt;になりました。&lt;/p&gt;
-
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-</description>
-        <pubDate>Sat, 10 Jul 2021 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/software/2021-07-10/null_safety</link>
-        <guid isPermaLink="true">https://happyclam.github.io/software/2021-07-10/null_safety</guid>
-        
-        <category>mancala</category>
-        
-        <category>dart</category>
-        
-        <category>android</category>
-        
-        <category>flutter</category>
-        
-        
-        <category>software</category>
         
       </item>
     

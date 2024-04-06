@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "チェスAIとテスト駆動開発",
+      "category" : "software",
+      "tags"     : "coffeescript, javascript, shogi, chess",
+      "url"      : "/software/2024-04-07/tdd",
+      "date"     : "2024-04-07 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "Fuji Stroll、さっそくカスタマイズ",
       "category" : "miscellaneous",
       "tags"     : "bicycle",
