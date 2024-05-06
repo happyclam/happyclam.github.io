@@ -5,9 +5,76 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 13 Apr 2024 01:05:08 +0900</pubDate>
-    <lastBuildDate>Sat, 13 Apr 2024 01:05:08 +0900</lastBuildDate>
+    <pubDate>Mon, 06 May 2024 11:46:27 +0900</pubDate>
+    <lastBuildDate>Mon, 06 May 2024 11:46:27 +0900</lastBuildDate>
     <generator>Jekyll v3.9.4</generator>
+    
+      <item>
+        <title>アプリを非公開にする理由</title>
+        <description>&lt;h3 id=&quot;広告停止されてても来る警告メール&quot;&gt;広告停止されてても来る警告メール&lt;/h3&gt;
+&lt;p&gt;　2023年のgoogleの新しい規制（「2023年8月31日までにAndroid 13に対応していないアプリの更新を停止」）のため、対応が面倒なので自分で非公開にしたアプリも有りますが、それとは別に非公開にはしてないけど、一年ほど前からAdMobの広告表示が停止されているアプリも３つ（&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;７七将棋アプリ&lt;/a&gt;）あって、何度も警告メールが来るのでアプリを非公開にすることにしました。既に広告停止されてるのでAdMobには関係ないと思うのですが、そうはいかないようです。&lt;br /&gt;
+　この記事を読んでいる方の中にも、前述の３つのアプリを使っていて広告が表示されなくなったことに気づいていた人はいると思います。ユーザーから見れば「広告停止されて収益にならないから非公開にしたのだろう」と思う人もいると思うので、そうではないことを書いておこうと思います。&lt;/p&gt;
+
+&lt;h3 id=&quot;admobからのメールの内容&quot;&gt;AdMobからのメールの内容&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;問題の概要
+アプリ ID: torishogi.io.github.happyclam
+必要なご対応: アプリに変更を加えてポリシー違反を解消された場合、あるいは違反判定が誤りと思われる場合は、AdMob ポリシー センターにアクセスして違反を確認し、再審査のリクエストを行ってください。
+同様の事態が再発することを避けるため、他のアプリケーションについても AdMob プログラム ポリシーの遵守状況を確認することをおすすめいたします。また、Google AdMob チームは、違反が繰り返される場合にいつでもアカウントを無効化できる権利を有している点に注意してください。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;　上記は&lt;ruby&gt;禽将棋&lt;rt&gt;とりしょうぎ&lt;/rt&gt;&lt;/ruby&gt;アプリに対する文面ですが、禽将棋アプリはもう数年前から更新していなくてその当時は問題なかったのに一年ほど前からAdMobのポリシーが変更になったようで&lt;strong&gt;ポリシー違反&lt;/strong&gt;として広告が表示されなくなっていました。広告が表示されないのでこちらにはお金は一銭も入ってこないのですが、広告無しの方がユーザーは喜ぶだろうし、アプリを使いたい人もいるだろうと思い放置していた訳です。&lt;/p&gt;
+
+&lt;h3 id=&quot;とにかく時間と手間を取られる&quot;&gt;とにかく時間と手間を取られる&lt;/h3&gt;
+&lt;p&gt;　こちらとしては「広告停止にしたんだからそれでいいんじゃないの？」とAdMobに言いたいのですが、「Google AdMob チームは、違反が繰り返される場合にいつでもアカウントを無効化できる権利を有している点に注意してください」という脅し文句が気になるところです。googleのアカウントが停止されるとgmailも使えなくなるし色々面倒なので対処することにしました。&lt;br /&gt;
+　AdMob側に確認したいのですが、問い合わせのリンクを辿っても途中でエラーが出て問い合わせできません。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/admob_inquiry.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/admob_inquiry.png&quot; alt=&quot;AdMob問い合わせ画面&quot; width=&quot;320&quot; height=&quot;240&quot; title=&quot;AdMob問い合わせ画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　そこで取り敢えず&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;の広告ユニットを削除してgoogle-consoleで非公開設定にし、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;をgoogle-consoleで非公開設定にしてAdMobに審査を出したところ、&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;だけ警告が消えました。どうやら広告ユニットを削除すればよかったようです。それが分かったので&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;を再度公開しようとすると、今度はgoogle側の前述の規制に引っかかって再公開は出来なくなりました。&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi77.io.github.happyclam&quot;&gt;７七将棋アプリ&lt;/a&gt;に関しては広告ユニットだけを削除して公開状態を維持しています。&lt;br /&gt;
+　Amazonで公開している&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;も似たような状況でどう対応したらいいのかよく分からず更新したくても出来ない状況です。とにかく時間と手間を取られるんですよねぇ。大昔にAppleにもお金払ってアプリを公開した経験もありますが、Appleの要求に答える運用コストに嫌気が差して一年で止めた経験も有ります。&lt;/p&gt;
+
+&lt;h3 id=&quot;広告に金を掛けないアプリを排除したい&quot;&gt;広告に金を掛けないアプリを排除したい？&lt;/h3&gt;
+&lt;p&gt;　前回の記事で書いたように、&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;に関してはgoogleが一方的に削除したのですが、そんなことばかりしていると開発者からの反発もあるので、開発者自らが非公開にするように持っていこうという意志をひしひしと感じます。自分はお金を払ってアプリの宣伝とかはしていないので、おそらく広告宣伝業で金儲けしているgoogleとしては気に入らないでしょう。よく有料の「google広告」へのお誘いメールが来ますが、自分が「google広告」のユーザーだったら対応も変わってくるのでしょうか？:sweat_smile:GooglePlayのサイトでアプリが検索上位に来るようにしたければ、ユーザーに支持されるアプリかどうかとは関係なく広告宣伝費をかけなければならないシステムになっているのは事実なので、そのような勘繰りをされても仕方ないでしょう。&lt;br /&gt;
+　それにしてもgoogle広告を使って収益を上げることに成功した話も聞きますが、googleに支払う費用もバカにならないので結局利益は上がっていないというような話も聞きます。個人アプリ開発者の本音を聞いてみたいところです。googleとしてはいろいろな規制を設けるのはあくまでも「ユーザーのため」という建前で通しているようです。今回の件にしても広告ユニットを削除しただけで問題はなくなったのだから、無料アプリだからとか広告に金をかけないから冷遇しているわけではないとは言えそうです（規制の変更のたびに開発者は手間と時間を取られますが…）。自分からすれば「なかなか尻尾を出しやがらないなぁ」って感じですけど:sweat_smile:それに&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;の削除に関しては今でも納得していませんけど…。&lt;/p&gt;
+
+&lt;h3 id=&quot;有料アプリとして公開すべきだった&quot;&gt;有料アプリとして公開すべきだった？&lt;/h3&gt;
+&lt;p&gt;　今にして思えば、たとえ僅かな料金（100円とか）であっても有料にして広告表示無しにすべきだったかなぁとも思うのですが、どちらが良かったかは分かりません。ただ、現状ではGooglePlayの規約で、既に無料アプリとして公開されているアプリを有料に変更することは出来ないようなので、有料アプリにしたければ新規アプリとして作成しなければなりません。でも、&lt;a href=&quot;https://forest.watch.impress.co.jp/docs/serial/yajiuma/1546061.html&quot;&gt;前回の記事でも紹介したニュース&lt;/a&gt;のように個人が新規でGooglePlayアプリを公開するのは非常にハードルが高そうです。なので、それだけが理由ではありません（開発も大変だし…）が、当ブログで５五将棋アプリの思考ルーチンをC++で書き直していつかリリースしたいと書いてました（有料にしたかった）が諦めることにしました。&lt;a href=&quot;https://forest.watch.impress.co.jp/docs/serial/yajiuma/1546061.html&quot;&gt;あのニュース&lt;/a&gt;でアプリ公開を諦めた個人開発者は多いのではないでしょうか:cry:Android自体はOSSなのだからgoogle以外の配信プラットフォームが出てきてもよさそうな気もしますが、現実には出てこないでしょうね。&lt;br /&gt;
+　結果的に非公開になった&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam&quot;&gt;３三将棋アプリ&lt;/a&gt;は近いうちにPWAとして公開するかもしれません。&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;に関しては自分のアプリよりAIの出来がいい&lt;a href=&quot;https://www.pychess.org/variants/torishogi&quot;&gt;代替サイト&lt;/a&gt;が既に存在するので、非公開のまま放置しようと思っています。&lt;br /&gt;
+　以上、今回はアプリユーザーと当ブログへ寄付してくださった方への現状報告でした。&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+</description>
+        <pubDate>Sat, 04 May 2024 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/miscellaneous/2024-05-04/app_private</link>
+        <guid isPermaLink="true">https://happyclam.github.io/miscellaneous/2024-05-04/app_private</guid>
+        
+        <category>cordova</category>
+        
+        <category>android</category>
+        
+        <category>coffeescript</category>
+        
+        <category>google</category>
+        
+        
+        <category>miscellaneous</category>
+        
+      </item>
     
       <item>
         <title>チェスAIとテスト駆動開発</title>
@@ -1620,130 +1687,6 @@ F
         
         
         <category>hardware</category>
-        
-      </item>
-    
-      <item>
-        <title>５五将棋アプリのオンライン対戦機能？</title>
-        <description>&lt;h3 id=&quot;リリースするかは未定だけど&quot;&gt;リリースするかは未定だけど&lt;/h3&gt;
-&lt;p&gt;　以前から将棋関連アプリのオンライン対戦機能を作ってみようかと、FirebaseのCloud FunctionsをJavaScriptで使ってみたりしていたのですが、従量制なので実際運用し始めたらどれぐらいの費用が掛かるのか分からないので、なかなか本気になれませんでした。開発することを考えるとオンライン対戦機能をどのように実現するかという問題の方が先ですが、運用コストを考えるといろいろ迷います。そこで定額制で運用することを考えると自分の場合はRailsかNode.jsかな〜と思い、取り敢えずNode.jsで着手してみました。&lt;/p&gt;
-
-&lt;h3 id=&quot;結局herokuで試すことに&quot;&gt;結局Herokuで試すことに&lt;/h3&gt;
-&lt;p&gt;　ローカル環境である程度作ったところでリモートサーバーで試してみたいと思って、定額制でNode.jsの運用先を探したところ&lt;a href=&quot;https://paiza.cloud/ja/&quot;&gt;Paiza Cloud&lt;/a&gt;というのを見つけたのですが、ここは無料プランやライトプランではサービスを公開出来ないようです。&lt;br /&gt;
-　&lt;a href=&quot;/programming/2021-06-30/heroku_delete&quot;&gt;以前の記事&lt;/a&gt;で&lt;a href=&quot;/programming/2015-04-25/mongo_upsert&quot;&gt;Node.jsを使ったアプリ&lt;/a&gt;を、MongoDBのアドオンが使えなくなったために仕方なく非公開にしたことを書きましたが、そんなことがあったのでもうHerokuでMongoDBを使うのは止めようと思っていたのですが、無料でリモート環境で試せるHerokuはやはり魅力的です。実際にリリースするかどうかも決めてないので尚更です。&lt;/p&gt;
-
-&lt;h3 id=&quot;mongodb-atlasを使う&quot;&gt;MongoDB Atlasを使う&lt;/h3&gt;
-&lt;p&gt;　HerokuでMongoDBのアドオン（mLabアドオン）が使えなくなったので、代替方法であるMongoDB Atlasを使うと料金が発生するかもと心配しましたが、Atlasの方は新たなアカウントを作らずにgoogleアカウントでログインするだけでデータベース一つだけなら無料で使えるらしいです。&lt;a href=&quot;https://qiita.com/Molly95554907/items/43b89c8eec475e9f1ed8&quot;&gt;こちらの記事&lt;/a&gt;の通りにすれば、簡単に環境が作れました。&lt;/p&gt;
-
-&lt;h3 id=&quot;heroku本番で使うかどうかは未定で動作確認&quot;&gt;Heroku（本番で使うかどうかは未定）で動作確認&lt;/h3&gt;
-&lt;p&gt;　ブラウザを２つ立ち上げて２台のスマホ端末に見立てて動作確認してみました。&lt;/p&gt;
-
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/y1_h8-bk1TI&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;　ちゃんと動いて一安心です。&lt;/p&gt;
-
-&lt;h3 id=&quot;全体の３割ぐらい完成か&quot;&gt;全体の３割ぐらい完成か？&lt;/h3&gt;
-&lt;p&gt;　自分の将棋関連アプリの中から&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;を選んでここまで作りましたが、今になって５五将棋は既に&lt;a href=&quot;http://sdin.jp/browser/board/55shogi/&quot;&gt;SDINサイト&lt;/a&gt;でオンライン対戦が可能なので、他のアプリ（例えば禽将棋アプリ）にした方がよかったかも？なんて考えてます。まぁ他のアプリでも使えるように考えながらサーバーサイドを作っているつもりですが、最終的にどうするかは決めてません。&lt;br /&gt;
-　あと、&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;は初期配置をユーザーが自由に編集可能なので、対戦申し込みする時に初期配置を相手に表示して「この初期配置だけど、いいですか？」という意志を確認するために対戦申し込みする側の初期配置を相手側に通知する機能の実装が面倒だったのですが、開発時の苦労話や技術的なTipsみたいな物も今後記事にするかも知れません。&lt;/p&gt;
-
-&lt;h3 id=&quot;mongodbnosqlとrdbとの違い&quot;&gt;MongoDB（NoSQL）とRDBとの違い&lt;/h3&gt;
-&lt;p&gt;　例えば棋譜テーブルは以下のように定義しています。&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var kifuSchema = new Schema(
-  {
-    description: {
-      type: String
-    },
-    firstPlayer: {
-      type: String,
-      required: true
-    },
-    secondPlayer: {
-      type: String,
-      required: true
-    },
-    applicant: {
-      type: String,
-      required: true
-    },
-    koma: {
-      type: Array,
-      default: []
-    },
-    histories: {
-      type: Array,
-      default: []
-    },
-    users: [{ type: Schema.Types.ObjectId, ref: &quot;User&quot; }]
-  },
-  {
-    timestamps: true,
-  }
-);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　配列型のカラム（histories）を用意して、指し手が進む毎にスマホ端末から貰ったJSON形式の棋譜データをそのまま追加してます。このやり方なら禽将棋であろうが５五将棋であろうがテーブル構造を変える必要がありません。&lt;br /&gt;
-　以下のコードは対局が一手進んだ時のサーバー側の処理です。&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    client.on(&quot;gameMove&quot;, data =&amp;gt; {
-      let filter = {_id: data.kifuId};
-      let update = {$push: {koma: data.koma, histories: data.record}};
-      Kifu.findOneAndUpdate(filter, update, {returnDocument: &apos;after&apos;})
-        .then(kifu =&amp;gt; {
-          return kifu;
-        })
-        .then(kifu =&amp;gt; {
-          User.find({_id: {$in: [kifu.users[0], kifu.users[1]]}})
-            .then(users =&amp;gt; {
-              if (users[0].socketId == client.id){
-                io.to(users[1].socketId).emit(&quot;gameMoved&quot;, kifu);
-              } else {
-                io.to(users[0].socketId).emit(&quot;gameMoved&quot;, kifu);
-              }
-            })
-        })
-        .catch(error =&amp;gt; {
-          console.log(`Error in io.on.gameMove:${error.message}`);
-        });
-    });
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　RDB（リレーショナルデータベース）だと配列型のカラムではなく別テーブルにすると思いますが、そうすると将棋の種類が変わるとテーブル構造が変わりなかなか汎用的に作れません。NoSQLデータベース（MongoDB）ではテーブルの正規化とかあまり考えずに緩く定義（冗長化）して使えるのが利点だと思います。最近のRDBでは配列型のカラムを使用することは出来るかも知れませんが（私は使ったことがありません）、今のところNode.js＋MongoDBで作ることにしてよかったなと思ってます。&lt;br /&gt;
-　&lt;a href=&quot;https://atmarkit.itmedia.co.jp/ait/articles/1103/25/news131_3.html&quot;&gt;この記事&lt;/a&gt;によると「NoSQLデータベースの設計では、正規化をしてはいけない」と言う人もいるそうです。それは極端かも知れませんが、RDBで配列型のカラムを使うぐらいならNoSQLデータベースを使う方がいいような気がします。&lt;/p&gt;
-
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-</description>
-        <pubDate>Sat, 21 Aug 2021 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/programming/2021-08-21/nodejs</link>
-        <guid isPermaLink="true">https://happyclam.github.io/programming/2021-08-21/nodejs</guid>
-        
-        <category>javascript</category>
-        
-        <category>android</category>
-        
-        <category>cordova</category>
-        
-        <category>shogi</category>
-        
-        <category>heroku</category>
-        
-        <category>node</category>
-        
-        <category>MongoDB</category>
-        
-        
-        <category>programming</category>
         
       </item>
     

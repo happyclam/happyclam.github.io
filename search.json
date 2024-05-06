@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "アプリを非公開にする理由",
+      "category" : "miscellaneous",
+      "tags"     : "cordova, android, coffeescript, google",
+      "url"      : "/miscellaneous/2024-05-04/app_private",
+      "date"     : "2024-05-04 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "チェスAIとテスト駆動開発",
       "category" : "software",
       "tags"     : "coffeescript, javascript, shogi, chess",
