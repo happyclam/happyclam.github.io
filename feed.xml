@@ -5,9 +5,110 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 06 May 2024 11:46:27 +0900</pubDate>
-    <lastBuildDate>Mon, 06 May 2024 11:46:27 +0900</lastBuildDate>
+    <pubDate>Sat, 11 May 2024 17:30:07 +0900</pubDate>
+    <lastBuildDate>Sat, 11 May 2024 17:30:07 +0900</lastBuildDate>
     <generator>Jekyll v3.9.4</generator>
+    
+      <item>
+        <title>広告収益の不明瞭さが気になる</title>
+        <description>&lt;h3 id=&quot;広告ビジネスへの不信感&quot;&gt;広告ビジネスへの不信感&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/miscellaneous/2024-05-04/app_private&quot;&gt;前回の記事&lt;/a&gt;で「無料アプリで広告を出すより、安価な有料アプリにすべきだった」と書きました。有料アプリで公開したほうが、「無料でアプリを使っているにも関わらず批判ばかりする所謂アンチ勢力を避けることが出来る」なんて意見も耳にしますが、自分としてはアンチを避けるためというような理由ではなく、５年程度やってみたから分かったことですが広告表示で収益を上げるというビジネスモデル自体がいろいろ不明瞭な点が多く納得できないからというのが理由です。有料アプリであればアプリを購入した人が確実に存在するので分かりやすいですが、アプリ広告が何回見られたかとか広告が何回クリックされたかとか本当のところは開発者には分からないので、Youtubeなんかも同じですが、そういう不明瞭な評価が自分にとって納得しづらいという理由で有料アプリにした方がよかったなぁと思っています。&lt;br /&gt;
+　どう感じるかはこの記事を読む人次第ですが、自分が体験した不思議な事象をいくつか書いてみます。&lt;/p&gt;
+
+&lt;h3 id=&quot;ダウンロード数が増えない不思議&quot;&gt;ダウンロード数が増えない不思議&lt;/h3&gt;
+&lt;p&gt;　この記事を書く切っ掛けにもなったのですが、最近当ブログに流入する検索ワードの順位が大幅に変わりました。&lt;a href=&quot;/software/2023-11-07/karah_problem&quot;&gt;以前の記事&lt;/a&gt;に書いたように当ブログに流入してくる検索ワードは圧倒的に「マンカラ」関係が多かったのですが、最近「消える まるばつ」がトップになりました。&lt;/p&gt;
+
+&lt;div style=&quot;width:330px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/site_ranking0.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/site_ranking0.png&quot; alt=&quot;検索ワードランキング&quot; width=&quot;330&quot; height=&quot;336&quot; title=&quot;検索ワードランキング&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　iOSアプリで&lt;a href=&quot;https://apps.apple.com/pl/app/%E3%82%B5%E3%83%89%E3%83%B3%E3%83%87%E3%82%B9%E3%81%BE%E3%82%8B%E3%81%B0%E3%81%A4%E3%82%B2%E3%83%BC%E3%83%A0/id6448230478&quot;&gt;「サドンデスまるばつ」&lt;/a&gt;というアプリがリリースされたのが原因のようで、それに伴って以前公開していた&lt;a href=&quot;https://happyclam.github.io/project/2017-07-11/tictactoe-van&quot;&gt;「消える三目並べ」というアプリの記事&lt;/a&gt;へのアクセスが急上昇したようです。&lt;/p&gt;
+
+&lt;div style=&quot;width:570px; margin: 0 auto;&quot;&gt;
+&lt;div style=&quot;float:left; margin: 0px 20px 0px;&quot;&gt;
+&lt;a href=&quot;/images/site_ranking1.png&quot;&gt;&lt;img width=&quot;216&quot; height=&quot;504&quot; src=&quot;https://happyclam.github.io/images/site_ranking1.png&quot; alt=&quot;先月のランキング&quot; title=&quot;先月のランキング&quot; /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;a href=&quot;/images/site_ranking2.png&quot;&gt;&lt;img width=&quot;216&quot; height=&quot;504&quot; src=&quot;https://happyclam.github.io/images/site_ranking2.png&quot; alt=&quot;今月のランキング&quot; title=&quot;今月のランキング&quot; /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　上の画像は先月と今月の当ブログへの検索流入ワードランキングです。以前の自分なら「よし、この波に乗って『消える三目並べ』アプリをリニューアルしてみるか！」なんて考えたかもしれませんが、アプリの記事へのアクセスが必ずしもアプリのダウンロードには繋がらないことを経験しているので静観しているところです。&lt;br /&gt;
+　と言うのも、下の画像が&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラアプリ&lt;/a&gt;のアクティブユーザー数の推移のグラフですが、最高で２０人ぐらいで推移していて、当ブログで最も参照されている記事で紹介しているアプリにも関わらず、ほぼ最もアクティブユーザー数が少ないアプリになってしまっています。「検索で辿り着いた人がわざわざアプリをダウンロードしないよ」という意見もあると思いますが、関心を持って辿り着いた記事で紹介しているアプリなら「一度ダウンロードして試してみようか」とならないですかねぇ:thinking:それに、いきなり急上昇した「消える三目並べ」と違って、マンカラの記事はもう何年も当ブログでトップのアクセス数なので増えていってもいいと思うのですが不思議です:sweat_smile:&lt;/p&gt;
+
+&lt;div style=&quot;width:360px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/mancala_graph.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/mancala_graph.png&quot; alt=&quot;マンカラアプリ アクティブユーザー数&quot; width=&quot;360&quot; height=&quot;493&quot; title=&quot;マンカラアプリ アクティブユーザー数&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;マンカラアプリ&lt;/a&gt;は５段階評価で５の評価を２つ貰っていますが、レビューコメントが無いのでGoogle Play上では表示されていません。自分がマンカラというゲームを初めて知った時は何種類もマンカラアプリをダウンロードしまくったのでなんか納得できないんですよねぇ:sob:&lt;/p&gt;
+
+&lt;h3 id=&quot;ユーザー数が急上昇して急降下する不思議&quot;&gt;ユーザー数が急上昇して急降下する不思議&lt;/h3&gt;
+&lt;p&gt;　今度は自分のアプリの中でもっともアクティブユーザー数が多い&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;のアクティブユーザー数の推移です。自分のアプリの中の稼ぎ頭です:sweat_smile:&lt;/p&gt;
+
+&lt;div style=&quot;width:360px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/55shogi_graph.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/55shogi_graph.png&quot; alt=&quot;５五将棋アプリ アクティブユーザー数&quot; width=&quot;360&quot; height=&quot;477&quot; title=&quot;５五将棋アプリ アクティブユーザー数&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　たしかリリースして数カ月後のことだったと思いますが、いきなりユーザー数が急上昇してその後何かの間違いだったかのように急降下して、未だにその時のユーザー数を超えていません。この時、アプリ広告は既に付けていましたが広告収入の急上昇はありませんでした。さっぱり原因はわかりません。不思議だと思いませんか？:sweat_smile:&lt;/p&gt;
+
+&lt;h3 id=&quot;広告収入が急上昇して急降下する不思議&quot;&gt;広告収入が急上昇して急降下する不思議&lt;/h3&gt;
+&lt;p&gt;　今度は&lt;a href=&quot;/miscellaneous/2024-05-04/app_private&quot;&gt;前回の記事&lt;/a&gt;で事情を説明したように、現在非公開になっている&lt;ruby&gt;禽将棋&lt;rt&gt;とりしょうぎ&lt;/rt&gt;&lt;/ruby&gt;アプリに関するグラフです。&lt;/p&gt;
+
+&lt;div style=&quot;width:360px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/torishogi_graph.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/torishogi_graph.png&quot; alt=&quot;禽将棋アプリ アクティブユーザー数&quot; width=&quot;360&quot; height=&quot;477&quot; title=&quot;禽将棋アプリ アクティブユーザー数&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/torishogi_graph2.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/torishogi_graph2.png&quot; alt=&quot;禽将棋アプリ 広告収入&quot; width=&quot;480&quot; height=&quot;386&quot; title=&quot;禽将棋アプリ 広告収入&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam&quot;&gt;５五将棋アプリ&lt;/a&gt;のケースと違って、アプリのダウンロード数は増えてないのにリリースしてすぐに一日だけ広告収入だけが急上昇しました。ダウンロード数が全然増えていないのに一日600円も広告収入を貰えて、その後はグラフの通り僅かな収益で推移していました。これは極少数のユーザーが一日だけハードに使いまくった可能性はあり得ますが、当時はインタースティシャル広告を付けておらずバナー広告だけだったし、バナー広告だけで一日600円って、ユーザー数も数人だったのでこれも不思議なんですよねぇ:sweat_smile:&lt;/p&gt;
+
+&lt;h3 id=&quot;実態の分からない広告収益&quot;&gt;実態の分からない広告収益&lt;/h3&gt;
+&lt;p&gt;　以上、見てきたように広告収入なんてかなりいい加減なものだと思っています。極一部のユーザーによる恣意的な操作も出来るでしょうし、それをやっているのがgoogleならマッチポンプで問題だと思いますが、アプリの宣伝のためにgoogleにコストを支払ってランキング上位に表示させてダウンロード数を増やすことには別に問題はありません。疑問があればもしかしたらgoogle側に情報公開を請求できるのかもしれませんが、その情報自体の真贋も自分自身では確かめようがないのでやろうとは思いません。&lt;br /&gt;
+　ということで、広告収入を当てにして無料アプリとして公開するのではなく、有料アプリとしてに公開する方が何かと納得できるのではないかという体験者からの一つの見解でした。&lt;br /&gt;
+　&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+</description>
+        <pubDate>Sun, 12 May 2024 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/miscellaneous/2024-05-12/app_advertising</link>
+        <guid isPermaLink="true">https://happyclam.github.io/miscellaneous/2024-05-12/app_advertising</guid>
+        
+        <category>cordova</category>
+        
+        <category>android</category>
+        
+        <category>coffeescript</category>
+        
+        <category>flutter</category>
+        
+        <category>google</category>
+        
+        
+        <category>miscellaneous</category>
+        
+      </item>
     
       <item>
         <title>アプリを非公開にする理由</title>
@@ -1608,82 +1709,6 @@ F
         <category>mancala</category>
         
         <category>shogi</category>
-        
-        
-        <category>hardware</category>
-        
-      </item>
-    
-      <item>
-        <title>Ubuntuで使えるBluetoothマウス</title>
-        <description>&lt;h3 id=&quot;macbookproを買って貯まったヨドバシのポイント&quot;&gt;MacbookProを買って貯まったヨドバシのポイント&lt;/h3&gt;
-&lt;p&gt;　ヨドバシのポイントが貯まるとすぐに使い切ってしまいたくなる質なので、キーボードとBluetoothマウスを新調しました。&lt;/p&gt;
-
-&lt;h3 id=&quot;悩まされてきたbluetoothマウス&quot;&gt;悩まされてきたBluetoothマウス&lt;/h3&gt;
-&lt;p&gt;　自分だけかも知れませんが、今までUbuntu機でいくつかBluetoothマウスを試して長く愛用出来るものには出会えませんでした。マウスポインタの動きがおかしかったり、少しの間快適に使えていてもUbuntuのUpdateをするとまたおかしくなったりしてました。値段の高いトラックボールなんかだとUbuntuの設定を弄ってなんとか使えるようにしてましたが、マウスだとすぐに諦めて有線に戻していた所為もあるでしょう。&lt;br /&gt;
-　今回買ったのはマウスとしては少々高めのお値段ですが、&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/220691a2.603e89c9.220691a3.4b08f26e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flogicool%2Fm720r%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9&quot;&gt;logicoolのM720rトライアスロンマルチデバイスマウス&lt;/a&gt;と言うものです。&lt;/p&gt;
-
-&lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/logi_m720r01.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/logi_m720r01.png&quot; alt=&quot;M720r&quot; width=&quot;360&quot; height=&quot;309&quot; title=&quot;M720r&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　今までUbuntu機で使ったことのあるBluetoothマウスは全て汎用のBluetoothアダプタ（ドングル）と通信して使うものでしたが、この&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/220691a2.603e89c9.220691a3.4b08f26e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flogicool%2Fm720r%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9&quot;&gt;M720r&lt;/a&gt;は付属の専用アダプタと通信して使うタイプです。専用アダプタが付属するものは自分の経験ではUbuntuでは使えないものばかりでしたが、この製品はアダプタをUbuntu機に挿したらいきなり使えました（Ubuntu 20.04）。&lt;br /&gt;
-　おまけに付属のアダプタを使わずにBluetooth接続も出来ると聞いていたので、MacbookProで試したところ、&lt;a href=&quot;https://www.logitech.com/assets/64937/4/m720-web-qsg.pdf&quot;&gt;取扱説明書&lt;/a&gt;を読むまでもなく使用できました。マウス側面のデバイス切り替えボタンで３台のPCで使えるそうですが、一番手前のボタンを長押しすれば簡単にペアリング出来ます。&lt;/p&gt;
-
-&lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/logi_m720r02.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/logi_m720r02.png&quot; alt=&quot;M720r&quot; width=&quot;360&quot; height=&quot;282&quot; title=&quot;M720r&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　専用レシーバーは電池横のポケットに収納出来るようになっていて、紛失の可能性も軽減。まだ分かりませんが、このマウスは長く使っていけそうな気がします。&lt;/p&gt;
-
-&lt;h3 id=&quot;初めてのメカニカルキーボード&quot;&gt;初めてのメカニカルキーボード&lt;/h3&gt;
-&lt;p&gt;　ヨドバシでキーボードのコーナーを何気なく見ていたら、見た目がとてもスマートだなと思って目が止まったのが&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/2207b93f.46532365.2207b940.7c241670/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fakindo%2Fk835gpb%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9&quot;&gt;ロジクール キーボード K835 TKL 赤軸&lt;/a&gt;、スマホで検索してみるとメカニカルキーボードじゃないですか。メカニカルキーボードと言えば、昔秋葉原でCherry社の高級キーボードを触ったことがありますが、値段が高過ぎて（確か３万円ぐらい？）とても買ってみようなんて思わなかったのですが、当時を思い出しすぐに買いたくなりました。&lt;/p&gt;
-
-&lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/logi_k83501.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/logi_k83501.png&quot; alt=&quot;K835&quot; width=&quot;360&quot; height=&quot;148&quot; title=&quot;K835&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/logi_k83502.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/logi_k83502.png&quot; alt=&quot;K835&quot; width=&quot;360&quot; height=&quot;227&quot; title=&quot;K835&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　赤軸と青軸があるのですが、音が控えめな赤軸の方にしました。音が控えめと言っても普通のメンブレン式キーボードに較べたら音は大きめです。メンブレン式キーボードでも&lt;a href=&quot;https://yukirai.com/2017/08/17/hhkb-lite2-review/&quot;&gt;HHKB Lite2&lt;/a&gt;はかなり煩かったですが、それよりは静かです。&lt;/p&gt;
-
-&lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/logi_k83503.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/logi_k83503.png&quot; alt=&quot;K835&quot; width=&quot;360&quot; height=&quot;227&quot; title=&quot;K835&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　それとこのキーボード、キートップがキーボードの筐体に埋まっていないのでキーとキーの隙間に埃やゴミが溜まりにくそうです。写真のようにキートップを外すと非常に掃除がし易そうで、これなら無精な自分でも掃除をする気にさせてくれるのではないかと思ってます。&lt;/p&gt;
-
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-</description>
-        <pubDate>Wed, 10 Nov 2021 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/hardware/2021-11-10/logicool</link>
-        <guid isPermaLink="true">https://happyclam.github.io/hardware/2021-11-10/logicool</guid>
-        
-        <category>ubuntu</category>
-        
-        <category>logicool</category>
         
         
         <category>hardware</category>

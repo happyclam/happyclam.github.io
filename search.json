@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "広告収益の不明瞭さが気になる",
+      "category" : "miscellaneous",
+      "tags"     : "cordova, android, coffeescript, flutter, google",
+      "url"      : "/miscellaneous/2024-05-12/app_advertising",
+      "date"     : "2024-05-12 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "アプリを非公開にする理由",
       "category" : "miscellaneous",
       "tags"     : "cordova, android, coffeescript, google",
