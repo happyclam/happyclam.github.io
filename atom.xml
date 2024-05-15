@@ -113,7 +113,7 @@
    <updated>2020-11-21T00:00:00+09:00</updated>
    <id>https://happyclam.github.io/software/2020-11-21/mancala_evaluate01</id>
    <content type="html">&lt;h3 id=&quot;マンカラも将棋も二人零和有限確定完全情報ゲーム&quot;&gt;マンカラも将棋も二人零和有限確定完全情報ゲーム&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;「マンカラ ナッツ」&lt;/a&gt;の評価関数は&lt;a href=&quot;/software/2020-08-10/mancalanuts&quot;&gt;アプリの説明ページ&lt;/a&gt;にも書いていますが、&lt;code&gt;先手の貯蔵所に溜まった豆の数 - 後手の貯蔵所に溜まった豆の数&lt;/code&gt;を返すようになっています。これは局面の形勢判断をするというよりズバリどっちが勝ちかを判断するための単純な評価関数で、将棋で言えば詰将棋専用の評価関数&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;のようなものです。将棋でよく駒得とか駒の働きとかの局面の特徴を捉えて形勢判断をしますが、マンカラの形勢判断をどうすればいいのか、いいアイデアが浮かばなかったので単純な豆の数の差だけを評価する評価関数を使っています。&lt;br /&gt;
+&lt;p&gt;　&lt;a href=&quot;https://play.google.com/store/apps/details?id=mancala.io.github.happyclam&quot;&gt;「マンカラ ナッツ」&lt;/a&gt;の評価関数は&lt;a href=&quot;/project/2020-08-10/mancalanuts&quot;&gt;アプリの説明ページ&lt;/a&gt;にも書いていますが、&lt;code&gt;先手の貯蔵所に溜まった豆の数 - 後手の貯蔵所に溜まった豆の数&lt;/code&gt;を返すようになっています。これは局面の形勢判断をするというよりズバリどっちが勝ちかを判断するための単純な評価関数で、将棋で言えば詰将棋専用の評価関数&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;のようなものです。将棋でよく駒得とか駒の働きとかの局面の特徴を捉えて形勢判断をしますが、マンカラの形勢判断をどうすればいいのか、いいアイデアが浮かばなかったので単純な豆の数の差だけを評価する評価関数を使っています。&lt;br /&gt;
 　マンカラは将棋ほど変化が膨大ではなく、ゲーム終了までの手数も短いので、いきなり初手から詰み（勝ち）を読みに行くような評価関数を使ってるわけですが、今のところこれで良いかな？と思ってます&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 
 &lt;h4 id=&quot;マンカラの棋譜&quot;&gt;マンカラの棋譜？&lt;/h4&gt;
