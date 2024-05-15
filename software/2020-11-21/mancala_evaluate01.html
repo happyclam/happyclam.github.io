@@ -181,7 +181,7 @@
 
         <article class="page-content">
           <h3 id="マンカラも将棋も二人零和有限確定完全情報ゲーム">マンカラも将棋も二人零和有限確定完全情報ゲーム</h3>
-<p>　<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">「マンカラ ナッツ」</a>の評価関数は<a href="/software/2020-08-10/mancalanuts">アプリの説明ページ</a>にも書いていますが、<code class="language-plaintext highlighter-rouge">先手の貯蔵所に溜まった豆の数 - 後手の貯蔵所に溜まった豆の数</code>を返すようになっています。これは局面の形勢判断をするというよりズバリどっちが勝ちかを判断するための単純な評価関数で、将棋で言えば詰将棋専用の評価関数<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>のようなものです。将棋でよく駒得とか駒の働きとかの局面の特徴を捉えて形勢判断をしますが、マンカラの形勢判断をどうすればいいのか、いいアイデアが浮かばなかったので単純な豆の数の差だけを評価する評価関数を使っています。<br>
+<p>　<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">「マンカラ ナッツ」</a>の評価関数は<a href="/project/2020-08-10/mancalanuts">アプリの説明ページ</a>にも書いていますが、<code class="language-plaintext highlighter-rouge">先手の貯蔵所に溜まった豆の数 - 後手の貯蔵所に溜まった豆の数</code>を返すようになっています。これは局面の形勢判断をするというよりズバリどっちが勝ちかを判断するための単純な評価関数で、将棋で言えば詰将棋専用の評価関数<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>のようなものです。将棋でよく駒得とか駒の働きとかの局面の特徴を捉えて形勢判断をしますが、マンカラの形勢判断をどうすればいいのか、いいアイデアが浮かばなかったので単純な豆の数の差だけを評価する評価関数を使っています。<br>
 　マンカラは将棋ほど変化が膨大ではなく、ゲーム終了までの手数も短いので、いきなり初手から詰み（勝ち）を読みに行くような評価関数を使ってるわけですが、今のところこれで良いかな？と思ってます<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>。</p>
 
 <h4 id="マンカラの棋譜">マンカラの棋譜？</h4>
