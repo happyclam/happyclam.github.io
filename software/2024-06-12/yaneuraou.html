@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="author" content="happyclam">
+  <meta name="description"
+    content="Ubuntuでやねうら王 遅ればせながら近頃の将棋AIを使ってみる Reinventing the wheel.">
+  <title> Ubuntuでやねうら王 - 自己満足プログラミング </title>
+
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-1752720-7');
+  </script>
+
+<script async type="application/javascript"
+        src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
+<script>
+  (self.SWG_BASIC = self.SWG_BASIC || []).push( basicSubscriptions => {
+    basicSubscriptions.init({
+      type: "NewsArticle",
+      isPartOfType: ["Product"],
+      isPartOfProductId: "CAow99qlDA:openaccess",
+      clientOptions: { theme: "light", lang: "ja" },
+    });
+  });
+</script>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="Ubuntuでやねうら王">
+  
+  
+  <meta name="twitter:url" content="/software/2024-06-12/yaneuraou">
+  
+  
+  <meta name="twitter:description" content="必要性は感じてなかったけど、あれば使いたくなる">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/55shogi_logo.png">
+  
+
+  <link rel="canonical" href="https://happyclam.github.io/software/2024-06-12/yaneuraou" />
+  <link rel="alternate" type="application/rss+xml" title="自己満足プログラミング" href="/feed.xml" />
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="site-title" class="navbar-brand" href="/">
+          <img class="pull-left img-responsive" src="">
+          <span class="name-holder">自己満足プログラミング</span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li>
+<a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li>
+<a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li>
+<a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li>
+<a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li>
+<a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <!-- <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script> -->
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <div style="text-align: center;">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1238485061299241" crossorigin="anonymous"></script>
+  </div>
+  <div class="blog-header">
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        <button swg-standard-button="contribution"></button>        
+      </div>
+      <div class="span9">
+        <!-- Html Elements for Search -->
+        <div id="search-container" align="right">
+          <input type="text" id="search-input" placeholder="search...">
+          <ul class="searchresult" id="results-container"></ul>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+  <script src="/assets/js/jquery.min.js"></script>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
+
+        <header class="page-header">
+          <h2 class="page-title"><a href="/software/2024-06-12/yaneuraou">Ubuntuでやねうら王</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Wednesday, June 12, 2024
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">ubuntu</span>
+                
+                  <span class="label label-tag">shogi</span>
+                
+            </div>
+          </div>
+
+        </header>
+
+        <article class="page-content">
+          <h3 id="最新将棋aiの必要性を感じてなかった">最新将棋AIの必要性を感じてなかった</h3>
+<p>　<a href="/software/2018-10-27/unpromote">以前の記事</a>にも書きましたが、将棋ソフトに関しては「AI将棋13」というかなり古いWindows用の将棋ソフトをUbuntu機でWineを使って動かしてます。自分の棋力ではこのソフトで十分な強さですし、GUIが使いやすく詰将棋の入力や解答にも便利なので、特に最新の将棋AIソフトを使う必要性を感じていなかったからです。<br>
+　でも、そろそろ最新とまでは行かなくても近年の将棋AIを味わってみるかと思い立ちUbuntuに導入してみました。「やねうら王」自体は昔からLinuxに対応しているのは知っていましたが、将棋GUIソフトで「Electron将棋」というものが存在することを知ったのが切っ掛けで、UbuntuでGUIが動かせるならやってみようって感じです。<br>
+　「やねうら王」に詳しいわけではないので細かな設定は分かりませんが、とにかく動かすために自分がやった手順を紹介してみます。</p>
+
+<h3 id="必要なもの">必要なもの</h3>
+<ul>
+  <li>
+<a href="https://github.com/yaneurao/YaneuraOu.git">やねうら王</a><br>
+　自分の環境に合わせてコンパイルが必要です。</li>
+  <li>
+<a href="https://github.com/yaneurao/YaneuraOu/wiki/%E3%82%84%E3%81%AD%E3%81%86%E3%82%89%E7%8E%8B%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%89%8B%E9%A0%86">評価関数</a><br>
+　この記事内の「6. 評価関数のタイプ」という表の中から評価関数を選んで、リンクを辿ってダウンロードします。<code class="language-plaintext highlighter-rouge">nn.bin</code>という名前の評価関数ファイルだけあればとりあえず使えるようになるみたいです。自分は表の中から無料で使えてお勧めされている<code class="language-plaintext highlighter-rouge">『Lí』（tanuki-wcsc33-2023-05-04）</code>を選んで、<a href="https://github.com/nodchip/tanuki-/releases/tag/tanuki-wcsc33-2023-05-04">リンク先</a>から<code class="language-plaintext highlighter-rouge">tanuki-wcsc33-2023-05-04.7z
+</code>をダウンロードしました。</li>
+  <li>
+<a href="https://github.com/sunfish-shogi/electron-shogi/releases">将棋GUI（Electron将棋）</a><br>
+　リストの中の<code class="language-plaintext highlighter-rouge">release-v1.14.2-linux.zip</code>をダウンロードしました。</li>
+</ul>
+
+<h3 id="インストール手順">インストール手順</h3>
+
+<ol>
+  <li>やねうら王をダウンロード
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>git clone https://github.com/yaneurao/YaneuraOu.git
+cd YaneuraOu
+</code></pre></div>    </div>
+  </li>
+  <li>
+<code class="language-plaintext highlighter-rouge">source/eval</code>ディレクトリを作成して、評価関数ファイル（<code class="language-plaintext highlighter-rouge">nn.bin</code>）をコピー
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>cd source
+mkdir eval
+cp -p ~/Download/tanuki-wcsc33-2023-05-04/eval/nn.bin eval/
+</code></pre></div>    </div>
+  </li>
+  <li>Makefileを編集
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>-YANEURAOU_EDITION = YANEURAOU_ENGINE_NNUE
++#YANEURAOU_EDITION = YANEURAOU_ENGINE_NNUE
+-#YANEURAOU_EDITION = YANEURAOU_ENGINE_NNUE_HALFKP_1024X2_8_32
++YANEURAOU_EDITION = YANEURAOU_ENGINE_NNUE_HALFKP_1024X2_8_32
+-#TARGET_CPU = ZEN3
++TARGET_CPU = ZEN3
+</code></pre></div>    </div>
+    <p>変更したのは上記３行です。
+自分のUbuntu機のCPUは<code class="language-plaintext highlighter-rouge">AMD Ryzen 7 5700G with Radeon Graphics</code>なので<strong>TARGET_CPU</strong>を<code class="language-plaintext highlighter-rouge">ZEN3</code>に、ダウンロードした評価関数が<code class="language-plaintext highlighter-rouge">tanuki-wcsc33-2023-05-04</code>なので<strong>YANEURAOU_EDITION</strong>を<code class="language-plaintext highlighter-rouge">YANEURAOU_ENGINE_NNUE_HALFKP_1024X2_8_32</code>に、と言う感じです。<a href="https://github.com/yaneurao/YaneuraOu/wiki/%E3%82%84%E3%81%AD%E3%81%86%E3%82%89%E7%8E%8B%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%89%8B%E9%A0%86">「やねうら王のインストール手順」</a>の「6. 評価関数のタイプ」に書かれている表のとおりに指定しただけです。</p>
+  </li>
+  <li>やねうら王をコンパイル
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>make
+</code></pre></div>    </div>
+    <p><code class="language-plaintext highlighter-rouge">YaneuraOu-by-gcc</code>というファイルがsourceディレクトリに出来上がります。</p>
+  </li>
+  <li>ダウンロードした<code class="language-plaintext highlighter-rouge">Electron将棋（release-v1.14.2-linux.zip）</code>を解凍し、<code class="language-plaintext highlighter-rouge">Electron将棋（ElectronShogi-1.13.7.AppImage）</code>を右クリックから実行
+    <div style="width:400px; margin: 0 auto;">
+      <p><a href="/images/electron.png"><img src="/images/electron.png" alt="Electron将棋" width="360" height="301" title="Electron将棋"></a></p>
+    </div>
+  </li>
+  <li>後はElectron将棋の画面から[設定]-&gt;[エンジン設定]-&gt;[追加]で、先程コンパイルした<code class="language-plaintext highlighter-rouge">やねうら王（YaneuraOu-by-gcc）ファイル</code>を選択して[保存して閉じる]するだけです。
+    <div style="width:400px; margin: 0 auto;">
+      <p><a href="/images/electron_engine.png"><img src="/images/electron_engine.png" alt="Electron将棋 エンジン管理" width="360" height="301" title="Electron将棋 エンジン管理"></a></p>
+    </div>
+  </li>
+</ol>
+
+<h3 id="ナイアガラの滝を検証">ナイアガラの滝を検証</h3>
+<p>　試してみるまでもなく結果は分かっていると思いながらも、一応「AI将棋13」と手動で３局対局させてみましたが「やねうら王」の圧勝でした。予想通りでしたがこれだと面白くないので、将棋で大逆転が起きたときの棋譜を一つ比較してみることにしました。<br>
+　まずは「AI将棋13」で解析すると以下のように先手優勢から一気に後手に振れる所謂<code class="language-plaintext highlighter-rouge">ナイアガラの滝</code>状態です。</p>
+
+<div style="width:400px; margin: 0 auto;">
+
+  <p><a href="/images/aishogi13.png"><img src="/images/aishogi13.png" alt="AI将棋13 棋譜解析" width="360" height="301" title="AI将棋13 棋譜解析"></a></p>
+
+</div>
+
+<p>　次は同じ棋譜を「やねうら王」で解析した結果です。グラフの赤い縦線が引かれているところは上のグラフの縦線が引かれているところ（先手のピーク）と同じ局面です。</p>
+
+<div style="width:400px; margin: 0 auto;">
+
+  <p><a href="/images/yaneuraou.png"><img src="/images/yaneuraou.png" alt="やねうら王 棋譜解析" width="360" height="301" title="やねうら王 棋譜解析"></a></p>
+
+</div>
+
+<p>　つまり、「AI将棋13」だと終盤一気に逆転したように見えますが、「やねうら王」で確認すると先手のピークは10手以上前に過ぎていて、「AI将棋13」で先手大優勢に見える局面は「やねうら王」では既に後手優勢に変わっていて、逆転したのはかなり前の局面だったことが分かります。<br>
+　AIが進化すると共に勝敗の結論がどんどん前倒しで分かるようになって、いずれは初手を指した瞬間にグラフが上か下に張り付くようになるのでしょうね。持将棋や千日手かもしれませんが。<br>
+　比較に使った2006年発売の「AI将棋13」は古過ぎるだろうという指摘もあると思いますが、今手元にあるAndroidアプリの「ShogiDroid」で確認しても先手のピークは「AI将棋13」と同じでした（「AI将棋13」はよく出来ていると思います）。「ShogiDroid」のAIは<code class="language-plaintext highlighter-rouge">GPSfish</code>のようなので、詳しくは知りませんが2016年辺りのAIだと思います、PCではなくスマホで動いているというハンデはありますが。<br>
+　関係ないですが「ShogiDroid」を更新しようとして確認してみたところ、今はもうGooglePlayに公開していないようです。</p>
+
+<h3 id="スポンサー">スポンサー</h3>
+<p>　最近将棋はYoutubeやAbemaで見るだけなのですが、「やねうら王」は今後も棋譜解析に使うと思いますのでわずか<code class="language-plaintext highlighter-rouge">$10</code>だけですが<a href="https://github.com/sponsors/yaneurao">ここ</a>から支援しました<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"><br>
+　送金しながら思ったのは「趣味で将棋を楽しんでいるだけの自分が支援しているのに、仕事で金儲けのために将棋AIを使っているプロ棋士が支援しないのはおかしいんじゃない？」とは思いましたね<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20">個人的に支援してるプロ棋士はいるらしいですけど<br>
+　<a href="https://github.com/sunfish-shogi/electron-shogi">Electron将棋</a>もgithub sponsorの窓口用意してくれれば支援したいと思ってます。</p>
+
+<h3 id="ossについて少し思うこと">OSSについて少し思うこと</h3>
+<p>　それにしてもOSSで開発資金回収って難しいだろうなとは思います。本来はどこかの企業に独占させない<code class="language-plaintext highlighter-rouge">自由</code>なソフト（Free Software）というのがOSSの精神だと思いますが、日本では<code class="language-plaintext highlighter-rouge">Free</code>を<code class="language-plaintext highlighter-rouge">無料</code>と訳して無料ソフトだと喧伝されているのが残念です。日本人のほとんどがフリーソフト＝無料ソフトという認識しか持ってないのではないでしょうか<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"><br>
+　でもOSSの精神を誤解している人が多いことは残念だとは思うけど、すべてのソフトウェアについてOSSがすばらしいやり方だとも思いません。公共性の高いソフトウェア（例えばLinuxやGit）なんかは今OSSとして開発されていることが素晴らしいことだと思いますが、自分個人が作るようなソフトのソースを公開しても「パクられて終わり」になると思うので、GNUの所謂<code class="language-plaintext highlighter-rouge">GPLライセンス</code>でソフトウェアを公開したいとは思えません。「やねうら王」に関しては過去の経緯を踏まえて仕方なく<code class="language-plaintext highlighter-rouge">GPL</code>にしているって感じでしょうか？違ってたらスイマセン<img class="emoji" title=":bow:" alt=":bow:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f647.png" height="20" width="20">事情をよく知らないし、ライセンスについても詳しいわけではないのでこの辺りで止めておきます。</p>
+
+<div>
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- display01 -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9018029357773039" data-ad-slot="3925247388" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+<hr>
+
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <small>© rifyll theme, 2014</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+</body>
+
+</html>

@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Ubuntuでやねうら王",
+      "category" : "software",
+      "tags"     : "ubuntu, shogi",
+      "url"      : "/software/2024-06-12/yaneuraou",
+      "date"     : "2024-06-12 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "固定ギア（ピスト）の感想",
       "category" : "miscellaneous",
       "tags"     : "bicycle",

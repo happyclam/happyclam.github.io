@@ -5,9 +5,126 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 24 May 2024 18:38:17 +0900</pubDate>
-    <lastBuildDate>Fri, 24 May 2024 18:38:17 +0900</lastBuildDate>
+    <pubDate>Wed, 12 Jun 2024 19:41:07 +0900</pubDate>
+    <lastBuildDate>Wed, 12 Jun 2024 19:41:07 +0900</lastBuildDate>
     <generator>Jekyll v3.9.5</generator>
+    
+      <item>
+        <title>Ubuntuでやねうら王</title>
+        <description>&lt;h3 id=&quot;最新将棋aiの必要性を感じてなかった&quot;&gt;最新将棋AIの必要性を感じてなかった&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/software/2018-10-27/unpromote&quot;&gt;以前の記事&lt;/a&gt;にも書きましたが、将棋ソフトに関しては「AI将棋13」というかなり古いWindows用の将棋ソフトをUbuntu機でWineを使って動かしてます。自分の棋力ではこのソフトで十分な強さですし、GUIが使いやすく詰将棋の入力や解答にも便利なので、特に最新の将棋AIソフトを使う必要性を感じていなかったからです。&lt;br /&gt;
+　でも、そろそろ最新とまでは行かなくても近年の将棋AIを味わってみるかと思い立ちUbuntuに導入してみました。「やねうら王」自体は昔からLinuxに対応しているのは知っていましたが、将棋GUIソフトで「Electron将棋」というものが存在することを知ったのが切っ掛けで、UbuntuでGUIが動かせるならやってみようって感じです。&lt;br /&gt;
+　「やねうら王」に詳しいわけではないので細かな設定は分かりませんが、とにかく動かすために自分がやった手順を紹介してみます。&lt;/p&gt;
+
+&lt;h3 id=&quot;必要なもの&quot;&gt;必要なもの&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/yaneurao/YaneuraOu.git&quot;&gt;やねうら王&lt;/a&gt;&lt;br /&gt;
+　自分の環境に合わせてコンパイルが必要です。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/yaneurao/YaneuraOu/wiki/%E3%82%84%E3%81%AD%E3%81%86%E3%82%89%E7%8E%8B%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%89%8B%E9%A0%86&quot;&gt;評価関数&lt;/a&gt;&lt;br /&gt;
+　この記事内の「6. 評価関数のタイプ」という表の中から評価関数を選んで、リンクを辿ってダウンロードします。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nn.bin&lt;/code&gt;という名前の評価関数ファイルだけあればとりあえず使えるようになるみたいです。自分は表の中から無料で使えてお勧めされている&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;『Lí』（tanuki-wcsc33-2023-05-04）&lt;/code&gt;を選んで、&lt;a href=&quot;https://github.com/nodchip/tanuki-/releases/tag/tanuki-wcsc33-2023-05-04&quot;&gt;リンク先&lt;/a&gt;から&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tanuki-wcsc33-2023-05-04.7z
+&lt;/code&gt;をダウンロードしました。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/sunfish-shogi/electron-shogi/releases&quot;&gt;将棋GUI（Electron将棋）&lt;/a&gt;&lt;br /&gt;
+　リストの中の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;release-v1.14.2-linux.zip&lt;/code&gt;をダウンロードしました。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;インストール手順&quot;&gt;インストール手順&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;やねうら王をダウンロード
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/yaneurao/YaneuraOu.git
+cd YaneuraOu
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;source/eval&lt;/code&gt;ディレクトリを作成して、評価関数ファイル（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nn.bin&lt;/code&gt;）をコピー
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd source
+mkdir eval
+cp -p ~/Download/tanuki-wcsc33-2023-05-04/eval/nn.bin eval/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Makefileを編集
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-YANEURAOU_EDITION = YANEURAOU_ENGINE_NNUE
++#YANEURAOU_EDITION = YANEURAOU_ENGINE_NNUE
+-#YANEURAOU_EDITION = YANEURAOU_ENGINE_NNUE_HALFKP_1024X2_8_32
++YANEURAOU_EDITION = YANEURAOU_ENGINE_NNUE_HALFKP_1024X2_8_32
+-#TARGET_CPU = ZEN3
++TARGET_CPU = ZEN3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;変更したのは上記３行です。
+自分のUbuntu機のCPUは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AMD Ryzen 7 5700G with Radeon Graphics&lt;/code&gt;なので&lt;strong&gt;TARGET_CPU&lt;/strong&gt;を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ZEN3&lt;/code&gt;に、ダウンロードした評価関数が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tanuki-wcsc33-2023-05-04&lt;/code&gt;なので&lt;strong&gt;YANEURAOU_EDITION&lt;/strong&gt;を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YANEURAOU_ENGINE_NNUE_HALFKP_1024X2_8_32&lt;/code&gt;に、と言う感じです。&lt;a href=&quot;https://github.com/yaneurao/YaneuraOu/wiki/%E3%82%84%E3%81%AD%E3%81%86%E3%82%89%E7%8E%8B%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%89%8B%E9%A0%86&quot;&gt;「やねうら王のインストール手順」&lt;/a&gt;の「6. 評価関数のタイプ」に書かれている表のとおりに指定しただけです。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;やねうら王をコンパイル
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;make
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YaneuraOu-by-gcc&lt;/code&gt;というファイルがsourceディレクトリに出来上がります。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;ダウンロードした&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Electron将棋（release-v1.14.2-linux.zip）&lt;/code&gt;を解凍し、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Electron将棋（ElectronShogi-1.13.7.AppImage）&lt;/code&gt;を右クリックから実行
+    &lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;/images/electron.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/electron.png&quot; alt=&quot;Electron将棋&quot; width=&quot;360&quot; height=&quot;301&quot; title=&quot;Electron将棋&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;後はElectron将棋の画面から[設定]-&amp;gt;[エンジン設定]-&amp;gt;[追加]で、先程コンパイルした&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やねうら王（YaneuraOu-by-gcc）ファイル&lt;/code&gt;を選択して[保存して閉じる]するだけです。
+    &lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;/images/electron_engine.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/electron_engine.png&quot; alt=&quot;Electron将棋 エンジン管理&quot; width=&quot;360&quot; height=&quot;301&quot; title=&quot;Electron将棋 エンジン管理&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;ナイアガラの滝を検証&quot;&gt;ナイアガラの滝を検証&lt;/h3&gt;
+&lt;p&gt;　試してみるまでもなく結果は分かっていると思いながらも、一応「AI将棋13」と手動で３局対局させてみましたが「やねうら王」の圧勝でした。予想通りでしたがこれだと面白くないので、将棋で大逆転が起きたときの棋譜を一つ比較してみることにしました。&lt;br /&gt;
+　まずは「AI将棋13」で解析すると以下のように先手優勢から一気に後手に振れる所謂&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ナイアガラの滝&lt;/code&gt;状態です。&lt;/p&gt;
+
+&lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/aishogi13.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/aishogi13.png&quot; alt=&quot;AI将棋13 棋譜解析&quot; width=&quot;360&quot; height=&quot;301&quot; title=&quot;AI将棋13 棋譜解析&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　次は同じ棋譜を「やねうら王」で解析した結果です。グラフの赤い縦線が引かれているところは上のグラフの縦線が引かれているところ（先手のピーク）と同じ局面です。&lt;/p&gt;
+
+&lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/yaneuraou.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/yaneuraou.png&quot; alt=&quot;やねうら王 棋譜解析&quot; width=&quot;360&quot; height=&quot;301&quot; title=&quot;やねうら王 棋譜解析&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　つまり、「AI将棋13」だと終盤一気に逆転したように見えますが、「やねうら王」で確認すると先手のピークは10手以上前に過ぎていて、「AI将棋13」で先手大優勢に見える局面は「やねうら王」では既に後手優勢に変わっていて、逆転したのはかなり前の局面だったことが分かります。&lt;br /&gt;
+　AIが進化すると共に勝敗の結論がどんどん前倒しで分かるようになって、いずれは初手を指した瞬間にグラフが上か下に張り付くようになるのでしょうね。持将棋や千日手かもしれませんが。&lt;br /&gt;
+　比較に使った2006年発売の「AI将棋13」は古過ぎるだろうという指摘もあると思いますが、今手元にあるAndroidアプリの「ShogiDroid」で確認しても先手のピークは「AI将棋13」と同じでした（「AI将棋13」はよく出来ていると思います）。「ShogiDroid」のAIは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GPSfish&lt;/code&gt;のようなので、詳しくは知りませんが2016年辺りのAIだと思います、PCではなくスマホで動いているというハンデはありますが。&lt;br /&gt;
+　関係ないですが「ShogiDroid」を更新しようとして確認してみたところ、今はもうGooglePlayに公開していないようです。&lt;/p&gt;
+
+&lt;h3 id=&quot;スポンサー&quot;&gt;スポンサー&lt;/h3&gt;
+&lt;p&gt;　最近将棋はYoutubeやAbemaで見るだけなのですが、「やねうら王」は今後も棋譜解析に使うと思いますのでわずか&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$10&lt;/code&gt;だけですが&lt;a href=&quot;https://github.com/sponsors/yaneurao&quot;&gt;ここ&lt;/a&gt;から支援しました:sweat_smile:&lt;br /&gt;
+　送金しながら思ったのは「趣味で将棋を楽しんでいるだけの自分が支援しているのに、仕事で金儲けのために将棋AIを使っているプロ棋士が支援しないのはおかしいんじゃない？」とは思いましたね:sweat_smile:個人的に支援してるプロ棋士はいるらしいですけど&lt;br /&gt;
+　&lt;a href=&quot;https://github.com/sunfish-shogi/electron-shogi&quot;&gt;Electron将棋&lt;/a&gt;もgithub sponsorの窓口用意してくれれば支援したいと思ってます。&lt;/p&gt;
+
+&lt;h3 id=&quot;ossについて少し思うこと&quot;&gt;OSSについて少し思うこと&lt;/h3&gt;
+&lt;p&gt;　それにしてもOSSで開発資金回収って難しいだろうなとは思います。本来はどこかの企業に独占させない&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;自由&lt;/code&gt;なソフト（Free Software）というのがOSSの精神だと思いますが、日本では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Free&lt;/code&gt;を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;無料&lt;/code&gt;と訳して無料ソフトだと喧伝されているのが残念です。日本人のほとんどがフリーソフト＝無料ソフトという認識しか持ってないのではないでしょうか:sweat_smile:&lt;br /&gt;
+　でもOSSの精神を誤解している人が多いことは残念だとは思うけど、すべてのソフトウェアについてOSSがすばらしいやり方だとも思いません。公共性の高いソフトウェア（例えばLinuxやGit）なんかは今OSSとして開発されていることが素晴らしいことだと思いますが、自分個人が作るようなソフトのソースを公開しても「パクられて終わり」になると思うので、GNUの所謂&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GPLライセンス&lt;/code&gt;でソフトウェアを公開したいとは思えません。「やねうら王」に関しては過去の経緯を踏まえて仕方なく&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GPL&lt;/code&gt;にしているって感じでしょうか？違ってたらスイマセン:bow:事情をよく知らないし、ライセンスについても詳しいわけではないのでこの辺りで止めておきます。&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+</description>
+        <pubDate>Wed, 12 Jun 2024 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/software/2024-06-12/yaneuraou</link>
+        <guid isPermaLink="true">https://happyclam.github.io/software/2024-06-12/yaneuraou</guid>
+        
+        <category>ubuntu</category>
+        
+        <category>shogi</category>
+        
+        
+        <category>software</category>
+        
+      </item>
     
       <item>
         <title>固定ギア（ピスト）の感想</title>
@@ -40,7 +157,7 @@
 &lt;p&gt;　自転車で山を登るのは結構好きなのですが、現在のStrollでは山に登るどころかちょっとした高地に行くだけでもうお腹いっぱいって感じで、山に登る手前（大阪で言えば箕面近辺）までしか行く気がしません。山も登ってみるつもりで自転車購入時に軽めのコグ（17T）を選んだのですが、このギアではちょっと無理そうです。いずれ今の反対側についているフリーギアも山登り用の固定ギア（Strollは19Tまでしか選べない？）にして、山の頂上に行ったところで後輪を反転させて平地用のコグに切り替えて降りてこようかなんて考えていますが、ちょっと面倒くさいですね。&lt;/p&gt;
 
 &lt;h3 id=&quot;下りのカーブが怖い&quot;&gt;下りのカーブが怖い&lt;/h3&gt;
-&lt;p&gt;　フリーギアならカーブの外側のペダルを下にして外足に荷重をかけてカーブを曲がれば内側のペダルを地面に擦る心配はありませんが、ピストバイクだと常にペダルが回るのでカーブの内側のペダルを地面に擦らないかいつも心配です。昔、250ccのオートバイに乗っていたことがあるのですが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;リーンイン&lt;/code&gt;と言われる姿勢でカーブを曲がることがあります。オートバイの場合は主にタイヤのグリップ力を上げるために&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;リーンイン&lt;/code&gt;の姿勢を取るのだと思うのですが、ピストバイクの場合はペダルを地面に擦らないようにするために同じような感じでやってます。ペダルを地面に擦らないかヒヤヒヤしながらカーブを曲がるので自然とスピードも落ちます。やはり&lt;a href=&quot;/miscellaneous/2024-03-10/stroll01&quot;&gt;以前の記事&lt;/a&gt;で紹介した動画のように下りカーブはスキッドを駆使して曲がるのが本来の曲がり方なのでしょうか？無茶苦茶難しいですよね:sweat_smile:&lt;/p&gt;
+&lt;p&gt;　フリーギアならカーブの外側のペダルを下にして外足に荷重をかけてカーブを曲がれば内側のペダルを地面に擦る心配はありませんが、ピストバイクだと常にペダルが回るのでカーブの内側のペダルを地面に擦らないかいつも心配です。昔、250ccのオートバイに乗っていたことがあるのですが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;リーンイン&lt;/code&gt;と言われる姿勢でカーブを曲がることがあります。オートバイの場合は主にタイヤのグリップ力を上げるために&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;リーンイン&lt;/code&gt;の姿勢を取るのだと思うのですが、ピストバイクの場合はペダルを地面に擦らないようにするために自転車をなるべく傾けないように気をつけながらカーブを曲がっています。ペダルを地面に擦らないかヒヤヒヤしながらカーブを曲がるので自然とスピードも落ちます。やはり&lt;a href=&quot;/miscellaneous/2024-03-10/stroll01&quot;&gt;以前の記事&lt;/a&gt;で紹介した動画のように下りカーブはスキッドを駆使して曲がるのが本来の曲がり方なのでしょうか？無茶苦茶難しいですよね:sweat_smile:&lt;/p&gt;
 
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
 
@@ -1457,120 +1574,6 @@ P5+OU+KI+GI+KA+HI
         
         
         <category>project</category>
-        
-      </item>
-    
-      <item>
-        <title>ミニベロは上り坂で有利なのか？</title>
-        <description>&lt;h3 id=&quot;ロードバイクで登れるけどミニベロで登れない坂がある&quot;&gt;ロードバイクで登れるけど、ミニベロで登れない坂がある&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/miscellaneous/2020-05-16/bicycle01&quot;&gt;以前の記事「ロード系ミニベロのカスタマイズ」&lt;/a&gt;が結構読まれているようなので、また自転車ネタを書いてみます。&lt;br /&gt;
-　新しく自転車を買ってみようかと思っているのですが、その自転車に求める条件の一つに「近所にある山を登り切りたい」という変な拘りがあります。全国的に有名な急坂とかそういう大層なものではないのですが、&lt;a href=&quot;/miscellaneous/2020-05-16/bicycle01&quot;&gt;以前の記事&lt;/a&gt;で紹介したIDIOM2では登れないけど、今年売っ払ったロードバイクなら登れた坂というのが近所にあって、IDIOM2よりかは上り坂に強い自転車を選びたいと思ってます。&lt;br /&gt;
-　そこでフロントシングルでどんなギアが用意されていればいいか考えてみました。&lt;/p&gt;
-
-&lt;h3 id=&quot;ロードとidiom2の比較&quot;&gt;ロードとIDIOM2の比較&lt;/h3&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt; &lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;ロード　　&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;　IDIOM2　&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;クランク長&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;165mm&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;165mm&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;フロント&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;50-34T&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;48T&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ギア&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;11-25T&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;12-25T&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;タイヤ&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;23-700&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;28-451&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;　自分が持っている2010年式IDIOM2はロード系と言われるだけあってフロントギアは大きめ（48T）ですがスプロケット（SHIMANO HG50 8S 12-25T）のレンジが狭く、ローギアがロードと同じ25Tで坂には向いていません。&lt;br /&gt;
-　一般的にミニベロは上り坂で有利なんて言われたりしますが、車体の重さやクランク長の違いなどの要素もあるものの、ペダルを回す負荷を考えたら結局ギア比で決まると思います。大きな車輪を回すより小さな車輪を回す方が負荷は低くはなりますが、その分を考慮した値で比較すれば700Cも小径車も同じだと思います。700Cと451のタイヤを回す負荷を比較する場合、ギア比を掛けてやれば求められるので&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;タイヤの外径×ギア比&lt;/code&gt;の値を比較すればいいはずです。&lt;br /&gt;
-　タイヤの外径をタイヤサイズ表記に使われている&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;700&lt;/code&gt;や&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;451&lt;/code&gt;を使って計算してもいいのですが、700Cのタイヤのビード座直径は実際には700mmではないようですし、同じタイヤサイズでもタイヤの太さによってタイヤの高さ（外径）も変わるのでここではタイヤの外径の代わりに、タイヤ周長を使おうと思います。タイヤ周長は多くのサイクルコンピュータに予め用意されているのでタイヤの太さによる違いなども考慮されているのでより正確だと思います。それと、タイヤ外径とタイヤ周長の違いは定数である円周率（3.14）を掛けただけなので、タイヤ外径の代わりに周長を使っても問題ありません。&lt;/p&gt;
-
-&lt;p&gt;　ここでは&lt;a href=&quot;https://www.cyclabo.com/ja/topics/vnu1m1awr7/&quot;&gt;このサイト&lt;/a&gt;からタイヤ周長の数値を引っ張ってきて、ロードとミニベロのペダルを回す負荷値（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;タイヤ周長×ギア比&lt;/code&gt;）を計算してみました。&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt; &lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;ロード　　&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;　IDIOM2　&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;タイヤサイズ&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;700x23C(ETRTO 23-622)&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;20x1-1/8(ETRTO 28-451)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;トップギア&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;2096 * (50 / 11.0) = 9.527m&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1545 * (48 / 12.0) = 6.180m&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ローギア&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;2096 * (34 / 25.0) = 2.850m&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1545 * (48 / 25.0) =  2.966m&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;　IDIOM2の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2.966m&lt;/code&gt;よりロードの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2.850m&lt;/code&gt;の方が小さい負荷なのでロードで坂が登れたということだと思ってます。&lt;br /&gt;
-　ペダルを回す負荷値なんて書きましたが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;タイヤ周長×ギア比&lt;/code&gt;というのは結局&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ペダル一漕ぎで進む距離&lt;/code&gt;のことです。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ペダル一漕ぎで進む距離&lt;/code&gt;が上り坂を克服し易さを表す指標と考えていいと思いますが、あまりそういう話を周りで聞かないので不思議です。つまり、タイヤ径が同じ自転車で上り坂の克服し易さを比較したければ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ギア比&lt;/code&gt;を使って、タイヤ径が違う自転車で比較したければ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ペダル一漕ぎで進む距離&lt;/code&gt;を指標として使えばいいってことです。もっとこの認識が拡がればいいのにと思ってます。&lt;/p&gt;
-
-&lt;h3 id=&quot;一輪車は上り坂で有利&quot;&gt;一輪車は上り坂で有利？&lt;/h3&gt;
-&lt;p&gt;　一輪車には乗ったことはないのですが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ペダル一漕ぎで進む距離&lt;/code&gt;が小さいほど坂が登り易いのであれば、一輪車は坂を登り易いということになりますが、どうなのでしょう？&lt;a href=&quot;https://www.youtube.com/watch?v=WhFdxguU_dY&quot;&gt;こんな動画&lt;/a&gt;を見つけましたが、斜度も分からないし何とも言えませんがスピードを無視してペダルを回せるかどうかだけを考えれば一輪車は上り坂に強いような気もします。それに一輪車のクランク長は一般的には自転車よりも短いらしいので、スピードのことは考えず登ることだけを考えて長めのクランクを付けたらさらに楽に登れそうです。&lt;br /&gt;
-　でも、自転車（二輪車）であれば、やろうと思えばギア比を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;以下にすることも出来るので自転車の方が有利であることに間違いないでしょう。&lt;br /&gt;
-　それと上で比較したロードとIDIOM2のクランク長は偶々同じサイズですが、クランク長まで考慮しだすと面倒なので購入する自転車を選ぶ際には今のところ無視しています。&lt;/p&gt;
-
-&lt;h3 id=&quot;ペダルを回せるかどうかが大事&quot;&gt;ペダルを回せるかどうかが大事&lt;/h3&gt;
-&lt;p&gt;　自転車で坂を登れるかどうかっていうのは第一にペダルを回せるかどうかが大事です。全く疲労していない状態でも急勾配な坂だと、力一杯ペダルを踏み込んでも全く回せないので、こういう状態だとギア比を変えるしかありません。&lt;br /&gt;
-　かなり昔のことですが、男６、７人で遠乗りしたことがあって、クロスバイクやロードバイクの人達の中で私だけがミニベロのIDIOM2でした。そして上り坂になった時、私が他のメンバーをグイグイ追い抜いて先頭になって坂の中腹でみんなを待つ状態になったことがあったのですが、「気合い入ってるね」とか「速いね」とか言われたのですが、何の事は無い、自分としてはもっと軽いギアでクルクルペダルを回してゆっくり上りたいのですが、軽いギアが無いために無理やり他の人より重いギアで漕いでいただけのことです。ギア比のことに思い至っていない人だと、上り坂はミニベロが有利なんだと勘違いするかも知れません。&lt;br /&gt;
-　この時は、その後山の頂上が近づくにつれて坂が急勾配になっていき、私がペダルが踏めなくなって自転車を押して歩く羽目になったのとは対照的に、軽い高級ロードバイクの人が先頭を走っていました。&lt;/p&gt;
-
-&lt;h3 id=&quot;坂だけを考えたらクロスバイク&quot;&gt;坂だけを考えたらクロスバイク？&lt;/h3&gt;
-&lt;p&gt;　冒頭に書いたIDIOM2で登れない坂を克服することを考えながら自転車を物色していると、クロスバイクの方が良さそうな気がしています。購入後にギアだけ変えるのは面倒なので、取り敢えず最初から用意されているギア比を見ているとクロスバイクの方がワイドレンジになっていて坂には有利なようですし、リアキャリアを付けたいのでダボ穴が用意されているクロスバイクになりそうです。&lt;br /&gt;
-　購入したらまた記事を書いてみようと思います。&lt;/p&gt;
-
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-</description>
-        <pubDate>Sun, 05 Dec 2021 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/miscellaneous/2021-12-05/minivelo</link>
-        <guid isPermaLink="true">https://happyclam.github.io/miscellaneous/2021-12-05/minivelo</guid>
-        
-        <category>bicycle</category>
-        
-        
-        <category>miscellaneous</category>
         
       </item>
     
