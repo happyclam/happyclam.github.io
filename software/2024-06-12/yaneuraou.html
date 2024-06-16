@@ -176,7 +176,7 @@
         <article class="page-content">
           <h3 id="最新将棋aiの必要性を感じてなかった">最新将棋AIの必要性を感じてなかった</h3>
 <p>　<a href="/software/2018-10-27/unpromote">以前の記事</a>にも書きましたが、将棋ソフトに関しては「AI将棋13」というかなり古いWindows用の将棋ソフトをUbuntu機でWineを使って動かしてます。自分の棋力ではこのソフトで十分な強さですし、GUIが使いやすく詰将棋の入力や解答にも便利なので、特に最新の将棋AIソフトを使う必要性を感じていなかったからです。<br>
-　でも、そろそろ最新とまでは行かなくても近年の将棋AIを味わってみるかと思い立ちUbuntuに導入してみました。「やねうら王」自体は昔からLinuxに対応しているのは知っていましたが、将棋GUIソフトで「Electron将棋」というものが存在することを知ったのが切っ掛けで、UbuntuでGUIが動かせるならやってみようって感じです。<br>
+　でも、そろそろ最新とまでは行かなくても近年の将棋AIを味わってみるかと思い立ちUbuntuに導入してみました。「やねうら王」自体は昔からLinuxに対応しているのは知っていましたが、将棋GUIソフトで「ShogiHome」というものが存在することを知ったのが切っ掛けで、UbuntuでGUIが動かせるならやってみようって感じです。<br>
 　「やねうら王」に詳しいわけではないので細かな設定は分かりませんが、とにかく動かすために自分がやった手順を紹介してみます。</p>
 
 <h3 id="必要なもの">必要なもの</h3>
@@ -189,7 +189,7 @@
 　この記事内の「6. 評価関数のタイプ」という表の中から評価関数を選んで、リンクを辿ってダウンロードします。<code class="language-plaintext highlighter-rouge">nn.bin</code>という名前の評価関数ファイルだけあればとりあえず使えるようになるみたいです。自分は表の中から無料で使えてお勧めされている<code class="language-plaintext highlighter-rouge">『Lí』（tanuki-wcsc33-2023-05-04）</code>を選んで、<a href="https://github.com/nodchip/tanuki-/releases/tag/tanuki-wcsc33-2023-05-04">リンク先</a>から<code class="language-plaintext highlighter-rouge">tanuki-wcsc33-2023-05-04.7z
 </code>をダウンロードしました。</li>
   <li>
-<a href="https://github.com/sunfish-shogi/electron-shogi/releases">将棋GUI（Electron将棋）</a><br>
+<a href="https://github.com/sunfish-shogi/electron-shogi/releases">将棋GUI（ShogiHome）</a><br>
 　リストの中の<code class="language-plaintext highlighter-rouge">release-v1.14.2-linux.zip</code>をダウンロードしました。</li>
 </ul>
 
@@ -228,14 +228,14 @@ cp -p ~/Download/tanuki-wcsc33-2023-05-04/eval/nn.bin eval/
 </code></pre></div>    </div>
     <p><code class="language-plaintext highlighter-rouge">YaneuraOu-by-gcc</code>というファイルがsourceディレクトリに出来上がります。</p>
   </li>
-  <li>ダウンロードした<code class="language-plaintext highlighter-rouge">Electron将棋（release-v1.14.2-linux.zip）</code>を解凍し、<code class="language-plaintext highlighter-rouge">Electron将棋（ElectronShogi-1.13.7.AppImage）</code>を右クリックから実行
+  <li>ダウンロードした<code class="language-plaintext highlighter-rouge">ShogiHome（release-v1.14.2-linux.zip）</code>を解凍し、<code class="language-plaintext highlighter-rouge">ShogiHome（ElectronShogi-1.13.7.AppImage）</code>を右クリックから実行
     <div style="width:400px; margin: 0 auto;">
-      <p><a href="/images/electron.png"><img src="/images/electron.png" alt="Electron将棋" width="360" height="301" title="Electron将棋"></a></p>
+      <p><a href="/images/electron.png"><img src="/images/electron.png" alt="ShogiHome" width="360" height="301" title="ShogiHome"></a></p>
     </div>
   </li>
-  <li>後はElectron将棋の画面から[設定]-&gt;[エンジン設定]-&gt;[追加]で、先程コンパイルした<code class="language-plaintext highlighter-rouge">やねうら王（YaneuraOu-by-gcc）ファイル</code>を選択して[保存して閉じる]するだけです。
+  <li>後はShogiHomeの画面から[設定]-&gt;[エンジン設定]-&gt;[追加]で、先程コンパイルした<code class="language-plaintext highlighter-rouge">やねうら王（YaneuraOu-by-gcc）ファイル</code>を選択して[保存して閉じる]するだけです。
     <div style="width:400px; margin: 0 auto;">
-      <p><a href="/images/electron_engine.png"><img src="/images/electron_engine.png" alt="Electron将棋 エンジン管理" width="360" height="301" title="Electron将棋 エンジン管理"></a></p>
+      <p><a href="/images/electron_engine.png"><img src="/images/electron_engine.png" alt="ShogiHome エンジン管理" width="360" height="301" title="ShogiHome エンジン管理"></a></p>
     </div>
   </li>
 </ol>
@@ -266,7 +266,7 @@ cp -p ~/Download/tanuki-wcsc33-2023-05-04/eval/nn.bin eval/
 <h3 id="スポンサー">スポンサー</h3>
 <p>　最近将棋はYoutubeやAbemaで見るだけなのですが、「やねうら王」は今後も棋譜解析に使うと思いますのでわずか<code class="language-plaintext highlighter-rouge">$10</code>だけですが<a href="https://github.com/sponsors/yaneurao">ここ</a>から支援しました<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"><br>
 　送金しながら思ったのは「趣味で将棋を楽しんでいるだけの自分が支援しているのに、仕事で金儲けのために将棋AIを使っているプロ棋士が支援しないのはおかしいんじゃない？」とは思いましたね<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20">個人的に支援してるプロ棋士はいるらしいですけど<br>
-　<a href="https://github.com/sunfish-shogi/electron-shogi">Electron将棋</a>もgithub sponsorの窓口用意してくれれば支援したいと思ってます。</p>
+　<a href="https://github.com/sunfish-shogi/electron-shogi">ShogiHome</a>もgithub sponsorの窓口用意してくれれば支援したいと思ってます。</p>
 
 <h3 id="ossについて少し思うこと">OSSについて少し思うこと</h3>
 <p>　それにしてもOSSで開発資金回収って難しいだろうなとは思います。本来はどこかの企業に独占させない<code class="language-plaintext highlighter-rouge">自由</code>なソフト（Free Software）というのがOSSの精神だと思いますが、日本では<code class="language-plaintext highlighter-rouge">Free</code>を<code class="language-plaintext highlighter-rouge">無料</code>と訳して無料ソフトだと喧伝されているのが残念です。日本人のほとんどがフリーソフト＝無料ソフトという認識しか持ってないのではないでしょうか<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"><br>

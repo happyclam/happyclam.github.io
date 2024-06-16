@@ -5,15 +5,15 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 12 Jun 2024 19:41:07 +0900</pubDate>
-    <lastBuildDate>Wed, 12 Jun 2024 19:41:07 +0900</lastBuildDate>
+    <pubDate>Sun, 16 Jun 2024 09:37:09 +0900</pubDate>
+    <lastBuildDate>Sun, 16 Jun 2024 09:37:09 +0900</lastBuildDate>
     <generator>Jekyll v3.9.5</generator>
     
       <item>
         <title>Ubuntuでやねうら王</title>
         <description>&lt;h3 id=&quot;最新将棋aiの必要性を感じてなかった&quot;&gt;最新将棋AIの必要性を感じてなかった&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;/software/2018-10-27/unpromote&quot;&gt;以前の記事&lt;/a&gt;にも書きましたが、将棋ソフトに関しては「AI将棋13」というかなり古いWindows用の将棋ソフトをUbuntu機でWineを使って動かしてます。自分の棋力ではこのソフトで十分な強さですし、GUIが使いやすく詰将棋の入力や解答にも便利なので、特に最新の将棋AIソフトを使う必要性を感じていなかったからです。&lt;br /&gt;
-　でも、そろそろ最新とまでは行かなくても近年の将棋AIを味わってみるかと思い立ちUbuntuに導入してみました。「やねうら王」自体は昔からLinuxに対応しているのは知っていましたが、将棋GUIソフトで「Electron将棋」というものが存在することを知ったのが切っ掛けで、UbuntuでGUIが動かせるならやってみようって感じです。&lt;br /&gt;
+　でも、そろそろ最新とまでは行かなくても近年の将棋AIを味わってみるかと思い立ちUbuntuに導入してみました。「やねうら王」自体は昔からLinuxに対応しているのは知っていましたが、将棋GUIソフトで「ShogiHome」というものが存在することを知ったのが切っ掛けで、UbuntuでGUIが動かせるならやってみようって感じです。&lt;br /&gt;
 　「やねうら王」に詳しいわけではないので細かな設定は分かりませんが、とにかく動かすために自分がやった手順を紹介してみます。&lt;/p&gt;
 
 &lt;h3 id=&quot;必要なもの&quot;&gt;必要なもの&lt;/h3&gt;
@@ -23,7 +23,7 @@
   &lt;li&gt;&lt;a href=&quot;https://github.com/yaneurao/YaneuraOu/wiki/%E3%82%84%E3%81%AD%E3%81%86%E3%82%89%E7%8E%8B%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%89%8B%E9%A0%86&quot;&gt;評価関数&lt;/a&gt;&lt;br /&gt;
 　この記事内の「6. 評価関数のタイプ」という表の中から評価関数を選んで、リンクを辿ってダウンロードします。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nn.bin&lt;/code&gt;という名前の評価関数ファイルだけあればとりあえず使えるようになるみたいです。自分は表の中から無料で使えてお勧めされている&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;『Lí』（tanuki-wcsc33-2023-05-04）&lt;/code&gt;を選んで、&lt;a href=&quot;https://github.com/nodchip/tanuki-/releases/tag/tanuki-wcsc33-2023-05-04&quot;&gt;リンク先&lt;/a&gt;から&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tanuki-wcsc33-2023-05-04.7z
 &lt;/code&gt;をダウンロードしました。&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/sunfish-shogi/electron-shogi/releases&quot;&gt;将棋GUI（Electron将棋）&lt;/a&gt;&lt;br /&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/sunfish-shogi/electron-shogi/releases&quot;&gt;将棋GUI（ShogiHome）&lt;/a&gt;&lt;br /&gt;
 　リストの中の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;release-v1.14.2-linux.zip&lt;/code&gt;をダウンロードしました。&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -57,14 +57,14 @@ cp -p ~/Download/tanuki-wcsc33-2023-05-04/eval/nn.bin eval/
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
     &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YaneuraOu-by-gcc&lt;/code&gt;というファイルがsourceディレクトリに出来上がります。&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;ダウンロードした&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Electron将棋（release-v1.14.2-linux.zip）&lt;/code&gt;を解凍し、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Electron将棋（ElectronShogi-1.13.7.AppImage）&lt;/code&gt;を右クリックから実行
+  &lt;li&gt;ダウンロードした&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ShogiHome（release-v1.14.2-linux.zip）&lt;/code&gt;を解凍し、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ShogiHome（ElectronShogi-1.13.7.AppImage）&lt;/code&gt;を右クリックから実行
     &lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;/images/electron.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/electron.png&quot; alt=&quot;Electron将棋&quot; width=&quot;360&quot; height=&quot;301&quot; title=&quot;Electron将棋&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;/images/electron.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/electron.png&quot; alt=&quot;ShogiHome&quot; width=&quot;360&quot; height=&quot;301&quot; title=&quot;ShogiHome&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
     &lt;/div&gt;
   &lt;/li&gt;
-  &lt;li&gt;後はElectron将棋の画面から[設定]-&amp;gt;[エンジン設定]-&amp;gt;[追加]で、先程コンパイルした&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やねうら王（YaneuraOu-by-gcc）ファイル&lt;/code&gt;を選択して[保存して閉じる]するだけです。
+  &lt;li&gt;後はShogiHomeの画面から[設定]-&amp;gt;[エンジン設定]-&amp;gt;[追加]で、先程コンパイルした&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やねうら王（YaneuraOu-by-gcc）ファイル&lt;/code&gt;を選択して[保存して閉じる]するだけです。
     &lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;/images/electron_engine.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/electron_engine.png&quot; alt=&quot;Electron将棋 エンジン管理&quot; width=&quot;360&quot; height=&quot;301&quot; title=&quot;Electron将棋 エンジン管理&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;/images/electron_engine.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/electron_engine.png&quot; alt=&quot;ShogiHome エンジン管理&quot; width=&quot;360&quot; height=&quot;301&quot; title=&quot;ShogiHome エンジン管理&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
     &lt;/div&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
@@ -95,7 +95,7 @@ cp -p ~/Download/tanuki-wcsc33-2023-05-04/eval/nn.bin eval/
 &lt;h3 id=&quot;スポンサー&quot;&gt;スポンサー&lt;/h3&gt;
 &lt;p&gt;　最近将棋はYoutubeやAbemaで見るだけなのですが、「やねうら王」は今後も棋譜解析に使うと思いますのでわずか&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$10&lt;/code&gt;だけですが&lt;a href=&quot;https://github.com/sponsors/yaneurao&quot;&gt;ここ&lt;/a&gt;から支援しました:sweat_smile:&lt;br /&gt;
 　送金しながら思ったのは「趣味で将棋を楽しんでいるだけの自分が支援しているのに、仕事で金儲けのために将棋AIを使っているプロ棋士が支援しないのはおかしいんじゃない？」とは思いましたね:sweat_smile:個人的に支援してるプロ棋士はいるらしいですけど&lt;br /&gt;
-　&lt;a href=&quot;https://github.com/sunfish-shogi/electron-shogi&quot;&gt;Electron将棋&lt;/a&gt;もgithub sponsorの窓口用意してくれれば支援したいと思ってます。&lt;/p&gt;
+　&lt;a href=&quot;https://github.com/sunfish-shogi/electron-shogi&quot;&gt;ShogiHome&lt;/a&gt;もgithub sponsorの窓口用意してくれれば支援したいと思ってます。&lt;/p&gt;
 
 &lt;h3 id=&quot;ossについて少し思うこと&quot;&gt;OSSについて少し思うこと&lt;/h3&gt;
 &lt;p&gt;　それにしてもOSSで開発資金回収って難しいだろうなとは思います。本来はどこかの企業に独占させない&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;自由&lt;/code&gt;なソフト（Free Software）というのがOSSの精神だと思いますが、日本では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Free&lt;/code&gt;を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;無料&lt;/code&gt;と訳して無料ソフトだと喧伝されているのが残念です。日本人のほとんどがフリーソフト＝無料ソフトという認識しか持ってないのではないでしょうか:sweat_smile:&lt;br /&gt;
