@@ -5,9 +5,9 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 16 Jun 2024 12:12:19 +0900</pubDate>
-    <lastBuildDate>Sun, 16 Jun 2024 12:12:19 +0900</lastBuildDate>
-    <generator>Jekyll v3.9.5</generator>
+    <pubDate>Sun, 30 Jun 2024 12:01:21 +0900</pubDate>
+    <lastBuildDate>Sun, 30 Jun 2024 12:01:21 +0900</lastBuildDate>
+    <generator>Jekyll v3.10.0</generator>
     
       <item>
         <title>Ubuntuでやねうら王</title>
@@ -68,6 +68,13 @@ cp -p ~/Download/tanuki-wcsc33-2023-05-04/eval/nn.bin eval/
     &lt;/div&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;p&gt;※上記手順の実行環境はUbuntu22.04ですが、Ubuntu24.04を新規にインストールした環境ではShogiHomeの実行ファイル（AppImage）が動きませんでした。&lt;br /&gt;
+　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;libfuse2&lt;/code&gt;が必要なようです。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install libfuse2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;　22.04の自分のUbuntu環境にはすでに入っていたようです。&lt;/p&gt;
 
 &lt;h3 id=&quot;ナイアガラの滝を検証&quot;&gt;ナイアガラの滝を検証&lt;/h3&gt;
 &lt;p&gt;　試してみるまでもなく結果は分かっていると思いながらも、一応「AI将棋13」と手動で３局対局させてみましたが「やねうら王」の圧勝でした。予想通りでしたがこれだと面白くないので、将棋で大逆転が起きたときの棋譜を一つ比較してみることにしました。&lt;br /&gt;

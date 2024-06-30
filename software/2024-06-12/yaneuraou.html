@@ -240,6 +240,13 @@ cp -p ~/Download/tanuki-wcsc33-2023-05-04/eval/nn.bin eval/
   </li>
 </ol>
 
+<p>※上記手順の実行環境はUbuntu22.04ですが、Ubuntu24.04を新規にインストールした環境ではShogiHomeの実行ファイル（AppImage）が動きませんでした。<br>
+　<code class="language-plaintext highlighter-rouge">libfuse2</code>が必要なようです。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install libfuse2
+</code></pre></div></div>
+<p>　22.04の自分のUbuntu環境にはすでに入っていたようです。</p>
+
 <h3 id="ナイアガラの滝を検証">ナイアガラの滝を検証</h3>
 <p>　試してみるまでもなく結果は分かっていると思いながらも、一応「AI将棋13」と手動で３局対局させてみましたが「やねうら王」の圧勝でした。予想通りでしたがこれだと面白くないので、将棋で大逆転が起きたときの棋譜を一つ比較してみることにしました。<br>
 　まずは「AI将棋13」で解析すると以下のように先手優勢から一気に後手に振れる所謂<code class="language-plaintext highlighter-rouge">ナイアガラの滝</code>状態です。</p>
