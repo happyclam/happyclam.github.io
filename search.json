@@ -1,6 +1,22 @@
 [
   
     {
+      "title"    : "Ubuntu Touch を使ってみる",
+      "category" : "hardware",
+      "tags"     : "ubuntu, android",
+      "url"      : "/hardware/2024-11-16/ubuntu_touch",
+      "date"     : "2024-11-16 00:00:00 +0900"
+    } ,
+  
+    {
+      "title"    : "Reader Revenue Manager 止めました",
+      "category" : "miscellaneous",
+      "tags"     : "google, epub",
+      "url"      : "/miscellaneous/2024-11-04/RRM",
+      "date"     : "2024-11-04 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "Ubuntuでやねうら王",
       "category" : "software",
       "tags"     : "ubuntu, shogi",

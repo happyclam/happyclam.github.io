@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="author" content="happyclam">
+  <meta name="description"
+    content="Ubuntu Touch を使ってみる GAFAMから逃れたい Reinventing the wheel.">
+  <title> Ubuntu Touch を使ってみる - 自己満足プログラミング </title>
+
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-1752720-7');
+  </script>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="Ubuntu Touch を使ってみる">
+  
+  
+  <meta name="twitter:url" content="/hardware/2024-11-16/ubuntu_touch">
+  
+  
+  <meta name="twitter:description" content="使ってみるまでは期待を膨らませていろいろ妄想していたけど現実は甘くなかった">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/ubuntu-touch-logo.png">
+  
+
+  <link rel="canonical" href="https://happyclam.github.io/hardware/2024-11-16/ubuntu_touch" />
+  <link rel="alternate" type="application/rss+xml" title="自己満足プログラミング" href="/feed.xml" />
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="site-title" class="navbar-brand" href="/">
+          <img class="pull-left img-responsive" src="">
+          <span class="name-holder">自己満足プログラミング</span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li><a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li><a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li><a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li><a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li><a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <!-- <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script> -->
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <div style="text-align: center;">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1238485061299241"
+     crossorigin="anonymous"></script>
+  </div>
+  <div class="blog-header">
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+      <div class="span9">
+        <!-- Html Elements for Search -->
+        <div id="search-container" align="right">
+          <input type="text" id="search-input" placeholder="search...">
+          <ul class="searchresult" id="results-container"></ul>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+  <script src="/assets/js/jquery.min.js"></script>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
+
+        <header class="page-header">
+          <h2 class="page-title"><a href="/hardware/2024-11-16/ubuntu_touch">Ubuntu Touch を使ってみる</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Saturday, November 16, 2024
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">ubuntu</span>
+                
+                  <span class="label label-tag">android</span>
+                
+            </div>
+          </div>
+
+        </header>
+
+        <article class="page-content">
+          <h3 id="開発のネタ探し中">開発のネタ探し中</h3>
+<p>　スマホアプリ開発はAppleやGoogleというプラットフォーマーが開発者とユーザーの間に割り込んでくるため嫌気が差してきたので、次は何を作ろうかと考えて他の選択肢を探している時に偶々Youtubeの動画を見かけて<code class="language-plaintext highlighter-rouge">Ubuntu Touch</code>を試してみました。<br />
+　<code class="language-plaintext highlighter-rouge">Ubuntu Touch</code>のユーザーなんてほとんどいないので何かアプリを作っても小銭稼ぎは期待できませんが、そもそも当ブログでは自分が使ってみたいものを作ってきたので問題無しです。</p>
+
+<h3 id="インストール手順">インストール手順</h3>
+<p>　以下が<code class="language-plaintext highlighter-rouge">Ubuntu Touch</code>を試してみたくなった動画です。細かな注意点も解説されていて非常に助かりました。</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XW8JU1lHLtk?si=y28wRPv6QsI-OKUg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+
+<p>　この動画を見た直後は、いろいろと妄想が膨らんだのですが現実は厳しかったです。</p>
+
+<h3 id="必要なもの">必要なもの</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Google Pixel 3a XL</code><br />
+Amazonの「整備済み品」を18,980円でわざわざ購入しました。</li>
+  <li>UBPortsのインストーラーが使える状態の工場出荷イメージファイル<br />
+<a href="https://developers.google.com/android/images?hl=ja">こちら</a>からイメージファイル（<code class="language-plaintext highlighter-rouge">bonito-pq3b.190801.002-factory-61a2836d.zip</code>）をダウンロード</li>
+  <li><code class="language-plaintext highlighter-rouge">adb</code>,<code class="language-plaintext highlighter-rouge">fastboot</code>コマンド
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sudo apt install android-tools-adb
+ sudo apt install fastboot
+</code></pre></div>    </div>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">Pixel 3a XL</code>用のUBPortsインストーラー<br />
+<a href="https://devices.ubuntu-touch.io/device/bonito/">こちら</a>から<code class="language-plaintext highlighter-rouge">ubports-installer_0.10.0_linux_amd64.deb</code>をダウンロード</li>
+</ul>
+
+<h3 id="動画内容と違うところ">動画内容と違うところ</h3>
+<ul>
+  <li>上の動画では<a href="https://developers.google.com/android/images?hl=ja">Googleのサイト</a>から<code class="language-plaintext highlighter-rouge">フラッシュ</code>のリンクを踏んで直接インストールしてますが、自分は<code class="language-plaintext highlighter-rouge">リンク</code>からダウンロードしたzipファイルを解凍して、スマホのブートローダを起動してからスクリプトを実行しました。<a href="https://developers.google.com/android/images?hl=ja">Googleのサイト</a>に何時までイメージファイルが存在するか分からないのでダウンロードしておいたほうがいいと思います。
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> adb reboot bootloader
+ ./flash-all.sh
+</code></pre></div>    </div>
+  </li>
+  <li>上の動画ではUBPortsインストーラーをdebパッケージからインストールしていますが、自分のUbuntu24.04環境ではインストール出来なかったのでsnapからインストールしました。
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sudo snap install ubports-installer
+</code></pre></div>    </div>
+  </li>
+  <li>上の動画では出てきませんが、<code class="language-plaintext highlighter-rouge">adb</code>コマンドでPixelと接続する際にPixel側で[設定]-&gt;[システム]-&gt;[開発者向けオプション]-&gt;[デフォルトのUSB設定]で[充電]ではなく[ファイル転送]を選択しておく必要がありました。<br />
+　これをしないとPC側から<code class="language-plaintext highlighter-rouge">adb devices</code>で接続の確認をした際に<code class="language-plaintext highlighter-rouge">adb: failed to check server version: protocol fault (couldn't read status): Connection reset by peer</code>というエラーになります。現在使っているスマホ（<code class="language-plaintext highlighter-rouge">Xperia 10 Ⅲ</code>）で試してみたら[ファイル転送]になっていなくても接続できたので古いスマホ（Pixel3a）固有の問題かもしれません。<code class="language-plaintext highlighter-rouge">adb</code>コマンド使うのも久しぶりだったので、自分が忘れているだけで昔は全部そうだったような気もします。</li>
+</ul>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/ubuntu-touch.png"><img src="/images/ubuntu-touch.png" alt="Ubuntu Touch" width="320" height="640" title="Ubuntu Touch" /></a></p>
+
+</div>
+
+<h3 id="waydroidはまだまだ">Waydroidはまだまだ</h3>
+<p>　Linux上でandroidアプリを動かすための<code class="language-plaintext highlighter-rouge">Waydroid</code>、上の動画でも言ってますがandroidアプリを使うぐらいならandroidスマホを使うのが良さそうです。自分はスマホの決済機能もあまり使わないしandroidアプリが無くても生活に必要な多くのことはPCで可能なので、androidスマホが無くてもそこそこ生活していけると思っていますが、どうしてもandroidアプリが必要だという時には<code class="language-plaintext highlighter-rouge">Waydroid</code>で「ほとんどのアプリは動く」ぐらいの安心感が欲しいですね。</p>
+
+<h3 id="libertineも怪しい">Libertineも怪しい</h3>
+<p>　<code class="language-plaintext highlighter-rouge">Ubuntu Touch</code>上でUbuntuのデスクトップアプリを動かす機能ですが、こちらも少し使っただけですが怪しい動きでした。スマホの画面だと狭いからデスクトップアプリが使えないという話ではなく、うまくインストール出来ないものが多かったです。ネットを検索していると「UbuntuのソフトをUbuntu Touchで使いたい」という問いに対して、「ルート（/）以下のディレクトリを書き込み可能にすれば（<code class="language-plaintext highlighter-rouge">sudo mount -o remount,rw /</code>）可能ですよ」と言う回答をよく見かけましたが、<code class="language-plaintext highlighter-rouge">Libertine</code>はそういう危険な操作（<code class="language-plaintext highlighter-rouge">sudo mount -o remount,rw /</code>）をしなくていい仕組みの筈です。でもインストール直後に<code class="language-plaintext highlighter-rouge">Libertine</code>を起動してコンテナを作ってデスクトップアプリをインストールすると、うまく行ったり行かなかったりでした。<br />
+　Ubuntu Touchの<code class="language-plaintext highlighter-rouge">Open Store</code>から<code class="language-plaintext highlighter-rouge">UT Tweak</code>というアプリをインストールして、<code class="language-plaintext highlighter-rouge">Make image writable</code>の機能を使えば<code class="language-plaintext highlighter-rouge">Libertine</code>のコンテナ作成に関しては失敗しなかったので元々そうやって使うべきものなのかもしれません。</p>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/ut-tweaks.png"><img src="/images/ut-tweaks.png" alt="UT Tweaksアプリ" width="320" height="331" title="UT Tweaksアプリ" /></a></p>
+
+</div>
+
+<p>　<code class="language-plaintext highlighter-rouge">Ubuntu Touch</code>をリブートするまで書き込み可にするというオプションが用意してあります（<code class="language-plaintext highlighter-rouge">[Read-Write]Temporary(until reboot)</code>をタップ）。<code class="language-plaintext highlighter-rouge">apt</code>コマンドでいろいろなパッケージをインストールする際に、これをOnにしておけば警告が出なくなったりしますが、Ubuntuのデスクトップアプリを何でもインストール出来るわけでは無いようです。<br />
+　<code class="language-plaintext highlighter-rouge">ssh</code>を有効にする機能もこのアプリに用意してあるので、まず最初に入れるべきアプリかも。</p>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/ut-ssh.png"><img src="/images/ut-ssh.png" alt="ssh設定" width="320" height="640" title="ssh設定" /></a></p>
+
+</div>
+
+<h3 id="日本語が入力出来ない">日本語が入力出来ない</h3>
+<p>　モバイルPCとして使えなくても、せめてこのブログの記事を書くことぐらいは出来ないかなぁなんて思っているのですが、今動かしている<code class="language-plaintext highlighter-rouge">Ubuntu Touch OTA 5</code>は日本語入力に対応していません。日本語関係のパッケージを入れてみたりしましたが自分の力では出来そうになかったです。</p>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/ut-language.png"><img src="/images/ut-language.png" alt="日本語入力関連" width="320" height="640" title="日本語入力関連" /></a></p>
+
+</div>
+
+<p>　<code class="language-plaintext highlighter-rouge">ssh</code>で接続して<code class="language-plaintext highlighter-rouge">apt</code>コマンドで言語関連のpackageをインストールしてみました。<code class="language-plaintext highlighter-rouge">IBus Preferences</code>、<code class="language-plaintext highlighter-rouge">Mozc</code>、<code class="language-plaintext highlighter-rouge">Fcitx</code>の日本語入力関連のアイコンが並んでいて一見使えそうですが、インストール時にエラーが発生していて使えません。<code class="language-plaintext highlighter-rouge">Ubuntu Touch</code>自体は何度でもインストールし直せる状態なのでシステムが壊れてもいいからと、<code class="language-plaintext highlighter-rouge">sudo mount -o remount,rw /</code>した後にいろいろやって<code class="language-plaintext highlighter-rouge">Ubuntu Touch OTA6</code>にバージョンアップしても違いはなかったです。</p>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/OTA6.png"><img src="/images/OTA6.png" alt="OTA6" width="270" height="540" title="OTA6" /></a></p>
+
+</div>
+
+<h3 id="アプリ開発は情報が少ない">アプリ開発は情報が少ない</h3>
+<p>　<code class="language-plaintext highlighter-rouge">Open Store</code>に用意されているアプリはWebベースのアプリが多いみたいで、ネイティブなものは<code class="language-plaintext highlighter-rouge">Qt</code>を使うようですが情報が少ないので大変そうです。自分が何か開発するとしたらWebベースのものになると思いますが、日本語の情報はほとんど無さそうです。<br />
+　試しに<a href="https://download.qt.io/archive/online_installers/4.8/">Qt Creator</a>を使ってサンプルをコンパイルしてみましたが、Ubuntu上では動くもののUbuntu Touch上では動きませんでした。こっち方面に進むのは茨の道になりそうです。</p>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/qt-creator.png"><img src="/images/qt-creator.png" alt="Qt Cretor" width="320" height="206" title="Qt Creator" /></a></p>
+
+</div>
+
+<h3 id="それでも期待したい">それでも期待したい</h3>
+<p>　動作するスマホの機種が限定されるというのは辛いし今使っているスマホ（<code class="language-plaintext highlighter-rouge">Xperia 10 Ⅲ</code>）の代替にはなりませんが、今のスマホを買い換える時までに何か変化があって欲しいな（他人任せ）と思ってます。今でも海外なら<code class="language-plaintext highlighter-rouge">Ubuntu Touch</code>が動作するハイスペックなスマホは売られてますが、日本だと技適を通過しないことにはマズそう（通話自体は可能？）なので、ここが一番のネックな気がしますね。<br />
+　応援のつもりで<code class="language-plaintext highlighter-rouge">UBPorts</code>に寄付しようかとやってみたら、なんと日本からの寄付は受け付けていないようで<code class="language-plaintext highlighter-rouge">PayPal</code>から送金できませんでした。日本人は相手にされていないみたいで何か悲しいです。</p>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/ubports_paypal.png"><img src="/images/ubports_paypal.png" alt="paypalのエラー" width="320" height="214" title="paypalのエラー" /></a></p>
+
+</div>
+
+<div>
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- display01 -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9018029357773039" data-ad-slot="3925247388" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+<hr />
+
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <small>&copy; rifyll theme, 2014</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+</body>
+
+</html>
