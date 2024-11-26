@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "野良アプリ販売始めました",
+      "category" : "miscellaneous",
+      "tags"     : "android, coffeescript, programming, javascript, cordova",
+      "url"      : "/miscellaneous/2024-11-30/strayapp",
+      "date"     : "2024-11-30 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "Ubuntu Touch を使ってみる",
       "category" : "hardware",
       "tags"     : "ubuntu, android",
