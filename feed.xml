@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 27 Nov 2024 08:51:20 +0900</pubDate>
-    <lastBuildDate>Wed, 27 Nov 2024 08:51:20 +0900</lastBuildDate>
+    <pubDate>Sat, 30 Nov 2024 10:31:10 +0900</pubDate>
+    <lastBuildDate>Sat, 30 Nov 2024 10:31:10 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -18,6 +18,8 @@
 &lt;p&gt;　最初は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Base&lt;/code&gt;で自作のExcelファイル（マクロ付き）を販売している人を見かけたのが始めるキッカケなんですが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Base&lt;/code&gt;ではスマホからはデジタルコンテンツをダウンロード出来ないようです。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apk&lt;/code&gt;ファイルを商品としてそのままアップロード出来るのはすごく良かったのですが、購入者はPCでダウンロードする必要があるみたいです（スパム対策？）。スマホアプリを販売しているのに購入者はPCが必要というのが納得いかなかったので使うのを止めました。&lt;br /&gt;
 　その他は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Shopify&lt;/code&gt;は有料、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DLsite&lt;/code&gt;はエロ分野に偏ってる、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Stores&lt;/code&gt;は画像ファイル中心でソフトウェアは想定して無さそう？ということで&lt;a href=&quot;https://happyclam.booth.pm/&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Booth&lt;/code&gt;&lt;/a&gt;に決めました。&lt;br /&gt;
 　それに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Booth&lt;/code&gt;では&lt;a href=&quot;https://booth.pixiv.help/hc/ja/articles/115002295113-%E3%82%AD%E3%83%A3%E3%83%B3%E3%82%BB%E3%83%AB%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99-%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E3%81%84%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B&quot;&gt;「ダウンロード商品に関しては、キャンセルには応じません」&lt;/a&gt;と運営側で謳ってくれているのが、販売者側としては心強いです。ご購入の際はご注意下さい！！！&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;https://happyclam.booth.pm/&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/booth_logo.png&quot; alt=&quot;HappyClam&quot; title=&quot;HappyClam&quot; width=&quot;168&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;インストール手順&quot;&gt;インストール手順&lt;/h3&gt;
 &lt;ol&gt;

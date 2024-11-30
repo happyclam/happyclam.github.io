@@ -162,13 +162,13 @@
         </header>
 
         <article class="page-content">
-          <p><a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam"><img src="/images/ja_badge_web_generic.png" alt="５五将棋" title="５五将棋" width="155" height="60" /></a></p>
+          <p><a href="https://happyclam.booth.pm/items/6325376"><img src="/images/booth_logo.png" alt="５五将棋" title="５五将棋" width="168" height="60" /></a></p>
 
 <h3 id="５五将棋アプリについて">「５五将棋」アプリについて</h3>
 <p>　現在リリースしている<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">「３三将棋」アプリ</a>とUI部分以外はほとんど同じソースを使って作った５五将棋アプリです。幾つかの５五将棋アプリと対戦させてみたところ、結構勝ったり負けたりのいい勝負なので機種によっては動作が重いとはいえ、そこそこ楽しめるかもしれません。アプリの仕様は３三将棋アプリとほとんど同じなので<a href="/project/2018-01-01/33shogiapp">３三将棋アプリの記事</a>を見ていただくとして、ここでは３三将棋アプリと違う点について書いておこうと思います。
 　</p>
 <h3 id="５五将棋ならではの仕様桂馬の扱い">５五将棋ならではの仕様（桂馬の扱い）</h3>
-<p>　<a href="https://ja.wikipedia.org/wiki/5五将棋">本来の５五将棋？</a>では敵陣一段目（後手は５段目）に駒が進むと駒が成れますが、<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>では初期配置によって駒が成れる段が変わる仕様にしています。使用する駒に桂馬が含まれている場合に一段目（後手は五段目）でしか駒を成れないとすると不都合が生じるからです。<br />
+<p>　<a href="https://ja.wikipedia.org/wiki/5五将棋">本来の５五将棋？</a>では敵陣一段目（後手は５段目）に駒が進むと駒が成れますが、<a href="https://happyclam.booth.pm/items/6325376">５五将棋アプリ</a>では初期配置によって駒が成れる段が変わる仕様にしています。使用する駒に桂馬が含まれている場合に一段目（後手は五段目）でしか駒を成れないとすると不都合が生じるからです。<br />
 　例えば以下の局面は持ち駒の桂馬を２四に打ったところですが、</p>
 
 <div style="width:320px; margin: 0 auto;">
@@ -181,7 +181,7 @@
 　後述の<strong>初期配置編集機能</strong>で初期配置を編集した場合も、初期配置に桂馬が一枚でも含まれていれば、先手は二段目（後手は四段目）で成れるように設定され、元々桂馬が含まれていた初期配置から桂馬を除いて保存すると、先手は一段目（後手は五段目）で成るように設定保存されます。</p>
 
 <h3 id="千日手回避">千日手回避</h3>
-<p>　<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">「３三将棋」アプリ</a>では千日手回避のために特別な処理はしていません、千日手になるのが当然の成り行きと思えるケースが多いためです<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>。しかし<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>の場合は駒の損得が発生しない序盤の段階で千日手になってしまうケースがあまりにも多いので千日手回避のロジックを組み込んでいます。同じ局面が３回発生した場合にはＡＩの手を次善手（あくまでもアプリのＡＩが次善手と判断しているだけです）を指すようにして、なるべく千日手を回避するようにしています。但し次善手を指していても千日手になることもあるので、絶対千日手を避けるというわけではありません。</p>
+<p>　<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">「３三将棋」アプリ</a>では千日手回避のために特別な処理はしていません、千日手になるのが当然の成り行きと思えるケースが多いためです<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>。しかし<a href="https://happyclam.booth.pm/items/6325376">５五将棋アプリ</a>の場合は駒の損得が発生しない序盤の段階で千日手になってしまうケースがあまりにも多いので千日手回避のロジックを組み込んでいます。同じ局面が３回発生した場合にはＡＩの手を次善手（あくまでもアプリのＡＩが次善手と判断しているだけです）を指すようにして、なるべく千日手を回避するようにしています。但し次善手を指していても千日手になることもあるので、絶対千日手を避けるというわけではありません。</p>
 
 <h3 id="瞑想モード追加">瞑想モード追加</h3>
 <p>　Version1.0.0.2で瞑想モードを追加しました。「読みの深さ」のところで説明していますが、「長考」モードでは３手読みで候補手を１３手に絞ってその候補手に対して５手読みを行いますが、<del>「瞑想」モードでは候補手を絞らずに３手読みしたすべての手を評価値でソートした後に５手読みしています。読みの深さは変わっていませんので、詰みを見つけた場合等、枝刈りが効果的に働いて「長考」モードより応答が速くなることもあります。但し、ゲーム終盤に詰みを逃しにくくなったのは確かですが、</del>自分がテストしている限りにおいては「長考」モードより強いかどうかは微妙なところです。</p>
@@ -235,7 +235,7 @@ P5+OU+KI+GI+KA+HI
   <p><img src="/images/55shogi_kifu_input1.png" alt="棋譜入力画面１" width="320" height="427" title="棋譜入力画面１" /></p>
 </div>
 
-<p>　テキストボックスに棋譜テキストデータを貼り付けて読み込みボタンをタップすれば、棋譜を読み込みます。<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">このアプリ</a>自身が出力した棋譜データは読めますが、他のソフトから出力された棋譜データは読み込みに失敗するかもしれません。エラーが発生した場合はその行数を表示しますので、データを編集して試してください。<br />
+<p>　テキストボックスに棋譜テキストデータを貼り付けて読み込みボタンをタップすれば、棋譜を読み込みます。<a href="https://happyclam.booth.pm/items/6325376">このアプリ</a>自身が出力した棋譜データは読めますが、他のソフトから出力された棋譜データは読み込みに失敗するかもしれません。エラーが発生した場合はその行数を表示しますので、データを編集して試してください。<br />
 　※カンマ区切りのマルチステートメントには対応していません。<br />
 　※たとえ<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式(*.csa)</a>の棋譜であっても本将棋（９×９）の棋譜は読めません、５五将棋専用です。</p>
 <div style="width:320px; margin: 0 auto;">
