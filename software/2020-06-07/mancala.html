@@ -202,7 +202,7 @@
 <p>　※<a href="/software/2020-08-09/mancala_easy">マンカライージーに関する記事</a>も追加しました。</p>
 
 <h3 id="dartで実装">Dartで実装</h3>
-<p>　今リリースしている自分の将棋関連アプリの中で一番利用されている<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>をFlutterで作り直そうかと思って、慣れるためにプログラミング言語はDartにしました。<br />
+<p>　今リリースしている自分の将棋関連アプリの中で一番利用されている<a href="https://happyclam.booth.pm/items/6325376">５五将棋アプリ</a>をFlutterで作り直そうかと思って、慣れるためにプログラミング言語はDartにしました。<br />
 　石の数は３つの場合<code class="language-plaintext highlighter-rouge">List board = [0,3,3,3,0,3,3,3];</code>のようにリストを作ります。添字の<code class="language-plaintext highlighter-rouge">0</code>と<code class="language-plaintext highlighter-rouge">4</code>がストアになります。カラハのルールだと相手のストアには石を撒かないそうですが、ベーシックのルールだと相手のストアにも石を撒くので、このリストをシーケンシャルに処理していけばいいだけなので処理が単純です。またカラハのように自分の空の穴で石を撒き終わった時に相手の石を取る（capture）ことが出来るというルールもありません。</p>
 
 <pre><code class="language-Dart">void main() {

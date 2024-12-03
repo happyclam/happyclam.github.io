@@ -165,8 +165,8 @@
 
         <article class="page-content">
           <h3 id="dartに絶望flutterでguiは有り">Dartに絶望FlutterでGUIは有り</h3>
-<p>　Qiitaのどなたかの記事でDartはJavaScriptより実行速度が倍程速いと書かれているのを見かけて、期待しながら今リリースしているCoffeeScript（JavaScript）製の<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>のGUI以外の部分をDartで書き直して比較したのですが、テストの結果からDartの方が遅いことが分かりました。Flutter(Dart)で<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">マンカラアプリ</a>を作ってみてGUIの作り易さに感動した<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>だけに非常に失望しました。<br />
-　<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">今のアプリ</a>よりも実行速度が遅いのならFlutterで将棋関連のアプリを作り直す意味がないので、どうしようかと思い、<a href="/software/2020-06-07/mancala">以前の記事</a>で書いたマンカラアプリなら行数も少ないのでとりあえずこれを題材にTypeScriptとC++で書き直して比較してみました。</p>
+<p>　Qiitaのどなたかの記事でDartはJavaScriptより実行速度が倍程速いと書かれているのを見かけて、期待しながら今リリースしているCoffeeScript（JavaScript）製の<a href="https://happyclam.booth.pm/items/6325376">５五将棋アプリ</a>のGUI以外の部分をDartで書き直して比較したのですが、テストの結果からDartの方が遅いことが分かりました。Flutter(Dart)で<a href="https://happyclam.booth.pm/items/6325341">マンカラアプリ</a>を作ってみてGUIの作り易さに感動した<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>だけに非常に失望しました。<br />
+　<a href="https://happyclam.booth.pm/items/6325376">今のアプリ</a>よりも実行速度が遅いのならFlutterで将棋関連のアプリを作り直す意味がないので、どうしようかと思い、<a href="/software/2020-06-07/mancala">以前の記事</a>で書いたマンカラアプリなら行数も少ないのでとりあえずこれを題材にTypeScriptとC++で書き直して比較してみました。</p>
 
 <h3 id="比較の元となるdartの実行結果">比較の元となるDartの実行結果</h3>
 <p>　６×２列のマンカラカラハの先読みプログラムの実行結果です。何をやっているかは<a href="/software/2020-06-07/mancala">以前の記事</a>を参照してください。</p>
@@ -289,7 +289,7 @@ $ ./mancala.out
       <p>プログラムの行数もほぼ同じ、コードもほぼ一対一で書式だけが違う感じで、C++だけクラス変数の初期化部分が少し違う程度です。 <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
     <li id="fn:5" role="doc-endnote">
-      <p>実際に微妙なバグがあったので出力内容は現在では違う内容になってます。<a href="https://play.google.com/store/apps/details?id=mancala.io.github.happyclam">アプリ</a>の方は修正済みです。 <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+      <p>実際に微妙なバグがあったので出力内容は現在では違う内容になってます。<a href="https://happyclam.booth.pm/items/6325341">アプリ</a>の方は修正済みです。 <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>

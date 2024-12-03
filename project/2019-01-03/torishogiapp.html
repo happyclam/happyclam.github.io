@@ -604,7 +604,7 @@
 <div style="width:320px; margin: 0 auto;">
   <p><img src="/images/torishogi_ai.png" alt="禽将棋ＡＩメニュー" width="320" height="569" title="禽将棋ＡＩメニュー" /></p>
 </div>
-<p>　ＡＩのレベルは３段階で、思考ルーチンは<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>とほとんど同じです。<a href="/project/2018-03-11/55shogiapp">５五将棋アプリの記事</a>も参照してください。</p>
+<p>　ＡＩのレベルは３段階で、思考ルーチンは<a href="https://happyclam.booth.pm/items/6325376">５五将棋アプリ</a>とほとんど同じです。<a href="/project/2018-03-11/55shogiapp">５五将棋アプリの記事</a>も参照してください。</p>
 
 <h3 id="駒の動きガイド">駒の動きガイド</h3>
 <div style="width:320px; margin: 0 auto;">
@@ -616,7 +616,7 @@
 </div>
 
 <h3 id="棋譜入出力対応">棋譜入出力対応</h3>
-<p>　Version1.0.2.0から棋譜の入出力に対応しました。操作方法については<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>と同じですので<a href="/project/2018-01-01/33shogiapp#inout">３三将棋アプリの記事</a>を参照してください。<br />
+<p>　Version1.0.2.0から棋譜の入出力に対応しました。操作方法については<a href="https://happyclam.booth.pm/items/6323599">３三将棋アプリ</a>と同じですので<a href="/project/2018-01-01/33shogiapp#inout">３三将棋アプリの記事</a>を参照してください。<br />
 　一応<a href="http://www2.computer-shogi.org/protocol/record_v22.html">CSA形式</a>に倣ってますが、<ruby>禽<rt>とり</rt>将棋</ruby>独特の駒の略号等独自に決めた形式です。駒の略号については以下の表の通りです。</p>
 
 <table>
@@ -675,7 +675,7 @@
 </table>
 
 <h3 id="駒の重み">駒の重み</h3>
-<p>　Version1.0.2.2から評価関数で使用する駒の重みを変更しました。今までは本将棋に倣って禽将棋の駒の重みを適当に割り振っていただけ<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>だったので全面的に見直しました。と言っても機械学習等で導き出したわけではなく、移動可能な升目の数を根拠にして相変わらず適当に変更しただけなのですが、<a href="https://play.google.com/store/apps/details?id=shogi33.io.github.happyclam">３三将棋アプリ</a>や<a href="https://play.google.com/store/apps/details?id=shogi55.io.github.happyclam">５五将棋アプリ</a>並みの精度（適当度）にはなった気がします。旧バージョンと対戦させて強くなっていることも確認しました。特に燕をやたらとただ捨てする点が気になっていたので、燕は持ち駒の方が盤上の駒より重みを大きな値にしたところや、鷹と鶉の重みを同じ<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>にしたところが大きな変更点となります。</p>
+<p>　Version1.0.2.2から評価関数で使用する駒の重みを変更しました。今までは本将棋に倣って禽将棋の駒の重みを適当に割り振っていただけ<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>だったので全面的に見直しました。と言っても機械学習等で導き出したわけではなく、移動可能な升目の数を根拠にして相変わらず適当に変更しただけなのですが、<a href="https://happyclam.booth.pm/items/6323599">３三将棋アプリ</a>や<a href="https://happyclam.booth.pm/items/6325376">５五将棋アプリ</a>並みの精度（適当度）にはなった気がします。旧バージョンと対戦させて強くなっていることも確認しました。特に燕をやたらとただ捨てする点が気になっていたので、燕は持ち駒の方が盤上の駒より重みを大きな値にしたところや、鷹と鶉の重みを同じ<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>にしたところが大きな変更点となります。</p>
 
 <div style="float: left;">
   <span><b>変更前</b>:</span>
