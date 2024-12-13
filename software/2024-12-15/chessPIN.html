@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="author" content="happyclam">
+  <meta name="description"
+    content="チェスのStalemateとPINの話 将棋ではPINは大した問題ではない？ Reinventing the wheel.">
+  <title> チェスのStalemateとPINの話 - 自己満足プログラミング </title>
+
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-1752720-7');
+  </script>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="チェスのStalemateとPINの話">
+  
+  
+  <meta name="twitter:url" content="/software/2024-12-15/chessPIN">
+  
+  
+  <meta name="twitter:description" content="STALEMATE判定でPINが面倒">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/chess_icon.png">
+  
+
+  <link rel="canonical" href="https://happyclam.github.io/software/2024-12-15/chessPIN" />
+  <link rel="alternate" type="application/rss+xml" title="自己満足プログラミング" href="/feed.xml" />
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="site-title" class="navbar-brand" href="/">
+          <img class="pull-left img-responsive" src="">
+          <span class="name-holder">自己満足プログラミング</span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li><a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li><a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li><a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li><a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li><a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <!-- <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script> -->
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+<!--   <div style="text-align: center;">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1238485061299241"
+     crossorigin="anonymous"></script>
+  </div>
+ -->  <div class="blog-header">
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+      <div class="span9">
+        <!-- Html Elements for Search -->
+        <div id="search-container" align="right">
+          <input type="text" id="search-input" placeholder="search...">
+          <ul class="searchresult" id="results-container"></ul>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+  <script src="/assets/js/jquery.min.js"></script>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
+
+        <header class="page-header">
+          <h2 class="page-title"><a href="/software/2024-12-15/chessPIN">チェスのStalemateとPINの話</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Sunday, December 15, 2024
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">coffeescript</span>
+                
+                  <span class="label label-tag">javascript</span>
+                
+                  <span class="label label-tag">shogi</span>
+                
+                  <span class="label label-tag">chess</span>
+                
+            </div>
+          </div>
+
+        </header>
+
+        <article class="page-content">
+          <h3 id="チェスアプリのバグを見つけてしまいました">チェスアプリのバグを見つけてしまいました</h3>
+<p>　<a href="https://chess-primer.jp/stalemate-flow.html">チェス入門</a>というサイトのステイルメイトの問題集を<a href="https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;refinements=p_4%3Ahappyclam&amp;s=mobile-apps&amp;search-type=ss&amp;sr=1-1">チェスアプリ</a>で解いてみると８問中１問間違えてしまいました。ステイルメイトの問題集はあまり見かけないので、十分なテストをしてなかったのが原因です。<a href="https://happyclam.booth.pm/items/6325341">マンカラアプリ</a>もそうですが（<code class="language-plaintext highlighter-rouge">詰めマンカラ問題集</code>なんて聞いたことがありません）、問題集が手に入らないのである程度のところでテストを打ち切ってリリースしていたのですが、実際に解けない問題を見つけてしまった以上、対処することにしました。</p>
+
+<h3 id="pinが絡む問題に問題がある">PINが絡む問題に問題がある</h3>
+<p>　解けなかったのは<a href="https://chess-primer.jp/stalemate-flow.html">チェス入門サイトの<code class="language-plaintext highlighter-rouge">問題７</code></a>で、以下の局面です。</p>
+
+<div align="center">初期盤面</div>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/stalemate_01.png"><img src="/images/stalemate_01.png" alt="ステイルメイト問7-1" width="320" height="365" title="ステイルメイト問7-1" /></a></p>
+
+</div>
+
+<p>　正解手は以下のようにQueenをc4に移動する<code class="language-plaintext highlighter-rouge">Qc4</code>です。先手（白）劣勢ですが「王手クイーン取り」を掛けてステイルメイト（引き分け）に持ち込むという問題です。</p>
+
+<div align="center">正解盤面</div>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/stalemate_02.png"><img src="/images/stalemate_02.png" alt="ステイルメイト問7-2" width="320" height="365" title="ステイルメイト問7-2" /></a></p>
+
+</div>
+
+<p>でも、初期盤面から<a href="https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;refinements=p_4%3Ahappyclam&amp;s=mobile-apps&amp;search-type=ss&amp;sr=1-1">チェスアプリ</a>に指させてみると、以下のように<code class="language-plaintext highlighter-rouge">Qxd5</code>と黒のクイーンを取ります。</p>
+
+<div align="center">不正解</div>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/stalemate_03.png"><img src="/images/stalemate_03.png" alt="ステイルメイト問7-3" width="320" height="365" title="ステイルメイト問7-3" /></a></p>
+
+</div>
+
+<p>　クィーンは取れるのですが次に後手（黒）がルークをa1に移動（<code class="language-plaintext highlighter-rouge">Ra1</code>）して合い駒効かずでチェックメイトされて先手（白）が負けます。</p>
+
+<div align="center">不正解後の変化</div>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/stalemate_04.png"><img src="/images/stalemate_04.png" alt="ステイルメイト問7-4" width="320" height="365" title="ステイルメイト問7-4" /></a></p>
+
+</div>
+
+<p>正解手が指せないからといってバグとは限らないのですが、この問題の場合は３手の読みでステイルメイトに気付いて５手読めば<code class="language-plaintext highlighter-rouge">Ra1</code>からの負けに気付くので、候補手を絞っている可能性があるので一概には言えませんが５手読めば正解できるはずです。<br />
+　では、手動で先手（白）が<code class="language-plaintext highlighter-rouge">Qc4</code>と指した局面で<a href="https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;refinements=p_4%3Ahappyclam&amp;s=mobile-apps&amp;search-type=ss&amp;sr=1-1">チェスアプリ</a>に指させてみると</p>
+
+<div align="center">先手（白）のクィーンを取る、正しい応手？</div>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/stalemate_05.png"><img src="/images/stalemate_05.png" alt="ステイルメイト問7-5" width="320" height="365" title="ステイルメイト問7-5" /></a></p>
+
+</div>
+
+<p>相手のクィーンを取って（<code class="language-plaintext highlighter-rouge">Qxc4</code>）ステイルメイトと判定してゲーム終了となるのでこれも問題ありません。<br />
+　しかし、手動で先手（白）が<code class="language-plaintext highlighter-rouge">Qc4</code>と指した局面から後手（黒）も手動で<code class="language-plaintext highlighter-rouge">Qxc4</code>と指すと以下のようになります。</p>
+
+<div align="center">手動で指すと「後手勝ち」の判定！！！</div>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/stalemate_06.png"><img src="/images/stalemate_06.png" alt="ステイルメイト問7-6" width="320" height="365" title="ステイルメイト問7-6" /></a></p>
+
+</div>
+
+<p>　これはイケマセン。ステイルメイトなのに「後手の勝ちです」と判定してしまってます。これは明らかなバグです。<br />
+どうやらチェスで<code class="language-plaintext highlighter-rouge">PIN</code>と呼ばれる状態の時にSTALEMATEの判定を間違うようです。
+このステイルメイトの<code class="language-plaintext highlighter-rouge">問題７</code>のミソは他の問題とは違って、単に「王手クィーン取り」を掛けてステイルメイトに持ち込むだけではなく、<code class="language-plaintext highlighter-rouge">PIN</code>状態に持ち込むところです。初手は<code class="language-plaintext highlighter-rouge">Qd4</code>でも<code class="language-plaintext highlighter-rouge">Qe4</code>でもダメで、<code class="language-plaintext highlighter-rouge">Qc4</code>でなければならないのです。</p>
+
+<h3 id="将棋ではpinは大した問題ではない">将棋ではPINは大した問題ではない</h3>
+<p>　上の図の終局の局面は将棋でも珍しくない形だと思います。将棋なら先手（白）は指す手が無くて投了するしか無い局面です。もし将棋初心者が指す手に困って<code class="language-plaintext highlighter-rouge">PIN</code>されている<code class="language-plaintext highlighter-rouge">e2</code>の駒（ポーン）を前に動かしたとしても、後手（黒）がクィーンで<code class="language-plaintext highlighter-rouge">f1</code>の玉（キング）を取れば済む話です（<a href="/software/2024-04-07/tdd">以前の記事</a>参照）。その場合、将棋でも<code class="language-plaintext highlighter-rouge">王手放置</code>は反則と規定されているので正確に言えば先手（白）の反則負けと言うべきですが、いずれにしても後手（黒）の勝ちは揺るぎません。でも将棋と違ってチェスの場合は劣勢だった先手が引き分け（ステイルメイト）に持ち込んだことになります。将棋なら先手（白）負けなのにチェスだと引き分けになります。<br />
+　<code class="language-plaintext highlighter-rouge">PIN</code>に対応する将棋用語は何かよく分かりませんが、「串刺しにされてる」とか「角の効きに入ってる」とかの表現はありますが、ピッタリした用語が無いのが将棋というゲームが<code class="language-plaintext highlighter-rouge">PIN</code>をそれほど重要視していないことの証拠にもなるでしょう。<br />
+　将棋アプリを開発する立場で見ても<code class="language-plaintext highlighter-rouge">PIN</code>なんて全然気にしていませんでした。チェスのソフトや昔からある将棋ソフトが<code class="language-plaintext highlighter-rouge">PIN</code>をチェックするアルゴリズムを使っているのは知ってましたが、それは<code class="language-plaintext highlighter-rouge">Stockfish</code>由来のアルゴリズムを流用して作っていたからであって、自分のように一からアルゴリズムも考えて開発するのなら関係のない話だと思っていたし実際に作ることも出来ました。でも、今回の<a href="https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;refinements=p_4%3Ahappyclam&amp;s=mobile-apps&amp;search-type=ss&amp;sr=1-1">チェスアプリ</a>のバグの修正に取り掛かってみて想像以上に面倒臭い作業を強いられて、チェスのステイルメイト（特に<code class="language-plaintext highlighter-rouge">PIN</code>絡み）に対応するためには将棋とは別のやり方（別のデータ構造と別のアルゴリズム）で作る方がスマートに出来るのだろうということが想像できました。何がそんなに面倒くさいかと言うと長くなるので省略しますが、チェス盤のマス目を一つ一つ移動しながら<code class="language-plaintext highlighter-rouge">PIN</code>のチェックをするのはかなり<strong>無理がある</strong>のです。<br />
+　将棋ソフト開発関連の本などをチラ見すると<strong>「データ構造に<code class="language-plaintext highlighter-rouge">PIN</code>用のフラグを持たせる」</strong>とか<strong>「合法手を列挙する」</strong>とか言う表現をよく見かけますが、自分の将棋関連アプリ（<a href="https://happyclam.booth.pm/items/6323599">３三将棋</a>、<a href="https://happyclam.booth.pm/items/6325376">５五将棋</a>、<a href="https://happyclam.booth.pm/items/6346070">７七将棋</a>）はデータ構造に<code class="language-plaintext highlighter-rouge">PIN</code>用のものはありませんし、「合法手を列挙する」作業も一切していませんが困ることは何もありませんでした。人間が実際に駒を動かすイメージで一つ一つの駒を８方向に動かす作業を想定したアルゴリズムになっていて、普通はそうしたやり方を採用するだろうと思われる極普通のやり方（アルゴリズム）です。「合法手を列挙する」と聞いて、昔から「何でそんなやり方してるのかなぁ？」と不思議に思ってました。もしかして、<code class="language-plaintext highlighter-rouge">Stockfish</code>を作った人は、最初私のようなやり方で<a href="https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;refinements=p_4%3Ahappyclam&amp;s=mobile-apps&amp;search-type=ss&amp;sr=1-1">チェスアプリ</a>を作り始めてステイルメイトの実装に掛かった時に「こりゃダメだ！」「こんなことやってられない！」と感じて新しいやり方（データ構造とアルゴリズム）を捻り出したんじゃないでしょうか？私の勝手な想像ではありますが、今回のバグ修正に取り組んで<code class="language-plaintext highlighter-rouge">Stockfish</code>を作った人の気持ちが分かったような気がしました。<br />
+　今回のバグ修正は<strong><code class="language-plaintext highlighter-rouge">PIN</code>が絡むステイルメイトに関わる部分だけ</strong>が下膨れした感じになっていて、幸いそういうケースはあまりないので全体の処理が重くなったということはありません。</p>
+
+<h3 id="ステイルメイトは最善手なのか">ステイルメイトは最善手なのか？</h3>
+<p>　上に挙げた<a href="https://chess-primer.jp/stalemate-flow.html">チェス入門サイトの<code class="language-plaintext highlighter-rouge">問題７</code></a>は<code class="language-plaintext highlighter-rouge">PIN</code>の問題以外にも興味深い変化を含んでいます。上記のバグをなんとか<strong>無理がある</strong>方法で修正して過去のテストも全部通過してデグレード（リグレッション）が無いところまでなんとか辿り着いて、<code class="language-plaintext highlighter-rouge">問題７</code>も含めて<a href="https://chess-primer.jp/stalemate-flow.html">すべての問題</a>に正解することも確認しました。<br />
+　そして、試しに先程の先手が<code class="language-plaintext highlighter-rouge">Qc4</code>と指した下の正解局面から</p>
+
+<div align="center">正解盤面</div>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/stalemate_02.png"><img src="/images/stalemate_02.png" alt="ステイルメイト問7-2" width="320" height="365" title="ステイルメイト問7-2" /></a></p>
+
+</div>
+
+<p>修正済みの<a href="https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;refinements=p_4%3Ahappyclam&amp;s=mobile-apps&amp;search-type=ss&amp;sr=1-1">チェスアプリ</a>に後手を指させてみると</p>
+
+<div align="center">後手がステイルメイトを避けた局面</div>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/stalemate_07.png"><img src="/images/stalemate_07.png" alt="アプリ修正後の指し手" width="320" height="365" title="ステイルメイト問7-7" /></a></p>
+
+</div>
+
+<p>なんと、先手のクィーンを取らずに<code class="language-plaintext highlighter-rouge">Qe4</code>と指して王手（チェック）を回避しました。修正する前はちゃんと先手のクィーンを取っていたので、修正前より悪化してるような気もがしますがそうではなく、正しくステイルメイトの局面だと判断できるようになって、後手（アプリ）が「優勢なのにステイルメイトなんかにしてたまるか！」とクィーンを犠牲にしてキングが逃げる手を選んだわけです。その後先手は当然後手のクィーンを取って（<code class="language-plaintext highlighter-rouge">Qxe4+</code>）以下<code class="language-plaintext highlighter-rouge">Kg5</code>、<code class="language-plaintext highlighter-rouge">Qa8</code>となり後手のキングは大海に逃げ出すことは出来ますが、駒をボロボロ取られて十数手後に結局先手が勝ちます。結局そうなるのなら「ステイルメイトで妥協しておくべきだったんじゃないの？」と言いたくなりますが、自分のチェスアプリは深く読めていない（３〜５手）こともあってこうなります。<br />
+　このステイルメイトを無理やり避ける現象は<a href="/software/2020-02-11/evaluatechess">以前の記事</a>で書いたステイルメイトの局面をどのように評価するか（ステイルメイトの局面に掛ける係数<code class="language-plaintext highlighter-rouge">-0.7</code>をどのように決めるか問題）とも関わってくるのですが、自らステイルメイト（引き分け）を受け入れて確定させるより、少しでも勝つ可能性がある手を選ぶ方が最善手と言えなくもないような気もします。<br />
+　それにしても<code class="language-plaintext highlighter-rouge">詰めチェス</code>（チェス・プロブレム）の中には問題の趣旨以外の有効な着手が存在するもの、将棋で言えば<code class="language-plaintext highlighter-rouge">余詰め</code>がある詰将棋のような感じの問題が多いですね。それとも自分がチェス初心者だからそう感じるだけで、ベテランチェスプレイヤーなら上記の局面でステイルメイト（<code class="language-plaintext highlighter-rouge">Qc4+</code>）以外は考えられないって感じでしょうか？身近にチェスに詳しい人がいないのでよく分かりません。<br />
+　<a href="/software/2019-11-09/stalemate3">以前の記事</a>に書きましたが、そもそもステイルメイトの局面評価値に係数を掛けようと思ったのは、ステイルメイトの評価値を引き分けなのだからという理由で<code class="language-plaintext highlighter-rouge">0</code>にすると以下の局面で先手が<code class="language-plaintext highlighter-rouge">Bf6</code>という手を選んだからです。</p>
+
+<div align="center">ステイルメイトが最善手？</div>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/stalemate_08.png"><img src="/images/stalemate_08.png" alt="Stalemateは最善手？" width="320" height="467" title="Stalemateは最善手？" /></a></p>
+
+</div>
+
+<p>　先手はビショップとナイトを持っていて後手はルークだけで形勢は先手有利のはずなのに先手から進んでステイルメイト（引き分け）にするのはおかしいだろうと考えたのが事の発端です。この局面の後、指し手を進めても後手玉は捕まらないからステイルメイトにするのが<code class="language-plaintext highlighter-rouge">最善手</code>なのでしょうか？自分は優勢なのに自ら進んでステイルメイトにするのはおかしいと考えたので、形勢が有利な時はステイルメイトの評価値にマイナスの値を掛けてやや反転？する仕様にした（<code class="language-plaintext highlighter-rouge">Kf7</code>の手を指します）のですが、もし<code class="language-plaintext highlighter-rouge">Bf6</code>（ステイルメイト）が<code class="language-plaintext highlighter-rouge">最善手</code>というのがチェスプレイヤーの共通認識であるのならステイルメイト局面の評価値は<code class="language-plaintext highlighter-rouge">0</code>のままでいいかもしれません。でも、上の局面で先手のポーンが一つでも<code class="language-plaintext highlighter-rouge">b5</code>辺りに残っていれば敢えてステイルメイトにする人はいないと思います。そのような局面とも比較するためにもステイルメイトの局面に掛ける係数は必要だと思います。<br />
+　あと、念の為もう一度書いておきますが、<a href="https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;refinements=p_4%3Ahappyclam&amp;s=mobile-apps&amp;search-type=ss&amp;sr=1-1">チェスアプリ</a>は「<a href="https://chess-primer.jp/stalemate-flow.html">チェス入門サイト</a>のステイルメイトの問題は全問正解します」、正解するけどその後の指し手が問題の趣旨通りには進まないと言うことです。</p>
+
+<h3 id="他にも見えてきた問題">他にも見えてきた問題</h3>
+<p>　上記の<a href="https://chess-primer.jp/stalemate-flow.html"><code class="language-plaintext highlighter-rouge">問題７</code></a>の正解手の後の後手の一手（<code class="language-plaintext highlighter-rouge">Qe4</code>）は<strong>あまりにも無理してステイルメイトを避けている</strong>ような気もしたので、試しにステイルメイトの局面の評価値に掛けている係数（<code class="language-plaintext highlighter-rouge">-0.7</code>）を変更したら、後手（アプリ）は<code class="language-plaintext highlighter-rouge">Qc4+</code>と着手してステイルメイトを選ぶことを確認しました。そして、将棋とは違って局面の評価値に使っている最大値や最小値が悪影響を与えてることが見えてきました（あくまでも私が作った評価関数についての話です）。<br />
+　<a href="https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;refinements=p_4%3Ahappyclam&amp;s=mobile-apps&amp;search-type=ss&amp;sr=1-1">チェスアプリ</a>では局面を評価する際の先手勝ちの局面の評価値を<code class="language-plaintext highlighter-rouge">50000</code>、後手勝ちの局面の評価値を<code class="language-plaintext highlighter-rouge">-50000</code>にしているのですが、駒の重みは<a href="/project/2019-11-16/chessapp">この記事</a>のようになっていて、クィーンが<code class="language-plaintext highlighter-rouge">90</code>、ルークが<code class="language-plaintext highlighter-rouge">50</code>…という感じで相手の駒を全部取っても<code class="language-plaintext highlighter-rouge">50000</code>なんていう大きな数値にはなりません。この先手勝ち局面（<code class="language-plaintext highlighter-rouge">50000</code>）と後手勝ち局面（<code class="language-plaintext highlighter-rouge">-50000</code>）の評価値が極端に離れていると、その間にある引き分け（ステイルメイト）の局面の評価値が極端になってしまって自分の思惑通りには比較出来ていなかったようです。<br />
+　それでも<a href="https://chess-primer.jp/stalemate-flow.html"><code class="language-plaintext highlighter-rouge">問題７</code></a>以外は正解出来ていたのは、<a href="https://chess-primer.jp/stalemate-flow.html"><code class="language-plaintext highlighter-rouge">問題７</code></a>のような紛れがなく明快な手しか無かったのでステイルメイトの局面を勝ちあるいは負けとほぼ同等の評価をしていたからでした。<a href="https://chess-primer.jp/stalemate-flow.html"><code class="language-plaintext highlighter-rouge">問題７</code></a>のように紛れがある問題だと、負けるぐらいなら他の手を選ぼうとAIが考えてステイルメイトを避けたということです。ということで、<a href="https://chess-primer.jp/stalemate-flow.html"><code class="language-plaintext highlighter-rouge">問題７</code></a>で正解後の後手の一手を<code class="language-plaintext highlighter-rouge">Qe4</code>ではなく<code class="language-plaintext highlighter-rouge">Qc4+</code>を選ぶように調整した結果、最終的には先手勝ちの局面を<code class="language-plaintext highlighter-rouge">500</code>、後手勝ちの局面を<code class="language-plaintext highlighter-rouge">-500</code>、ステイルメイトの局面に掛ける係数を<code class="language-plaintext highlighter-rouge">-0.09</code>にしました。ちなみに係数を<code class="language-plaintext highlighter-rouge">-0.08</code>にすると元通り<code class="language-plaintext highlighter-rouge">Qe4</code>と指してステイルメイトを避けます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  === intro07-2
+    --- problem -7-2
+
+8|♜| | | | | | | |
+7| | | | | | | | |
+6| | | | | | | | |
+5| | | |♛| | | |♟|
+4| | |♕| | | | |♚|
+3| | | | | | |♟| |
+2| | | | |♙|♟|♙| |
+1| | | | | |♔| | |
+  a b c d e f g h
+
+      ✔ expects stalemate -7-2 (686ms)
+♕
+8|♜| | | | | | | |
+7| | | | | | | | |
+6| | | | | | | | |
+5| | | | | | | |♟|
+4| | |♛| | | | |♚|
+3| | | | | | |♟| |
+2| | | | |♙|♟|♙| |
+1| | | | | |♔| | |
+  a b c d e f g h
+
+</code></pre></div></div>
+<p>これでようやく<a href="https://chess-primer.jp/stalemate-flow.html"><code class="language-plaintext highlighter-rouge">問題７</code></a>の正解後も問題の趣旨通りに後手がステイルメイトの手を選ぶようになりました。<br />
+　局面の最大値や最小値なんて閉じたアプリの中での相対的な評価値でしかないので何でもいいと思っていました。将棋アプリも先手の勝ちは<code class="language-plaintext highlighter-rouge">50000</code>、後手の勝ちは<code class="language-plaintext highlighter-rouge">-50000</code>を使っていますし、昔作ったオセロでもよくINT型のMAX値とMIN値を使っていました。でも将棋やオセロと違って<code class="language-plaintext highlighter-rouge">勝ち</code>と<code class="language-plaintext highlighter-rouge">負け</code>以外の<code class="language-plaintext highlighter-rouge">ステイルメイト</code>という<code class="language-plaintext highlighter-rouge">勝ち</code>と<code class="language-plaintext highlighter-rouge">負け</code>の間にある局面を評価するには工夫する必要があるようです。このステイルメイトの局面に掛ける係数は、その意図は昔書いた記事（<a href="/software/2020-02-11/evaluatechess">「チェスだけに必要な局面評価属性」</a>）の通りですが、もし評価関数が完璧なものであるなら必要ないのだと思います。ステイルメイトは引き分けとして評価値<code class="language-plaintext highlighter-rouge">0</code>でいいと思うのですが、完璧な評価関数なんて有り得ないので必要になってくるものだと思います。<br />
+　それと一つのケースだけを見て<code class="language-plaintext highlighter-rouge">-0.09</code>に決めてしまっていいのかと思うかも知れませんが、どのように決めるべきか分かってませんし最大値や最小値も駒の重みに関しても言ってみれば適当に決めた値なので、数は少ないですが過去のステイルメイトのテストケースも通過したことですし当面これで様子見ようと思います。<br />
+　今回、上記の点を弄って個人的にはスッキリしましたが、評価関数は少し変わっただけですし読みの深さも変わっていないので、ステイルメイトの判定が以前より正確になっただけで強くなったわけではないのが残念なところです。</p>
+
+<h3 id="アプリのアップデートについて">アプリのアップデートについて</h3>
+<p>　今回の修正でもうバグは無くなったのでは？と思ってますが、将棋関連アプリに較べるとチェスアプリに関してはステイルメイトというルールのおかげで安心感が無いというのが本音です。何か問題を見つけた場合はメールか<a href="https://happyclam.booth.pm/">Boothサイト</a>からご連絡下さい。<br />
+　取り敢えず、現在<code class="language-plaintext highlighter-rouge">Booth</code>で販売している<a href="https://happyclam.booth.pm/items/6346197">ミニチェスアプリ</a>は近いうちに一度今回の修正を反映させてアップデートするつもりです。<code class="language-plaintext highlighter-rouge">Amazon App Store</code>で公開している<a href="https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;refinements=p_4%3Ahappyclam&amp;s=mobile-apps&amp;search-type=ss&amp;sr=1-1">チェスアプリ</a>に関してはいつ削除されるかも知れませんし、今後はAmazonでは更新しないつもりです。無料のお試し版として残しておきますが、今後は<a href="https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;refinements=p_4%3Ahappyclam&amp;s=mobile-apps&amp;search-type=ss&amp;sr=1-1">チェスアプリ</a>も<a href="https://happyclam.booth.pm/">Booth</a>で販売する予定です。</p>
+
+<div>
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- display01 -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9018029357773039" data-ad-slot="3925247388" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+<hr />
+
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <small>&copy; rifyll theme, 2014</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+</body>
+
+</html>

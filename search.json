@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "チェスのStalemateとPINの話",
+      "category" : "software",
+      "tags"     : "coffeescript, javascript, shogi, chess",
+      "url"      : "/software/2024-12-15/chessPIN",
+      "date"     : "2024-12-15 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "野良アプリ販売始めました",
       "category" : "miscellaneous",
       "tags"     : "android, coffeescript, programming, javascript, cordova",

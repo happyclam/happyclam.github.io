@@ -5,9 +5,186 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 03 Dec 2024 17:47:26 +0900</pubDate>
-    <lastBuildDate>Tue, 03 Dec 2024 17:47:26 +0900</lastBuildDate>
+    <pubDate>Fri, 13 Dec 2024 21:40:24 +0900</pubDate>
+    <lastBuildDate>Fri, 13 Dec 2024 21:40:24 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
+    
+      <item>
+        <title>チェスのStalemateとPINの話</title>
+        <description>&lt;h3 id=&quot;チェスアプリのバグを見つけてしまいました&quot;&gt;チェスアプリのバグを見つけてしまいました&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;チェス入門&lt;/a&gt;というサイトのステイルメイトの問題集を&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;で解いてみると８問中１問間違えてしまいました。ステイルメイトの問題集はあまり見かけないので、十分なテストをしてなかったのが原因です。&lt;a href=&quot;https://happyclam.booth.pm/items/6325341&quot;&gt;マンカラアプリ&lt;/a&gt;もそうですが（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;詰めマンカラ問題集&lt;/code&gt;なんて聞いたことがありません）、問題集が手に入らないのである程度のところでテストを打ち切ってリリースしていたのですが、実際に解けない問題を見つけてしまった以上、対処することにしました。&lt;/p&gt;
+
+&lt;h3 id=&quot;pinが絡む問題に問題がある&quot;&gt;PINが絡む問題に問題がある&lt;/h3&gt;
+&lt;p&gt;　解けなかったのは&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;チェス入門サイトの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;で、以下の局面です。&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;初期盤面&lt;/div&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/stalemate_01.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stalemate_01.png&quot; alt=&quot;ステイルメイト問7-1&quot; width=&quot;320&quot; height=&quot;365&quot; title=&quot;ステイルメイト問7-1&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　正解手は以下のようにQueenをc4に移動する&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4&lt;/code&gt;です。先手（白）劣勢ですが「王手クイーン取り」を掛けてステイルメイト（引き分け）に持ち込むという問題です。&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;正解盤面&lt;/div&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/stalemate_02.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stalemate_02.png&quot; alt=&quot;ステイルメイト問7-2&quot; width=&quot;320&quot; height=&quot;365&quot; title=&quot;ステイルメイト問7-2&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;でも、初期盤面から&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;に指させてみると、以下のように&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qxd5&lt;/code&gt;と黒のクイーンを取ります。&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;不正解&lt;/div&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/stalemate_03.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stalemate_03.png&quot; alt=&quot;ステイルメイト問7-3&quot; width=&quot;320&quot; height=&quot;365&quot; title=&quot;ステイルメイト問7-3&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　クィーンは取れるのですが次に後手（黒）がルークをa1に移動（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ra1&lt;/code&gt;）して合い駒効かずでチェックメイトされて先手（白）が負けます。&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;不正解後の変化&lt;/div&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/stalemate_04.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stalemate_04.png&quot; alt=&quot;ステイルメイト問7-4&quot; width=&quot;320&quot; height=&quot;365&quot; title=&quot;ステイルメイト問7-4&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;正解手が指せないからといってバグとは限らないのですが、この問題の場合は３手の読みでステイルメイトに気付いて５手読めば&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ra1&lt;/code&gt;からの負けに気付くので、候補手を絞っている可能性があるので一概には言えませんが５手読めば正解できるはずです。&lt;br /&gt;
+　では、手動で先手（白）が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4&lt;/code&gt;と指した局面で&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;に指させてみると&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;先手（白）のクィーンを取る、正しい応手？&lt;/div&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/stalemate_05.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stalemate_05.png&quot; alt=&quot;ステイルメイト問7-5&quot; width=&quot;320&quot; height=&quot;365&quot; title=&quot;ステイルメイト問7-5&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;相手のクィーンを取って（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qxc4&lt;/code&gt;）ステイルメイトと判定してゲーム終了となるのでこれも問題ありません。&lt;br /&gt;
+　しかし、手動で先手（白）が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4&lt;/code&gt;と指した局面から後手（黒）も手動で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qxc4&lt;/code&gt;と指すと以下のようになります。&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;手動で指すと「後手勝ち」の判定！！！&lt;/div&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/stalemate_06.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stalemate_06.png&quot; alt=&quot;ステイルメイト問7-6&quot; width=&quot;320&quot; height=&quot;365&quot; title=&quot;ステイルメイト問7-6&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　これはイケマセン。ステイルメイトなのに「後手の勝ちです」と判定してしまってます。これは明らかなバグです。&lt;br /&gt;
+どうやらチェスで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;と呼ばれる状態の時にSTALEMATEの判定を間違うようです。
+このステイルメイトの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;のミソは他の問題とは違って、単に「王手クィーン取り」を掛けてステイルメイトに持ち込むだけではなく、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;状態に持ち込むところです。初手は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qd4&lt;/code&gt;でも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qe4&lt;/code&gt;でもダメで、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4&lt;/code&gt;でなければならないのです。&lt;/p&gt;
+
+&lt;h3 id=&quot;将棋ではpinは大した問題ではない&quot;&gt;将棋ではPINは大した問題ではない&lt;/h3&gt;
+&lt;p&gt;　上の図の終局の局面は将棋でも珍しくない形だと思います。将棋なら先手（白）は指す手が無くて投了するしか無い局面です。もし将棋初心者が指す手に困って&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;されている&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;e2&lt;/code&gt;の駒（ポーン）を前に動かしたとしても、後手（黒）がクィーンで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;f1&lt;/code&gt;の玉（キング）を取れば済む話です（&lt;a href=&quot;/software/2024-04-07/tdd&quot;&gt;以前の記事&lt;/a&gt;参照）。その場合、将棋でも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;王手放置&lt;/code&gt;は反則と規定されているので正確に言えば先手（白）の反則負けと言うべきですが、いずれにしても後手（黒）の勝ちは揺るぎません。でも将棋と違ってチェスの場合は劣勢だった先手が引き分け（ステイルメイト）に持ち込んだことになります。将棋なら先手（白）負けなのにチェスだと引き分けになります。&lt;br /&gt;
+　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;に対応する将棋用語は何かよく分かりませんが、「串刺しにされてる」とか「角の効きに入ってる」とかの表現はありますが、ピッタリした用語が無いのが将棋というゲームが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;をそれほど重要視していないことの証拠にもなるでしょう。&lt;br /&gt;
+　将棋アプリを開発する立場で見ても&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;なんて全然気にしていませんでした。チェスのソフトや昔からある将棋ソフトが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;をチェックするアルゴリズムを使っているのは知ってましたが、それは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Stockfish&lt;/code&gt;由来のアルゴリズムを流用して作っていたからであって、自分のように一からアルゴリズムも考えて開発するのなら関係のない話だと思っていたし実際に作ることも出来ました。でも、今回の&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;のバグの修正に取り掛かってみて想像以上に面倒臭い作業を強いられて、チェスのステイルメイト（特に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;絡み）に対応するためには将棋とは別のやり方（別のデータ構造と別のアルゴリズム）で作る方がスマートに出来るのだろうということが想像できました。何がそんなに面倒くさいかと言うと長くなるので省略しますが、チェス盤のマス目を一つ一つ移動しながら&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;のチェックをするのはかなり&lt;strong&gt;無理がある&lt;/strong&gt;のです。&lt;br /&gt;
+　将棋ソフト開発関連の本などをチラ見すると&lt;strong&gt;「データ構造に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;用のフラグを持たせる」&lt;/strong&gt;とか&lt;strong&gt;「合法手を列挙する」&lt;/strong&gt;とか言う表現をよく見かけますが、自分の将棋関連アプリ（&lt;a href=&quot;https://happyclam.booth.pm/items/6323599&quot;&gt;３三将棋&lt;/a&gt;、&lt;a href=&quot;https://happyclam.booth.pm/items/6325376&quot;&gt;５五将棋&lt;/a&gt;、&lt;a href=&quot;https://happyclam.booth.pm/items/6346070&quot;&gt;７七将棋&lt;/a&gt;）はデータ構造に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;用のものはありませんし、「合法手を列挙する」作業も一切していませんが困ることは何もありませんでした。人間が実際に駒を動かすイメージで一つ一つの駒を８方向に動かす作業を想定したアルゴリズムになっていて、普通はそうしたやり方を採用するだろうと思われる極普通のやり方（アルゴリズム）です。「合法手を列挙する」と聞いて、昔から「何でそんなやり方してるのかなぁ？」と不思議に思ってました。もしかして、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Stockfish&lt;/code&gt;を作った人は、最初私のようなやり方で&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;を作り始めてステイルメイトの実装に掛かった時に「こりゃダメだ！」「こんなことやってられない！」と感じて新しいやり方（データ構造とアルゴリズム）を捻り出したんじゃないでしょうか？私の勝手な想像ではありますが、今回のバグ修正に取り組んで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Stockfish&lt;/code&gt;を作った人の気持ちが分かったような気がしました。&lt;br /&gt;
+　今回のバグ修正は&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;が絡むステイルメイトに関わる部分だけ&lt;/strong&gt;が下膨れした感じになっていて、幸いそういうケースはあまりないので全体の処理が重くなったということはありません。&lt;/p&gt;
+
+&lt;h3 id=&quot;ステイルメイトは最善手なのか&quot;&gt;ステイルメイトは最善手なのか？&lt;/h3&gt;
+&lt;p&gt;　上に挙げた&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;チェス入門サイトの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;の問題以外にも興味深い変化を含んでいます。上記のバグをなんとか&lt;strong&gt;無理がある&lt;/strong&gt;方法で修正して過去のテストも全部通過してデグレード（リグレッション）が無いところまでなんとか辿り着いて、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;も含めて&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;すべての問題&lt;/a&gt;に正解することも確認しました。&lt;br /&gt;
+　そして、試しに先程の先手が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4&lt;/code&gt;と指した下の正解局面から&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;正解盤面&lt;/div&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/stalemate_02.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stalemate_02.png&quot; alt=&quot;ステイルメイト問7-2&quot; width=&quot;320&quot; height=&quot;365&quot; title=&quot;ステイルメイト問7-2&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;修正済みの&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;に後手を指させてみると&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;後手がステイルメイトを避けた局面&lt;/div&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/stalemate_07.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stalemate_07.png&quot; alt=&quot;アプリ修正後の指し手&quot; width=&quot;320&quot; height=&quot;365&quot; title=&quot;ステイルメイト問7-7&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;なんと、先手のクィーンを取らずに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qe4&lt;/code&gt;と指して王手（チェック）を回避しました。修正する前はちゃんと先手のクィーンを取っていたので、修正前より悪化してるような気もがしますがそうではなく、正しくステイルメイトの局面だと判断できるようになって、後手（アプリ）が「優勢なのにステイルメイトなんかにしてたまるか！」とクィーンを犠牲にしてキングが逃げる手を選んだわけです。その後先手は当然後手のクィーンを取って（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qxe4+&lt;/code&gt;）以下&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kg5&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qa8&lt;/code&gt;となり後手のキングは大海に逃げ出すことは出来ますが、駒をボロボロ取られて十数手後に結局先手が勝ちます。結局そうなるのなら「ステイルメイトで妥協しておくべきだったんじゃないの？」と言いたくなりますが、自分のチェスアプリは深く読めていない（３〜５手）こともあってこうなります。&lt;br /&gt;
+　このステイルメイトを無理やり避ける現象は&lt;a href=&quot;/software/2020-02-11/evaluatechess&quot;&gt;以前の記事&lt;/a&gt;で書いたステイルメイトの局面をどのように評価するか（ステイルメイトの局面に掛ける係数&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-0.7&lt;/code&gt;をどのように決めるか問題）とも関わってくるのですが、自らステイルメイト（引き分け）を受け入れて確定させるより、少しでも勝つ可能性がある手を選ぶ方が最善手と言えなくもないような気もします。&lt;br /&gt;
+　それにしても&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;詰めチェス&lt;/code&gt;（チェス・プロブレム）の中には問題の趣旨以外の有効な着手が存在するもの、将棋で言えば&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;余詰め&lt;/code&gt;がある詰将棋のような感じの問題が多いですね。それとも自分がチェス初心者だからそう感じるだけで、ベテランチェスプレイヤーなら上記の局面でステイルメイト（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4+&lt;/code&gt;）以外は考えられないって感じでしょうか？身近にチェスに詳しい人がいないのでよく分かりません。&lt;br /&gt;
+　&lt;a href=&quot;/software/2019-11-09/stalemate3&quot;&gt;以前の記事&lt;/a&gt;に書きましたが、そもそもステイルメイトの局面評価値に係数を掛けようと思ったのは、ステイルメイトの評価値を引き分けなのだからという理由で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;にすると以下の局面で先手が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Bf6&lt;/code&gt;という手を選んだからです。&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;ステイルメイトが最善手？&lt;/div&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/stalemate_08.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stalemate_08.png&quot; alt=&quot;Stalemateは最善手？&quot; width=&quot;320&quot; height=&quot;467&quot; title=&quot;Stalemateは最善手？&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　先手はビショップとナイトを持っていて後手はルークだけで形勢は先手有利のはずなのに先手から進んでステイルメイト（引き分け）にするのはおかしいだろうと考えたのが事の発端です。この局面の後、指し手を進めても後手玉は捕まらないからステイルメイトにするのが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;最善手&lt;/code&gt;なのでしょうか？自分は優勢なのに自ら進んでステイルメイトにするのはおかしいと考えたので、形勢が有利な時はステイルメイトの評価値にマイナスの値を掛けてやや反転？する仕様にした（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kf7&lt;/code&gt;の手を指します）のですが、もし&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Bf6&lt;/code&gt;（ステイルメイト）が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;最善手&lt;/code&gt;というのがチェスプレイヤーの共通認識であるのならステイルメイト局面の評価値は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;のままでいいかもしれません。でも、上の局面で先手のポーンが一つでも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b5&lt;/code&gt;辺りに残っていれば敢えてステイルメイトにする人はいないと思います。そのような局面とも比較するためにもステイルメイトの局面に掛ける係数は必要だと思います。&lt;br /&gt;
+　あと、念の為もう一度書いておきますが、&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;は「&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;チェス入門サイト&lt;/a&gt;のステイルメイトの問題は全問正解します」、正解するけどその後の指し手が問題の趣旨通りには進まないと言うことです。&lt;/p&gt;
+
+&lt;h3 id=&quot;他にも見えてきた問題&quot;&gt;他にも見えてきた問題&lt;/h3&gt;
+&lt;p&gt;　上記の&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;の正解手の後の後手の一手（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qe4&lt;/code&gt;）は&lt;strong&gt;あまりにも無理してステイルメイトを避けている&lt;/strong&gt;ような気もしたので、試しにステイルメイトの局面の評価値に掛けている係数（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-0.7&lt;/code&gt;）を変更したら、後手（アプリ）は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4+&lt;/code&gt;と着手してステイルメイトを選ぶことを確認しました。そして、将棋とは違って局面の評価値に使っている最大値や最小値が悪影響を与えてることが見えてきました（あくまでも私が作った評価関数についての話です）。&lt;br /&gt;
+　&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;では局面を評価する際の先手勝ちの局面の評価値を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;50000&lt;/code&gt;、後手勝ちの局面の評価値を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-50000&lt;/code&gt;にしているのですが、駒の重みは&lt;a href=&quot;/project/2019-11-16/chessapp&quot;&gt;この記事&lt;/a&gt;のようになっていて、クィーンが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;90&lt;/code&gt;、ルークが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;50&lt;/code&gt;…という感じで相手の駒を全部取っても&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;50000&lt;/code&gt;なんていう大きな数値にはなりません。この先手勝ち局面（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;50000&lt;/code&gt;）と後手勝ち局面（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-50000&lt;/code&gt;）の評価値が極端に離れていると、その間にある引き分け（ステイルメイト）の局面の評価値が極端になってしまって自分の思惑通りには比較出来ていなかったようです。&lt;br /&gt;
+　それでも&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;以外は正解出来ていたのは、&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;のような紛れがなく明快な手しか無かったのでステイルメイトの局面を勝ちあるいは負けとほぼ同等の評価をしていたからでした。&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;のように紛れがある問題だと、負けるぐらいなら他の手を選ぼうとAIが考えてステイルメイトを避けたということです。ということで、&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;で正解後の後手の一手を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qe4&lt;/code&gt;ではなく&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4+&lt;/code&gt;を選ぶように調整した結果、最終的には先手勝ちの局面を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;500&lt;/code&gt;、後手勝ちの局面を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-500&lt;/code&gt;、ステイルメイトの局面に掛ける係数を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-0.09&lt;/code&gt;にしました。ちなみに係数を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-0.08&lt;/code&gt;にすると元通り&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qe4&lt;/code&gt;と指してステイルメイトを避けます。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  === intro07-2
+    --- problem -7-2
+
+8|♜| | | | | | | |
+7| | | | | | | | |
+6| | | | | | | | |
+5| | | |♛| | | |♟|
+4| | |♕| | | | |♚|
+3| | | | | | |♟| |
+2| | | | |♙|♟|♙| |
+1| | | | | |♔| | |
+  a b c d e f g h
+
+      ✔ expects stalemate -7-2 (686ms)
+♕
+8|♜| | | | | | | |
+7| | | | | | | | |
+6| | | | | | | | |
+5| | | | | | | |♟|
+4| | |♛| | | | |♚|
+3| | | | | | |♟| |
+2| | | | |♙|♟|♙| |
+1| | | | | |♔| | |
+  a b c d e f g h
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;これでようやく&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;の正解後も問題の趣旨通りに後手がステイルメイトの手を選ぶようになりました。&lt;br /&gt;
+　局面の最大値や最小値なんて閉じたアプリの中での相対的な評価値でしかないので何でもいいと思っていました。将棋アプリも先手の勝ちは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;50000&lt;/code&gt;、後手の勝ちは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-50000&lt;/code&gt;を使っていますし、昔作ったオセロでもよくINT型のMAX値とMIN値を使っていました。でも将棋やオセロと違って&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;勝ち&lt;/code&gt;と&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;負け&lt;/code&gt;以外の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ステイルメイト&lt;/code&gt;という&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;勝ち&lt;/code&gt;と&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;負け&lt;/code&gt;の間にある局面を評価するには工夫する必要があるようです。このステイルメイトの局面に掛ける係数は、その意図は昔書いた記事（&lt;a href=&quot;/software/2020-02-11/evaluatechess&quot;&gt;「チェスだけに必要な局面評価属性」&lt;/a&gt;）の通りですが、もし評価関数が完璧なものであるなら必要ないのだと思います。ステイルメイトは引き分けとして評価値&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;でいいと思うのですが、完璧な評価関数なんて有り得ないので必要になってくるものだと思います。&lt;br /&gt;
+　それと一つのケースだけを見て&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-0.09&lt;/code&gt;に決めてしまっていいのかと思うかも知れませんが、どのように決めるべきか分かってませんし最大値や最小値も駒の重みに関しても言ってみれば適当に決めた値なので、数は少ないですが過去のステイルメイトのテストケースも通過したことですし当面これで様子見ようと思います。&lt;br /&gt;
+　今回、上記の点を弄って個人的にはスッキリしましたが、評価関数は少し変わっただけですし読みの深さも変わっていないので、ステイルメイトの判定が以前より正確になっただけで強くなったわけではないのが残念なところです。&lt;/p&gt;
+
+&lt;h3 id=&quot;アプリのアップデートについて&quot;&gt;アプリのアップデートについて&lt;/h3&gt;
+&lt;p&gt;　今回の修正でもうバグは無くなったのでは？と思ってますが、将棋関連アプリに較べるとチェスアプリに関してはステイルメイトというルールのおかげで安心感が無いというのが本音です。何か問題を見つけた場合はメールか&lt;a href=&quot;https://happyclam.booth.pm/&quot;&gt;Boothサイト&lt;/a&gt;からご連絡下さい。&lt;br /&gt;
+　取り敢えず、現在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Booth&lt;/code&gt;で販売している&lt;a href=&quot;https://happyclam.booth.pm/items/6346197&quot;&gt;ミニチェスアプリ&lt;/a&gt;は近いうちに一度今回の修正を反映させてアップデートするつもりです。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Amazon App Store&lt;/code&gt;で公開している&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;に関してはいつ削除されるかも知れませんし、今後はAmazonでは更新しないつもりです。無料のお試し版として残しておきますが、今後は&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;も&lt;a href=&quot;https://happyclam.booth.pm/&quot;&gt;Booth&lt;/a&gt;で販売する予定です。&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- display01 --&gt;
+    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+    &lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+</description>
+        <pubDate>Sun, 15 Dec 2024 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/software/2024-12-15/chessPIN</link>
+        <guid isPermaLink="true">https://happyclam.github.io/software/2024-12-15/chessPIN</guid>
+        
+        <category>coffeescript</category>
+        
+        <category>javascript</category>
+        
+        <category>shogi</category>
+        
+        <category>chess</category>
+        
+        
+        <category>software</category>
+        
+      </item>
     
       <item>
         <title>野良アプリ販売始めました</title>
@@ -891,85 +1068,6 @@ cp -p ~/Download/tanuki-wcsc33-2023-05-04/eval/nn.bin eval/
         <pubDate>Sat, 16 Mar 2024 00:00:00 +0900</pubDate>
         <link>https://happyclam.github.io/miscellaneous/2024-03-16/stroll02</link>
         <guid isPermaLink="true">https://happyclam.github.io/miscellaneous/2024-03-16/stroll02</guid>
-        
-        <category>bicycle</category>
-        
-        
-        <category>miscellaneous</category>
-        
-      </item>
-    
-      <item>
-        <title>固定ギア（ピスト）に乗ってみたい</title>
-        <description>&lt;h3 id=&quot;買い物用ママチャリの代替車&quot;&gt;買い物用ママチャリの代替車&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/miscellaneous/2021-12-05/minivelo&quot;&gt;以前の記事&lt;/a&gt;でクロスバイクを買うつもりだと書きましたが、「IDIOM2で登れない坂」の件は、結局スプロケットを交換（12-25Tから11-28Tに交換）することで解決したので新しい自転車の購買欲は失せていました。&lt;br /&gt;
-　でも今度は、現在買い物に使っているママチャリ（ブリジストンのマークローザ）が変速機が壊れたまま数年使っていて、そろそろ代替車を買おうかと考えているうちに変速機使ってないのならシングルギアでいいじゃないか？となり、シングルギアなら一度固定ギア（ピスト）を試してみるのもいいかも？となり、youtubeでピストの動画を見ていたらピストに乗りたくなってきたので買うことにしました。&lt;br /&gt;
-　私がピスト乗ってみたいと思うきっかけとなった動画は、例えば以下のような動画です。自分が全く知らなかった世界です。&lt;/p&gt;
-
-&lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-  &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/EtahPk4PfmY?si=nqFVsfMODZ-qAAox&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;自転車買うときはサイズが大事&quot;&gt;自転車買うときはサイズが大事&lt;/h3&gt;
-&lt;p&gt;　今使っているマークローザは15年前に買ったもので年式によって違うのですが、フレームサイズが確か450mmのものです。スレッドステムを交換してハンドルを下げてカスタムしているのですが、最近まで乗っていた470mmのロードバイクよりサイズ的には楽で自分に合ってるなぁと感じていました。ピストを買うと決めても何を買うかとなったときに、自分の場合は小さなフレームサイズが用意されている車種に限定されます。&lt;br /&gt;
-　最初は今のママチャリと同じ26インチタイヤで尚且つホリゾンタルフレームの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TOKYOBIKEのMONO&lt;/code&gt;が候補になったのですが、実物を見てみると細くて小さなフレームで26インチだとなんだか子ども用の自転車に見えるんですよねぇ。700Cの自転車にすれば今持っているタイヤチューブのストックも流用出来るし26インチと違ってタイヤの種類も色々選べるので、ホリゾンタルフレームには惹かれるものの思い直して700Cのバイクから候補を探すことにしました。&lt;br /&gt;
-　次に見つけた候補&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CinelliのTutto&lt;/code&gt;は小さいサイズがありませんし、460mmサイズがある&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;All CityのBig Block&lt;/code&gt;もいいなぁと思ったのですが、固定ギアを試してみたい、買い物用に使いたいというだけの自分にはどちらも値段が高過ぎて買う気になれません。いずれリアキャリアを付けるつもりなのでフレームにダボ穴があることも条件です。ということで430mmサイズがある&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FujiのStroll&lt;/code&gt;に行き着きました。470mmのロードバイクが少し大きいと感じて、450mmで26インチタイヤのマークローザが楽だと感じていた自分には丁度いいサイズかなぁと思ってます。&lt;br /&gt;
-　聞いた話では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;股下長 - 250mm = シートポスト長(CC)&lt;/code&gt;になるフレームサイズがちょうど良いらしいです。自分の場合430mmのStorollだと若干小さめとなりますが、少し小さめのフレームの方が乗りやすいとも聞きます。&lt;/p&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/stroll_2023.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stroll_2023.png&quot; alt=&quot;STROLL 2023&quot; width=&quot;320&quot; height=&quot;240&quot; title=&quot;Stroll 2023&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;h3 id=&quot;fuji-strollはフリップフロップハブ&quot;&gt;Fuji Strollはフリップフロップハブ&lt;/h3&gt;
-&lt;p&gt;　上に挙げた候補の車種は全てフリップフロップというハブが採用されていて、２種類のコグを取り付けて後輪を外して向きをひっくり返して取り付ければ固定ギアとフリーギアを切り替えるなんて使い方が出来ます。自転車のカスタムをいろいろやりましたが、フリーギアしか触ったことがない自分はそういうハブが存在することも知りませんでした。自転車は奥が深いですねぇ、固定ギアとフリーギアを簡単に切り替えられると知ったことも固定ギアを試してみようと思った動機の一つです。固定ギアの自転車を買ってみて自分には合わないと感じた場合に、すぐに今まで使っていた自転車と同じフリーギアに戻せる点は購入の動機になりますよねぇ。FujiのStrollはデフォルトではフリーギアしか付いていませんが、このフリップフロップハブが採用されていることが購入の決め手になりました。あとは3000円程度の固定ギア（コグ）を購入するだけで済みます。&lt;/p&gt;
-
-&lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
-&lt;div style=&quot;float:left; margin: 0px 0px 0px&quot;&gt;
-&lt;a href=&quot;/images/rench.png&quot;&gt;&lt;img width=&quot;120&quot; height=&quot;160&quot; src=&quot;https://happyclam.github.io/images/rench.png&quot; alt=&quot;15mmBox レンチ&quot; title=&quot;15mm Boxレンチ&quot; /&gt;&lt;/a&gt;
-&lt;/div&gt;
-&lt;div style=&quot;float:left; margin: 0px 5px 0px&quot;&gt;
-&lt;a href=&quot;/images/free_gear.png&quot;&gt;&lt;img width=&quot;120&quot; height=&quot;160&quot; src=&quot;https://happyclam.github.io/images/free_gear.png&quot; alt=&quot;フリーギア 16T&quot; title=&quot;フリーギア 16T&quot; /&gt;&lt;/a&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;a href=&quot;/images/fixed_gear.png&quot;&gt;&lt;img width=&quot;120&quot; height=&quot;160&quot; src=&quot;https://happyclam.github.io/images/fixed_gear.png&quot; alt=&quot;固定ギア 17T&quot; title=&quot;固定ギア 17T&quot; /&gt;&lt;/a&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br clear=&quot;left&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;初乗車でいきなりピストの洗礼を受ける&quot;&gt;初乗車でいきなりピストの洗礼を受ける&lt;/h3&gt;
-&lt;p&gt;　とりあえず購入時のフリーギアで河川敷まで行ってから固定ギアに切り替えて練習することにしました。固定ギアで走り出して特に問題は無さそうだなと、たぶん20Km/hぐらいスピード出していたと思いますが、止まろうとしたら右前方に投げ出される感じで転倒してしまいました:sweat_smile:&lt;br /&gt;
-　何が起こったか分からないって感じでしたが、止まるために軽くブレーキを握って足の回転を止めたのでしょう、足を止めてもペダルは動き続けるので止めた足をペダルが持ち上げて前方にぶっ飛んだ感じです。どこで打撲したのか分からないのですが、グローブをしていたのに軽く手を擦りむいてハンドルも曲がってしまいました。ブレーキ掛けてもすぐに足の回転を止めてはいけません。頭では分かっていたつもりなんですが…。&lt;br /&gt;
-　前輪を両足に挟んでハンドルの曲がりを直していると、通りがかった見知らぬおばちゃんが「大丈夫？」と声を掛けてきました、転倒現場を見られていたようです。「大丈夫です」と笑って答えておきましたが、固定ギアの自転車に乗ってるなんて想像もしてないであろうおばちゃんには「なんてドン臭い人だろう」と思われたことでしょう:sweat_smile:でも、車道で試さなくてよかったと思うとともに、今は転倒シーンを動画に残しておきたかったなぁなんて思ってます（自分が見たい）。みなさんもピスト初めて乗るときは車道は避けましょう。そして停車の感覚が身に付くまではスピードを出さないことですね。&lt;/p&gt;
-
-&lt;h3 id=&quot;徐々に分かってきた&quot;&gt;徐々に分かってきた&lt;/h3&gt;
-&lt;p&gt;　その後一時間ぐらい慎重に乗りながら、上り坂や下り坂を試してみたり&lt;strong&gt;クロス降り（左足をペダルに置いたまま左ペダルが上昇するタイミングで右足でフレームを跨いで降車）&lt;/strong&gt;と言われる降り方を練習してました。Youtubeで見たときは&lt;strong&gt;クロス降り&lt;/strong&gt;なんてすぐ出来ると思っていたのですが練習が必要でした。&lt;strong&gt;スキッド(後輪をスライドさせてブレーキング)&lt;/strong&gt;も最初は全く出来る気がしませんでしたが、ブレーキを使えばそれっぽいことが出来ると分かってきました。街なかでノーブレーキピストなんて言うものが存在するのだからブレーキは使わないものだと思っていたのですが、ペダルが足を持ち上げる力が予想以上に強くてとてもブレーキ無しではペダルを後方に踏むなんて自分には無理な気がしました。前輪ブレーキを使って減速すると同時にペダルを後方に踏んで後輪をズッズッーっと短く滑らせることは何回か出来ましたが、ブレーキを使っていては&lt;strong&gt;スキッド&lt;/strong&gt;とは言えないでしょうね:sweat_smile:もう少し固定ギアに慣れてペダルにストラップを付けて前足でペダルを持ち上げる動作も加えれば可能なのかもしれませんが、ビンディングとかストラップって、何か危ない気がするんですよねぇ。転倒した時も、もし足をペダルに固定していたら骨折してたかもしれないと思うと、怖いのでとりあえず今のところはストラップは使わないつもりです。でも使うとしたらトゥークリップやビンディングではなくストラップにしようと思ってます、一番簡単に足が抜けそうですし。&lt;/p&gt;
-
-&lt;h3 id=&quot;ピストバイクは休めない&quot;&gt;ピストバイクは休めない&lt;/h3&gt;
-&lt;p&gt;　とりあえず&lt;strong&gt;クロス降り&lt;/strong&gt;が出来るようになったので満足して帰ることにしました。&lt;strong&gt;クロス降り&lt;/strong&gt;気に入りました。ただ自転車を降りるというだけの動作なのに、フリーギアとは違った難しさや面白さがあります。私もそうですが、ピストバイク乗る人は実用性よりも、こういう難しさを克服したときの達成感とか未知なものへの好奇心・探究心を満たすことを優先しているのではないでしょうか？&lt;br /&gt;
-　帰路につく時にフリーギアに戻すかどうか迷いましたが、フリーギアに戻してそれに慣れてしまうと次固定ギアにした時に今回の二の舞になるかもしれないし、フリーギアに戻すと一回固定ギアを体験しただけで音を上げてピストを諦めてしまうような感じでなんだか悔しい気がしたので、しばらく固定ギアに慣れるためにそのまま固定ギアで帰路につきました。この「出来ないと悔しい」と言う感じ、プログラミングに通じるものがあると思います。&lt;br /&gt;
-　家までの道中なにが辛かったかといえばピストバイクは一瞬たりとも休めないってことです。フリーギアなら足が疲れたと感じたときや、おしりが少し痛いと感じた時に漕ぐのを止めてペダルの上で立ち上がりサドルからおしりを離して惰性で進むことがあると思いますが、それが出来ないのが一番つらかったです。常にペダルを回していなければならず、おしりをサドルから離したければ立ち漕ぎを強いられ汗で密着したパンツを摘んでシワを直そうと思ったら片手離して立ち漕ぎを継続しなければなりません（そんなの無理）。河川敷から家までわずか数キロなのに２回自転車を降りて歩いて休憩しました。よく100キロ以上のロングライドに出かけてた自分にとっては、数キロで休憩なんて考えられないことです。ピストはやはり短距離競技用だなぁと痛感しました。競輪選手が乗っている自転車ですからねぇ。&lt;br /&gt;
-　買い物・街乗りに使うだけなら短距離用で問題ないので、とりあえずもう少し固定ギアで様子を見ようと思ってます。また進展があれば記事を書こうと思います。&lt;/p&gt;
-
-&lt;h3 id=&quot;ピストでおならは出来ない&quot;&gt;ピストでおならは出来ない？&lt;/h3&gt;
-&lt;p&gt;　あと、「ピストバイク乗っているとおならは出来ない」と聞いたことがあります。googleで検索しても回答は得られなかったのですが、Twitterで検索すると何人かが「ピストでおならをするのは難しい」とか「おならしたら転けそうになった」という呟きを見かけたので、そういうことなんでしょう。出来ないってことはないみたいですね。&lt;/p&gt;
-
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-</description>
-        <pubDate>Sun, 10 Mar 2024 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/miscellaneous/2024-03-10/stroll01</link>
-        <guid isPermaLink="true">https://happyclam.github.io/miscellaneous/2024-03-10/stroll01</guid>
         
         <category>bicycle</category>
         
