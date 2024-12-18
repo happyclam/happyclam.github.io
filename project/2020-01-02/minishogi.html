@@ -168,7 +168,7 @@
 
         <article class="page-content">
           <h3 id="評価方法を変えたことによる効果が知りたい">評価方法を変えたことによる効果が知りたい</h3>
-<p>　「将棋の評価関数とチェスの評価関数」と題した<a href="/software/2019-10-27/stalemate">一連の記事</a>で書いたように、<a href="https://play.google.com/store/apps/details?id=carefreechess.io.github.happyclam">チェスアプリ</a>で導入した局面の評価方法を将棋関連アプリ（<a href="https://happyclam.booth.pm/items/6323599">３三将棋アプリ</a>を除く）にも採用したので、もっとも効果が高かった<a href="https://happyclam.booth.pm/items/6325376">５五将棋アプリ</a>の強さがどの程度変わったか試してみました。評価関数内の駒の重み等細かなところは変えていないのですが、今回のアップデートで全てのアプリの評価関数を駒の働き（モビリティ）を考慮する形に変更しています<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>。<br>
+<p>　「将棋の評価関数とチェスの評価関数」と題した<a href="/software/2019-10-27/stalemate">一連の記事</a>で書いたように、<a href="https://happyclam.booth.pm/items/6399553">チェスアプリ</a>で導入した局面の評価方法を将棋関連アプリ（<a href="https://happyclam.booth.pm/items/6323599">３三将棋アプリ</a>を除く）にも採用したので、もっとも効果が高かった<a href="https://happyclam.booth.pm/items/6325376">５五将棋アプリ</a>の強さがどの程度変わったか試してみました。評価関数内の駒の重み等細かなところは変えていないのですが、今回のアップデートで全てのアプリの評価関数を駒の働き（モビリティ）を考慮する形に変更しています<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>。<br>
 　また、なぜ<a href="https://happyclam.booth.pm/items/6323599">３三将棋アプリ</a>は変更しなかったかと言うと、駒の働きも考慮するようにすると評価関数が重くなるので、同じ時間で較べた場合深く読めなくなるからです。<a href="https://happyclam.booth.pm/items/6323599">３三将棋アプリ</a>は深く読むことを優先して軽い評価関数（駒の重みだけを考慮）のままにしています。</p>
 
 <h3 id="評価関数の精度を上げると深く読めない">評価関数の精度を上げると深く読めない</h3>
