@@ -173,7 +173,7 @@
 
 </div>
 
-<p>　正解手は以下のようにQueenをc4に移動する<code class="language-plaintext highlighter-rouge">Qc4</code>です。先手（白）劣勢ですが「王手クイーン取り」を掛けてステイルメイト（引き分け）に持ち込むという問題です。</p>
+<p>　正解手は以下のようにQueenをc4に移動する<code class="language-plaintext highlighter-rouge">Qc4+</code>です。先手（白）劣勢ですが「王手クイーン取り」を掛けてステイルメイト（引き分け）に持ち込むという問題です。</p>
 
 <div align="center">正解盤面</div>
 <div style="width:320px; margin: 0 auto;">
@@ -201,7 +201,7 @@
 </div>
 
 <p>正解手が指せないからといってバグとは限らないのですが、この問題の場合は３手の読みでステイルメイトに気付いて５手読めば<code class="language-plaintext highlighter-rouge">Ra1</code>からの負けに気付くので、候補手を絞っている可能性があるので一概には言えませんが５手読めば正解できるはずです。<br />
-　では、手動で先手（白）が<code class="language-plaintext highlighter-rouge">Qc4</code>と指した局面で<a href="https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;refinements=p_4%3Ahappyclam&amp;s=mobile-apps&amp;search-type=ss&amp;sr=1-1">チェスアプリ</a>に指させてみると</p>
+　では、手動で先手（白）が<code class="language-plaintext highlighter-rouge">Qc4+</code>と指した局面で<a href="https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;refinements=p_4%3Ahappyclam&amp;s=mobile-apps&amp;search-type=ss&amp;sr=1-1">チェスアプリ</a>に指させてみると</p>
 
 <div align="center">先手（白）のクィーンを取る、正しい応手？</div>
 <div style="width:320px; margin: 0 auto;">
@@ -211,7 +211,7 @@
 </div>
 
 <p>相手のクィーンを取って（<code class="language-plaintext highlighter-rouge">Qxc4</code>）ステイルメイトと判定してゲーム終了となるのでこれも問題ありません。<br />
-　しかし、手動で先手（白）が<code class="language-plaintext highlighter-rouge">Qc4</code>と指した局面から後手（黒）も手動で<code class="language-plaintext highlighter-rouge">Qxc4</code>と指すと以下のようになります。</p>
+　しかし、手動で先手（白）が<code class="language-plaintext highlighter-rouge">Qc4+</code>と指した局面から後手（黒）も手動で<code class="language-plaintext highlighter-rouge">Qxc4</code>と指すと以下のようになります。</p>
 
 <div align="center">手動で指すと「後手勝ち」の判定！！！</div>
 <div style="width:320px; margin: 0 auto;">
@@ -222,7 +222,7 @@
 
 <p>　これはイケマセン。ステイルメイトなのに「後手の勝ちです」と判定してしまってます。これは明らかなバグです。<br />
 どうやらチェスで<code class="language-plaintext highlighter-rouge">PIN</code>と呼ばれる状態の時にSTALEMATEの判定を間違うようです。
-このステイルメイトの<code class="language-plaintext highlighter-rouge">問題７</code>のミソは他の問題とは違って、単に「王手クィーン取り」を掛けてステイルメイトに持ち込むだけではなく、<code class="language-plaintext highlighter-rouge">PIN</code>状態に持ち込むところです。初手は<code class="language-plaintext highlighter-rouge">Qd4</code>でも<code class="language-plaintext highlighter-rouge">Qe4</code>でもダメで、<code class="language-plaintext highlighter-rouge">Qc4</code>でなければならないのです。</p>
+このステイルメイトの<code class="language-plaintext highlighter-rouge">問題７</code>のミソは他の問題とは違って、単に「王手クィーン取り」を掛けてステイルメイトに持ち込むだけではなく、<code class="language-plaintext highlighter-rouge">PIN</code>状態に持ち込むところです。初手は<code class="language-plaintext highlighter-rouge">Qd4+</code>でも<code class="language-plaintext highlighter-rouge">Qe4+</code>でもダメで、<code class="language-plaintext highlighter-rouge">Qc4+</code>でなければならないのです。</p>
 
 <h3 id="将棋ではpinは大した問題ではない">将棋ではPINは大した問題ではない</h3>
 <p>　上の図の終局の局面は将棋でも珍しくない形だと思います。将棋なら先手（白）は指す手が無くて投了するしか無い局面です。もし将棋初心者が指す手に困って<code class="language-plaintext highlighter-rouge">PIN</code>されている<code class="language-plaintext highlighter-rouge">e2</code>の駒（ポーン）を前に動かしたとしても、後手（黒）がクィーンで<code class="language-plaintext highlighter-rouge">f1</code>の玉（キング）を取れば済む話です（<a href="/software/2024-04-07/tdd">以前の記事</a>参照）。その場合、将棋でも<code class="language-plaintext highlighter-rouge">王手放置</code>は反則と規定されているので正確に言えば先手（白）の反則負けと言うべきですが、いずれにしても後手（黒）の勝ちは揺るぎません。でも将棋と違ってチェスの場合は劣勢だった先手が引き分け（ステイルメイト）に持ち込んだことになります。将棋なら先手（白）負けなのにチェスだと引き分けになります。<br />
@@ -233,7 +233,7 @@
 
 <h3 id="ステイルメイトは最善手なのか">ステイルメイトは最善手なのか？</h3>
 <p>　上に挙げた<a href="https://chess-primer.jp/stalemate-flow.html">チェス入門サイトの<code class="language-plaintext highlighter-rouge">問題７</code></a>は<code class="language-plaintext highlighter-rouge">PIN</code>の問題以外にも興味深い変化を含んでいます。上記のバグをなんとか<strong>無理がある</strong>方法で修正して過去のテストも全部通過してデグレード（リグレッション）が無いところまでなんとか辿り着いて、<code class="language-plaintext highlighter-rouge">問題７</code>も含めて<a href="https://chess-primer.jp/stalemate-flow.html">すべての問題</a>に正解することも確認しました。<br />
-　そして、試しに先程の先手が<code class="language-plaintext highlighter-rouge">Qc4</code>と指した下の正解局面から</p>
+　そして、試しに先程の先手が<code class="language-plaintext highlighter-rouge">Qc4+</code>と指した下の正解局面から</p>
 
 <div align="center">正解盤面</div>
 <div style="width:320px; margin: 0 auto;">
@@ -253,7 +253,7 @@
 
 <p>なんと、先手のクィーンを取らずに<code class="language-plaintext highlighter-rouge">Qe4</code>と指して王手（チェック）を回避しました。修正する前はちゃんと先手のクィーンを取っていたので、修正前より悪化してるような気もがしますがそうではなく、正しくステイルメイトの局面だと判断できるようになって、後手（アプリ）が「優勢なのにステイルメイトなんかにしてたまるか！」とクィーンを犠牲にしてキングが逃げる手を選んだわけです。その後先手は当然後手のクィーンを取って（<code class="language-plaintext highlighter-rouge">Qxe4+</code>）以下<code class="language-plaintext highlighter-rouge">Kg5</code>、<code class="language-plaintext highlighter-rouge">Qa8</code>となり後手のキングは大海に逃げ出すことは出来ますが、駒をボロボロ取られて十数手後に結局先手が勝ちます。結局そうなるのなら「ステイルメイトで妥協しておくべきだったんじゃないの？」と言いたくなりますが、自分のチェスアプリは深く読めていない（３〜５手）こともあってこうなります。<br />
 　このステイルメイトを無理やり避ける現象は<a href="/software/2020-02-11/evaluatechess">以前の記事</a>で書いたステイルメイトの局面をどのように評価するか（ステイルメイトの局面に掛ける係数<code class="language-plaintext highlighter-rouge">-0.7</code>をどのように決めるか問題）とも関わってくるのですが、自らステイルメイト（引き分け）を受け入れて確定させるより、少しでも勝つ可能性がある手を選ぶ方が最善手と言えなくもないような気もします。<br />
-　それにしても<code class="language-plaintext highlighter-rouge">詰めチェス</code>（チェス・プロブレム）の中には問題の趣旨以外の有効な着手が存在するもの、将棋で言えば<code class="language-plaintext highlighter-rouge">余詰め</code>がある詰将棋のような感じの問題が多いですね。それとも自分がチェス初心者だからそう感じるだけで、ベテランチェスプレイヤーなら上記の局面でステイルメイト（<code class="language-plaintext highlighter-rouge">Qc4+</code>）以外は考えられないって感じでしょうか？身近にチェスに詳しい人がいないのでよく分かりません。<br />
+　それにしても<code class="language-plaintext highlighter-rouge">詰めチェス</code>（チェス・プロブレム）の中には問題の趣旨以外の有効な着手が存在するもの、将棋で言えば<code class="language-plaintext highlighter-rouge">余詰め</code>がある詰将棋のような感じの問題が多いですね。それとも自分がチェス初心者だからそう感じるだけで、ベテランチェスプレイヤーなら上記の局面でステイルメイト（<code class="language-plaintext highlighter-rouge">Qxc4</code>）以外は考えられないって感じでしょうか？身近にチェスに詳しい人がいないのでよく分かりません。<br />
 　<a href="/software/2019-11-09/stalemate3">以前の記事</a>に書きましたが、そもそもステイルメイトの局面評価値に係数を掛けようと思ったのは、ステイルメイトの評価値を引き分けなのだからという理由で<code class="language-plaintext highlighter-rouge">0</code>にすると以下の局面で先手が<code class="language-plaintext highlighter-rouge">Bf6</code>という手を選んだからです。</p>
 
 <div align="center">ステイルメイトが最善手？</div>
@@ -267,9 +267,9 @@
 　あと、念の為もう一度書いておきますが、<a href="https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;refinements=p_4%3Ahappyclam&amp;s=mobile-apps&amp;search-type=ss&amp;sr=1-1">チェスアプリ</a>は「<a href="https://chess-primer.jp/stalemate-flow.html">チェス入門サイト</a>のステイルメイトの問題は全問正解します」、正解するけどその後の指し手が問題の趣旨通りには進まないと言うことです。</p>
 
 <h3 id="他にも見えてきた問題">他にも見えてきた問題</h3>
-<p>　上記の<a href="https://chess-primer.jp/stalemate-flow.html"><code class="language-plaintext highlighter-rouge">問題７</code></a>の正解手の後の後手の一手（<code class="language-plaintext highlighter-rouge">Qe4</code>）は<strong>あまりにも無理してステイルメイトを避けている</strong>ような気もしたので、試しにステイルメイトの局面の評価値に掛けている係数（<code class="language-plaintext highlighter-rouge">-0.7</code>）を変更したら、後手（アプリ）は<code class="language-plaintext highlighter-rouge">Qc4+</code>と着手してステイルメイトを選ぶことを確認しました。そして、将棋とは違って局面の評価値に使っている最大値や最小値が悪影響を与えてることが見えてきました（あくまでも私が作った評価関数についての話です）。<br />
+<p>　上記の<a href="https://chess-primer.jp/stalemate-flow.html"><code class="language-plaintext highlighter-rouge">問題７</code></a>の正解手の後の後手の一手（<code class="language-plaintext highlighter-rouge">Qe4</code>）は<strong>あまりにも無理してステイルメイトを避けている</strong>ような気もしたので、試しにステイルメイトの局面の評価値に掛けている係数（<code class="language-plaintext highlighter-rouge">-0.7</code>）を変更したら、後手（アプリ）は<code class="language-plaintext highlighter-rouge">Qxc4</code>と着手してステイルメイトを選ぶことを確認しました。そして、将棋とは違って局面の評価値に使っている最大値や最小値が悪影響を与えてることが見えてきました（あくまでも私が作った評価関数についての話です）。<br />
 　<a href="https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;refinements=p_4%3Ahappyclam&amp;s=mobile-apps&amp;search-type=ss&amp;sr=1-1">チェスアプリ</a>では局面を評価する際の先手勝ちの局面の評価値を<code class="language-plaintext highlighter-rouge">50000</code>、後手勝ちの局面の評価値を<code class="language-plaintext highlighter-rouge">-50000</code>にしているのですが、駒の重みは<a href="/project/2019-11-16/chessapp">この記事</a>のようになっていて、クィーンが<code class="language-plaintext highlighter-rouge">90</code>、ルークが<code class="language-plaintext highlighter-rouge">50</code>…という感じで相手の駒を全部取っても<code class="language-plaintext highlighter-rouge">50000</code>なんていう大きな数値にはなりません。この先手勝ち局面（<code class="language-plaintext highlighter-rouge">50000</code>）と後手勝ち局面（<code class="language-plaintext highlighter-rouge">-50000</code>）のような大きな値にマイナスの係数（<code class="language-plaintext highlighter-rouge">-0.7</code>）を掛けても、自分の思惑通りには比較出来ていなかったようです。<br />
-　それでも<a href="https://chess-primer.jp/stalemate-flow.html"><code class="language-plaintext highlighter-rouge">問題７</code></a>以外は正解出来ていたのは、<a href="https://chess-primer.jp/stalemate-flow.html"><code class="language-plaintext highlighter-rouge">問題７</code></a>のような紛れがなく明快な手しか無かったのでステイルメイトの局面を勝ちあるいは負けとほぼ同等の評価をしていたからでした。<a href="https://chess-primer.jp/stalemate-flow.html"><code class="language-plaintext highlighter-rouge">問題７</code></a>のように紛れがある問題だと、負けるぐらいなら他の手を選ぼうとAIが考えてステイルメイトを避けたということです。ということで、<a href="https://chess-primer.jp/stalemate-flow.html"><code class="language-plaintext highlighter-rouge">問題７</code></a>で正解後の後手の一手を<code class="language-plaintext highlighter-rouge">Qe4</code>ではなく<code class="language-plaintext highlighter-rouge">Qc4+</code>を選ぶように調整した結果、ステイルメイトの局面に掛ける係数を<code class="language-plaintext highlighter-rouge">-0.0009</code>にしました。これで勝敗の決着がつく大きな値（<code class="language-plaintext highlighter-rouge">50000</code>や<code class="language-plaintext highlighter-rouge">-50000</code>）と、形勢判断時の評価値（駒の重みや駒の働きの合計値）との比較が出来ているようです。ちなみに係数を<code class="language-plaintext highlighter-rouge">-0.001</code>にすると元通り<code class="language-plaintext highlighter-rouge">Qe4</code>と指してステイルメイトを避けます。</p>
+　それでも<a href="https://chess-primer.jp/stalemate-flow.html"><code class="language-plaintext highlighter-rouge">問題７</code></a>以外は正解出来ていたのは、<a href="https://chess-primer.jp/stalemate-flow.html"><code class="language-plaintext highlighter-rouge">問題７</code></a>のような紛れがなく明快な手しか無かったのでステイルメイトの局面を勝ちあるいは負けとほぼ同等の評価をしていたからでした。<a href="https://chess-primer.jp/stalemate-flow.html"><code class="language-plaintext highlighter-rouge">問題７</code></a>のように紛れがある問題だと、負けるぐらいなら他の手を選ぼうとAIが考えてステイルメイトを避けたということです。ということで、<a href="https://chess-primer.jp/stalemate-flow.html"><code class="language-plaintext highlighter-rouge">問題７</code></a>で正解後の後手の一手を<code class="language-plaintext highlighter-rouge">Qe4</code>ではなく<code class="language-plaintext highlighter-rouge">Qxc4</code>を選ぶように調整した結果、ステイルメイトの局面に掛ける係数を<code class="language-plaintext highlighter-rouge">-0.0009</code>にしました。これで勝敗の決着がつく大きな値（<code class="language-plaintext highlighter-rouge">50000</code>や<code class="language-plaintext highlighter-rouge">-50000</code>）と、形勢判断時の評価値（駒の重みや駒の働きの合計値）との比較が出来ているようです。ちなみに係数を<code class="language-plaintext highlighter-rouge">-0.001</code>にすると元通り<code class="language-plaintext highlighter-rouge">Qe4</code>と指してステイルメイトを避けます。</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  === intro07-2
     --- problem -7-2

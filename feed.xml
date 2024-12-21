@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 19 Dec 2024 20:46:31 +0900</pubDate>
-    <lastBuildDate>Thu, 19 Dec 2024 20:46:31 +0900</lastBuildDate>
+    <pubDate>Sat, 21 Dec 2024 19:48:50 +0900</pubDate>
+    <lastBuildDate>Sat, 21 Dec 2024 19:48:50 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -24,7 +24,7 @@
 
 &lt;/div&gt;
 
-&lt;p&gt;　正解手は以下のようにQueenをc4に移動する&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4&lt;/code&gt;です。先手（白）劣勢ですが「王手クイーン取り」を掛けてステイルメイト（引き分け）に持ち込むという問題です。&lt;/p&gt;
+&lt;p&gt;　正解手は以下のようにQueenをc4に移動する&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4+&lt;/code&gt;です。先手（白）劣勢ですが「王手クイーン取り」を掛けてステイルメイト（引き分け）に持ち込むという問題です。&lt;/p&gt;
 
 &lt;div align=&quot;center&quot;&gt;正解盤面&lt;/div&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
@@ -52,7 +52,7 @@
 &lt;/div&gt;
 
 &lt;p&gt;正解手が指せないからといってバグとは限らないのですが、この問題の場合は３手の読みでステイルメイトに気付いて５手読めば&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ra1&lt;/code&gt;からの負けに気付くので、候補手を絞っている可能性があるので一概には言えませんが５手読めば正解できるはずです。&lt;br /&gt;
-　では、手動で先手（白）が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4&lt;/code&gt;と指した局面で&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;に指させてみると&lt;/p&gt;
+　では、手動で先手（白）が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4+&lt;/code&gt;と指した局面で&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;に指させてみると&lt;/p&gt;
 
 &lt;div align=&quot;center&quot;&gt;先手（白）のクィーンを取る、正しい応手？&lt;/div&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
@@ -62,7 +62,7 @@
 &lt;/div&gt;
 
 &lt;p&gt;相手のクィーンを取って（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qxc4&lt;/code&gt;）ステイルメイトと判定してゲーム終了となるのでこれも問題ありません。&lt;br /&gt;
-　しかし、手動で先手（白）が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4&lt;/code&gt;と指した局面から後手（黒）も手動で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qxc4&lt;/code&gt;と指すと以下のようになります。&lt;/p&gt;
+　しかし、手動で先手（白）が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4+&lt;/code&gt;と指した局面から後手（黒）も手動で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qxc4&lt;/code&gt;と指すと以下のようになります。&lt;/p&gt;
 
 &lt;div align=&quot;center&quot;&gt;手動で指すと「後手勝ち」の判定！！！&lt;/div&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
@@ -73,7 +73,7 @@
 
 &lt;p&gt;　これはイケマセン。ステイルメイトなのに「後手の勝ちです」と判定してしまってます。これは明らかなバグです。&lt;br /&gt;
 どうやらチェスで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;と呼ばれる状態の時にSTALEMATEの判定を間違うようです。
-このステイルメイトの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;のミソは他の問題とは違って、単に「王手クィーン取り」を掛けてステイルメイトに持ち込むだけではなく、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;状態に持ち込むところです。初手は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qd4&lt;/code&gt;でも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qe4&lt;/code&gt;でもダメで、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4&lt;/code&gt;でなければならないのです。&lt;/p&gt;
+このステイルメイトの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;のミソは他の問題とは違って、単に「王手クィーン取り」を掛けてステイルメイトに持ち込むだけではなく、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;状態に持ち込むところです。初手は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qd4+&lt;/code&gt;でも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qe4+&lt;/code&gt;でもダメで、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4+&lt;/code&gt;でなければならないのです。&lt;/p&gt;
 
 &lt;h3 id=&quot;将棋ではpinは大した問題ではない&quot;&gt;将棋ではPINは大した問題ではない&lt;/h3&gt;
 &lt;p&gt;　上の図の終局の局面は将棋でも珍しくない形だと思います。将棋なら先手（白）は指す手が無くて投了するしか無い局面です。もし将棋初心者が指す手に困って&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;されている&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;e2&lt;/code&gt;の駒（ポーン）を前に動かしたとしても、後手（黒）がクィーンで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;f1&lt;/code&gt;の玉（キング）を取れば済む話です（&lt;a href=&quot;/software/2024-04-07/tdd&quot;&gt;以前の記事&lt;/a&gt;参照）。その場合、将棋でも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;王手放置&lt;/code&gt;は反則と規定されているので正確に言えば先手（白）の反則負けと言うべきですが、いずれにしても後手（黒）の勝ちは揺るぎません。でも将棋と違ってチェスの場合は劣勢だった先手が引き分け（ステイルメイト）に持ち込んだことになります。将棋なら先手（白）負けなのにチェスだと引き分けになります。&lt;br /&gt;
@@ -84,7 +84,7 @@
 
 &lt;h3 id=&quot;ステイルメイトは最善手なのか&quot;&gt;ステイルメイトは最善手なのか？&lt;/h3&gt;
 &lt;p&gt;　上に挙げた&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;チェス入門サイトの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;の問題以外にも興味深い変化を含んでいます。上記のバグをなんとか&lt;strong&gt;無理がある&lt;/strong&gt;方法で修正して過去のテストも全部通過してデグレード（リグレッション）が無いところまでなんとか辿り着いて、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;も含めて&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;すべての問題&lt;/a&gt;に正解することも確認しました。&lt;br /&gt;
-　そして、試しに先程の先手が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4&lt;/code&gt;と指した下の正解局面から&lt;/p&gt;
+　そして、試しに先程の先手が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4+&lt;/code&gt;と指した下の正解局面から&lt;/p&gt;
 
 &lt;div align=&quot;center&quot;&gt;正解盤面&lt;/div&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
@@ -104,7 +104,7 @@
 
 &lt;p&gt;なんと、先手のクィーンを取らずに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qe4&lt;/code&gt;と指して王手（チェック）を回避しました。修正する前はちゃんと先手のクィーンを取っていたので、修正前より悪化してるような気もがしますがそうではなく、正しくステイルメイトの局面だと判断できるようになって、後手（アプリ）が「優勢なのにステイルメイトなんかにしてたまるか！」とクィーンを犠牲にしてキングが逃げる手を選んだわけです。その後先手は当然後手のクィーンを取って（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qxe4+&lt;/code&gt;）以下&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kg5&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qa8&lt;/code&gt;となり後手のキングは大海に逃げ出すことは出来ますが、駒をボロボロ取られて十数手後に結局先手が勝ちます。結局そうなるのなら「ステイルメイトで妥協しておくべきだったんじゃないの？」と言いたくなりますが、自分のチェスアプリは深く読めていない（３〜５手）こともあってこうなります。&lt;br /&gt;
 　このステイルメイトを無理やり避ける現象は&lt;a href=&quot;/software/2020-02-11/evaluatechess&quot;&gt;以前の記事&lt;/a&gt;で書いたステイルメイトの局面をどのように評価するか（ステイルメイトの局面に掛ける係数&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-0.7&lt;/code&gt;をどのように決めるか問題）とも関わってくるのですが、自らステイルメイト（引き分け）を受け入れて確定させるより、少しでも勝つ可能性がある手を選ぶ方が最善手と言えなくもないような気もします。&lt;br /&gt;
-　それにしても&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;詰めチェス&lt;/code&gt;（チェス・プロブレム）の中には問題の趣旨以外の有効な着手が存在するもの、将棋で言えば&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;余詰め&lt;/code&gt;がある詰将棋のような感じの問題が多いですね。それとも自分がチェス初心者だからそう感じるだけで、ベテランチェスプレイヤーなら上記の局面でステイルメイト（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4+&lt;/code&gt;）以外は考えられないって感じでしょうか？身近にチェスに詳しい人がいないのでよく分かりません。&lt;br /&gt;
+　それにしても&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;詰めチェス&lt;/code&gt;（チェス・プロブレム）の中には問題の趣旨以外の有効な着手が存在するもの、将棋で言えば&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;余詰め&lt;/code&gt;がある詰将棋のような感じの問題が多いですね。それとも自分がチェス初心者だからそう感じるだけで、ベテランチェスプレイヤーなら上記の局面でステイルメイト（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qxc4&lt;/code&gt;）以外は考えられないって感じでしょうか？身近にチェスに詳しい人がいないのでよく分かりません。&lt;br /&gt;
 　&lt;a href=&quot;/software/2019-11-09/stalemate3&quot;&gt;以前の記事&lt;/a&gt;に書きましたが、そもそもステイルメイトの局面評価値に係数を掛けようと思ったのは、ステイルメイトの評価値を引き分けなのだからという理由で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;にすると以下の局面で先手が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Bf6&lt;/code&gt;という手を選んだからです。&lt;/p&gt;
 
 &lt;div align=&quot;center&quot;&gt;ステイルメイトが最善手？&lt;/div&gt;
@@ -118,9 +118,9 @@
 　あと、念の為もう一度書いておきますが、&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;は「&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;チェス入門サイト&lt;/a&gt;のステイルメイトの問題は全問正解します」、正解するけどその後の指し手が問題の趣旨通りには進まないと言うことです。&lt;/p&gt;
 
 &lt;h3 id=&quot;他にも見えてきた問題&quot;&gt;他にも見えてきた問題&lt;/h3&gt;
-&lt;p&gt;　上記の&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;の正解手の後の後手の一手（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qe4&lt;/code&gt;）は&lt;strong&gt;あまりにも無理してステイルメイトを避けている&lt;/strong&gt;ような気もしたので、試しにステイルメイトの局面の評価値に掛けている係数（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-0.7&lt;/code&gt;）を変更したら、後手（アプリ）は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4+&lt;/code&gt;と着手してステイルメイトを選ぶことを確認しました。そして、将棋とは違って局面の評価値に使っている最大値や最小値が悪影響を与えてることが見えてきました（あくまでも私が作った評価関数についての話です）。&lt;br /&gt;
+&lt;p&gt;　上記の&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;の正解手の後の後手の一手（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qe4&lt;/code&gt;）は&lt;strong&gt;あまりにも無理してステイルメイトを避けている&lt;/strong&gt;ような気もしたので、試しにステイルメイトの局面の評価値に掛けている係数（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-0.7&lt;/code&gt;）を変更したら、後手（アプリ）は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qxc4&lt;/code&gt;と着手してステイルメイトを選ぶことを確認しました。そして、将棋とは違って局面の評価値に使っている最大値や最小値が悪影響を与えてることが見えてきました（あくまでも私が作った評価関数についての話です）。&lt;br /&gt;
 　&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;では局面を評価する際の先手勝ちの局面の評価値を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;50000&lt;/code&gt;、後手勝ちの局面の評価値を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-50000&lt;/code&gt;にしているのですが、駒の重みは&lt;a href=&quot;/project/2019-11-16/chessapp&quot;&gt;この記事&lt;/a&gt;のようになっていて、クィーンが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;90&lt;/code&gt;、ルークが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;50&lt;/code&gt;…という感じで相手の駒を全部取っても&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;50000&lt;/code&gt;なんていう大きな数値にはなりません。この先手勝ち局面（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;50000&lt;/code&gt;）と後手勝ち局面（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-50000&lt;/code&gt;）のような大きな値にマイナスの係数（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-0.7&lt;/code&gt;）を掛けても、自分の思惑通りには比較出来ていなかったようです。&lt;br /&gt;
-　それでも&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;以外は正解出来ていたのは、&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;のような紛れがなく明快な手しか無かったのでステイルメイトの局面を勝ちあるいは負けとほぼ同等の評価をしていたからでした。&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;のように紛れがある問題だと、負けるぐらいなら他の手を選ぼうとAIが考えてステイルメイトを避けたということです。ということで、&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;で正解後の後手の一手を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qe4&lt;/code&gt;ではなく&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4+&lt;/code&gt;を選ぶように調整した結果、ステイルメイトの局面に掛ける係数を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-0.0009&lt;/code&gt;にしました。これで勝敗の決着がつく大きな値（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;50000&lt;/code&gt;や&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-50000&lt;/code&gt;）と、形勢判断時の評価値（駒の重みや駒の働きの合計値）との比較が出来ているようです。ちなみに係数を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-0.001&lt;/code&gt;にすると元通り&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qe4&lt;/code&gt;と指してステイルメイトを避けます。&lt;/p&gt;
+　それでも&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;以外は正解出来ていたのは、&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;のような紛れがなく明快な手しか無かったのでステイルメイトの局面を勝ちあるいは負けとほぼ同等の評価をしていたからでした。&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;のように紛れがある問題だと、負けるぐらいなら他の手を選ぼうとAIが考えてステイルメイトを避けたということです。ということで、&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;で正解後の後手の一手を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qe4&lt;/code&gt;ではなく&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qxc4&lt;/code&gt;を選ぶように調整した結果、ステイルメイトの局面に掛ける係数を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-0.0009&lt;/code&gt;にしました。これで勝敗の決着がつく大きな値（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;50000&lt;/code&gt;や&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-50000&lt;/code&gt;）と、形勢判断時の評価値（駒の重みや駒の働きの合計値）との比較が出来ているようです。ちなみに係数を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-0.001&lt;/code&gt;にすると元通り&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qe4&lt;/code&gt;と指してステイルメイトを避けます。&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  === intro07-2
     --- problem -7-2
