@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "ミニチェスアプリもテスト",
+      "category" : "software",
+      "tags"     : "coffeescript, javascript, shogi, chess",
+      "url"      : "/software/2024-12-22/chess66_test",
+      "date"     : "2024-12-22 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "チェスのStalemateとPINの話",
       "category" : "software",
       "tags"     : "coffeescript, javascript, shogi, chess",

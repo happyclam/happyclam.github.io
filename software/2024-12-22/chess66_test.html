@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="author" content="happyclam">
+  <meta name="description"
+    content="ミニチェスアプリもテスト Stalemate局面の評価値については当面様子見 Reinventing the wheel.">
+  <title> ミニチェスアプリもテスト - 自己満足プログラミング </title>
+
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-1752720-7');
+  </script>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="ミニチェスアプリもテスト">
+  
+  
+  <meta name="twitter:url" content="/software/2024-12-22/chess66_test">
+  
+  
+  <meta name="twitter:description" content="ミニチェス（Chess66）でもテスト">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/chess66_icon.png">
+  
+
+  <link rel="canonical" href="https://happyclam.github.io/software/2024-12-22/chess66_test" />
+  <link rel="alternate" type="application/rss+xml" title="自己満足プログラミング" href="/feed.xml" />
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="site-title" class="navbar-brand" href="/">
+          <img class="pull-left img-responsive" src="">
+          <span class="name-holder">自己満足プログラミング</span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li><a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li><a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li><a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li><a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li><a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <!-- <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script> -->
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+<!--   <div style="text-align: center;">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1238485061299241"
+     crossorigin="anonymous"></script>
+  </div>
+ -->  <div class="blog-header">
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+      <div class="span9">
+        <!-- Html Elements for Search -->
+        <div id="search-container" align="right">
+          <input type="text" id="search-input" placeholder="search...">
+          <ul class="searchresult" id="results-container"></ul>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+  <script src="/assets/js/jquery.min.js"></script>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
+
+        <header class="page-header">
+          <h2 class="page-title"><a href="/software/2024-12-22/chess66_test">ミニチェスアプリもテスト</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Sunday, December 22, 2024
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">coffeescript</span>
+                
+                  <span class="label label-tag">javascript</span>
+                
+                  <span class="label label-tag">shogi</span>
+                
+                  <span class="label label-tag">chess</span>
+                
+            </div>
+          </div>
+
+        </header>
+
+        <article class="page-content">
+          <h3 id="ミニチェスアプリは盤面編集可能">ミニチェスアプリは盤面編集可能</h3>
+<p>　<a href="/software/2024-12-15/chessPIN">前回記事</a>の内容を<a href="https://happyclam.booth.pm/items/6346197">ミニチェスアプリ</a>でもテストしてみました。<a href="https://chess-primer.jp/stalemate-flow.html">チェス入門</a>のステイルメイトの問題集を6x6のミニチェス用にアレンジして解かせてみると、元々の問題の趣旨とは違った発見があります。<br />
+　<a href="https://happyclam.booth.pm/items/6346197">ミニチェスアプリ</a>は<a href="https://happyclam.booth.pm/items/6399553">チェスアプリ</a>と違って盤面編集機能があるので、暇な方は試してみて下さい。もしソースコードを見るつもりの方はアンパッサンとかキャスリングの実装でかなり汚くなっている<a href="https://happyclam.booth.pm/items/6399553">チェスアプリ</a>のコードよりも<a href="https://happyclam.booth.pm/items/6346197">ミニチェスアプリ</a>の方をお勧めします。</p>
+
+<h3 id="問題３"><a href="https://chess-primer.jp/stalemate-flow.html">問題３</a></h3>
+<p>　元々の問題は以下の局面です。</p>
+
+<div align="center">元の問題、初期盤面</div>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/Q3_org.png"><img src="/images/Q3_org.png" alt="ステイルメイト問題３" width="320" height="459" title="ステイルメイト問題３" /></a></p>
+
+</div>
+
+<p>　正解は白<code class="language-plaintext highlighter-rouge">Qc8+</code>で、以下黒<code class="language-plaintext highlighter-rouge">Qxc8</code>と進み、白がステイルメイトに持ち込むという問題です。<br />
+これを以下のように6x6に編集してみました。</p>
+
+<div align="center">６ｘ６初期盤面</div>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/Q3-1.png"><img src="/images/Q3-1.png" alt="ステイルメイト問題３ー１" width="320" height="500" title="ステイルメイト問題３ー１" /></a></p>
+
+</div>
+
+<p>ここからAI同士で対戦させると以下のように進みます。</p>
+
+<div align="center">詰みあり</div>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/chess66_3-1.gif"><img src="/images/chess66_3-1.gif" alt="ステイルメイト問題３" width="320" height="500" title="ステイルメイト問題３" /></a></p>
+
+</div>
+
+<p>　6x6に編集した結果、詰みがある局面になってしまったので黒を詰ましてしまいましたが、当然こうなるべきでしょう。<br />
+今度は黒のキングを一路ずらして配置してみます。</p>
+
+<div align="center">初期盤面を変更</div>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/Q3-2.png"><img src="/images/Q3-2.png" alt="ステイルメイト問題３ー２" width="320" height="500" title="ステイルメイト問題３ー２" /></a></p>
+
+</div>
+
+<p>ここからAI同士で対戦させると以下のように進みます。</p>
+
+<div align="center">ステイルメイト</div>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/chess66_3-2.gif"><img src="/images/chess66_3-2.gif" alt="ステイルメイト問題３" width="320" height="500" title="ステイルメイト問題３" /></a></p>
+
+</div>
+
+<p>　白が劣勢ですが一旦<code class="language-plaintext highlighter-rouge">Qc4+</code>と黒のキングにチェックを掛けて、その後はステイルメイトが最善と判断して<code class="language-plaintext highlighter-rouge">Qc6+</code>、<code class="language-plaintext highlighter-rouge">Qxc6</code>とステイルメイトに持ち込みました、最善の応酬だと思います。下手に勝とうと思って白が<code class="language-plaintext highlighter-rouge">Qd5</code>（詰めろ）なんていう手を選ぶと、黒に<code class="language-plaintext highlighter-rouge">Qd1+</code>とチェックされてクィーンを交換後に戦力不足で白が負けてしまいます。</p>
+
+<h3 id="問題７"><a href="https://chess-primer.jp/stalemate-flow.html">問題７</a></h3>
+<p>　元々の問題は以下の局面です。</p>
+
+<div align="center">元の問題、初期盤面</div>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/stalemate_01.png"><img src="/images/stalemate_01.png" alt="ステイルメイト問題７" width="320" height="365" title="ステイルメイト問題７" /></a></p>
+
+</div>
+
+<p>　正解は白<code class="language-plaintext highlighter-rouge">Qc4+</code>、<code class="language-plaintext highlighter-rouge">Qxc4</code>で白がステイルメイトに持ち込むという問題です。<br />
+これを以下のように6x6に編集してみました。</p>
+
+<div align="center">６ｘ６初期盤面</div>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/Q7-1.png"><img src="/images/Q7-1.png" alt="ステイルメイト問題７ー１" width="320" height="500" title="ステイルメイト問題７ー１" /></a></p>
+
+</div>
+
+<p>ここからAI同士で対戦させると以下のように進みます。</p>
+
+<div align="center">白、負けは避けられない</div>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/chess66_7.gif"><img src="/images/chess66_7.gif" alt="ステイルメイト問題７" width="320" height="500" title="ステイルメイト問題７" /></a></p>
+
+</div>
+
+<p>　元々の問題のようにステイルメイトを狙って白が<code class="language-plaintext highlighter-rouge">Qa4+</code>なんてやると、黒が<code class="language-plaintext highlighter-rouge">Qxa4</code>とクィーンで取ってくれれば良いのですが、以下のように<code class="language-plaintext highlighter-rouge">Rxa4</code>とルークで白のクィーンを取られて</p>
+
+<div align="center">黒はステイルメイトを避ける</div>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/Q7-2.png"><img src="/images/Q7-2.png" alt="ステイルメイト問題７ー２" width="320" height="500" title="ステイルメイト問題７ー２" /></a></p>
+
+</div>
+
+<p>　白は<code class="language-plaintext highlighter-rouge">c3</code>しか指す手がなくなり黒<code class="language-plaintext highlighter-rouge">Qb3#</code>とチェックメイトになります。結局この問題は白の負けが避けられないので、上記の変化は最善の応酬だったことが分かります。もちろん黒がルークで白のクィーンを取る（<code class="language-plaintext highlighter-rouge">Rxa4</code>）ことも確認済みです。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  === intro07-2
+    --- problem -7-2
+
+6|♜| | | | | |
+5| |♛| | | |♟|
+4|♕| | | | |♚|
+3| | | | |♟| |
+2| | |♙|♟|♙| |
+1| | | |♔| | |
+  a b c d e f
+
+      ✔ expects checkmate -7-2 (206ms)
+♕
+6| | | | | | |
+5| |♛| | | |♟|
+4|♜| | | | |♚|
+3| | | | |♟| |
+2| | |♙|♟|♙| |
+1| | | |♔| | |
+  a b c d e f
+</code></pre></div></div>
+
+<p>　<a href="https://happyclam.booth.pm/items/6399553">チェスアプリ</a>も<a href="https://happyclam.booth.pm/items/6346197">ミニチェスアプリ</a>も多くのソースコードは同じなので問題がなくて当然なのですが、<a href="https://happyclam.booth.pm/items/6346197">ミニチェスアプリ</a>に関しては<code class="language-plaintext highlighter-rouge">mocha</code>と<code class="language-plaintext highlighter-rouge">chai</code>のテストを省略していたので、あらためてテストスクリプトを書いて確認してみました。</p>
+
+<h3 id="ステイルメイトの評価値について">ステイルメイトの評価値について</h3>
+<p>　<a href="/software/2024-12-15/chessPIN">前回の記事</a>で先手勝ちの評価値を<code class="language-plaintext highlighter-rouge">50000</code>、後手勝ちの評価値を<code class="language-plaintext highlighter-rouge">-50000</code>、ステイルメイトの局面に掛けるを係数を<code class="language-plaintext highlighter-rouge">-0.0009</code>にして様子を見ると書きましたが、<code class="language-plaintext highlighter-rouge">-0.0009</code>という値があまりにも小さすぎて奇異に感じるので先手勝ちを<code class="language-plaintext highlighter-rouge">500</code>、後手勝ちを<code class="language-plaintext highlighter-rouge">-500</code>、係数を<code class="language-plaintext highlighter-rouge">-0.09</code>にして試してみたのですが、今度は<code class="language-plaintext highlighter-rouge">駒の重み</code>に使ってる値とバランスが取れず？に<strong>不都合</strong>が出てきたので止めました。もし値を変えるとしたら<code class="language-plaintext highlighter-rouge">駒の重み</code>の数値も全面的に見直さないといけないんだろうなぁと思っていたところ、タイミング良く？<code class="language-plaintext highlighter-rouge">X（Twitter）</code>で<a href="https://x.com/yaneuraou/status/1870996558600441943"><code class="language-plaintext highlighter-rouge">やねうら王</code>開発者のポスト</a>を見かけました。<br />
+　<code class="language-plaintext highlighter-rouge">やねうら王</code>では<code class="language-plaintext highlighter-rouge">400</code>,<code class="language-plaintext highlighter-rouge">-400</code>を最大・最小値として使用しているそうで、以前<code class="language-plaintext highlighter-rouge">やねうら王</code>をインストールした時（<a href="/software/2024-06-12/yaneuraou">「Ubuntuでやねうら王」</a>）のソースを<code class="language-plaintext highlighter-rouge">grep</code>すると確かにそのようです（<code class="language-plaintext highlighter-rouge">eval_limit</code>定数）。<code class="language-plaintext highlighter-rouge">やねうら王</code>のソースを読んでみてもいいのですが、理解するのは大変でしょうし何かアイデアが浮かばない限り当面はこのままにしておくつもりです。</p>
+
+<p>※<strong>不都合</strong>とは何か…自分のアプリの場合、単純に評価値の最大・最小値を小さな値にすると「相手キングを積極的に詰ましにいかなくなる」、「千日手になりやすくなる」という現象を確認してます。</p>
+
+<div>
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- display01 -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9018029357773039" data-ad-slot="3925247388" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+<hr />
+
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <small>&copy; rifyll theme, 2014</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+</body>
+
+</html>
