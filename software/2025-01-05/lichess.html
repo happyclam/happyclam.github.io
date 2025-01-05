@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="author" content="happyclam">
+  <meta name="description"
+    content="lichessに挑戦 AIは一手先も読んでいない？ Reinventing the wheel.">
+  <title> lichessに挑戦 - 自己満足プログラミング </title>
+
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-1752720-7');
+  </script>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="lichessに挑戦">
+  
+  
+  <meta name="twitter:url" content="/software/2025-01-05/lichess">
+  
+  
+  <meta name="twitter:description" content="自作チェスアプリでlichessのAIに挑戦">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/chess_icon.png">
+  
+
+  <link rel="canonical" href="https://happyclam.github.io/software/2025-01-05/lichess" />
+  <link rel="alternate" type="application/rss+xml" title="自己満足プログラミング" href="/feed.xml" />
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="site-title" class="navbar-brand" href="/">
+          <img class="pull-left img-responsive" src="">
+          <span class="name-holder">自己満足プログラミング</span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li><a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li><a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li><a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li><a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li><a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <!-- <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script> -->
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+<!--   <div style="text-align: center;">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1238485061299241"
+     crossorigin="anonymous"></script>
+  </div>
+ -->  <div class="blog-header">
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+      <div class="span9">
+        <!-- Html Elements for Search -->
+        <div id="search-container" align="right">
+          <input type="text" id="search-input" placeholder="search...">
+          <ul class="searchresult" id="results-container"></ul>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+  <script src="/assets/js/jquery.min.js"></script>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
+
+        <header class="page-header">
+          <h2 class="page-title"><a href="/software/2025-01-05/lichess">lichessに挑戦</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Sunday, January 05, 2025
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">coffeescript</span>
+                
+                  <span class="label label-tag">javascript</span>
+                
+                  <span class="label label-tag">shogi</span>
+                
+                  <span class="label label-tag">chess</span>
+                
+            </div>
+          </div>
+
+        </header>
+
+        <article class="page-content">
+          <h3 id="チェスサイトのaiはすべてstockfish">チェスサイトのAIはすべてStockfish？</h3>
+<p>　<a href="/project/2019-11-16/chessapp">以前の記事</a>で<a href="https://www.chess.com/home"><code class="language-plaintext highlighter-rouge">chess.com</code></a>のAIと<a href="https://happyclam.booth.pm/items/6399553">チェスアプリ</a>との対戦成績を紹介したので、今度は<a href="https://lichess.org/"><code class="language-plaintext highlighter-rouge">lichess</code></a>で試してみました。でも中で動いているAIは<a href="https://www.chess.com/home"><code class="language-plaintext highlighter-rouge">chess.com</code></a>も<a href="https://lichess.org/"><code class="language-plaintext highlighter-rouge">lichess</code></a>も<code class="language-plaintext highlighter-rouge">Stockfish</code>を使っているようで大きな違いは無いようです。対戦結果も<a href="/project/2019-11-16/chessapp">以前の記事</a>と似たようなものだったので、同じAIが動いていると思われますが、自分の<a href="https://happyclam.booth.pm/items/6399553">チェスアプリ</a>が勝つ時はある特定のパターンがありそうです。そしてチェス対戦サイトのAI（<a href="https://www.chess.com/home"><code class="language-plaintext highlighter-rouge">chess.com</code></a>、<a href="https://lichess.org/"><code class="language-plaintext highlighter-rouge">lichess</code></a>）の<strong>ある特徴</strong>に気付きました…。</p>
+
+<h3 id="チェスアプリが勝った対局"><a href="https://happyclam.booth.pm/items/6399553">チェスアプリ</a>が勝った対局</h3>
+<p>　レベル４で１０戦して３勝７敗だったのですが、<a href="https://happyclam.booth.pm/items/6399553">チェスアプリ</a>が勝った３局をgifファイルで紹介します。gitファイルの下側が<a href="https://happyclam.booth.pm/items/6399553">チェスアプリ</a>です。テキストの棋譜は<a href="https://happyclam.booth.pm/items/6399553">チェスアプリ</a>に入力して再現することも可能です。</p>
+
+<ol>
+  <li>
+    <p>序盤は大抵<a href="https://happyclam.booth.pm/items/6399553">チェスアプリ</a>側が劣勢になります。</p>
+
+    <div align="center">勝局１:劣勢から逆転</div>
+    <div style="width:320px; margin: 0 auto;">
+
+      <p><a href="/images/vs_lichess01.gif"><img src="/images/vs_lichess01.gif" alt="vs.lichess_level04_1" width="320" height="373" title="vs.lichess_level04_1" /></a></p>
+
+    </div>
+
+    <div style="width:480px; margin: 0 auto;">
+
+      <p><a href="/images/vs_lichess01.png"><img src="/images/vs_lichess01.png" alt="vs.lichess_level04_1" width="480" height="218" title="vs.lichess_level04_1" /></a></p>
+
+    </div>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 1. e3 e6 2. Qg4 f5 3. Qf4 g5 4. Qf3 g4 5. Qf4 Bh6 6. Qe5 Nf6 7. h4 Nc6 8. Qb5 a6 9. Qc4 b5 10. Qc3 b4 11. Qc4 Bb7 12. a4 d5 13. Qb3 a5 14. Bb5 O-O 15. Bxc6 Bxc6 16. d4 Bg7 17. Nd2 Ra6 18. Qd3 Rb6 19. f3 Qe7 20. Ne2 h5 21. Kf2 Ne4+ 22. Kf1 Bd7 23. Ke1 Nd6 24. Ng3 Be8 25. Kf2 f4 26. exf4 Rf6 27. Nxh5 g3+ 28. Nxg3 Bg6 29. f5 Nxf5 30. Nde4 Nd6 31. Nxf6+ Kf7 32. Nge4 Qxf6 33. Nxf6 Bxd3 34. cxd3 Bxf6 35. Be3 Nf5 36. Rac1 c6 37. g4 Nxd4 38. g5 Bh8 39. g6+ Kxg6 40. Rhg1+ Kh5 41. Rg5+ Kh6 42. Rxd5+ Kh7 43. Rd7+ Kg8 44. Bxd4 Bxd4+ 45. Rxd4 c5 46. Rxc5 Kf7 47. Rf4+ Ke7 48. Rxa5 Kd7 49. Rg5 Kc7 50. Rg7+ Kd6 51. Rf8 Ra6 52. Rd8+ Kc6 53. Re8 Kd6 54. Rd8+ Kc5 55. Rg5+ e5 56. Rxe5+ Kc6 57. Re7 b3 58. Rd4 Kc5 59. Rde4 Rf6 60. R4e6 Rxe6 61. Rxe6 Kb4 62. Ra6 Kc5 63. f4 Kb4 64. h5 Kc5 65. f5 Kd5 66. Re6 Kc5 67. Re4 Kd6 68. Re1 Kc5 69. Re4 Kd6 70. Re6+ Kc7 71. d4 Kc8 72. Re3 Kc7 73. Rxb3 Kd8 74. Rc3 Ke7 75. b4 Kd8 76. a5 Ke7 77. b5 Kf6 78. Rf3 Kg5 79. d5 Kxh5 80. d6 Kg5 81. d7 Kf6 82. d8=Q+ Ke5 83. Qe7+ Kd4 84. a6 Kd5 85. Rg3 Kd4 86. Rg4+ Kd3 87. Qc7 Kd2 88. Rd4# 1-0
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>なんと！６手（将棋で言うと１２手）でチェックメイト。lichessAIは一手詰めを読んでない？<br />
+　棋譜解析によると<code class="language-plaintext highlighter-rouge">Nf3</code>が悪手で、<code class="language-plaintext highlighter-rouge">d4</code>と着手すればlichessAI側が優勢のままだったようです。</p>
+
+    <div align="center">勝局２:６手でチェックメイト</div>
+    <div style="width:320px; margin: 0 auto;">
+
+      <p><a href="/images/vs_lichess02.gif"><img src="/images/vs_lichess02.gif" alt="vs.lichess_level04_2" width="320" height="373" title="vs.lichess_level04_2" /></a></p>
+
+    </div>
+
+    <div style="width:480px; margin: 0 auto;">
+
+      <p><a href="/images/vs_lichess02.png"><img src="/images/vs_lichess02.png" alt="vs.lichess_level04_2" width="480" height="218" title="vs.lichess_level04_2" /></a></p>
+
+    </div>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 1. g4 d5 2. g5 e5 3. Bg2 Qxg5 4. Bxd5 Bc5 5. Nf3 Qg2 6. Rg1 Qxf2# 0-1
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><a href="https://happyclam.booth.pm/items/6399553">チェスアプリ</a>の序盤は相変わらず定跡無視の乱戦、終盤は５手詰め以内の詰みならほぼ逃すことはありませんが、大優勢な局面であっても詰みがない局面だとも勝ち切るまでがもたつきます。評価関数の出来の悪さとしか言えません。</p>
+
+    <div align="center">勝局３:終盤はもたつく</div>
+    <div style="width:320px; margin: 0 auto;">
+
+      <p><a href="/images/vs_lichess03.gif"><img src="/images/vs_lichess03.gif" alt="vs.lichess_level04_3" width="320" height="373" title="vs.lichess_level04_3" /></a></p>
+
+    </div>
+
+    <div style="width:480px; margin: 0 auto;">
+
+      <p><a href="/images/vs_lichess03.png"><img src="/images/vs_lichess03.png" alt="vs.lichess_level04_3" width="480" height="218" title="vs.lichess_level04_3" /></a></p>
+
+    </div>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 1. c4 e5 2. Nc3 Qh4 3. e3 a5 4. g3 Qg5 5. h4 Qf5 6. g4 Qf6 7. g5 Qf5 8. e4 Qe6 9. Nd5 Kd8 10. Bh3 Qc6 11. d4 Qxc4 12. Qh5 Bb4+ 13. Nxb4 axb4 14. g6 Qxd4 15. gxf7 Qxe4+ 16. Kf1 Ne7 17. Bg2 Qd3+ 18. Qe2 Qxe2+ 19. Nxe2 Rf8 20. a3 d5 21. Be3 Rxf7 22. Rh2 Bg4 23. Bc5 Nd7 24. Be3 Ra6 25. Bd2 Nc5 26. Bxb4 Nd3 27. Bxe7+ Kxe7 28. Nc1 Rxf2+ 29. Kg1 Nxc1 30. Kxf2 Nb3 31. Rg1 Rf6+ 32. Kg3 Be6 33. Rhh1 Rf4 34. Re1 Rg4+ 35. Kf2 e4 36. Rd1 b5 37. Bf1 Rf4+ 38. Kg2 Rg4+ 39. Kh2 Rxh4+ 40. Kg2 Rg4+ 41. Kf2 Rf4+ 42. Ke1 e3 43. Bg2 Nd4 44. Rc1 Nf3+ 45. Bxf3 Rxf3 46. Rg1 Rf4 47. Rxc7+ Kd6 48. Rcxg7 d4 49. Rxh7 d3 50. Rg6 Rc4 51. Kd1 Rf4 52. Ke1 Rc4 53. Rxe6+ Kxe6 54. Rh6+ Kd7 55. Rh7+ Kd6 56. Rh6+ Kc7 57. Kd1 Rf4 58. Ke1 Rg4 59. Rh7+ Kc6 60. Rh1 Rf4 61. Rh5 Rg4 62. Rh1 Rg2 63. a4 bxa4 64. b4 axb3 65. Rh6+ Kb7 66. Kf1 Rf2+ 67. Kg1 Rf4 68. Rh3 e2 69. Kg2 e1=Q 70. Rh7+ Ka8 71. Rh8+ Ka7 72. Rh7+ Ka8 73. Kh3 Qe5 74. Rh6 Rf2 75. Kg4 Qg7+ 76. Rg6 Qxg6+ 77. Kh3 d2 78. Kh4 Rh2# 0-1
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="lichessのaiは先読み探索をしていない">lichessのAIは<code class="language-plaintext highlighter-rouge">先読み（探索）</code>をしていない？</h3>
+<p>　AIの強さを調整する（適度に弱くする）のはなかなか難しいと思いますが、上記の２番目の勝局のように１手詰め（詰めろ）を受けないというのはどういうことでしょうか？lichessAIが<code class="language-plaintext highlighter-rouge">Rg1</code>と指したところで<code class="language-plaintext highlighter-rouge">Rf1</code>と指して１手詰めを受けていればまだまだ勝負は分からなかったと思います。それをせずにわざと負ける（チェックメイトされる）ような手を選ぶのは、「何回かに一回はわざと負けてあげる」というようなことをしているわけではなく、AIのレベルが低い時（今回の場合はレベル４）は「<code class="language-plaintext highlighter-rouge">先読み</code>を一切しない」というような調整の仕方をしている気がします。<br />
+　一般的に学習型のAIは詰将棋（チェスプロブレム）は苦手と言われますが、それを補うためにまず短い手数の<code class="language-plaintext highlighter-rouge">先読み（探索）</code>を行い、詰みが無ければ学習データを利用した静的評価関数で指し手を決めるようになっていると聞きますが、その<code class="language-plaintext highlighter-rouge">先読み</code>（よく<strong>力任せ</strong>とか<strong>brute-force</strong>と表現される指し手の探索）をせずに静的評価関数のみ（計算式のパラメータ調整のみ？）で指し手を決めているのかも知れません。冒頭で<strong>ある特徴</strong>と書いたのはこのことです。<br />
+　実際のところは分かりませんし、他にも強さ調整のためにいろいろやってると思いますが、<code class="language-plaintext highlighter-rouge">先読み（探索）</code>をしなければサイトの負荷軽減にもなるので当たってる気がします。</p>
+
+<h3 id="chesscomも同じ">chess.comも同じ？</h3>
+<p>　以下の対局は<a href="https://www.chess.com/home"><code class="language-plaintext highlighter-rouge">chess.com</code>のAI（santa）</a>と<a href="https://happyclam.booth.pm/items/6399553">チェスアプリ</a>の対戦ですが</p>
+
+<div align="center">chess.com AI が必勝局面から３手詰め頓死</div>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/vs_chesscom01.gif"><img src="/images/vs_chesscom01.gif" alt="vs.chesscom_santa_1" width="320" height="373" title="vs.chesscom_santa_1" /></a></p>
+
+</div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. e4 e5 2. Nf3 Qf6 3. Bc4 a5 4. O-O g5 5. Qe2 h5 6. Bd5 g4 7. Ne1 Ne7 8. Kh1
+Rg8 9. Nd3 Nxd5 10. exd5 Bd6 11. Nc3 h4 12. Ne4 Qf5 13. Nxd6+ cxd6 14. b3 h3 15.
+Kg1 hxg2 16. Re1 g3 17. hxg3 Qh3 18. f4 Rxg3 19. Nf2 Qh6 20. fxe5 Ke7 21. exd6+
+Kf8 22. Qe8+ Kg7 23. Re3 Qh2+ 24. Kxh2 g1=Q# 0-1
+</code></pre></div></div>
+
+<p>　<a href="https://www.chess.com/home"><code class="language-plaintext highlighter-rouge">chess.com</code>AI</a>が必勝局面で23手目<code class="language-plaintext highlighter-rouge">Re3</code>と指したことで３手詰が生じて頓死です。これも<a href="https://www.chess.com/home"><code class="language-plaintext highlighter-rouge">chess.com</code>のAI</a>が短手数の詰みを読んでいなかった（先読み探索をしてなかった）のだと思います。<br />
+　自分の<a href="https://happyclam.booth.pm/items/6399553">チェスアプリ</a>が勝つ時はだいたいこんな感じで、出来の悪い評価関数のせいで序盤からずっと劣勢でなんとか終盤まで縺れた時に相手の頓死で勝つパターンが多いです。<br />
+　あと、<a href="https://lichess.org/"><code class="language-plaintext highlighter-rouge">lichess</code></a>の方は<a href="https://www.chess.com/home"><code class="language-plaintext highlighter-rouge">chess.com</code></a>と違って無料の棋譜解析の回数制限が無いようなのでお勧めです。</p>
+
+<div>
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- display01 -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9018029357773039" data-ad-slot="3925247388" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+<hr />
+
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <small>&copy; rifyll theme, 2014</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+</body>
+
+</html>
