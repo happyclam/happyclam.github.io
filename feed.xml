@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 11 Feb 2025 09:38:36 +0900</pubDate>
-    <lastBuildDate>Tue, 11 Feb 2025 09:38:36 +0900</lastBuildDate>
+    <pubDate>Tue, 11 Feb 2025 19:06:01 +0900</pubDate>
+    <lastBuildDate>Tue, 11 Feb 2025 19:06:01 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -81,7 +81,8 @@
 &lt;h3 id=&quot;lichessのaiは先読み探索をしていない&quot;&gt;lichessのAIは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;先読み（探索）&lt;/code&gt;をしていない？&lt;/h3&gt;
 &lt;p&gt;　AIの強さを調整する（適度に弱くする）のはなかなか難しいと思いますが、上記の２番目の勝局のように１手詰め（詰めろ）を受けないというのはどういうことでしょうか？lichessAIが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rg1&lt;/code&gt;と指したところで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rf1&lt;/code&gt;と指して１手詰めを受けていればまだまだ勝負は分からなかったと思います。それをせずにわざと負ける（チェックメイトされる）ような手を選ぶのは、「何回かに一回はわざと負けてあげる」というようなことをしているわけではなく、AIのレベルが低い時（今回の場合はレベル４）は「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;先読み&lt;/code&gt;を一切しない」というような調整の仕方をしている気がします。&lt;br /&gt;
 　一般的に学習型のAIは詰将棋（チェスプロブレム）は苦手と言われますが、それを補うためにまず短い手数の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;先読み（探索）&lt;/code&gt;を行い、詰みが無ければ学習データを利用した静的評価関数で指し手を決めるようになっていると聞きますが、その&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;先読み&lt;/code&gt;（よく&lt;strong&gt;力任せ&lt;/strong&gt;とか&lt;strong&gt;brute-force&lt;/strong&gt;と表現される指し手の探索）をせずに静的評価関数のみ（計算式のパラメータ調整のみ？）で指し手を決めているのかも知れません。冒頭で&lt;strong&gt;ある特徴&lt;/strong&gt;と書いたのはこのことです。&lt;br /&gt;
-　実際のところは分かりませんし、他にも強さ調整のためにいろいろやってると思いますが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;先読み（探索）&lt;/code&gt;をしなければサイトの負荷軽減にもなるので当たってる気がします。&lt;/p&gt;
+　実際のところは分かりませんし、他にも強さ調整のためにいろいろやってると思いますが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;先読み（探索）&lt;/code&gt;をしなければサイトの負荷軽減にもなるので当たってる気がします。&lt;br /&gt;
+　ちなみに先読みをしないという点では&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;「消える三目並べ」アプリ&lt;/a&gt;も同じような作りになっています。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;モンテカルロ法&lt;/code&gt;を使った強化学習で学習データを作り、そのデータに基づいて確率によって指し手を選択します。確率によって指し手を選択するので一手詰め（あと一手でラインが揃う）を見逃したりするのですが、学習が進むにつれて間違う確率が低くなっていきます。最近「消える三目並べ」を検索ワードにした当ブログへの訪問者が増えてるので、また記事を書くかも知れません。&lt;/p&gt;
 
 &lt;h3 id=&quot;chesscomも同じ&quot;&gt;chess.comも同じ？&lt;/h3&gt;
 &lt;p&gt;　以下の対局は&lt;a href=&quot;https://www.chess.com/home&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chess.com&lt;/code&gt;のAI（Santa BOT）&lt;/a&gt;と&lt;a href=&quot;https://happyclam.booth.pm/items/6399553&quot;&gt;チェスアプリ&lt;/a&gt;の対戦ですが&lt;/p&gt;
