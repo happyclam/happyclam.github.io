@@ -448,15 +448,6 @@ console.log "経過時間: #{elapsed}ミリ秒"
 <p>　既に公開している<a href="https://github.com/happyclam/shogi33simple">３三将棋のソース</a>を使えば記事で紹介しているプログラムを試せるのですが、若干の修正が必要になるので、githubに<a href="https://github.com/happyclam/shogi_puzzle">将棋パズル専用のリポジトリ</a>を作って纏めて公開しました。<code class="language-plaintext highlighter-rouge">git clone</code>すればすぐにプログラムを試すことが出来ます。記事で触れている６０手の長手数問題もコメント化して載せています。<br>
 　<a href="https://apps.apple.com/app/id1435764653">結将棋アプリ</a>の<code class="language-plaintext highlighter-rouge">全国ランキング問題</code>を解かせてみたところ全問正解しました（ランキング１位を取れました）のでバグは今のところ無いと思います。<a href="https://apps.apple.com/app/id1435764653">結将棋アプリ</a>の全国ランキング問題（正解手順はすべて４０手以下）を解かせてみて分かったのですが、問題を解くのに必要な時間が６０手の長手数問題よりかなり長くなるものがあります。正解を得たところで終了せずに全局面を読んでいる所為もありますが、BFSでは<code class="language-plaintext highlighter-rouge">読む深さ</code>よりも<code class="language-plaintext highlighter-rouge">読む幅</code>の多い問題ほど解くのに時間が掛かるということでしょう。</p>
 
-<div>
-    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- display01 -->
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9018029357773039" data-ad-slot="3925247388" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-</div>
-
 <hr>
 
 <div class="footnotes" role="doc-endnotes">

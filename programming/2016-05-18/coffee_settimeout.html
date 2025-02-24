@@ -339,15 +339,6 @@ end
 <p>　setTimeoutを使ったサンプルをこれと同じように書いてもheavy関数の実行終了を待たずに実行されるので意味がありません。setTimeoutを使ったサンプルで、初期化処理（<code class="language-plaintext highlighter-rouge">@trees = new Array()</code>）と終了時の処理（<code class="language-plaintext highlighter-rouge">@statusarea.innerHTML = @trees.length.toString()</code>）をheavy関数内に移動しているのはそのためです。<br />
 　それから、<a href="https://azu.github.io/promises-book/">Promise</a>を使えば敢えて同期をとって実行させることも出来るらしいと聞いたので、何か得るものがあるかと思い少し弄ってみたのですが、setTimeoutを使わずに同様のことが出来るようになるわけでもなさそうだったので使うのをやめました、用途が違うようです。どんなツールを使ってもブラウザ上で動作するシングルスレッド環境には変わりないので、前述のWindowsソフトのような書き方は出来なくて、タイマーによる割り込み処理を避けることはたぶん無理なのでしょう。</p>
 
-<div>
-    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- display01 -->
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9018029357773039" data-ad-slot="3925247388" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-</div>
-
 <hr />
 
         </article>

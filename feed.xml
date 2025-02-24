@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 13 Feb 2025 09:42:27 +0900</pubDate>
-    <lastBuildDate>Thu, 13 Feb 2025 09:42:27 +0900</lastBuildDate>
+    <pubDate>Mon, 24 Feb 2025 15:06:28 +0900</pubDate>
+    <lastBuildDate>Mon, 24 Feb 2025 15:06:28 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -103,15 +103,6 @@ Kf8 22. Qe8+ Kg7 23. Re3 Qh2+ 24. Kxh2 g1=Q# 0-1
 &lt;p&gt;　&lt;a href=&quot;https://www.chess.com/home&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chess.com&lt;/code&gt;AI&lt;/a&gt;が必勝局面で23手目&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Re3&lt;/code&gt;と指したことで３手詰が生じて頓死です。これも&lt;a href=&quot;https://www.chess.com/home&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chess.com&lt;/code&gt;のAI&lt;/a&gt;が短手数の詰みを読んでいなかった（先読み探索をしてなかった）のだと思います。&lt;br /&gt;
 　自分の&lt;a href=&quot;https://happyclam.booth.pm/items/6399553&quot;&gt;チェスアプリ&lt;/a&gt;が勝つ時はだいたいこんな感じで、出来の悪い評価関数のせいで序盤からずっと劣勢でなんとか終盤まで縺れた時に相手の頓死で勝つパターンが多いです。&lt;br /&gt;
 　あと、&lt;a href=&quot;https://lichess.org/&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lichess&lt;/code&gt;&lt;/a&gt;の方は&lt;a href=&quot;https://www.chess.com/home&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chess.com&lt;/code&gt;&lt;/a&gt;と違って無料の棋譜解析の回数制限が無いようなのでお勧めです。&lt;/p&gt;
-
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
 
 &lt;hr /&gt;
 
@@ -258,15 +249,6 @@ Kf8 22. Qe8+ Kg7 23. Re3 Qh2+ 24. Kxh2 g1=Q# 0-1
 　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やねうら王&lt;/code&gt;では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;400&lt;/code&gt;,&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-400&lt;/code&gt;を最大・最小値として使用しているそうで、以前&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やねうら王&lt;/code&gt;をインストールした時（&lt;a href=&quot;/software/2024-06-12/yaneuraou&quot;&gt;「Ubuntuでやねうら王」&lt;/a&gt;）のソースを&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;grep&lt;/code&gt;すると確かにそのようです（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;eval_limit&lt;/code&gt;定数）。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やねうら王&lt;/code&gt;のソースを読んでみてもいいのですが、理解するのは大変でしょうし何かアイデアが浮かばない限り当面はこのままにしておくつもりです。&lt;/p&gt;
 
 &lt;p&gt;※&lt;strong&gt;不都合&lt;/strong&gt;とは何か…自分のアプリの場合、単純に評価値の最大・最小値を小さな値にすると「相手キングを積極的に詰ましにいかなくなる」、「千日手になりやすくなる」という現象を確認してます。&lt;/p&gt;
-
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
 
 &lt;hr /&gt;
 
@@ -436,15 +418,6 @@ Kf8 22. Qe8+ Kg7 23. Re3 Qh2+ 24. Kxh2 g1=Q# 0-1
 &lt;p&gt;　今回の修正でもうバグは無くなったのでは？と思ってますが、将棋関連アプリに較べるとチェスアプリに関してはステイルメイトというルールのおかげで安心感が無いというのが本音です。何か問題を見つけた場合はメールか&lt;a href=&quot;https://happyclam.booth.pm/&quot;&gt;Boothサイト&lt;/a&gt;からご連絡下さい。&lt;br /&gt;
 　取り敢えず、現在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Booth&lt;/code&gt;で販売している&lt;a href=&quot;https://happyclam.booth.pm/items/6346197&quot;&gt;ミニチェスアプリ&lt;/a&gt;は近いうちに一度今回の修正を反映させてアップデートするつもりです。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Amazon App Store&lt;/code&gt;で公開している&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;に関してはいつ削除されるかも知れませんし、今後はAmazonでは更新しないつもりです。無料のお試し版として残しておきますが、今後はチェスアプリも&lt;a href=&quot;https://happyclam.booth.pm/&quot;&gt;Booth&lt;/a&gt;で販売する予定です。→&lt;a href=&quot;https://happyclam.booth.pm/items/6399553&quot;&gt;Boothで最新版&lt;/a&gt;公開しました。&lt;/p&gt;
 
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
-
 &lt;hr /&gt;
 
 </description>
@@ -519,15 +492,6 @@ Kf8 22. Qe8+ Kg7 23. Re3 Qh2+ 24. Kxh2 g1=Q# 0-1
 &lt;h3 id=&quot;pcで動かすことも可能&quot;&gt;PCで動かすことも可能&lt;/h3&gt;
 &lt;p&gt;　実はJavaScript製のアプリに関してはソースファイルの数カ所をコメントアウトするだけでPCで動かすことも可能です。スマホよりハイスペックのPC上のブラウザで動かすことも出来るのですが、これに関しては別記事で紹介するかもしれません。&lt;br /&gt;
 　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript&lt;/code&gt;のソース販売と合わせてニーズがあるかどうか知りたいので、&lt;a href=&quot;https://happyclam.booth.pm/&quot;&gt;Boothサイト&lt;/a&gt;から是非ご意見をお寄せ下さい。&lt;/p&gt;
-
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
 
 &lt;hr /&gt;
 
@@ -659,15 +623,6 @@ Amazonの「整備済み品」を18,980円でわざわざ購入しました。&l
 
 &lt;/div&gt;
 
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
-
 &lt;hr /&gt;
 
 </description>
@@ -712,15 +667,6 @@ Amazonの「整備済み品」を18,980円でわざわざ購入しました。&l
 
 &lt;h3 id=&quot;kindleはその都度入金&quot;&gt;Kindleはその都度入金&lt;/h3&gt;
 &lt;p&gt;　Googleの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AdSense&lt;/code&gt;も&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AdMob&lt;/code&gt;も&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Reader Revenue Manager&lt;/code&gt;も一定金額になるまで支払いは保留されています。そのことについてはこちらも了解済みですので文句はありませんが、Google程の大企業だとその保留分の金利だけでもかなりの儲けになるでしょう。それに対してAmazonの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kindle Direct Publishing&lt;/code&gt;で出版した本の売上はその都度入金されます。振込手数料とかはどうなってるのか知りませんが、この点はAmazonはまともですね。&lt;a href=&quot;https://www.amazon.co.jp/HTML5-CoffeeScriptで作る最強の三目並べプログラム-MIN-MAX法からαβ法へ-happyclam-ebook/dp/B01D1IJ0S0/ref=sr_1_1?s=digital-text&amp;amp;ie=UTF8&amp;amp;qid=1473938717&quot;&gt;Kindleに出品しているこの本&lt;/a&gt;は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;380円&lt;/code&gt;ですが、一冊売れるたびに私の口座に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;121円&lt;/code&gt;振り込まれます、さっきAmazonはまともだと言いましたが、ボリ過ぎだろ！&lt;/p&gt;
-
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
 
 &lt;hr /&gt;
 
@@ -837,15 +783,6 @@ cp -p ~/Download/tanuki-wcsc33-2023-05-04/eval/nn.bin eval/
 &lt;p&gt;　それにしてもOSSで開発資金回収って難しいだろうなとは思います。本来はどこかの企業に独占させない&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;自由&lt;/code&gt;なソフト（Free Software）というのがOSSの精神だと思いますが、日本では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Free&lt;/code&gt;を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;無料&lt;/code&gt;と訳して無料ソフトだと喧伝されているのが残念です。日本人のほとんどがフリーソフト＝無料ソフトという認識しか持ってないのではないでしょうか:sweat_smile:&lt;br /&gt;
 　でもOSSの精神を誤解している人が多いことは残念だとは思うけど、すべてのソフトウェアについてOSSがすばらしいやり方だとも思いません。公共性の高いソフトウェア（例えばLinuxやGit）なんかは今OSSとして開発されていることが素晴らしいことだと思いますが、自分個人が作るようなソフトのソースを公開しても「パクられて終わり」になると思うので、GNUの所謂&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GPLライセンス&lt;/code&gt;でソフトウェアを公開したいとは思えません。「やねうら王」に関しては過去の経緯を踏まえて仕方なく&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GPL&lt;/code&gt;にしているって感じでしょうか？違ってたらスイマセン:bow:事情をよく知らないし、ライセンスについても詳しいわけではないのでこの辺りで止めておきます。&lt;/p&gt;
 
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
-
 &lt;hr /&gt;
 
 </description>
@@ -923,15 +860,6 @@ cp -p ~/Download/tanuki-wcsc33-2023-05-04/eval/nn.bin eval/
 &lt;/div&gt;
 
 &lt;p&gt;　私の場合、ロードバイクやミニベロ（IDIOM2）のログと比較すると、ピストでの平均速度や最高速度はかなり遅くなります。&lt;/p&gt;
-
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
 
 &lt;hr /&gt;
 
@@ -1017,15 +945,6 @@ cp -p ~/Download/tanuki-wcsc33-2023-05-04/eval/nn.bin eval/
 　ということで、広告収入を当てにして無料アプリとして公開するのではなく、有料アプリとしてに公開する方が何かと納得できるのではないかという体験者からの一つの見解でした。&lt;br /&gt;
 　&lt;/p&gt;
 
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
-
 &lt;hr /&gt;
 
 </description>
@@ -1085,15 +1004,6 @@ cp -p ~/Download/tanuki-wcsc33-2023-05-04/eval/nn.bin eval/
 &lt;p&gt;　今にして思えば、たとえ僅かな料金（100円とか）であっても有料にして広告表示無しにすべきだったかなぁとも思うのですが、どちらが良かったかは分かりません。ただ、現状ではGooglePlayの規約で、既に無料アプリとして公開されているアプリを有料に変更することは出来ないようなので、有料アプリにしたければ新規アプリとして作成しなければなりません。でも、&lt;a href=&quot;https://forest.watch.impress.co.jp/docs/serial/yajiuma/1546061.html&quot;&gt;前回の記事でも紹介したニュース&lt;/a&gt;のように個人が新規でGooglePlayアプリを公開するのは非常にハードルが高そうです。なので、それだけが理由ではありません（開発も大変だし…）が、当ブログで５五将棋アプリの思考ルーチンをC++で書き直していつかリリースしたいと書いてました（有料にしたかった）が諦めることにしました。&lt;a href=&quot;https://forest.watch.impress.co.jp/docs/serial/yajiuma/1546061.html&quot;&gt;あのニュース&lt;/a&gt;でアプリ公開を諦めた個人開発者は多いのではないでしょうか:cry:Android自体はOSSなのだからgoogle以外の配信プラットフォームが出てきてもよさそうな気もしますが、現実には出てこないでしょうね。&lt;br /&gt;
 　結果的に非公開になった&lt;a href=&quot;https://happyclam.booth.pm/items/6323599&quot;&gt;３三将棋アプリ&lt;/a&gt;は近いうちにPWAとして公開するかもしれません。&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;に関しては自分のアプリよりAIの出来がいい&lt;a href=&quot;https://www.pychess.org/variants/torishogi&quot;&gt;代替サイト&lt;/a&gt;が既に存在するので、非公開のまま放置しようと思っています。&lt;br /&gt;
 　以上、今回はアプリユーザーと当ブログへ寄付してくださった方への現状報告でした。&lt;/p&gt;
-
-&lt;div&gt;
-    &lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-    &lt;!-- display01 --&gt;
-    &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9018029357773039&quot; data-ad-slot=&quot;3925247388&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-    &lt;script&gt;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    &lt;/script&gt;
-&lt;/div&gt;
 
 &lt;hr /&gt;
 
