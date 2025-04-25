@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="author" content="happyclam">
+  <meta name="description"
+    content="ウォーターソートパズルの答えが知りたい そもそも解はあるのか？ Reinventing the wheel.">
+  <title> ウォーターソートパズルの答えが知りたい - 自己満足プログラミング </title>
+
+  <!-- <\!-- Global Site Tag (gtag.js) - Google Analytics -\-> -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script> -->
+  <!-- <script> -->
+  <!--   window.dataLayer = window.dataLayer || []; -->
+  <!--   function gtag(){dataLayer.push(arguments);} -->
+  <!--   gtag('js', new Date()); -->
+  <!--   gtag('config', 'UA-1752720-7'); -->
+  <!-- </script> -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DEV3LMTH6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DEV3LMTH6C');
+</script>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="ウォーターソートパズルの答えが知りたい">
+  
+  
+  <meta name="twitter:url" content="/software/2025-04-27/waterbottle">
+  
+  
+  <meta name="twitter:description" content="自作チェスアプリでlichessのAIに挑戦">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/watersortpuzzle_icon.png">
+  
+
+  <link rel="canonical" href="https://happyclam.github.io/software/2025-04-27/waterbottle" />
+  <link rel="alternate" type="application/rss+xml" title="自己満足プログラミング" href="/feed.xml" />
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="site-title" class="navbar-brand" href="/">
+          <img class="pull-left img-responsive" src="">
+          <span class="name-holder">自己満足プログラミング</span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li>
+<a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li>
+<a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li>
+<a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li>
+<a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li>
+<a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <!-- <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script> -->
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+<!--   <div style="text-align: center;">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1238485061299241"
+     crossorigin="anonymous"></script>
+  </div>
+ -->  <div class="blog-header">
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+      <div class="span9">
+        <!-- Html Elements for Search -->
+        <div id="search-container" align="right">
+          <input type="text" id="search-input" placeholder="search...">
+          <ul class="searchresult" id="results-container"></ul>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+  <script src="/assets/js/jquery.min.js"></script>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
+
+        <header class="page-header">
+          <h2 class="page-title"><a href="/software/2025-04-27/waterbottle">ウォーターソートパズルの答えが知りたい</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Sunday, April 27, 2025
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">ruby</span>
+                
+                  <span class="label label-tag">shogi</span>
+                
+            </div>
+          </div>
+
+        </header>
+
+        <article class="page-content">
+          <h3 id="暇潰しに丁度いい">暇潰しに丁度いい</h3>
+<p>　スマホ弄っていたら広告を見かける人も多いと思いますが、最近ボトルに色分けされた水が入っていてそのボトル内の水を同一色に並べ替えるゲームに嵌っています。<code class="language-plaintext highlighter-rouge">ウォータソートパズル</code>とか<code class="language-plaintext highlighter-rouge">水選別パズル</code>とか呼ばれてるようで、大抵の問題は何回かやり直せば正解にたどり着けるのですが、どうしても解けないパターンに出会って、「そもそもこれに解答は存在するのか？」という疑問を持ったのでプログラムを作って確認することにしました。</p>
+
+<div align="center">どうしても解けなかったパターン
+<div style="width:320px; margin: 0 auto;">
+
+    <p><a href="/images/watersort00.png"><img src="/images/watersort00.png" alt="解けない？パターン" width="200" height="200" title="解けない？問題"></a></p>
+
+  </div>
+</div>
+
+<h3 id="とりあえずgrokに聞いてみる">とりあえずGrokに聞いてみる</h3>
+<p>　最近プログラミングに関する技術的な調べものをする際に<code class="language-plaintext highlighter-rouge">Grok</code>を何度か使ってみて、Googleで調べるより効率的かもと思っていたので試してみました。<br>
+　上記の画像ファイルをアップロードしてGrokに「このウォータソートパズルの解答手順を教えてください」と聞いてみたところ<br>
+「ボトルは１２本ですね」とか言いながら解答手順を即答しましたが、<br>
+画像の認識が間違っているので「よく見てください、ボトルは１３本です」と送ると<br>
+「申し訳ありません、画像をよく確認したところ、ボトルは12本ではなく13本ですね」とかいいながら、また間違った問題のまま解答手順を列挙してきました。<br>
+更に「ボトルは上段に７本、下段に６本です。下段の右側に空のボトルが２本有ります」と訂正すると<br>
+「ご指摘ありがとうございます」とかいいながら、またまた間違った問題のまま解答手順を列挙してきました。<br>
+こんな感じでやり取りが延々続いて解答は得られませんでした。問題の画像を正確に認識するのが難しいみたいです。それにしても解答の速さに驚いたのですが、画像の認識さえ正確に出来れば解答手順も正確に答えられるのでしょうか？
+以下のテキストを貼り付けて再度Grokに聞いてみました。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      [RED, SKY_BLUE, RED, YELLOW],
+      [MAGENTA, PINK, AQUA_GREEN, RED],
+      [AQUA_GREEN, YELLOW_GREEN, PURPLE, BLUE],
+      [SKY_BLUE, MAGENTA, ORANGE, YELLOW],
+      [PURPLE, PINK, ORANGE, YELLOW_GREEN],
+      [PURPLE, BLUE, PINK, AQUA_GREEN],
+      [ORANGE, YELLOW, AQUA_GREEN, PURPLE],
+      [SKY_BLUE, BLUE, GRAY, GRAY],
+      [SKY_BLUE, YELLOW_GREEN, MAGENTA, RED],
+      [YELLOW, MAGENTA, ORANGE, GRAY],
+      [YELLOW_GREEN, GRAY, PINK, BLUE],
+      [],
+      []
+</code></pre></div></div>
+
+<p>　すると今度は「提供された色のリストに基づき、ウォーターソートパズルの解答手順を日本語で説明します」と言いながら手順を示してきたのですが、ボトルの最上段に存在しない色を移動していたり、ルールを無視した手順を何回も示してきました。<br>
+根気よく訂正し続ければ解答できるのかもしれませんが、自分には無理そうに思えたので諦めました。</p>
+
+<h3 id="自分で解答プログラムを作る">自分で解答プログラムを作る</h3>
+<p>　<a href="/software/2018-08-18/puzzle">以前の記事</a>で紹介した<code class="language-plaintext highlighter-rouge">将棋パズル解答プログラム</code>とほぼ同じコードで解決できそうなのでやってみました。<code class="language-plaintext highlighter-rouge">BFS（幅優先探索）</code>を使って一手ずつ局面を進めてすべてのボトルの色が一色に揃う解答画面に辿り着いた時点で探索を終了し、その手順を遡って表示します。<br>
+　<code class="language-plaintext highlighter-rouge">BFS</code>では解答までの<code class="language-plaintext highlighter-rouge">最短手順</code>を表示しますが、実行時間がかなりかかります。PCのスペックにもよりますし、問題によってもかなり解答までの時間が大きく変化するのですが、ボトル５本（内、空ボトル２本）なら１秒も掛かりませんけど、ボトル９本（内、空ボトル２本）だと３〜４時間掛かりました。冒頭で紹介しているボトル１３本（内、空ボトル２本）では数日掛かるのでしょうか？実際に作ってみる前の想像以上に時間が掛かるのは<a href="/software/2020-06-07/mancala">マンカラの時</a>と同じですね。</p>
+
+<h3 id="dfs深さ優先探索版も作ってみる">DFS（深さ優先探索）版も作ってみる</h3>
+<p>　解答を得るのにあまりにも時間がかかりそうなので<code class="language-plaintext highlighter-rouge">DFS版</code>も作ってみました。すると<code class="language-plaintext highlighter-rouge">BFS版</code>だと数日掛かると思われた上記の問題が１秒掛からずに解答を得ることが出来ました<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"><br>
+　但し<code class="language-plaintext highlighter-rouge">DFS版</code>で得られた解答手順は最短手順とは限りません。でも、そもそも<strong>解答が存在するのかどうかを知りたい</strong>というのが目的だったので満足です。上記の問題も<code class="language-plaintext highlighter-rouge">DFS版</code>で出力された解答手順通りにやればアプリ上で実際に解けました。</p>
+
+<div align="center">
+<div align="center">ソースコード</div>
+<div style="width:320px; margin: 0 auto;">
+
+    <p><a href="https://github.com/happyclam/water_sort_puzzle"><img src="/images/github-mark.png" alt="ウォーターソートパズル解答プログラム" title="ウォーターソートパズル解答プログラム" width="120" height="120"></a></p>
+
+  </div>
+</div>
+
+<h3 id="解けない問題はあるのか">解けない問題はあるのか？</h3>
+<p>　<code class="language-plaintext highlighter-rouge">BFS版</code>で問題を解くためにあまりに時間が掛かるので、<code class="language-plaintext highlighter-rouge">DFS版</code>を作ってみるまでは「この問題には解が存在しない」と言い切るための条件はなんだろう？とか「解が存在することを証明するにはどうすればいいのか？」なんて難しく考えていたのですが時間の無駄でした。解けるかどうか判断するには「<code class="language-plaintext highlighter-rouge">DFS</code>アルゴリズムで作られた解答プログラムで確認すればいいだけ」ですね、スタックオーバーフローに見舞われない限りは…。<br>
+　逆に空ボトル２本で解けない問題を作る方が難しいのかもしれません。ちなみに空ボトルを１本にすれば解けない問題はすぐに出来上がりますが、<strong>解は存在するけど解くのが難しい問題</strong>というのを意図的に作るのは難しいと思います。<a href="/software/2018-08-18/puzzle"><code class="language-plaintext highlighter-rouge">将棋パズル</code>の記事</a>や<a href="/project/2018-01-01/33shogiapp">３三将棋アプリの記事</a>でも書きましたが、<strong>問題を解くよりも、難しい問題を作る方が難しい</strong>というのはウォーターソートパズルに関しても言えそうです。<br>
+　あと「ボトルの数がどれぐらい増えれば空ボトルが最低３本必要になるのか？」とか「空ボトル２本で解けるのは全体のボトル数が何本が限界？」とかの問題を考えるのも面白いかもしれませんが、ボトル１本あたりの色の数とかも考慮し出すとキリが無いので何か汎用的な法則を見つけ出すのは大変でしょうね。</p>
+
+<h3 id="ヒント機能はどうなってるのか">ヒント機能はどうなってるのか？</h3>
+<p>　アプリの中にはヒント機能が実装されているものも有ります。ヒント機能があるということはアプリが解答も知っているということなので、<code class="language-plaintext highlighter-rouge">DFS版</code>を作ってみるまでは予め用意した問題だけを出題してるのだろうか？と考えたりしましたが、そんなことはなく<code class="language-plaintext highlighter-rouge">DFS</code>なら簡単にリアルタイムでヒントが出せそうです。つまり、確認はしてませんが<strong>ヒント機能があるウォーターソートパズルアプリが出すヒントは最短手順のヒントではない</strong>と思われます。</p>
+
+<h3 id="プログラムの解説nodeクラスの役割">プログラムの解説（Nodeクラスの役割）</h3>
+<p>　プログラムは水を入れる入れ物である<code class="language-plaintext highlighter-rouge">Bottleクラス</code>、ボトルを収納する<code class="language-plaintext highlighter-rouge">Boxクラス</code>、開始局面を頂点とする<code class="language-plaintext highlighter-rouge">ゲーム木</code>を生成して格納する<code class="language-plaintext highlighter-rouge">Nodeクラス</code>の３つのクラスを使っていますが、<code class="language-plaintext highlighter-rouge">Nodeクラス</code>について解説します。<br>
+　まず<code class="language-plaintext highlighter-rouge">BFS</code>の場合は、一手目の操作で現れ得る局面をすべて調べてから二手目の局面を調べるという順番なので<code class="language-plaintext highlighter-rouge">ゲーム木</code>を横方向に走査していく形になります。同じ手数の局面を横方向に全部調べてから次の手数の局面を全部調べるので、最終的に解答手順を表示する時に縦の手順に変えなければいけません。横方向に局面を蓄積（<code class="language-plaintext highlighter-rouge">addメソッド</code>）していって、最終的に辿り着いた完成局面から、今度は開始局面までを縦方向に手順を再帰的に遡って辿り着くようにして表示しているのが<code class="language-plaintext highlighter-rouge">Nodeクラス</code>の役割です。<br>
+　次に<code class="language-plaintext highlighter-rouge">DFS</code>の場合は開始局面から指定された深さの末端ノードまで一気に読み進めて、末端ノードを調べ尽くしたら指し手を遡ってまた隣の経路を末端ノードまで読むという感じで<code class="language-plaintext highlighter-rouge">ゲーム木</code>を縦方向に読み進めます。だから<code class="language-plaintext highlighter-rouge">BFS</code>のように<strong>局面を蓄積していく必要はなく</strong>、毎回辿った履歴を上書き（<code class="language-plaintext highlighter-rouge">replaceメソッド</code>）していけば最終的に辿り着いた完成局面までの履歴が残ります。今回作ったプログラムは先に<code class="language-plaintext highlighter-rouge">BFS</code>のプログラムを作ったので<code class="language-plaintext highlighter-rouge">Nodeクラス</code>のようなものを用意しましたが、<code class="language-plaintext highlighter-rouge">DFS版</code>だけ作ることを考えるのなら<code class="language-plaintext highlighter-rouge">Nodeクラス</code>のようなもので再帰的に局面を辿るようにしなくても、外部変数の配列を一つ用意して局面が進む度に上書きしていけば開始局面から完成局面までの一本のルートが配列に残ります。昔、オセロのパズル（<code class="language-plaintext highlighter-rouge">DFS版</code>）を作った時はそんな感じで作りました。→<a href="https://github.com/happyclam/othello">github</a><br>
+　偉そうに解説していますが、実際そうなっているかどうか詳しく確認していませんし、バグってるかもしれません。自己責任でご利用ください。<br>
+　将棋もプログラミングも<strong>直感精読!!</strong>、特に直感が大事だと思います。</p>
+
+<h3 id="答えを知るために必要なプログラムの変更箇所">答えを知るために必要なプログラムの変更箇所</h3>
+<p>　<code class="language-plaintext highlighter-rouge">game_bfs.rb</code>でも<code class="language-plaintext highlighter-rouge">game_dfs.rb</code>でも、ボトルを格納するための<code class="language-plaintext highlighter-rouge">Box</code>オブジェクト生成部分を書き換えればいろんな問題に対応できます。色数を増やす場合は色の定義ファイル（<code class="language-plaintext highlighter-rouge">const.rb</code>）と表示部分（<code class="language-plaintext highlighter-rouge">box.rb</code>）を修正する必要があります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> box = Box.new(
+   [
+     Bottle.new([PINK, YELLOW_GREEN, GRAY, PINK]),
+     Bottle.new([BLUE, YELLOW_GREEN, ORANGE, YELLOW]),
+     Bottle.new([ORANGE, YELLOW, BLUE, PINK]),
+     Bottle.new([RED, ORANGE, ORANGE, PINK]),
+     Bottle.new([GRAY, YELLOW, BLUE, RED]),
+     Bottle.new([YELLOW_GREEN, RED, BLUE, GRAY]),
+     Bottle.new([YELLOW_GREEN, GRAY, RED, YELLOW]),
+     Bottle.new,
+     Bottle.new
+   ]
+  )
+
+</code></pre></div></div>
+
+<hr>
+
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <small>© rifyll theme, 2014</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+</body>
+
+</html>

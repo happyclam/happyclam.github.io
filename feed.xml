@@ -5,9 +5,118 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 09 Mar 2025 12:50:31 +0900</pubDate>
-    <lastBuildDate>Sun, 09 Mar 2025 12:50:31 +0900</lastBuildDate>
+    <pubDate>Sat, 26 Apr 2025 07:04:56 +0900</pubDate>
+    <lastBuildDate>Sat, 26 Apr 2025 07:04:56 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
+    
+      <item>
+        <title>ウォーターソートパズルの答えが知りたい</title>
+        <description>&lt;h3 id=&quot;暇潰しに丁度いい&quot;&gt;暇潰しに丁度いい&lt;/h3&gt;
+&lt;p&gt;　スマホ弄っていたら広告を見かける人も多いと思いますが、最近ボトルに色分けされた水が入っていてそのボトル内の水を同一色に並べ替えるゲームに嵌っています。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ウォータソートパズル&lt;/code&gt;とか&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;水選別パズル&lt;/code&gt;とか呼ばれてるようで、大抵の問題は何回かやり直せば正解にたどり着けるのですが、どうしても解けないパターンに出会って、「そもそもこれに解答は存在するのか？」という疑問を持ったのでプログラムを作って確認することにしました。&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;どうしても解けなかったパターン
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/images/watersort00.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/watersort00.png&quot; alt=&quot;解けない？パターン&quot; width=&quot;200&quot; height=&quot;200&quot; title=&quot;解けない？問題&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;とりあえずgrokに聞いてみる&quot;&gt;とりあえずGrokに聞いてみる&lt;/h3&gt;
+&lt;p&gt;　最近プログラミングに関する技術的な調べものをする際に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Grok&lt;/code&gt;を何度か使ってみて、Googleで調べるより効率的かもと思っていたので試してみました。&lt;br /&gt;
+　上記の画像ファイルをアップロードしてGrokに「このウォータソートパズルの解答手順を教えてください」と聞いてみたところ&lt;br /&gt;
+「ボトルは１２本ですね」とか言いながら解答手順を即答しましたが、&lt;br /&gt;
+画像の認識が間違っているので「よく見てください、ボトルは１３本です」と送ると&lt;br /&gt;
+「申し訳ありません、画像をよく確認したところ、ボトルは12本ではなく13本ですね」とかいいながら、また間違った問題のまま解答手順を列挙してきました。&lt;br /&gt;
+更に「ボトルは上段に７本、下段に６本です。下段の右側に空のボトルが２本有ります」と訂正すると&lt;br /&gt;
+「ご指摘ありがとうございます」とかいいながら、またまた間違った問題のまま解答手順を列挙してきました。&lt;br /&gt;
+こんな感じでやり取りが延々続いて解答は得られませんでした。問題の画像を正確に認識するのが難しいみたいです。それにしても解答の速さに驚いたのですが、画像の認識さえ正確に出来れば解答手順も正確に答えられるのでしょうか？
+以下のテキストを貼り付けて再度Grokに聞いてみました。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;      [RED, SKY_BLUE, RED, YELLOW],
+      [MAGENTA, PINK, AQUA_GREEN, RED],
+      [AQUA_GREEN, YELLOW_GREEN, PURPLE, BLUE],
+      [SKY_BLUE, MAGENTA, ORANGE, YELLOW],
+      [PURPLE, PINK, ORANGE, YELLOW_GREEN],
+      [PURPLE, BLUE, PINK, AQUA_GREEN],
+      [ORANGE, YELLOW, AQUA_GREEN, PURPLE],
+      [SKY_BLUE, BLUE, GRAY, GRAY],
+      [SKY_BLUE, YELLOW_GREEN, MAGENTA, RED],
+      [YELLOW, MAGENTA, ORANGE, GRAY],
+      [YELLOW_GREEN, GRAY, PINK, BLUE],
+      [],
+      []
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　すると今度は「提供された色のリストに基づき、ウォーターソートパズルの解答手順を日本語で説明します」と言いながら手順を示してきたのですが、ボトルの最上段に存在しない色を移動していたり、ルールを無視した手順を何回も示してきました。&lt;br /&gt;
+根気よく訂正し続ければ解答できるのかもしれませんが、自分には無理そうに思えたので諦めました。&lt;/p&gt;
+
+&lt;h3 id=&quot;自分で解答プログラムを作る&quot;&gt;自分で解答プログラムを作る&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/software/2018-08-18/puzzle&quot;&gt;以前の記事&lt;/a&gt;で紹介した&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;将棋パズル解答プログラム&lt;/code&gt;とほぼ同じコードで解決できそうなのでやってみました。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS（幅優先探索）&lt;/code&gt;を使って一手ずつ局面を進めてすべてのボトルの色が一色に揃う解答画面に辿り着いた時点で探索を終了し、その手順を遡って表示します。&lt;br /&gt;
+　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS&lt;/code&gt;では解答までの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;最短手順&lt;/code&gt;を表示しますが、実行時間がかなりかかります。PCのスペックにもよりますし、問題によってもかなり解答までの時間が大きく変化するのですが、ボトル５本（内、空ボトル２本）なら１秒も掛かりませんけど、ボトル９本（内、空ボトル２本）だと３〜４時間掛かりました。冒頭で紹介しているボトル１３本（内、空ボトル２本）では数日掛かるのでしょうか？実際に作ってみる前の想像以上に時間が掛かるのは&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;マンカラの時&lt;/a&gt;と同じですね。&lt;/p&gt;
+
+&lt;h3 id=&quot;dfs深さ優先探索版も作ってみる&quot;&gt;DFS（深さ優先探索）版も作ってみる&lt;/h3&gt;
+&lt;p&gt;　解答を得るのにあまりにも時間がかかりそうなので&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;も作ってみました。すると&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS版&lt;/code&gt;だと数日掛かると思われた上記の問題が１秒掛からずに解答を得ることが出来ました:sweat_smile:&lt;br /&gt;
+　但し&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;で得られた解答手順は最短手順とは限りません。でも、そもそも&lt;strong&gt;解答が存在するのかどうかを知りたい&lt;/strong&gt;というのが目的だったので満足です。上記の問題も&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;で出力された解答手順通りにやればアプリ上で実際に解けました。&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;div align=&quot;center&quot;&gt;ソースコード&lt;/div&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+    &lt;p&gt;&lt;a href=&quot;https://github.com/happyclam/water_sort_puzzle&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/github-mark.png&quot; alt=&quot;ウォーターソートパズル解答プログラム&quot; title=&quot;ウォーターソートパズル解答プログラム&quot; width=&quot;120&quot; height=&quot;120&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;解けない問題はあるのか&quot;&gt;解けない問題はあるのか？&lt;/h3&gt;
+&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS版&lt;/code&gt;で問題を解くためにあまりに時間が掛かるので、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;を作ってみるまでは「この問題には解が存在しない」と言い切るための条件はなんだろう？とか「解が存在することを証明するにはどうすればいいのか？」なんて難しく考えていたのですが時間の無駄でした。解けるかどうか判断するには「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS&lt;/code&gt;アルゴリズムで作られた解答プログラムで確認すればいいだけ」ですね、スタックオーバーフローに見舞われない限りは…。&lt;br /&gt;
+　逆に空ボトル２本で解けない問題を作る方が難しいのかもしれません。ちなみに空ボトルを１本にすれば解けない問題はすぐに出来上がりますが、&lt;strong&gt;解は存在するけど解くのが難しい問題&lt;/strong&gt;というのを意図的に作るのは難しいと思います。&lt;a href=&quot;/software/2018-08-18/puzzle&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;将棋パズル&lt;/code&gt;の記事&lt;/a&gt;や&lt;a href=&quot;/project/2018-01-01/33shogiapp&quot;&gt;３三将棋アプリの記事&lt;/a&gt;でも書きましたが、&lt;strong&gt;問題を解くよりも、難しい問題を作る方が難しい&lt;/strong&gt;というのはウォーターソートパズルに関しても言えそうです。&lt;br /&gt;
+　あと「ボトルの数がどれぐらい増えれば空ボトルが最低３本必要になるのか？」とか「空ボトル２本で解けるのは全体のボトル数が何本が限界？」とかの問題を考えるのも面白いかもしれませんが、ボトル１本あたりの色の数とかも考慮し出すとキリが無いので何か汎用的な法則を見つけ出すのは大変でしょうね。&lt;/p&gt;
+
+&lt;h3 id=&quot;ヒント機能はどうなってるのか&quot;&gt;ヒント機能はどうなってるのか？&lt;/h3&gt;
+&lt;p&gt;　アプリの中にはヒント機能が実装されているものも有ります。ヒント機能があるということはアプリが解答も知っているということなので、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;を作ってみるまでは予め用意した問題だけを出題してるのだろうか？と考えたりしましたが、そんなことはなく&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS&lt;/code&gt;なら簡単にリアルタイムでヒントが出せそうです。つまり、確認はしてませんが&lt;strong&gt;ヒント機能があるウォーターソートパズルアプリが出すヒントは最短手順のヒントではない&lt;/strong&gt;と思われます。&lt;/p&gt;
+
+&lt;h3 id=&quot;プログラムの解説nodeクラスの役割&quot;&gt;プログラムの解説（Nodeクラスの役割）&lt;/h3&gt;
+&lt;p&gt;　プログラムは水を入れる入れ物である&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Bottleクラス&lt;/code&gt;、ボトルを収納する&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Boxクラス&lt;/code&gt;、開始局面を頂点とする&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ゲーム木&lt;/code&gt;を生成して格納する&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Nodeクラス&lt;/code&gt;の３つのクラスを使っていますが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Nodeクラス&lt;/code&gt;について解説します。&lt;br /&gt;
+　まず&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS&lt;/code&gt;の場合は、一手目の操作で現れ得る局面をすべて調べてから二手目の局面を調べるという順番なので&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ゲーム木&lt;/code&gt;を横方向に走査していく形になります。同じ手数の局面を横方向に全部調べてから次の手数の局面を全部調べるので、最終的に解答手順を表示する時に縦の手順に変えなければいけません。横方向に局面を蓄積（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;addメソッド&lt;/code&gt;）していって、最終的に辿り着いた完成局面から、今度は開始局面までを縦方向に手順を再帰的に遡って辿り着くようにして表示しているのが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Nodeクラス&lt;/code&gt;の役割です。&lt;br /&gt;
+　次に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS&lt;/code&gt;の場合は開始局面から指定された深さの末端ノードまで一気に読み進めて、末端ノードを調べ尽くしたら指し手を遡ってまた隣の経路を末端ノードまで読むという感じで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ゲーム木&lt;/code&gt;を縦方向に読み進めます。だから&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS&lt;/code&gt;のように&lt;strong&gt;局面を蓄積していく必要はなく&lt;/strong&gt;、毎回辿った履歴を上書き（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;replaceメソッド&lt;/code&gt;）していけば最終的に辿り着いた完成局面までの履歴が残ります。今回作ったプログラムは先に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS&lt;/code&gt;のプログラムを作ったので&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Nodeクラス&lt;/code&gt;のようなものを用意しましたが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;だけ作ることを考えるのなら&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Nodeクラス&lt;/code&gt;のようなもので再帰的に局面を辿るようにしなくても、外部変数の配列を一つ用意して局面が進む度に上書きしていけば開始局面から完成局面までの一本のルートが配列に残ります。昔、オセロのパズル（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;）を作った時はそんな感じで作りました。→&lt;a href=&quot;https://github.com/happyclam/othello&quot;&gt;github&lt;/a&gt;&lt;br /&gt;
+　偉そうに解説していますが、実際そうなっているかどうか詳しく確認していませんし、バグってるかもしれません。自己責任でご利用ください。&lt;br /&gt;
+　将棋もプログラミングも&lt;strong&gt;直感精読!!&lt;/strong&gt;、特に直感が大事だと思います。&lt;/p&gt;
+
+&lt;h3 id=&quot;答えを知るために必要なプログラムの変更箇所&quot;&gt;答えを知るために必要なプログラムの変更箇所&lt;/h3&gt;
+&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;game_bfs.rb&lt;/code&gt;でも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;game_dfs.rb&lt;/code&gt;でも、ボトルを格納するための&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Box&lt;/code&gt;オブジェクト生成部分を書き換えればいろんな問題に対応できます。色数を増やす場合は色の定義ファイル（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;const.rb&lt;/code&gt;）と表示部分（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;box.rb&lt;/code&gt;）を修正する必要があります。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; box = Box.new(
+   [
+     Bottle.new([PINK, YELLOW_GREEN, GRAY, PINK]),
+     Bottle.new([BLUE, YELLOW_GREEN, ORANGE, YELLOW]),
+     Bottle.new([ORANGE, YELLOW, BLUE, PINK]),
+     Bottle.new([RED, ORANGE, ORANGE, PINK]),
+     Bottle.new([GRAY, YELLOW, BLUE, RED]),
+     Bottle.new([YELLOW_GREEN, RED, BLUE, GRAY]),
+     Bottle.new([YELLOW_GREEN, GRAY, RED, YELLOW]),
+     Bottle.new,
+     Bottle.new
+   ]
+  )
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+</description>
+        <pubDate>Sun, 27 Apr 2025 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/software/2025-04-27/waterbottle</link>
+        <guid isPermaLink="true">https://happyclam.github.io/software/2025-04-27/waterbottle</guid>
+        
+        <category>ruby</category>
+        
+        <category>shogi</category>
+        
+        
+        <category>software</category>
+        
+      </item>
     
       <item>
         <title>lichessに挑戦</title>
@@ -959,64 +1068,6 @@ cp -p ~/Download/tanuki-wcsc33-2023-05-04/eval/nn.bin eval/
         <category>coffeescript</category>
         
         <category>flutter</category>
-        
-        <category>google</category>
-        
-        
-        <category>miscellaneous</category>
-        
-      </item>
-    
-      <item>
-        <title>アプリを非公開にする理由</title>
-        <description>&lt;h3 id=&quot;広告停止されてても来る警告メール&quot;&gt;広告停止されてても来る警告メール&lt;/h3&gt;
-&lt;p&gt;　2023年のgoogleの新しい規制（「2023年8月31日までにAndroid 13に対応していないアプリの更新を停止」）のため、対応が面倒なので自分で非公開にしたアプリも有りますが、それとは別に非公開にはしてないけど、一年ほど前からAdMobの広告表示が停止されているアプリも３つ（&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;、&lt;a href=&quot;https://happyclam.booth.pm/items/6323599&quot;&gt;３三将棋アプリ&lt;/a&gt;、&lt;a href=&quot;https://happyclam.booth.pm/items/6346070&quot;&gt;７七将棋アプリ&lt;/a&gt;）あって、何度も警告メールが来るのでアプリを非公開にすることにしました。既に広告停止されてるのでAdMobには関係ないと思うのですが、そうはいかないようです。&lt;br /&gt;
-　この記事を読んでいる方の中にも、前述の３つのアプリを使っていて広告が表示されなくなったことに気づいていた人はいると思います。ユーザーから見れば「広告停止されて収益にならないから非公開にしたのだろう」と思う人もいると思うので、そうではないことを書いておこうと思います。&lt;/p&gt;
-
-&lt;h3 id=&quot;admobからのメールの内容&quot;&gt;AdMobからのメールの内容&lt;/h3&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;問題の概要
-アプリ ID: torishogi.io.github.happyclam
-必要なご対応: アプリに変更を加えてポリシー違反を解消された場合、あるいは違反判定が誤りと思われる場合は、AdMob ポリシー センターにアクセスして違反を確認し、再審査のリクエストを行ってください。
-同様の事態が再発することを避けるため、他のアプリケーションについても AdMob プログラム ポリシーの遵守状況を確認することをおすすめいたします。また、Google AdMob チームは、違反が繰り返される場合にいつでもアカウントを無効化できる権利を有している点に注意してください。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;　上記は&lt;ruby&gt;禽将棋&lt;rt&gt;とりしょうぎ&lt;/rt&gt;&lt;/ruby&gt;アプリに対する文面ですが、禽将棋アプリはもう数年前から更新していなくてその当時は問題なかったのに一年ほど前からAdMobのポリシーが変更になったようで&lt;strong&gt;ポリシー違反&lt;/strong&gt;として広告が表示されなくなっていました。広告が表示されないのでこちらにはお金は一銭も入ってこないのですが、広告無しの方がユーザーは喜ぶだろうし、アプリを使いたい人もいるだろうと思い放置していた訳です。&lt;/p&gt;
-
-&lt;h3 id=&quot;とにかく時間と手間を取られる&quot;&gt;とにかく時間と手間を取られる&lt;/h3&gt;
-&lt;p&gt;　こちらとしては「広告停止にしたんだからそれでいいんじゃないの？」とAdMobに言いたいのですが、「Google AdMob チームは、違反が繰り返される場合にいつでもアカウントを無効化できる権利を有している点に注意してください」という脅し文句が気になるところです。googleのアカウントが停止されるとgmailも使えなくなるし色々面倒なので対処することにしました。&lt;br /&gt;
-　AdMob側に確認したいのですが、問い合わせのリンクを辿っても途中でエラーが出て問い合わせできません。&lt;/p&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/admob_inquiry.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/admob_inquiry.png&quot; alt=&quot;AdMob問い合わせ画面&quot; width=&quot;320&quot; height=&quot;240&quot; title=&quot;AdMob問い合わせ画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　そこで取り敢えず&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;の広告ユニットを削除してgoogle-consoleで非公開設定にし、&lt;a href=&quot;https://happyclam.booth.pm/items/6323599&quot;&gt;３三将棋アプリ&lt;/a&gt;をgoogle-consoleで非公開設定にしてAdMobに審査を出したところ、&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;だけ警告が消えました。どうやら広告ユニットを削除すればよかったようです。それが分かったので&lt;a href=&quot;https://happyclam.booth.pm/items/6323599&quot;&gt;３三将棋アプリ&lt;/a&gt;を再度公開しようとすると、今度はgoogle側の前述の規制に引っかかって再公開は出来なくなりました。&lt;a href=&quot;https://happyclam.booth.pm/items/6346070&quot;&gt;７七将棋アプリ&lt;/a&gt;に関しては広告ユニットだけを削除して公開状態を維持しています。&lt;br /&gt;
-　Amazonで公開している&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;も似たような状況でどう対応したらいいのかよく分からず更新したくても出来ない状況です。とにかく時間と手間を取られるんですよねぇ。大昔にAppleにもお金払ってアプリを公開した経験もありますが、Appleの要求に答える運用コストに嫌気が差して一年で止めた経験も有ります。&lt;/p&gt;
-
-&lt;h3 id=&quot;広告に金を掛けないアプリを排除したい&quot;&gt;広告に金を掛けないアプリを排除したい？&lt;/h3&gt;
-&lt;p&gt;　前回の記事で書いたように、&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;に関してはgoogleが一方的に削除したのですが、そんなことばかりしていると開発者からの反発もあるので、開発者自らが非公開にするように持っていこうという意志をひしひしと感じます。自分はお金を払ってアプリの宣伝とかはしていないので、おそらく広告宣伝業で金儲けしているgoogleとしては気に入らないでしょう。よく有料の「google広告」へのお誘いメールが来ますが、自分が「google広告」のユーザーだったら対応も変わってくるのでしょうか？:sweat_smile:GooglePlayのサイトでアプリが検索上位に来るようにしたければ、ユーザーに支持されるアプリかどうかとは関係なく広告宣伝費をかけなければならないシステムになっているのは事実なので、そのような勘繰りをされても仕方ないでしょう。&lt;br /&gt;
-　それにしてもgoogle広告を使って収益を上げることに成功した話も聞きますが、googleに支払う費用もバカにならないので結局利益は上がっていないというような話も聞きます。個人アプリ開発者の本音を聞いてみたいところです。googleとしてはいろいろな規制を設けるのはあくまでも「ユーザーのため」という建前で通しているようです。今回の件にしても広告ユニットを削除しただけで問題はなくなったのだから、無料アプリだからとか広告に金をかけないから冷遇しているわけではないとは言えそうです（規制の変更のたびに開発者は手間と時間を取られますが…）。自分からすれば「なかなか尻尾を出しやがらないなぁ」って感じですけど:sweat_smile:それに&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;の削除に関しては今でも納得していませんけど…。&lt;/p&gt;
-
-&lt;h3 id=&quot;有料アプリとして公開すべきだった&quot;&gt;有料アプリとして公開すべきだった？&lt;/h3&gt;
-&lt;p&gt;　今にして思えば、たとえ僅かな料金（100円とか）であっても有料にして広告表示無しにすべきだったかなぁとも思うのですが、どちらが良かったかは分かりません。ただ、現状ではGooglePlayの規約で、既に無料アプリとして公開されているアプリを有料に変更することは出来ないようなので、有料アプリにしたければ新規アプリとして作成しなければなりません。でも、&lt;a href=&quot;https://forest.watch.impress.co.jp/docs/serial/yajiuma/1546061.html&quot;&gt;前回の記事でも紹介したニュース&lt;/a&gt;のように個人が新規でGooglePlayアプリを公開するのは非常にハードルが高そうです。なので、それだけが理由ではありません（開発も大変だし…）が、当ブログで５五将棋アプリの思考ルーチンをC++で書き直していつかリリースしたいと書いてました（有料にしたかった）が諦めることにしました。&lt;a href=&quot;https://forest.watch.impress.co.jp/docs/serial/yajiuma/1546061.html&quot;&gt;あのニュース&lt;/a&gt;でアプリ公開を諦めた個人開発者は多いのではないでしょうか:cry:Android自体はOSSなのだからgoogle以外の配信プラットフォームが出てきてもよさそうな気もしますが、現実には出てこないでしょうね。&lt;br /&gt;
-　結果的に非公開になった&lt;a href=&quot;https://happyclam.booth.pm/items/6323599&quot;&gt;３三将棋アプリ&lt;/a&gt;は近いうちにPWAとして公開するかもしれません。&lt;a href=&quot;https://play.google.com/store/apps/details?id=torishogi.io.github.happyclam&quot;&gt;禽将棋アプリ&lt;/a&gt;に関しては自分のアプリよりAIの出来がいい&lt;a href=&quot;https://www.pychess.org/variants/torishogi&quot;&gt;代替サイト&lt;/a&gt;が既に存在するので、非公開のまま放置しようと思っています。&lt;br /&gt;
-　以上、今回はアプリユーザーと当ブログへ寄付してくださった方への現状報告でした。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-</description>
-        <pubDate>Sat, 04 May 2024 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/miscellaneous/2024-05-04/app_private</link>
-        <guid isPermaLink="true">https://happyclam.github.io/miscellaneous/2024-05-04/app_private</guid>
-        
-        <category>cordova</category>
-        
-        <category>android</category>
-        
-        <category>coffeescript</category>
         
         <category>google</category>
         
