@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 06 May 2025 11:36:49 +0900</pubDate>
-    <lastBuildDate>Tue, 06 May 2025 11:36:49 +0900</lastBuildDate>
+    <pubDate>Tue, 06 May 2025 14:02:32 +0900</pubDate>
+    <lastBuildDate>Tue, 06 May 2025 14:02:32 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -56,7 +56,7 @@
 　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS&lt;/code&gt;では解答までの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;最短手順&lt;/code&gt;を表示しますが、実行時間がかなりかかります。PCのスペックにもよりますし、問題によってもかなり解答までの時間が大きく変化するのですが、ボトル５本（内、空ボトル２本）なら１秒も掛かりませんけど、ボトル９本（内、空ボトル２本）だと&lt;del&gt;３〜４時間掛かりました。&lt;/del&gt;冒頭で紹介しているボトル１３本（内、空ボトル２本）では&lt;del&gt;数日掛かるのでしょうか？&lt;/del&gt;実際に作ってみる前の想像以上に時間が掛かるのは&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;マンカラの時&lt;/a&gt;と同じですね。&lt;/p&gt;
 
 &lt;h3 id=&quot;dfs深さ優先探索版も作ってみる&quot;&gt;DFS（深さ優先探索）版も作ってみる&lt;/h3&gt;
-&lt;p&gt;　解答を得るのにあまりにも時間がかかりそうなので&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;も作ってみました。すると&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS版&lt;/code&gt;だと数日掛かると思われた上記の問題が１秒掛からずに解答を得ることが出来ました:sweat_smile:&lt;br /&gt;
+&lt;p&gt;　解答を得るのにあまりにも時間がかかりそうなので&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;も作ってみました。すると&lt;del&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS版&lt;/code&gt;だと数日掛かると思われた上記の問題が&lt;/del&gt;１秒掛からずに解答を得ることが出来ました:sweat_smile:&lt;br /&gt;
 　但し&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;で得られた解答手順は最短手順とは限りません。でも、そもそも&lt;strong&gt;解答が存在するのかどうかを知りたい&lt;/strong&gt;というのが目的だったので満足です。上記の問題も&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;で出力された解答手順通りにやればアプリ上で実際に解けました。&lt;/p&gt;
 
 &lt;div align=&quot;center&quot;&gt;
@@ -104,8 +104,9 @@
 
 &lt;h3 id=&quot;追記2025-05-06&quot;&gt;追記（2025-05-06）&lt;/h3&gt;
 &lt;p&gt;　記事を公開した後にディスプレイが壊れた&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;M1 Macbook Pro&lt;/code&gt;で記事冒頭に紹介した問題を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS版&lt;/code&gt;で 解かせていたのですが、いつまで（数日）経ってもプログラムが終了しないのでおかしいと思ったらやはりバグってました:sweat_smile:&lt;br /&gt;
-　バグと言うか同じ結果は得られるはずですが、同一局面の判定に無意味なことをしていて&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS版&lt;/code&gt;のレスポンスが悪くなっていました。&lt;a href=&quot;https://github.com/happyclam/water_sort_puzzle&quot;&gt;github&lt;/a&gt;のソースは修正済みですが、それでも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS版&lt;/code&gt;は時間が掛かって、記事冒頭の問題の最短手順の答えを得るまでに、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;279.599430481秒（約４分半）&lt;/code&gt;掛かり、最短手数は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;36手&lt;/code&gt;でした。同じPCで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;で解いてみると&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0.016248494秒&lt;/code&gt;で、手数は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;46手&lt;/code&gt;でした。&lt;br /&gt;
-　今回の修正は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;には影響ないはずです。&lt;/p&gt;
+　バグと言うか同じ結果は得られるはずですが、同一局面の判定に無意味なことをしていて&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS版&lt;/code&gt;のレスポンスが極端に悪くなっていました。&lt;a href=&quot;https://github.com/happyclam/water_sort_puzzle&quot;&gt;github&lt;/a&gt;のソースは修正済みですが、それでも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS版&lt;/code&gt;は時間が掛かって、記事冒頭の問題の最短手順の答えを得るまでに、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;279.599430481秒（約４分半）&lt;/code&gt;掛かり、最短手数は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;36手&lt;/code&gt;でした。同じPCで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;で解いてみると&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0.016248494秒&lt;/code&gt;で、手数は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;46手&lt;/code&gt;でした。&lt;br /&gt;
+　今回の修正は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;には影響ないはずです。&lt;br /&gt;
+　やはり&lt;strong&gt;直感精読&lt;/strong&gt;の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;精読&lt;/code&gt;も大事ですね:sweat_smile:&lt;/p&gt;
 
 &lt;hr /&gt;
 

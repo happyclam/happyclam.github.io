@@ -215,7 +215,7 @@
 　<code class="language-plaintext highlighter-rouge">BFS</code>では解答までの<code class="language-plaintext highlighter-rouge">最短手順</code>を表示しますが、実行時間がかなりかかります。PCのスペックにもよりますし、問題によってもかなり解答までの時間が大きく変化するのですが、ボトル５本（内、空ボトル２本）なら１秒も掛かりませんけど、ボトル９本（内、空ボトル２本）だと<del>３〜４時間掛かりました。</del>冒頭で紹介しているボトル１３本（内、空ボトル２本）では<del>数日掛かるのでしょうか？</del>実際に作ってみる前の想像以上に時間が掛かるのは<a href="/software/2020-06-07/mancala">マンカラの時</a>と同じですね。</p>
 
 <h3 id="dfs深さ優先探索版も作ってみる">DFS（深さ優先探索）版も作ってみる</h3>
-<p>　解答を得るのにあまりにも時間がかかりそうなので<code class="language-plaintext highlighter-rouge">DFS版</code>も作ってみました。すると<code class="language-plaintext highlighter-rouge">BFS版</code>だと数日掛かると思われた上記の問題が１秒掛からずに解答を得ることが出来ました<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"><br>
+<p>　解答を得るのにあまりにも時間がかかりそうなので<code class="language-plaintext highlighter-rouge">DFS版</code>も作ってみました。すると<del><code class="language-plaintext highlighter-rouge">BFS版</code>だと数日掛かると思われた上記の問題が</del>１秒掛からずに解答を得ることが出来ました<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"><br>
 　但し<code class="language-plaintext highlighter-rouge">DFS版</code>で得られた解答手順は最短手順とは限りません。でも、そもそも<strong>解答が存在するのかどうかを知りたい</strong>というのが目的だったので満足です。上記の問題も<code class="language-plaintext highlighter-rouge">DFS版</code>で出力された解答手順通りにやればアプリ上で実際に解けました。</p>
 
 <div align="center">
@@ -263,8 +263,9 @@
 
 <h3 id="追記2025-05-06">追記（2025-05-06）</h3>
 <p>　記事を公開した後にディスプレイが壊れた<code class="language-plaintext highlighter-rouge">M1 Macbook Pro</code>で記事冒頭に紹介した問題を<code class="language-plaintext highlighter-rouge">BFS版</code>で 解かせていたのですが、いつまで（数日）経ってもプログラムが終了しないのでおかしいと思ったらやはりバグってました<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"><br>
-　バグと言うか同じ結果は得られるはずですが、同一局面の判定に無意味なことをしていて<code class="language-plaintext highlighter-rouge">BFS版</code>のレスポンスが悪くなっていました。<a href="https://github.com/happyclam/water_sort_puzzle">github</a>のソースは修正済みですが、それでも<code class="language-plaintext highlighter-rouge">BFS版</code>は時間が掛かって、記事冒頭の問題の最短手順の答えを得るまでに、<code class="language-plaintext highlighter-rouge">279.599430481秒（約４分半）</code>掛かり、最短手数は<code class="language-plaintext highlighter-rouge">36手</code>でした。同じPCで<code class="language-plaintext highlighter-rouge">DFS版</code>で解いてみると<code class="language-plaintext highlighter-rouge">0.016248494秒</code>で、手数は<code class="language-plaintext highlighter-rouge">46手</code>でした。<br>
-　今回の修正は<code class="language-plaintext highlighter-rouge">DFS版</code>には影響ないはずです。</p>
+　バグと言うか同じ結果は得られるはずですが、同一局面の判定に無意味なことをしていて<code class="language-plaintext highlighter-rouge">BFS版</code>のレスポンスが極端に悪くなっていました。<a href="https://github.com/happyclam/water_sort_puzzle">github</a>のソースは修正済みですが、それでも<code class="language-plaintext highlighter-rouge">BFS版</code>は時間が掛かって、記事冒頭の問題の最短手順の答えを得るまでに、<code class="language-plaintext highlighter-rouge">279.599430481秒（約４分半）</code>掛かり、最短手数は<code class="language-plaintext highlighter-rouge">36手</code>でした。同じPCで<code class="language-plaintext highlighter-rouge">DFS版</code>で解いてみると<code class="language-plaintext highlighter-rouge">0.016248494秒</code>で、手数は<code class="language-plaintext highlighter-rouge">46手</code>でした。<br>
+　今回の修正は<code class="language-plaintext highlighter-rouge">DFS版</code>には影響ないはずです。<br>
+　やはり<strong>直感精読</strong>の<code class="language-plaintext highlighter-rouge">精読</code>も大事ですね<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"></p>
 
 <hr>
 
