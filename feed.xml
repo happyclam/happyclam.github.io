@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 26 Apr 2025 07:04:56 +0900</pubDate>
-    <lastBuildDate>Sat, 26 Apr 2025 07:04:56 +0900</lastBuildDate>
+    <pubDate>Tue, 06 May 2025 11:36:49 +0900</pubDate>
+    <lastBuildDate>Tue, 06 May 2025 11:36:49 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -53,7 +53,7 @@
 
 &lt;h3 id=&quot;自分で解答プログラムを作る&quot;&gt;自分で解答プログラムを作る&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;/software/2018-08-18/puzzle&quot;&gt;以前の記事&lt;/a&gt;で紹介した&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;将棋パズル解答プログラム&lt;/code&gt;とほぼ同じコードで解決できそうなのでやってみました。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS（幅優先探索）&lt;/code&gt;を使って一手ずつ局面を進めてすべてのボトルの色が一色に揃う解答画面に辿り着いた時点で探索を終了し、その手順を遡って表示します。&lt;br /&gt;
-　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS&lt;/code&gt;では解答までの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;最短手順&lt;/code&gt;を表示しますが、実行時間がかなりかかります。PCのスペックにもよりますし、問題によってもかなり解答までの時間が大きく変化するのですが、ボトル５本（内、空ボトル２本）なら１秒も掛かりませんけど、ボトル９本（内、空ボトル２本）だと３〜４時間掛かりました。冒頭で紹介しているボトル１３本（内、空ボトル２本）では数日掛かるのでしょうか？実際に作ってみる前の想像以上に時間が掛かるのは&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;マンカラの時&lt;/a&gt;と同じですね。&lt;/p&gt;
+　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS&lt;/code&gt;では解答までの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;最短手順&lt;/code&gt;を表示しますが、実行時間がかなりかかります。PCのスペックにもよりますし、問題によってもかなり解答までの時間が大きく変化するのですが、ボトル５本（内、空ボトル２本）なら１秒も掛かりませんけど、ボトル９本（内、空ボトル２本）だと&lt;del&gt;３〜４時間掛かりました。&lt;/del&gt;冒頭で紹介しているボトル１３本（内、空ボトル２本）では&lt;del&gt;数日掛かるのでしょうか？&lt;/del&gt;実際に作ってみる前の想像以上に時間が掛かるのは&lt;a href=&quot;/software/2020-06-07/mancala&quot;&gt;マンカラの時&lt;/a&gt;と同じですね。&lt;/p&gt;
 
 &lt;h3 id=&quot;dfs深さ優先探索版も作ってみる&quot;&gt;DFS（深さ優先探索）版も作ってみる&lt;/h3&gt;
 &lt;p&gt;　解答を得るのにあまりにも時間がかかりそうなので&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;も作ってみました。すると&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS版&lt;/code&gt;だと数日掛かると思われた上記の問題が１秒掛からずに解答を得ることが出来ました:sweat_smile:&lt;br /&gt;
@@ -74,14 +74,14 @@
 　あと「ボトルの数がどれぐらい増えれば空ボトルが最低３本必要になるのか？」とか「空ボトル２本で解けるのは全体のボトル数が何本が限界？」とかの問題を考えるのも面白いかもしれませんが、ボトル１本あたりの色の数とかも考慮し出すとキリが無いので何か汎用的な法則を見つけ出すのは大変でしょうね。&lt;/p&gt;
 
 &lt;h3 id=&quot;ヒント機能はどうなってるのか&quot;&gt;ヒント機能はどうなってるのか？&lt;/h3&gt;
-&lt;p&gt;　アプリの中にはヒント機能が実装されているものも有ります。ヒント機能があるということはアプリが解答も知っているということなので、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;を作ってみるまでは予め用意した問題だけを出題してるのだろうか？と考えたりしましたが、そんなことはなく&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS&lt;/code&gt;なら簡単にリアルタイムでヒントが出せそうです。つまり、確認はしてませんが&lt;strong&gt;ヒント機能があるウォーターソートパズルアプリが出すヒントは最短手順のヒントではない&lt;/strong&gt;と思われます。&lt;/p&gt;
+&lt;p&gt;　アプリの中にはヒント機能が実装されているものも有ります。ヒント機能があるということはアプリが解答も知っているということなので、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;を作ってみるまでは予め用意した問題だけを出題してるのだろうか？と考えたりしましたが、そんなことはなく&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS&lt;/code&gt;ならランダムに問題を生成してその場でヒントが出せそうです。つまり、確認はしてませんが&lt;strong&gt;ヒント機能があるウォーターソートパズルアプリが出すヒントは最短手順のヒントではない&lt;/strong&gt;と思われます。&lt;/p&gt;
 
 &lt;h3 id=&quot;プログラムの解説nodeクラスの役割&quot;&gt;プログラムの解説（Nodeクラスの役割）&lt;/h3&gt;
 &lt;p&gt;　プログラムは水を入れる入れ物である&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Bottleクラス&lt;/code&gt;、ボトルを収納する&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Boxクラス&lt;/code&gt;、開始局面を頂点とする&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ゲーム木&lt;/code&gt;を生成して格納する&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Nodeクラス&lt;/code&gt;の３つのクラスを使っていますが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Nodeクラス&lt;/code&gt;について解説します。&lt;br /&gt;
 　まず&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS&lt;/code&gt;の場合は、一手目の操作で現れ得る局面をすべて調べてから二手目の局面を調べるという順番なので&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ゲーム木&lt;/code&gt;を横方向に走査していく形になります。同じ手数の局面を横方向に全部調べてから次の手数の局面を全部調べるので、最終的に解答手順を表示する時に縦の手順に変えなければいけません。横方向に局面を蓄積（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;addメソッド&lt;/code&gt;）していって、最終的に辿り着いた完成局面から、今度は開始局面までを縦方向に手順を再帰的に遡って辿り着くようにして表示しているのが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Nodeクラス&lt;/code&gt;の役割です。&lt;br /&gt;
-　次に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS&lt;/code&gt;の場合は開始局面から指定された深さの末端ノードまで一気に読み進めて、末端ノードを調べ尽くしたら指し手を遡ってまた隣の経路を末端ノードまで読むという感じで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ゲーム木&lt;/code&gt;を縦方向に読み進めます。だから&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS&lt;/code&gt;のように&lt;strong&gt;局面を蓄積していく必要はなく&lt;/strong&gt;、毎回辿った履歴を上書き（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;replaceメソッド&lt;/code&gt;）していけば最終的に辿り着いた完成局面までの履歴が残ります。今回作ったプログラムは先に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS&lt;/code&gt;のプログラムを作ったので&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Nodeクラス&lt;/code&gt;のようなものを用意しましたが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;だけ作ることを考えるのなら&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Nodeクラス&lt;/code&gt;のようなもので再帰的に局面を辿るようにしなくても、外部変数の配列を一つ用意して局面が進む度に上書きしていけば開始局面から完成局面までの一本のルートが配列に残ります。昔、オセロのパズル（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;）を作った時はそんな感じで作りました。→&lt;a href=&quot;https://github.com/happyclam/othello&quot;&gt;github&lt;/a&gt;&lt;br /&gt;
+　次に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS&lt;/code&gt;の場合は開始局面から指定された深さの末端ノードまで一気に読み進めて、末端ノードを調べ尽くしたら指し手を遡ってまた隣の経路を末端ノードまで読むという感じで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ゲーム木&lt;/code&gt;を縦方向に読み進めます。だから&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS&lt;/code&gt;のように&lt;strong&gt;局面を蓄積していく必要はなく&lt;/strong&gt;、毎回辿った履歴を上書き（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;replaceメソッド&lt;/code&gt;）していけば最終的に辿り着いた完成局面までの履歴が残ります。今回作ったプログラムは先に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS&lt;/code&gt;のプログラムを作ったので&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Nodeクラス&lt;/code&gt;のようなものを使っていますが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;だけ作ることを考えるのなら&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Nodeクラス&lt;/code&gt;のようなもので再帰的に局面を辿るようにしなくても、外部変数の配列を一つ用意して局面が進む度に上書きしていけば開始局面から完成局面までの一本のルートが配列に残ります。昔、オセロのパズル（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;）を作った時はそんな感じで作りました。→&lt;a href=&quot;https://github.com/happyclam/othello&quot;&gt;github&lt;/a&gt;&lt;br /&gt;
 　偉そうに解説していますが、実際そうなっているかどうか詳しく確認していませんし、バグってるかもしれません。自己責任でご利用ください。&lt;br /&gt;
-　将棋もプログラミングも&lt;strong&gt;直感精読!!&lt;/strong&gt;、特に直感が大事だと思います。&lt;/p&gt;
+　将棋もプログラミングも&lt;strong&gt;直感精読!!&lt;/strong&gt;、特に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;直感&lt;/code&gt;が大事だと思います。&lt;/p&gt;
 
 &lt;h3 id=&quot;答えを知るために必要なプログラムの変更箇所&quot;&gt;答えを知るために必要なプログラムの変更箇所&lt;/h3&gt;
 &lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;game_bfs.rb&lt;/code&gt;でも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;game_dfs.rb&lt;/code&gt;でも、ボトルを格納するための&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Box&lt;/code&gt;オブジェクト生成部分を書き換えればいろんな問題に対応できます。色数を増やす場合は色の定義ファイル（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;const.rb&lt;/code&gt;）と表示部分（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;box.rb&lt;/code&gt;）を修正する必要があります。&lt;/p&gt;
@@ -101,6 +101,11 @@
   )
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;追記2025-05-06&quot;&gt;追記（2025-05-06）&lt;/h3&gt;
+&lt;p&gt;　記事を公開した後にディスプレイが壊れた&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;M1 Macbook Pro&lt;/code&gt;で記事冒頭に紹介した問題を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS版&lt;/code&gt;で 解かせていたのですが、いつまで（数日）経ってもプログラムが終了しないのでおかしいと思ったらやはりバグってました:sweat_smile:&lt;br /&gt;
+　バグと言うか同じ結果は得られるはずですが、同一局面の判定に無意味なことをしていて&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS版&lt;/code&gt;のレスポンスが悪くなっていました。&lt;a href=&quot;https://github.com/happyclam/water_sort_puzzle&quot;&gt;github&lt;/a&gt;のソースは修正済みですが、それでも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS版&lt;/code&gt;は時間が掛かって、記事冒頭の問題の最短手順の答えを得るまでに、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;279.599430481秒（約４分半）&lt;/code&gt;掛かり、最短手数は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;36手&lt;/code&gt;でした。同じPCで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;で解いてみると&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0.016248494秒&lt;/code&gt;で、手数は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;46手&lt;/code&gt;でした。&lt;br /&gt;
+　今回の修正は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;には影響ないはずです。&lt;/p&gt;
 
 &lt;hr /&gt;
 
