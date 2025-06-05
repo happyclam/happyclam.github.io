@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="author" content="happyclam">
+  <meta name="description"
+    content="Kotlinで再帰関数（AIに丸投げ） 末尾再帰に書き換えろだと？Grokはいい仕事した Reinventing the wheel.">
+  <title> Kotlinで再帰関数（AIに丸投げ） - 自己満足プログラミング </title>
+
+  <!-- <\!-- Global Site Tag (gtag.js) - Google Analytics -\-> -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script> -->
+  <!-- <script> -->
+  <!--   window.dataLayer = window.dataLayer || []; -->
+  <!--   function gtag(){dataLayer.push(arguments);} -->
+  <!--   gtag('js', new Date()); -->
+  <!--   gtag('config', 'UA-1752720-7'); -->
+  <!-- </script> -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DEV3LMTH6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DEV3LMTH6C');
+</script>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="Kotlinで再帰関数（AIに丸投げ）">
+  
+  
+  <meta name="twitter:url" content="/software/2025-06-07/kotlins_recursion">
+  
+  
+  <meta name="twitter:description" content="末尾再帰に書き換えろだと？Grokに任せてみたら即解決">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/icons8-kotlin-96.png">
+  
+
+  <link rel="canonical" href="https://happyclam.github.io/software/2025-06-07/kotlins_recursion" />
+  <link rel="alternate" type="application/rss+xml" title="自己満足プログラミング" href="/feed.xml" />
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="site-title" class="navbar-brand" href="/">
+          <img class="pull-left img-responsive" src="">
+          <span class="name-holder">自己満足プログラミング</span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li>
+<a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li>
+<a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li>
+<a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li>
+<a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li>
+<a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1238485061299241" -->
+<!--      crossorigin="anonymous"></script> -->
+
+  <div class="blog-header">
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+      <div class="span9">
+        <!-- Html Elements for Search -->
+        <div id="search-container" align="right">
+          <input type="text" id="search-input" placeholder="search...">
+          <ul class="searchresult" id="results-container"></ul>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+  <script src="/assets/js/jquery.min.js"></script>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
+
+        <header class="page-header">
+          <h2 class="page-title"><a href="/software/2025-06-07/kotlins_recursion">Kotlinで再帰関数（AIに丸投げ）</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Saturday, June 07, 2025
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">ruby</span>
+                
+                  <span class="label label-tag">javascript</span>
+                
+                  <span class="label label-tag">shogi</span>
+                
+                  <span class="label label-tag">kotlin</span>
+                
+            </div>
+          </div>
+
+        </header>
+
+        <article class="page-content">
+          <h3 id="ウォーターソートパズルを題材に">ウォーターソートパズルを題材に</h3>
+<p>　もう６年以上前の話ですが<code class="language-plaintext highlighter-rouge">Kotlin</code>が流行り始めた当時、将棋関連アプリのAI部分の高速化を考えていた私は<code class="language-plaintext highlighter-rouge">CoffeeScript(Javascript)</code>のソースコードを<code class="language-plaintext highlighter-rouge">Kotlin</code>に書き換えてみたことがあります。でも文法だけ<code class="language-plaintext highlighter-rouge">Kotlin</code>に書き換えてもわずか<code class="language-plaintext highlighter-rouge">３手読み</code>ですぐにスタックオーバーフローが発生して、末尾再帰の形になるようにソースコードを書き換えなければならないことが分かって挫折しました。<br>
+　でも、<a href="/software/2025-04-27/waterbottle">前回の記事</a>で作った<a href="https://github.com/happyclam/water_sort_puzzle">プログラム</a>なら、将棋関連アプリに較べればかなり単純な構造の再帰関数なので、これなら出来るんじゃないか？と興味が湧いて、これを題材にして末尾再帰に書き換える作業を体験することにしました。</p>
+
+<p>※<code class="language-plaintext highlighter-rouge">Kotlin</code>製の５五将棋プログラムは今でもソースが残ってますが、<code class="language-plaintext highlighter-rouge">Null Safety</code>なんて全く気にしていない<code class="language-plaintext highlighter-rouge">CoffeeScript</code>のソースコードをそのまま<code class="language-plaintext highlighter-rouge">Kotlin</code>に移行して、とにかくコンパイルを通すために<code class="language-plaintext highlighter-rouge">nullable</code>な変数を無理やり<code class="language-plaintext highlighter-rouge">non-null</code>に強制的に変換する演算子<code class="language-plaintext highlighter-rouge">!!</code>（ビックリマーク２つ）だらけの、<code class="language-plaintext highlighter-rouge">Kotlin使い</code>に言わせれば汚いコードでした。</p>
+
+<h3 id="grokに聞いてみる">Grokに聞いてみる</h3>
+<p>　プログラミングの際に本やGoogle検索を使うよりもリファレンスとして<code class="language-plaintext highlighter-rouge">Grok</code>は有用だなと思っていたので、まずは<code class="language-plaintext highlighter-rouge">Kotlin</code>に慣れていない私は<code class="language-plaintext highlighter-rouge">Ruby</code>のソースコードを貼り付けて「このコードをKotlinに書き換えて！」と丸投げしてみました。コンパイルエラーが出ても実行時エラーが出ても「エラー出てるよ！」と返して、修正されたコードをまたコピペして実行するだけでこちらはあくまでも受け身の姿勢です。<br>
+　そしてエラーは無くなったけど期待した結果が返ってこない状態になって、<code class="language-plaintext highlighter-rouge">Ruby</code>で<code class="language-plaintext highlighter-rouge">配列A == 配列B</code>の比較をしている部分は「Kotlinでは無理だろうな」と当たりをつけて<code class="language-plaintext highlighter-rouge">equalsメソッド</code>を改変したら（ここも<code class="language-plaintext highlighter-rouge">Grok</code>に丸投げ）すぐに<code class="language-plaintext highlighter-rouge">BFS版</code>は完成しました。<code class="language-plaintext highlighter-rouge">Grok</code>が吐き出すコードを碌に確認もせずデバッグ作業も全くしてません。そして肝心のNodeクラス内の再帰関数メソッドに較べて再帰がやや複雑になっている<code class="language-plaintext highlighter-rouge">DFS版</code>も「dfs関数も末尾再帰に書き換えて！」と<code class="language-plaintext highlighter-rouge">Grok</code>に丸投げしただけで完成しました<img class="emoji" title=":astonished:" alt=":astonished:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f632.png" height="20" width="20"></p>
+
+<div align="center">
+<div align="center">ソースコード</div>
+<div style="width:320px; margin: 0 auto;">
+
+    <p><a href="https://github.com/happyclam/water_sort_kotlin"><img src="/images/github-mark.png" alt="ウォーターソートパズル解答プログラム（Kotlin版）" title="ウォーターソートパズル解答プログラム（Kotlin版）" width="120" height="120"></a></p>
+
+  </div>
+</div>
+
+<p>　「どうせどこかでトラブってデバッグ作業させられるんだろうなぁ」と期待せずにダラダラと始めた作業なのですが、正味の作業時間は１時間もかかっていません。<code class="language-plaintext highlighter-rouge">Grok</code>とのやり取りも数回だけです、公開するのは少し恥ずかしいですが、<a href="https://x.com/i/grok/share/MA2ogBDeGSppQ2poNu8tRDmom">Grokとのやり取り</a>の一部始終を公開しますので興味ある方は確認してみてください。</p>
+
+<h3 id="生成aiの実力を認めざるを得ない">生成AIの実力を認めざるを得ない</h3>
+<p>　この記事は「自作の再帰関数を末尾再帰に書き換えるためにはこんな作業が必要でした」という内容になる予定だったのですが、<code class="language-plaintext highlighter-rouge">Grok</code>に丸投げするだけで済んでしまったので書くことが無くなりました。もしそういう内容を期待してた方は<a href="https://x.com/i/grok/share/MA2ogBDeGSppQ2poNu8tRDmom">Grokの履歴</a>を見てもらえば各再帰関数の変更前と変更後のソースも見れますし、解説もされているのでそちらを見ていただきたいと思います。<code class="language-plaintext highlighter-rouge">dfs関数</code>の末尾再帰化された後のコードは自分自身もよく理解できていません。<br>
+　<code class="language-plaintext highlighter-rouge">生成AI</code>はプログラミング時のリファレンスには使えるぐらいの認識だったのですが、完全に自分が教えて貰ってる状態です。未だに<code class="language-plaintext highlighter-rouge">ChatGPT</code>もほとんど使ってないし<code class="language-plaintext highlighter-rouge">Copilot</code>もよく知りません（何を使っても中身は同じ？）が、積極的に使ったほうが開発効率は上がりそうですね。<br>
+　とは言っても今回のケースは<code class="language-plaintext highlighter-rouge">Ruby</code>の正解がある状態、アルゴリズムに問題が無いことが分かっている状態から始めたので、一から<code class="language-plaintext highlighter-rouge">Kotlin</code>でプログラミングしていたら例え<code class="language-plaintext highlighter-rouge">Grok</code>に手伝ってもらってもこんなに簡単には完成しなかったとは思います。しかし<code class="language-plaintext highlighter-rouge">Ruby</code>のような<code class="language-plaintext highlighter-rouge">Lightweight Languages</code>でサクッとプロトタイプを作ってから<code class="language-plaintext highlighter-rouge">生成AI</code>を使って<code class="language-plaintext highlighter-rouge">C++</code>のようなコンパイラ言語に置き換えるのも一つの使い方としてアリかもしれません。将棋関連アプリの<code class="language-plaintext highlighter-rouge">C++（STL使用）</code>への変換も試してみようと思ってます。</p>
+
+<h3 id="ちょっと怪しい">ちょっと怪しい…</h3>
+<p>　<code class="language-plaintext highlighter-rouge">vscode</code>上で実行していた時は気づかなかったのですが、コマンドラインでコンパイルすると<code class="language-plaintext highlighter-rouge">warning</code>が出てました</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ kotlinc -include-runtime -d ./game.jar waterBottles
+waterBottles/game.kt:72:21: warning: recursive call is not a tail call.
+    val subResult = dfs(node, temp, depth - 1, 0, 0, false, newResult)
+                    ^^^
+waterBottles/node.kt:52:22: warning: recursive call is not a tail call.
+        } else if (c.add(nd, target, 0)) {
+                     ^^^
+waterBottles/node.kt:77:22: warning: recursive call is not a tail call.
+        } else if (c.replace(nd, target, 0)) {
+                     ^^^^^^^
+waterBottles/node.kt:94:22: warning: recursive call is not a tail call.
+        } else if (c.search(target, 0)) {
+                     ^^^^^^
+</code></pre></div></div>
+
+<p>　コンパイラは「末尾再帰になってませんよ」と言ってます<br>
+どうやら末尾再帰化が中途半端になっているようですが、<code class="language-plaintext highlighter-rouge">dfs関数</code>に関しては<code class="language-plaintext highlighter-rouge">Grok</code>による末尾再帰化を施さないと期待通り動かなかったので、間違った変更を加えたわけではないようですし、内部の処理が<code class="language-plaintext highlighter-rouge">Ruby</code>とどのような違いがあるのかは分かりません。それより驚いたのは、完成した<code class="language-plaintext highlighter-rouge">Kotlin</code>のプログラムで<code class="language-plaintext highlighter-rouge">Ruby</code>のプログラムと同じ問題を解かせてみると<code class="language-plaintext highlighter-rouge">DFS版</code>も<code class="language-plaintext highlighter-rouge">BFS版</code>も<strong><code class="language-plaintext highlighter-rouge">Kotlin版</code>の方が<code class="language-plaintext highlighter-rouge">Ruby版</code>よりもかなり遅かったことです</strong>。<code class="language-plaintext highlighter-rouge">Ruby</code>に合わせて敢えて不要な部分で可変長の配列を使ってるところとか、確かに実行速度を上げることを目指したコードではないですが、まさか<strong>同じデータ構造とアルゴリズムで</strong>インタプリタ言語の<code class="language-plaintext highlighter-rouge">Ruby</code>より大幅に実行速度が遅くなるとは思いませんでした。</p>
+
+<h3 id="kotlinjavaって再帰関数が苦手なの">
+<code class="language-plaintext highlighter-rouge">Kotlin(Java)</code>って再帰関数が苦手なの？</h3>
+<p>　<a href="/software/2025-04-27/waterbottle">前回の記事</a>の冒頭の問題を解かせて見たところ<code class="language-plaintext highlighter-rouge">DFS版</code>で<code class="language-plaintext highlighter-rouge">0.151秒</code>、<code class="language-plaintext highlighter-rouge">BFS版</code>で<code class="language-plaintext highlighter-rouge">5530.022秒（約１時間半！！）</code>でした、<code class="language-plaintext highlighter-rouge">Ruby</code>では<a href="/software/2025-04-27/waterbottle">前回の記事</a>でも書いた通り<code class="language-plaintext highlighter-rouge">0.016248494秒</code>と<code class="language-plaintext highlighter-rouge">279.599430481秒（約４分半）</code>です。再帰関数ではないはずの<code class="language-plaintext highlighter-rouge">BFS版</code>の遅さが目立ちますが、<code class="language-plaintext highlighter-rouge">BFS版</code>でも内部では再帰関数であるNodeクラスの<code class="language-plaintext highlighter-rouge">addメソッド</code>を頻繁に呼び出すので、念の為Node.addメソッドを末尾再帰ではない元々のコードに戻して試してみましたが実行時間に違いはありませんでし、スタックオーバーフローも発生しません。末尾再帰化はスタックオーバーフローを避けるためのものなので、実行速度は変わらない（あるいは若干遅くなる）はずで、まぁこうなるところでしょう。それよりなにより<code class="language-plaintext highlighter-rouge">Ruby</code>より遅いのならそもそも<code class="language-plaintext highlighter-rouge">Kotlin</code>に書き換える意味がありません。<code class="language-plaintext highlighter-rouge">Java</code>は昔に較べて速くなってると聞いていたし、原因はいろいろあると思いますが、もしかして<code class="language-plaintext highlighter-rouge">Kotlin(Java)</code>は末尾再帰化されているかどうかに関わらす再帰関数を使うと遅くなるのでしょうか？とにかくモチベーションが一気に下がりました。<br>
+　結局、末尾再帰化は中途半端になりましたが、速度アップには繋がらないし、スタックオーバーフローが発生しているわけでもないのでここで止めておきます。昔、GOTO文も駆使しながらスタックの消費を抑えている<code class="language-plaintext highlighter-rouge">C言語</code>のソースを見たことがありますが、そこまでする必要はないでしょう、というかそこまでやる人に敬意を表しますが私には出来そうにないです。<br>
+　もう<a href="https://github.com/happyclam/water_sort_kotlin">このKotlin版</a>の高速化に時間を掛けようとは思いませんが、その昔将棋関連アプリを<code class="language-plaintext highlighter-rouge">Kotlin</code>に書き換えることを早々に諦めたことは私にとって良かったのかもしれません。<code class="language-plaintext highlighter-rouge">生成AI</code>が存在しなかった当時、スタックオーバーフローを避けるために苦労して末尾再帰に書き換えても実行速度が遅くなったのではさぞ虚しかったことでしょう。</p>
+
+<h3 id="やはり高速化ならc">やはり高速化なら<code class="language-plaintext highlighter-rouge">C++</code>
+</h3>
+<p>　将棋関連アプリの高速化のために将棋AI部分を<code class="language-plaintext highlighter-rouge">C++</code>で書き直したとしても、GUIを何で作るかという問題が残りますのでこれについては今後も模索中です。現在販売中の<a href="https://happyclam.booth.pm/items/6323599">３三将棋アプリ</a>は<code class="language-plaintext highlighter-rouge">評価値でソートして候補手を絞る関数</code>と<code class="language-plaintext highlighter-rouge">局面を先読みする関数</code>の２つの関数を再帰呼出ししている面白い処理（<a href="/software/2019-02-26/iterativedeeping">「反復深化？を工夫してより深く読む」</a>参照）をしているので、GUI付きのアプリとして販売するかどうかに関わらず一度<code class="language-plaintext highlighter-rouge">C++</code>で実装してみたいなとは思っています。</p>
+
+<hr>
+
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <small>© rifyll theme, 2014</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+</body>
+
+</html>

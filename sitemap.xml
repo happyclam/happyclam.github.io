@@ -458,7 +458,7 @@
     </url>
     <url>
         <loc>https://happyclam.github.io/hardware/2024-11-16/ubuntu_touch</loc>
-        <lastmod>2025-05-16T11:49:32+09:00</lastmod>
+        <lastmod>2025-06-03T09:48:38+09:00</lastmod>
     </url>
     <url>
         <loc>https://happyclam.github.io/miscellaneous/2024-11-30/strayapp</loc>
@@ -479,6 +479,10 @@
     <url>
         <loc>https://happyclam.github.io/software/2025-04-27/waterbottle</loc>
         <lastmod>2025-05-16T11:49:32+09:00</lastmod>
+    </url>
+    <url>
+        <loc>https://happyclam.github.io/software/2025-06-07/kotlins_recursion</loc>
+        <lastmod>2025-06-05T17:53:04+09:00</lastmod>
     </url>
     <url>
         <loc>https://happyclam.github.io/404.html</loc>
@@ -502,7 +506,7 @@
     </url>
     <url>
         <loc>https://happyclam.github.io/</loc>
-        <lastmod>2025-05-20T18:39:30+09:00</lastmod>
+        <lastmod>2025-06-05T17:53:04+09:00</lastmod>
     </url>
     <url>
         <loc>https://happyclam.github.io/search.json</loc>
