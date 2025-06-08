@@ -5,14 +5,14 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 07 Jun 2025 09:35:15 +0900</pubDate>
-    <lastBuildDate>Sat, 07 Jun 2025 09:35:15 +0900</lastBuildDate>
+    <pubDate>Sun, 08 Jun 2025 21:52:56 +0900</pubDate>
+    <lastBuildDate>Sun, 08 Jun 2025 21:52:56 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
         <title>Kotlinで再帰関数（AIに丸投げ）</title>
         <description>&lt;h3 id=&quot;ウォーターソートパズルを題材に&quot;&gt;ウォーターソートパズルを題材に&lt;/h3&gt;
-&lt;p&gt;　もう６年以上前の話ですが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kotlin&lt;/code&gt;が流行り始めた当時、将棋関連アプリのAI部分の高速化を考えていた私は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript(Javascript)&lt;/code&gt;のソースコードを&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kotlin&lt;/code&gt;に書き換えてみたことがあります。でも文法だけ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kotlin&lt;/code&gt;に書き換えてもわずか&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;３手読み&lt;/code&gt;ですぐにスタックオーバーフローが発生して、末尾再帰の形になるようにソースコードを書き換えなければならないことが分かって挫折しました。&lt;br /&gt;
+&lt;p&gt;　もう６年以上前の話ですが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kotlin&lt;/code&gt;が流行り始めた当時、将棋関連アプリ（&lt;a href=&quot;https://happyclam.booth.pm/items/6323599&quot;&gt;３三将棋&lt;/a&gt;、&lt;a href=&quot;https://happyclam.booth.pm/items/6325376&quot;&gt;５五将棋&lt;/a&gt;、&lt;a href=&quot;https://happyclam.booth.pm/items/6346070&quot;&gt;７七将棋&lt;/a&gt;）のAI部分の高速化を考えていた私は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript(Javascript)&lt;/code&gt;のソースコードを&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kotlin&lt;/code&gt;に書き換えてみたことがあります。でも文法だけ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kotlin&lt;/code&gt;に書き換えてもわずか&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;３手読み&lt;/code&gt;ですぐにスタックオーバーフローが発生して、末尾再帰の形になるようにソースコードを書き換えなければならないことが分かって挫折しました。&lt;br /&gt;
 　でも、&lt;a href=&quot;/software/2025-04-27/waterbottle&quot;&gt;前回の記事&lt;/a&gt;で作った&lt;a href=&quot;https://github.com/happyclam/water_sort_puzzle&quot;&gt;プログラム&lt;/a&gt;なら、将棋関連アプリに較べればかなり単純な構造の再帰関数なので、これなら出来るんじゃないか？と興味が湧いて、これを題材にして末尾再帰に書き換える作業を体験することにしました。&lt;/p&gt;
 
 &lt;p&gt;※&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kotlin&lt;/code&gt;製の５五将棋プログラムは今でもソースが残ってますが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Null Safety&lt;/code&gt;なんて全く気にしていない&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript&lt;/code&gt;のソースコードをそのまま&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kotlin&lt;/code&gt;に移行して、とにかくコンパイルを通すために&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nullable&lt;/code&gt;な変数を無理やり&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;non-null&lt;/code&gt;に強制的に変換する演算子&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;!!&lt;/code&gt;（ビックリマーク２つ）だらけの、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kotlin使い&lt;/code&gt;に言わせれば汚いコードでした。&lt;/p&gt;
@@ -67,7 +67,23 @@ waterBottles/node.kt:94:22: warning: recursive call is not a tail call.
 &lt;p&gt;　将棋関連アプリの高速化のために将棋AI部分を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;で書き直したとしても、GUIを何で作るかという問題が残りますのでこれについては今後も模索中です。Kotlinで高速なものが作れれば、AndroidアプリのGUIもKotlinで作れるのでよかったのですが、残念です。&lt;br /&gt;
 　現在販売中の&lt;a href=&quot;https://happyclam.booth.pm/items/6323599&quot;&gt;３三将棋アプリ&lt;/a&gt;は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;評価値でソートして候補手を絞る関数&lt;/code&gt;と&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;局面を先読みする関数&lt;/code&gt;の２つの関数を再帰呼出ししている面白い処理（&lt;a href=&quot;/software/2019-02-26/iterativedeeping&quot;&gt;「反復深化？を工夫してより深く読む」&lt;/a&gt;参照）をしているので、GUI付きのアプリとして販売するかどうかに関わらず一度&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;で実装してみたいとは思っています。&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;h3 id=&quot;生成aiはアルゴリズムを勝手に変更する2025-06-08追記&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;生成AI&lt;/code&gt;はアルゴリズムを勝手に変更する？（2025-06-08追記）&lt;/h3&gt;
+&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;に書き換えたら速くなることを確認するため一応&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;でも上記の方法で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Grok&lt;/code&gt;を使ってやってみました。&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;div align=&quot;center&quot;&gt;ソースコード&lt;/div&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+    &lt;p&gt;&lt;a href=&quot;https://github.com/happyclam/water_sort_cPlus&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/github-mark.png&quot; alt=&quot;ウォーターソートパズル解答プログラム（C++版）&quot; title=&quot;ウォーターソートパズル解答プログラム（C++版）&quot; width=&quot;120&quot; height=&quot;120&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　&lt;a href=&quot;/software/2025-04-27/waterbottle&quot;&gt;前回の記事&lt;/a&gt;の冒頭の問題を解かせて見たところ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0.00225114秒&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS版&lt;/code&gt;で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;11.9202秒！！&lt;/code&gt;でした。流石に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;は速いです。&lt;br /&gt;
+　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;から&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kotlin&lt;/code&gt;に移植した時と違い、何回かデバッグ作業を強いられました。それに、「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;のコードを&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;にして！」と依頼しているのに、AIが勝手に判断して変更するケースもあるようです。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;のコードでは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Node.makeHash&lt;/code&gt;メソッド内で局面を文字列化するときに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MD5&lt;/code&gt;のハッシュ値を使用しているのですが、私はボトルの数が増えると局面を表現するための文字列がどんどん長くなっていくのでそれを防ぐ意味でハッシュ値を使用していたのですが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Grok&lt;/code&gt;はそういう私の意図などお構いなしに勝手にハッシュ化のためのコードを削除しました:sweat_smile:&lt;br /&gt;
+　まぁそれはぐらいは良いとしても、アルゴリズムに影響を与える勝手な変更も一部ありました。その所為で一時は問題を解くのに時間がかかる結果になってしまったのですが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kotlin版&lt;/code&gt;についても何か元々の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;のアルゴリズム通りになってなくて、その所為で遅くなっている可能性はあると思います。&lt;br /&gt;
+　将棋でも一度&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AI&lt;/code&gt;のアドバイスを貰うと「その次の手はどう指すの？」、「その次は？」と際限なく聞きたくなってきて、自分の頭で考えなくなってしまいますので、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AI&lt;/code&gt;の使い方には気をつけないとダメですね。
+—-&lt;/p&gt;
 
 </description>
         <pubDate>Sat, 07 Jun 2025 00:00:00 +0900</pubDate>
