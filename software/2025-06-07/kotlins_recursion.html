@@ -244,9 +244,10 @@ waterBottles/node.kt:94:22: warning: recursive call is not a tail call.
 
 <p>　<a href="/software/2025-04-27/waterbottle">前回の記事</a>の冒頭の問題を解かせて見たところ<code class="language-plaintext highlighter-rouge">DFS版</code>で<code class="language-plaintext highlighter-rouge">0.00225114秒</code>、<code class="language-plaintext highlighter-rouge">BFS版</code>で<code class="language-plaintext highlighter-rouge">11.9202秒！！</code>でした。流石に<code class="language-plaintext highlighter-rouge">C++</code>は速いです。<br>
 　<code class="language-plaintext highlighter-rouge">Ruby</code>から<code class="language-plaintext highlighter-rouge">Kotlin</code>に移植した時と違い、何回かデバッグ作業を強いられました。それに、「<code class="language-plaintext highlighter-rouge">Ruby</code>のコードを<code class="language-plaintext highlighter-rouge">C++</code>にして！」と依頼しているのに、AIが勝手に判断して変更するケースもあるようです。<code class="language-plaintext highlighter-rouge">Ruby</code>のコードでは<code class="language-plaintext highlighter-rouge">Node.makeHash</code>メソッド内で局面を文字列化するときに<code class="language-plaintext highlighter-rouge">MD5</code>のハッシュ値を使用しているのですが、私はボトルの数が増えると局面を表現するための文字列がどんどん長くなっていくのでそれを防ぐ意味でハッシュ値を使用していたのですが、<code class="language-plaintext highlighter-rouge">Grok</code>はそういう私の意図などお構いなしに勝手にハッシュ化のためのコードを削除しました<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"><br>
-　まぁそれはぐらいは良いとしても、アルゴリズムに影響を与える勝手な変更も一部ありました。その所為で一時は問題を解くのに時間がかかる結果になってしまったのですが、<code class="language-plaintext highlighter-rouge">Kotlin版</code>についても何か元々の<code class="language-plaintext highlighter-rouge">Ruby</code>のアルゴリズム通りになってなくて、その所為で遅くなっている可能性はあると思います。<br>
-　将棋でも一度<code class="language-plaintext highlighter-rouge">AI</code>のアドバイスを貰うと「その次の手はどう指すの？」、「その次は？」と際限なく聞きたくなってきて、自分の頭で考えなくなってしまいますので、<code class="language-plaintext highlighter-rouge">AI</code>の使い方には気をつけないとダメですね。
-—-</p>
+　まぁそれは良いとしても、アルゴリズムに影響を与える勝手な変更も一部あって、その所為で一時は問題を解くのに時間がかかる結果になってしまiいました。その時はボトルの水を移動する回数（<code class="language-plaintext highlighter-rouge">cnt変数</code>でカウント）が<code class="language-plaintext highlighter-rouge">Ruby</code>と較べて異常に増えていたのですぐにおかしいと気付いたのですが、<code class="language-plaintext highlighter-rouge">Kotlin版</code>に関してはそういう明確な出力の違いがないので<code class="language-plaintext highlighter-rouge">Kotlin版</code>が遅い理由は別にあるとみてます。<br>
+　将棋でも一度<code class="language-plaintext highlighter-rouge">AI</code>のアドバイスを貰うと「その次の手はどう指すの？」、「その次は？」と際限なく聞きたくなってきて、自分の頭で考えなくなってしまいますので、<code class="language-plaintext highlighter-rouge">AI</code>の使い方には気をつけないとダメですね。</p>
+
+<hr>
 
 
         </article>
