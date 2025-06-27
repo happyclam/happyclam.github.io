@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 12 Jun 2025 07:54:41 +0900</pubDate>
-    <lastBuildDate>Thu, 12 Jun 2025 07:54:41 +0900</lastBuildDate>
+    <pubDate>Sat, 28 Jun 2025 08:24:16 +0900</pubDate>
+    <lastBuildDate>Sat, 28 Jun 2025 08:24:16 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -35,7 +35,7 @@
 &lt;h3 id=&quot;生成aiの実力を認めざるを得ない&quot;&gt;生成AIの実力を認めざるを得ない&lt;/h3&gt;
 &lt;p&gt;　この記事は「自作の再帰関数を末尾再帰に書き換えるためにはこんな作業が必要でした」という内容になる予定だったのですが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Grok&lt;/code&gt;に丸投げするだけで済んでしまったので書くことが無くなりました。もしそういう内容を期待してた方は&lt;a href=&quot;https://x.com/i/grok/share/MA2ogBDeGSppQ2poNu8tRDmom&quot;&gt;Grokの履歴&lt;/a&gt;を見てもらえば各再帰関数の変更前と変更後のソースも見れますし、解説もされているのでそちらを見ていただきたいと思います。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dfs関数&lt;/code&gt;の末尾再帰化された後のコードは自分自身もよく理解できていません。&lt;br /&gt;
 　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;生成AI&lt;/code&gt;はプログラミング時のリファレンスには使えるぐらいの認識だったのですが、完全に自分が教えて貰ってる状態です。未だに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT&lt;/code&gt;もほとんど使ってないし&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Copilot&lt;/code&gt;もよく知りません（何を使っても中身は同じ？）が、積極的に使ったほうが開発効率は上がりそうですね。&lt;br /&gt;
-　とは言っても今回のケースは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;の正解がある状態、アルゴリズムに問題が無いことが分かっている状態から始めたので、一から&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kotlin&lt;/code&gt;でプログラミングしていたら例え&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Grok&lt;/code&gt;に手伝ってもらってもこんなに簡単には完成しなかったとは思います。しかし&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;のような&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Lightweight Languages&lt;/code&gt;でサクッとプロトタイプを作ってから&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;生成AI&lt;/code&gt;を使って&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;のようなコンパイラ言語に置き換えるのも一つの使い方としてアリかもしれません。将棋関連アプリの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++（STL使用）&lt;/code&gt;への変換も試してみようと思ってます。&lt;/p&gt;
+　とは言っても今回のケースは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;の正解がある状態、アルゴリズムに問題が無いことが分かっている状態から始めたので、一から&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kotlin&lt;/code&gt;でプログラミングしていたら例え&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Grok&lt;/code&gt;に手伝ってもらってもこんなに簡単には完成しなかったとは思います。しかし&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;のような&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;軽量プログラミング言語（Lightweight Languages）&lt;/code&gt;でサクッとプロトタイプを作ってから&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;生成AI&lt;/code&gt;を使って&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;のようなコンパイラ言語に置き換えるのも一つの使い方としてアリかもしれません。将棋関連アプリの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++（STL使用）&lt;/code&gt;への変換も試してみようと思ってます。&lt;/p&gt;
 
 &lt;h3 id=&quot;ちょっと怪しい&quot;&gt;ちょっと怪しい…&lt;/h3&gt;
 &lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vscode&lt;/code&gt;上で実行していた時は気づかなかったのですが、コマンドラインでコンパイルすると&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;warning&lt;/code&gt;が出てました&lt;/p&gt;
@@ -81,7 +81,7 @@ waterBottles/node.kt:94:22: warning: recursive call is not a tail call.
 
 &lt;p&gt;　&lt;a href=&quot;/software/2025-04-27/waterbottle&quot;&gt;前回の記事&lt;/a&gt;の冒頭の問題を解かせて見たところ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0.00225114秒&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS版&lt;/code&gt;で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;11.9202秒！！&lt;/code&gt;でした。流石に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;は速いです。&lt;br /&gt;
 　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;から&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kotlin&lt;/code&gt;に移植した時と違い、何回かデバッグ作業を強いられました。それに、「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;のコードを&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;にして！」と依頼しているのに、AIが勝手に判断して変更するケースもあるようです。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;のコードでは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Node.makeHash&lt;/code&gt;メソッド内で局面を文字列化するときに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MD5&lt;/code&gt;のハッシュ値を使用しているのですが、私はボトルの数が増えると局面を表現するための文字列がどんどん長くなっていくのでそれを防ぐ意味でハッシュ値を使用していたのですが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Grok&lt;/code&gt;はそういう私の意図などお構いなしに勝手にハッシュ化のためのコードを削除しました:sweat_smile:&lt;br /&gt;
-　まぁそれは良いとしても、アルゴリズムに影響を与える勝手な変更も一部あって、その所為で一時は問題を解くのに時間がかかる結果になってしまiいました。その時はボトルの水を移動する回数（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cnt変数&lt;/code&gt;でカウント）が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;と較べて異常に増えていたのですぐにおかしいと気付いたのですが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kotlin版&lt;/code&gt;に関してはそういう明確な出力の違いがないので&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kotlin版&lt;/code&gt;が遅い理由は別にあるとみてます。&lt;br /&gt;
+　まぁそれは良いとしても、アルゴリズムに影響を与える勝手な変更も一部あって、その所為で一時は問題を解くのに時間がかかる結果になってしまいました。その時はボトルの水を移動する回数（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cnt変数&lt;/code&gt;でカウント）が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;と較べて異常に増えていたのですぐにおかしいと気付いたのですが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kotlin版&lt;/code&gt;に関してはそういう明確な出力の違いがないので&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kotlin版&lt;/code&gt;が遅い原因は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kotlin(Java)&lt;/code&gt;自体にあるとみてます。&lt;br /&gt;
 　将棋でも一度&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AI&lt;/code&gt;のアドバイスを貰うと「その次の手はどう指すの？」、「その次は？」と際限なく聞きたくなってきて、自分の頭で考えなくなってしまいますので、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AI&lt;/code&gt;の使い方には気をつけないとダメですね。&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -98,6 +98,8 @@ waterBottles/node.kt:94:22: warning: recursive call is not a tail call.
         <category>shogi</category>
         
         <category>kotlin</category>
+        
+        <category>c++</category>
         
         
         <category>software</category>
