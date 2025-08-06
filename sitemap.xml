@@ -478,11 +478,15 @@
     </url>
     <url>
         <loc>https://happyclam.github.io/software/2025-04-27/waterbottle</loc>
-        <lastmod>2025-05-16T11:49:32+09:00</lastmod>
+        <lastmod>2025-07-30T12:45:23+09:00</lastmod>
     </url>
     <url>
         <loc>https://happyclam.github.io/software/2025-06-07/kotlins_recursion</loc>
         <lastmod>2025-06-27T11:12:28+09:00</lastmod>
+    </url>
+    <url>
+        <loc>https://happyclam.github.io/software/2025-08-07/OOP</loc>
+        <lastmod>2025-08-06T20:09:22+09:00</lastmod>
     </url>
     <url>
         <loc>https://happyclam.github.io/404.html</loc>
@@ -506,7 +510,7 @@
     </url>
     <url>
         <loc>https://happyclam.github.io/</loc>
-        <lastmod>2025-06-27T11:12:28+09:00</lastmod>
+        <lastmod>2025-08-06T20:09:22+09:00</lastmod>
     </url>
     <url>
         <loc>https://happyclam.github.io/search.json</loc>

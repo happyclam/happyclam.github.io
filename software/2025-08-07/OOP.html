@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="author" content="happyclam">
+  <meta name="description"
+    content="３三将棋CUI版のC++バージョン 言語が違ってもやってることはOOP Reinventing the wheel.">
+  <title> ３三将棋CUI版のC++バージョン - 自己満足プログラミング </title>
+
+  <!-- <\!-- Global Site Tag (gtag.js) - Google Analytics -\-> -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script> -->
+  <!-- <script> -->
+  <!--   window.dataLayer = window.dataLayer || []; -->
+  <!--   function gtag(){dataLayer.push(arguments);} -->
+  <!--   gtag('js', new Date()); -->
+  <!--   gtag('config', 'UA-1752720-7'); -->
+  <!-- </script> -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DEV3LMTH6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DEV3LMTH6C');
+</script>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="３三将棋CUI版のC++バージョン">
+  
+  
+  <meta name="twitter:url" content="/software/2025-08-07/OOP">
+  
+  
+  <meta name="twitter:description" content="プログラミング言語の違いは些末な問題">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/33shogi_logo.png">
+  
+
+  <link rel="canonical" href="https://happyclam.github.io/software/2025-08-07/OOP" />
+  <link rel="alternate" type="application/rss+xml" title="自己満足プログラミング" href="/feed.xml" />
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="site-title" class="navbar-brand" href="/">
+          <img class="pull-left img-responsive" src="">
+          <span class="name-holder">自己満足プログラミング</span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li>
+<a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li>
+<a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li>
+<a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li>
+<a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li>
+<a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1238485061299241" -->
+<!--      crossorigin="anonymous"></script> -->
+
+  <div class="blog-header">
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+      <div class="span9">
+        <!-- Html Elements for Search -->
+        <div id="search-container" align="right">
+          <input type="text" id="search-input" placeholder="search...">
+          <ul class="searchresult" id="results-container"></ul>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+  <script src="/assets/js/jquery.min.js"></script>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
+
+        <header class="page-header">
+          <h2 class="page-title"><a href="/software/2025-08-07/OOP">３三将棋CUI版のC++バージョン</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Thursday, August 07, 2025
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">coffeescript</span>
+                
+                  <span class="label label-tag">javascript</span>
+                
+                  <span class="label label-tag">shogi</span>
+                
+                  <span class="label label-tag">c++</span>
+                
+            </div>
+          </div>
+
+        </header>
+
+        <article class="page-content">
+          <h3 id="共通点はオブジェクト指向プログラミング言語">共通点はオブジェクト指向プログラミング言語</h3>
+<p>　<a href="/software/2025-06-07/kotlins_recursion">前回の記事</a>で<code class="language-plaintext highlighter-rouge">Ruby</code>製のウォーターソートパズル解答プログラムを<code class="language-plaintext highlighter-rouge">Grok4</code>を使って<code class="language-plaintext highlighter-rouge">Kotlin</code>や<code class="language-plaintext highlighter-rouge">C++</code>に書き換えましたが、極短時間で移行出来たのは<code class="language-plaintext highlighter-rouge">Ruby</code>も<code class="language-plaintext highlighter-rouge">Kotlin</code>も<code class="language-plaintext highlighter-rouge">C++</code>も<code class="language-plaintext highlighter-rouge">オブジェクト指向プログラミング（OOP）言語</code>だったということも一つの要因だと思います。<br>
+　現在公開している<a href="https://github.com/happyclam/shogi33simple"><code class="language-plaintext highlighter-rouge">「３三将棋の簡易版」</code></a>も一応<code class="language-plaintext highlighter-rouge">OOP言語</code>である<code class="language-plaintext highlighter-rouge">CoffeeScript</code>で書いているので、移行しやすいだろうと思いやってみました。もし元のコードが<code class="language-plaintext highlighter-rouge">素のJavascript（Vanilla JS）</code>だったら大変だったろうと思います。</p>
+
+<h3 id="coffeescriptはoopオブジェクト指向プログラミング言語">CoffeeScriptはOOP（オブジェクト指向プログラミング）言語</h3>
+<p>　<code class="language-plaintext highlighter-rouge">Javascript</code>もどんどん変化していて現在はそうでもありませんが、私は昔は<code class="language-plaintext highlighter-rouge">Javascript</code>が嫌いでした。でも<code class="language-plaintext highlighter-rouge">Cordova</code>を使って手軽に<code class="language-plaintext highlighter-rouge">Androidアプリ</code>を作成するために必要だったので、<code class="language-plaintext highlighter-rouge">AltJS</code>である<code class="language-plaintext highlighter-rouge">CoffeeScript</code>なら<code class="language-plaintext highlighter-rouge">OOP</code>出来ると喜んで<code class="language-plaintext highlighter-rouge">Javascript</code>の替わりに使ったのですが、<code class="language-plaintext highlighter-rouge">OOP</code>を意識しながら<code class="language-plaintext highlighter-rouge">CoffeeScript</code>を使っていた人は少ないと思います。<code class="language-plaintext highlighter-rouge">Rails</code>のプロジェクト内でちょっとした関数を<code class="language-plaintext highlighter-rouge">CoffeeScript</code>で作ってみるぐらいが普通の使われ方だったと思います。<br>
+　でも<code class="language-plaintext highlighter-rouge">CoffeeScript</code>は一応<code class="language-plaintext highlighter-rouge">OOP言語</code>で、static変数・メソッドとインスタンス変数・メソッド、publicな変数・メソッドとprivateな変数・メソッドを区別して記述することが出来ますし、クラスの継承も可能です。<code class="language-plaintext highlighter-rouge">AltJS</code>なので結局は<code class="language-plaintext highlighter-rouge">JavaScript</code>の制限に縛られるので、スコープの有効性等がどれだけ厳密に守られてるのかは知らないのですが気分は<code class="language-plaintext highlighter-rouge">OOP</code>のままコードが書けます。<br>
+　ということで、公開している<code class="language-plaintext highlighter-rouge">CoffeeScript製</code>の<a href="https://github.com/happyclam/shogi33simple">「３三将棋の簡易版」リポジトリ</a>を元に<code class="language-plaintext highlighter-rouge">C++</code>に書き換えればいいのですが、<a href="https://github.com/happyclam/shogi33simple">このリポジトリ</a>は全然更新していないので内部で<code class="language-plaintext highlighter-rouge">eval関数</code>を使っていたり古いコードになっているため今回は無視して、３三将棋アプリの最新版のソースを元に書き換えました。なので<a href="https://github.com/happyclam/shogi33simple">「３三将棋の簡易版」リポジトリ</a>のコードと比較すると少し内容に違いがあることを先にことわっておきます。でも、やってることは同じで出力結果は同じになる<strong>はず</strong>ですし、<a href="/project/2018-06-30/9masushogi_solver">「CUIで９マス将棋を解く」</a>の記事に書かれている内容もほぼ当て嵌まります。</p>
+
+<div align="center">
+<span>３三将棋CUI版のC++バージョンのソースコード</span>
+<div style="width:320px; margin: 0 auto;">
+
+    <p><a href="https://github.com/happyclam/shogi33.git"><img src="/images/github-mark.png" alt="３三将棋簡易版のC++バージョン" title="３三将棋簡易版のC++バージョン" width="120" height="120"></a></p>
+
+  </div>
+</div>
+
+<h3 id="コーディング力では生成aiにはかなわない">コーディング力では生成AIにはかなわない</h3>
+<p>　過去にも将棋関連アプリの<code class="language-plaintext highlighter-rouge">CoffeeScript</code>のソースを<code class="language-plaintext highlighter-rouge">C++</code>に移行してみようと思ったことはあったのですが、一つのソースで３三将棋から７七将棋まで遊べるようにしようとしたり、将棋AI部分を<code class="language-plaintext highlighter-rouge">C++</code>で作ってもAndroid用GUIが作れない（不可能ではないでしょうが難易度高過ぎ）所為もあって、モチベーションが上がらずやりかけては中断することを繰り返してました。それに、例えば「抽象クラスをインスタンス化したくなったときはどうすべきなんだろう（<code class="language-plaintext highlighter-rouge">CoffeeScript</code>では出来てしまう）」とか<code class="language-plaintext highlighter-rouge">OOP</code>に関するに言語仕様の違いについて迷うことが出てきて手が止まることも多かったです。そういう時に<code class="language-plaintext highlighter-rouge">Grok4</code>は複数の選択肢を挙げてくれましたしコード化してくれました。<a href="/software/2025-06-07/kotlins_recursion">前回の記事</a>でも、<code class="language-plaintext highlighter-rouge">Ruby</code>では<code class="language-plaintext highlighter-rouge">==</code>で配列の比較をしている部分を、演算子のオーバーロードが使えない<code class="language-plaintext highlighter-rouge">Kotlin</code>ではequalsメソッドを追加・修正して実現しましたし、何も言わなくても<code class="language-plaintext highlighter-rouge">C++</code>では<code class="language-plaintext highlighter-rouge">演算子のオーバーロード</code>で実現してくれました。こうあるべきという綺麗なコードを一瞬で出力してくれました。<br>
+　自分の場合、<code class="language-plaintext highlighter-rouge">Ruby</code>なら自分が思いついたアイデアをすぐにコードにして試せるので好きなのですが、<code class="language-plaintext highlighter-rouge">C++</code>で書くとなると<code class="language-plaintext highlighter-rouge">自分の中では要件が明確なのにも関わらず</code>コードにするとなると時間がかかってしまいます。でも、<code class="language-plaintext highlighter-rouge">C++</code>を使いながらもアイデアをすぐにコード化出来るという<code class="language-plaintext highlighter-rouge">C++の達人</code>もいるでしょうから、プログラミング言語の違いは大きな問題ではないでしょう。どういう書式で書くのか、どういう型を使うのか、どういう関数を使うのか、OOP的にはどう書くべきかというプログラミングのテクニカルな部分、<code class="language-plaintext highlighter-rouge">コーディング力</code>とでもいうのでしょうか？に関しては<code class="language-plaintext highlighter-rouge">生成AI</code>には敵わないなと感じました。<code class="language-plaintext highlighter-rouge">生成AI</code>は世界中のソースコードから学習しているわけですから、少し寂しい気持ちもありますが、そうなるのは仕方がないことでしょう。前向きに捉えて<code class="language-plaintext highlighter-rouge">生成AI</code>を使っていくのがいいと思います。<br>
+　現に今まで中途半端にしか進められなかった<code class="language-plaintext highlighter-rouge">C++</code>への移行が、<code class="language-plaintext highlighter-rouge">生成AI</code>を使うことで極短時間で出来たわけですから喜ぶべきでしょう。今回もほとんどデバッグ作業は必要なかったです。<br>
+　但し、今回は試しにやってみたという感じなので、３三将棋から７七将棋まで対応可能なソースの一本化はとりあえず見送りました。</p>
+
+<h3 id="大事なのはアルゴリズムを生み出す発想力">大事なのはアルゴリズムを生み出す発想力</h3>
+<p>　<code class="language-plaintext highlighter-rouge">アルゴリズムを生み出す</code>と言っても新しい汎用的なソートアルゴリズムを発見するとかいう大袈裟なものではなく、データ構造を含めたアルゴリズムを生み出す作業とは、世のプログラマが普通にやってることです。業務ソフトでもユーザーの要望を聞いてこういう関数を作ってみよう、こういうクラス構成にしてみよう、こういう手順で実行させようとアイデアを出して日々やっている（押し付けられている？<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20">）作業です。<code class="language-plaintext highlighter-rouge">コンピュータが要件を満たせるレベルまで細分化して明確にしていく作業</code>と言えばいいかもしれません。多くのユーザーは、人間がやっていることをコンピュータにやらせるレベルまでには要件を明確に出来ていませんので、プログラマが業務ソフト毎にデータ構造を含めた新しいアルゴリズムを日々生み出してます。<br>
+　当ブログで紹介してきたプログラミング事例でも、特に苦労せず実現できたものやネット上からのコピペも多いですが、以下のアルゴリズムは実現までに結構悩まされてなんとか生み出した、アイデアを絞り出したという感じです。</p>
+
+<ul>
+  <li>将棋アプリの打ち歩詰め判定 -&gt; <a href="/software/2018-06-10/droppawncheck">「打ち歩詰め判定は必要なのか」</a>
+</li>
+  <li>チェスアプリのゲーム終了条件 -&gt; <a href="/software/2019-10-27/stalemate">「将棋の評価関数とチェスの評価関数−１」</a>、<a href="/software/2024-04-07/tdd">「チェスAIとテスト駆動開発」</a>
+</li>
+  <li>チェスアプリのPIN絡みのステイルメイト判定 -&gt; <a href="/software/2024-12-15/chessPIN">「チェスのStalemateとPINの話」</a>
+</li>
+</ul>
+
+<p>　その人間が生み出したアルゴリズムもどんどん生成AIの餌になっていくわけですから、いずれはすべてAIがやるようになるのかもしれません。それに人間側が、AIが処理しやすいように業務内容を変えていく動きもありますね。</p>
+
+<h3 id="生成aiはコーディングスキルだけなのか">生成AIはコーディングスキルだけなのか？</h3>
+<p>　今回の記事も、元になる<code class="language-plaintext highlighter-rouge">CoffeeScript</code>のソースコードから<code class="language-plaintext highlighter-rouge">C++</code>に移行しただけで、<code class="language-plaintext highlighter-rouge">生成AI</code>を使って０からアプリを作った経験はないので、<code class="language-plaintext highlighter-rouge">生成AI</code>が<code class="language-plaintext highlighter-rouge">アルゴリズムを生み出す</code>という点でどこまで役に立つのか分からないのですが、そういう部分ではまだまだ人間の方に分があるのではないでしょうか？<br>
+　機会があれば生成AIを使って０から何か作ってみたいと思ってます。</p>
+
+<hr>
+
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <small>© rifyll theme, 2014</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+</body>
+
+</html>

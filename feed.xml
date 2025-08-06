@@ -5,9 +5,71 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 28 Jun 2025 08:24:16 +0900</pubDate>
-    <lastBuildDate>Sat, 28 Jun 2025 08:24:16 +0900</lastBuildDate>
+    <pubDate>Wed, 06 Aug 2025 21:44:47 +0900</pubDate>
+    <lastBuildDate>Wed, 06 Aug 2025 21:44:47 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
+    
+      <item>
+        <title>３三将棋CUI版のC++バージョン</title>
+        <description>&lt;h3 id=&quot;共通点はオブジェクト指向プログラミング言語&quot;&gt;共通点はオブジェクト指向プログラミング言語&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/software/2025-06-07/kotlins_recursion&quot;&gt;前回の記事&lt;/a&gt;で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;製のウォーターソートパズル解答プログラムを&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Grok4&lt;/code&gt;を使って&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kotlin&lt;/code&gt;や&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;に書き換えましたが、極短時間で移行出来たのは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;も&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kotlin&lt;/code&gt;も&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;も&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;オブジェクト指向プログラミング（OOP）言語&lt;/code&gt;だったということも一つの要因だと思います。&lt;br /&gt;
+　現在公開している&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;「３三将棋の簡易版」&lt;/code&gt;&lt;/a&gt;も一応&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OOP言語&lt;/code&gt;である&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript&lt;/code&gt;で書いているので、移行しやすいだろうと思いやってみました。もし元のコードが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;素のJavascript（Vanilla JS）&lt;/code&gt;だったら大変だったろうと思います。&lt;/p&gt;
+
+&lt;h3 id=&quot;coffeescriptはoopオブジェクト指向プログラミング言語&quot;&gt;CoffeeScriptはOOP（オブジェクト指向プログラミング）言語&lt;/h3&gt;
+&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Javascript&lt;/code&gt;もどんどん変化していて現在はそうでもありませんが、私は昔は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Javascript&lt;/code&gt;が嫌いでした。でも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Cordova&lt;/code&gt;を使って手軽に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Androidアプリ&lt;/code&gt;を作成するために必要だったので、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AltJS&lt;/code&gt;である&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript&lt;/code&gt;なら&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OOP&lt;/code&gt;出来ると喜んで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Javascript&lt;/code&gt;の替わりに使ったのですが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OOP&lt;/code&gt;を意識しながら&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript&lt;/code&gt;を使っていた人は少ないと思います。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rails&lt;/code&gt;のプロジェクト内でちょっとした関数を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript&lt;/code&gt;で作ってみるぐらいが普通の使われ方だったと思います。&lt;br /&gt;
+　でも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript&lt;/code&gt;は一応&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OOP言語&lt;/code&gt;で、static変数・メソッドとインスタンス変数・メソッド、publicな変数・メソッドとprivateな変数・メソッドを区別して記述することが出来ますし、クラスの継承も可能です。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AltJS&lt;/code&gt;なので結局は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JavaScript&lt;/code&gt;の制限に縛られるので、スコープの有効性等がどれだけ厳密に守られてるのかは知らないのですが気分は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OOP&lt;/code&gt;のままコードが書けます。&lt;br /&gt;
+　ということで、公開している&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript製&lt;/code&gt;の&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;「３三将棋の簡易版」リポジトリ&lt;/a&gt;を元に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;に書き換えればいいのですが、&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;このリポジトリ&lt;/a&gt;は全然更新していないので内部で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;eval関数&lt;/code&gt;を使っていたり古いコードになっているため今回は無視して、３三将棋アプリの最新版のソースを元に書き換えました。なので&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;「３三将棋の簡易版」リポジトリ&lt;/a&gt;のコードと比較すると少し内容に違いがあることを先にことわっておきます。でも、やってることは同じで出力結果は同じになる&lt;strong&gt;はず&lt;/strong&gt;ですし、&lt;a href=&quot;/project/2018-06-30/9masushogi_solver&quot;&gt;「CUIで９マス将棋を解く」&lt;/a&gt;の記事に書かれている内容もほぼ当て嵌まります。&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;span&gt;３三将棋CUI版のC++バージョンのソースコード&lt;/span&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+    &lt;p&gt;&lt;a href=&quot;https://github.com/happyclam/shogi33.git&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/github-mark.png&quot; alt=&quot;３三将棋簡易版のC++バージョン&quot; title=&quot;３三将棋簡易版のC++バージョン&quot; width=&quot;120&quot; height=&quot;120&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;コーディング力では生成aiにはかなわない&quot;&gt;コーディング力では生成AIにはかなわない&lt;/h3&gt;
+&lt;p&gt;　過去にも将棋関連アプリの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript&lt;/code&gt;のソースを&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;に移行してみようと思ったことはあったのですが、一つのソースで３三将棋から７七将棋まで遊べるようにしようとしたり、将棋AI部分を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;で作ってもAndroid用GUIが作れない（不可能ではないでしょうが難易度高過ぎ）所為もあって、モチベーションが上がらずやりかけては中断することを繰り返してました。それに、例えば「抽象クラスをインスタンス化したくなったときはどうすべきなんだろう（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript&lt;/code&gt;では出来てしまう）」とか&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OOP&lt;/code&gt;に関するに言語仕様の違いについて迷うことが出てきて手が止まることも多かったです。そういう時に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Grok4&lt;/code&gt;は複数の選択肢を挙げてくれましたしコード化してくれました。&lt;a href=&quot;/software/2025-06-07/kotlins_recursion&quot;&gt;前回の記事&lt;/a&gt;でも、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;==&lt;/code&gt;で配列の比較をしている部分を、演算子のオーバーロードが使えない&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kotlin&lt;/code&gt;ではequalsメソッドを追加・修正して実現しましたし、何も言わなくても&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;演算子のオーバーロード&lt;/code&gt;で実現してくれました。こうあるべきという綺麗なコードを一瞬で出力してくれました。&lt;br /&gt;
+　自分の場合、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;なら自分が思いついたアイデアをすぐにコードにして試せるので好きなのですが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;で書くとなると&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;自分の中では要件が明確なのにも関わらず&lt;/code&gt;コードにするとなると時間がかかってしまいます。でも、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;を使いながらもアイデアをすぐにコード化出来るという&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++の達人&lt;/code&gt;もいるでしょうから、プログラミング言語の違いは大きな問題ではないでしょう。どういう書式で書くのか、どういう型を使うのか、どういう関数を使うのか、OOP的にはどう書くべきかというプログラミングのテクニカルな部分、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;コーディング力&lt;/code&gt;とでもいうのでしょうか？に関しては&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;生成AI&lt;/code&gt;には敵わないなと感じました。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;生成AI&lt;/code&gt;は世界中のソースコードから学習しているわけですから、少し寂しい気持ちもありますが、そうなるのは仕方がないことでしょう。前向きに捉えて&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;生成AI&lt;/code&gt;を使っていくのがいいと思います。&lt;br /&gt;
+　現に今まで中途半端にしか進められなかった&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;への移行が、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;生成AI&lt;/code&gt;を使うことで極短時間で出来たわけですから喜ぶべきでしょう。今回もほとんどデバッグ作業は必要なかったです。&lt;br /&gt;
+　但し、今回は試しにやってみたという感じなので、３三将棋から７七将棋まで対応可能なソースの一本化はとりあえず見送りました。&lt;/p&gt;
+
+&lt;h3 id=&quot;大事なのはアルゴリズムを生み出す発想力&quot;&gt;大事なのはアルゴリズムを生み出す発想力&lt;/h3&gt;
+&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;アルゴリズムを生み出す&lt;/code&gt;と言っても新しい汎用的なソートアルゴリズムを発見するとかいう大袈裟なものではなく、データ構造を含めたアルゴリズムを生み出す作業とは、世のプログラマが普通にやってることです。業務ソフトでもユーザーの要望を聞いてこういう関数を作ってみよう、こういうクラス構成にしてみよう、こういう手順で実行させようとアイデアを出して日々やっている（押し付けられている？:sweat_smile:）作業です。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;コンピュータが要件を満たせるレベルまで細分化して明確にしていく作業&lt;/code&gt;と言えばいいかもしれません。多くのユーザーは、人間がやっていることをコンピュータにやらせるレベルまでには要件を明確に出来ていませんので、プログラマが業務ソフト毎にデータ構造を含めた新しいアルゴリズムを日々生み出してます。&lt;br /&gt;
+　当ブログで紹介してきたプログラミング事例でも、特に苦労せず実現できたものやネット上からのコピペも多いですが、以下のアルゴリズムは実現までに結構悩まされてなんとか生み出した、アイデアを絞り出したという感じです。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;将棋アプリの打ち歩詰め判定 -&amp;gt; &lt;a href=&quot;/software/2018-06-10/droppawncheck&quot;&gt;「打ち歩詰め判定は必要なのか」&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;チェスアプリのゲーム終了条件 -&amp;gt; &lt;a href=&quot;/software/2019-10-27/stalemate&quot;&gt;「将棋の評価関数とチェスの評価関数−１」&lt;/a&gt;、&lt;a href=&quot;/software/2024-04-07/tdd&quot;&gt;「チェスAIとテスト駆動開発」&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;チェスアプリのPIN絡みのステイルメイト判定 -&amp;gt; &lt;a href=&quot;/software/2024-12-15/chessPIN&quot;&gt;「チェスのStalemateとPINの話」&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;　その人間が生み出したアルゴリズムもどんどん生成AIの餌になっていくわけですから、いずれはすべてAIがやるようになるのかもしれません。それに人間側が、AIが処理しやすいように業務内容を変えていく動きもありますね。&lt;/p&gt;
+
+&lt;h3 id=&quot;生成aiはコーディングスキルだけなのか&quot;&gt;生成AIはコーディングスキルだけなのか？&lt;/h3&gt;
+&lt;p&gt;　今回の記事も、元になる&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript&lt;/code&gt;のソースコードから&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;に移行しただけで、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;生成AI&lt;/code&gt;を使って０からアプリを作った経験はないので、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;生成AI&lt;/code&gt;が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;アルゴリズムを生み出す&lt;/code&gt;という点でどこまで役に立つのか分からないのですが、そういう部分ではまだまだ人間の方に分があるのではないでしょうか？&lt;br /&gt;
+　機会があれば生成AIを使って０から何か作ってみたいと思ってます。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+</description>
+        <pubDate>Thu, 07 Aug 2025 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/software/2025-08-07/OOP</link>
+        <guid isPermaLink="true">https://happyclam.github.io/software/2025-08-07/OOP</guid>
+        
+        <category>coffeescript</category>
+        
+        <category>javascript</category>
+        
+        <category>shogi</category>
+        
+        <category>c++</category>
+        
+        
+        <category>software</category>
+        
+      </item>
     
       <item>
         <title>Kotlinで再帰関数（AIに丸投げ）</title>
@@ -1008,82 +1070,6 @@ cp -p ~/Download/tanuki-wcsc33-2023-05-04/eval/nn.bin eval/
         
         
         <category>software</category>
-        
-      </item>
-    
-      <item>
-        <title>固定ギア（ピスト）の感想</title>
-        <description>&lt;h3 id=&quot;乗ってみる前の想像と違ったこともある&quot;&gt;乗ってみる前の想像と違ったこともある&lt;/h3&gt;
-&lt;p&gt;　固定ギア（ピスト）の記事を２つ（&lt;a href=&quot;/miscellaneous/2024-03-10/stroll01&quot;&gt;「固定ギア（ピスト）に乗ってみたい」&lt;/a&gt;、&lt;a href=&quot;/miscellaneous/2024-03-16/stroll02&quot;&gt;「Fuji Stroll、さっそくカスタマイズ」&lt;/a&gt;）書きましたが、実際に２ヶ月ほどピストバイク（Fuji Stroll）乗ってみた感想を書いてみようと思います。自分は自転車業界とは利害関係はありませんし、固定ギアが世間で流行って欲しいと思っているわけでもないので、ネガティブな面も合わせて思ったことや体験したことを書いてみようと思います。&lt;/p&gt;
-
-&lt;h3 id=&quot;ブレーキは必須&quot;&gt;ブレーキは必須&lt;/h3&gt;
-&lt;p&gt;　自分が固定ギアに乗ってみたいと思ったのは、&lt;a href=&quot;/miscellaneous/2024-03-10/stroll01&quot;&gt;「固定ギア（ピスト）に乗ってみたい」&lt;/a&gt;という記事で紹介した動画のように、ブレーキ無しのピストバイクで下り坂を下る様が「すげ〜」、「かっこいい〜」、「やってみたい」というものだったので、もしかしたら固定ギアに乗り慣れてくるとブレーキは使わなくなるのではないかと思っていました。法律上ブレーキを付けなくてはいけないだけで、ピストに慣れてくれば「使わなくても済むようになるのかも」と勘違いしてたんです。でも実際はスキッドはブレーキの代わりにはならないし、急な危険回避には絶対にブレーキが必要です。この点は、「なんだ、やはりブレーキは必要なのか」と、過剰に期待しすぎていたのが悪いのですが、少し残念な気がしました。&lt;br /&gt;
-　まだスキッドはうまくありませんが、スキッドってやろうと思ってやるものなんですよねぇ、急ブレーキが必要な場面でスキッドでは止まれません、急な危険回避のためには使えません。自分がまだ未熟だからそうなのではなく、今後も急ブレーキの代わりにスキッドを使うなんてことはないでしょう。&lt;br /&gt;
-　ちなみにバースピンとかバックサークルとか、曲芸的なトリックには今の所全く興味が湧きません。今後は分かりませんが…。&lt;/p&gt;
-
-&lt;h3 id=&quot;急ブレーキを体験&quot;&gt;急ブレーキを体験&lt;/h3&gt;
-&lt;p&gt;　自転車乗っていて急ブレーキをかける機会はそれほどないと思いますが、早くも体験しました。交差点を直進していたところ黄色信号になったタイミングで、対抗の右折車が突っ込んできてお互いにブレーキをかけて、衝突まであと数十センチの距離まで接近したことが有ります。この時相手に「直進車優先だろ〜」（道路交通法37条）と文句を言う気持ちなんて起きなくて、「お〜、きれいにスキッドが決まった〜」と妙に冷静でした:sweat_smile:&lt;br /&gt;
-　スキッドは急ブレーキの代わりにはなりませんが、急ブレーキかけた時は自然とミッドスキッド状態になるみたいです。&lt;/p&gt;
-
-&lt;h3 id=&quot;ピストはダイエットにいいかも&quot;&gt;ピストはダイエットにいいかも&lt;/h3&gt;
-&lt;p&gt;　まだ一日で最高で50Km程しか乗ったことがないのですが、その日は疲れました。ロードやミニベロ（IDIOM2）で50Kmなんて走ったうちには入らないぐらいに思っているのですが、ピスト（Stroll）だと疲れるので今の所50Kmまでにしようと思っています。50Km以上遠出をするつもりならミニベロ使おうと思っていますが、ピストは乗っているだけで楽しいので、最近はミニペロは放ったらかしでピストで近場ばかり乗り回しています。&lt;br /&gt;
-　巷では「自転車ダイエット」って標語を見かけますが、運動効率の非常に高い乗り物である自転車をダイエット目的で使うなんておかしいと思っていました。でも、ピストなら長距離乗らなくても結構疲れるのでダイエットに効くのではないかと思っています。長距離乗ればかなり疲れますし、スキッドの練習やスタンディングの練習をしているだけでも意外と疲れます。&lt;/p&gt;
-
-&lt;h3 id=&quot;縁石に注意&quot;&gt;縁石に注意&lt;/h3&gt;
-&lt;p&gt;　フリーギアなら車道と歩道の間にある縁石を避けるために左側のペダルを上にした状態で車道側の車と縁石の間を惰性で進んでいくということがあると思いますが、ピストではペダルは常に回っているので左側のペダルを上にしたままでは進めないことが分かっていても、つい車幅感覚を見誤って縁石にペダルを何回か擦りました。その時はズズッと車体がズレる程度で済みましたが、右側の停車中の車にぶつかりそうになったことも有ります。&lt;br /&gt;
-　車道左側が狭い時は無理に車道を走らずにすぐに歩道を走るようになりました。ロードバイク乗っている時は「ロードバイクで歩道を走るのは負け」みたいな意識があったのですが、なんかピストではそれほどスピードを出さないこともあって歩道を走ることが増えました。&lt;/p&gt;
-
-&lt;h3 id=&quot;ストラップは付けたほうがいい&quot;&gt;ストラップは付けたほうがいい&lt;/h3&gt;
-&lt;p&gt;　ペダルを後ろに踏んで減速することが出来ます。&lt;a href=&quot;/miscellaneous/2024-03-16/stroll02&quot;&gt;以前の記事&lt;/a&gt;にも書きましたが、下り坂で一度ペダルから足が離れるとペダルだけグルグル回ってフリーギアのようにすぐにはペダルに足を戻すことが出来ません。スキッドもそうですが、ストラップを付けているとブレーキを使わずに速度をコントロールできます。&lt;br /&gt;
-　でも、歩道を歩行者の速度に合わせてポタポタと走っている時は敢えてストラップから足を外すときも多いです。すぐに地面に足が着けれるようにするためです。歩行者の不意の動きに対応してブレーキかけてすぐに足をストラップから抜いて着地することも出来ますが、ストラップから足を抜くのに失敗して一度コケてしまいました。それ以来、人が多い歩道では敢えてストラップから足を外してます（主に片足だけ）。そのおかげで走りながらストラップを嵌めるのにも慣れてきました。&lt;br /&gt;
-　ストラップから足を抜いてストラップがペダルの下側にある状態だと、ストラップが地面に軽く擦るのですがこれは仕方ないのでしょう。&lt;/p&gt;
-
-&lt;h3 id=&quot;山は登れない&quot;&gt;山は登れない&lt;/h3&gt;
-&lt;p&gt;　自転車で山を登るのは結構好きなのですが、現在のStrollでは山に登るどころかちょっとした高地に行くだけでもうお腹いっぱいって感じで、山に登る手前（大阪で言えば箕面近辺）までしか行く気がしません。山も登ってみるつもりで自転車購入時に軽めのコグ（17T）を選んだのですが、このギアではちょっと無理そうです。いずれ今の反対側についているフリーギアも山登り用の固定ギア（Strollは19Tまでしか選べない？）にして、山の頂上に行ったところで後輪を反転させて平地用のコグに切り替えて降りてこようかなんて考えていますが、ちょっと面倒くさいですね。&lt;/p&gt;
-
-&lt;h3 id=&quot;下りのカーブが怖い&quot;&gt;下りのカーブが怖い&lt;/h3&gt;
-&lt;p&gt;　フリーギアならカーブの外側のペダルを下にして外足に荷重をかけてカーブを曲がれば内側のペダルを地面に擦る心配はありませんが、ピストバイクだと常にペダルが回るのでカーブの内側のペダルを地面に擦らないかいつも心配です。昔、250ccのオートバイに乗っていたことがあるのですが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;リーンイン&lt;/code&gt;と言われる姿勢でカーブを曲がることがあります。オートバイの場合は主にタイヤのグリップ力を上げるために&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;リーンイン&lt;/code&gt;の姿勢を取るのだと思うのですが、ピストバイクの場合はペダルを地面に擦らないようにするために自転車をなるべく傾けないように気をつけながらカーブを曲がっています。ペダルを地面に擦らないかヒヤヒヤしながらカーブを曲がるので自然とスピードも落ちます。やはり&lt;a href=&quot;/miscellaneous/2024-03-10/stroll01&quot;&gt;以前の記事&lt;/a&gt;で紹介した動画のように下りカーブはスキッドを駆使して曲がるのが本来の曲がり方なのでしょうか？無茶苦茶難しいですよね:sweat_smile:&lt;/p&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/stroll_inclination.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stroll_inclination.png&quot; alt=&quot;Stroll ペダルを擦る角度&quot; width=&quot;320&quot; height=&quot;389&quot; title=&quot;Stroll ペダルを擦る角度&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　上の写真はスタンドを使わずにペダルを地面に接地させてペダルだけでStrollを自立させている状態です。カーブで車体をこれだけ傾けるだけでペダルを擦るってことです。&lt;br /&gt;
-　&lt;a href=&quot;https://www.fujibikes.jp/2020/products/stroll/&quot;&gt;ここ&lt;/a&gt;でStrollのジオメトリーを確認したところ、フレームサイズに関わらずクランク長は170mmのようですが、ちょっと長いんじゃないでしょうか？昔乗っていたARAYAの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Raleigh CRF&lt;/code&gt;というロードバイクは470mmのフレームサイズだけ165mmのクランク長で他のフレームサイズは170mmでした。一般的にピストバイクはクランク長が短めになっていると聞いたので、ロードバイク（CRF）よりクランクが長いってのがちょっと気になっていて、いつか160mmのクランクに変えようかと思っています。170mmから160mmに変えてもわずか1cmの違いなので、違いを感じるのかどうか分かりませんが、カーブでペダルを擦りにくくする気休めにはなるでしょう。それにストラップを足から外してもストラップが地面を擦ることはなくなるかもしれません。&lt;br /&gt;
-　自転車って凝りだすとこうやって少しずつお金がかかるんですよねぇ:sweat_smile:&lt;/p&gt;
-
-&lt;h3 id=&quot;安定した立ち漕ぎが必要&quot;&gt;安定した立ち漕ぎが必要&lt;/h3&gt;
-&lt;p&gt;　歩道に乗り上げる時やちょっとした段差を超える時に衝撃を緩和するためにお尻をサドルから浮かせると思いますが、フリーギアの場合は両足を水平にして惰性で通過するだけなので簡単です。でも、ピストの場合は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;お尻を浮かせる＝立ち漕ぎ状態&lt;/code&gt;でペダルを漕いだまま段差を通過します。お尻を浮かせる時にペダルを踏み込む感じになるので、別に加速したいわけじゃないのにペダルを踏みこんで段差を超えることに初めはすごく違和感が有りました。下り坂なんかでもそうですが、フリーギアならペダルを漕ぐのを止めて車体を安定させることに専念できるのに対して、固定ギア（ピスト）だと常にペダルを回しながら車体を安定させる必要が有ります。道路に段差があったりすると下り坂でスピードが乗ってる状態で立ち漕ぎしながら車体を安定させる必要がありますし、フリーギアのママチャリしか経験のない人は普通下り坂ではペダルを漕がない（自分はロードバイクで多少は経験してます）ですから、固定ギア（ピスト）を一度体験してすぐに嫌になる人っていうのは、この頻繁に立ち漕ぎを要求されるって辺りにも原因があるんじゃないかと思ってます。&lt;br /&gt;
-　固定ギア（ピスト）に乗ることを&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;人馬一体になる&lt;/code&gt;と表現する人がいますが、この立ち漕ぎ状態に慣れるっていうのがピストに求められるスキルの一つじゃないかと思います。乗馬経験はないのですが、もしかしたら&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;ruby&gt;鐙&lt;rt&gt;あぶみ&lt;/rt&gt;&lt;/ruby&gt;で体重を支える＝サドルを使わずにペダルで体重を支える＝立ち漕ぎ状態&lt;/code&gt;っていう意味もあるかもしれません。&lt;/p&gt;
-
-&lt;h3 id=&quot;まとめ&quot;&gt;まとめ&lt;/h3&gt;
-&lt;p&gt;　フリーギアのロードバイク（今はロードバイクは持っていないのでIDIOM2がロードバイク代わりです）に比べたら、疲れる、危ない、遅いって感じですが、それでも今はピストに乗っていたいって感じです。フリーギアに比べて不便だと思う反面、ピストは乗りこなすための乗車スキルが必要になるので、上達して行く過程を楽しむっていう面があると思います。向上心を刺激するんですね。だから自転車の実用的な利点しか興味がない人にとっては、ピストバイクは必要ないものだと思います。&lt;br /&gt;
-　フリーギアの自転車をオートマチックの自動車に、ピストをマニュアル操作の自動車に例える人もいますが、自動車の運転より奥が深そうです。自動車の運転（クラッチ操作等）なんてすぐに慣れてしまって、運転するだけで楽しめる時期っていうのはすぐに過ぎ去ってしまいますが、ピストはもっと長く楽しめそうです。&lt;/p&gt;
-
-&lt;h3 id=&quot;gpsロガー&quot;&gt;GPSロガー&lt;/h3&gt;
-&lt;p&gt;　Strollは買い物にも使う街乗り用として購入したので、サイクルコンピュータの類は装着していません。その日何キロ走ったかはGPSロガーを使って後から算出しています。遠出をするときに&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/3c6386a3.9259d73b.3c6386a4.c055db8a/_RTLink90217?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fomatsuri-life2%2Fb001lgik5o%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9&quot;&gt;HOLUXのm-241&lt;/a&gt;や&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/3c638c6f.8006b164.3c638c70.c2ee318b/_RTLink90217?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fseven-eight%2F10004723%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9&quot;&gt;CANMOREのGT-730FL-BK&lt;/a&gt;をバッグの中に入れて、帰宅後ログファイルを&lt;a href=&quot;https://gist.github.com/dtan4/5743825&quot;&gt;こちらのスクリプト&lt;/a&gt;を使って読み込み、その日のおおよその移動距離を測っています。&lt;a href=&quot;https://www.google.co.jp/intl/ja/earth/about/&quot;&gt;Google-Earth&lt;/a&gt;を使ってログファイルを読み込めば、後から辿った経路を眺めてニヤニヤ出来ますし、高度プロファイルも表示すれば辿った経路の高低差も表示されます。箕面市近辺って標高100m程なんですね。わずか標高100mで疲れるのは情けない:sweat_smile:&lt;/p&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/google-earth1.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/google-earth1.png&quot; alt=&quot;高度プロファイル&quot; width=&quot;320&quot; height=&quot;83&quot; title=&quot;高度プロファイル&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　私の場合、ロードバイクやミニベロ（IDIOM2）のログと比較すると、ピストでの平均速度や最高速度はかなり遅くなります。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-</description>
-        <pubDate>Sun, 19 May 2024 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/miscellaneous/2024-05-19/stroll03</link>
-        <guid isPermaLink="true">https://happyclam.github.io/miscellaneous/2024-05-19/stroll03</guid>
-        
-        <category>bicycle</category>
-        
-        
-        <category>miscellaneous</category>
         
       </item>
     
