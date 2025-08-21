@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="author" content="happyclam">
+  <meta name="description"
+    content="C++よりJSの方が速い！？ OOPが悪いわけではない Reinventing the wheel.">
+  <title> C++よりJSの方が速い！？ - 自己満足プログラミング </title>
+
+  <!-- <\!-- Global Site Tag (gtag.js) - Google Analytics -\-> -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script> -->
+  <!-- <script> -->
+  <!--   window.dataLayer = window.dataLayer || []; -->
+  <!--   function gtag(){dataLayer.push(arguments);} -->
+  <!--   gtag('js', new Date()); -->
+  <!--   gtag('config', 'UA-1752720-7'); -->
+  <!-- </script> -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DEV3LMTH6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DEV3LMTH6C');
+</script>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="C++よりJSの方が速い！？">
+  
+  
+  <meta name="twitter:url" content="/software/2025-08-23/JSvsCPlus">
+  
+  
+  <meta name="twitter:description" content="C++よりJavaScriptの方が実行速度が上回っても不思議ではないらしい">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/33shogi_logo.png">
+  
+
+  <link rel="canonical" href="https://happyclam.github.io/software/2025-08-23/JSvsCPlus" />
+  <link rel="alternate" type="application/rss+xml" title="自己満足プログラミング" href="/feed.xml" />
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="site-title" class="navbar-brand" href="/">
+          <img class="pull-left img-responsive" src="">
+          <span class="name-holder">自己満足プログラミング</span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li><a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li><a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li><a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li><a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li><a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1238485061299241" -->
+<!--      crossorigin="anonymous"></script> -->
+
+  <div class="blog-header">
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+      <div class="span9">
+        <!-- Html Elements for Search -->
+        <div id="search-container" align="right">
+          <input type="text" id="search-input" placeholder="search...">
+          <ul class="searchresult" id="results-container"></ul>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+  <script src="/assets/js/jquery.min.js"></script>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
+
+        <header class="page-header">
+          <h2 class="page-title"><a href="/software/2025-08-23/JSvsCPlus">C++よりJSの方が速い！？</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Saturday, August 23, 2025
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">coffeescript</span>
+                
+                  <span class="label label-tag">javascript</span>
+                
+                  <span class="label label-tag">shogi</span>
+                
+                  <span class="label label-tag">c++</span>
+                
+            </div>
+          </div>
+
+        </header>
+
+        <article class="page-content">
+          <h3 id="期待が高過ぎたみたい">期待が高過ぎたみたい</h3>
+<p>　<a href="/software/2025-08-07/OOP">前回の記事</a>で<code class="language-plaintext highlighter-rouge">３三将棋アプリ</code>のソースを元に<code class="language-plaintext highlighter-rouge">C++</code>に書き換えた話を書きましたが、出来上がった<code class="language-plaintext highlighter-rouge">C++製</code>のプログラムは<code class="language-plaintext highlighter-rouge">CoffeeScript(JavaScript)製</code>のものより遅い結果となりました。当ブログで度々「<code class="language-plaintext highlighter-rouge">C++</code>にすればもっと深く読めるのに〜」なんて書いてきましたが、<code class="language-plaintext highlighter-rouge">C++</code>に対する期待が高過ぎたようです。たとえ<code class="language-plaintext highlighter-rouge">C++</code>にとって不利なデータ構造であっても、<code class="language-plaintext highlighter-rouge">C++</code>にはそんなものでは超えられないほどの実行速度の優位性があると信じていたのですが、認識が間違っていたようです。<br />
+　実行速度を比較する際は、実際に作ってみないと正確には分からないという点が辛いところですが、今回は<code class="language-plaintext highlighter-rouge">Grok4</code>にほぼ丸投げで試すことが出来たので、その点は助かりました。</p>
+
+<h3 id="c版がどれぐらい遅いのか">C++版がどれぐらい遅いのか</h3>
+<p>　<a href="https://github.com/happyclam/shogi33simple">CoffeeScriptの３三将棋アプリのレポジトリ</a>と<a href="https://github.com/happyclam/shogi33.git">C++版のリポジトリ</a>の<code class="language-plaintext highlighter-rouge">README.mdファイル</code>に、先手・後手双方をAI同士で対戦させた実行例を記載していますが、<code class="language-plaintext highlighter-rouge">CoffeeScript</code>で<code class="language-plaintext highlighter-rouge">1781ミリ秒</code>で終了する対局が<code class="language-plaintext highlighter-rouge">C++</code>では倍以上の<code class="language-plaintext highlighter-rouge">4434ミリ秒</code>掛かっています。興味のある方は開発環境を用意すれば再現できます。<br />
+　<code class="language-plaintext highlighter-rouge">ChatGPT(GPT-5)</code>が提案するコンパイルオプションもいろいろ試しましたが、ほとんど効果はありませんでした。</p>
+
+<h3 id="chatgptgpt-5によるアドバイス">ChatGPT(GPT-5)によるアドバイス</h3>
+<p>　以下の質問から始めて、<code class="language-plaintext highlighter-rouge">ChatGPT(GPT-5)</code>にいろいろアドバイスを求めました。</p>
+
+<blockquote>
+  <p>同じアルゴリズムとデータ構造で作ったJavascriptとC++のゲームプログラムがあって、Javascript製の方が実行速度が速いとき、どのような原因が考えられますか？</p>
+</blockquote>
+
+<p>　会話の中で<code class="language-plaintext highlighter-rouge">ChatGPT(GPT-5)</code>に言われたことをいくつか箇条書きにしてみます。</p>
+
+<ul>
+  <li>「同じアルゴリズム・データ構造で作ったゲームプログラムで、C++よりJavaScriptの方が速い」というのは直感に反しますが、実際に起こり得ます。</li>
+  <li>なるほど！Piece という抽象クラスがあって、それを継承した Pawn, Rook, Bishop … みたいな形で設計されているわけですね。これはオブジェクト指向的にきれいなんですが、将棋AIの「思考部分（探索＋評価）」ではかなり不利です。</li>
+  <li>なるほど…😅将棋AIをオブジェクト指向で作っている場合、<strong>「設計としてはきれい」だけど「パフォーマンス的には厳しい」</strong>という典型的な状況にハマっていますね。</li>
+  <li>今の実装は「オブジェクト指向的にはきれい」だけど、性能的には JS エンジンの hidden class 最適化に負けているのが原因です。抽象クラスを廃止して struct+enum にするだけで、C++ の方が確実に速くなるはずです。</li>
+  <li>ここが C++ 版が JS に負けている一番の原因候補です。JS のオブジェクトは 実際には JIT によって連続配列のように最適化されます。一方 C++ の「駒ごとのオブジェクト集合＋ポインタ参照」はメモリがバラバラに配置される、毎回ポインタを間接参照する、キャッシュミスが頻発するので「CPU が待ち時間ばかり」で全然速くならない、という現象が起こります。<br />
+　実際、将棋エンジンやチェスエンジンは <strong>必ず「盤面を配列で表現」</strong>しています。</li>
+</ul>
+
+<p>　巷に出回っている将棋ソフトの真似ではなく自分で<code class="language-plaintext highlighter-rouge">オプジェクト志向</code>で作ってみたいと思って作り始めた（元々は<code class="language-plaintext highlighter-rouge">Ruby</code>で作ってました）ので、<code class="language-plaintext highlighter-rouge">ChatGPT(GPT-5)</code>に指摘された内容はある程度認識していましたが、<code class="language-plaintext highlighter-rouge">C++</code>のようなコンバイラ言語なら<code class="language-plaintext highlighter-rouge">CoffeeScript(JavaScript)</code>より遅くなることはないだろう、なんて勝手に思っていました。それに<strong>JS エンジンの hidden class 最適化</strong>なんてことは、<code class="language-plaintext highlighter-rouge">ChatGPT(GPT-5)</code>に指摘されるまで知りませんでした。<code class="language-plaintext highlighter-rouge">JavaScript</code>って自分が思っていたより元々速いんですね。<br />
+　そう言えば同じアルゴリズムとデータ構造で昔作った<code class="language-plaintext highlighter-rouge">Ruby</code>製の将棋ソフトより<code class="language-plaintext highlighter-rouge">JS</code>の方が断然速いなぁとは感じてました。</p>
+
+<h3 id="小さなリファクタリング">小さなリファクタリング</h3>
+<p>　<code class="language-plaintext highlighter-rouge">ChatGPT(GPT-5)</code>に、大きなリファクタリングが大変なら以下のような高速化案がありますと言われました。</p>
+
+<ol>
+  <li>vtableを極力通さない<br />
+もし 駒種はコンストラクタで固定なら、Piece に「enum型のメンバー」を持たせておけば仮想関数を呼ばずに済みます。→ piece-&gt;type に直接アクセスできれば、仮想関数呼び出しを消せる。</li>
+  <li>駒オブジェクトをヒープでなく配列に置く<br />
+new してポインタ管理するのではなく、最初にstatic Piece allPieces[MAX_PIECES];を作って Board はポインタではなく インデックス（int）で参照する。<br />
+これなら 全駒が連続配置されるのでキャッシュ効率が改善します。</li>
+  <li>評価関数の高速化<br />
+もし各駒に evaluate() があるなら呼ばずに、
+switch(piece-&gt;type)
+あるいは pieceSquareTable の配列参照に置き換えるだけでもだいぶ速くなるはず。</li>
+  <li>コンパイルオプションで粘る<br />
+既に -O2 をお使いですが、<br />
+<code class="language-plaintext highlighter-rouge">g++ -O3 -march=native -flto=8 -funroll-loops -DNDEBUG</code><br />
+を試すと、関数インライン化やループ展開が強化されて多少マシになります。</li>
+</ol>
+
+<p>　ソース全体を通して1.の<code class="language-plaintext highlighter-rouge">ChatGPT(GPT-5)</code>からのアドバイスを実装してみました（koma-&gt;getKind()で駒種を取得していた処理をやめて、publicなenum型のメンバ変数を追加してkoma-&gt;typeで駒種を判定）が、<code class="language-plaintext highlighter-rouge">4434ミリ秒</code>掛かっていた処理が<code class="language-plaintext highlighter-rouge">400m秒</code>程短縮出来ただけで全然<code class="language-plaintext highlighter-rouge">CoffeeScript(JavaScript)</code>には敵いません。<br />
+　ということで、今の<a href="https://happyclam.booth.pm/">将棋・チェス関連アプリ</a>は<code class="language-plaintext highlighter-rouge">JS</code>のまま置いておくのが一番良いのかなと思っていて、改善するにしても今の<code class="language-plaintext highlighter-rouge">CoffeeScript</code>のまま改善していく方向で考えています。</p>
+
+<h3 id="それでもoopが好き">それでもOOPが好き</h3>
+<p>　<code class="language-plaintext highlighter-rouge">OOP（オブジェクト指向プログラミング）</code>を絶対視する気はありませんが、<code class="language-plaintext highlighter-rouge">OOP言語</code>を使う限りは<code class="language-plaintext highlighter-rouge">OOP</code>すべきなんじゃない？なんて思ってましたが、実効性を重視するなら拘らないほうがいいのかもしれません。昔、<code class="language-plaintext highlighter-rouge">Rails</code>のプロジェクトでありながら<code class="language-plaintext highlighter-rouge">ORM（O/Rマッパー）</code>を使わずに<code class="language-plaintext highlighter-rouge">SQL文</code>を書いているなんてプロジェクトの話を聞いたことがありますし、もしかして<code class="language-plaintext highlighter-rouge">Go言語</code>や<code class="language-plaintext highlighter-rouge">Rust</code>など<code class="language-plaintext highlighter-rouge">非OOP言語</code>が勢力を伸ばして来ているのは、よく知りませんが、実行速度を上げること（PCが処理しやすい）を重視する流れなのかもしれません。<br />
+　でも<code class="language-plaintext highlighter-rouge">Rails</code>が出てきた頃に<code class="language-plaintext highlighter-rouge">ORM</code>に感動した自分としては、<code class="language-plaintext highlighter-rouge">Rails</code>を使いながら<code class="language-plaintext highlighter-rouge">SQL文</code>を書くなんていうプロジェクトには参加したくありませんし、今後も<code class="language-plaintext highlighter-rouge">OOP</code>で作りたいと思ってます。<code class="language-plaintext highlighter-rouge">「OOPとは何か？」</code>なんて話をすると主語が大きくなりすぎて自分には語れませんが、直感的に人間が理解しやすいと思うんですよねぇ。今回のケースも<code class="language-plaintext highlighter-rouge">OOP</code>が悪いということではなく、まだまだ改善の余地があると思ってます。というか、取り敢えず機能を実現することを優先していて、高速化に関しては深く考えていませんでした。後は<code class="language-plaintext highlighter-rouge">C++</code>にすれば自然と速くなるだろう、なんて考えながらも手を付けられずに長い間放置していた感じです。<br />
+　新規に<code class="language-plaintext highlighter-rouge">GUI</code>から作ることを考えれば現状の<code class="language-plaintext highlighter-rouge">CoffeeScript</code>のリファクタリング＆高速化に着手するほうが楽ですし、どれ程の結果が出るか未知数ですがいつくかアイデアもあるので試してみたいと思ってます。</p>
+
+<hr />
+
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <small>&copy; rifyll theme, 2014</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+</body>
+
+</html>

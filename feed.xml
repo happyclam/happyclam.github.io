@@ -5,9 +5,87 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 16 Aug 2025 14:32:26 +0900</pubDate>
-    <lastBuildDate>Sat, 16 Aug 2025 14:32:26 +0900</lastBuildDate>
+    <pubDate>Thu, 21 Aug 2025 20:46:22 +0900</pubDate>
+    <lastBuildDate>Thu, 21 Aug 2025 20:46:22 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
+    
+      <item>
+        <title>C++よりJSの方が速い！？</title>
+        <description>&lt;h3 id=&quot;期待が高過ぎたみたい&quot;&gt;期待が高過ぎたみたい&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/software/2025-08-07/OOP&quot;&gt;前回の記事&lt;/a&gt;で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;３三将棋アプリ&lt;/code&gt;のソースを元に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;に書き換えた話を書きましたが、出来上がった&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++製&lt;/code&gt;のプログラムは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript(JavaScript)製&lt;/code&gt;のものより遅い結果となりました。当ブログで度々「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;にすればもっと深く読めるのに〜」なんて書いてきましたが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;に対する期待が高過ぎたようです。たとえ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;にとって不利なデータ構造であっても、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;にはそんなものでは超えられないほどの実行速度の優位性があると信じていたのですが、認識が間違っていたようです。&lt;br /&gt;
+　実行速度を比較する際は、実際に作ってみないと正確には分からないという点が辛いところですが、今回は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Grok4&lt;/code&gt;にほぼ丸投げで試すことが出来たので、その点は助かりました。&lt;/p&gt;
+
+&lt;h3 id=&quot;c版がどれぐらい遅いのか&quot;&gt;C++版がどれぐらい遅いのか&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;CoffeeScriptの３三将棋アプリのレポジトリ&lt;/a&gt;と&lt;a href=&quot;https://github.com/happyclam/shogi33.git&quot;&gt;C++版のリポジトリ&lt;/a&gt;の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;README.mdファイル&lt;/code&gt;に、先手・後手双方をAI同士で対戦させた実行例を記載していますが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript&lt;/code&gt;で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1781ミリ秒&lt;/code&gt;で終了する対局が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;では倍以上の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4434ミリ秒&lt;/code&gt;掛かっています。興味のある方は開発環境を用意すれば再現できます。&lt;br /&gt;
+　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT(GPT-5)&lt;/code&gt;が提案するコンパイルオプションもいろいろ試しましたが、ほとんど効果はありませんでした。&lt;/p&gt;
+
+&lt;h3 id=&quot;chatgptgpt-5によるアドバイス&quot;&gt;ChatGPT(GPT-5)によるアドバイス&lt;/h3&gt;
+&lt;p&gt;　以下の質問から始めて、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT(GPT-5)&lt;/code&gt;にいろいろアドバイスを求めました。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;同じアルゴリズムとデータ構造で作ったJavascriptとC++のゲームプログラムがあって、Javascript製の方が実行速度が速いとき、どのような原因が考えられますか？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;　会話の中で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT(GPT-5)&lt;/code&gt;に言われたことをいくつか箇条書きにしてみます。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;「同じアルゴリズム・データ構造で作ったゲームプログラムで、C++よりJavaScriptの方が速い」というのは直感に反しますが、実際に起こり得ます。&lt;/li&gt;
+  &lt;li&gt;なるほど！Piece という抽象クラスがあって、それを継承した Pawn, Rook, Bishop … みたいな形で設計されているわけですね。これはオブジェクト指向的にきれいなんですが、将棋AIの「思考部分（探索＋評価）」ではかなり不利です。&lt;/li&gt;
+  &lt;li&gt;なるほど…😅将棋AIをオブジェクト指向で作っている場合、&lt;strong&gt;「設計としてはきれい」だけど「パフォーマンス的には厳しい」&lt;/strong&gt;という典型的な状況にハマっていますね。&lt;/li&gt;
+  &lt;li&gt;今の実装は「オブジェクト指向的にはきれい」だけど、性能的には JS エンジンの hidden class 最適化に負けているのが原因です。抽象クラスを廃止して struct+enum にするだけで、C++ の方が確実に速くなるはずです。&lt;/li&gt;
+  &lt;li&gt;ここが C++ 版が JS に負けている一番の原因候補です。JS のオブジェクトは 実際には JIT によって連続配列のように最適化されます。一方 C++ の「駒ごとのオブジェクト集合＋ポインタ参照」はメモリがバラバラに配置される、毎回ポインタを間接参照する、キャッシュミスが頻発するので「CPU が待ち時間ばかり」で全然速くならない、という現象が起こります。&lt;br /&gt;
+　実際、将棋エンジンやチェスエンジンは &lt;strong&gt;必ず「盤面を配列で表現」&lt;/strong&gt;しています。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;　巷に出回っている将棋ソフトの真似ではなく自分で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;オプジェクト志向&lt;/code&gt;で作ってみたいと思って作り始めた（元々は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;で作ってました）ので、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT(GPT-5)&lt;/code&gt;に指摘された内容はある程度認識していましたが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;のようなコンバイラ言語なら&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript(JavaScript)&lt;/code&gt;より遅くなることはないだろう、なんて勝手に思っていました。それに&lt;strong&gt;JS エンジンの hidden class 最適化&lt;/strong&gt;なんてことは、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT(GPT-5)&lt;/code&gt;に指摘されるまで知りませんでした。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JavaScript&lt;/code&gt;って自分が思っていたより元々速いんですね。&lt;br /&gt;
+　そう言えば同じアルゴリズムとデータ構造で昔作った&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;製の将棋ソフトより&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JS&lt;/code&gt;の方が断然速いなぁとは感じてました。&lt;/p&gt;
+
+&lt;h3 id=&quot;小さなリファクタリング&quot;&gt;小さなリファクタリング&lt;/h3&gt;
+&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT(GPT-5)&lt;/code&gt;に、大きなリファクタリングが大変なら以下のような高速化案がありますと言われました。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;vtableを極力通さない&lt;br /&gt;
+もし 駒種はコンストラクタで固定なら、Piece に「enum型のメンバー」を持たせておけば仮想関数を呼ばずに済みます。→ piece-&amp;gt;type に直接アクセスできれば、仮想関数呼び出しを消せる。&lt;/li&gt;
+  &lt;li&gt;駒オブジェクトをヒープでなく配列に置く&lt;br /&gt;
+new してポインタ管理するのではなく、最初にstatic Piece allPieces[MAX_PIECES];を作って Board はポインタではなく インデックス（int）で参照する。&lt;br /&gt;
+これなら 全駒が連続配置されるのでキャッシュ効率が改善します。&lt;/li&gt;
+  &lt;li&gt;評価関数の高速化&lt;br /&gt;
+もし各駒に evaluate() があるなら呼ばずに、
+switch(piece-&amp;gt;type)
+あるいは pieceSquareTable の配列参照に置き換えるだけでもだいぶ速くなるはず。&lt;/li&gt;
+  &lt;li&gt;コンパイルオプションで粘る&lt;br /&gt;
+既に -O2 をお使いですが、&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;g++ -O3 -march=native -flto=8 -funroll-loops -DNDEBUG&lt;/code&gt;&lt;br /&gt;
+を試すと、関数インライン化やループ展開が強化されて多少マシになります。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;　ソース全体を通して1.の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT(GPT-5)&lt;/code&gt;からのアドバイスを実装してみました（koma-&amp;gt;getKind()で駒種を取得していた処理をやめて、publicなenum型のメンバ変数を追加してkoma-&amp;gt;typeで駒種を判定）が、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4434ミリ秒&lt;/code&gt;掛かっていた処理が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;400m秒&lt;/code&gt;程短縮出来ただけで全然&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript(JavaScript)&lt;/code&gt;には敵いません。&lt;br /&gt;
+　ということで、今の&lt;a href=&quot;https://happyclam.booth.pm/&quot;&gt;将棋・チェス関連アプリ&lt;/a&gt;は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JS&lt;/code&gt;のまま置いておくのが一番良いのかなと思っていて、改善するにしても今の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript&lt;/code&gt;のまま改善していく方向で考えています。&lt;/p&gt;
+
+&lt;h3 id=&quot;それでもoopが好き&quot;&gt;それでもOOPが好き&lt;/h3&gt;
+&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OOP（オブジェクト指向プログラミング）&lt;/code&gt;を絶対視する気はありませんが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OOP言語&lt;/code&gt;を使う限りは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OOP&lt;/code&gt;すべきなんじゃない？なんて思ってましたが、実効性を重視するなら拘らないほうがいいのかもしれません。昔、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rails&lt;/code&gt;のプロジェクトでありながら&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ORM（O/Rマッパー）&lt;/code&gt;を使わずに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SQL文&lt;/code&gt;を書いているなんてプロジェクトの話を聞いたことがありますし、もしかして&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Go言語&lt;/code&gt;や&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rust&lt;/code&gt;など&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;非OOP言語&lt;/code&gt;が勢力を伸ばして来ているのは、よく知りませんが、実行速度を上げること（PCが処理しやすい）を重視する流れなのかもしれません。&lt;br /&gt;
+　でも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rails&lt;/code&gt;が出てきた頃に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ORM&lt;/code&gt;に感動した自分としては、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rails&lt;/code&gt;を使いながら&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SQL文&lt;/code&gt;を書くなんていうプロジェクトには参加したくありませんし、今後も&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OOP&lt;/code&gt;で作りたいと思ってます。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;「OOPとは何か？」&lt;/code&gt;なんて話をすると主語が大きくなりすぎて自分には語れませんが、直感的に人間が理解しやすいと思うんですよねぇ。今回のケースも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OOP&lt;/code&gt;が悪いということではなく、まだまだ改善の余地があると思ってます。というか、取り敢えず機能を実現することを優先していて、高速化に関しては深く考えていませんでした。後は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;にすれば自然と速くなるだろう、なんて考えながらも手を付けられずに長い間放置していた感じです。&lt;br /&gt;
+　新規に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GUI&lt;/code&gt;から作ることを考えれば現状の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript&lt;/code&gt;のリファクタリング＆高速化に着手するほうが楽ですし、どれ程の結果が出るか未知数ですがいつくかアイデアもあるので試してみたいと思ってます。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+</description>
+        <pubDate>Sat, 23 Aug 2025 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/software/2025-08-23/JSvsCPlus</link>
+        <guid isPermaLink="true">https://happyclam.github.io/software/2025-08-23/JSvsCPlus</guid>
+        
+        <category>coffeescript</category>
+        
+        <category>javascript</category>
+        
+        <category>shogi</category>
+        
+        <category>c++</category>
+        
+        
+        <category>software</category>
+        
+      </item>
     
       <item>
         <title>３三将棋CUI版のC++バージョン</title>
@@ -960,121 +1038,6 @@ Amazonの「整備済み品」を18,980円でわざわざ購入しました。&l
         
         
         <category>miscellaneous</category>
-        
-      </item>
-    
-      <item>
-        <title>Ubuntuでやねうら王</title>
-        <description>&lt;h3 id=&quot;最新将棋aiの必要性を感じてなかった&quot;&gt;最新将棋AIの必要性を感じてなかった&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/software/2018-10-27/unpromote&quot;&gt;以前の記事&lt;/a&gt;にも書きましたが、将棋ソフトに関しては「AI将棋13」というかなり古いWindows用の将棋ソフトをUbuntu機でWineを使って動かしてます。自分の棋力ではこのソフトで十分な強さですし、GUIが使いやすく詰将棋の入力や解答にも便利なので、特に最新の将棋AIソフトを使う必要性を感じていなかったからです。&lt;br /&gt;
-　でも、そろそろ最新とまでは行かなくても近年の将棋AIを味わってみるかと思い立ちUbuntuに導入してみました。「やねうら王」自体は昔からLinuxに対応しているのは知っていましたが、将棋GUIソフトで「ShogiHome」というものが存在することを知ったのが切っ掛けで、UbuntuでGUIが動かせるならやってみようって感じです。&lt;br /&gt;
-　「やねうら王」に詳しいわけではないので細かな設定は分かりませんが、とにかく動かすために自分がやった手順を紹介してみます。&lt;/p&gt;
-
-&lt;h3 id=&quot;必要なもの&quot;&gt;必要なもの&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/yaneurao/YaneuraOu.git&quot;&gt;やねうら王&lt;/a&gt;&lt;br /&gt;
-　自分の環境に合わせてコンパイルが必要です。&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/yaneurao/YaneuraOu/wiki/%E3%82%84%E3%81%AD%E3%81%86%E3%82%89%E7%8E%8B%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%89%8B%E9%A0%86&quot;&gt;評価関数&lt;/a&gt;&lt;br /&gt;
-　この記事内の「6. 評価関数のタイプ」という表の中から評価関数を選んで、リンクを辿ってダウンロードします。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nn.bin&lt;/code&gt;という名前の評価関数ファイルだけあればとりあえず使えるようになるみたいです。自分は表の中から無料で使えてお勧めされている&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;『Lí』（tanuki-wcsc33-2023-05-04）&lt;/code&gt;を選んで、&lt;a href=&quot;https://github.com/nodchip/tanuki-/releases/tag/tanuki-wcsc33-2023-05-04&quot;&gt;リンク先&lt;/a&gt;から&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tanuki-wcsc33-2023-05-04.7z
-&lt;/code&gt;をダウンロードしました。&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/sunfish-shogi/electron-shogi/releases&quot;&gt;将棋GUI（ShogiHome）&lt;/a&gt;&lt;br /&gt;
-　リストの中の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;release-v1.14.2-linux.zip&lt;/code&gt;をダウンロードしました。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;インストール手順&quot;&gt;インストール手順&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;やねうら王をダウンロード
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/yaneurao/YaneuraOu.git
-cd YaneuraOu
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;source/eval&lt;/code&gt;ディレクトリを作成して、評価関数ファイル（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nn.bin&lt;/code&gt;）をコピー
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd source
-mkdir eval
-cp -p ~/Download/tanuki-wcsc33-2023-05-04/eval/nn.bin eval/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Makefileを編集
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-YANEURAOU_EDITION = YANEURAOU_ENGINE_NNUE
-+#YANEURAOU_EDITION = YANEURAOU_ENGINE_NNUE
--#YANEURAOU_EDITION = YANEURAOU_ENGINE_NNUE_HALFKP_1024X2_8_32
-+YANEURAOU_EDITION = YANEURAOU_ENGINE_NNUE_HALFKP_1024X2_8_32
--#TARGET_CPU = ZEN3
-+TARGET_CPU = ZEN3
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;変更したのは上記３行です。
-自分のUbuntu機のCPUは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AMD Ryzen 7 5700G with Radeon Graphics&lt;/code&gt;なので&lt;strong&gt;TARGET_CPU&lt;/strong&gt;を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ZEN3&lt;/code&gt;に、ダウンロードした評価関数が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tanuki-wcsc33-2023-05-04&lt;/code&gt;なので&lt;strong&gt;YANEURAOU_EDITION&lt;/strong&gt;を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YANEURAOU_ENGINE_NNUE_HALFKP_1024X2_8_32&lt;/code&gt;に、と言う感じです。&lt;a href=&quot;https://github.com/yaneurao/YaneuraOu/wiki/%E3%82%84%E3%81%AD%E3%81%86%E3%82%89%E7%8E%8B%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%89%8B%E9%A0%86&quot;&gt;「やねうら王のインストール手順」&lt;/a&gt;の「6. 評価関数のタイプ」に書かれている表のとおりに指定しただけです。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;やねうら王をコンパイル
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;make
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YaneuraOu-by-gcc&lt;/code&gt;というファイルがsourceディレクトリに出来上がります。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;ダウンロードした&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ShogiHome（release-v1.14.2-linux.zip）&lt;/code&gt;を解凍し、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ShogiHome（ElectronShogi-1.13.7.AppImage）&lt;/code&gt;を右クリックから実行
-    &lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;/images/electron.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/electron.png&quot; alt=&quot;ShogiHome&quot; width=&quot;360&quot; height=&quot;301&quot; title=&quot;ShogiHome&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;後はShogiHomeの画面から[設定]-&amp;gt;[エンジン設定]-&amp;gt;[追加]で、先程コンパイルした&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やねうら王（YaneuraOu-by-gcc）ファイル&lt;/code&gt;を選択して[保存して閉じる]するだけです。
-    &lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;/images/electron_engine.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/electron_engine.png&quot; alt=&quot;ShogiHome エンジン管理&quot; width=&quot;360&quot; height=&quot;301&quot; title=&quot;ShogiHome エンジン管理&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;※上記手順の実行環境はUbuntu22.04ですが、Ubuntu24.04を新規にインストールした環境ではShogiHomeの実行ファイル（AppImage）が動きませんでした。&lt;br /&gt;
-　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;libfuse2&lt;/code&gt;が必要なようです。&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install libfuse2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;　22.04の自分のUbuntu環境にはすでに入っていたようです。&lt;/p&gt;
-
-&lt;h3 id=&quot;ナイアガラの滝を検証&quot;&gt;ナイアガラの滝を検証&lt;/h3&gt;
-&lt;p&gt;　試してみるまでもなく結果は分かっていると思いながらも、一応「AI将棋13」と手動で３局対局させてみましたが「やねうら王」の圧勝でした。予想通りでしたがこれだと面白くないので、将棋で大逆転が起きたときの棋譜を一つ比較してみることにしました。&lt;br /&gt;
-　まずは「AI将棋13」で解析すると以下のように先手優勢から一気に後手に振れる所謂&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ナイアガラの滝&lt;/code&gt;状態です。&lt;/p&gt;
-
-&lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/aishogi13.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/aishogi13.png&quot; alt=&quot;AI将棋13 棋譜解析&quot; width=&quot;360&quot; height=&quot;301&quot; title=&quot;AI将棋13 棋譜解析&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　次は同じ棋譜を「やねうら王」で解析した結果です。グラフの赤い縦線が引かれているところは上のグラフの縦線が引かれているところ（先手のピーク）と同じ局面です。&lt;/p&gt;
-
-&lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/yaneuraou.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/yaneuraou.png&quot; alt=&quot;やねうら王 棋譜解析&quot; width=&quot;360&quot; height=&quot;301&quot; title=&quot;やねうら王 棋譜解析&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　つまり、「AI将棋13」だと終盤一気に逆転したように見えますが、「やねうら王」で確認すると先手のピークは10手以上前に過ぎていて、「AI将棋13」で先手大優勢に見える局面は「やねうら王」では既に後手優勢に変わっていて、逆転したのはかなり前の局面だったことが分かります。&lt;br /&gt;
-　AIが進化すると共に勝敗の結論がどんどん前倒しで分かるようになって、いずれは初手を指した瞬間にグラフが上か下に張り付くようになるのでしょうね。将棋の結論が持将棋や千日手ならそうはなりませんが。&lt;br /&gt;
-　比較に使った2006年発売の「AI将棋13」は古過ぎるだろうという指摘もあると思いますが、今手元にあるAndroidアプリの「ShogiDroid」で確認しても先手のピークは「AI将棋13」と同じでした（「AI将棋13」はよく出来ていると思います）。「ShogiDroid」のAIは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GPSfish&lt;/code&gt;のようなので、詳しくは知りませんが2016年辺りのAIだと思います、PCではなくスマホで動いているというハンデはありますが。&lt;br /&gt;
-　関係ないですが「ShogiDroid」を更新しようとして確認してみたところ、今はもうGooglePlayに公開していないようです。&lt;/p&gt;
-
-&lt;h3 id=&quot;スポンサー&quot;&gt;スポンサー&lt;/h3&gt;
-&lt;p&gt;　最近将棋はYoutubeやAbemaで見るだけなのですが、「やねうら王」は今後も棋譜解析に使うと思いますのでわずか&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$10&lt;/code&gt;だけですが&lt;a href=&quot;https://github.com/sponsors/yaneurao&quot;&gt;ここ&lt;/a&gt;から支援しました:sweat_smile:&lt;br /&gt;
-　送金しながら思ったのは「趣味で将棋を楽しんでいるだけの自分が支援しているのに、仕事で金儲けのために将棋AIを使っているプロ棋士が支援しないのはおかしいんじゃない？」とは思いましたね:sweat_smile:個人的に支援してるプロ棋士はいるらしいですけど&lt;br /&gt;
-　&lt;a href=&quot;https://github.com/sunfish-shogi/electron-shogi&quot;&gt;ShogiHome&lt;/a&gt;もgithub sponsorの窓口用意してくれれば支援したいと思ってます。&lt;/p&gt;
-
-&lt;h3 id=&quot;ossについて少し思うこと&quot;&gt;OSSについて少し思うこと&lt;/h3&gt;
-&lt;p&gt;　それにしてもOSSで開発資金回収って難しいだろうなとは思います。本来はどこかの企業に独占させない&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;自由&lt;/code&gt;なソフト（Free Software）というのがOSSの精神だと思いますが、日本では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Free&lt;/code&gt;を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;無料&lt;/code&gt;と訳して無料ソフトだと喧伝されているのが残念です。日本人のほとんどがフリーソフト＝無料ソフトという認識しか持ってないのではないでしょうか:sweat_smile:&lt;br /&gt;
-　でもOSSの精神を誤解している人が多いことは残念だとは思うけど、すべてのソフトウェアについてOSSがすばらしいやり方だとも思いません。公共性の高いソフトウェア（例えばLinuxやGit）なんかは今OSSとして開発されていることが素晴らしいことだと思いますが、自分個人が作るようなソフトのソースを公開しても「パクられて終わり」になると思うので、GNUの所謂&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GPLライセンス&lt;/code&gt;でソフトウェアを公開したいとは思えません。「やねうら王」に関しては過去の経緯を踏まえて仕方なく&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GPL&lt;/code&gt;にしているって感じでしょうか？違ってたらスイマセン:bow:事情をよく知らないし、ライセンスについても詳しいわけではないのでこの辺りで止めておきます。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-</description>
-        <pubDate>Wed, 12 Jun 2024 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/software/2024-06-12/yaneuraou</link>
-        <guid isPermaLink="true">https://happyclam.github.io/software/2024-06-12/yaneuraou</guid>
-        
-        <category>ubuntu</category>
-        
-        <category>shogi</category>
-        
-        
-        <category>software</category>
         
       </item>
     
