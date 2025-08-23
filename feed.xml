@@ -5,14 +5,14 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 22 Aug 2025 06:55:58 +0900</pubDate>
-    <lastBuildDate>Fri, 22 Aug 2025 06:55:58 +0900</lastBuildDate>
+    <pubDate>Sun, 24 Aug 2025 08:05:57 +0900</pubDate>
+    <lastBuildDate>Sun, 24 Aug 2025 08:05:57 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
         <title>C++よりJSの方が速い！？</title>
         <description>&lt;h3 id=&quot;期待が高過ぎたみたい&quot;&gt;期待が高過ぎたみたい&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/software/2025-08-07/OOP&quot;&gt;前回の記事&lt;/a&gt;で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;３三将棋アプリ&lt;/code&gt;のソースを元に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;に書き換えた話を書きましたが、出来上がった&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++製&lt;/code&gt;のプログラムは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript(JavaScript)製&lt;/code&gt;のものより遅い結果となりました。当ブログで度々「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;にすればもっと深く読めるのに〜」なんて書いてきましたが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;に対する期待が高過ぎたようです。たとえ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;にとって不利なデータ構造であっても、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;にはそんなものでは超えられないほどの実行速度の優位性があると信じていたのですが、認識が間違っていたようです。&lt;br /&gt;
+&lt;p&gt;　&lt;a href=&quot;/software/2025-08-07/OOP&quot;&gt;前回の記事&lt;/a&gt;で&lt;a href=&quot;https://happyclam.booth.pm/items/6323599&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;３三将棋アプリ&lt;/code&gt;&lt;/a&gt;のソースを元に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;に書き換えた話を書きましたが、なんと出来上がった&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++製&lt;/code&gt;のプログラムは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript(JavaScript)製&lt;/code&gt;のものより遅い結果となりました。当ブログで度々「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;にすればもっと深く読めるのに〜」なんて書いてきましたが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;に対する期待が高過ぎたようです。たとえ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;にとって不利なデータ構造であっても、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;にはそんなものでは超えられないほどの実行速度の優位性があると信じていたのですが、認識が間違っていたようです。&lt;br /&gt;
 　実行速度を比較する際は、実際に作ってみないと正確には分からないという点が辛いところですが、今回は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Grok4&lt;/code&gt;にほぼ丸投げで試すことが出来たので、その点は助かりました。&lt;/p&gt;
 
 &lt;h3 id=&quot;c版がどれぐらい遅いのか&quot;&gt;C++版がどれぐらい遅いのか&lt;/h3&gt;
@@ -59,7 +59,7 @@ switch(piece-&amp;gt;type)
 を試すと、関数インライン化やループ展開が強化されて多少マシになります。&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;　簡単に試せそうなのでソース全体を通して1.の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT(GPT-5)&lt;/code&gt;からのアドバイスを実装してみました（koma-&amp;gt;getKind()で駒種を取得していた処理をやめて、publicなenum型のメンバ変数を追加してkoma-&amp;gt;typeで駒種を判定）が、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4434ミリ秒&lt;/code&gt;掛かっていた処理が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;400m秒&lt;/code&gt;程短縮出来ただけで全然&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript(JavaScript)&lt;/code&gt;には敵いません。&lt;br /&gt;
+&lt;p&gt;　簡単に試せそうなのでソース全体を通して1.の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT(GPT-5)&lt;/code&gt;からのアドバイスを実装してみました（koma-&amp;gt;getKind()で駒種を取得していた処理をやめて、publicなenum型のconstメンバ変数を追加してkoma-&amp;gt;typeで駒種を判定）が、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4434ミリ秒&lt;/code&gt;掛かっていた処理が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;400m秒&lt;/code&gt;程短縮出来ただけで全然&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript(JavaScript)&lt;/code&gt;には敵いません。&lt;br /&gt;
 　ということで、今の&lt;a href=&quot;https://happyclam.booth.pm/&quot;&gt;将棋・チェス関連アプリ&lt;/a&gt;は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JS&lt;/code&gt;のまま置いておくのが一番良いのかなと思っていて、改善するにしても今の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript&lt;/code&gt;のまま改善していく方向で考えています。&lt;/p&gt;
 
 &lt;h3 id=&quot;それでもoopが好き&quot;&gt;それでもOOPが好き&lt;/h3&gt;

@@ -167,7 +167,7 @@
 
         <article class="page-content">
           <h3 id="期待が高過ぎたみたい">期待が高過ぎたみたい</h3>
-<p>　<a href="/software/2025-08-07/OOP">前回の記事</a>で<code class="language-plaintext highlighter-rouge">３三将棋アプリ</code>のソースを元に<code class="language-plaintext highlighter-rouge">C++</code>に書き換えた話を書きましたが、出来上がった<code class="language-plaintext highlighter-rouge">C++製</code>のプログラムは<code class="language-plaintext highlighter-rouge">CoffeeScript(JavaScript)製</code>のものより遅い結果となりました。当ブログで度々「<code class="language-plaintext highlighter-rouge">C++</code>にすればもっと深く読めるのに〜」なんて書いてきましたが、<code class="language-plaintext highlighter-rouge">C++</code>に対する期待が高過ぎたようです。たとえ<code class="language-plaintext highlighter-rouge">C++</code>にとって不利なデータ構造であっても、<code class="language-plaintext highlighter-rouge">C++</code>にはそんなものでは超えられないほどの実行速度の優位性があると信じていたのですが、認識が間違っていたようです。<br />
+<p>　<a href="/software/2025-08-07/OOP">前回の記事</a>で<a href="https://happyclam.booth.pm/items/6323599"><code class="language-plaintext highlighter-rouge">３三将棋アプリ</code></a>のソースを元に<code class="language-plaintext highlighter-rouge">C++</code>に書き換えた話を書きましたが、なんと出来上がった<code class="language-plaintext highlighter-rouge">C++製</code>のプログラムは<code class="language-plaintext highlighter-rouge">CoffeeScript(JavaScript)製</code>のものより遅い結果となりました。当ブログで度々「<code class="language-plaintext highlighter-rouge">C++</code>にすればもっと深く読めるのに〜」なんて書いてきましたが、<code class="language-plaintext highlighter-rouge">C++</code>に対する期待が高過ぎたようです。たとえ<code class="language-plaintext highlighter-rouge">C++</code>にとって不利なデータ構造であっても、<code class="language-plaintext highlighter-rouge">C++</code>にはそんなものでは超えられないほどの実行速度の優位性があると信じていたのですが、認識が間違っていたようです。<br />
 　実行速度を比較する際は、実際に作ってみないと正確には分からないという点が辛いところですが、今回は<code class="language-plaintext highlighter-rouge">Grok4</code>にほぼ丸投げで試すことが出来たので、その点は助かりました。</p>
 
 <h3 id="c版がどれぐらい遅いのか">C++版がどれぐらい遅いのか</h3>
@@ -214,7 +214,7 @@ switch(piece-&gt;type)
 を試すと、関数インライン化やループ展開が強化されて多少マシになります。</li>
 </ol>
 
-<p>　簡単に試せそうなのでソース全体を通して1.の<code class="language-plaintext highlighter-rouge">ChatGPT(GPT-5)</code>からのアドバイスを実装してみました（koma-&gt;getKind()で駒種を取得していた処理をやめて、publicなenum型のメンバ変数を追加してkoma-&gt;typeで駒種を判定）が、<code class="language-plaintext highlighter-rouge">4434ミリ秒</code>掛かっていた処理が<code class="language-plaintext highlighter-rouge">400m秒</code>程短縮出来ただけで全然<code class="language-plaintext highlighter-rouge">CoffeeScript(JavaScript)</code>には敵いません。<br />
+<p>　簡単に試せそうなのでソース全体を通して1.の<code class="language-plaintext highlighter-rouge">ChatGPT(GPT-5)</code>からのアドバイスを実装してみました（koma-&gt;getKind()で駒種を取得していた処理をやめて、publicなenum型のconstメンバ変数を追加してkoma-&gt;typeで駒種を判定）が、<code class="language-plaintext highlighter-rouge">4434ミリ秒</code>掛かっていた処理が<code class="language-plaintext highlighter-rouge">400m秒</code>程短縮出来ただけで全然<code class="language-plaintext highlighter-rouge">CoffeeScript(JavaScript)</code>には敵いません。<br />
 　ということで、今の<a href="https://happyclam.booth.pm/">将棋・チェス関連アプリ</a>は<code class="language-plaintext highlighter-rouge">JS</code>のまま置いておくのが一番良いのかなと思っていて、改善するにしても今の<code class="language-plaintext highlighter-rouge">CoffeeScript</code>のまま改善していく方向で考えています。</p>
 
 <h3 id="それでもoopが好き">それでもOOPが好き</h3>
