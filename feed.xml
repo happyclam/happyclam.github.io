@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 24 Aug 2025 08:05:57 +0900</pubDate>
-    <lastBuildDate>Sun, 24 Aug 2025 08:05:57 +0900</lastBuildDate>
+    <pubDate>Wed, 08 Oct 2025 21:01:03 +0900</pubDate>
+    <lastBuildDate>Wed, 08 Oct 2025 21:01:03 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -979,6 +979,36 @@ Amazonの「整備済み品」を18,980円でわざわざ購入しました。&l
   &lt;p&gt;&lt;a href=&quot;/images/ubports_paypal.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/ubports_paypal.png&quot; alt=&quot;paypalのエラー&quot; width=&quot;320&quot; height=&quot;214&quot; title=&quot;paypalのエラー&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
+
+&lt;h3 id=&quot;日本語入力出来ました2025-10-08追記&quot;&gt;日本語入力出来ました（2025-10-08追記）&lt;/h3&gt;
+&lt;p&gt;　久しぶりに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ubuntu Touch&lt;/code&gt;を起動してシステムメニューから&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Update&lt;/code&gt;後、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Upgrade&lt;/code&gt;したら日本語入力が可能になってました。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/Touch_2404.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/Touch_2404.png&quot; alt=&quot;Ubuntu Touch 24.04&quot; width=&quot;270&quot; height=&quot;540&quot; title=&quot;Ubuntu Touch 24.04&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　ChatGPTによると&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;maliit-keyboard が新しい Qt InputMethod Framework に対応&lt;/li&gt;
+  &lt;li&gt;fcitx5 と mozc が root ではなく phablet 権限で利用可能&lt;/li&gt;
+  &lt;li&gt;日本語ロケール (ja_JP.UTF-8) がデフォルト同梱&lt;/li&gt;
+  &lt;li&gt;UIフォントが Noto Sans CJK に統一され文字化けが解消&lt;/li&gt;
+  &lt;li&gt;標準のMaliitキーボードが日本語入力対応済み&lt;/li&gt;
+  &lt;li&gt;特別な設定やコンテナ導入は不要&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;だそうです。もちろんターミナル上でも入力できます。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/mallit.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/mallit.png&quot; alt=&quot;mallit-keyboard&quot; width=&quot;270&quot; height=&quot;540&quot; title=&quot;Mallit-keyboard&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　これでキーボードとディスプレイを用意すれば出先で使うモバイルPCに近づきそうです:smile:&lt;/p&gt;
 
 &lt;hr /&gt;
 

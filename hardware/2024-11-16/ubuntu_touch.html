@@ -76,23 +76,28 @@
         <ul id="main-menu" class="nav navbar-nav navbar-right">
 
           
-            <li><a href="/">
+            <li>
+<a href="/">
               <i class="fa fa-home"></i> Home</a>
             </li>
           
-            <li><a href="/categories/">
+            <li>
+<a href="/categories/">
               <i class="fa fa-sitemap"></i> Categories</a>
             </li>
           
-            <li><a href="/tags/">
+            <li>
+<a href="/tags/">
               <i class="fa fa-tag"></i> Tags</a>
             </li>
           
-            <li><a href="/about/">
+            <li>
+<a href="/about/">
               <i class="fa fa-info-circle"></i> About</a>
             </li>
           
-            <li><a href="/policy/">
+            <li>
+<a href="/policy/">
               <i class="fa fa-check"></i> Policy</a>
             </li>
           
@@ -112,7 +117,7 @@
   <div class="blog-header">
     <div class="row-fluid">
       <div class="span3">
-        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
       </div>
       <div class="span9">
@@ -163,7 +168,7 @@
 
         <article class="page-content">
           <h3 id="開発のネタ探し中">開発のネタ探し中</h3>
-<p>　スマホアプリ開発はAppleやGoogleというプラットフォーマーが開発者とユーザーの間に割り込んでくるため嫌気が差してきたので、次は何を作ろうかと考えて他の選択肢を探している時に偶々Youtubeの動画を見かけて<code class="language-plaintext highlighter-rouge">Ubuntu Touch</code>を試してみました。<br />
+<p>　スマホアプリ開発はAppleやGoogleというプラットフォーマーが開発者とユーザーの間に割り込んでくるため嫌気が差してきたので、次は何を作ろうかと考えて他の選択肢を探している時に偶々Youtubeの動画を見かけて<code class="language-plaintext highlighter-rouge">Ubuntu Touch</code>を試してみました。<br>
 　<code class="language-plaintext highlighter-rouge">Ubuntu Touch</code>のユーザーなんてほとんどいないので何かアプリを作っても小銭稼ぎは期待できませんが、そもそも当ブログでは自分が使ってみたいものを作ってきたので問題無しです。</p>
 
 <h3 id="インストール手順">インストール手順</h3>
@@ -175,37 +180,43 @@
 
 <h3 id="必要なもの">必要なもの</h3>
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">Google Pixel 3a XL</code><br />
+  <li>
+<code class="language-plaintext highlighter-rouge">Google Pixel 3a XL</code><br>
 Amazonの「整備済み品」を18,980円でわざわざ購入しました。</li>
-  <li>UBPortsのインストーラーが使える状態の工場出荷イメージファイル<br />
+  <li>UBPortsのインストーラーが使える状態の工場出荷イメージファイル<br>
 <a href="https://developers.google.com/android/images?hl=ja">こちら</a>からイメージファイル（<code class="language-plaintext highlighter-rouge">bonito-pq3b.190801.002-factory-61a2836d.zip</code>）をダウンロード</li>
-  <li><code class="language-plaintext highlighter-rouge">adb</code>,<code class="language-plaintext highlighter-rouge">fastboot</code>コマンド
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sudo apt install android-tools-adb
+  <li>
+<code class="language-plaintext highlighter-rouge">adb</code>,<code class="language-plaintext highlighter-rouge">fastboot</code>コマンド
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> sudo apt install android-tools-adb
  sudo apt install fastboot
 </code></pre></div>    </div>
   </li>
-  <li><code class="language-plaintext highlighter-rouge">Pixel 3a XL</code>用のUBPortsインストーラー<br />
+  <li>
+<code class="language-plaintext highlighter-rouge">Pixel 3a XL</code>用のUBPortsインストーラー<br>
 <a href="https://devices.ubuntu-touch.io/device/bonito/">こちら</a>から<code class="language-plaintext highlighter-rouge">ubports-installer_0.10.0_linux_amd64.deb</code>をダウンロード</li>
 </ul>
 
 <h3 id="動画内容と違うところ">動画内容と違うところ</h3>
 <ul>
   <li>上の動画では<a href="https://developers.google.com/android/images?hl=ja">Googleのサイト</a>から<code class="language-plaintext highlighter-rouge">フラッシュ</code>のリンクを踏んで直接インストールしてますが、自分は<code class="language-plaintext highlighter-rouge">リンク</code>からダウンロードしたzipファイルを解凍して、スマホのブートローダを起動してからスクリプトを実行しました。<a href="https://developers.google.com/android/images?hl=ja">Googleのサイト</a>に何時までイメージファイルが存在するか分からないのでダウンロードしておいたほうがいいと思います。
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> adb reboot bootloader
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> adb reboot bootloader
  ./flash-all.sh
 </code></pre></div>    </div>
   </li>
   <li>上の動画ではUBPortsインストーラーをdebパッケージからインストールしていますが、自分のUbuntu24.04環境ではインストール出来なかったのでsnapからインストールしました。
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sudo snap install ubports-installer
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> sudo snap install ubports-installer
 </code></pre></div>    </div>
   </li>
-  <li>上の動画では出てきませんが、<code class="language-plaintext highlighter-rouge">adb</code>コマンドでPixelと接続する際にPixel側で[設定]-&gt;[システム]-&gt;[開発者向けオプション]-&gt;[デフォルトのUSB設定]で[充電]ではなく[ファイル転送]を選択しておく必要がありました。<br />
+  <li>上の動画では出てきませんが、<code class="language-plaintext highlighter-rouge">adb</code>コマンドでPixelと接続する際にPixel側で[設定]-&gt;[システム]-&gt;[開発者向けオプション]-&gt;[デフォルトのUSB設定]で[充電]ではなく[ファイル転送]を選択しておく必要がありました。<br>
 　これをしないとPC側から<code class="language-plaintext highlighter-rouge">adb devices</code>で接続の確認をした際に<code class="language-plaintext highlighter-rouge">adb: failed to check server version: protocol fault (couldn't read status): Connection reset by peer</code>というエラーになります。現在使っているスマホ（<code class="language-plaintext highlighter-rouge">Xperia 10 Ⅲ</code>）で試してみたら[ファイル転送]になっていなくても接続できたので古いスマホ（Pixel3a）固有の問題かもしれません。<code class="language-plaintext highlighter-rouge">adb</code>コマンド使うのも久しぶりだったので、自分が忘れているだけで昔は全部そうだったような気もします。</li>
 </ul>
 
 <div style="width:320px; margin: 0 auto;">
 
-  <p><a href="/images/ubuntu-touch.png"><img src="/images/ubuntu-touch.png" alt="Ubuntu Touch" width="320" height="640" title="Ubuntu Touch" /></a></p>
+  <p><a href="/images/ubuntu-touch.png"><img src="/images/ubuntu-touch.png" alt="Ubuntu Touch" width="320" height="640" title="Ubuntu Touch"></a></p>
 
 </div>
 
@@ -213,21 +224,21 @@ Amazonの「整備済み品」を18,980円でわざわざ購入しました。</
 <p>　Linux上でandroidアプリを動かすための<code class="language-plaintext highlighter-rouge">Waydroid</code>、上の動画でも言ってますがandroidアプリを使うぐらいならandroidスマホを使うのが良さそうです。自分はスマホの決済機能もあまり使わないしandroidアプリが無くても生活に必要な多くのことはPCで可能なので、androidスマホが無くてもそこそこ生活していけると思っていますが、どうしてもandroidアプリが必要だという時には<code class="language-plaintext highlighter-rouge">Waydroid</code>で「ほとんどのアプリは動く」ぐらいの安心感が欲しいですね。</p>
 
 <h3 id="libertineも怪しい">Libertineも怪しい</h3>
-<p>　<code class="language-plaintext highlighter-rouge">Ubuntu Touch</code>上でUbuntuのデスクトップアプリを動かす機能ですが、こちらも少し使っただけですが怪しい動きでした。スマホの画面だと狭いからデスクトップアプリが使えないという話ではなく、うまくインストール出来ないものが多かったです。ネットを検索していると「UbuntuのソフトをUbuntu Touchで使いたい」という問いに対して、「ルート（/）以下のディレクトリを書き込み可能にすれば（<code class="language-plaintext highlighter-rouge">sudo mount -o remount,rw /</code>）可能ですよ」と言う回答をよく見かけましたが、<code class="language-plaintext highlighter-rouge">Libertine</code>はそういう危険な操作（<code class="language-plaintext highlighter-rouge">sudo mount -o remount,rw /</code>）をしなくていい仕組みの筈です。でもインストール直後に<code class="language-plaintext highlighter-rouge">Libertine</code>を起動してコンテナを作ってデスクトップアプリをインストールすると、うまく行ったり行かなかったりでした。<br />
+<p>　<code class="language-plaintext highlighter-rouge">Ubuntu Touch</code>上でUbuntuのデスクトップアプリを動かす機能ですが、こちらも少し使っただけですが怪しい動きでした。スマホの画面だと狭いからデスクトップアプリが使えないという話ではなく、うまくインストール出来ないものが多かったです。ネットを検索していると「UbuntuのソフトをUbuntu Touchで使いたい」という問いに対して、「ルート（/）以下のディレクトリを書き込み可能にすれば（<code class="language-plaintext highlighter-rouge">sudo mount -o remount,rw /</code>）可能ですよ」と言う回答をよく見かけましたが、<code class="language-plaintext highlighter-rouge">Libertine</code>はそういう危険な操作（<code class="language-plaintext highlighter-rouge">sudo mount -o remount,rw /</code>）をしなくていい仕組みの筈です。でもインストール直後に<code class="language-plaintext highlighter-rouge">Libertine</code>を起動してコンテナを作ってデスクトップアプリをインストールすると、うまく行ったり行かなかったりでした。<br>
 　Ubuntu Touchの<code class="language-plaintext highlighter-rouge">Open Store</code>から<code class="language-plaintext highlighter-rouge">UT Tweak</code>というアプリをインストールして、<code class="language-plaintext highlighter-rouge">Make image writable</code>の機能を使えば<code class="language-plaintext highlighter-rouge">Libertine</code>のコンテナ作成に関しては失敗しなかったので元々そうやって使うべきものなのかもしれません。</p>
 
 <div style="width:320px; margin: 0 auto;">
 
-  <p><a href="/images/ut-tweaks.png"><img src="/images/ut-tweaks.png" alt="UT Tweaksアプリ" width="320" height="331" title="UT Tweaksアプリ" /></a></p>
+  <p><a href="/images/ut-tweaks.png"><img src="/images/ut-tweaks.png" alt="UT Tweaksアプリ" width="320" height="331" title="UT Tweaksアプリ"></a></p>
 
 </div>
 
-<p>　<code class="language-plaintext highlighter-rouge">Ubuntu Touch</code>をリブートするまで書き込み可にするというオプションが用意してあります（<code class="language-plaintext highlighter-rouge">[Read-Write]Temporary(until reboot)</code>をタップ）。<code class="language-plaintext highlighter-rouge">apt</code>コマンドでいろいろなパッケージをインストールする際に、これをOnにしておけば警告が出なくなったりしますが、Ubuntuのデスクトップアプリを何でもインストール出来るわけでは無いようです。<br />
+<p>　<code class="language-plaintext highlighter-rouge">Ubuntu Touch</code>をリブートするまで書き込み可にするというオプションが用意してあります（<code class="language-plaintext highlighter-rouge">[Read-Write]Temporary(until reboot)</code>をタップ）。<code class="language-plaintext highlighter-rouge">apt</code>コマンドでいろいろなパッケージをインストールする際に、これをOnにしておけば警告が出なくなったりしますが、Ubuntuのデスクトップアプリを何でもインストール出来るわけでは無いようです。<br>
 　<code class="language-plaintext highlighter-rouge">ssh</code>を有効にする機能もこのアプリに用意してあるので、まず最初に入れるべきアプリかも。</p>
 
 <div style="width:320px; margin: 0 auto;">
 
-  <p><a href="/images/ut-ssh.png"><img src="/images/ut-ssh.png" alt="ssh設定" width="320" height="640" title="ssh設定" /></a></p>
+  <p><a href="/images/ut-ssh.png"><img src="/images/ut-ssh.png" alt="ssh設定" width="320" height="640" title="ssh設定"></a></p>
 
 </div>
 
@@ -236,7 +247,7 @@ Amazonの「整備済み品」を18,980円でわざわざ購入しました。</
 
 <div style="width:320px; margin: 0 auto;">
 
-  <p><a href="/images/ut-language.png"><img src="/images/ut-language.png" alt="日本語入力関連" width="320" height="640" title="日本語入力関連" /></a></p>
+  <p><a href="/images/ut-language.png"><img src="/images/ut-language.png" alt="日本語入力関連" width="320" height="640" title="日本語入力関連"></a></p>
 
 </div>
 
@@ -244,31 +255,61 @@ Amazonの「整備済み品」を18,980円でわざわざ購入しました。</
 
 <div style="width:320px; margin: 0 auto;">
 
-  <p><a href="/images/OTA6.png"><img src="/images/OTA6.png" alt="OTA6" width="270" height="540" title="OTA6" /></a></p>
+  <p><a href="/images/OTA6.png"><img src="/images/OTA6.png" alt="OTA6" width="270" height="540" title="OTA6"></a></p>
 
 </div>
 
 <h3 id="アプリ開発は情報が少ない">アプリ開発は情報が少ない</h3>
-<p>　<code class="language-plaintext highlighter-rouge">Open Store</code>に用意されているアプリはWebベースのアプリが多いみたいで、ネイティブなものは<code class="language-plaintext highlighter-rouge">Qt</code>を使うようですが情報が少ないので大変そうです。自分が何か開発するとしたらWebベースのものになると思いますが、日本語の情報はほとんど無さそうです。<br />
+<p>　<code class="language-plaintext highlighter-rouge">Open Store</code>に用意されているアプリはWebベースのアプリが多いみたいで、ネイティブなものは<code class="language-plaintext highlighter-rouge">Qt</code>を使うようですが情報が少ないので大変そうです。自分が何か開発するとしたらWebベースのものになると思いますが、日本語の情報はほとんど無さそうです。<br>
 　試しに<a href="https://download.qt.io/archive/online_installers/4.8/">Qt Creator</a>を使ってサンプルをコンパイルしてみましたが、Ubuntu上では動くもののUbuntu Touch上では動きませんでした。こっち方面に進むのは茨の道になりそうです。</p>
 
 <div style="width:320px; margin: 0 auto;">
 
-  <p><a href="/images/qt-creator.png"><img src="/images/qt-creator.png" alt="Qt Cretor" width="320" height="206" title="Qt Creator" /></a></p>
+  <p><a href="/images/qt-creator.png"><img src="/images/qt-creator.png" alt="Qt Cretor" width="320" height="206" title="Qt Creator"></a></p>
 
 </div>
 
 <h3 id="それでも期待したい">それでも期待したい</h3>
-<p>　動作するスマホの機種が限定されるというのは辛いし今使っているスマホ（<code class="language-plaintext highlighter-rouge">Xperia 10 Ⅲ</code>）の代替にはなりませんが、今のスマホを買い換える時までに何か変化があって欲しいな（他人任せ）と思ってます。今でも海外なら<code class="language-plaintext highlighter-rouge">Ubuntu Touch</code>が動作するハイスペックなスマホは売られてますが、日本だと技適を通過しないことにはマズそう（通話自体は可能？）なので、ここが一番のネックな気がしますね。<br />
+<p>　動作するスマホの機種が限定されるというのは辛いし今使っているスマホ（<code class="language-plaintext highlighter-rouge">Xperia 10 Ⅲ</code>）の代替にはなりませんが、今のスマホを買い換える時までに何か変化があって欲しいな（他人任せ）と思ってます。今でも海外なら<code class="language-plaintext highlighter-rouge">Ubuntu Touch</code>が動作するハイスペックなスマホは売られてますが、日本だと技適を通過しないことにはマズそう（通話自体は可能？）なので、ここが一番のネックな気がしますね。<br>
 　応援のつもりで<code class="language-plaintext highlighter-rouge">UBPorts</code>に寄付しようかとやってみたら、なんと日本からの寄付は受け付けていないようで<code class="language-plaintext highlighter-rouge">PayPal</code>から送金できませんでした。日本人は相手にされていないみたいで何か悲しいです。</p>
 
 <div style="width:320px; margin: 0 auto;">
 
-  <p><a href="/images/ubports_paypal.png"><img src="/images/ubports_paypal.png" alt="paypalのエラー" width="320" height="214" title="paypalのエラー" /></a></p>
+  <p><a href="/images/ubports_paypal.png"><img src="/images/ubports_paypal.png" alt="paypalのエラー" width="320" height="214" title="paypalのエラー"></a></p>
 
 </div>
 
-<hr />
+<h3 id="日本語入力出来ました2025-10-08追記">日本語入力出来ました（2025-10-08追記）</h3>
+<p>　久しぶりに<code class="language-plaintext highlighter-rouge">Ubuntu Touch</code>を起動してシステムメニューから<code class="language-plaintext highlighter-rouge">Update</code>後、<code class="language-plaintext highlighter-rouge">Upgrade</code>したら日本語入力が可能になってました。</p>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/Touch_2404.png"><img src="/images/Touch_2404.png" alt="Ubuntu Touch 24.04" width="270" height="540" title="Ubuntu Touch 24.04"></a></p>
+
+</div>
+
+<p>　ChatGPTによると</p>
+
+<ul>
+  <li>maliit-keyboard が新しい Qt InputMethod Framework に対応</li>
+  <li>fcitx5 と mozc が root ではなく phablet 権限で利用可能</li>
+  <li>日本語ロケール (ja_JP.UTF-8) がデフォルト同梱</li>
+  <li>UIフォントが Noto Sans CJK に統一され文字化けが解消</li>
+  <li>標準のMaliitキーボードが日本語入力対応済み</li>
+  <li>特別な設定やコンテナ導入は不要</li>
+</ul>
+
+<p>だそうです。もちろんターミナル上でも入力できます。</p>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/mallit.png"><img src="/images/mallit.png" alt="mallit-keyboard" width="270" height="540" title="Mallit-keyboard"></a></p>
+
+</div>
+
+<p>　これでキーボードとディスプレイを用意すれば出先で使うモバイルPCに近づきそうです<img class="emoji" title=":smile:" alt=":smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png" height="20" width="20"></p>
+
+<hr>
 
 
         </article>
@@ -286,7 +327,7 @@ Amazonの「整備済み品」を18,980円でわざわざ購入しました。</
       <div class="col-lg-offset-3 col-lg-6">
         <div class="row">
           <div class="col-xs-12 text-center">
-            <small>&copy; rifyll theme, 2014</small>
+            <small>© rifyll theme, 2014</small>
           </div>
         </div>
       </div>
