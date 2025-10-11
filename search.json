@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "将棋＆チェスアプリの高速化",
+      "category" : "software",
+      "tags"     : "coffeescript, javascript, shogi, c++",
+      "url"      : "/software/2025-10-12/ListOrArray",
+      "date"     : "2025-10-12 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "C++よりJSの方が速い！？",
       "category" : "software",
       "tags"     : "coffeescript, javascript, shogi, c++",

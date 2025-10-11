@@ -5,9 +5,67 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 08 Oct 2025 21:01:03 +0900</pubDate>
-    <lastBuildDate>Wed, 08 Oct 2025 21:01:03 +0900</lastBuildDate>
+    <pubDate>Sat, 11 Oct 2025 09:18:42 +0900</pubDate>
+    <lastBuildDate>Sat, 11 Oct 2025 09:18:42 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
+    
+      <item>
+        <title>将棋＆チェスアプリの高速化</title>
+        <description>&lt;h3 id=&quot;効果は微々たるもの&quot;&gt;効果は微々たるもの&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/software/2025-08-23/JSvsCPlus&quot;&gt;前回の記事&lt;/a&gt;で書いたChatGPTからのアドバイス（駒種判定のためのメソッド呼び出しをやめた件）をCoffeeScript(JavaScript)版にも取り入れて少しは速度アップ（README.mdの例で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1781ミリ秒&lt;/code&gt;掛かっていた処理が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1279ミリ秒&lt;/code&gt;、約25%アップ）しましたが体感できるほどではありません（&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;masterのlistPiecesタグ&lt;/a&gt;）。&lt;br /&gt;
+　そこで、その最新バージョンを元に将棋盤を配列として扱う形に変更して、Pieceオブジェクトで座標管理するのをやめてみました（&lt;a href=&quot;https://github.com/happyclam/shogi33simple/tree/arrayBoard&quot;&gt;arrayBoardブランチ&lt;/a&gt;）。そして、取り敢えず速度の比較が出来るところまで作り込んだだけで全然未完成なのですが、取り敢えず気になっていたことを確認してみました。&lt;/p&gt;
+
+&lt;h3 id=&quot;何が気になっていたのか&quot;&gt;何が気になっていたのか&lt;/h3&gt;
+&lt;p&gt;　現行のプログラムでは将棋盤オブジェクト(Board)で全ての駒オブジェクト(Piece)のリストを管理していて、盤上の座標位置は駒オブジェクトに持たせています。普通に考えれば将棋盤クラスで座標（段・列）を管理することを考えると思いますが、駒台が必要なので駒台にある駒と将棋盤上にある駒を区別して管理するのが面倒です。作ったのはかなり昔なのでその時の動機をはっきりと憶えているわけではありませんが、着手した手を元に戻す操作を実装する際に、持ち駒を打ったのか盤上の駒を動かしたのかによって処理が分かれるので、局面を読み進める際に「指しては戻し、打っては戻し、取った相手の駒を駒台から盤上に戻す、という操作を繰り返しながら整合性を保つのは大変だ、絶対バグる」と考えたのだと思います。Pieceオブジェクトで座標を管理していれば、持ち駒も盤上の駒も区別なくPieceオブジェクトが持つ座標を書き換えるだけで済むというメリットがあります。&lt;br /&gt;
+　&lt;a href=&quot;/software/2023-11-18/abmethod_skipped&quot;&gt;マンカラアプリの解説記事&lt;/a&gt;でも書いていますが、マンカラで着手した一手を元に戻すのは「横取り」のルール等もあって非常にややこしいので、マンカラの先読み過程では一手毎にマンカラの盤ごとコピーして破棄するというやり方で実装しました。着手を元に戻すという処理をしていません。マンカラの場合は豆の数が入った単なる一つの配列なのでコピーしても負荷は小さいですが、将棋盤オブジェクトとそこにある駒オブジェクトの局面ごとコピーするのはかなりの負荷なので、将棋プログラムでマンカラと同じやり方で実装すると実行速度アップは望めません。&lt;br /&gt;
+　なので、マンカラほど複雑ではないとはいえ、頑張って着手を元に戻す処理（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;revert処理&lt;/code&gt;）さえ正確に実装すれば将棋盤と駒台が分かれていても速度アップできるのかな？と考えてそれを確かめるために&lt;a href=&quot;https://github.com/happyclam/shogi33simple/tree/arrayBoard&quot;&gt;arrayBoard&lt;/a&gt;ブランチを作って試してみたわけです。&lt;br /&gt;
+　&lt;a href=&quot;/software/2025-08-23/JSvsCPlus&quot;&gt;前回の記事&lt;/a&gt;で「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT&lt;/code&gt;が将棋盤を配列にしろ」と言ってましたが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Grok&lt;/code&gt;に聞いても同じアドバイスをされました。どうやら生成AIにとっては「これが正解」という将棋プログラムの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;クラス設計&lt;/code&gt;がはっきりしているということかもしれません。速くなるのなら独自のやり方に拘るつもりもないので、将来的には&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Grok&lt;/code&gt;が示すやり方で仕上げてみようかとも思ってます。&lt;/p&gt;
+
+&lt;h3 id=&quot;具体的な変更箇所&quot;&gt;具体的な変更箇所&lt;/h3&gt;
+&lt;p&gt;　やったことを簡単に言えばPieceクラスから座標を管理するための&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@posiメンバー&lt;/code&gt;を削除して、Boardクラスを配列クラスの継承クラスにしただけなのですが、これをすることによって&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dest = (v for v in @pieces when v.posi? &amp;amp;&amp;amp; v.posi[0] == d_posi[0] &amp;amp;&amp;amp; v.
+posi[1] == d_posi[1])[0]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;このように全ての駒を走査してその場所に存在する駒を取得していた処理が&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dest = @[d_posi[0] - 1][d_posi[1] - 1]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;とBoardオブジェクトの配列を参照する処理だけで済みます。&lt;br /&gt;
+現在リリースしているアプリも今回の改良版（&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;master&lt;/a&gt;）でも、最も頻繁に呼び出されるであろう着手可能かどうかを判定するメソッド（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;check_move&lt;/code&gt;）内でこの作業を毎回やっていて、流石にこれは冗長だろうと考えてPlayer.think内ではわざわざ盤面用の２元配列を用意して（Player.think内のsrc変数）Pieceオブジェクトをその配列に配置し直して駒のリストを全探索しないで済むように改良した経緯があります。&lt;br /&gt;
+　そんなこと（駒オブジェクトで管理している座標を元に将棋盤の配列を生成）しているぐらいなら、元からBoardクラスを配列にしていた方が速くなるのかな？と考えて今回実験してみたのですが、結果は？&lt;/p&gt;
+
+&lt;h3 id=&quot;arrayboardブランチの実験結果&quot;&gt;arrayBoardブランチの実験結果&lt;/h3&gt;
+&lt;p&gt;　README.mdの対局例を実行した結果は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1700ミリ秒&lt;/code&gt;ぐらいかかって、現在リリースしているバージョンとほぼ変わりませんでした。現在リリース中のアプリより若干改良高速化した後での結果ですから、Boardクラスを配列にしただけでは却って遅くなったと言えます。結局、将棋盤上の駒を取得する処理が軽くなっても指し手の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;revert処理&lt;/code&gt;は複雑になってしまいましたし、トレードオフの関係にあるのでしょう。&lt;br /&gt;
+　とはいえBoardクラスを配列にすると他にも高速化の手法がありそうなので今後も&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arrayBoardブランチ&lt;/code&gt;を育てていくかもしれませんが、取り敢えずはここで打ち切ろうと思ってます。&lt;br /&gt;
+　それと今回やった作業は駒の数が少ない３三将棋だから効果が薄かったのかもしれませんので、７七将棋でも試したいと思ってますが、現状の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arrayBoardブランチ&lt;/code&gt;はまだまだやり足りないことがいっぱいなので、完成するのはかなり先の話になると思います。&lt;br /&gt;
+　そして完成したからといって速くなってる保証もありません:sweat_smile:ただ、そのソースを元に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;に書き換えたら速くなる、なんてことになるような気がします。&lt;/p&gt;
+
+&lt;h3 id=&quot;今後のアプリの予定&quot;&gt;今後のアプリの予定&lt;/h3&gt;
+&lt;p&gt;　冒頭で書いたように現在リリースしているものより若干は速くなったので&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;master（listPiecesタグ）&lt;/a&gt;の内容を反映して、将棋アプリもチェスアプリも順次リリースしていこうと思ってます。ついでに、最近はハイスペックなスマホも増えているので、どうせならAIのレベルを一手づつ読む深さを深くしてリリースしてみたいと思っているのですが、そうすると最強レベルだと現在以上に指し手が遅くなりますので、アプリを使う気が無くなるぐらい遅くなるかもしれません。でも、AIのレベルを下げれば今まで通りの指し手になるわけですから、あってもいいんじゃないかと思ってます。 全然ハイスペックではありませんが、私自身つい先日スマホを買い替えた（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Pixel10Ⅶ&lt;/code&gt;）ので、それで試してから決めようと思ってます。一手深く読めば指し手がどのように変わるのか楽しみですよね？私は楽しみです:smile:&lt;br /&gt;
+　いずれにしても&lt;a href=&quot;https://happyclam.booth.pm/&quot;&gt;私のアプリ&lt;/a&gt;を使う人は指し手を気長に待てる人にしか向いてないと思います。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+</description>
+        <pubDate>Sun, 12 Oct 2025 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/software/2025-10-12/ListOrArray</link>
+        <guid isPermaLink="true">https://happyclam.github.io/software/2025-10-12/ListOrArray</guid>
+        
+        <category>coffeescript</category>
+        
+        <category>javascript</category>
+        
+        <category>shogi</category>
+        
+        <category>c++</category>
+        
+        
+        <category>software</category>
+        
+      </item>
     
       <item>
         <title>C++よりJSの方が速い！？</title>
@@ -1023,51 +1081,6 @@ Amazonの「整備済み品」を18,980円でわざわざ購入しました。&l
         
         
         <category>hardware</category>
-        
-      </item>
-    
-      <item>
-        <title>Reader Revenue Manager 止めました</title>
-        <description>&lt;h3 id=&quot;またgoogleからの理不尽なメール&quot;&gt;またGoogleからの理不尽なメール&lt;/h3&gt;
-&lt;p&gt;　Googleから税務情報の更新を促すメールを貰って、取り敢えず&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Reader Revenue Manager&lt;/code&gt;を使うのを止めました。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Reader Revenue Manager&lt;/code&gt;と言うのは以前このブログにアクセスすると「支援していただけると励みになります」とダイアログ表示されていた、所謂&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;投げ銭&lt;/code&gt;機能のことです。&lt;/p&gt;
-
-&lt;h3 id=&quot;メールの内容&quot;&gt;メールの内容&lt;/h3&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Google に登録されているお客様の税務情報は 2024年12月31日 に失効します。現在のフォームが失効すると、Google は新しい税務フォームが承認されるまで、お支払いから最大 30% の源泉徴収を行うか、お支払いを完全に保留する場合があります。お支払いが期日前に処理され、適切な税金の源泉徴収（該当する場合は最大 30%）が行われるように、税務情報を速やかに更新してください。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;　税務情報の更新を怠ると「最大 30% の源泉徴収を行う」は理解できるのですが、「お支払いを完全に保留する場合があります」と書かれています。税務情報を更新しないと「高い税率になるよ〜」というのは分かるのですが、なんで支払いを保留するのでしょうか？こちらとしては高い税率でいいから徴収して残りを振り込んでくれればいいと思っているのですが、何の権限があって支払いを保留するのか分かりません。利用規約上にそのような契約があったとしても日本の法律だと無効になるはずですがどうなんでしょう？&lt;br /&gt;
-　以前は税務情報の登録はWeb上で簡単に出来た記憶があるのですが、今回は何やら役所から書類を取り寄せる必要があるみたいで、詳細をGoogleに問い合わせようとしてもなかなか目的のリンクに辿り着けなかったり、要領を得ない回答が返って来ます。仕方がないので[新規フォームの申請]リンクをクリックすると以下のようなダイアログが表示されます。&lt;/p&gt;
-
-&lt;div style=&quot;width:400px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/google_tax.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/google_tax.png&quot; alt=&quot;i新規フォーム申請&quot; width=&quot;406&quot; height=&quot;115&quot; title=&quot;新規フォーム申請&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　「以前送信したフォームは削除されます」!!こういう後戻り出来ないGoogle流のUIが罠なんですよねぇ。ここで[新規フォームの作成を開始]を選んで、面倒くさい作業を強いられて途中で止めたりすると、「税務書類が提出されてない」と言われてまた「アカウント削除するぞ！」と脅されるかもしれませんので、取り敢えず[キャンセル]して今回は放置しておこうと思ってます。「Googleさん、どうぞ高い税率でいいから徴収して下さいよ？」、「何で税金徴収せずに全額ガメるの？」って言いたいです。&lt;/p&gt;
-
-&lt;h3 id=&quot;面倒臭い以外の止める理由&quot;&gt;面倒臭い以外の止める理由&lt;/h3&gt;
-&lt;p&gt;　そもそも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AdSense&lt;/code&gt;も&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Reader Revenue Manager&lt;/code&gt;も小遣い稼ぎが出来ればいいなぁという軽い気持ちでやっていたので、多くのコスト（時間）を掛けるぐらいなら止めようと思ったのが止める理由ですが、もう一つ、もし&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Reader Revenue Manager&lt;/code&gt;を有効にしたままGoogleに支払いを保留されると&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Reader Revenue Manager&lt;/code&gt;を使って寄付して頂いても私はそのお金を受け取れないわけで、寄付していただいた方の意志が履行されないことが問題です。&lt;br /&gt;
-　寄付してもGoogleにお金が入るだけで私は受け取れないとなると寄付していただいた方も被害者です。そしてそうなることを予見していながら放置しておくことは良くないと思うので、来年どうなるか分かりませんが被害が拡大（そんな心配は無用だとは思いますが）しないためにも、メールを受け取って早々に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Reader Revenue Manager&lt;/code&gt;の利用を止めました。という訳ですので寄付していただいた数人の方々は「あれっ！寄付してあげたのにどうなったの？」と 思われてるかもしれませんが、今後もブログは続けていきますのでご了承下さい。&lt;br /&gt;
-　&lt;a href=&quot;/miscellaneous/2024-05-04/app_private&quot;&gt;以前の記事&lt;/a&gt;に書いたように&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Google Play&lt;/code&gt;にも不満がありますし、今後は出来るだけGoogleとは距離を置いて行こうと思ってます。&lt;/p&gt;
-
-&lt;h3 id=&quot;kindleはその都度入金&quot;&gt;Kindleはその都度入金&lt;/h3&gt;
-&lt;p&gt;　Googleの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AdSense&lt;/code&gt;も&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AdMob&lt;/code&gt;も&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Reader Revenue Manager&lt;/code&gt;も一定金額になるまで支払いは保留されています。そのことについてはこちらも了解済みですので文句はありませんが、Google程の大企業だとその保留分の金利だけでもかなりの儲けになるでしょう。それに対してAmazonの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kindle Direct Publishing&lt;/code&gt;で出版した本の売上はその都度入金されます。振込手数料とかはどうなってるのか知りませんが、この点はAmazonはまともですね。&lt;a href=&quot;https://www.amazon.co.jp/HTML5-CoffeeScriptで作る最強の三目並べプログラム-MIN-MAX法からαβ法へ-happyclam-ebook/dp/B01D1IJ0S0/ref=sr_1_1?s=digital-text&amp;amp;ie=UTF8&amp;amp;qid=1473938717&quot;&gt;Kindleに出品しているこの本&lt;/a&gt;は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;380円&lt;/code&gt;ですが、一冊売れるたびに私の口座に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;121円&lt;/code&gt;振り込まれます、さっきAmazonはまともだと言いましたが、ボリ過ぎだろ！&lt;/p&gt;
-
-&lt;hr /&gt;
-
-</description>
-        <pubDate>Mon, 04 Nov 2024 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/miscellaneous/2024-11-04/RRM</link>
-        <guid isPermaLink="true">https://happyclam.github.io/miscellaneous/2024-11-04/RRM</guid>
-        
-        <category>google</category>
-        
-        <category>epub</category>
-        
-        
-        <category>miscellaneous</category>
         
       </item>
     
