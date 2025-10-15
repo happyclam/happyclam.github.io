@@ -207,6 +207,10 @@ posi[1] == d_posi[1])[0]
 <p>　冒頭で書いたように現在リリースしているものより若干は速くなったので<a href="https://github.com/happyclam/shogi33simple">master（listPiecesタグ）</a>の内容を反映して、将棋アプリもチェスアプリも順次リリースしていこうと思ってます。ついでに、最近はハイスペックなスマホも増えているので、どうせならAIのレベルを一手づつ読む深さを深くしてリリースしてみたいと思っているのですが、そうすると最強レベルだと現在以上に指し手が遅くなりますので、アプリを使う気が無くなるぐらい遅くなるかもしれません。でも、AIのレベルを下げれば今まで通りの指し手になるわけですから、あってもいいんじゃないかと思ってます。 全然ハイスペックではありませんが、私自身つい先日スマホを買い替えた（<code class="language-plaintext highlighter-rouge">Pixel10Ⅶ</code>）ので、それで試してから決めようと思ってます。一手深く読めば指し手がどのように変わるのか楽しみですよね？私は楽しみです<img class="emoji" title=":smile:" alt=":smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png" height="20" width="20"><br>
 　いずれにしても<a href="https://happyclam.booth.pm/">私のアプリ</a>を使う人は指し手を気長に待てる人にしか向いてないと思います。</p>
 
+<h3 id="よく分からない2025-10-15追記">よく分からない（2025-10-15追記）</h3>
+<p>　<a href="https://github.com/happyclam/shogi33simple/tree/arrayBoard">arrayBoardブランチ</a>がバグってて、<a href="https://github.com/happyclam/shogi33simple">master（listPiecesタグ）</a>より遅いのはそのままですが、バグを修正したら差が縮まってほぼ違いがないぐらいになりました（<code class="language-plaintext highlighter-rouge">1338ミリ秒</code>、arrayBoardブランチは修正済み）。それならと、７七将棋アプリで同じことを試してみたら<code class="language-plaintext highlighter-rouge">配列バージョン</code>よりやはり<code class="language-plaintext highlighter-rouge">駒リストバージョン</code>のほうが速かったです。う〜ん、成功する（させることが出来る）テスト自体まだ少ないのですが、将棋の駒が多い分効果が出るかと思ったのですが、よく分かりません。いつも開発作業を進めながら記事を書くことが多くて、早合点が多くて良くないですね。いずれにしても、もう少し突き詰めてから結論出そうと思います。<br>
+　と、いうことで新バージョンのリリースはもう少し後にしようと思います。</p>
+
 <hr>
 
 

@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 13 Oct 2025 15:23:07 +0900</pubDate>
-    <lastBuildDate>Mon, 13 Oct 2025 15:23:07 +0900</lastBuildDate>
+    <pubDate>Wed, 15 Oct 2025 19:37:58 +0900</pubDate>
+    <lastBuildDate>Wed, 15 Oct 2025 19:37:58 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -46,6 +46,10 @@ posi[1] == d_posi[1])[0]
 &lt;h3 id=&quot;今後のアプリの予定&quot;&gt;今後のアプリの予定&lt;/h3&gt;
 &lt;p&gt;　冒頭で書いたように現在リリースしているものより若干は速くなったので&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;master（listPiecesタグ）&lt;/a&gt;の内容を反映して、将棋アプリもチェスアプリも順次リリースしていこうと思ってます。ついでに、最近はハイスペックなスマホも増えているので、どうせならAIのレベルを一手づつ読む深さを深くしてリリースしてみたいと思っているのですが、そうすると最強レベルだと現在以上に指し手が遅くなりますので、アプリを使う気が無くなるぐらい遅くなるかもしれません。でも、AIのレベルを下げれば今まで通りの指し手になるわけですから、あってもいいんじゃないかと思ってます。 全然ハイスペックではありませんが、私自身つい先日スマホを買い替えた（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Pixel10Ⅶ&lt;/code&gt;）ので、それで試してから決めようと思ってます。一手深く読めば指し手がどのように変わるのか楽しみですよね？私は楽しみです:smile:&lt;br /&gt;
 　いずれにしても&lt;a href=&quot;https://happyclam.booth.pm/&quot;&gt;私のアプリ&lt;/a&gt;を使う人は指し手を気長に待てる人にしか向いてないと思います。&lt;/p&gt;
+
+&lt;h3 id=&quot;よく分からない2025-10-15追記&quot;&gt;よく分からない（2025-10-15追記）&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://github.com/happyclam/shogi33simple/tree/arrayBoard&quot;&gt;arrayBoardブランチ&lt;/a&gt;がバグってて、&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;master（listPiecesタグ）&lt;/a&gt;より遅いのはそのままですが、バグを修正したら差が縮まってほぼ違いがないぐらいになりました（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1338ミリ秒&lt;/code&gt;、arrayBoardブランチは修正済み）。それならと、７七将棋アプリで同じことを試してみたら&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;配列バージョン&lt;/code&gt;よりやはり&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;駒リストバージョン&lt;/code&gt;のほうが速かったです。う〜ん、成功する（させることが出来る）テスト自体まだ少ないのですが、将棋の駒が多い分効果が出るかと思ったのですが、よく分かりません。いつも開発作業を進めながら記事を書くことが多くて、早合点が多くて良くないですね。いずれにしても、もう少し突き詰めてから結論出そうと思います。&lt;br /&gt;
+　と、いうことで新バージョンのリリースはもう少し後にしようと思います。&lt;/p&gt;
 
 &lt;hr /&gt;
 
