@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 15 Oct 2025 19:37:58 +0900</pubDate>
-    <lastBuildDate>Wed, 15 Oct 2025 19:37:58 +0900</lastBuildDate>
+    <pubDate>Fri, 24 Oct 2025 21:11:54 +0900</pubDate>
+    <lastBuildDate>Fri, 24 Oct 2025 21:11:54 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -50,6 +50,11 @@ posi[1] == d_posi[1])[0]
 &lt;h3 id=&quot;よく分からない2025-10-15追記&quot;&gt;よく分からない（2025-10-15追記）&lt;/h3&gt;
 &lt;p&gt;　&lt;a href=&quot;https://github.com/happyclam/shogi33simple/tree/arrayBoard&quot;&gt;arrayBoardブランチ&lt;/a&gt;がバグってて、&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;master（listPiecesタグ）&lt;/a&gt;より遅いのはそのままですが、バグを修正したら差が縮まってほぼ違いがないぐらいになりました（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1338ミリ秒&lt;/code&gt;、arrayBoardブランチは修正済み）。それならと、７七将棋アプリで同じことを試してみたら&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;配列バージョン&lt;/code&gt;よりやはり&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;駒リストバージョン&lt;/code&gt;のほうが速かったです。う〜ん、成功する（させることが出来る）テスト自体まだ少ないのですが、将棋の駒が多い分効果が出るかと思ったのですが、よく分かりません。いつも開発作業を進めながら記事を書くことが多くて、早合点が多くて良くないですね。いずれにしても、もう少し突き詰めてから結論出そうと思います。&lt;br /&gt;
 　と、いうことで新バージョンのリリースはもう少し後にしようと思います。&lt;/p&gt;
+
+&lt;h3 id=&quot;７七将棋なら効果あり2025-10-25追記&quot;&gt;７七将棋なら効果あり（2025-10-25追記）&lt;/h3&gt;
+&lt;p&gt;　３三将棋と同じところまで７七将棋の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;配列バージョン&lt;/code&gt;の対応を済ませてテストスクリプトの実行時間を確認したところ、３三将棋とは違って明確に速くなっているので取り敢えず７七将棋だけ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;配列バージョン&lt;/code&gt;に変更してリリースしてみようと思います。&lt;br /&gt;
+　&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;３三将棋&lt;/a&gt;でも一部のテスト結果が旧版の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;駒リストバージョン&lt;/code&gt;とは違う結果（テスト失敗）になっていますが、７七将棋でも指し手に変化が出るようです。局面の静的評価に関わる数値は一切変更していないのに、指し手に変化が出る理由がはっきり分からないのですが、読む深さを変えるとテスト結果を同じにすることが可能なケースがほとんどなので今のところ大きな問題はないと思ってます。&lt;br /&gt;
+　また劇的に速くなったわけではないので、読みの深さを一手深くするのは今回は見送ります。&lt;/p&gt;
 
 &lt;hr /&gt;
 

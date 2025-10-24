@@ -211,6 +211,11 @@ posi[1] == d_posi[1])[0]
 <p>　<a href="https://github.com/happyclam/shogi33simple/tree/arrayBoard">arrayBoardブランチ</a>がバグってて、<a href="https://github.com/happyclam/shogi33simple">master（listPiecesタグ）</a>より遅いのはそのままですが、バグを修正したら差が縮まってほぼ違いがないぐらいになりました（<code class="language-plaintext highlighter-rouge">1338ミリ秒</code>、arrayBoardブランチは修正済み）。それならと、７七将棋アプリで同じことを試してみたら<code class="language-plaintext highlighter-rouge">配列バージョン</code>よりやはり<code class="language-plaintext highlighter-rouge">駒リストバージョン</code>のほうが速かったです。う〜ん、成功する（させることが出来る）テスト自体まだ少ないのですが、将棋の駒が多い分効果が出るかと思ったのですが、よく分かりません。いつも開発作業を進めながら記事を書くことが多くて、早合点が多くて良くないですね。いずれにしても、もう少し突き詰めてから結論出そうと思います。<br>
 　と、いうことで新バージョンのリリースはもう少し後にしようと思います。</p>
 
+<h3 id="７七将棋なら効果あり2025-10-25追記">７七将棋なら効果あり（2025-10-25追記）</h3>
+<p>　３三将棋と同じところまで７七将棋の<code class="language-plaintext highlighter-rouge">配列バージョン</code>の対応を済ませてテストスクリプトの実行時間を確認したところ、３三将棋とは違って明確に速くなっているので取り敢えず７七将棋だけ<code class="language-plaintext highlighter-rouge">配列バージョン</code>に変更してリリースしてみようと思います。<br>
+　<a href="https://github.com/happyclam/shogi33simple">３三将棋</a>でも一部のテスト結果が旧版の<code class="language-plaintext highlighter-rouge">駒リストバージョン</code>とは違う結果（テスト失敗）になっていますが、７七将棋でも指し手に変化が出るようです。局面の静的評価に関わる数値は一切変更していないのに、指し手に変化が出る理由がはっきり分からないのですが、読む深さを変えるとテスト結果を同じにすることが可能なケースがほとんどなので今のところ大きな問題はないと思ってます。<br>
+　また劇的に速くなったわけではないので、読みの深さを一手深くするのは今回は見送ります。</p>
+
 <hr>
 
 
