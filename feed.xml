@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 24 Oct 2025 21:11:54 +0900</pubDate>
-    <lastBuildDate>Fri, 24 Oct 2025 21:11:54 +0900</lastBuildDate>
+    <pubDate>Sat, 25 Oct 2025 10:09:43 +0900</pubDate>
+    <lastBuildDate>Sat, 25 Oct 2025 10:09:43 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -53,8 +53,8 @@ posi[1] == d_posi[1])[0]
 
 &lt;h3 id=&quot;７七将棋なら効果あり2025-10-25追記&quot;&gt;７七将棋なら効果あり（2025-10-25追記）&lt;/h3&gt;
 &lt;p&gt;　３三将棋と同じところまで７七将棋の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;配列バージョン&lt;/code&gt;の対応を済ませてテストスクリプトの実行時間を確認したところ、３三将棋とは違って明確に速くなっているので取り敢えず７七将棋だけ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;配列バージョン&lt;/code&gt;に変更してリリースしてみようと思います。&lt;br /&gt;
-　&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;３三将棋&lt;/a&gt;でも一部のテスト結果が旧版の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;駒リストバージョン&lt;/code&gt;とは違う結果（テスト失敗）になっていますが、７七将棋でも指し手に変化が出るようです。局面の静的評価に関わる数値は一切変更していないのに、指し手に変化が出る理由がはっきり分からないのですが、読む深さを変えるとテスト結果を同じにすることが可能なケースがほとんどなので今のところ大きな問題はないと思ってます。&lt;br /&gt;
-　また劇的に速くなったわけではないので、読みの深さを一手深くするのは今回は見送ります。&lt;/p&gt;
+　&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;３三将棋&lt;/a&gt;でも一部のテスト結果が旧版の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;駒リストバージョン&lt;/code&gt;とは違う結果（テスト失敗）になっていますが、７七将棋でも指し手に変化が出るようです。局面の静的評価に関わる数値は一切変更していないのに、指し手に変化が出る理由がはっきり分からないのですが、読む深さを変えるとテスト結果を旧版と同じにすることが可能なケースがほとんどなので今のところ大きな問題はないと思ってます。&lt;br /&gt;
+　また、劇的に速くなったわけではないので、読みの深さを一手深くするのは今回は見送ります。読みの深さを変えなくても指し手が変わるので、それをしばらく楽しんでみようというのが本音です。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;「Done is better than perfect」&lt;/code&gt;なんて言いますし…:sweat_smile:&lt;/p&gt;
 
 &lt;hr /&gt;
 

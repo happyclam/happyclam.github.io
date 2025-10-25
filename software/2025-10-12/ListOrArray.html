@@ -213,8 +213,8 @@ posi[1] == d_posi[1])[0]
 
 <h3 id="７七将棋なら効果あり2025-10-25追記">７七将棋なら効果あり（2025-10-25追記）</h3>
 <p>　３三将棋と同じところまで７七将棋の<code class="language-plaintext highlighter-rouge">配列バージョン</code>の対応を済ませてテストスクリプトの実行時間を確認したところ、３三将棋とは違って明確に速くなっているので取り敢えず７七将棋だけ<code class="language-plaintext highlighter-rouge">配列バージョン</code>に変更してリリースしてみようと思います。<br>
-　<a href="https://github.com/happyclam/shogi33simple">３三将棋</a>でも一部のテスト結果が旧版の<code class="language-plaintext highlighter-rouge">駒リストバージョン</code>とは違う結果（テスト失敗）になっていますが、７七将棋でも指し手に変化が出るようです。局面の静的評価に関わる数値は一切変更していないのに、指し手に変化が出る理由がはっきり分からないのですが、読む深さを変えるとテスト結果を同じにすることが可能なケースがほとんどなので今のところ大きな問題はないと思ってます。<br>
-　また劇的に速くなったわけではないので、読みの深さを一手深くするのは今回は見送ります。</p>
+　<a href="https://github.com/happyclam/shogi33simple">３三将棋</a>でも一部のテスト結果が旧版の<code class="language-plaintext highlighter-rouge">駒リストバージョン</code>とは違う結果（テスト失敗）になっていますが、７七将棋でも指し手に変化が出るようです。局面の静的評価に関わる数値は一切変更していないのに、指し手に変化が出る理由がはっきり分からないのですが、読む深さを変えるとテスト結果を旧版と同じにすることが可能なケースがほとんどなので今のところ大きな問題はないと思ってます。<br>
+　また、劇的に速くなったわけではないので、読みの深さを一手深くするのは今回は見送ります。読みの深さを変えなくても指し手が変わるので、それをしばらく楽しんでみようというのが本音です。<code class="language-plaintext highlighter-rouge">「Done is better than perfect」</code>なんて言いますし…<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"></p>
 
 <hr>
 
