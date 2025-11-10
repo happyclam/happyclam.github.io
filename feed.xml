@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 25 Oct 2025 10:09:43 +0900</pubDate>
-    <lastBuildDate>Sat, 25 Oct 2025 10:09:43 +0900</lastBuildDate>
+    <pubDate>Mon, 10 Nov 2025 21:52:42 +0900</pubDate>
+    <lastBuildDate>Mon, 10 Nov 2025 21:52:42 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -22,7 +22,7 @@
 　&lt;a href=&quot;/software/2025-08-23/JSvsCPlus&quot;&gt;前回の記事&lt;/a&gt;で「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT&lt;/code&gt;が将棋盤を配列にしろ」と言ってましたが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Grok&lt;/code&gt;に聞いても同じアドバイスをされました。どうやら生成AIにとっては「これが正解」という将棋プログラムの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;クラス設計&lt;/code&gt;がはっきりしているということかもしれません。速くなるのなら独自のやり方に拘るつもりもないので、将来的には&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Grok&lt;/code&gt;が示すやり方で仕上げてみようかとも思ってます。&lt;/p&gt;
 
 &lt;h3 id=&quot;具体的な変更箇所&quot;&gt;具体的な変更箇所&lt;/h3&gt;
-&lt;p&gt;　やったことを簡単に言えばPieceクラスから座標を管理するための&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@posiメンバー&lt;/code&gt;を削除して、Boardクラスを配列クラスの継承クラスにしただけなのですが、これをすることによって&lt;/p&gt;
+&lt;p&gt;　やったことを簡単に言えばPieceクラスから座標を管理するための&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@posiメンバー&lt;/code&gt;を削除して、Boardクラスを配列クラスの継承クラスにし、駒のリストを管理する&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@piecesメンバー&lt;/code&gt;を削除しただけなのですが、これをすることによって&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dest = (v for v in @pieces when v.posi? &amp;amp;&amp;amp; v.posi[0] == d_posi[0] &amp;amp;&amp;amp; v.
 posi[1] == d_posi[1])[0]
@@ -54,7 +54,7 @@ posi[1] == d_posi[1])[0]
 &lt;h3 id=&quot;７七将棋なら効果あり2025-10-25追記&quot;&gt;７七将棋なら効果あり（2025-10-25追記）&lt;/h3&gt;
 &lt;p&gt;　３三将棋と同じところまで７七将棋の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;配列バージョン&lt;/code&gt;の対応を済ませてテストスクリプトの実行時間を確認したところ、３三将棋とは違って明確に速くなっているので取り敢えず７七将棋だけ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;配列バージョン&lt;/code&gt;に変更してリリースしてみようと思います。&lt;br /&gt;
 　&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;３三将棋&lt;/a&gt;でも一部のテスト結果が旧版の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;駒リストバージョン&lt;/code&gt;とは違う結果（テスト失敗）になっていますが、７七将棋でも指し手に変化が出るようです。局面の静的評価に関わる数値は一切変更していないのに、指し手に変化が出る理由がはっきり分からないのですが、読む深さを変えるとテスト結果を旧版と同じにすることが可能なケースがほとんどなので今のところ大きな問題はないと思ってます。&lt;br /&gt;
-　また、劇的に速くなったわけではないので、読みの深さを一手深くするのは今回は見送ります。読みの深さを変えなくても指し手が変わるので、それをしばらく楽しんでみようというのが本音です。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;「Done is better than perfect」&lt;/code&gt;なんて言いますし…:sweat_smile:&lt;/p&gt;
+　また、劇的に速くなったわけではないので、読みの深さを一手深くするのは今回は諦めます（新しいスマホ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Pixel10Ⅶ&lt;/code&gt;で現状のアプリを動かしてみても、遅すぎてとても一手深くする状況ではないです）。読みの深さを変えなくても指し手が変わるので、それをしばらく楽しんでみようというのが本音です。何か問題があるかもしれませんが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;「Done is better than perfect」&lt;/code&gt;なんて言いますし…:sweat_smile:&lt;/p&gt;
 
 &lt;hr /&gt;
 
