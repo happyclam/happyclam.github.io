@@ -5,9 +5,95 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 10 Nov 2025 21:52:42 +0900</pubDate>
-    <lastBuildDate>Mon, 10 Nov 2025 21:52:42 +0900</lastBuildDate>
+    <pubDate>Mon, 29 Dec 2025 13:27:49 +0900</pubDate>
+    <lastBuildDate>Mon, 29 Dec 2025 13:27:49 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
+    
+      <item>
+        <title>PINされたステイルメイト</title>
+        <description>&lt;h3 id=&quot;pin絡みのステイルメイトはレアケース&quot;&gt;PIN絡みのステイルメイトはレアケース？&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;/software/2024-12-15/chessPIN&quot;&gt;以前の記事&lt;/a&gt;で&lt;a href=&quot;https://happyclam.booth.pm/items/6399553&quot;&gt;販売中のチェスアプリ&lt;/a&gt;が、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;自分の駒がPINされた状態でのステイルメイト問題&lt;/code&gt;を解くことが出来なかったという話を書きましたが、一つのケースしか試せなかったので他にも似たようなテストケースは無いものかと探していて&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kindle&lt;/code&gt;で&lt;a href=&quot;https://www.amazon.co.jp/Mate-Threats-Defense-Tactical-Examples-ebook/dp/B0F7QZC1P1/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&amp;amp;crid=GOV4ROULTR05&amp;amp;dib=eyJ2IjoiMSJ9.KpMtE999j0FdWDJH1xg8BA.aRAMtoW_coazhXgP2UDnec3AIZRrUn9n8-7PbES4Df4&amp;amp;dib_tag=se&amp;amp;keywords=Mate+Threats+and+Defense+-+1000+Tactical+Examples&amp;amp;qid=1747650832&amp;amp;s=digital-text&amp;amp;sprefix=mate+threats+and+defense+-+1000+tactical+examples+%2Cdigital-text%2C153&amp;amp;sr=1-1&quot;&gt;「Mate Threats and Defense - 1000 Tactical Examples」&lt;/a&gt;という本を購入しました。将棋で言えば「次の一手問題集」みたいなものだと思いますが、問題がテーマ毎に分類されていて&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ステイルメイト&lt;/code&gt;だけを取り扱った章もあるので、これなら自分が探している問題もあるだろうと期待して購入しました。&lt;/p&gt;
+
+&lt;h3 id=&quot;探しているのはpinされたステイルメイト問題&quot;&gt;探しているのはPINされたステイルメイト問題&lt;/h3&gt;
+&lt;p&gt;　自分が探しているテストケースは&lt;a href=&quot;/software/2024-12-15/chessPIN&quot;&gt;前回の記事&lt;/a&gt;で紹介したような「味方の駒が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;された状態に持ち込むステイルメイト」問題です。&lt;a href=&quot;https://www.amazon.co.jp/Mate-Threats-Defense-Tactical-Examples-ebook/dp/B0F7QZC1P1/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&amp;amp;crid=GOV4ROULTR05&amp;amp;dib=eyJ2IjoiMSJ9.KpMtE999j0FdWDJH1xg8BA.aRAMtoW_coazhXgP2UDnec3AIZRrUn9n8-7PbES4Df4&amp;amp;dib_tag=se&amp;amp;keywords=Mate+Threats+and+Defense+-+1000+Tactical+Examples&amp;amp;qid=1747650832&amp;amp;s=digital-text&amp;amp;sprefix=mate+threats+and+defense+-+1000+tactical+examples+%2Cdigital-text%2C153&amp;amp;sr=1-1&quot;&gt;「Mate Threats and Defense」&lt;/a&gt;では、問題がテーマ毎に分類されていると言っても流石に「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;されたステイルメイト」というテーマはなかったので、第7章（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;「STALEMATE IDEAS」&lt;/code&gt;）の中から探してみるとNo.91からNo.106までの16問の問題の内２問だけ目的のものが見つかりました。第１３章（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;「PINNING」&lt;/code&gt;）も中も探しましたが、そこでは主に相手の駒を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;して動けないようにして自玉（King）を守る問題が紹介されていて、特にステイルメイトとは関係無い問題のようです。自分が確認したのは第７章とそれに続く第８章と第１３章だけなのでもしかしたら他の問題の中にも自分が探しているケースがあるかもしれませんが、意外と少ないようです。&lt;br /&gt;
+　チェスプレイヤーがステイルメイトで勝負を引き分けに持ち込むときに、自分の駒がPINされてるかどうかなんて二の次であまり意識しないでしょうから&lt;a href=&quot;https://www.amazon.co.jp/Mate-Threats-Defense-Tactical-Examples-ebook/dp/B0F7QZC1P1/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&amp;amp;crid=GOV4ROULTR05&amp;amp;dib=eyJ2IjoiMSJ9.KpMtE999j0FdWDJH1xg8BA.aRAMtoW_coazhXgP2UDnec3AIZRrUn9n8-7PbES4Df4&amp;amp;dib_tag=se&amp;amp;keywords=Mate+Threats+and+Defense+-+1000+Tactical+Examples&amp;amp;qid=1747650832&amp;amp;s=digital-text&amp;amp;sprefix=mate+threats+and+defense+-+1000+tactical+examples+%2Cdigital-text%2C153&amp;amp;sr=1-1&quot;&gt;この本&lt;/a&gt;の著者がそういう分類をしていないのは当然でしょう。でも、&lt;a href=&quot;/software/2024-12-15/chessPIN&quot;&gt;以前の記事&lt;/a&gt;で書いたように、開発者にとってはそこが大きな問題だったりします。ユーザーのニーズを実現するための苦労が、ユーザーがまったく気が付かないところにあったなんてことは業務ソフトの開発現場でもよくあることですね。&lt;br /&gt;
+　それと、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;有用なテストケース&lt;/code&gt;に出会えるかどうかがソフト開発に大事だったりしますが、&lt;a href=&quot;/software/2024-12-15/chessPIN&quot;&gt;以前の記事&lt;/a&gt;のケースは本当に助かりました。&lt;a href=&quot;https://www.amazon.co.jp/Mate-Threats-Defense-Tactical-Examples-ebook/dp/B0F7QZC1P1/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&amp;amp;crid=GOV4ROULTR05&amp;amp;dib=eyJ2IjoiMSJ9.KpMtE999j0FdWDJH1xg8BA.aRAMtoW_coazhXgP2UDnec3AIZRrUn9n8-7PbES4Df4&amp;amp;dib_tag=se&amp;amp;keywords=Mate+Threats+and+Defense+-+1000+Tactical+Examples&amp;amp;qid=1747650832&amp;amp;s=digital-text&amp;amp;sprefix=mate+threats+and+defense+-+1000+tactical+examples+%2Cdigital-text%2C153&amp;amp;sr=1-1&quot;&gt;今回購入した本&lt;/a&gt;のステイルメイト問題は、自分のようなチェス初心者から見ると「ステイルメイトを狙わないと絶対負ける」とも言えないような曖昧なものが多かったので少し物足りませんでした。もっと分かりやすいテストケースが欲しかったです。&lt;/p&gt;
+
+&lt;h3 id=&quot;ステイルメイト千日手&quot;&gt;ステイルメイト＝千日手？&lt;/h3&gt;
+&lt;p&gt;　チェスに詳しくない自分の認識ではステイルメイト（Stalemate、合法手が無い手詰まり状態）と千日手（Threefold Repetition、同一局面の３回繰り返し）は全く別物だと思っていたのですが、&lt;a href=&quot;https://www.amazon.co.jp/Mate-Threats-Defense-Tactical-Examples-ebook/dp/B0F7QZC1P1/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&amp;amp;crid=GOV4ROULTR05&amp;amp;dib=eyJ2IjoiMSJ9.KpMtE999j0FdWDJH1xg8BA.aRAMtoW_coazhXgP2UDnec3AIZRrUn9n8-7PbES4Df4&amp;amp;dib_tag=se&amp;amp;keywords=Mate+Threats+and+Defense+-+1000+Tactical+Examples&amp;amp;qid=1747650832&amp;amp;s=digital-text&amp;amp;sprefix=mate+threats+and+defense+-+1000+tactical+examples+%2Cdigital-text%2C153&amp;amp;sr=1-1&quot;&gt;「Mate Threats and Defense」&lt;/a&gt;の第７章（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;「STALEMATE IDEAS」&lt;/code&gt;）に続く第８章（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;「COMBINATIONS」&lt;/code&gt;）では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ステイルメイト&lt;/code&gt;と&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;千日手&lt;/code&gt;が絡み合う問題が紹介されてます。形勢不利な白番（先手）が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ステイルメイト&lt;/code&gt;に持ち込もうとして黒番（後手）がそれを避けようとすると&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;千日手&lt;/code&gt;になってしまうという感じです。&lt;br /&gt;
+　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Grok&lt;/code&gt;でチェスの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;千日手&lt;/code&gt;について調べていると以下のように指南されました。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;日本では、将棋の千日手（同じ局面が繰り返される場合）と混同されがちですが、チェスの千日手は「合法な手がない状態」を指すため、局面の繰り返し（三回繰り返しによる引き分け）とは異なることに注意してください。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Grok&lt;/code&gt;は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;千日手&lt;/code&gt;と&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ステイルメイト&lt;/code&gt;は別物だよと念を押してるわけですが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Grok&lt;/code&gt;は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ステイルメイト&lt;/code&gt;の日本語訳が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;千日手&lt;/code&gt;だと思ってるのでしょうか？日本の将棋プレイヤーにとっては将棋のルールにない&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ステイルメイト&lt;/code&gt;は、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Grok&lt;/code&gt;に言われるまでもなく&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;千日手&lt;/code&gt;とはまったく違う特殊なものと認識しているので、むしろ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ステイルメイト&lt;/code&gt;と&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;千日手&lt;/code&gt;が似ていることに驚きました。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ステイルメイト&lt;/code&gt;を日本語に訳す時に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;膠着状態&lt;/code&gt;と訳す場合もあるみたいですが、たしかに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;千日手&lt;/code&gt;も&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;膠着状態&lt;/code&gt;には違いないですね。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ステイルメイト&lt;/code&gt;も&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;千日手&lt;/code&gt;も引き分けの一種という認識が正しいようです。&lt;br /&gt;
+　あまり深く考えたことがなかったのですが、将棋の棋書で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;千日手&lt;/code&gt;だけを取り扱った棋書なんて見たことない（かなり昔の角換わり腰掛け銀の千日手定跡の解説は見たことが有ります）ので、戦術や戦略の分析・分類という点では将棋よりチェスの方が進んでいるのかもしれません。そして「こうこうこういう理由でこの局面では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;千日手&lt;/code&gt;が避けられないんだよ」と解説している将棋の棋書があれば読んでみたい気もしますが、そういう棋書を書くのはチェスよりも難しそうですね。&lt;/p&gt;
+
+&lt;h3 id=&quot;pinが絡むステイルメイトの問題例&quot;&gt;PINが絡むステイルメイトの問題例&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://www.amazon.co.jp/Mate-Threats-Defense-Tactical-Examples-ebook/dp/B0F7QZC1P1/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&amp;amp;crid=GOV4ROULTR05&amp;amp;dib=eyJ2IjoiMSJ9.KpMtE999j0FdWDJH1xg8BA.aRAMtoW_coazhXgP2UDnec3AIZRrUn9n8-7PbES4Df4&amp;amp;dib_tag=se&amp;amp;keywords=Mate+Threats+and+Defense+-+1000+Tactical+Examples&amp;amp;qid=1747650832&amp;amp;s=digital-text&amp;amp;sprefix=mate+threats+and+defense+-+1000+tactical+examples+%2Cdigital-text%2C153&amp;amp;sr=1-1&quot;&gt;「Mate Threats and Defense」&lt;/a&gt;の中から一つ例を取り上げてみます。&lt;/p&gt;
+
+&lt;h5 id=&quot;chapter-7-no105&quot;&gt;Chapter 7 No.105&lt;/h5&gt;
+&lt;p&gt;　白（先手）劣勢？ですが、ここからステイルメイトに持ち込みます。&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;開始局面（クリックで拡大）&lt;/div&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/stalemate_105_1.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stalemate_105_1.png&quot; alt=&quot;Stalemate Ideas No.105&quot; width=&quot;320&quot; height=&quot;251&quot; title=&quot;No.105&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;解答手順：1.♘g6+ ♜xg6 2.♖xh7+ ♚xh7 3.♕xg7+ ♚xg7&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;ステイルメイト局面（クリックで拡大）&lt;/div&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/stalemate_105_2.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stalemate_105_2.png&quot; alt=&quot;Stalemate Ideas No.105&quot; width=&quot;320&quot; height=&quot;357&quot; title=&quot;No.105&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;g3の♗（ビショップ）が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;されていて白番（先手）は指す手が無くなりステイルメイト完成です。&lt;br /&gt;
+　なぜこの局面がステイルメイトだと判断するのが難しかったのかというと、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;駒の利きだけを見て判断すると&lt;/code&gt;g6の黒（後手）の♜（ルーク）の利きはg5,g4,g3と下方に伸びているのですが、g3に白（先手）の♗（ビショップ）が存在するのでそこで駒の利きが遮られるのでその先のg1にある白（先手）の♔（キング）までg6の♜（ルーク）が利いていると判断出来ないからです。そのため&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Stockfish&lt;/code&gt;では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN用のフラグ&lt;/code&gt;を持たせて制御しているようですが、&lt;a href=&quot;https://happyclam.booth.pm/items/6399553&quot;&gt;自分のアプリ&lt;/a&gt;ではそのようなデータは持たせていないので苦労しました。でも、&lt;a href=&quot;https://www.amazon.co.jp/Mate-Threats-Defense-Tactical-Examples-ebook/dp/B0F7QZC1P1/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&amp;amp;crid=GOV4ROULTR05&amp;amp;dib=eyJ2IjoiMSJ9.KpMtE999j0FdWDJH1xg8BA.aRAMtoW_coazhXgP2UDnec3AIZRrUn9n8-7PbES4Df4&amp;amp;dib_tag=se&amp;amp;keywords=Mate+Threats+and+Defense+-+1000+Tactical+Examples&amp;amp;qid=1747650832&amp;amp;s=digital-text&amp;amp;sprefix=mate+threats+and+defense+-+1000+tactical+examples+%2Cdigital-text%2C153&amp;amp;sr=1-1&quot;&gt;今回購入した本&lt;/a&gt;に収録されている問題をいくつか解けたので、とりあえずこれで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PINされたステイルメイトのケース&lt;/code&gt;も問題なくなったと思ってます（&lt;a href=&quot;https://happyclam.github.io/software/2018-06-10/droppawncheck&quot;&gt;打ち歩詰めチェックの記事&lt;/a&gt;に書いたような、先読みをして&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-1&lt;/code&gt;を掛けるという方法が取れないのが辛いところです）。どのように解決したかアルゴリズムを解説すると長くなるのですが、簡単に言うと♔（キング）側から８方向に敵の駒にぶつかるまでチェックしていくという方法です。いつか別の記事で書くかもしれませんが、気になる方は&lt;a href=&quot;https://github.com/happyclam/chessCUI.git&quot;&gt;ソースファイル&lt;/a&gt;を見ていただきたいと思います。&lt;br /&gt;
+　あと、この問題を開始局面から解くには５手読みが必要で、&lt;a href=&quot;https://happyclam.booth.pm/items/6399553&quot;&gt;実際のアプリ&lt;/a&gt;では３手読みしかしていないので正解出来ません。あくまでも読みを深くすれば正解出来るのかどうかのテストです。ちなみに開始局面から２手進めた局面（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;♘g6+ ♜xg6&lt;/code&gt;）から自分のPC環境で３手読みすると&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;6.93秒&lt;/code&gt;で解答できるのですが、開始局面から５手読みすると解答までに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1987.61秒（約３３分）&lt;/code&gt;掛かってしまいます。&lt;/p&gt;
+
+&lt;h3 id=&quot;チェスはcuiでも試しやすい&quot;&gt;チェスはCUIでも試しやすい&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://www.amazon.co.jp/Mate-Threats-Defense-Tactical-Examples-ebook/dp/B0F7QZC1P1/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&amp;amp;crid=GOV4ROULTR05&amp;amp;dib=eyJ2IjoiMSJ9.KpMtE999j0FdWDJH1xg8BA.aRAMtoW_coazhXgP2UDnec3AIZRrUn9n8-7PbES4Df4&amp;amp;dib_tag=se&amp;amp;keywords=Mate+Threats+and+Defense+-+1000+Tactical+Examples&amp;amp;qid=1747650832&amp;amp;s=digital-text&amp;amp;sprefix=mate+threats+and+defense+-+1000+tactical+examples+%2Cdigital-text%2C153&amp;amp;sr=1-1&quot;&gt;「Mate Threats and Defense」&lt;/a&gt;に収められている問題は一つのテストファイル（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;test/tactical.coffee&lt;/code&gt;）にまとめています。チェスは将棋と違って駒をキャラクター表示できるのでCUI環境でも遊べると思います。ただ、等幅フォントを使っても表示がズレる環境（特にWindows）は多いと思いますが、自分は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ubuntu + guake + Monospace 10フォント&lt;/code&gt;でうまく表示出来てます。&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;div align=&quot;center&quot;&gt;ソースコード&lt;/div&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+    &lt;p&gt;&lt;a href=&quot;https://github.com/happyclam/chessCUI.git&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/github-mark.png&quot; alt=&quot;チェスアプリCUIのみ&quot; title=&quot;チェスアプリCUIのみ&quot; width=&quot;120&quot; height=&quot;120&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　テスト（test/tactical.coffee）を実行するには&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NODE_OPTIONS=&quot;--max-old-space-size=24576&quot; mocha --require coffeescript/register --require test/setup.coffee &quot;test/tactical.coffee&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;　テスト（test/tactical.coffee）ファイル内の上記の例だけを実行するには&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NODE_OPTIONS=&quot;--max-old-space-size=24576&quot; mocha --require coffeescript/register --require test/setup.coffee -g &quot;stalemate_105-1&quot; &quot;test/tactical.coffee&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;です。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+</description>
+        <pubDate>Tue, 30 Dec 2025 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/software/2025-12-30/pin_induced_stalemate</link>
+        <guid isPermaLink="true">https://happyclam.github.io/software/2025-12-30/pin_induced_stalemate</guid>
+        
+        <category>coffeescript</category>
+        
+        <category>javascript</category>
+        
+        <category>shogi</category>
+        
+        <category>chess</category>
+        
+        
+        <category>software</category>
+        
+      </item>
     
       <item>
         <title>将棋＆チェスアプリの高速化</title>
@@ -936,160 +1022,6 @@ Kf8 22. Qe8+ Kg7 23. Re3 Qh2+ 24. Kxh2 g1=Q# 0-1
         
         
         <category>miscellaneous</category>
-        
-      </item>
-    
-      <item>
-        <title>Ubuntu Touch を使ってみる</title>
-        <description>&lt;h3 id=&quot;開発のネタ探し中&quot;&gt;開発のネタ探し中&lt;/h3&gt;
-&lt;p&gt;　スマホアプリ開発はAppleやGoogleというプラットフォーマーが開発者とユーザーの間に割り込んでくるため嫌気が差してきたので、次は何を作ろうかと考えて他の選択肢を探している時に偶々Youtubeの動画を見かけて&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ubuntu Touch&lt;/code&gt;を試してみました。&lt;br /&gt;
-　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ubuntu Touch&lt;/code&gt;のユーザーなんてほとんどいないので何かアプリを作っても小銭稼ぎは期待できませんが、そもそも当ブログでは自分が使ってみたいものを作ってきたので問題無しです。&lt;/p&gt;
-
-&lt;h3 id=&quot;インストール手順&quot;&gt;インストール手順&lt;/h3&gt;
-&lt;p&gt;　以下が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ubuntu Touch&lt;/code&gt;を試してみたくなった動画です。細かな注意点も解説されていて非常に助かりました。&lt;/p&gt;
-
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/XW8JU1lHLtk?si=y28wRPv6QsI-OKUg&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;　この動画を見た直後は、いろいろと妄想が膨らんだのですが現実は厳しかったです。&lt;/p&gt;
-
-&lt;h3 id=&quot;必要なもの&quot;&gt;必要なもの&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Google Pixel 3a XL&lt;/code&gt;&lt;br /&gt;
-Amazonの「整備済み品」を18,980円でわざわざ購入しました。&lt;/li&gt;
-  &lt;li&gt;UBPortsのインストーラーが使える状態の工場出荷イメージファイル&lt;br /&gt;
-&lt;a href=&quot;https://developers.google.com/android/images?hl=ja&quot;&gt;こちら&lt;/a&gt;からイメージファイル（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bonito-pq3b.190801.002-factory-61a2836d.zip&lt;/code&gt;）をダウンロード&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;adb&lt;/code&gt;,&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fastboot&lt;/code&gt;コマンド
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; sudo apt install android-tools-adb
- sudo apt install fastboot
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Pixel 3a XL&lt;/code&gt;用のUBPortsインストーラー&lt;br /&gt;
-&lt;a href=&quot;https://devices.ubuntu-touch.io/device/bonito/&quot;&gt;こちら&lt;/a&gt;から&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ubports-installer_0.10.0_linux_amd64.deb&lt;/code&gt;をダウンロード&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;動画内容と違うところ&quot;&gt;動画内容と違うところ&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;上の動画では&lt;a href=&quot;https://developers.google.com/android/images?hl=ja&quot;&gt;Googleのサイト&lt;/a&gt;から&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;フラッシュ&lt;/code&gt;のリンクを踏んで直接インストールしてますが、自分は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;リンク&lt;/code&gt;からダウンロードしたzipファイルを解凍して、スマホのブートローダを起動してからスクリプトを実行しました。&lt;a href=&quot;https://developers.google.com/android/images?hl=ja&quot;&gt;Googleのサイト&lt;/a&gt;に何時までイメージファイルが存在するか分からないのでダウンロードしておいたほうがいいと思います。
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; adb reboot bootloader
- ./flash-all.sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;上の動画ではUBPortsインストーラーをdebパッケージからインストールしていますが、自分のUbuntu24.04環境ではインストール出来なかったのでsnapからインストールしました。
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; sudo snap install ubports-installer
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;上の動画では出てきませんが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;adb&lt;/code&gt;コマンドでPixelと接続する際にPixel側で[設定]-&amp;gt;[システム]-&amp;gt;[開発者向けオプション]-&amp;gt;[デフォルトのUSB設定]で[充電]ではなく[ファイル転送]を選択しておく必要がありました。&lt;br /&gt;
-　これをしないとPC側から&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;adb devices&lt;/code&gt;で接続の確認をした際に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;adb: failed to check server version: protocol fault (couldn&apos;t read status): Connection reset by peer&lt;/code&gt;というエラーになります。現在使っているスマホ（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Xperia 10 Ⅲ&lt;/code&gt;）で試してみたら[ファイル転送]になっていなくても接続できたので古いスマホ（Pixel3a）固有の問題かもしれません。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;adb&lt;/code&gt;コマンド使うのも久しぶりだったので、自分が忘れているだけで昔は全部そうだったような気もします。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/ubuntu-touch.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/ubuntu-touch.png&quot; alt=&quot;Ubuntu Touch&quot; width=&quot;320&quot; height=&quot;640&quot; title=&quot;Ubuntu Touch&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;h3 id=&quot;waydroidはまだまだ&quot;&gt;Waydroidはまだまだ&lt;/h3&gt;
-&lt;p&gt;　Linux上でandroidアプリを動かすための&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Waydroid&lt;/code&gt;、上の動画でも言ってますがandroidアプリを使うぐらいならandroidスマホを使うのが良さそうです。自分はスマホの決済機能もあまり使わないしandroidアプリが無くても生活に必要な多くのことはPCで可能なので、androidスマホが無くてもそこそこ生活していけると思っていますが、どうしてもandroidアプリが必要だという時には&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Waydroid&lt;/code&gt;で「ほとんどのアプリは動く」ぐらいの安心感が欲しいですね。&lt;/p&gt;
-
-&lt;h3 id=&quot;libertineも怪しい&quot;&gt;Libertineも怪しい&lt;/h3&gt;
-&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ubuntu Touch&lt;/code&gt;上でUbuntuのデスクトップアプリを動かす機能ですが、こちらも少し使っただけですが怪しい動きでした。スマホの画面だと狭いからデスクトップアプリが使えないという話ではなく、うまくインストール出来ないものが多かったです。ネットを検索していると「UbuntuのソフトをUbuntu Touchで使いたい」という問いに対して、「ルート（/）以下のディレクトリを書き込み可能にすれば（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo mount -o remount,rw /&lt;/code&gt;）可能ですよ」と言う回答をよく見かけましたが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Libertine&lt;/code&gt;はそういう危険な操作（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo mount -o remount,rw /&lt;/code&gt;）をしなくていい仕組みの筈です。でもインストール直後に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Libertine&lt;/code&gt;を起動してコンテナを作ってデスクトップアプリをインストールすると、うまく行ったり行かなかったりでした。&lt;br /&gt;
-　Ubuntu Touchの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Open Store&lt;/code&gt;から&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UT Tweak&lt;/code&gt;というアプリをインストールして、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Make image writable&lt;/code&gt;の機能を使えば&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Libertine&lt;/code&gt;のコンテナ作成に関しては失敗しなかったので元々そうやって使うべきものなのかもしれません。&lt;/p&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/ut-tweaks.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/ut-tweaks.png&quot; alt=&quot;UT Tweaksアプリ&quot; width=&quot;320&quot; height=&quot;331&quot; title=&quot;UT Tweaksアプリ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ubuntu Touch&lt;/code&gt;をリブートするまで書き込み可にするというオプションが用意してあります（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[Read-Write]Temporary(until reboot)&lt;/code&gt;をタップ）。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apt&lt;/code&gt;コマンドでいろいろなパッケージをインストールする際に、これをOnにしておけば警告が出なくなったりしますが、Ubuntuのデスクトップアプリを何でもインストール出来るわけでは無いようです。&lt;br /&gt;
-　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh&lt;/code&gt;を有効にする機能もこのアプリに用意してあるので、まず最初に入れるべきアプリかも。&lt;/p&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/ut-ssh.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/ut-ssh.png&quot; alt=&quot;ssh設定&quot; width=&quot;320&quot; height=&quot;640&quot; title=&quot;ssh設定&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;h3 id=&quot;日本語が入力出来ない&quot;&gt;日本語が入力出来ない&lt;/h3&gt;
-&lt;p&gt;　モバイルPCとして使えなくても、せめてこのブログの記事を書くことぐらいは出来ないかなぁなんて思っているのですが、今動かしている&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ubuntu Touch OTA 5&lt;/code&gt;は日本語入力に対応していません。日本語関係のパッケージを入れてみたりしましたが自分の力では出来そうになかったです。&lt;/p&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/ut-language.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/ut-language.png&quot; alt=&quot;日本語入力関連&quot; width=&quot;320&quot; height=&quot;640&quot; title=&quot;日本語入力関連&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh&lt;/code&gt;で接続して&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apt&lt;/code&gt;コマンドで言語関連のpackageをインストールしてみました。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IBus Preferences&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Mozc&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Fcitx&lt;/code&gt;の日本語入力関連のアイコンが並んでいて一見使えそうですが、インストール時にエラーが発生していて使えません。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ubuntu Touch&lt;/code&gt;自体は何度でもインストールし直せる状態なのでシステムが壊れてもいいからと、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo mount -o remount,rw /&lt;/code&gt;した後にいろいろやって&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ubuntu Touch OTA6&lt;/code&gt;にバージョンアップしても違いはなかったです。&lt;/p&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/OTA6.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/OTA6.png&quot; alt=&quot;OTA6&quot; width=&quot;270&quot; height=&quot;540&quot; title=&quot;OTA6&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;h3 id=&quot;アプリ開発は情報が少ない&quot;&gt;アプリ開発は情報が少ない&lt;/h3&gt;
-&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Open Store&lt;/code&gt;に用意されているアプリはWebベースのアプリが多いみたいで、ネイティブなものは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qt&lt;/code&gt;を使うようですが情報が少ないので大変そうです。自分が何か開発するとしたらWebベースのものになると思いますが、日本語の情報はほとんど無さそうです。&lt;br /&gt;
-　試しに&lt;a href=&quot;https://download.qt.io/archive/online_installers/4.8/&quot;&gt;Qt Creator&lt;/a&gt;を使ってサンプルをコンパイルしてみましたが、Ubuntu上では動くもののUbuntu Touch上では動きませんでした。こっち方面に進むのは茨の道になりそうです。&lt;/p&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/qt-creator.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/qt-creator.png&quot; alt=&quot;Qt Cretor&quot; width=&quot;320&quot; height=&quot;206&quot; title=&quot;Qt Creator&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;h3 id=&quot;それでも期待したい&quot;&gt;それでも期待したい&lt;/h3&gt;
-&lt;p&gt;　動作するスマホの機種が限定されるというのは辛いし今使っているスマホ（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Xperia 10 Ⅲ&lt;/code&gt;）の代替にはなりませんが、今のスマホを買い換える時までに何か変化があって欲しいな（他人任せ）と思ってます。今でも海外なら&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ubuntu Touch&lt;/code&gt;が動作するハイスペックなスマホは売られてますが、日本だと技適を通過しないことにはマズそう（通話自体は可能？）なので、ここが一番のネックな気がしますね。&lt;br /&gt;
-　応援のつもりで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UBPorts&lt;/code&gt;に寄付しようかとやってみたら、なんと日本からの寄付は受け付けていないようで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PayPal&lt;/code&gt;から送金できませんでした。日本人は相手にされていないみたいで何か悲しいです。&lt;/p&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/ubports_paypal.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/ubports_paypal.png&quot; alt=&quot;paypalのエラー&quot; width=&quot;320&quot; height=&quot;214&quot; title=&quot;paypalのエラー&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;h3 id=&quot;日本語入力出来ました2025-10-08追記&quot;&gt;日本語入力出来ました（2025-10-08追記）&lt;/h3&gt;
-&lt;p&gt;　久しぶりに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ubuntu Touch&lt;/code&gt;を起動してシステムメニューから&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Update&lt;/code&gt;後、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Upgrade&lt;/code&gt;したら日本語入力が可能になってました。&lt;/p&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/Touch_2404.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/Touch_2404.png&quot; alt=&quot;Ubuntu Touch 24.04&quot; width=&quot;270&quot; height=&quot;540&quot; title=&quot;Ubuntu Touch 24.04&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　ChatGPTによると&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;maliit-keyboard が新しい Qt InputMethod Framework に対応&lt;/li&gt;
-  &lt;li&gt;fcitx5 と mozc が root ではなく phablet 権限で利用可能&lt;/li&gt;
-  &lt;li&gt;日本語ロケール (ja_JP.UTF-8) がデフォルト同梱&lt;/li&gt;
-  &lt;li&gt;UIフォントが Noto Sans CJK に統一され文字化けが解消&lt;/li&gt;
-  &lt;li&gt;標準のMaliitキーボードが日本語入力対応済み&lt;/li&gt;
-  &lt;li&gt;特別な設定やコンテナ導入は不要&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;だそうです。もちろんターミナル上でも入力できます。&lt;/p&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/mallit.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/mallit.png&quot; alt=&quot;mallit-keyboard&quot; width=&quot;270&quot; height=&quot;540&quot; title=&quot;Mallit-keyboard&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　これでキーボードとディスプレイを用意すれば出先で使うモバイルPCに近づきそうです:smile:&lt;/p&gt;
-
-&lt;hr /&gt;
-
-</description>
-        <pubDate>Sat, 16 Nov 2024 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/hardware/2024-11-16/ubuntu_touch</link>
-        <guid isPermaLink="true">https://happyclam.github.io/hardware/2024-11-16/ubuntu_touch</guid>
-        
-        <category>ubuntu</category>
-        
-        <category>android</category>
-        
-        
-        <category>hardware</category>
         
       </item>
     

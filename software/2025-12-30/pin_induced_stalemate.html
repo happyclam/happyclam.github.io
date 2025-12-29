@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="author" content="happyclam">
+  <meta name="description"
+    content="PINされたステイルメイト 有用なテストケースを追い求めて Reinventing the wheel.">
+  <title> PINされたステイルメイト - 自己満足プログラミング </title>
+
+  <!-- <\!-- Global Site Tag (gtag.js) - Google Analytics -\-> -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script> -->
+  <!-- <script> -->
+  <!--   window.dataLayer = window.dataLayer || []; -->
+  <!--   function gtag(){dataLayer.push(arguments);} -->
+  <!--   gtag('js', new Date()); -->
+  <!--   gtag('config', 'UA-1752720-7'); -->
+  <!-- </script> -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DEV3LMTH6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DEV3LMTH6C');
+</script>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="PINされたステイルメイト">
+  
+  
+  <meta name="twitter:url" content="/software/2025-12-30/pin_induced_stalemate">
+  
+  
+  <meta name="twitter:description" content="PIN絡みのステイルメイトはレアケース？">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/chess_icon.png">
+  
+
+  <link rel="canonical" href="https://happyclam.github.io/software/2025-12-30/pin_induced_stalemate" />
+  <link rel="alternate" type="application/rss+xml" title="自己満足プログラミング" href="/feed.xml" />
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="site-title" class="navbar-brand" href="/">
+          <img class="pull-left img-responsive" src="">
+          <span class="name-holder">自己満足プログラミング</span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li><a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li><a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li><a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li><a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li><a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1238485061299241" -->
+<!--      crossorigin="anonymous"></script> -->
+
+  <div class="blog-header">
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+      <div class="span9">
+        <!-- Html Elements for Search -->
+        <div id="search-container" align="right">
+          <input type="text" id="search-input" placeholder="search...">
+          <ul class="searchresult" id="results-container"></ul>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+  <script src="/assets/js/jquery.min.js"></script>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
+
+        <header class="page-header">
+          <h2 class="page-title"><a href="/software/2025-12-30/pin_induced_stalemate">PINされたステイルメイト</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Tuesday, December 30, 2025
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">coffeescript</span>
+                
+                  <span class="label label-tag">javascript</span>
+                
+                  <span class="label label-tag">shogi</span>
+                
+                  <span class="label label-tag">chess</span>
+                
+            </div>
+          </div>
+
+        </header>
+
+        <article class="page-content">
+          <h3 id="pin絡みのステイルメイトはレアケース">PIN絡みのステイルメイトはレアケース？</h3>
+<p>　<a href="/software/2024-12-15/chessPIN">以前の記事</a>で<a href="https://happyclam.booth.pm/items/6399553">販売中のチェスアプリ</a>が、<code class="language-plaintext highlighter-rouge">自分の駒がPINされた状態でのステイルメイト問題</code>を解くことが出来なかったという話を書きましたが、一つのケースしか試せなかったので他にも似たようなテストケースは無いものかと探していて<code class="language-plaintext highlighter-rouge">Kindle</code>で<a href="https://www.amazon.co.jp/Mate-Threats-Defense-Tactical-Examples-ebook/dp/B0F7QZC1P1/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&amp;crid=GOV4ROULTR05&amp;dib=eyJ2IjoiMSJ9.KpMtE999j0FdWDJH1xg8BA.aRAMtoW_coazhXgP2UDnec3AIZRrUn9n8-7PbES4Df4&amp;dib_tag=se&amp;keywords=Mate+Threats+and+Defense+-+1000+Tactical+Examples&amp;qid=1747650832&amp;s=digital-text&amp;sprefix=mate+threats+and+defense+-+1000+tactical+examples+%2Cdigital-text%2C153&amp;sr=1-1">「Mate Threats and Defense - 1000 Tactical Examples」</a>という本を購入しました。将棋で言えば「次の一手問題集」みたいなものだと思いますが、問題がテーマ毎に分類されていて<code class="language-plaintext highlighter-rouge">ステイルメイト</code>だけを取り扱った章もあるので、これなら自分が探している問題もあるだろうと期待して購入しました。</p>
+
+<h3 id="探しているのはpinされたステイルメイト問題">探しているのはPINされたステイルメイト問題</h3>
+<p>　自分が探しているテストケースは<a href="/software/2024-12-15/chessPIN">前回の記事</a>で紹介したような「味方の駒が<code class="language-plaintext highlighter-rouge">PIN</code>された状態に持ち込むステイルメイト」問題です。<a href="https://www.amazon.co.jp/Mate-Threats-Defense-Tactical-Examples-ebook/dp/B0F7QZC1P1/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&amp;crid=GOV4ROULTR05&amp;dib=eyJ2IjoiMSJ9.KpMtE999j0FdWDJH1xg8BA.aRAMtoW_coazhXgP2UDnec3AIZRrUn9n8-7PbES4Df4&amp;dib_tag=se&amp;keywords=Mate+Threats+and+Defense+-+1000+Tactical+Examples&amp;qid=1747650832&amp;s=digital-text&amp;sprefix=mate+threats+and+defense+-+1000+tactical+examples+%2Cdigital-text%2C153&amp;sr=1-1">「Mate Threats and Defense」</a>では、問題がテーマ毎に分類されていると言っても流石に「<code class="language-plaintext highlighter-rouge">PIN</code>されたステイルメイト」というテーマはなかったので、第7章（<code class="language-plaintext highlighter-rouge">「STALEMATE IDEAS」</code>）の中から探してみるとNo.91からNo.106までの16問の問題の内２問だけ目的のものが見つかりました。第１３章（<code class="language-plaintext highlighter-rouge">「PINNING」</code>）も中も探しましたが、そこでは主に相手の駒を<code class="language-plaintext highlighter-rouge">PIN</code>して動けないようにして自玉（King）を守る問題が紹介されていて、特にステイルメイトとは関係無い問題のようです。自分が確認したのは第７章とそれに続く第８章と第１３章だけなのでもしかしたら他の問題の中にも自分が探しているケースがあるかもしれませんが、意外と少ないようです。<br />
+　チェスプレイヤーがステイルメイトで勝負を引き分けに持ち込むときに、自分の駒がPINされてるかどうかなんて二の次であまり意識しないでしょうから<a href="https://www.amazon.co.jp/Mate-Threats-Defense-Tactical-Examples-ebook/dp/B0F7QZC1P1/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&amp;crid=GOV4ROULTR05&amp;dib=eyJ2IjoiMSJ9.KpMtE999j0FdWDJH1xg8BA.aRAMtoW_coazhXgP2UDnec3AIZRrUn9n8-7PbES4Df4&amp;dib_tag=se&amp;keywords=Mate+Threats+and+Defense+-+1000+Tactical+Examples&amp;qid=1747650832&amp;s=digital-text&amp;sprefix=mate+threats+and+defense+-+1000+tactical+examples+%2Cdigital-text%2C153&amp;sr=1-1">この本</a>の著者がそういう分類をしていないのは当然でしょう。でも、<a href="/software/2024-12-15/chessPIN">以前の記事</a>で書いたように、開発者にとってはそこが大きな問題だったりします。ユーザーのニーズを実現するための苦労が、ユーザーがまったく気が付かないところにあったなんてことは業務ソフトの開発現場でもよくあることですね。<br />
+　それと、<code class="language-plaintext highlighter-rouge">有用なテストケース</code>に出会えるかどうかがソフト開発に大事だったりしますが、<a href="/software/2024-12-15/chessPIN">以前の記事</a>のケースは本当に助かりました。<a href="https://www.amazon.co.jp/Mate-Threats-Defense-Tactical-Examples-ebook/dp/B0F7QZC1P1/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&amp;crid=GOV4ROULTR05&amp;dib=eyJ2IjoiMSJ9.KpMtE999j0FdWDJH1xg8BA.aRAMtoW_coazhXgP2UDnec3AIZRrUn9n8-7PbES4Df4&amp;dib_tag=se&amp;keywords=Mate+Threats+and+Defense+-+1000+Tactical+Examples&amp;qid=1747650832&amp;s=digital-text&amp;sprefix=mate+threats+and+defense+-+1000+tactical+examples+%2Cdigital-text%2C153&amp;sr=1-1">今回購入した本</a>のステイルメイト問題は、自分のようなチェス初心者から見ると「ステイルメイトを狙わないと絶対負ける」とも言えないような曖昧なものが多かったので少し物足りませんでした。もっと分かりやすいテストケースが欲しかったです。</p>
+
+<h3 id="ステイルメイト千日手">ステイルメイト＝千日手？</h3>
+<p>　チェスに詳しくない自分の認識ではステイルメイト（Stalemate、合法手が無い手詰まり状態）と千日手（Threefold Repetition、同一局面の３回繰り返し）は全く別物だと思っていたのですが、<a href="https://www.amazon.co.jp/Mate-Threats-Defense-Tactical-Examples-ebook/dp/B0F7QZC1P1/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&amp;crid=GOV4ROULTR05&amp;dib=eyJ2IjoiMSJ9.KpMtE999j0FdWDJH1xg8BA.aRAMtoW_coazhXgP2UDnec3AIZRrUn9n8-7PbES4Df4&amp;dib_tag=se&amp;keywords=Mate+Threats+and+Defense+-+1000+Tactical+Examples&amp;qid=1747650832&amp;s=digital-text&amp;sprefix=mate+threats+and+defense+-+1000+tactical+examples+%2Cdigital-text%2C153&amp;sr=1-1">「Mate Threats and Defense」</a>の第７章（<code class="language-plaintext highlighter-rouge">「STALEMATE IDEAS」</code>）に続く第８章（<code class="language-plaintext highlighter-rouge">「COMBINATIONS」</code>）では<code class="language-plaintext highlighter-rouge">ステイルメイト</code>と<code class="language-plaintext highlighter-rouge">千日手</code>が絡み合う問題が紹介されてます。形勢不利な白番（先手）が<code class="language-plaintext highlighter-rouge">ステイルメイト</code>に持ち込もうとして黒番（後手）がそれを避けようとすると<code class="language-plaintext highlighter-rouge">千日手</code>になってしまうという感じです。<br />
+　<code class="language-plaintext highlighter-rouge">Grok</code>でチェスの<code class="language-plaintext highlighter-rouge">千日手</code>について調べていると以下のように指南されました。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>日本では、将棋の千日手（同じ局面が繰り返される場合）と混同されがちですが、チェスの千日手は「合法な手がない状態」を指すため、局面の繰り返し（三回繰り返しによる引き分け）とは異なることに注意してください。
+</code></pre></div></div>
+
+<p>　<code class="language-plaintext highlighter-rouge">Grok</code>は<code class="language-plaintext highlighter-rouge">千日手</code>と<code class="language-plaintext highlighter-rouge">ステイルメイト</code>は別物だよと念を押してるわけですが、<code class="language-plaintext highlighter-rouge">Grok</code>は<code class="language-plaintext highlighter-rouge">ステイルメイト</code>の日本語訳が<code class="language-plaintext highlighter-rouge">千日手</code>だと思ってるのでしょうか？日本の将棋プレイヤーにとっては将棋のルールにない<code class="language-plaintext highlighter-rouge">ステイルメイト</code>は、<code class="language-plaintext highlighter-rouge">Grok</code>に言われるまでもなく<code class="language-plaintext highlighter-rouge">千日手</code>とはまったく違う特殊なものと認識しているので、むしろ<code class="language-plaintext highlighter-rouge">ステイルメイト</code>と<code class="language-plaintext highlighter-rouge">千日手</code>が似ていることに驚きました。<code class="language-plaintext highlighter-rouge">ステイルメイト</code>を日本語に訳す時に<code class="language-plaintext highlighter-rouge">膠着状態</code>と訳す場合もあるみたいですが、たしかに<code class="language-plaintext highlighter-rouge">千日手</code>も<code class="language-plaintext highlighter-rouge">膠着状態</code>には違いないですね。<code class="language-plaintext highlighter-rouge">ステイルメイト</code>も<code class="language-plaintext highlighter-rouge">千日手</code>も引き分けの一種という認識が正しいようです。<br />
+　あまり深く考えたことがなかったのですが、将棋の棋書で<code class="language-plaintext highlighter-rouge">千日手</code>だけを取り扱った棋書なんて見たことない（かなり昔の角換わり腰掛け銀の千日手定跡の解説は見たことが有ります）ので、戦術や戦略の分析・分類という点では将棋よりチェスの方が進んでいるのかもしれません。そして「こうこうこういう理由でこの局面では<code class="language-plaintext highlighter-rouge">千日手</code>が避けられないんだよ」と解説している将棋の棋書があれば読んでみたい気もしますが、そういう棋書を書くのはチェスよりも難しそうですね。</p>
+
+<h3 id="pinが絡むステイルメイトの問題例">PINが絡むステイルメイトの問題例</h3>
+<p>　<a href="https://www.amazon.co.jp/Mate-Threats-Defense-Tactical-Examples-ebook/dp/B0F7QZC1P1/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&amp;crid=GOV4ROULTR05&amp;dib=eyJ2IjoiMSJ9.KpMtE999j0FdWDJH1xg8BA.aRAMtoW_coazhXgP2UDnec3AIZRrUn9n8-7PbES4Df4&amp;dib_tag=se&amp;keywords=Mate+Threats+and+Defense+-+1000+Tactical+Examples&amp;qid=1747650832&amp;s=digital-text&amp;sprefix=mate+threats+and+defense+-+1000+tactical+examples+%2Cdigital-text%2C153&amp;sr=1-1">「Mate Threats and Defense」</a>の中から一つ例を取り上げてみます。</p>
+
+<h5 id="chapter-7-no105">Chapter 7 No.105</h5>
+<p>　白（先手）劣勢？ですが、ここからステイルメイトに持ち込みます。</p>
+
+<div align="center">開始局面（クリックで拡大）</div>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/stalemate_105_1.png"><img src="/images/stalemate_105_1.png" alt="Stalemate Ideas No.105" width="320" height="251" title="No.105" /></a></p>
+
+</div>
+
+<p>解答手順：1.♘g6+ ♜xg6 2.♖xh7+ ♚xh7 3.♕xg7+ ♚xg7</p>
+
+<div align="center">ステイルメイト局面（クリックで拡大）</div>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/stalemate_105_2.png"><img src="/images/stalemate_105_2.png" alt="Stalemate Ideas No.105" width="320" height="357" title="No.105" /></a></p>
+
+</div>
+
+<p>g3の♗（ビショップ）が<code class="language-plaintext highlighter-rouge">PIN</code>されていて白番（先手）は指す手が無くなりステイルメイト完成です。<br />
+　なぜこの局面がステイルメイトだと判断するのが難しかったのかというと、<code class="language-plaintext highlighter-rouge">駒の利きだけを見て判断すると</code>g6の黒（後手）の♜（ルーク）の利きはg5,g4,g3と下方に伸びているのですが、g3に白（先手）の♗（ビショップ）が存在するのでそこで駒の利きが遮られるのでその先のg1にある白（先手）の♔（キング）までg6の♜（ルーク）が利いていると判断出来ないからです。そのため<code class="language-plaintext highlighter-rouge">Stockfish</code>では<code class="language-plaintext highlighter-rouge">PIN用のフラグ</code>を持たせて制御しているようですが、<a href="https://happyclam.booth.pm/items/6399553">自分のアプリ</a>ではそのようなデータは持たせていないので苦労しました。でも、<a href="https://www.amazon.co.jp/Mate-Threats-Defense-Tactical-Examples-ebook/dp/B0F7QZC1P1/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&amp;crid=GOV4ROULTR05&amp;dib=eyJ2IjoiMSJ9.KpMtE999j0FdWDJH1xg8BA.aRAMtoW_coazhXgP2UDnec3AIZRrUn9n8-7PbES4Df4&amp;dib_tag=se&amp;keywords=Mate+Threats+and+Defense+-+1000+Tactical+Examples&amp;qid=1747650832&amp;s=digital-text&amp;sprefix=mate+threats+and+defense+-+1000+tactical+examples+%2Cdigital-text%2C153&amp;sr=1-1">今回購入した本</a>に収録されている問題をいくつか解けたので、とりあえずこれで<code class="language-plaintext highlighter-rouge">PINされたステイルメイトのケース</code>も問題なくなったと思ってます（<a href="https://happyclam.github.io/software/2018-06-10/droppawncheck">打ち歩詰めチェックの記事</a>に書いたような、先読みをして<code class="language-plaintext highlighter-rouge">-1</code>を掛けるという方法が取れないのが辛いところです）。どのように解決したかアルゴリズムを解説すると長くなるのですが、簡単に言うと♔（キング）側から８方向に敵の駒にぶつかるまでチェックしていくという方法です。いつか別の記事で書くかもしれませんが、気になる方は<a href="https://github.com/happyclam/chessCUI.git">ソースファイル</a>を見ていただきたいと思います。<br />
+　あと、この問題を開始局面から解くには５手読みが必要で、<a href="https://happyclam.booth.pm/items/6399553">実際のアプリ</a>では３手読みしかしていないので正解出来ません。あくまでも読みを深くすれば正解出来るのかどうかのテストです。ちなみに開始局面から２手進めた局面（<code class="language-plaintext highlighter-rouge">♘g6+ ♜xg6</code>）から自分のPC環境で３手読みすると<code class="language-plaintext highlighter-rouge">6.93秒</code>で解答できるのですが、開始局面から５手読みすると解答までに<code class="language-plaintext highlighter-rouge">1987.61秒（約３３分）</code>掛かってしまいます。</p>
+
+<h3 id="チェスはcuiでも試しやすい">チェスはCUIでも試しやすい</h3>
+<p>　<a href="https://www.amazon.co.jp/Mate-Threats-Defense-Tactical-Examples-ebook/dp/B0F7QZC1P1/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&amp;crid=GOV4ROULTR05&amp;dib=eyJ2IjoiMSJ9.KpMtE999j0FdWDJH1xg8BA.aRAMtoW_coazhXgP2UDnec3AIZRrUn9n8-7PbES4Df4&amp;dib_tag=se&amp;keywords=Mate+Threats+and+Defense+-+1000+Tactical+Examples&amp;qid=1747650832&amp;s=digital-text&amp;sprefix=mate+threats+and+defense+-+1000+tactical+examples+%2Cdigital-text%2C153&amp;sr=1-1">「Mate Threats and Defense」</a>に収められている問題は一つのテストファイル（<code class="language-plaintext highlighter-rouge">test/tactical.coffee</code>）にまとめています。チェスは将棋と違って駒をキャラクター表示できるのでCUI環境でも遊べると思います。ただ、等幅フォントを使っても表示がズレる環境（特にWindows）は多いと思いますが、自分は<code class="language-plaintext highlighter-rouge">Ubuntu + guake + Monospace 10フォント</code>でうまく表示出来てます。</p>
+
+<div align="center">
+<div align="center">ソースコード</div>
+<div style="width:320px; margin: 0 auto;">
+
+    <p><a href="https://github.com/happyclam/chessCUI.git"><img src="/images/github-mark.png" alt="チェスアプリCUIのみ" title="チェスアプリCUIのみ" width="120" height="120" /></a></p>
+
+  </div>
+</div>
+
+<p>　テスト（test/tactical.coffee）を実行するには<br />
+<code class="language-plaintext highlighter-rouge">NODE_OPTIONS="--max-old-space-size=24576" mocha --require coffeescript/register --require test/setup.coffee "test/tactical.coffee"</code></p>
+
+<p>　テスト（test/tactical.coffee）ファイル内の上記の例だけを実行するには<br />
+<code class="language-plaintext highlighter-rouge">NODE_OPTIONS="--max-old-space-size=24576" mocha --require coffeescript/register --require test/setup.coffee -g "stalemate_105-1" "test/tactical.coffee"</code></p>
+
+<p>です。</p>
+
+<hr />
+
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <small>&copy; rifyll theme, 2014</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+</body>
+
+</html>
