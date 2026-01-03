@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 29 Dec 2025 13:27:49 +0900</pubDate>
-    <lastBuildDate>Mon, 29 Dec 2025 13:27:49 +0900</lastBuildDate>
+    <pubDate>Sat, 03 Jan 2026 14:03:12 +0900</pubDate>
+    <lastBuildDate>Sat, 03 Jan 2026 14:03:12 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -141,6 +141,11 @@ posi[1] == d_posi[1])[0]
 &lt;p&gt;　３三将棋と同じところまで７七将棋の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;配列バージョン&lt;/code&gt;の対応を済ませてテストスクリプトの実行時間を確認したところ、３三将棋とは違って明確に速くなっているので取り敢えず７七将棋だけ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;配列バージョン&lt;/code&gt;に変更してリリースしてみようと思います。&lt;br /&gt;
 　&lt;a href=&quot;https://github.com/happyclam/shogi33simple&quot;&gt;３三将棋&lt;/a&gt;でも一部のテスト結果が旧版の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;駒リストバージョン&lt;/code&gt;とは違う結果（テスト失敗）になっていますが、７七将棋でも指し手に変化が出るようです。局面の静的評価に関わる数値は一切変更していないのに、指し手に変化が出る理由がはっきり分からないのですが、読む深さを変えるとテスト結果を旧版と同じにすることが可能なケースがほとんどなので今のところ大きな問題はないと思ってます。&lt;br /&gt;
 　また、劇的に速くなったわけではないので、読みの深さを一手深くするのは今回は諦めます（新しいスマホ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Pixel10Ⅶ&lt;/code&gt;で現状のアプリを動かしてみても、遅すぎてとても一手深くする状況ではないです）。読みの深さを変えなくても指し手が変わるので、それをしばらく楽しんでみようというのが本音です。何か問題があるかもしれませんが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;「Done is better than perfect」&lt;/code&gt;なんて言いますし…:sweat_smile:&lt;/p&gt;
+
+&lt;h3 id=&quot;７七将棋での効果も限定的2026-01-03追記&quot;&gt;７七将棋での効果も限定的（2026-01-03追記）&lt;/h3&gt;
+&lt;p&gt;　「７七将棋なら効果あり」と書いてますが、その効果も限定的なので念の為補足しておきます。初めてリリースした時から変わっていませんが、新しくリリースした&lt;a href=&quot;https://happyclam.booth.pm/items/6346070&quot;&gt;７七将棋アプリ&lt;/a&gt;の最強モードでも３手読みまでしかしていません。その３手読みに関してはレスポンスタイムが約半分ぐらいに短縮出来ましたが、テストスクリプトでは５手読み、７手読みのテストもしていて、一つのテストに１時間ぐらいかかるものもあります。そしてそういう長手数のテストの実行時間を比較すると以前と大してレスポンスが変わっていません。&lt;br /&gt;
+　つまり&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;駒リストバージョン&lt;/code&gt;から&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;配列バージョン&lt;/code&gt;に変えても３手読みまでは効果はあるけど、将棋盤を配列にしたことでメモリー消費も増えて、良い事尽くしって訳ではないです。今後、駒情報をキャッシュして差分更新するようなことを考えていますが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript(Javascript)&lt;/code&gt;のままではコードが増える毎にパフォーマンスが落ちる気もします。しかし前述したようにそこまで手を尽くしてから&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;に書き換えれば速くなると思ってます。&lt;br /&gt;
+　ということで、とりあえず&lt;a href=&quot;https://happyclam.booth.pm/items/6346070&quot;&gt;７七将棋アプリ&lt;/a&gt;は試しに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;配列バージョン&lt;/code&gt;に置き換えましたが、他の将棋関連アプリやチェス関連アプリは当面&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;駒リストバージョン&lt;/code&gt;のままにしておくつもりです。&lt;/p&gt;
 
 &lt;hr /&gt;
 

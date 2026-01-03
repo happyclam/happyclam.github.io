@@ -216,6 +216,11 @@ posi[1] == d_posi[1])[0]
 　<a href="https://github.com/happyclam/shogi33simple">３三将棋</a>でも一部のテスト結果が旧版の<code class="language-plaintext highlighter-rouge">駒リストバージョン</code>とは違う結果（テスト失敗）になっていますが、７七将棋でも指し手に変化が出るようです。局面の静的評価に関わる数値は一切変更していないのに、指し手に変化が出る理由がはっきり分からないのですが、読む深さを変えるとテスト結果を旧版と同じにすることが可能なケースがほとんどなので今のところ大きな問題はないと思ってます。<br>
 　また、劇的に速くなったわけではないので、読みの深さを一手深くするのは今回は諦めます（新しいスマホ<code class="language-plaintext highlighter-rouge">Pixel10Ⅶ</code>で現状のアプリを動かしてみても、遅すぎてとても一手深くする状況ではないです）。読みの深さを変えなくても指し手が変わるので、それをしばらく楽しんでみようというのが本音です。何か問題があるかもしれませんが、<code class="language-plaintext highlighter-rouge">「Done is better than perfect」</code>なんて言いますし…<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"></p>
 
+<h3 id="７七将棋での効果も限定的2026-01-03追記">７七将棋での効果も限定的（2026-01-03追記）</h3>
+<p>　「７七将棋なら効果あり」と書いてますが、その効果も限定的なので念の為補足しておきます。初めてリリースした時から変わっていませんが、新しくリリースした<a href="https://happyclam.booth.pm/items/6346070">７七将棋アプリ</a>の最強モードでも３手読みまでしかしていません。その３手読みに関してはレスポンスタイムが約半分ぐらいに短縮出来ましたが、テストスクリプトでは５手読み、７手読みのテストもしていて、一つのテストに１時間ぐらいかかるものもあります。そしてそういう長手数のテストの実行時間を比較すると以前と大してレスポンスが変わっていません。<br>
+　つまり<code class="language-plaintext highlighter-rouge">駒リストバージョン</code>から<code class="language-plaintext highlighter-rouge">配列バージョン</code>に変えても３手読みまでは効果はあるけど、将棋盤を配列にしたことでメモリー消費も増えて、良い事尽くしって訳ではないです。今後、駒情報をキャッシュして差分更新するようなことを考えていますが、<code class="language-plaintext highlighter-rouge">CoffeeScript(Javascript)</code>のままではコードが増える毎にパフォーマンスが落ちる気もします。しかし前述したようにそこまで手を尽くしてから<code class="language-plaintext highlighter-rouge">C++</code>に書き換えれば速くなると思ってます。<br>
+　ということで、とりあえず<a href="https://happyclam.booth.pm/items/6346070">７七将棋アプリ</a>は試しに<code class="language-plaintext highlighter-rouge">配列バージョン</code>に置き換えましたが、他の将棋関連アプリやチェス関連アプリは当面<code class="language-plaintext highlighter-rouge">駒リストバージョン</code>のままにしておくつもりです。</p>
+
 <hr>
 
 
