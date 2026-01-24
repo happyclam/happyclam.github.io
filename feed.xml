@@ -5,9 +5,125 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 03 Jan 2026 14:03:12 +0900</pubDate>
-    <lastBuildDate>Sat, 03 Jan 2026 14:03:12 +0900</lastBuildDate>
+    <pubDate>Sat, 24 Jan 2026 14:49:18 +0900</pubDate>
+    <lastBuildDate>Sat, 24 Jan 2026 14:49:18 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
+    
+      <item>
+        <title>消える三目並べをマルコフ拡張</title>
+        <description>&lt;h3 id=&quot;chatgpt様々&quot;&gt;ChatGPT様々&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;消える三目並べ（Vanishing TicTacToe）アプリ&lt;/a&gt;をリリースしてからかなり経ちますが、&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;このアプリ&lt;/a&gt;は&lt;a href=&quot;https://happyclam.github.io/project/2016-09-19/tictactoe_evo&quot;&gt;通常の三目並べアプリ&lt;/a&gt;と同様に&lt;a href=&quot;https://hb.afl.rakuten.co.jp/hgc/18980d66.5ec24871.18980d67.e8ecef93/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F5271872%2F&amp;amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F12693001%2F&amp;amp;link_type=text&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJ0ZXh0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImxlZnQiLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjF9&quot;&gt;「STASTIC HACKS」&lt;/a&gt;という本に書かれていた、勝った時は報酬の石ころを＋３，負けた時は−１与えるという方法（確率的方策によるモンテカルロ制御とか&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ポリアの壺モデル&lt;/code&gt;とか言うそうです。ChatGPTとの会話の中では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;石ころ法&lt;/code&gt;と呼んでました）で強化学習を行い徐々にAIが強くなっていくというものです。でも「消える三目並べ」では「通常の三目並べ」のようには強くなりませんでした。&lt;br /&gt;
+　そこで、長年疑問に思っていたことをChatGPTに聞いてみたら、あっさり学習用のサンプルプログラムを出力してくれて、少しは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;マルコフ過程&lt;/code&gt;について理解出来るようになったので経緯を紹介します。&lt;/p&gt;
+
+&lt;h3 id=&quot;何かが足りないとは思っていた&quot;&gt;「何かが足りない」とは思っていた&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;消える三目並べアプリ&lt;/a&gt;は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;αβ法を使った最強の消える三目並べプログラム&lt;/code&gt;相手に10,000局対戦学習させてリリースしています。消える三目並べは先手必勝のゲームなので、「少なくとも先手の時は人間には負けなくなる」ぐらいにまで確認したかったのですが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;11手読み（消える三目並べは初手から11手読みをすれば先手必勝です）の最強プログラム&lt;/code&gt;を使って学習するのは非常に時間がかかります（昔の私のPC環境で10,000局の学習で一週間ぐらい？）ので、そこまでは確認できませんでした。&lt;br /&gt;
+　それに&lt;a href=&quot;https://happyclam.github.io/programming/2016-11-03/ml_miscellaneous2&quot;&gt;昔の記事&lt;/a&gt;にも書いてますが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;「消える三目並べ」では通常の三目並べと違い６手目以降は駒が消えていくので現在の局面（９マスの配置）を見ただけでは最善手の判断が出来ません&lt;/code&gt;。次にどの駒（×か○か）が消えるのかを知っていなければ学習しようがないはずで、強化学習プログラムとしては何か足りないのでは？と思っていました。&lt;br /&gt;
+　でも、出来上がったプログラムは&lt;a href=&quot;https://happyclam.github.io/tictactoe-van/&quot;&gt;PC版&lt;/a&gt;で実際に対局してもらえば解ると思いますがそこそこ強いです。先手必勝手順を知らなければAIが後手でも人間によく勝ちます。なので、強くなっていることに嘘はないから「強くはなるけど正解ではないな」と思いながらも妥協して&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;アプリ&lt;/a&gt;をリリースしていました。&lt;/p&gt;
+
+&lt;h3 id=&quot;マルコフ連鎖との出会い&quot;&gt;マルコフ連鎖との出会い&lt;/h3&gt;
+&lt;p&gt;　マルコフ連鎖なんて言葉自体も知りませんでしたが、ある時&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/18980d66.5ec24871.18980d67.e8ecef93/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F1480131%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9&quot;&gt;「確率の話」&lt;/a&gt;という古い本を見つけて読んでいると「確率で英語を作ってみよう」というタイトルでマルコフ過程の話が書かれていて、「これって消える三目並べにも使えるんじゃないか？」と直感してマルコフ連鎖に関する本を２冊買いましたが、難しい数式ばかり出てきて自分が知りたいことは書かれてなく、自分にとっては睡眠薬代わりにしかなりませんでした。&lt;br /&gt;
+　&lt;a href=&quot;https://hb.afl.rakuten.co.jp/ichiba/18980d66.5ec24871.18980d67.e8ecef93/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F1480131%2F&amp;amp;link_type=hybrid_url&amp;amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9&quot;&gt;「確率の話」&lt;/a&gt;に出てきた、英語の文書を学習して次に来るアルファベットを確率で選んで英文を作るという方法、「次の状態の分布が、現在の状態だけで決まる」という状態が、消える三目並べの「次にどの駒が消えるかを知っていれば次の手が決まる状態」と似てると思ったのですが、長年どのように実装すればいいか見当付きませんでした。&lt;br /&gt;
+　そこで先日ChatGPTに「消える三目並べというゲームは、２重マルコフ過程を組み込んだ学習だと早く学習が完了する気がするのですが？」と聞いてみたところ「あなたの洞察は正しいです。２手前の自分の駒が消えるという２手履歴依存のルールなので、このゲームには非常に効果があります」と言われました。&lt;br /&gt;
+　ただ、自分が想像していたこととChatGPTが示すマルコフ過程の実装方法は全然違っていました。私は指し手を選択する際に局面毎に９箇所に溜め込まれている石の数の合計を正規化して確率で指し手を選択（ルーレット選択）している部分を、過去の指し手の履歴を参照しながら更に確率選択するようなことを考えていたのですが、そうではなく消える三目並べというゲームの非マルコフの状態をマルコフ性を持つ状態にすることが大事だということらしいです。つまり&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;状態遷移（stateメソッド）&lt;/code&gt;を変えることが大事で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;行動選択（choose_actionメソッド）&lt;/code&gt;は変える必要はなく、難しい数式も必要ないとのことでした。&lt;br /&gt;
+　また、マルコフ連鎖に関する本についても説明してくれました。数式が自分には難しすぎたと言ったら、あの手の本は「状態が既にマルコフである」前提で書かれていて、「あなたは今マルコフでないものを、どうやってマルコフにするか」をやっているので、定理、行列、極限定理について書かれている本は一切役に立たないと言われました。数式は「裏付けとして読むもので、実装に必要なものではありません」とも言われて、なるほど！と思いましたし、やる気にさせるのもうまいなぁと思いました。確かに昔「日経平均先物・オプションのシミュレーター」（&lt;a href=&quot;https://happyclam.github.io/project/2014-05-24/my-posi&quot;&gt;「先物・オプションのシミュレーションサイト」&lt;/a&gt;、&lt;a href=&quot;https://happyclam.github.io/miscellaneous/2014-05-27/my-posi_vola&quot;&gt;「ボラティリティについて」&lt;/a&gt;）を作ったときも、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ブラックショールズ方程式&lt;/code&gt;なんて全然分からなくても作れました。&lt;br /&gt;
+　結局、マルコフ過程なんて全く知らなかった自分の直感（洞察）は正しかったのですが、実装方法は全く見当違いの考えに向かっていたようです:sweat_smile:ChatGPTが修正してくれました:pray:&lt;/p&gt;
+
+&lt;h3 id=&quot;chatgptのサンプルコードが分かりやす過ぎる&quot;&gt;ChatGPTのサンプルコードが分かりやす過ぎる&lt;/h3&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;div align=&quot;center&quot;&gt;ソースコード&lt;/div&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+    &lt;p&gt;&lt;a href=&quot;https://github.com/happyclam/tictactoe-van.git&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/github-mark.png&quot; alt=&quot;消える三目並べ強化学習プログラム&quot; title=&quot;消える三目並べ強化学習プログラム&quot; width=&quot;120&quot; height=&quot;120&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　ChatGPTに「石ころ法とマルコフ法が比較できる消える三目並べの強化学習プログラムの例」を出して貰いました。まず驚いたのはソースコードの短さ、シンプルさです。非常に分かりやすいので、今後改良していくとしてもこのサンプルを使うことにして、自分が書いた元のプログラムはもう更新しないつもりですが、自分のものとChatGPT版との違いを書いておきます。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt;masterブランチ&lt;/th&gt;
+      &lt;th&gt;chatGPTブランチ&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;対戦相手&lt;/td&gt;
+      &lt;td&gt;αβ法を使った11手読みのプログラム&lt;/td&gt;
+      &lt;td&gt;自己対戦&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;プレイヤー&lt;/td&gt;
+      &lt;td&gt;先手・後手の２インスタンス&lt;/td&gt;
+      &lt;td&gt;１インスタンス&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;学習データ&lt;/td&gt;
+      &lt;td&gt;局面（配列）を持つオブジェクトのツリー構造&lt;/td&gt;
+      &lt;td&gt;局面（配列）をキーとするハッシュテーブル&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　石ころ法（DisappearingTicTacToeクラス）とマルコフ法（DisappearingMarkovクラス）を定義したファイルを使い分ければ比較が出来ます。&lt;br /&gt;
+　自分のやり方との一番の違いはプレイヤーを分けてないことだと思います。自分はプレイヤーを分けなければいけないと思ってそうしたのですが、その所為でコード量が増えました。ChatGPTによるとプレイヤーを分けなくても、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;state&lt;/code&gt;にプレイヤー情報が含まれてるので、先手（×）と後手（○）の戦略が混ざることは無いらしいです。&lt;/p&gt;
+
+&lt;h3 id=&quot;サンプルプログラムの強化学習の結果は&quot;&gt;サンプルプログラムの強化学習の結果は？&lt;/h3&gt;
+&lt;p&gt;　消える三目並べは先手必勝のゲームなので、学習がうまく進んでいるかを確認する分かりやすい指標があります。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; |1|2|3|
+ |4|5|6|
+ |7|8|9|
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　消える三目並べでは初手で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;辺&lt;/code&gt;の位置（上記図の2,4,6,8）を選べば勝てるので、初期盤面の学習データを見ればある程度学習が正しく進んでいるか確認できます。実際の&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;アプリ&lt;/a&gt;のデータとは少し違うのですが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;masterブランチ&lt;/code&gt;のデータ作成スクリプト（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;test.sh&lt;/code&gt;）を走らせて作った学習済み初期データの中の初期盤面のデータはだいたい以下のように&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;辺&lt;/code&gt;の値が最大になります。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[1.8780000000000001, 2.4969999999999994, 1.9093333333333335, 1.0266666666666668, 1.8543333333333336, 1.6765714285714288, 1.6146666666666667, 49.082161893662, 1.6433333333333335]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　しかし、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chatGPTブランチ&lt;/code&gt;のマルコフ法（DisappearingMarkovクラス）でデータ作成プログラム（learning.rb）をエピソード数を100,000回とか300,000回にして走らせて作った学習データは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;角&lt;/code&gt;や&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;真ん中&lt;/code&gt;が最大値になってしまい、1,000,000回！以上自己対戦することでようやく安定して以下のように&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;辺&lt;/code&gt;の位置が最大値で安定するようになりました。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[&quot;_________X[]&quot;, 3]=&amp;gt;586.0,
+[&quot;_________X[]&quot;, 1]=&amp;gt;43124.0,
+[&quot;_________X[]&quot;, 7]=&amp;gt;721704.0,
+[&quot;_________X[]&quot;, 0]=&amp;gt;2910.0,
+[&quot;_________X[]&quot;, 8]=&amp;gt;26665.0,
+[&quot;_________X[]&quot;, 5]=&amp;gt;2107147.0,
+[&quot;_________X[]&quot;, 6]=&amp;gt;6506.0,
+[&quot;_________X[]&quot;, 4]=&amp;gt;21.0,
+[&quot;_________X[]&quot;, 2]=&amp;gt;3743.0,
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　&lt;a href=&quot;https://happyclam.github.io/software/2019-07-19/self-play&quot;&gt;通常の三目並べの時&lt;/a&gt;もそうでしたが、単純に自己対戦に変えるだけだと試行回数を増やす必要があるみたいです。&lt;br /&gt;
+　また、試してもらえば分かりますが、単純な&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;石ころ法（DisappearingTicTacToeクラス）&lt;/code&gt;の方はエピソード数をいくら増やしても全然初手が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;辺&lt;/code&gt;に偏りません。&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;自分のアプリ&lt;/a&gt;（masterブランチ）は２手分の着手の履歴を持たない（非マルコフ）のまま&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;αβ法のプログラムと対戦させたらうまく学習できたのになぜ？&lt;/code&gt;と思ったのですが、これもChatGPTに聞いてみると、αβ法のプログラムと対戦させることで「環境が事実上マルコフ化」したということのようです。これもChatGPTに聞かないと気づけなかったかもしれません、つまりαβ法のプログラムは２手分の履歴を持ってなくても&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;同じ局面で最善手が変わること&lt;/code&gt;を分かっているので正しく学習出来たということです。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;分かっていないもの同士の自己対戦&lt;/code&gt;ではそれが出来ません。ここでも自己対戦による学習と疑似教師あり学習の違いが出たってことですね。&lt;br /&gt;
+　念の為書いておきますが通常の三目並べの場合は状態が既にマルコフなので、自己対戦での学習でもうまくいったということでしょう。&lt;/p&gt;
+
+&lt;h3 id=&quot;それでも弱すぎる&quot;&gt;それでも弱すぎる&lt;/h3&gt;
+&lt;p&gt;　初手に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;辺&lt;/code&gt;を選ぶことは学習出来たようですが、対人戦用のプログラム（play.rb）で対戦してみると非常に弱いです。体感では&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;自分のアプリ&lt;/a&gt;よりかなり弱いので、せっかくマルコフ化して改良したのだから、自己対戦学習で、少なくとも&lt;a href=&quot;https://happyclam.github.io/tictactoe-van/&quot;&gt;疑似教師学習したアプリ&lt;/a&gt;よりかは強くなるようにしたいと思ってます。もちろんChatGPTの助けが必要になると思います。&lt;br /&gt;
+　&lt;/p&gt;
+
+&lt;hr /&gt;
+
+</description>
+        <pubDate>Sun, 25 Jan 2026 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/software/2026-01-25/markov_chain</link>
+        <guid isPermaLink="true">https://happyclam.github.io/software/2026-01-25/markov_chain</guid>
+        
+        <category>coffeescript</category>
+        
+        <category>javascript</category>
+        
+        <category>shogi</category>
+        
+        <category>chess</category>
+        
+        
+        <category>software</category>
+        
+      </item>
     
       <item>
         <title>PINされたステイルメイト</title>
@@ -950,83 +1066,6 @@ Kf8 22. Qe8+ Kg7 23. Re3 Qh2+ 24. Kxh2 g1=Q# 0-1
         
         
         <category>software</category>
-        
-      </item>
-    
-      <item>
-        <title>野良アプリ販売始めました</title>
-        <description>&lt;h3 id=&quot;google-play-以外でアプリは売れるのか&quot;&gt;Google Play 以外でアプリは売れるのか？&lt;/h3&gt;
-&lt;p&gt;　めでたく？&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Google Play&lt;/code&gt;で公開していたアプリが削除された（Googleが変更した規約に必要な作業をせずに放置していたため）ので、今まで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Google Play&lt;/code&gt;で公開していたアプリを&lt;strong&gt;広告表示を無しにした野良アプリ&lt;/strong&gt;として販売してみることにしました。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Google Play&lt;/code&gt;を通さずに新規ユーザーを獲得出来るのでしょうか？&lt;/p&gt;
-
-&lt;h3 id=&quot;どこで売るか&quot;&gt;どこで売るか？&lt;/h3&gt;
-&lt;p&gt;　最初は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Base&lt;/code&gt;で自作のExcelファイル（マクロ付き）を販売している人を見かけたのが始めるキッカケなんですが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Base&lt;/code&gt;ではスマホからはデジタルコンテンツをダウンロード出来ないようです。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apk&lt;/code&gt;ファイルを商品としてそのままアップロード出来るのはすごく良かったのですが、購入者はPCでダウンロードする必要があるみたいです（スパム対策？GoogleやAppleに忖度？あるいは圧力？）。スマホアプリを販売しているのに購入者はPCが必要というのが納得いかなかったので使うのを止めました。&lt;br /&gt;
-　その他は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Shopify&lt;/code&gt;は有料、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DLsite&lt;/code&gt;はエロ分野に偏ってる、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Stores&lt;/code&gt;は画像ファイル中心でソフトウェアは想定して無さそう？ということで&lt;a href=&quot;https://happyclam.booth.pm/&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Booth&lt;/code&gt;&lt;/a&gt;に決めました。&lt;br /&gt;
-　それに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Booth&lt;/code&gt;では&lt;a href=&quot;https://booth.pixiv.help/hc/ja/articles/115002295113-%E3%82%AD%E3%83%A3%E3%83%B3%E3%82%BB%E3%83%AB%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99-%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E3%81%84%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B&quot;&gt;「ダウンロード商品に関しては、キャンセルには応じません」&lt;/a&gt;と運営側で謳ってくれているのが、販売者側としては心強いです。ご購入の際はご注意下さい！！！&lt;/p&gt;
-
-&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;https://happyclam.booth.pm/&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/booth_logo.png&quot; alt=&quot;HappyClam&quot; title=&quot;HappyClam&quot; width=&quot;168&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;インストール手順&quot;&gt;インストール手順&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://happyclam.booth.pm/&quot;&gt;Boothのサイト&lt;/a&gt;の[購入履歴]から[ダウンロード]のリンクをタップしてファイルをスマホにダウンロード&lt;/li&gt;
-  &lt;li&gt;ダウンロードしたファイル（*.zip）の拡張子を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apk&lt;/code&gt;に変更&lt;br /&gt;
-何でもいいのでファイル管理アプリを使ってファイル名（拡張子）を変更します。アプリによっては拡張子が表示されないので、表示して変更します。私は&lt;a href=&quot;https://tetra-filer-free.softonic.jp/android&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Tetra Free&lt;/code&gt;&lt;/a&gt;というアプリを使ってます。&lt;/li&gt;
-  &lt;li&gt;拡張子を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apk&lt;/code&gt;に変更したファイルをファイル管理アプリからタップ&lt;br /&gt;
-使用するファイル管理アプリによって警告が出たり設定画面に遷移したりしますが、「許可」を選択して進めれば以下のような手順でインストール作業が進みます。&lt;br /&gt;
-※Android11以上であれば自動で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Google Play プロテクト&lt;/code&gt;によるスキャンが実行されます。&lt;br /&gt;
-※既に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Google Play&lt;/code&gt;からインストールされている場合は一度削除する必要があるみたいです。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/install_1.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/install_1.png&quot; alt=&quot;ファイルクリック時&quot; width=&quot;320&quot; height=&quot;158&quot; title=&quot;ファイルクリック時&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;div align=&quot;center&quot;&gt;↓&lt;/div&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/install_2.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/install_2.png&quot; alt=&quot;Google Play プロテクト&quot; width=&quot;320&quot; height=&quot;495&quot; title=&quot;Google Play プロテクト&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;div align=&quot;center&quot;&gt;↓&lt;/div&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/install_3.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/install_3.png&quot; alt=&quot;スキャン完了&quot; width=&quot;320&quot; height=&quot;442&quot; title=&quot;スキャン完了&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;div align=&quot;center&quot;&gt;↓&lt;/div&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/install_4.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/install_4.png&quot; alt=&quot;インストール完了&quot; width=&quot;320&quot; height=&quot;161&quot; title=&quot;インストール完了&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;h3 id=&quot;ソースファイルも参照可能&quot;&gt;ソースファイルも参照可能&lt;/h3&gt;
-&lt;p&gt;　JavaScript製のアプリに関してはダウンロードした&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zip&lt;/code&gt;ファイルを展開することでソースファイルも見ることが出来ます。過去に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Google Play&lt;/code&gt;で公開していた時は暗号化プラグインを使用してソースを読めないようにしていましたが、&lt;a href=&quot;https://happyclam.booth.pm/&quot;&gt;Booth&lt;/a&gt;で販売しているものは暗号化していませんのでソースファイルを読むことが出来ます。&lt;br /&gt;
-　ただ、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeScript&lt;/code&gt;で開発したものを&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Webpack&lt;/code&gt;を使って&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JavaScript&lt;/code&gt;にトランスパイルしたコードなので、整然と書かれていますが一つのファイルに纏まっていて分かりにくいと感じる人もいるかもしれません。元となっている&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript&lt;/code&gt;のソースコードやテストコードや開発環境（package.json等）そのものが欲しいという方のために今後ソースコードも別途販売するかもしれません。&lt;/p&gt;
-
-&lt;h3 id=&quot;pcで動かすことも可能&quot;&gt;PCで動かすことも可能&lt;/h3&gt;
-&lt;p&gt;　実はJavaScript製のアプリに関してはソースファイルの数カ所をコメントアウトするだけでPCで動かすことも可能です。スマホよりハイスペックのPC上のブラウザで動かすことも出来るのですが、これに関しては別記事で紹介するかもしれません。&lt;br /&gt;
-　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript&lt;/code&gt;のソース販売と合わせてニーズがあるかどうか知りたいので、&lt;a href=&quot;https://happyclam.booth.pm/&quot;&gt;Boothサイト&lt;/a&gt;から是非ご意見をお寄せ下さい。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-</description>
-        <pubDate>Sat, 30 Nov 2024 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/miscellaneous/2024-11-30/strayapp</link>
-        <guid isPermaLink="true">https://happyclam.github.io/miscellaneous/2024-11-30/strayapp</guid>
-        
-        <category>android</category>
-        
-        <category>coffeescript</category>
-        
-        <category>programming</category>
-        
-        <category>javascript</category>
-        
-        <category>cordova</category>
-        
-        
-        <category>miscellaneous</category>
         
       </item>
     

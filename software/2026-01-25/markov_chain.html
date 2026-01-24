@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="author" content="happyclam">
+  <meta name="description"
+    content="消える三目並べをマルコフ拡張 ChatGPTにマルコフ過程を教えてもらう Reinventing the wheel.">
+  <title> 消える三目並べをマルコフ拡張 - 自己満足プログラミング </title>
+
+  <!-- <\!-- Global Site Tag (gtag.js) - Google Analytics -\-> -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script> -->
+  <!-- <script> -->
+  <!--   window.dataLayer = window.dataLayer || []; -->
+  <!--   function gtag(){dataLayer.push(arguments);} -->
+  <!--   gtag('js', new Date()); -->
+  <!--   gtag('config', 'UA-1752720-7'); -->
+  <!-- </script> -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DEV3LMTH6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DEV3LMTH6C');
+</script>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="消える三目並べをマルコフ拡張">
+  
+  
+  <meta name="twitter:url" content="/software/2026-01-25/markov_chain">
+  
+  
+  <meta name="twitter:description" content="有限履歴マルコフ化した消える三目並べに対するモンテカルロ型強化学習（石ころ法）">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/van_logo114.png">
+  
+
+  <link rel="canonical" href="https://happyclam.github.io/software/2026-01-25/markov_chain" />
+  <link rel="alternate" type="application/rss+xml" title="自己満足プログラミング" href="/feed.xml" />
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="site-title" class="navbar-brand" href="/">
+          <img class="pull-left img-responsive" src="">
+          <span class="name-holder">自己満足プログラミング</span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li>
+<a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li>
+<a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li>
+<a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li>
+<a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li>
+<a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1238485061299241" -->
+<!--      crossorigin="anonymous"></script> -->
+
+  <div class="blog-header">
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+      <div class="span9">
+        <!-- Html Elements for Search -->
+        <div id="search-container" align="right">
+          <input type="text" id="search-input" placeholder="search...">
+          <ul class="searchresult" id="results-container"></ul>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+  <script src="/assets/js/jquery.min.js"></script>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
+
+        <header class="page-header">
+          <h2 class="page-title"><a href="/software/2026-01-25/markov_chain">消える三目並べをマルコフ拡張</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Sunday, January 25, 2026
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">coffeescript</span>
+                
+                  <span class="label label-tag">javascript</span>
+                
+                  <span class="label label-tag">shogi</span>
+                
+                  <span class="label label-tag">chess</span>
+                
+            </div>
+          </div>
+
+        </header>
+
+        <article class="page-content">
+          <h3 id="chatgpt様々">ChatGPT様々</h3>
+<p>　<a href="https://happyclam.booth.pm/items/6582961">消える三目並べ（Vanishing TicTacToe）アプリ</a>をリリースしてからかなり経ちますが、<a href="https://happyclam.booth.pm/items/6582961">このアプリ</a>は<a href="https://happyclam.github.io/project/2016-09-19/tictactoe_evo">通常の三目並べアプリ</a>と同様に<a href="https://hb.afl.rakuten.co.jp/hgc/18980d66.5ec24871.18980d67.e8ecef93/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F5271872%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F12693001%2F&amp;link_type=text&amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJ0ZXh0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImxlZnQiLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjF9">「STASTIC HACKS」</a>という本に書かれていた、勝った時は報酬の石ころを＋３，負けた時は−１与えるという方法（確率的方策によるモンテカルロ制御とか<code class="language-plaintext highlighter-rouge">ポリアの壺モデル</code>とか言うそうです。ChatGPTとの会話の中では<code class="language-plaintext highlighter-rouge">石ころ法</code>と呼んでました）で強化学習を行い徐々にAIが強くなっていくというものです。でも「消える三目並べ」では「通常の三目並べ」のようには強くなりませんでした。<br>
+　そこで、長年疑問に思っていたことをChatGPTに聞いてみたら、あっさり学習用のサンプルプログラムを出力してくれて、少しは<code class="language-plaintext highlighter-rouge">マルコフ過程</code>について理解出来るようになったので経緯を紹介します。</p>
+
+<h3 id="何かが足りないとは思っていた">「何かが足りない」とは思っていた</h3>
+<p>　<a href="https://happyclam.booth.pm/items/6582961">消える三目並べアプリ</a>は<code class="language-plaintext highlighter-rouge">αβ法を使った最強の消える三目並べプログラム</code>相手に10,000局対戦学習させてリリースしています。消える三目並べは先手必勝のゲームなので、「少なくとも先手の時は人間には負けなくなる」ぐらいにまで確認したかったのですが、<code class="language-plaintext highlighter-rouge">11手読み（消える三目並べは初手から11手読みをすれば先手必勝です）の最強プログラム</code>を使って学習するのは非常に時間がかかります（昔の私のPC環境で10,000局の学習で一週間ぐらい？）ので、そこまでは確認できませんでした。<br>
+　それに<a href="https://happyclam.github.io/programming/2016-11-03/ml_miscellaneous2">昔の記事</a>にも書いてますが、<code class="language-plaintext highlighter-rouge">「消える三目並べ」では通常の三目並べと違い６手目以降は駒が消えていくので現在の局面（９マスの配置）を見ただけでは最善手の判断が出来ません</code>。次にどの駒（×か○か）が消えるのかを知っていなければ学習しようがないはずで、強化学習プログラムとしては何か足りないのでは？と思っていました。<br>
+　でも、出来上がったプログラムは<a href="https://happyclam.github.io/tictactoe-van/">PC版</a>で実際に対局してもらえば解ると思いますがそこそこ強いです。先手必勝手順を知らなければAIが後手でも人間によく勝ちます。なので、強くなっていることに嘘はないから「強くはなるけど正解ではないな」と思いながらも妥協して<a href="https://happyclam.booth.pm/items/6582961">アプリ</a>をリリースしていました。</p>
+
+<h3 id="マルコフ連鎖との出会い">マルコフ連鎖との出会い</h3>
+<p>　マルコフ連鎖なんて言葉自体も知りませんでしたが、ある時<a href="https://hb.afl.rakuten.co.jp/ichiba/18980d66.5ec24871.18980d67.e8ecef93/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F1480131%2F&amp;link_type=hybrid_url&amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9">「確率の話」</a>という古い本を見つけて読んでいると「確率で英語を作ってみよう」というタイトルでマルコフ過程の話が書かれていて、「これって消える三目並べにも使えるんじゃないか？」と直感してマルコフ連鎖に関する本を２冊買いましたが、難しい数式ばかり出てきて自分が知りたいことは書かれてなく、自分にとっては睡眠薬代わりにしかなりませんでした。<br>
+　<a href="https://hb.afl.rakuten.co.jp/ichiba/18980d66.5ec24871.18980d67.e8ecef93/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F1480131%2F&amp;link_type=hybrid_url&amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9">「確率の話」</a>に出てきた、英語の文書を学習して次に来るアルファベットを確率で選んで英文を作るという方法、「次の状態の分布が、現在の状態だけで決まる」という状態が、消える三目並べの「次にどの駒が消えるかを知っていれば次の手が決まる状態」と似てると思ったのですが、長年どのように実装すればいいか見当付きませんでした。<br>
+　そこで先日ChatGPTに「消える三目並べというゲームは、２重マルコフ過程を組み込んだ学習だと早く学習が完了する気がするのですが？」と聞いてみたところ「あなたの洞察は正しいです。２手前の自分の駒が消えるという２手履歴依存のルールなので、このゲームには非常に効果があります」と言われました。<br>
+　ただ、自分が想像していたこととChatGPTが示すマルコフ過程の実装方法は全然違っていました。私は指し手を選択する際に局面毎に９箇所に溜め込まれている石の数の合計を正規化して確率で指し手を選択（ルーレット選択）している部分を、過去の指し手の履歴を参照しながら更に確率選択するようなことを考えていたのですが、そうではなく消える三目並べというゲームの非マルコフの状態をマルコフ性を持つ状態にすることが大事だということらしいです。つまり<code class="language-plaintext highlighter-rouge">状態遷移（stateメソッド）</code>を変えることが大事で<code class="language-plaintext highlighter-rouge">行動選択（choose_actionメソッド）</code>は変える必要はなく、難しい数式も必要ないとのことでした。<br>
+　また、マルコフ連鎖に関する本についても説明してくれました。数式が自分には難しすぎたと言ったら、あの手の本は「状態が既にマルコフである」前提で書かれていて、「あなたは今マルコフでないものを、どうやってマルコフにするか」をやっているので、定理、行列、極限定理について書かれている本は一切役に立たないと言われました。数式は「裏付けとして読むもので、実装に必要なものではありません」とも言われて、なるほど！と思いましたし、やる気にさせるのもうまいなぁと思いました。確かに昔「日経平均先物・オプションのシミュレーター」（<a href="https://happyclam.github.io/project/2014-05-24/my-posi">「先物・オプションのシミュレーションサイト」</a>、<a href="https://happyclam.github.io/miscellaneous/2014-05-27/my-posi_vola">「ボラティリティについて」</a>）を作ったときも、<code class="language-plaintext highlighter-rouge">ブラックショールズ方程式</code>なんて全然分からなくても作れました。<br>
+　結局、マルコフ過程なんて全く知らなかった自分の直感（洞察）は正しかったのですが、実装方法は全く見当違いの考えに向かっていたようです<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20">ChatGPTが修正してくれました<img class="emoji" title=":pray:" alt=":pray:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f64f.png" height="20" width="20"></p>
+
+<h3 id="chatgptのサンプルコードが分かりやす過ぎる">ChatGPTのサンプルコードが分かりやす過ぎる</h3>
+
+<div align="center">
+<div align="center">ソースコード</div>
+<div style="width:320px; margin: 0 auto;">
+
+    <p><a href="https://github.com/happyclam/tictactoe-van.git"><img src="/images/github-mark.png" alt="消える三目並べ強化学習プログラム" title="消える三目並べ強化学習プログラム" width="120" height="120"></a></p>
+
+  </div>
+</div>
+
+<p>　ChatGPTに「石ころ法とマルコフ法が比較できる消える三目並べの強化学習プログラムの例」を出して貰いました。まず驚いたのはソースコードの短さ、シンプルさです。非常に分かりやすいので、今後改良していくとしてもこのサンプルを使うことにして、自分が書いた元のプログラムはもう更新しないつもりですが、自分のものとChatGPT版との違いを書いておきます。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>masterブランチ</th>
+      <th>chatGPTブランチ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>対戦相手</td>
+      <td>αβ法を使った11手読みのプログラム</td>
+      <td>自己対戦</td>
+    </tr>
+    <tr>
+      <td>プレイヤー</td>
+      <td>先手・後手の２インスタンス</td>
+      <td>１インスタンス</td>
+    </tr>
+    <tr>
+      <td>学習データ</td>
+      <td>局面（配列）を持つオブジェクトのツリー構造</td>
+      <td>局面（配列）をキーとするハッシュテーブル</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>　石ころ法（DisappearingTicTacToeクラス）とマルコフ法（DisappearingMarkovクラス）を定義したファイルを使い分ければ比較が出来ます。<br>
+　自分のやり方との一番の違いはプレイヤーを分けてないことだと思います。自分はプレイヤーを分けなければいけないと思ってそうしたのですが、その所為でコード量が増えました。ChatGPTによるとプレイヤーを分けなくても、<code class="language-plaintext highlighter-rouge">state</code>にプレイヤー情報が含まれてるので、先手（×）と後手（○）の戦略が混ざることは無いらしいです。</p>
+
+<h3 id="サンプルプログラムの強化学習の結果は">サンプルプログラムの強化学習の結果は？</h3>
+<p>　消える三目並べは先手必勝のゲームなので、学習がうまく進んでいるかを確認する分かりやすい指標があります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> |1|2|3|
+ |4|5|6|
+ |7|8|9|
+</code></pre></div></div>
+
+<p>　消える三目並べでは初手で<code class="language-plaintext highlighter-rouge">辺</code>の位置（上記図の2,4,6,8）を選べば勝てるので、初期盤面の学習データを見ればある程度学習が正しく進んでいるか確認できます。実際の<a href="https://happyclam.booth.pm/items/6582961">アプリ</a>のデータとは少し違うのですが、<code class="language-plaintext highlighter-rouge">masterブランチ</code>のデータ作成スクリプト（<code class="language-plaintext highlighter-rouge">test.sh</code>）を走らせて作った学習済み初期データの中の初期盤面のデータはだいたい以下のように<code class="language-plaintext highlighter-rouge">辺</code>の値が最大になります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1.8780000000000001, 2.4969999999999994, 1.9093333333333335, 1.0266666666666668, 1.8543333333333336, 1.6765714285714288, 1.6146666666666667, 49.082161893662, 1.6433333333333335]
+</code></pre></div></div>
+
+<p>　しかし、<code class="language-plaintext highlighter-rouge">chatGPTブランチ</code>のマルコフ法（DisappearingMarkovクラス）でデータ作成プログラム（learning.rb）をエピソード数を100,000回とか300,000回にして走らせて作った学習データは<code class="language-plaintext highlighter-rouge">角</code>や<code class="language-plaintext highlighter-rouge">真ん中</code>が最大値になってしまい、1,000,000回！以上自己対戦することでようやく安定して以下のように<code class="language-plaintext highlighter-rouge">辺</code>の位置が最大値で安定するようになりました。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>["_________X[]", 3]=&gt;586.0,
+["_________X[]", 1]=&gt;43124.0,
+["_________X[]", 7]=&gt;721704.0,
+["_________X[]", 0]=&gt;2910.0,
+["_________X[]", 8]=&gt;26665.0,
+["_________X[]", 5]=&gt;2107147.0,
+["_________X[]", 6]=&gt;6506.0,
+["_________X[]", 4]=&gt;21.0,
+["_________X[]", 2]=&gt;3743.0,
+</code></pre></div></div>
+
+<p>　<a href="https://happyclam.github.io/software/2019-07-19/self-play">通常の三目並べの時</a>もそうでしたが、単純に自己対戦に変えるだけだと試行回数を増やす必要があるみたいです。<br>
+　また、試してもらえば分かりますが、単純な<code class="language-plaintext highlighter-rouge">石ころ法（DisappearingTicTacToeクラス）</code>の方はエピソード数をいくら増やしても全然初手が<code class="language-plaintext highlighter-rouge">辺</code>に偏りません。<a href="https://happyclam.booth.pm/items/6582961">自分のアプリ</a>（masterブランチ）は２手分の着手の履歴を持たない（非マルコフ）のまま<code class="language-plaintext highlighter-rouge">αβ法のプログラムと対戦させたらうまく学習できたのになぜ？</code>と思ったのですが、これもChatGPTに聞いてみると、αβ法のプログラムと対戦させることで「環境が事実上マルコフ化」したということのようです。これもChatGPTに聞かないと気づけなかったかもしれません、つまりαβ法のプログラムは２手分の履歴を持ってなくても<code class="language-plaintext highlighter-rouge">同じ局面で最善手が変わること</code>を分かっているので正しく学習出来たということです。<code class="language-plaintext highlighter-rouge">分かっていないもの同士の自己対戦</code>ではそれが出来ません。ここでも自己対戦による学習と疑似教師あり学習の違いが出たってことですね。<br>
+　念の為書いておきますが通常の三目並べの場合は状態が既にマルコフなので、自己対戦での学習でもうまくいったということでしょう。</p>
+
+<h3 id="それでも弱すぎる">それでも弱すぎる</h3>
+<p>　初手に<code class="language-plaintext highlighter-rouge">辺</code>を選ぶことは学習出来たようですが、対人戦用のプログラム（play.rb）で対戦してみると非常に弱いです。体感では<a href="https://happyclam.booth.pm/items/6582961">自分のアプリ</a>よりかなり弱いので、せっかくマルコフ化して改良したのだから、自己対戦学習で、少なくとも<a href="https://happyclam.github.io/tictactoe-van/">疑似教師学習したアプリ</a>よりかは強くなるようにしたいと思ってます。もちろんChatGPTの助けが必要になると思います。<br>
+　</p>
+
+<hr>
+
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <small>© rifyll theme, 2014</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+</body>
+
+</html>
