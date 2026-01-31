@@ -159,11 +159,13 @@
                 
                   <span class="label label-tag">coffeescript</span>
                 
+                  <span class="label label-tag">cordova</span>
+                
+                  <span class="label label-tag">tictactoe</span>
+                
+                  <span class="label label-tag">android</span>
+                
                   <span class="label label-tag">javascript</span>
-                
-                  <span class="label label-tag">shogi</span>
-                
-                  <span class="label label-tag">chess</span>
                 
             </div>
           </div>
@@ -259,7 +261,7 @@
 
 <p>　<a href="https://happyclam.github.io/software/2019-07-19/self-play">通常の三目並べの時</a>もそうでしたが、単純に自己対戦に変えるだけだと試行回数を増やす必要があるみたいです。<br>
 　また、試してもらえば分かりますが、単純な<code class="language-plaintext highlighter-rouge">石ころ法（DisappearingTicTacToeクラス）</code>の方はエピソード数をいくら増やしても全然初手が<code class="language-plaintext highlighter-rouge">辺</code>に偏りません。<a href="https://happyclam.booth.pm/items/6582961">自分のアプリ</a>（masterブランチ）は２手分の着手の履歴を持たない（非マルコフ）のまま<code class="language-plaintext highlighter-rouge">αβ法のプログラムと対戦させたらうまく学習できたのになぜ？</code>と思ったのですが、これもChatGPTに聞いてみると、αβ法のプログラムと対戦させることで「環境が事実上マルコフ化」したということのようです。これもChatGPTに聞かないと気づけなかったかもしれません、つまりαβ法のプログラムは２手分の履歴を持ってなくても<code class="language-plaintext highlighter-rouge">同じ局面で最善手が変わること</code>を分かっているので正しく学習出来たということです。<code class="language-plaintext highlighter-rouge">分かっていないもの同士の自己対戦</code>ではそれが出来ません。ここでも自己対戦による学習と疑似教師あり学習の違いが出たってことですね。<br>
-　念の為書いておきますが通常の三目並べの場合は状態が既にマルコフなので、自己対戦での学習でもうまくいったということでしょう。</p>
+　念の為書いておきますが通常の三目並べの場合は状態が既にマルコフなので、<a href="https://happyclam.github.io/software/2019-07-19/self-play">自己対戦での学習</a>でもうまくいったということでしょう。</p>
 
 <h3 id="それでも弱すぎる">それでも弱すぎる</h3>
 <p>　初手に<code class="language-plaintext highlighter-rouge">辺</code>を選ぶことは学習出来たようですが、対人戦用のプログラム（play.rb）で対戦してみると非常に弱いです。体感では<a href="https://happyclam.booth.pm/items/6582961">自分のアプリ</a>よりかなり弱いので、せっかくマルコフ化して改良したのだから、自己対戦学習で、少なくとも<a href="https://happyclam.github.io/tictactoe-van/">疑似教師学習したアプリ</a>よりかは強くなるようにしたいと思ってます。もちろんChatGPTの助けが必要になると思います。<br>

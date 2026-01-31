@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 24 Jan 2026 14:49:18 +0900</pubDate>
-    <lastBuildDate>Sat, 24 Jan 2026 14:49:18 +0900</lastBuildDate>
+    <pubDate>Sat, 31 Jan 2026 11:32:26 +0900</pubDate>
+    <lastBuildDate>Sat, 31 Jan 2026 11:32:26 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -99,7 +99,7 @@
 
 &lt;p&gt;　&lt;a href=&quot;https://happyclam.github.io/software/2019-07-19/self-play&quot;&gt;通常の三目並べの時&lt;/a&gt;もそうでしたが、単純に自己対戦に変えるだけだと試行回数を増やす必要があるみたいです。&lt;br /&gt;
 　また、試してもらえば分かりますが、単純な&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;石ころ法（DisappearingTicTacToeクラス）&lt;/code&gt;の方はエピソード数をいくら増やしても全然初手が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;辺&lt;/code&gt;に偏りません。&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;自分のアプリ&lt;/a&gt;（masterブランチ）は２手分の着手の履歴を持たない（非マルコフ）のまま&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;αβ法のプログラムと対戦させたらうまく学習できたのになぜ？&lt;/code&gt;と思ったのですが、これもChatGPTに聞いてみると、αβ法のプログラムと対戦させることで「環境が事実上マルコフ化」したということのようです。これもChatGPTに聞かないと気づけなかったかもしれません、つまりαβ法のプログラムは２手分の履歴を持ってなくても&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;同じ局面で最善手が変わること&lt;/code&gt;を分かっているので正しく学習出来たということです。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;分かっていないもの同士の自己対戦&lt;/code&gt;ではそれが出来ません。ここでも自己対戦による学習と疑似教師あり学習の違いが出たってことですね。&lt;br /&gt;
-　念の為書いておきますが通常の三目並べの場合は状態が既にマルコフなので、自己対戦での学習でもうまくいったということでしょう。&lt;/p&gt;
+　念の為書いておきますが通常の三目並べの場合は状態が既にマルコフなので、&lt;a href=&quot;https://happyclam.github.io/software/2019-07-19/self-play&quot;&gt;自己対戦での学習&lt;/a&gt;でもうまくいったということでしょう。&lt;/p&gt;
 
 &lt;h3 id=&quot;それでも弱すぎる&quot;&gt;それでも弱すぎる&lt;/h3&gt;
 &lt;p&gt;　初手に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;辺&lt;/code&gt;を選ぶことは学習出来たようですが、対人戦用のプログラム（play.rb）で対戦してみると非常に弱いです。体感では&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;自分のアプリ&lt;/a&gt;よりかなり弱いので、せっかくマルコフ化して改良したのだから、自己対戦学習で、少なくとも&lt;a href=&quot;https://happyclam.github.io/tictactoe-van/&quot;&gt;疑似教師学習したアプリ&lt;/a&gt;よりかは強くなるようにしたいと思ってます。もちろんChatGPTの助けが必要になると思います。&lt;br /&gt;
@@ -114,11 +114,13 @@
         
         <category>coffeescript</category>
         
+        <category>cordova</category>
+        
+        <category>tictactoe</category>
+        
+        <category>android</category>
+        
         <category>javascript</category>
-        
-        <category>shogi</category>
-        
-        <category>chess</category>
         
         
         <category>software</category>
