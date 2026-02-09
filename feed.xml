@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 31 Jan 2026 11:32:26 +0900</pubDate>
-    <lastBuildDate>Sat, 31 Jan 2026 11:32:26 +0900</lastBuildDate>
+    <pubDate>Mon, 09 Feb 2026 17:07:07 +0900</pubDate>
+    <lastBuildDate>Mon, 09 Feb 2026 17:07:07 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -104,6 +104,13 @@
 &lt;h3 id=&quot;それでも弱すぎる&quot;&gt;それでも弱すぎる&lt;/h3&gt;
 &lt;p&gt;　初手に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;辺&lt;/code&gt;を選ぶことは学習出来たようですが、対人戦用のプログラム（play.rb）で対戦してみると非常に弱いです。体感では&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;自分のアプリ&lt;/a&gt;よりかなり弱いので、せっかくマルコフ化して改良したのだから、自己対戦学習で、少なくとも&lt;a href=&quot;https://happyclam.github.io/tictactoe-van/&quot;&gt;疑似教師学習したアプリ&lt;/a&gt;よりかは強くなるようにしたいと思ってます。もちろんChatGPTの助けが必要になると思います。&lt;br /&gt;
 　&lt;/p&gt;
+
+&lt;h3 id=&quot;完全情報状態マルコフ状態2026-02-09追記&quot;&gt;完全情報状態≠マルコフ状態（2026-02-09追記）&lt;/h3&gt;
+&lt;p&gt;　上記の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;通常の三目並べ用のクラス（DisappearingTicTacToeクラス）&lt;/code&gt;と&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;消える三目並べ用のクラス（DisappearingMarkovクラス）&lt;/code&gt;を比較してみると、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;state&lt;/code&gt;情報の違いは&lt;strong&gt;手番と先手と後手の過去の着手２手分のデータ&lt;/strong&gt;が追加されているだけです。だから学習データの違いもその分のキーが増えるだけの違いです。最初見た時はなんか力が抜けました。そんな簡単なことなの？と。でも、ChatGPTが言うように&lt;strong&gt;「状態（state）をマルコフ性を持つ形にすればいいだけ」&lt;/strong&gt;ということは、そういうことのようです。&lt;br /&gt;
+　それと過去２手分の履歴も含めて別局面として扱うだけでいいのなら、結局&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;マルコフ状態&lt;/code&gt;というのは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;完全情報状態&lt;/code&gt;とどう違うのか？と疑問に思ったのでChatGPTに聞いたところ、完全情報状態とは「ルール上、必要な情報がすべて見えている状態」、マルコフ状態とは「未来の分布を決めるのに、過去を一切見なくていい状態」と言われました。これはマルコフ連鎖の書籍とかでよく書かれている説明ですが、あとは皆さんが納得行くまでChatGPTに聞いてください。&lt;br /&gt;
+　とにかく、&lt;strong&gt;消える三目並べは完全情報なのに非マルコフなゲーム&lt;/strong&gt;だそうです。&lt;br /&gt;
+　完全情報状態は「何が見えているか」の話、マルコフ状態は「過去を忘れていいか」の話とのこと。&lt;br /&gt;
+　確かに、将棋は過去の着手を忘れてもいいけど、消える三目並べは過去を忘れたらダメですね。&lt;/p&gt;
 
 &lt;hr /&gt;
 
