@@ -5,9 +5,116 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 09 Feb 2026 17:07:07 +0900</pubDate>
-    <lastBuildDate>Mon, 09 Feb 2026 17:07:07 +0900</lastBuildDate>
+    <pubDate>Wed, 11 Feb 2026 16:22:34 +0900</pubDate>
+    <lastBuildDate>Wed, 11 Feb 2026 16:22:34 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
+    
+      <item>
+        <title>強化学習プログラムが強くなってる指標が欲しい</title>
+        <description>&lt;h3 id=&quot;以前は面倒なことをやっていた&quot;&gt;以前は面倒なことをやっていた&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://happyclam.github.io/software/2026-01-25/markov_chain&quot;&gt;前回&lt;/a&gt;の続きです。&lt;a href=&quot;https://happyclam.github.io/project/2016-09-19/tictactoe_evo&quot;&gt;通常の三目並べアプリ&lt;/a&gt;では、強化学習がどの程度進んでいるかを確認する際にツリー構造で保持している局面データの中からリーチが掛かっている局面（あと一手で勝てる局面）を探し出し、その局面の報酬データ（石ころ）の分布を見て判断していました。対戦相手がリーチを掛けた局面でどれぐらい阻止できるかによって学習の進捗度合いを判断して、その値を生物の進化に擬えてアメーバから人間までの画像を表示するという面倒なことをしてました。&lt;br /&gt;
+　今回の消える三目並べでは、履歴データが必要なのでリーチ局面を探すのも大変なので、αβ法のプログラムとの対戦成績を見て学習の進捗度合いを判断することにしました。&lt;/p&gt;
+
+&lt;h3 id=&quot;まずはq-learning版と対戦&quot;&gt;まずはQ-Learning版と対戦&lt;/h3&gt;
+&lt;p&gt;　前回の記事から、既存のモンテカルロ版（MC版）を着手履歴を使用しないようにしてQ-Learning版（QL版）も作り、対戦用スクリプトもChatGPTに作ってもらって対戦させてみました。すると、どちらに先手を持たせても1000戦対戦して1000勝0敗でした。後手を持ったどちらかが偶々勝っても良さそうなものですが、何回試しても先手の1000勝0敗の結果です。その対戦内容を確認してみると、お互いに勝ちを何度も逃していてとても強いとは言えない状態なのですが、それでも結果は先手側が1000勝0敗になります。&lt;br /&gt;
+　こんなことがあり得るのか？とChatGPTに聞いてみたところ「バグっぽく見えるけど理論的に正しいタイプの現象」とのこと。「勝てるけど下手」は強化学習あるある、消える三目並べは特に起きやすい、勝率 ≠ 強さとのことです。最短勝利を学習していないということが原因のようですが、自分にはなかなか理解し難かったです。もっと学習精度を上げれば違ってくるのでしょうけど、1000勝0敗では強くなってるかどうか判断する指標には使えないので、αβ法のプログラムと対戦させることにしました。&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;div align=&quot;center&quot;&gt;ソースコード&lt;/div&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+    &lt;p&gt;&lt;a href=&quot;https://github.com/happyclam/tictactoe-van/tree/chatGPT&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/github-mark.png&quot; alt=&quot;消える三目並べ強化学習プログラム&quot; title=&quot;消える三目並べ強化学習プログラム&quot; width=&quot;120&quot; height=&quot;120&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;※MC版とQL版を対戦させる時はQL版が先手の時に循環手順に入って対局が終わらないケースがあるようです。その際はMC版のgreedyではない方の学習用のメソッド（choose_actionメソッド）を使ってました（ルーレット選択により着手が変わる）。&lt;/p&gt;
+
+&lt;h3 id=&quot;対戦相手に使うαβ法プログラムの注意事項&quot;&gt;対戦相手に使うαβ法プログラムの注意事項&lt;/h3&gt;
+&lt;p&gt;　αβ法のプログラムを強化学習に使うには事前に知っておかないと現象を見誤る可能性があるので書いておきます。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;後手番では最強ではない&lt;br /&gt;
+対戦相手に使用するαβ法のプログラムは勝ち・負け・引き分け（+9, -9, 0）の三値だけの評価関数なので、先手の時はまさに最強プログラムですが、後手の時は勝てないことを読み切ってしまってどの手を選んでも負けと判断して結局最初に見つけた着手可能な手を選んでしまいます。負けを遅らせる手、粘る手を選べません。だから後手番では最善手を選べないので弱いです。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;循環手順を避ける必要がある&lt;br /&gt;
+消える三目並べでは、先手側が必勝手順を知らない段階（学習できていない段階）に同じパターンの繰り返しになることがあります。ここで使ってるαβ法のプログラムは循環手順（千日手）を避けるようになってるはずなので、QL版とMC版を対戦させる時は注意が必要です。消える三目並べで循環手順に陥るケースは、先手番が勝てるのに勝ってくれないのが原因です。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;※&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;masterブランチ&lt;/code&gt;で使用しているαβ法のプログラムは上記の後手番時の弱さを補うために特殊な処理をしているのですが、あまりにも場当たり的で良くないと思い、もっと昔に作った&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/arrange&quot;&gt;消える三目並べが先手必勝であることを確認するためのプログラム&lt;/a&gt;を使うことにしました。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;masterブランチ&lt;/code&gt;を作った当時は、主役はあくまで強化学習プログラムの方だったので結構いい加減に作ってしまったのですが、今にして思えば&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;教師であるαβ版（後手対策）にもっと力を入れるべきだった&lt;/code&gt;のかもしれません。&lt;/p&gt;
+
+&lt;h3 id=&quot;αβ法との対戦結果&quot;&gt;αβ法との対戦結果&lt;/h3&gt;
+&lt;p&gt;　先手のαβ法には勝てないので後手のαβ法にどの程度勝てるかを学習度合いの指標にしようと思い対戦させた結果、QL版だと100戦して3割ぐらい勝てますが、MC版だと一勝も出来ません。MC版でε減衰方策（ハッシュテーブルの局面キーを増やす）や時間価値付き終局報酬（早く勝つと高報酬、早く負けると厳罰）を取り入れたり、自己対戦の試行回数を１億回まで伸ばしたりしましたが、その学習データを使っても後手番のαβ法に一回も勝てませんでした。改良するに従って6,7手で負けてばかりだったのが、負けずにだいたい十数手粘るようになり、負けない手、悪手は学習できているようですが、勝ちをもぎ取る一手が選べません。QL版の方はTD誤差で「この一手で価値が跳ね上がる」ことを伝播できるので勝てるようです。&lt;/p&gt;
+
+&lt;h3 id=&quot;もう一つの指標&quot;&gt;もう一つの指標&lt;/h3&gt;
+&lt;p&gt;　前回の記事で消える三目並べの学習の進捗度合いを見る簡単な指標として「初手で辺を選ぶ」ことを挙げましたが、もう一つあります。&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;負けると分かっていても避けられない局面（クリックで拡大）&lt;/div&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/vanishing_tictactoe01.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/vanishing_tictactoe01.png&quot; alt=&quot;消える三目並べ局面０１&quot; width=&quot;320&quot; height=&quot;262&quot; title=&quot;負けを避けられない局面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　上図は先手（×）番で、次に自分の左中断の駒が消えることが分かっていて、自分の着手後に後手（○）に左中断を取られると縦一列揃えられて負けることが分かっていても、先手は自分の駒が邪魔でその場所は選べません。&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;先手の駒が消えた瞬間に後手に着手されて負けた局面（クリックで拡大）&lt;/div&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/vanishing_tictactoe02.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/vanishing_tictactoe02.png&quot; alt=&quot;消える三目並べ局面０２&quot; width=&quot;320&quot; height=&quot;262&quot; title=&quot;先手（×）の負け&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　しかし先手が着手後に左中断の先手の駒（×）が消えて着手可能になり、後手（○）は勝つことが出来ます。この勝ち方が出来るかどうかが大事です。&lt;br /&gt;
+　先程QL版はαβ法の後手番に３割勝てていると言いましたが、その勝ち方は前述の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;後手番αβ法プログラムの不備&lt;/code&gt;をつく勝ち方ばかりで、この手順を考慮した勝ち方は出来ていません。結局、状態をフラットに見ているだけでは無理なのでしょう。&lt;br /&gt;
+　しかし、&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;αβ法プログラム相手に学習した自分のアプリ&lt;/a&gt;はこの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;タイミングを見計らった勝ち方&lt;/code&gt;が出来てます。一般論として言えるかどうか分かりませんが、教師データを使う方が強くし易いのかもしれません。&lt;/p&gt;
+
+&lt;h3 id=&quot;chatgptからの衝撃的な言葉&quot;&gt;ChatGPTからの衝撃的な言葉&lt;/h3&gt;
+&lt;p&gt;　MC版がαβ法の後手番に勝てないことを愚痴ると、「消える三目並べでは、Hash型MCでは“良い手”までは学べるが、“勝ち切る手”はツリーを持たないと表現できない。」と言われました。次に進むならMCTS（Monte Carlo tree search）がお勧めだそうです。いやいや元々の私の動機は&lt;strong&gt;「通常の三目並べなら単純な石ころ法で結構強くなるけど、消える三目並べはそうならない。しかし状態をマルコフ化したら単純な石ころ法で強くなるのか？」&lt;/strong&gt;だったので、何じゃそりゃって感じです。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;「状態をマルコフ化しても、単純な石ころ法（MC）」は本質的には強くならない&lt;/code&gt;とも言われました。「もっと早く言ってよ〜」って感じですが、ChatGPTに事前に強くなるかどうかを確認したわけではないので仕方ありません。「なぜ強くならないかを可視化する題材としては、最高レベル」と言う変な褒められ方もしました。&lt;br /&gt;
+　ハッシュテーブルで学習データを扱うのは楽だなと喜んでいたのですが、結局また昔&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;アプリ&lt;/a&gt;を作ったときと同じようなこと（学習データをツリー構造で管理）をやる元気はないのでこの辺りで中断しようと思います。ChatGPTによると今のプログラムの構造を変えずに最小限で３〜５手の木を足す方法もあるらしいですが、取り敢えずここで終わりにしたいと思います。&lt;br /&gt;
+　それにしてもChatGPTって何かの営業マンのように次々と提案してくるんですよね:sweat_smile:&lt;/p&gt;
+
+&lt;h3 id=&quot;マルコフ化の意義&quot;&gt;マルコフ化の意義&lt;/h3&gt;
+&lt;p&gt;　以下はChatGPTによるものです。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;マルコフ化で得られたもの
+    Q-learning が成立した
+    初手が学習可能になった
+    勝率が明確に改善した
+    MCとQLの差が可視化された
+
+つまり：
+    「問題は状態ではなく、学習則」
+
+だと切り分けられた。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　上記の言葉に結構納得しました。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Q-Learningはマルコフ化必須&lt;/code&gt;なんてことも知らなかったし、いろいろ勉強になりました。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+</description>
+        <pubDate>Wed, 11 Feb 2026 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/software/2026-02-11/play_match</link>
+        <guid isPermaLink="true">https://happyclam.github.io/software/2026-02-11/play_match</guid>
+        
+        <category>coffeescript</category>
+        
+        <category>cordova</category>
+        
+        <category>tictactoe</category>
+        
+        <category>android</category>
+        
+        <category>javascript</category>
+        
+        
+        <category>software</category>
+        
+      </item>
     
       <item>
         <title>消える三目並べをマルコフ拡張</title>
@@ -107,10 +214,10 @@
 
 &lt;h3 id=&quot;完全情報状態マルコフ状態2026-02-09追記&quot;&gt;完全情報状態≠マルコフ状態（2026-02-09追記）&lt;/h3&gt;
 &lt;p&gt;　上記の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;通常の三目並べ用のクラス（DisappearingTicTacToeクラス）&lt;/code&gt;と&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;消える三目並べ用のクラス（DisappearingMarkovクラス）&lt;/code&gt;を比較してみると、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;state&lt;/code&gt;情報の違いは&lt;strong&gt;手番と先手と後手の過去の着手２手分のデータ&lt;/strong&gt;が追加されているだけです。だから学習データの違いもその分のキーが増えるだけの違いです。最初見た時はなんか力が抜けました。そんな簡単なことなの？と。でも、ChatGPTが言うように&lt;strong&gt;「状態（state）をマルコフ性を持つ形にすればいいだけ」&lt;/strong&gt;ということは、そういうことのようです。&lt;br /&gt;
-　それと過去２手分の履歴も含めて別局面として扱うだけでいいのなら、結局&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;マルコフ状態&lt;/code&gt;というのは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;完全情報状態&lt;/code&gt;とどう違うのか？と疑問に思ったのでChatGPTに聞いたところ、完全情報状態とは「ルール上、必要な情報がすべて見えている状態」、マルコフ状態とは「未来の分布を決めるのに、過去を一切見なくていい状態」と言われました。これはマルコフ連鎖の書籍とかでよく書かれている説明ですが、あとは皆さんが納得行くまでChatGPTに聞いてください。&lt;br /&gt;
+　それと過去２手分の履歴も含めて別局面として扱うだけでいい（正確に言うと対戦相手の着手の履歴までキーに含まれてる点が重要？）のなら、結局&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;マルコフ状態&lt;/code&gt;というのは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;完全情報状態&lt;/code&gt;とどう違うのか？と疑問に思ったのでChatGPTに聞いたところ、完全情報状態とは「ルール上、必要な情報がすべて見えている状態」、マルコフ状態とは「未来の分布を決めるのに、過去を一切見なくていい状態」と言われました。これはマルコフ連鎖の書籍とかでよく書かれている説明ですが、あとは皆さんが納得行くまでChatGPTに聞いてください。&lt;br /&gt;
 　とにかく、&lt;strong&gt;消える三目並べは完全情報なのに非マルコフなゲーム&lt;/strong&gt;だそうです。&lt;br /&gt;
 　完全情報状態は「何が見えているか」の話、マルコフ状態は「過去を忘れていいか」の話とのこと。&lt;br /&gt;
-　確かに、将棋は過去の着手を忘れてもいいけど、消える三目並べは過去を忘れたらダメですね。&lt;/p&gt;
+　確かに、将棋やチェスや通常の三目並べは過去の着手を忘れてもいいけど、消える三目並べは過去を忘れたら好手を選べません。&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -896,174 +1003,6 @@ Kf8 22. Qe8+ Kg7 23. Re3 Qh2+ 24. Kxh2 g1=Q# 0-1
         <pubDate>Sun, 22 Dec 2024 00:00:00 +0900</pubDate>
         <link>https://happyclam.github.io/software/2024-12-22/chess66_test</link>
         <guid isPermaLink="true">https://happyclam.github.io/software/2024-12-22/chess66_test</guid>
-        
-        <category>coffeescript</category>
-        
-        <category>javascript</category>
-        
-        <category>shogi</category>
-        
-        <category>chess</category>
-        
-        
-        <category>software</category>
-        
-      </item>
-    
-      <item>
-        <title>チェスのStalemateとPINの話</title>
-        <description>&lt;h3 id=&quot;チェスアプリのバグを見つけてしまいました&quot;&gt;チェスアプリのバグを見つけてしまいました&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;チェス入門&lt;/a&gt;というサイトのステイルメイトの問題集を&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;で解いてみると８問中１問間違えてしまいました。ステイルメイトの問題集はあまり見かけないので、十分なテストをしてなかったのが原因です。&lt;a href=&quot;https://happyclam.booth.pm/items/6325341&quot;&gt;マンカラアプリ&lt;/a&gt;もそうですが（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;詰めマンカラ問題集&lt;/code&gt;なんて聞いたことがありません）、問題集が手に入らないのである程度のところでテストを打ち切ってリリースしていたのですが、実際に解けない問題を見つけてしまった以上、対処することにしました。&lt;/p&gt;
-
-&lt;h3 id=&quot;pinが絡む問題に問題がある&quot;&gt;PINが絡む問題に問題がある&lt;/h3&gt;
-&lt;p&gt;　解けなかったのは&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;チェス入門サイトの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;で、以下の局面です。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;初期盤面&lt;/div&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/stalemate_01.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stalemate_01.png&quot; alt=&quot;ステイルメイト問7-1&quot; width=&quot;320&quot; height=&quot;365&quot; title=&quot;ステイルメイト問7-1&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　正解手は以下のようにQueenをc4に移動する&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4+&lt;/code&gt;です。先手（白）劣勢ですが「王手クイーン取り」を掛けてステイルメイト（引き分け）に持ち込むという問題です。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;正解盤面&lt;/div&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/stalemate_02.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stalemate_02.png&quot; alt=&quot;ステイルメイト問7-2&quot; width=&quot;320&quot; height=&quot;365&quot; title=&quot;ステイルメイト問7-2&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;でも、初期盤面から&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;に指させてみると、以下のように&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qxd5&lt;/code&gt;と黒のクイーンを取ります。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;不正解&lt;/div&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/stalemate_03.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stalemate_03.png&quot; alt=&quot;ステイルメイト問7-3&quot; width=&quot;320&quot; height=&quot;365&quot; title=&quot;ステイルメイト問7-3&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　クィーンは取れるのですが次に後手（黒）がルークをa1に移動（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ra1&lt;/code&gt;）して合い駒効かずでチェックメイトされて先手（白）が負けます。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;不正解後の変化&lt;/div&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/stalemate_04.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stalemate_04.png&quot; alt=&quot;ステイルメイト問7-4&quot; width=&quot;320&quot; height=&quot;365&quot; title=&quot;ステイルメイト問7-4&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;正解手が指せないからといってバグとは限らないのですが、この問題の場合は３手の読みでステイルメイトに気付いて５手読めば&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ra1&lt;/code&gt;からの負けに気付くので、候補手を絞っている可能性があるので一概には言えませんが５手読めば正解できるはずです。&lt;br /&gt;
-　では、手動で先手（白）が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4+&lt;/code&gt;と指した局面で&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;に指させてみると&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;先手（白）のクィーンを取る、正しい応手？&lt;/div&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/stalemate_05.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stalemate_05.png&quot; alt=&quot;ステイルメイト問7-5&quot; width=&quot;320&quot; height=&quot;365&quot; title=&quot;ステイルメイト問7-5&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;相手のクィーンを取って（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qxc4&lt;/code&gt;）ステイルメイトと判定してゲーム終了となるのでこれも問題ありません。&lt;br /&gt;
-　しかし、手動で先手（白）が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4+&lt;/code&gt;と指した局面から後手（黒）も手動で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qxc4&lt;/code&gt;と指すと以下のようになります。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;手動で指すと「後手勝ち」の判定！！！&lt;/div&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/stalemate_06.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stalemate_06.png&quot; alt=&quot;ステイルメイト問7-6&quot; width=&quot;320&quot; height=&quot;365&quot; title=&quot;ステイルメイト問7-6&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　これはイケマセン。ステイルメイトなのに「後手の勝ちです」と判定してしまってます。これは明らかなバグです。&lt;br /&gt;
-どうやらチェスで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;と呼ばれる状態の時にSTALEMATEの判定を間違うようです。
-このステイルメイトの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;のミソは他の問題とは違って、単に「王手クィーン取り」を掛けてステイルメイトに持ち込むだけではなく、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;状態に持ち込むところです。初手は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qd4+&lt;/code&gt;でも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qe4+&lt;/code&gt;でもダメで、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4+&lt;/code&gt;でなければならないのです。&lt;/p&gt;
-
-&lt;h3 id=&quot;将棋ではpinは大した問題ではない&quot;&gt;将棋ではPINは大した問題ではない&lt;/h3&gt;
-&lt;p&gt;　上の図の終局の局面は将棋でも珍しくない形だと思います。将棋なら先手（白）は指す手が無くて投了するしか無い局面です。もし将棋初心者が指す手に困って&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;されている&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;e2&lt;/code&gt;の駒（ポーン）を前に動かしたとしても、後手（黒）がクィーンで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;f1&lt;/code&gt;の玉（キング）を取れば済む話です（&lt;a href=&quot;/software/2024-04-07/tdd&quot;&gt;以前の記事&lt;/a&gt;参照）。その場合、将棋でも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;王手放置&lt;/code&gt;は反則と規定されているので正確に言えば先手（白）の反則負けと言うべきですが、いずれにしても後手（黒）の勝ちは揺るぎません。でも将棋と違ってチェスの場合は劣勢だった先手が引き分け（ステイルメイト）に持ち込んだことになります。将棋なら先手（白）負けなのにチェスだと引き分けになります。&lt;br /&gt;
-　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;に対応する将棋用語は何かよく分かりませんが、「串刺しにされてる」とか「角の効きに入ってる」とかの表現はありますが、ピッタリした用語が無いのが将棋というゲームが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;をそれほど重要視していないことの証拠にもなるでしょう。&lt;br /&gt;
-　将棋アプリを開発する立場で見ても&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;なんて全然気にしていませんでした。チェスのソフトや昔からある将棋ソフトが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;をチェックするアルゴリズムを使っているのは知ってましたが、それは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Stockfish&lt;/code&gt;由来のアルゴリズムを流用して作っていたからであって、自分のように一からアルゴリズムも考えて開発するのなら関係のない話だと思っていたし実際に作ることも出来ました。でも、今回の&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;のバグの修正に取り掛かってみて想像以上に面倒臭い作業を強いられて、チェスのステイルメイト（特に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;絡み）に対応するためには将棋とは別のやり方（別のデータ構造と別のアルゴリズム）で作る方がスマートに出来るのだろうということが想像できました。何がそんなに面倒くさいかと言うと長くなるので省略しますが、チェス盤のマス目を一つ一つ移動しながら&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;のチェックをするのはかなり&lt;strong&gt;無理がある&lt;/strong&gt;のです。&lt;br /&gt;
-　将棋ソフト開発関連の本などをチラ見すると&lt;strong&gt;「データ構造に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;用のフラグを持たせる」&lt;/strong&gt;とか&lt;strong&gt;「合法手を列挙する」&lt;/strong&gt;とか言う表現をよく見かけますが、自分の将棋関連アプリ（&lt;a href=&quot;https://happyclam.booth.pm/items/6323599&quot;&gt;３三将棋&lt;/a&gt;、&lt;a href=&quot;https://happyclam.booth.pm/items/6325376&quot;&gt;５五将棋&lt;/a&gt;、&lt;a href=&quot;https://happyclam.booth.pm/items/6346070&quot;&gt;７七将棋&lt;/a&gt;）はデータ構造に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;用のものはありませんし、「合法手を列挙する」作業も一切していませんが困ることは何もありませんでした。人間が実際に駒を動かすイメージで一つ一つの駒を８方向に動かす作業を想定したアルゴリズムになっていて、普通はそうしたやり方を採用するだろうと思われる極普通のやり方（アルゴリズム）です。「合法手を列挙する」と聞いて、昔から「何でそんなやり方してるのかなぁ？」と不思議に思ってました。もしかして、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Stockfish&lt;/code&gt;を作った人は、最初私のようなやり方で&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;を作り始めてステイルメイトの実装に掛かった時に「こりゃダメだ！」「こんなことやってられない！」と感じて新しいやり方（データ構造とアルゴリズム）を捻り出したんじゃないでしょうか？私の勝手な想像ではありますが、今回のバグ修正に取り組んで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Stockfish&lt;/code&gt;を作った人の気持ちが分かったような気がしました。&lt;br /&gt;
-　今回のバグ修正は&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;が絡むステイルメイトに関わる部分だけ&lt;/strong&gt;が下膨れした感じになっていて、幸いそういうケースはあまりないので全体の処理が重くなったということはありません。&lt;/p&gt;
-
-&lt;h3 id=&quot;ステイルメイトは最善手なのか&quot;&gt;ステイルメイトは最善手なのか？&lt;/h3&gt;
-&lt;p&gt;　上に挙げた&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;チェス入門サイトの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PIN&lt;/code&gt;の問題以外にも興味深い変化を含んでいます。上記のバグをなんとか&lt;strong&gt;無理がある&lt;/strong&gt;方法で修正して過去のテストも全部通過してデグレード（リグレッション）が無いところまでなんとか辿り着いて、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;も含めて&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;すべての問題&lt;/a&gt;に正解することも確認しました。&lt;br /&gt;
-　そして、試しに先程の先手が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4+&lt;/code&gt;と指した下の正解局面から&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;正解盤面&lt;/div&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/stalemate_02.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stalemate_02.png&quot; alt=&quot;ステイルメイト問7-2&quot; width=&quot;320&quot; height=&quot;365&quot; title=&quot;ステイルメイト問7-2&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;修正済みの&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;に後手を指させてみると&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;後手がステイルメイトを避けた局面&lt;/div&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/stalemate_07.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stalemate_07.png&quot; alt=&quot;アプリ修正後の指し手&quot; width=&quot;320&quot; height=&quot;365&quot; title=&quot;ステイルメイト問7-7&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;なんと、先手のクィーンを取らずに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qe4&lt;/code&gt;と指して王手（チェック）を回避しました。修正する前はちゃんと先手のクィーンを取っていたので、修正前より悪化してるような気もがしますがそうではなく、正しくステイルメイトの局面だと判断できるようになって、後手（アプリ）が「優勢なのにステイルメイトなんかにしてたまるか！」とクィーンを犠牲にしてキングが逃げる手を選んだわけです。その後先手は当然後手のクィーンを取って（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qxe4+&lt;/code&gt;）以下&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kg5&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qa8&lt;/code&gt;となり後手のキングは大海に逃げ出すことは出来ますが、駒をボロボロ取られて十数手後に結局先手が勝ちます。結局そうなるのなら「ステイルメイトで妥協しておくべきだったんじゃないの？」と言いたくなりますが、自分のチェスアプリは深く読めていない（３〜５手）こともあってこうなります。&lt;br /&gt;
-　このステイルメイトを無理やり避ける現象は&lt;a href=&quot;/software/2020-02-11/evaluatechess&quot;&gt;以前の記事&lt;/a&gt;で書いたステイルメイトの局面をどのように評価するか（ステイルメイトの局面に掛ける係数&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-0.7&lt;/code&gt;をどのように決めるか問題）とも関わってくるのですが、自らステイルメイト（引き分け）を受け入れて確定させるより、少しでも勝つ可能性がある手を選ぶ方が最善手と言えなくもないような気もします。&lt;br /&gt;
-　それにしても&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;詰めチェス&lt;/code&gt;（チェス・プロブレム）の中には問題の趣旨以外の有効な着手が存在するもの、将棋で言えば&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;余詰め&lt;/code&gt;がある詰将棋のような感じの問題が多いですね。それとも自分がチェス初心者だからそう感じるだけで、ベテランチェスプレイヤーなら上記の局面でステイルメイト（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qxc4&lt;/code&gt;）以外は考えられないって感じでしょうか？身近にチェスに詳しい人がいないのでよく分かりません。&lt;br /&gt;
-　&lt;a href=&quot;/software/2019-11-09/stalemate3&quot;&gt;以前の記事&lt;/a&gt;に書きましたが、そもそもステイルメイトの局面評価値に係数を掛けようと思ったのは、ステイルメイトの評価値を引き分けなのだからという理由で&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;にすると以下の局面で先手が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Bf6&lt;/code&gt;という手を選んだからです。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;ステイルメイトが最善手？&lt;/div&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/stalemate_08.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stalemate_08.png&quot; alt=&quot;Stalemateは最善手？&quot; width=&quot;320&quot; height=&quot;467&quot; title=&quot;Stalemateは最善手？&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　先手はビショップとナイトを持っていて後手はルークだけで形勢は先手有利のはずなのに先手から進んでステイルメイト（引き分け）にするのはおかしいだろうと考えたのが事の発端です。この局面の後、指し手を進めても後手玉は捕まらないからステイルメイトにするのが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;最善手&lt;/code&gt;なのでしょうか？自分は優勢なのに自ら進んでステイルメイトにするのはおかしいと考えたので、形勢が有利な時はステイルメイトの評価値にマイナスの値を掛けてやや反転？する仕様にした（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kf7&lt;/code&gt;の手を指します）のですが、もし&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Bf6&lt;/code&gt;（ステイルメイト）が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;最善手&lt;/code&gt;というのがチェスプレイヤーの共通認識であるのならステイルメイト局面の評価値は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;のままでいいかもしれません。でも、上の局面で先手のポーンが一つでも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b5&lt;/code&gt;辺りに残っていれば敢えてステイルメイトにする人はいないと思います。そのような局面とも比較するためにもステイルメイトの局面に掛ける係数は必要だと思います。&lt;br /&gt;
-　あと、念の為もう一度書いておきますが、&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;は「&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;チェス入門サイト&lt;/a&gt;のステイルメイトの問題は全問正解します」、正解するけどその後の指し手が問題の趣旨通りには進まないと言うことです。&lt;/p&gt;
-
-&lt;h3 id=&quot;他にも見えてきた問題&quot;&gt;他にも見えてきた問題&lt;/h3&gt;
-&lt;p&gt;　上記の&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;の正解手の後の後手の一手（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qe4&lt;/code&gt;）は&lt;strong&gt;あまりにも無理してステイルメイトを避けている&lt;/strong&gt;ような気もしたので、試しにステイルメイトの局面の評価値に掛けている係数（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-0.7&lt;/code&gt;）を変更したら、後手（アプリ）は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qxc4&lt;/code&gt;と着手してステイルメイトを選ぶことを確認しました。そして、将棋とは違って局面の評価値に使っている最大値や最小値が悪影響を与えてることが見えてきました（あくまでも私が作った評価関数についての話です）。&lt;br /&gt;
-　&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;では局面を評価する際の先手勝ちの局面の評価値を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;50000&lt;/code&gt;、後手勝ちの局面の評価値を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-50000&lt;/code&gt;にしているのですが、駒の重みは&lt;a href=&quot;/project/2019-11-16/chessapp&quot;&gt;この記事&lt;/a&gt;のようになっていて、クィーンが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;90&lt;/code&gt;、ルークが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;50&lt;/code&gt;…という感じで相手の駒を全部取っても&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;50000&lt;/code&gt;なんていう大きな数値にはなりません。この先手勝ち局面（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;50000&lt;/code&gt;）と後手勝ち局面（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-50000&lt;/code&gt;）のような大きな値にマイナスの係数（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-0.7&lt;/code&gt;）を掛けても、自分の思惑通りには比較出来ていなかったようです。&lt;br /&gt;
-　それでも&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;以外は正解出来ていたのは、&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;のような紛れがなく明快な手しか無かったのでステイルメイトの局面を勝ちあるいは負けとほぼ同等の評価をしていたからでした。&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;のように紛れがある問題だと、負けるぐらいなら他の手を選ぼうとAIが考えてステイルメイトを避けたということです。ということで、&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;で正解後の後手の一手を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qe4&lt;/code&gt;ではなく&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qxc4&lt;/code&gt;を選ぶように調整した結果、ステイルメイトの局面に掛ける係数を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-0.0009&lt;/code&gt;にしました。これで勝敗の決着がつく大きな値（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;50000&lt;/code&gt;や&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-50000&lt;/code&gt;）と、形勢判断時の評価値（駒の重みや駒の働きの合計値）との比較が出来ているようです。ちなみに係数を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-0.001&lt;/code&gt;にすると元通り&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qe4&lt;/code&gt;と指してステイルメイトを避けます。&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  === intro07-2
-    --- problem -7-2
-
-8|♜| | | | | | | |
-7| | | | | | | | |
-6| | | | | | | | |
-5| | | |♛| | | |♟|
-4| | |♕| | | | |♚|
-3| | | | | | |♟| |
-2| | | | |♙|♟|♙| |
-1| | | | | |♔| | |
-  a b c d e f g h
-
-      ✔ expects stalemate -7-2 (686ms)
-♕
-8|♜| | | | | | | |
-7| | | | | | | | |
-6| | | | | | | | |
-5| | | | | | | |♟|
-4| | |♛| | | | |♚|
-3| | | | | | |♟| |
-2| | | | |♙|♟|♙| |
-1| | | | | |♔| | |
-  a b c d e f g h
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;これでようやく&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;問題７&lt;/code&gt;&lt;/a&gt;の正解後も問題の趣旨通りに後手がステイルメイトの手を選ぶようになりました。&lt;br /&gt;
-　局面の最大値や最小値なんて閉じたアプリの中での相対的な評価値でしかないので何でもいいと思っていました。将棋アプリも先手の勝ちは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;50000&lt;/code&gt;、後手の勝ちは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-50000&lt;/code&gt;を使っていますし、昔作ったオセロでもよくINT型のMAX値とMIN値を使っていました。でも将棋やオセロと違って&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;勝ち&lt;/code&gt;と&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;負け&lt;/code&gt;以外の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ステイルメイト&lt;/code&gt;という&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;勝ち&lt;/code&gt;と&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;負け&lt;/code&gt;の間にある局面を評価するには工夫する必要があるようです。このステイルメイトの局面に掛ける係数は、その意図は昔書いた記事（&lt;a href=&quot;/software/2020-02-11/evaluatechess&quot;&gt;「チェスだけに必要な局面評価属性」&lt;/a&gt;）の通りですが、もし評価関数が完璧なものであるなら必要ないのだと思います。ステイルメイトは引き分けとして評価値&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;でいいと思うのですが、完璧な評価関数なんて有り得ないので必要になってくるものだと思います。&lt;br /&gt;
-　それと一つのケースだけを見て&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-0.0009&lt;/code&gt;に決めてしまっていいのかと思うかも知れませんが、どのように決めるべきか分かってませんし最大値や最小値も駒の重みに関しても言ってみれば適当に決めた値なので、数は少ないですが過去のステイルメイトのテストケースも通過したことですし当面これで様子見ようと思います。&lt;br /&gt;
-　今回、上記の点を弄って個人的にはスッキリしましたが、評価関数は少し変わっただけですし読みの深さも変わっていないので、ステイルメイトの判定が以前より正確になっただけで強くなったわけではないのが残念なところです。&lt;/p&gt;
-
-&lt;h3 id=&quot;アプリのアップデートについて&quot;&gt;アプリのアップデートについて&lt;/h3&gt;
-&lt;p&gt;　今回の修正でもうバグは無くなったのでは？と思ってますが、将棋関連アプリに較べるとチェスアプリに関してはステイルメイトというルールのおかげで安心感が無いというのが本音です。何か問題を見つけた場合はメールか&lt;a href=&quot;https://happyclam.booth.pm/&quot;&gt;Boothサイト&lt;/a&gt;からご連絡下さい。&lt;br /&gt;
-　取り敢えず、現在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Booth&lt;/code&gt;で販売している&lt;a href=&quot;https://happyclam.booth.pm/items/6346197&quot;&gt;ミニチェスアプリ&lt;/a&gt;は近いうちに一度今回の修正を反映させてアップデートするつもりです。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Amazon App Store&lt;/code&gt;で公開している&lt;a href=&quot;https://www.amazon.co.jp/dp/B082412BRQ/ref=sr_1_1?qid=1575089134&amp;amp;refinements=p_4%3Ahappyclam&amp;amp;s=mobile-apps&amp;amp;search-type=ss&amp;amp;sr=1-1&quot;&gt;チェスアプリ&lt;/a&gt;に関してはいつ削除されるかも知れませんし、今後はAmazonでは更新しないつもりです。無料のお試し版として残しておきますが、今後はチェスアプリも&lt;a href=&quot;https://happyclam.booth.pm/&quot;&gt;Booth&lt;/a&gt;で販売する予定です。→&lt;a href=&quot;https://happyclam.booth.pm/items/6399553&quot;&gt;Boothで最新版&lt;/a&gt;公開しました。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-</description>
-        <pubDate>Sun, 15 Dec 2024 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/software/2024-12-15/chessPIN</link>
-        <guid isPermaLink="true">https://happyclam.github.io/software/2024-12-15/chessPIN</guid>
         
         <category>coffeescript</category>
         

@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "強化学習プログラムが強くなってる指標が欲しい",
+      "category" : "software",
+      "tags"     : "coffeescript, cordova, tictactoe, android, javascript",
+      "url"      : "/software/2026-02-11/play_match",
+      "date"     : "2026-02-11 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "消える三目並べをマルコフ拡張",
       "category" : "software",
       "tags"     : "coffeescript, cordova, tictactoe, android, javascript",

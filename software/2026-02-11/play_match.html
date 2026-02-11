@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="author" content="happyclam">
+  <meta name="description"
+    content="強化学習プログラムが強くなってる指標が欲しい モンテカルロ vs. Q-learning vs. αβ法 Reinventing the wheel.">
+  <title> 強化学習プログラムが強くなってる指標が欲しい - 自己満足プログラミング </title>
+
+  <!-- <\!-- Global Site Tag (gtag.js) - Google Analytics -\-> -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script> -->
+  <!-- <script> -->
+  <!--   window.dataLayer = window.dataLayer || []; -->
+  <!--   function gtag(){dataLayer.push(arguments);} -->
+  <!--   gtag('js', new Date()); -->
+  <!--   gtag('config', 'UA-1752720-7'); -->
+  <!-- </script> -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DEV3LMTH6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DEV3LMTH6C');
+</script>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="強化学習プログラムが強くなってる指標が欲しい">
+  
+  
+  <meta name="twitter:url" content="/software/2026-02-11/play_match">
+  
+  
+  <meta name="twitter:description" content="強化学習プログラム同士の対戦">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/van_logo114.png">
+  
+
+  <link rel="canonical" href="https://happyclam.github.io/software/2026-02-11/play_match" />
+  <link rel="alternate" type="application/rss+xml" title="自己満足プログラミング" href="/feed.xml" />
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="site-title" class="navbar-brand" href="/">
+          <img class="pull-left img-responsive" src="">
+          <span class="name-holder">自己満足プログラミング</span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li>
+<a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li>
+<a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li>
+<a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li>
+<a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li>
+<a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1238485061299241" -->
+<!--      crossorigin="anonymous"></script> -->
+
+  <div class="blog-header">
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+      <div class="span9">
+        <!-- Html Elements for Search -->
+        <div id="search-container" align="right">
+          <input type="text" id="search-input" placeholder="search...">
+          <ul class="searchresult" id="results-container"></ul>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+  <script src="/assets/js/jquery.min.js"></script>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
+
+        <header class="page-header">
+          <h2 class="page-title"><a href="/software/2026-02-11/play_match">強化学習プログラムが強くなってる指標が欲しい</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Wednesday, February 11, 2026
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">coffeescript</span>
+                
+                  <span class="label label-tag">cordova</span>
+                
+                  <span class="label label-tag">tictactoe</span>
+                
+                  <span class="label label-tag">android</span>
+                
+                  <span class="label label-tag">javascript</span>
+                
+            </div>
+          </div>
+
+        </header>
+
+        <article class="page-content">
+          <h3 id="以前は面倒なことをやっていた">以前は面倒なことをやっていた</h3>
+<p>　<a href="https://happyclam.github.io/software/2026-01-25/markov_chain">前回</a>の続きです。<a href="https://happyclam.github.io/project/2016-09-19/tictactoe_evo">通常の三目並べアプリ</a>では、強化学習がどの程度進んでいるかを確認する際にツリー構造で保持している局面データの中からリーチが掛かっている局面（あと一手で勝てる局面）を探し出し、その局面の報酬データ（石ころ）の分布を見て判断していました。対戦相手がリーチを掛けた局面でどれぐらい阻止できるかによって学習の進捗度合いを判断して、その値を生物の進化に擬えてアメーバから人間までの画像を表示するという面倒なことをしてました。<br>
+　今回の消える三目並べでは、履歴データが必要なのでリーチ局面を探すのも大変なので、αβ法のプログラムとの対戦成績を見て学習の進捗度合いを判断することにしました。</p>
+
+<h3 id="まずはq-learning版と対戦">まずはQ-Learning版と対戦</h3>
+<p>　前回の記事から、既存のモンテカルロ版（MC版）を着手履歴を使用しないようにしてQ-Learning版（QL版）も作り、対戦用スクリプトもChatGPTに作ってもらって対戦させてみました。すると、どちらに先手を持たせても1000戦対戦して1000勝0敗でした。後手を持ったどちらかが偶々勝っても良さそうなものですが、何回試しても先手の1000勝0敗の結果です。その対戦内容を確認してみると、お互いに勝ちを何度も逃していてとても強いとは言えない状態なのですが、それでも結果は先手側が1000勝0敗になります。<br>
+　こんなことがあり得るのか？とChatGPTに聞いてみたところ「バグっぽく見えるけど理論的に正しいタイプの現象」とのこと。「勝てるけど下手」は強化学習あるある、消える三目並べは特に起きやすい、勝率 ≠ 強さとのことです。最短勝利を学習していないということが原因のようですが、自分にはなかなか理解し難かったです。もっと学習精度を上げれば違ってくるのでしょうけど、1000勝0敗では強くなってるかどうか判断する指標には使えないので、αβ法のプログラムと対戦させることにしました。</p>
+
+<div align="center">
+<div align="center">ソースコード</div>
+<div style="width:320px; margin: 0 auto;">
+
+    <p><a href="https://github.com/happyclam/tictactoe-van/tree/chatGPT"><img src="/images/github-mark.png" alt="消える三目並べ強化学習プログラム" title="消える三目並べ強化学習プログラム" width="120" height="120"></a></p>
+
+  </div>
+</div>
+
+<p>※MC版とQL版を対戦させる時はQL版が先手の時に循環手順に入って対局が終わらないケースがあるようです。その際はMC版のgreedyではない方の学習用のメソッド（choose_actionメソッド）を使ってました（ルーレット選択により着手が変わる）。</p>
+
+<h3 id="対戦相手に使うαβ法プログラムの注意事項">対戦相手に使うαβ法プログラムの注意事項</h3>
+<p>　αβ法のプログラムを強化学習に使うには事前に知っておかないと現象を見誤る可能性があるので書いておきます。</p>
+
+<ol>
+  <li>
+    <p>後手番では最強ではない<br>
+対戦相手に使用するαβ法のプログラムは勝ち・負け・引き分け（+9, -9, 0）の三値だけの評価関数なので、先手の時はまさに最強プログラムですが、後手の時は勝てないことを読み切ってしまってどの手を選んでも負けと判断して結局最初に見つけた着手可能な手を選んでしまいます。負けを遅らせる手、粘る手を選べません。だから後手番では最善手を選べないので弱いです。</p>
+  </li>
+  <li>
+    <p>循環手順を避ける必要がある<br>
+消える三目並べでは、先手側が必勝手順を知らない段階（学習できていない段階）に同じパターンの繰り返しになることがあります。ここで使ってるαβ法のプログラムは循環手順（千日手）を避けるようになってるはずなので、QL版とMC版を対戦させる時は注意が必要です。消える三目並べで循環手順に陥るケースは、先手番が勝てるのに勝ってくれないのが原因です。</p>
+  </li>
+</ol>
+
+<p>※<code class="language-plaintext highlighter-rouge">masterブランチ</code>で使用しているαβ法のプログラムは上記の後手番時の弱さを補うために特殊な処理をしているのですが、あまりにも場当たり的で良くないと思い、もっと昔に作った<a href="https://github.com/happyclam/tictactoe_ruby/tree/arrange">消える三目並べが先手必勝であることを確認するためのプログラム</a>を使うことにしました。<code class="language-plaintext highlighter-rouge">masterブランチ</code>を作った当時は、主役はあくまで強化学習プログラムの方だったので結構いい加減に作ってしまったのですが、今にして思えば<code class="language-plaintext highlighter-rouge">教師であるαβ版（後手対策）にもっと力を入れるべきだった</code>のかもしれません。</p>
+
+<h3 id="αβ法との対戦結果">αβ法との対戦結果</h3>
+<p>　先手のαβ法には勝てないので後手のαβ法にどの程度勝てるかを学習度合いの指標にしようと思い対戦させた結果、QL版だと100戦して3割ぐらい勝てますが、MC版だと一勝も出来ません。MC版でε減衰方策（ハッシュテーブルの局面キーを増やす）や時間価値付き終局報酬（早く勝つと高報酬、早く負けると厳罰）を取り入れたり、自己対戦の試行回数を１億回まで伸ばしたりしましたが、その学習データを使っても後手番のαβ法に一回も勝てませんでした。改良するに従って6,7手で負けてばかりだったのが、負けずにだいたい十数手粘るようになり、負けない手、悪手は学習できているようですが、勝ちをもぎ取る一手が選べません。QL版の方はTD誤差で「この一手で価値が跳ね上がる」ことを伝播できるので勝てるようです。</p>
+
+<h3 id="もう一つの指標">もう一つの指標</h3>
+<p>　前回の記事で消える三目並べの学習の進捗度合いを見る簡単な指標として「初手で辺を選ぶ」ことを挙げましたが、もう一つあります。</p>
+
+<div align="center">負けると分かっていても避けられない局面（クリックで拡大）</div>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/vanishing_tictactoe01.png"><img src="/images/vanishing_tictactoe01.png" alt="消える三目並べ局面０１" width="320" height="262" title="負けを避けられない局面"></a></p>
+
+</div>
+
+<p>　上図は先手（×）番で、次に自分の左中断の駒が消えることが分かっていて、自分の着手後に後手（○）に左中断を取られると縦一列揃えられて負けることが分かっていても、先手は自分の駒が邪魔でその場所は選べません。</p>
+
+<div align="center">先手の駒が消えた瞬間に後手に着手されて負けた局面（クリックで拡大）</div>
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/vanishing_tictactoe02.png"><img src="/images/vanishing_tictactoe02.png" alt="消える三目並べ局面０２" width="320" height="262" title="先手（×）の負け"></a></p>
+
+</div>
+
+<p>　しかし先手が着手後に左中断の先手の駒（×）が消えて着手可能になり、後手（○）は勝つことが出来ます。この勝ち方が出来るかどうかが大事です。<br>
+　先程QL版はαβ法の後手番に３割勝てていると言いましたが、その勝ち方は前述の<code class="language-plaintext highlighter-rouge">後手番αβ法プログラムの不備</code>をつく勝ち方ばかりで、この手順を考慮した勝ち方は出来ていません。結局、状態をフラットに見ているだけでは無理なのでしょう。<br>
+　しかし、<a href="https://happyclam.booth.pm/items/6582961">αβ法プログラム相手に学習した自分のアプリ</a>はこの<code class="language-plaintext highlighter-rouge">タイミングを見計らった勝ち方</code>が出来てます。一般論として言えるかどうか分かりませんが、教師データを使う方が強くし易いのかもしれません。</p>
+
+<h3 id="chatgptからの衝撃的な言葉">ChatGPTからの衝撃的な言葉</h3>
+<p>　MC版がαβ法の後手番に勝てないことを愚痴ると、「消える三目並べでは、Hash型MCでは“良い手”までは学べるが、“勝ち切る手”はツリーを持たないと表現できない。」と言われました。次に進むならMCTS（Monte Carlo tree search）がお勧めだそうです。いやいや元々の私の動機は<strong>「通常の三目並べなら単純な石ころ法で結構強くなるけど、消える三目並べはそうならない。しかし状態をマルコフ化したら単純な石ころ法で強くなるのか？」</strong>だったので、何じゃそりゃって感じです。<code class="language-plaintext highlighter-rouge">「状態をマルコフ化しても、単純な石ころ法（MC）」は本質的には強くならない</code>とも言われました。「もっと早く言ってよ〜」って感じですが、ChatGPTに事前に強くなるかどうかを確認したわけではないので仕方ありません。「なぜ強くならないかを可視化する題材としては、最高レベル」と言う変な褒められ方もしました。<br>
+　ハッシュテーブルで学習データを扱うのは楽だなと喜んでいたのですが、結局また昔<a href="https://happyclam.booth.pm/items/6582961">アプリ</a>を作ったときと同じようなこと（学習データをツリー構造で管理）をやる元気はないのでこの辺りで中断しようと思います。ChatGPTによると今のプログラムの構造を変えずに最小限で３〜５手の木を足す方法もあるらしいですが、取り敢えずここで終わりにしたいと思います。<br>
+　それにしてもChatGPTって何かの営業マンのように次々と提案してくるんですよね<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"></p>
+
+<h3 id="マルコフ化の意義">マルコフ化の意義</h3>
+<p>　以下はChatGPTによるものです。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>マルコフ化で得られたもの
+    Q-learning が成立した
+    初手が学習可能になった
+    勝率が明確に改善した
+    MCとQLの差が可視化された
+
+つまり：
+    「問題は状態ではなく、学習則」
+
+だと切り分けられた。
+</code></pre></div></div>
+
+<p>　上記の言葉に結構納得しました。<code class="language-plaintext highlighter-rouge">Q-Learningはマルコフ化必須</code>なんてことも知らなかったし、いろいろ勉強になりました。</p>
+
+<hr>
+
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <small>© rifyll theme, 2014</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+</body>
+
+</html>

@@ -269,10 +269,10 @@
 
 <h3 id="完全情報状態マルコフ状態2026-02-09追記">完全情報状態≠マルコフ状態（2026-02-09追記）</h3>
 <p>　上記の<code class="language-plaintext highlighter-rouge">通常の三目並べ用のクラス（DisappearingTicTacToeクラス）</code>と<code class="language-plaintext highlighter-rouge">消える三目並べ用のクラス（DisappearingMarkovクラス）</code>を比較してみると、<code class="language-plaintext highlighter-rouge">state</code>情報の違いは<strong>手番と先手と後手の過去の着手２手分のデータ</strong>が追加されているだけです。だから学習データの違いもその分のキーが増えるだけの違いです。最初見た時はなんか力が抜けました。そんな簡単なことなの？と。でも、ChatGPTが言うように<strong>「状態（state）をマルコフ性を持つ形にすればいいだけ」</strong>ということは、そういうことのようです。<br>
-　それと過去２手分の履歴も含めて別局面として扱うだけでいいのなら、結局<code class="language-plaintext highlighter-rouge">マルコフ状態</code>というのは<code class="language-plaintext highlighter-rouge">完全情報状態</code>とどう違うのか？と疑問に思ったのでChatGPTに聞いたところ、完全情報状態とは「ルール上、必要な情報がすべて見えている状態」、マルコフ状態とは「未来の分布を決めるのに、過去を一切見なくていい状態」と言われました。これはマルコフ連鎖の書籍とかでよく書かれている説明ですが、あとは皆さんが納得行くまでChatGPTに聞いてください。<br>
+　それと過去２手分の履歴も含めて別局面として扱うだけでいい（正確に言うと対戦相手の着手の履歴までキーに含まれてる点が重要？）のなら、結局<code class="language-plaintext highlighter-rouge">マルコフ状態</code>というのは<code class="language-plaintext highlighter-rouge">完全情報状態</code>とどう違うのか？と疑問に思ったのでChatGPTに聞いたところ、完全情報状態とは「ルール上、必要な情報がすべて見えている状態」、マルコフ状態とは「未来の分布を決めるのに、過去を一切見なくていい状態」と言われました。これはマルコフ連鎖の書籍とかでよく書かれている説明ですが、あとは皆さんが納得行くまでChatGPTに聞いてください。<br>
 　とにかく、<strong>消える三目並べは完全情報なのに非マルコフなゲーム</strong>だそうです。<br>
 　完全情報状態は「何が見えているか」の話、マルコフ状態は「過去を忘れていいか」の話とのこと。<br>
-　確かに、将棋は過去の着手を忘れてもいいけど、消える三目並べは過去を忘れたらダメですね。</p>
+　確かに、将棋やチェスや通常の三目並べは過去の着手を忘れてもいいけど、消える三目並べは過去を忘れたら好手を選べません。</p>
 
 <hr>
 
