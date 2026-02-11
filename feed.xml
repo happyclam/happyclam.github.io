@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 11 Feb 2026 18:06:26 +0900</pubDate>
-    <lastBuildDate>Wed, 11 Feb 2026 18:06:26 +0900</lastBuildDate>
+    <pubDate>Wed, 11 Feb 2026 22:37:50 +0900</pubDate>
+    <lastBuildDate>Wed, 11 Feb 2026 22:37:50 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -47,7 +47,7 @@
 &lt;p&gt;※&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;masterブランチ&lt;/code&gt;で使用しているαβ法のプログラムは上記の後手番時の弱さを補うために特殊な処理をしているのですが、あまりにも場当たり的で良くないと思い、もっと昔に作った&lt;a href=&quot;https://github.com/happyclam/tictactoe_ruby/tree/arrange&quot;&gt;消える三目並べが先手必勝であることを確認するためのプログラム&lt;/a&gt;を使うことにしました。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;masterブランチ&lt;/code&gt;を作った当時は、主役はあくまで強化学習プログラムの方だったので結構いい加減に作ってしまったのですが、今にして思えば&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;教師であるαβ版（後手対策）にもっと力を入れるべきだった&lt;/code&gt;のかもしれません。&lt;/p&gt;
 
 &lt;h3 id=&quot;αβ法との対戦結果&quot;&gt;αβ法との対戦結果&lt;/h3&gt;
-&lt;p&gt;　先手のαβ法には勝てないので後手のαβ法にどの程度勝てるかを学習度合いの指標にしようと思い対戦させた結果、QL版だと100戦して3割ぐらい勝てますが、MC版だと一勝も出来ません。MC版でε減衰方策（ハッシュテーブルの局面キーを増やす）や時間価値付き終局報酬（早く勝つと高報酬、早く負けると厳罰）を取り入れたり、自己対戦の試行回数を１億回まで伸ばしたりしましたが、その学習データを使っても後手番のαβ法に一回も勝てませんでした。改良するに従って6,7手で負けてばかりだったのが、負けずにだいたい十数手粘るようになり、負けない手、悪手は学習できているようですが、勝ちをもぎ取る一手が選べません。QL版の方はTD誤差で「この一手で価値が跳ね上がる」ことを伝播できるので勝てるようです。&lt;/p&gt;
+&lt;p&gt;　先手のαβ法には勝てないので後手のαβ法にどの程度勝てるかを学習度合いの指標にしようと思い対戦させた結果、QL版だと100戦して3割ぐらい勝てますが、MC版だと一勝も出来ません。MC版でε減衰方策（ハッシュテーブルの局面キーを増やす）や時間価値付き終局報酬（早く勝つと高報酬、早く負けると厳罰）を取り入れたり、自己対戦の試行回数を１億回まで伸ばしたりしましたが、その学習データを使っても後手番のαβ法に一回も勝てませんでした。αβ法の読みの深さを変えても同じ結果です。MC版を改良するに従って6,7手の短手数で負けてばかりだったのが、だいたい十数手粘るようになり、負けない手、悪手は学習できているようですが、勝ちをもぎ取る一手が選べません。QL版の方はTD誤差で「この一手で価値が跳ね上がる」ことを伝播できるので勝てるようです。また、MC版をルーレット選択（choose_actionメソッド）にすれば当然でしょうけど100局の内6,7局は偶々勝てることがあります。&lt;/p&gt;
 
 &lt;h3 id=&quot;もう一つの指標&quot;&gt;もう一つの指標&lt;/h3&gt;
 &lt;p&gt;　前回の記事で消える三目並べの学習の進捗度合いを見る簡単な指標として「初手で辺を選ぶ」ことを挙げましたが、もう一つあります。&lt;/p&gt;
@@ -69,12 +69,12 @@
 &lt;/div&gt;
 
 &lt;p&gt;　しかし先手が着手後に左中断の先手の駒（×）が消えて着手可能になり、後手（○）は勝つことが出来ます。この勝ち方が出来るかどうかが大事です。&lt;br /&gt;
-　先程QL版はαβ法の後手番に３割勝てていると言いましたが、その勝ち方は前述の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;後手番αβ法プログラムの不備&lt;/code&gt;をつく勝ち方ばかりで、この手順を考慮した勝ち方は出来ていません。結局、状態をフラットに見ているだけでは無理なのでしょう。&lt;br /&gt;
-　しかし、&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;αβ法プログラム相手に学習した自分のアプリ&lt;/a&gt;はこの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;タイミングを見計らった勝ち方&lt;/code&gt;が出来てます。一般論として言えるかどうか分かりませんが、教師データを使う方が強くし易いのかもしれません。&lt;/p&gt;
+　先程QL版はαβ法の後手番に３割勝てていると言いましたが、その勝ち方は前述の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;後手番αβ法プログラムの評価関数の不備&lt;/code&gt;をつく勝ち方ばかりで、この図のような&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;手順を考慮した勝ち方&lt;/code&gt;は出来ていません。結局、状態をフラットに見ているだけでは無理なのでしょう。&lt;br /&gt;
+　しかし、&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;αβ法プログラム相手に学習した自分のアプリ&lt;/a&gt;はこの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;タイミングを見計らった勝ち方&lt;/code&gt;が出来てます。一般論として言えるかどうか分かりませんが、自己対戦学習より教師データを使う方が強くし易いのかもしれません。&lt;/p&gt;
 
 &lt;h3 id=&quot;chatgptからの衝撃的な言葉&quot;&gt;ChatGPTからの衝撃的な言葉&lt;/h3&gt;
-&lt;p&gt;　MC版がαβ法の後手番に勝てないことを愚痴ると、「消える三目並べでは、Hash型MCでは“良い手”までは学べるが、“勝ち切る手”はツリーを持たないと表現できない。」と言われました。次に進むならMCTS（Monte Carlo tree search）がお勧めだそうです。いやいや元々の私の動機は&lt;strong&gt;「通常の三目並べなら単純な石ころ法で結構強くなるけど、消える三目並べはそうならない。しかし状態をマルコフ化したら単純な石ころ法で強くなるのか？」&lt;/strong&gt;だったので、何じゃそりゃって感じです。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;「状態をマルコフ化しても、単純な石ころ法（MC）」は本質的には強くならない&lt;/code&gt;とも言われました。「もっと早く言ってよ〜」って感じですが、ChatGPTに事前に強くなるかどうかを確認したわけではないので仕方ありません。「なぜ強くならないかを可視化する題材としては、最高レベル」とも言ってました。&lt;br /&gt;
-　ハッシュテーブルで学習データを扱うのは楽だなと喜んでいたのですが、結局また昔&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;アプリ&lt;/a&gt;を作ったときと同じようなこと（学習データをツリー構造で管理）をやる元気はないのでこの辺りで中断しようと思います。ChatGPTによると今のプログラムの構造を変えずに最小限で３〜５手の木を足す方法もあるらしいですが、取り敢えずここで終わりにしたいと思います。&lt;br /&gt;
+&lt;p&gt;　MC版がαβ法の後手番に勝てないことを愚痴ると、「消える三目並べでは、Hash型MCでは“良い手”までは学べるが、“勝ち切る手”はツリーを持たないと表現できない。」と言われました。次に進むならMCTS（Monte Carlo tree search）がお勧めだそうです。いやいや元々の私の動機は&lt;strong&gt;「通常の三目並べなら単純な石ころ法で結構強くなるけど、消える三目並べはそうならない。しかし状態をマルコフ化したら単純な石ころ法で強くなるのでは？」&lt;/strong&gt;だったので、何じゃそりゃって感じです。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;「状態をマルコフ化しても、単純な石ころ法（MC）」は本質的には強くならない&lt;/code&gt;とも言われました。「もっと早く言ってよ〜」って感じですが、ChatGPTに事前に強くなるかどうかを確認したわけではないので仕方ありません。消える三目並べは「なぜ強くならないかを可視化する題材としては、最高レベル」とも言ってました。&lt;br /&gt;
+　ハッシュテーブルで学習データを扱うのは楽だなと喜んでいたのですが、結局また昔&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;アプリ&lt;/a&gt;を作ったときと同じようなこと（学習データをツリー構造で管理）をやる元気はないのでこの辺りで終わりにしようと思います。ChatGPTによると今のプログラムの構造を変えずに最小限で３〜５手の木を足す方法もあるらしいですが、取り敢えずここで終わりにしたいと思います。&lt;br /&gt;
 　それにしてもChatGPTって何かの営業マンのように次々と提案してくるんですよね:sweat_smile:&lt;/p&gt;
 
 &lt;h3 id=&quot;マルコフ化の意義&quot;&gt;マルコフ化の意義&lt;/h3&gt;
