@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 11 Feb 2026 16:22:34 +0900</pubDate>
-    <lastBuildDate>Wed, 11 Feb 2026 16:22:34 +0900</lastBuildDate>
+    <pubDate>Wed, 11 Feb 2026 18:06:26 +0900</pubDate>
+    <lastBuildDate>Wed, 11 Feb 2026 18:06:26 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -73,7 +73,7 @@
 　しかし、&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;αβ法プログラム相手に学習した自分のアプリ&lt;/a&gt;はこの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;タイミングを見計らった勝ち方&lt;/code&gt;が出来てます。一般論として言えるかどうか分かりませんが、教師データを使う方が強くし易いのかもしれません。&lt;/p&gt;
 
 &lt;h3 id=&quot;chatgptからの衝撃的な言葉&quot;&gt;ChatGPTからの衝撃的な言葉&lt;/h3&gt;
-&lt;p&gt;　MC版がαβ法の後手番に勝てないことを愚痴ると、「消える三目並べでは、Hash型MCでは“良い手”までは学べるが、“勝ち切る手”はツリーを持たないと表現できない。」と言われました。次に進むならMCTS（Monte Carlo tree search）がお勧めだそうです。いやいや元々の私の動機は&lt;strong&gt;「通常の三目並べなら単純な石ころ法で結構強くなるけど、消える三目並べはそうならない。しかし状態をマルコフ化したら単純な石ころ法で強くなるのか？」&lt;/strong&gt;だったので、何じゃそりゃって感じです。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;「状態をマルコフ化しても、単純な石ころ法（MC）」は本質的には強くならない&lt;/code&gt;とも言われました。「もっと早く言ってよ〜」って感じですが、ChatGPTに事前に強くなるかどうかを確認したわけではないので仕方ありません。「なぜ強くならないかを可視化する題材としては、最高レベル」と言う変な褒められ方もしました。&lt;br /&gt;
+&lt;p&gt;　MC版がαβ法の後手番に勝てないことを愚痴ると、「消える三目並べでは、Hash型MCでは“良い手”までは学べるが、“勝ち切る手”はツリーを持たないと表現できない。」と言われました。次に進むならMCTS（Monte Carlo tree search）がお勧めだそうです。いやいや元々の私の動機は&lt;strong&gt;「通常の三目並べなら単純な石ころ法で結構強くなるけど、消える三目並べはそうならない。しかし状態をマルコフ化したら単純な石ころ法で強くなるのか？」&lt;/strong&gt;だったので、何じゃそりゃって感じです。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;「状態をマルコフ化しても、単純な石ころ法（MC）」は本質的には強くならない&lt;/code&gt;とも言われました。「もっと早く言ってよ〜」って感じですが、ChatGPTに事前に強くなるかどうかを確認したわけではないので仕方ありません。「なぜ強くならないかを可視化する題材としては、最高レベル」とも言ってました。&lt;br /&gt;
 　ハッシュテーブルで学習データを扱うのは楽だなと喜んでいたのですが、結局また昔&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;アプリ&lt;/a&gt;を作ったときと同じようなこと（学習データをツリー構造で管理）をやる元気はないのでこの辺りで中断しようと思います。ChatGPTによると今のプログラムの構造を変えずに最小限で３〜５手の木を足す方法もあるらしいですが、取り敢えずここで終わりにしたいと思います。&lt;br /&gt;
 　それにしてもChatGPTって何かの営業マンのように次々と提案してくるんですよね:sweat_smile:&lt;/p&gt;
 
