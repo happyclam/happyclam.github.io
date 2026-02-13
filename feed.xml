@@ -5,14 +5,14 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 11 Feb 2026 22:37:50 +0900</pubDate>
-    <lastBuildDate>Wed, 11 Feb 2026 22:37:50 +0900</lastBuildDate>
+    <pubDate>Fri, 13 Feb 2026 20:06:32 +0900</pubDate>
+    <lastBuildDate>Fri, 13 Feb 2026 20:06:32 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
         <title>強化学習プログラムが強くなってる指標が欲しい</title>
         <description>&lt;h3 id=&quot;以前は面倒なことをやっていた&quot;&gt;以前は面倒なことをやっていた&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;https://happyclam.github.io/software/2026-01-25/markov_chain&quot;&gt;前回&lt;/a&gt;の続きです。&lt;a href=&quot;https://happyclam.github.io/project/2016-09-19/tictactoe_evo&quot;&gt;通常の三目並べアプリ&lt;/a&gt;では、強化学習がどの程度進んでいるかを確認する際にツリー構造で保持している局面データの中からリーチが掛かっている局面（あと一手で勝てる局面）を探し出し、その局面の報酬データ（石ころ）の分布を見て判断していました。対戦相手がリーチを掛けた局面でどれぐらい阻止できるかによって学習の進捗度合いを判断して、その値を生物の進化に擬えてアメーバから人間までの画像を表示するという面倒なことをしてました。&lt;br /&gt;
+&lt;p&gt;　&lt;a href=&quot;https://happyclam.github.io/software/2026-01-25/markov_chain&quot;&gt;前回&lt;/a&gt;の続きです。&lt;a href=&quot;https://happyclam.github.io/project/2016-09-19/tictactoe_evo&quot;&gt;通常の三目並べアプリ&lt;/a&gt;では、強化学習がどの程度進んでいるかを確認する際にツリー構造で保持している局面データの中からリーチが掛かっている局面（あと一手で勝てる局面）を探し出し、その局面の報酬データ（石ころ）の分布を見て判断していました。対戦相手がリーチを掛けた局面でどれぐらい阻止できるかによって学習の進捗度合いを判断して、その値を生物の進化に擬えてピロリ菌から人間までの画像を表示するという面倒なことをしてました。&lt;br /&gt;
 　今回の消える三目並べでは、履歴データが必要なのでリーチ局面を探すのも大変なので、αβ法のプログラムとの対戦成績を見て学習の進捗度合いを判断することにしました。&lt;/p&gt;
 
 &lt;h3 id=&quot;まずはq-learning版と対戦&quot;&gt;まずはQ-Learning版と対戦&lt;/h3&gt;
@@ -73,8 +73,8 @@
 　しかし、&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;αβ法プログラム相手に学習した自分のアプリ&lt;/a&gt;はこの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;タイミングを見計らった勝ち方&lt;/code&gt;が出来てます。一般論として言えるかどうか分かりませんが、自己対戦学習より教師データを使う方が強くし易いのかもしれません。&lt;/p&gt;
 
 &lt;h3 id=&quot;chatgptからの衝撃的な言葉&quot;&gt;ChatGPTからの衝撃的な言葉&lt;/h3&gt;
-&lt;p&gt;　MC版がαβ法の後手番に勝てないことを愚痴ると、「消える三目並べでは、Hash型MCでは“良い手”までは学べるが、“勝ち切る手”はツリーを持たないと表現できない。」と言われました。次に進むならMCTS（Monte Carlo tree search）がお勧めだそうです。いやいや元々の私の動機は&lt;strong&gt;「通常の三目並べなら単純な石ころ法で結構強くなるけど、消える三目並べはそうならない。しかし状態をマルコフ化したら単純な石ころ法で強くなるのでは？」&lt;/strong&gt;だったので、何じゃそりゃって感じです。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;「状態をマルコフ化しても、単純な石ころ法（MC）」は本質的には強くならない&lt;/code&gt;とも言われました。「もっと早く言ってよ〜」って感じですが、ChatGPTに事前に強くなるかどうかを確認したわけではないので仕方ありません。消える三目並べは「なぜ強くならないかを可視化する題材としては、最高レベル」とも言ってました。&lt;br /&gt;
-　ハッシュテーブルで学習データを扱うのは楽だなと喜んでいたのですが、結局また昔&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;アプリ&lt;/a&gt;を作ったときと同じようなこと（学習データをツリー構造で管理）をやる元気はないのでこの辺りで終わりにしようと思います。ChatGPTによると今のプログラムの構造を変えずに最小限で３〜５手の木を足す方法もあるらしいですが、取り敢えずここで終わりにしたいと思います。&lt;br /&gt;
+&lt;p&gt;　MC版がαβ法の後手番に勝てないことを愚痴ると、「消える三目並べでは、Hash型MCでは“良い手”までは学べるが、“勝ち切る手”はツリーを持たないと表現できない。」と言われました。次に進むならMCTS（Monte Carlo tree search）がお勧めだそうです。いやいや元々の私の動機は&lt;strong&gt;「通常の三目並べなら単純な石ころ法で結構強くなるけど、消える三目並べはそうならない。しかし状態をマルコフ化したら単純な石ころ法でも強くなるのでは？」&lt;/strong&gt;だったので、何じゃそりゃって感じです。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;「状態をマルコフ化しても、単純な石ころ法（MC）」は本質的には強くならない&lt;/code&gt;とハッキリ言われました。「もっと早く言ってよ〜」って感じですが、ChatGPTに事前に強くなるかどうかを確認したわけではないので仕方ありません。消える三目並べは「なぜ強くならないかを可視化する題材としては、最高レベル」とも言ってました。&lt;br /&gt;
+　ハッシュテーブルで学習データを扱うのは楽だなと喜んでいたのですが、結局また昔&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;アプリ&lt;/a&gt;を作ったときと同じようなこと（学習データをツリー構造で管理）をやる元気はないのでこの辺りで終わりにしようと思います。ChatGPTによると今のプログラムの構造を変えずに最小限で３〜５手の木を足す方法もあるらしいですが、取り敢えずここで終了します。&lt;br /&gt;
 　それにしてもChatGPTって何かの営業マンのように次々と提案してくるんですよね:sweat_smile:&lt;/p&gt;
 
 &lt;h3 id=&quot;マルコフ化の意義&quot;&gt;マルコフ化の意義&lt;/h3&gt;
@@ -92,7 +92,7 @@
 だと切り分けられた。
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;　上記の言葉に結構納得しました。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Q-Learningはマルコフ化必須&lt;/code&gt;なんてことも知らなかったし、いろいろ勉強になりました。&lt;/p&gt;
+&lt;p&gt;　上記の言葉に結構納得しました。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Q-Learningはマルコフ化必須&lt;/code&gt;なんてことも知らなかったし、状態をマルコフ化しても結局適切な学習方法（消える三目並べの場合ならMCTSのような局面の親子関係を見る方法）を使わなければ強化学習がうまく行かないことも分かっていろいろ勉強になりました。&lt;/p&gt;
 
 &lt;hr /&gt;
 
