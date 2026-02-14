@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 13 Feb 2026 20:06:32 +0900</pubDate>
-    <lastBuildDate>Fri, 13 Feb 2026 20:06:32 +0900</lastBuildDate>
+    <pubDate>Sat, 14 Feb 2026 18:31:26 +0900</pubDate>
+    <lastBuildDate>Sat, 14 Feb 2026 18:31:26 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -59,7 +59,7 @@
 
 &lt;/div&gt;
 
-&lt;p&gt;　上図は先手（×）番で、次に自分の左中断の駒が消えることが分かっていて、自分の着手後に後手（○）に左中断を取られると縦一列揃えられて負けることが分かっていても、先手は自分の駒が邪魔でその場所は選べません。&lt;/p&gt;
+&lt;p&gt;　上図は先手（×）番で、次に自分の左中段の駒が消えることが分かっていて、自分の着手後に後手（○）に左中段を取られると縦一列揃えられて負けることが分かっていても、先手は自分の駒が邪魔でその場所は選べません。&lt;/p&gt;
 
 &lt;div align=&quot;center&quot;&gt;先手の駒が消えた瞬間に後手に着手されて負けた局面（クリックで拡大）&lt;/div&gt;
 &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
@@ -68,7 +68,7 @@
 
 &lt;/div&gt;
 
-&lt;p&gt;　しかし先手が着手後に左中断の先手の駒（×）が消えて着手可能になり、後手（○）は勝つことが出来ます。この勝ち方が出来るかどうかが大事です。&lt;br /&gt;
+&lt;p&gt;　しかし先手が着手後に左中段の先手の駒（×）が消えて着手可能になり、後手（○）は勝つことが出来ます。この勝ち方が出来るかどうかが大事です。&lt;br /&gt;
 　先程QL版はαβ法の後手番に３割勝てていると言いましたが、その勝ち方は前述の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;後手番αβ法プログラムの評価関数の不備&lt;/code&gt;をつく勝ち方ばかりで、この図のような&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;手順を考慮した勝ち方&lt;/code&gt;は出来ていません。結局、状態をフラットに見ているだけでは無理なのでしょう。&lt;br /&gt;
 　しかし、&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;αβ法プログラム相手に学習した自分のアプリ&lt;/a&gt;はこの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;タイミングを見計らった勝ち方&lt;/code&gt;が出来てます。一般論として言えるかどうか分かりませんが、自己対戦学習より教師データを使う方が強くし易いのかもしれません。&lt;/p&gt;
 
