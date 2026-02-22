@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 22 Feb 2026 09:56:35 +0900</pubDate>
-    <lastBuildDate>Sun, 22 Feb 2026 09:56:35 +0900</lastBuildDate>
+    <pubDate>Sun, 22 Feb 2026 13:04:48 +0900</pubDate>
+    <lastBuildDate>Sun, 22 Feb 2026 13:04:48 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -36,11 +36,11 @@
 &lt;ol&gt;
   &lt;li&gt;
     &lt;p&gt;後手番では最強ではない&lt;br /&gt;
-対戦相手に使用するαβ法のプログラムは勝ち・負け・引き分け（+9, -9, 0）の三値だけの評価関数なので、先手の時はまさに最強プログラムですが、後手の時は勝てないことを読み切ってしまってどの手を選んでも負けと判断して結局最初に見つけた着手可能な手を選んでしまいます。負けを遅らせる手、粘る手を選べません。だから後手番では最善手を選べないので弱いです。&lt;/p&gt;
+対戦相手に使用するαβ法のプログラムは勝ち・負け・引き分け（+9, -9, 0）の三値だけの評価関数なので、先手の時はまさに最強プログラムですが、後手の時は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;初手に辺を取られると&lt;/code&gt;勝てないことを読み切ってしまってどの手を選んでも負けと判断して結局最初に見つけた着手可能な手を選んでしまいます。負けを遅らせる手、粘る手を選べません。だから後手番では最善手を選べないので弱いです。&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;循環手順を避ける必要がある&lt;br /&gt;
-消える三目並べでは、先手側が必勝手順を知らない段階（学習できていない段階）に同じパターンの繰り返しになることがあります。ここで使ってるαβ法のプログラムは循環手順（千日手）を避けるようになってるはずなので、QL版とMC版を対戦させる時は注意が必要です。消える三目並べで循環手順に陥るケースは、先手番が勝てるのに勝ってくれないのが原因です。&lt;/p&gt;
+消える三目並べでは、先手側が必勝手順を知らない段階（学習できていない段階）に同じパターンの繰り返しになることがあります。ここで使ってるαβ法のプログラムは循環手順（千日手）を避けるようになってるはず（&lt;a href=&quot;https://happyclam.github.io/software/2014-10-04/arrange_line&quot;&gt;過去記事&lt;/a&gt;参照）なので、QL版とMC版を対戦させる時には注意が必要です。消える三目並べで循環手順に陥るケースは、先手番が勝てるのに勝ってくれないのが原因です。&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
