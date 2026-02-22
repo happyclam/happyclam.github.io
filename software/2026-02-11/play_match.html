@@ -230,9 +230,9 @@
 
 </div>
 
-<p>　しかし先手が着手後に左中段の先手の駒（×）が消えて着手可能になり、後手（○）は勝つことが出来ます。この勝ち方が出来るかどうかが大事です。<br>
-　先程QL版はαβ法の後手番に３割勝てていると言いましたが、その勝ち方は前述の<code class="language-plaintext highlighter-rouge">後手番αβ法プログラムの評価関数の不備</code>をつく勝ち方ばかりで、この図のような<code class="language-plaintext highlighter-rouge">手順を考慮した勝ち方</code>は出来ていません。結局、状態をフラットに見ているだけでは無理なのでしょう。<br>
-　しかし、<a href="https://happyclam.booth.pm/items/6582961">αβ法プログラム相手に学習した自分のアプリ</a>はこの<code class="language-plaintext highlighter-rouge">タイミングを見計らった勝ち方</code>が出来てます。一般論として言えるかどうか分かりませんが、自己対戦学習より教師データを使う方が強くし易いのかもしれません。</p>
+<p>　そして先手が着手後に左中段の先手の駒（×）が消えて着手可能になり、後手（○）は勝つことが出来ます。この勝ち方が出来るかどうかが大事です。<br>
+　先程QL版はαβ法の後手番に３割勝てていると言いましたが、その勝ち方は前述の<code class="language-plaintext highlighter-rouge">後手番αβ法プログラムの評価関数の不備</code>をつく勝ち方ばかりで、この図のような<code class="language-plaintext highlighter-rouge">タイミングを見計らった勝ち方</code>は出来ていません。結局、状態をフラットに見ているだけでは無理なのでしょう。<br>
+　しかし、<a href="https://happyclam.booth.pm/items/6582961">αβ法プログラム相手に学習した自分のアプリ</a>はこの<code class="language-plaintext highlighter-rouge">まるで数手先を読んでいるような勝ち方</code>が出来てます。一般論として言えるかどうか分かりませんが、自己対戦学習より教師データを使う方が強くし易いのでしょう。</p>
 
 <h3 id="chatgptからの衝撃的な言葉">ChatGPTからの衝撃的な言葉</h3>
 <p>　MC版がαβ法の後手番に勝てないことを愚痴ると、「消える三目並べでは、Hash型MCでは“良い手”までは学べるが、“勝ち切る手”はツリーを持たないと表現できない。」と言われました。次に進むならMCTS（Monte Carlo tree search）がお勧めだそうです。いやいや元々の私の動機は<strong>「通常の三目並べなら単純な石ころ法で結構強くなるけど、消える三目並べはそうならない。しかし状態をマルコフ化したら単純な石ころ法でも強くなるのでは？」</strong>だったので、何じゃそりゃって感じです。<code class="language-plaintext highlighter-rouge">「状態をマルコフ化しても、単純な石ころ法（MC）」は本質的には強くならない</code>とハッキリ言われました。「もっと早く言ってよ〜」って感じですが、ChatGPTに事前に強くなるかどうかを確認したわけではないので仕方ありません。消える三目並べは「なぜ強くならないかを可視化する題材としては、最高レベル」とも言ってました。<br>
@@ -254,7 +254,37 @@
 だと切り分けられた。
 </code></pre></div></div>
 
-<p>　上記の言葉に結構納得しました。<code class="language-plaintext highlighter-rouge">Q-Learningはマルコフ化必須</code>なんてことも知らなかったし、状態をマルコフ化しても結局適切な学習方法（消える三目並べの場合ならMCTSのような局面の親子関係を見る方法）を使わなければ強化学習がうまく行かないことも分かっていろいろ勉強になりました。</p>
+<p>　上記の言葉に結構納得しました。<code class="language-plaintext highlighter-rouge">Q-Learningはマルコフ化必須</code>なんてことも知らなかったし、状態をマルコフ化しても結局適切な学習方法（消える三目並べの場合ならMCTSのような局面の親子関係を見る方法）を使わなければ強化学習がうまく行かないことも分かっていろいろ勉強になりました。<br>
+　会話の中でChatGPTが分かりやすい表を出してくれたので追記しておきます。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">手法</th>
+      <th style="text-align: left">マルコフ前提？</th>
+      <th style="text-align: left">壊れ方</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">石ころMC</td>
+      <td style="text-align: left">強く依存</td>
+      <td style="text-align: left">平均化で崩壊</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Q-learning</td>
+      <td style="text-align: left">完全依存</td>
+      <td style="text-align: left">収束しない</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MCTS</td>
+      <td style="text-align: left">原則依存</td>
+      <td style="text-align: left">統計が歪むが動く</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>　<code class="language-plaintext highlighter-rouge">平均化</code>というのは同じ局面での着手が、ある時は最善手になったりある時は最悪手になったりすることで報酬が平均化されてしまうということです。状態をマルコフ化することでその平均化を防ぐわけですが、MCTSの場合は「平均化しながらも局所探索する」のでマルコフでなくても強くなるそうです。MCTSでも理論的にはマルコフ化が正しいけど、ノード数爆増するなどのデメリットもあるので実装上はトレードオフだと言ってました。</p>
 
 <hr>
 

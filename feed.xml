@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 14 Feb 2026 18:31:26 +0900</pubDate>
-    <lastBuildDate>Sat, 14 Feb 2026 18:31:26 +0900</lastBuildDate>
+    <pubDate>Sun, 22 Feb 2026 09:56:35 +0900</pubDate>
+    <lastBuildDate>Sun, 22 Feb 2026 09:56:35 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -68,9 +68,9 @@
 
 &lt;/div&gt;
 
-&lt;p&gt;　しかし先手が着手後に左中段の先手の駒（×）が消えて着手可能になり、後手（○）は勝つことが出来ます。この勝ち方が出来るかどうかが大事です。&lt;br /&gt;
-　先程QL版はαβ法の後手番に３割勝てていると言いましたが、その勝ち方は前述の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;後手番αβ法プログラムの評価関数の不備&lt;/code&gt;をつく勝ち方ばかりで、この図のような&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;手順を考慮した勝ち方&lt;/code&gt;は出来ていません。結局、状態をフラットに見ているだけでは無理なのでしょう。&lt;br /&gt;
-　しかし、&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;αβ法プログラム相手に学習した自分のアプリ&lt;/a&gt;はこの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;タイミングを見計らった勝ち方&lt;/code&gt;が出来てます。一般論として言えるかどうか分かりませんが、自己対戦学習より教師データを使う方が強くし易いのかもしれません。&lt;/p&gt;
+&lt;p&gt;　そして先手が着手後に左中段の先手の駒（×）が消えて着手可能になり、後手（○）は勝つことが出来ます。この勝ち方が出来るかどうかが大事です。&lt;br /&gt;
+　先程QL版はαβ法の後手番に３割勝てていると言いましたが、その勝ち方は前述の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;後手番αβ法プログラムの評価関数の不備&lt;/code&gt;をつく勝ち方ばかりで、この図のような&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;タイミングを見計らった勝ち方&lt;/code&gt;は出来ていません。結局、状態をフラットに見ているだけでは無理なのでしょう。&lt;br /&gt;
+　しかし、&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;αβ法プログラム相手に学習した自分のアプリ&lt;/a&gt;はこの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;まるで数手先を読んでいるような勝ち方&lt;/code&gt;が出来てます。一般論として言えるかどうか分かりませんが、自己対戦学習より教師データを使う方が強くし易いのでしょう。&lt;/p&gt;
 
 &lt;h3 id=&quot;chatgptからの衝撃的な言葉&quot;&gt;ChatGPTからの衝撃的な言葉&lt;/h3&gt;
 &lt;p&gt;　MC版がαβ法の後手番に勝てないことを愚痴ると、「消える三目並べでは、Hash型MCでは“良い手”までは学べるが、“勝ち切る手”はツリーを持たないと表現できない。」と言われました。次に進むならMCTS（Monte Carlo tree search）がお勧めだそうです。いやいや元々の私の動機は&lt;strong&gt;「通常の三目並べなら単純な石ころ法で結構強くなるけど、消える三目並べはそうならない。しかし状態をマルコフ化したら単純な石ころ法でも強くなるのでは？」&lt;/strong&gt;だったので、何じゃそりゃって感じです。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;「状態をマルコフ化しても、単純な石ころ法（MC）」は本質的には強くならない&lt;/code&gt;とハッキリ言われました。「もっと早く言ってよ〜」って感じですが、ChatGPTに事前に強くなるかどうかを確認したわけではないので仕方ありません。消える三目並べは「なぜ強くならないかを可視化する題材としては、最高レベル」とも言ってました。&lt;br /&gt;
@@ -92,7 +92,37 @@
 だと切り分けられた。
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;　上記の言葉に結構納得しました。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Q-Learningはマルコフ化必須&lt;/code&gt;なんてことも知らなかったし、状態をマルコフ化しても結局適切な学習方法（消える三目並べの場合ならMCTSのような局面の親子関係を見る方法）を使わなければ強化学習がうまく行かないことも分かっていろいろ勉強になりました。&lt;/p&gt;
+&lt;p&gt;　上記の言葉に結構納得しました。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Q-Learningはマルコフ化必須&lt;/code&gt;なんてことも知らなかったし、状態をマルコフ化しても結局適切な学習方法（消える三目並べの場合ならMCTSのような局面の親子関係を見る方法）を使わなければ強化学習がうまく行かないことも分かっていろいろ勉強になりました。&lt;br /&gt;
+　会話の中でChatGPTが分かりやすい表を出してくれたので追記しておきます。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;手法&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;マルコフ前提？&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;壊れ方&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;石ころMC&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;強く依存&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;平均化で崩壊&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Q-learning&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;完全依存&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;収束しない&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MCTS&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;原則依存&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;統計が歪むが動く&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;平均化&lt;/code&gt;というのは同じ局面での着手が、ある時は最善手になったりある時は最悪手になったりすることで報酬が平均化されてしまうということです。状態をマルコフ化することでその平均化を防ぐわけですが、MCTSの場合は「平均化しながらも局所探索する」のでマルコフでなくても強くなるそうです。MCTSでも理論的にはマルコフ化が正しいけど、ノード数爆増するなどのデメリットもあるので実装上はトレードオフだと言ってました。&lt;/p&gt;
 
 &lt;hr /&gt;
 
