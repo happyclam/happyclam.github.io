@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="author" content="happyclam">
+  <meta name="description"
+    content="jQueryを外したい 生成AI使って脱jQuery Reinventing the wheel.">
+  <title> jQueryを外したい - 自己満足プログラミング </title>
+
+  <!-- <\!-- Global Site Tag (gtag.js) - Google Analytics -\-> -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script> -->
+  <!-- <script> -->
+  <!--   window.dataLayer = window.dataLayer || []; -->
+  <!--   function gtag(){dataLayer.push(arguments);} -->
+  <!--   gtag('js', new Date()); -->
+  <!--   gtag('config', 'UA-1752720-7'); -->
+  <!-- </script> -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DEV3LMTH6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DEV3LMTH6C');
+</script>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="jQueryを外したい">
+  
+  
+  <meta name="twitter:url" content="/software/2026-04-19/De-jQuery">
+  
+  
+  <meta name="twitter:description" content="jQueryを使いまくっているアプリを、生成AI使ってVanilla.jsに変換出来るか？">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/77shogi_logo.png">
+  
+
+  <link rel="canonical" href="https://happyclam.github.io/software/2026-04-19/De-jQuery" />
+  <link rel="alternate" type="application/rss+xml" title="自己満足プログラミング" href="/feed.xml" />
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="site-title" class="navbar-brand" href="/">
+          <img class="pull-left img-responsive" src="">
+          <span class="name-holder">自己満足プログラミング</span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li><a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li><a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li><a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li><a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li><a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1238485061299241" -->
+<!--      crossorigin="anonymous"></script> -->
+
+  <div class="blog-header">
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+      <div class="span9">
+        <!-- Html Elements for Search -->
+        <div id="search-container" align="right">
+          <input type="text" id="search-input" placeholder="search...">
+          <ul class="searchresult" id="results-container"></ul>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+  <script src="/assets/js/jquery.min.js"></script>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
+
+        <header class="page-header">
+          <h2 class="page-title"><a href="/software/2026-04-19/De-jQuery">jQueryを外したい</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Sunday, April 19, 2026
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">coffeescript</span>
+                
+                  <span class="label label-tag">javascript</span>
+                
+                  <span class="label label-tag">shogi</span>
+                
+                  <span class="label label-tag">chess</span>
+                
+                  <span class="label label-tag">cordova</span>
+                
+            </div>
+          </div>
+
+        </header>
+
+        <article class="page-content">
+          <h3 id="長年の懸案事項">長年の懸案事項</h3>
+<p>　スマホアプリのGUI作成時に安易に飛びついてしまった<code class="language-plaintext highlighter-rouge">jQuery</code>と<code class="language-plaintext highlighter-rouge">jQuery-Mobile</code>ですが、外して<code class="language-plaintext highlighter-rouge">Vanilla.js</code>にしたいなぁと思いながらも長年放置していました。将棋・チェス関連アプリ作成当時、CUI版に<code class="language-plaintext highlighter-rouge">CoffeeScript</code>を使ったことは今でも良かったと思ってますが、GUI作成時楽をするために<code class="language-plaintext highlighter-rouge">jQuery</code>に手を出したことは後悔してました。<br />
+　でも、生成AIを使えば一気に置き換えてくれるかもと期待して試してみました。</p>
+
+<h3 id="まずはgrokで試す">まずはGrokで試す</h3>
+<p>　無料版でも結構大きなサイズのファイルもアップロード出来ます（但し無料版の場合はファイル単位でアップロード出来ず、コピペ作業が必要です）。<br />
+　ソースファイルと画像イメージをアップロードして「jQueryを外して」と依頼すると、すぐに簡略化された独自デザインのHTMLとCSSを作成してGUIのコードの修正に掛かりました。画面をレンダリングする処理はGameGUIクラスのdisplayメソッド一つに纏まってますが、独自に追加したイベントハンドラ類も全部jQueryを使っているので、それらを一発でエラー無くVanilla.jsに置き換えた時は「すごい！」と思いましたが、独自のHTML画面から始めてますのでその後が全然うまく行きません。特にソースをアップロードした時点で、こちらとしてはGrokがソースコードを把握しているような錯覚を覚えますが、範囲が広いのでソースの意味を把握しているはずもなく、見当違いのリファクタリングをして後戻りが多く手間がかかりすぎるんですよね。数時間奮闘しましたが、「こりゃ無理だ」と思い諦めました。<br />
+　有料版だと違ってくると思いますが、たとえ生成AIを使っても既存のソースを修正するのは大変なのだと痛感しました。</p>
+
+<h3 id="次はchatgpt">次はChatGPT</h3>
+<p>　無料版ChatGPTだと1600行程の一つのファイルをアップロードするのも<code class="language-plaintext highlighter-rouge">too long</code>と言われてファイルサイズの制限に引っかかったので、<code class="language-plaintext highlighter-rouge">ChatGPT Plus</code>に課金して試しました。<code class="language-plaintext highlighter-rouge">ChatGPT Go</code>というもっと安いプランもありますが、入力ファイルサイズは無料版と変わらないそうです。<br />
+　<code class="language-plaintext highlighter-rouge">ChatGPT Plus</code>でも最初<code class="language-plaintext highlighter-rouge">Grok</code>と同じようなアプローチを取ってきましたが、こちらの場合はHTMLのデザインそのものはこちらがアップロードしたオリジナルのHTMLデザインとほぼ同じものを出力してきました。しかし<code class="language-plaintext highlighter-rouge">Grok</code>と違って出力された<code class="language-plaintext highlighter-rouge">CoffeeScript</code>のコードはシンタックスエラーばかりで試しにブラウザ上で起動することも出来ません。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+* 「いいところに気づきました。これは典型的な CoffeeScriptのインデント崩れです。」
+* 「正直に言います。今の派生ファイル群は、もう局所修正で救える段階を超えています。」
+* 「機械変換で壊れたコードがまだ多数残っている状態」
+* 「gameGui.coffee 全体をもう一度アップしてください 」
+
+</code></pre></div></div>
+
+<p>　開発言語が<code class="language-plaintext highlighter-rouge">CoffeeScript</code>というマイナーな言語であることも原因なのかもしれませんが、自分でファイルを壊して出力しておきながら、上記のような発言をしてきて全然話になりません。特に構文エラー状態で何度も出力して来ることに呆れて、「これなら無料のGrokの方がマシじゃないか！」と思い、すぐに解約手続きをしました。</p>
+
+<h3 id="再度chatgptまるで人が変わった">再度ChatGPT、まるで人が変わった</h3>
+<p>　<code class="language-plaintext highlighter-rouge">Claude Code</code>でやってみようかとか<code class="language-plaintext highlighter-rouge">Grok</code>の有料版はどうなんだろうとか迷っていたところ、<code class="language-plaintext highlighter-rouge">ChatGPT Plus</code>は解約手続きをしても約一ヶ月は使えるようなので、思い直してもう一度ソースファイルとは別に<code class="language-plaintext highlighter-rouge">package.json</code>や<code class="language-plaintext highlighter-rouge">package-lock.json</code>等の環境ファイルもアップロードして「そちらでビルドエラーが出ないことを確認してから出力することは出来ますか？」と聞いて再度やり直したところ、</p>
+
+<blockquote>
+  <p>これは「Vanilla に全面書き換えた完成版」ではなく、同じビルド環境でまず通しやすくする安全寄りの再出発版です。</p>
+</blockquote>
+
+<p>　と言って、初めてトランスパイルエラーが出ないソースを出力してきました。始めからこうやればよかったのかもしれません。<br />
+　ただ、出力された中身を確認すると、こちらが全く想定していなかったやり方でした。jQueryを使ったソースをVanilla.jsに置き換えるのではなく、<strong>アプリが使っているjQueryの機能を代替する新たなクラスを新規作成</strong>して、jQueryを外すという目的を果たすやり方です。これはこれで「すごい！」と感心しました。まさか<strong>jQuery代替品を自作</strong>するとは！自分では全く思いつきませんし、思いついても作れないです。わすか200行程のクラス（<code class="language-plaintext highlighter-rouge">ChatGPT</code>は<code class="language-plaintext highlighter-rouge">shim</code>と呼んでました）を自分のアプリとVanilla.jsとの隙間を埋める部品（まさに<code class="language-plaintext highlighter-rouge">shim</code>）として追加することで、jQueryライブラリを使わずに済ませるという解決策には驚きました。<br />
+　以下は<code class="language-plaintext highlighter-rouge">ChatGPT</code>によるものです。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jQuery → shimで代替済み
+jQuery Mobile → 画面遷移だけ自前実装でOK
+
+① このまま運用（おすすめ）
+    安定してる
+    修正少ない
+    すぐリリースできる
+② 徐々にjQuery依存を消す
+    $('#x') → document.getElementById
+    .on → addEventListener
+👉 時間あるときに少しずつ
+</code></pre></div></div>
+
+<p>　その後ChatGPTとのやり取りは２０回程？ありましたが、そのほとんどは見た目に関する修正で、コードの変更は僅かで済み、あっという間に完成しました。<br />
+　<code class="language-plaintext highlighter-rouge">ChatGPT</code>もこれが最善でないことは分かっているようですし、もっと高額なプランならもしかしたらこういう一種の妥協？のような方法は取らずに一気にVanilla.jsに置き換えられるのかもしれませんが、自分にとってはこのやり方のほうが都合がいい面もあります。<br />
+　既存のコードはほとんど修正する必要がないので新たなバグが入り込む心配がありませんし、複数の<a href="https://happyclam.booth.pm/">将棋・チェス関連アプリ</a>に対して同じようなしかも大量のコードを書き換える必要がなく、<code class="language-plaintext highlighter-rouge">shim</code>とそれ用のCSSさえ追加すれば<code class="language-plaintext highlighter-rouge">jQuery関連ライブラリ一式</code>をプロジェクトから完全削除することが出来ます。</p>
+
+<h3 id="切が良いので一気にアップデート">切が良いので一気にアップデート</h3>
+<p>　<a href="https://happyclam.booth.pm/">自分の将棋・チェス関連アプリ</a>は<a href="https://happyclam.github.io/software/2025-10-12/ListOrArray">以前の記事</a>の冒頭で書いたような処理を施して、若干の速度アップをしていたのですが、「わざわざ新しいバージョンとしてリリースする程の変更じゃないな」と判断して放置していたのですが、すべてのアプリを<code class="language-plaintext highlighter-rouge">脱jQuery</code>して順次アップデートしていこうと思ってます。<br />
+　既にアプリを購入済みの方には新バージョンリリース時に<a href="https://booth.pm/ja">BOOTH</a>から<a href="https://booth.pm/booth_apps/mass_message">通知</a>が届くようにします。<br />
+　今回は<a href="https://happyclam.booth.pm/items/6346070">７七将棋アプリ</a>を対象にして<code class="language-plaintext highlighter-rouge">脱jQuery</code>を果たしたのですが、他のアプリの修正作業を始めると今回ChatGPTが作ってくれた<code class="language-plaintext highlighter-rouge">shim</code>では不足する部分が出てくるかもしれません。その場合はその部分だけ自力でVanilla化しようと思ってますので、アプリによっては少し時間がかかるかもしれません。</p>
+
+<hr />
+
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <small>&copy; rifyll theme, 2014</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+</body>
+
+</html>

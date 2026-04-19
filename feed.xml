@@ -5,9 +5,89 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 23 Feb 2026 14:25:32 +0900</pubDate>
-    <lastBuildDate>Mon, 23 Feb 2026 14:25:32 +0900</lastBuildDate>
+    <pubDate>Sun, 19 Apr 2026 12:09:07 +0900</pubDate>
+    <lastBuildDate>Sun, 19 Apr 2026 12:09:07 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
+    
+      <item>
+        <title>jQueryを外したい</title>
+        <description>&lt;h3 id=&quot;長年の懸案事項&quot;&gt;長年の懸案事項&lt;/h3&gt;
+&lt;p&gt;　スマホアプリのGUI作成時に安易に飛びついてしまった&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jQuery&lt;/code&gt;と&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jQuery-Mobile&lt;/code&gt;ですが、外して&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Vanilla.js&lt;/code&gt;にしたいなぁと思いながらも長年放置していました。将棋・チェス関連アプリ作成当時、CUI版に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript&lt;/code&gt;を使ったことは今でも良かったと思ってますが、GUI作成時楽をするために&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jQuery&lt;/code&gt;に手を出したことは後悔してました。&lt;br /&gt;
+　でも、生成AIを使えば一気に置き換えてくれるかもと期待して試してみました。&lt;/p&gt;
+
+&lt;h3 id=&quot;まずはgrokで試す&quot;&gt;まずはGrokで試す&lt;/h3&gt;
+&lt;p&gt;　無料版でも結構大きなサイズのファイルもアップロード出来ます（但し無料版の場合はファイル単位でアップロード出来ず、コピペ作業が必要です）。&lt;br /&gt;
+　ソースファイルと画像イメージをアップロードして「jQueryを外して」と依頼すると、すぐに簡略化された独自デザインのHTMLとCSSを作成してGUIのコードの修正に掛かりました。画面をレンダリングする処理はGameGUIクラスのdisplayメソッド一つに纏まってますが、独自に追加したイベントハンドラ類も全部jQueryを使っているので、それらを一発でエラー無くVanilla.jsに置き換えた時は「すごい！」と思いましたが、独自のHTML画面から始めてますのでその後が全然うまく行きません。特にソースをアップロードした時点で、こちらとしてはGrokがソースコードを把握しているような錯覚を覚えますが、範囲が広いのでソースの意味を把握しているはずもなく、見当違いのリファクタリングをして後戻りが多く手間がかかりすぎるんですよね。数時間奮闘しましたが、「こりゃ無理だ」と思い諦めました。&lt;br /&gt;
+　有料版だと違ってくると思いますが、たとえ生成AIを使っても既存のソースを修正するのは大変なのだと痛感しました。&lt;/p&gt;
+
+&lt;h3 id=&quot;次はchatgpt&quot;&gt;次はChatGPT&lt;/h3&gt;
+&lt;p&gt;　無料版ChatGPTだと1600行程の一つのファイルをアップロードするのも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;too long&lt;/code&gt;と言われてファイルサイズの制限に引っかかったので、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT Plus&lt;/code&gt;に課金して試しました。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT Go&lt;/code&gt;というもっと安いプランもありますが、入力ファイルサイズは無料版と変わらないそうです。&lt;br /&gt;
+　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT Plus&lt;/code&gt;でも最初&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Grok&lt;/code&gt;と同じようなアプローチを取ってきましたが、こちらの場合はHTMLのデザインそのものはこちらがアップロードしたオリジナルのHTMLデザインとほぼ同じものを出力してきました。しかし&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Grok&lt;/code&gt;と違って出力された&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript&lt;/code&gt;のコードはシンタックスエラーばかりで試しにブラウザ上で起動することも出来ません。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+* 「いいところに気づきました。これは典型的な CoffeeScriptのインデント崩れです。」
+* 「正直に言います。今の派生ファイル群は、もう局所修正で救える段階を超えています。」
+* 「機械変換で壊れたコードがまだ多数残っている状態」
+* 「gameGui.coffee 全体をもう一度アップしてください 」
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　開発言語が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript&lt;/code&gt;というマイナーな言語であることも原因なのかもしれませんが、自分でファイルを壊して出力しておきながら、上記のような発言をしてきて全然話になりません。特に構文エラー状態で何度も出力して来ることに呆れて、「これなら無料のGrokの方がマシじゃないか！」と思い、すぐに解約手続きをしました。&lt;/p&gt;
+
+&lt;h3 id=&quot;再度chatgptまるで人が変わった&quot;&gt;再度ChatGPT、まるで人が変わった&lt;/h3&gt;
+&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Claude Code&lt;/code&gt;でやってみようかとか&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Grok&lt;/code&gt;の有料版はどうなんだろうとか迷っていたところ、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT Plus&lt;/code&gt;は解約手続きをしても約一ヶ月は使えるようなので、思い直してもう一度ソースファイルとは別に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;package.json&lt;/code&gt;や&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;package-lock.json&lt;/code&gt;等の環境ファイルもアップロードして「そちらでビルドエラーが出ないことを確認してから出力することは出来ますか？」と聞いて再度やり直したところ、&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;これは「Vanilla に全面書き換えた完成版」ではなく、同じビルド環境でまず通しやすくする安全寄りの再出発版です。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;　と言って、初めてトランスパイルエラーが出ないソースを出力してきました。始めからこうやればよかったのかもしれません。&lt;br /&gt;
+　ただ、出力された中身を確認すると、こちらが全く想定していなかったやり方でした。jQueryを使ったソースをVanilla.jsに置き換えるのではなく、&lt;strong&gt;アプリが使っているjQueryの機能を代替する新たなクラスを新規作成&lt;/strong&gt;して、jQueryを外すという目的を果たすやり方です。これはこれで「すごい！」と感心しました。まさか&lt;strong&gt;jQuery代替品を自作&lt;/strong&gt;するとは！自分では全く思いつきませんし、思いついても作れないです。わすか200行程のクラス（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT&lt;/code&gt;は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shim&lt;/code&gt;と呼んでました）を自分のアプリとVanilla.jsとの隙間を埋める部品（まさに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shim&lt;/code&gt;）として追加することで、jQueryライブラリを使わずに済ませるという解決策には驚きました。&lt;br /&gt;
+　以下は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT&lt;/code&gt;によるものです。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jQuery → shimで代替済み
+jQuery Mobile → 画面遷移だけ自前実装でOK
+
+① このまま運用（おすすめ）
+    安定してる
+    修正少ない
+    すぐリリースできる
+② 徐々にjQuery依存を消す
+    $(&apos;#x&apos;) → document.getElementById
+    .on → addEventListener
+👉 時間あるときに少しずつ
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;　その後ChatGPTとのやり取りは２０回程？ありましたが、そのほとんどは見た目に関する修正で、コードの変更は僅かで済み、あっという間に完成しました。&lt;br /&gt;
+　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT&lt;/code&gt;もこれが最善でないことは分かっているようですし、もっと高額なプランならもしかしたらこういう一種の妥協？のような方法は取らずに一気にVanilla.jsに置き換えられるのかもしれませんが、自分にとってはこのやり方のほうが都合がいい面もあります。&lt;br /&gt;
+　既存のコードはほとんど修正する必要がないので新たなバグが入り込む心配がありませんし、複数の&lt;a href=&quot;https://happyclam.booth.pm/&quot;&gt;将棋・チェス関連アプリ&lt;/a&gt;に対して同じようなしかも大量のコードを書き換える必要がなく、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shim&lt;/code&gt;とそれ用のCSSさえ追加すれば&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jQuery関連ライブラリ一式&lt;/code&gt;をプロジェクトから完全削除することが出来ます。&lt;/p&gt;
+
+&lt;h3 id=&quot;切が良いので一気にアップデート&quot;&gt;切が良いので一気にアップデート&lt;/h3&gt;
+&lt;p&gt;　&lt;a href=&quot;https://happyclam.booth.pm/&quot;&gt;自分の将棋・チェス関連アプリ&lt;/a&gt;は&lt;a href=&quot;https://happyclam.github.io/software/2025-10-12/ListOrArray&quot;&gt;以前の記事&lt;/a&gt;の冒頭で書いたような処理を施して、若干の速度アップをしていたのですが、「わざわざ新しいバージョンとしてリリースする程の変更じゃないな」と判断して放置していたのですが、すべてのアプリを&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;脱jQuery&lt;/code&gt;して順次アップデートしていこうと思ってます。&lt;br /&gt;
+　既にアプリを購入済みの方には新バージョンリリース時に&lt;a href=&quot;https://booth.pm/ja&quot;&gt;BOOTH&lt;/a&gt;から&lt;a href=&quot;https://booth.pm/booth_apps/mass_message&quot;&gt;通知&lt;/a&gt;が届くようにします。&lt;br /&gt;
+　今回は&lt;a href=&quot;https://happyclam.booth.pm/items/6346070&quot;&gt;７七将棋アプリ&lt;/a&gt;を対象にして&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;脱jQuery&lt;/code&gt;を果たしたのですが、他のアプリの修正作業を始めると今回ChatGPTが作ってくれた&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shim&lt;/code&gt;では不足する部分が出てくるかもしれません。その場合はその部分だけ自力でVanilla化しようと思ってますので、アプリによっては少し時間がかかるかもしれません。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+</description>
+        <pubDate>Sun, 19 Apr 2026 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/software/2026-04-19/De-jQuery</link>
+        <guid isPermaLink="true">https://happyclam.github.io/software/2026-04-19/De-jQuery</guid>
+        
+        <category>coffeescript</category>
+        
+        <category>javascript</category>
+        
+        <category>shogi</category>
+        
+        <category>chess</category>
+        
+        <category>cordova</category>
+        
+        
+        <category>software</category>
+        
+      </item>
     
       <item>
         <title>強化学習プログラムが強くなってる指標が欲しい</title>
@@ -122,7 +202,7 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;平均化&lt;/code&gt;というのは同じ局面での着手が、ある時は最善手になったりある時は最悪手になったりすることで報酬が平均化されてしまうということです。状態をマルコフ化することでその平均化を防ぐわけですが、MCTSの場合は「平均化しながらも局所探索する」のでマルコフでなくても強くなるそうです。MCTSでも理論的にはマルコフ化が正しいけど、ノード数爆増するなどのデメリットもあるので実装上はトレードオフだと言ってました。&lt;/p&gt;
+&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;平均化&lt;/code&gt;というのは見た目が同じ局面での同じ着手が、過去２手の着手次第である時は最善手になったりある時は最悪手になったりすることで報酬が平均化されてしまうということです。状態をマルコフ化することでその平均化を防ぐわけですが、MCTSの場合は「平均化しながらも局所探索する」のでマルコフでなくても強くなるそうです。MCTSでも理論的にはマルコフ化が正しいけど、ノード数爆増するなどのデメリットもあるので実装上はトレードオフだと言ってました。&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -265,6 +345,8 @@
         <category>android</category>
         
         <category>javascript</category>
+        
+        <category>my-posi</category>
         
         
         <category>software</category>
@@ -887,152 +969,6 @@ Kf8 22. Qe8+ Kg7 23. Re3 Qh2+ 24. Kxh2 g1=Q# 0-1
         <pubDate>Sun, 05 Jan 2025 00:00:00 +0900</pubDate>
         <link>https://happyclam.github.io/software/2025-01-05/lichess</link>
         <guid isPermaLink="true">https://happyclam.github.io/software/2025-01-05/lichess</guid>
-        
-        <category>coffeescript</category>
-        
-        <category>javascript</category>
-        
-        <category>shogi</category>
-        
-        <category>chess</category>
-        
-        
-        <category>software</category>
-        
-      </item>
-    
-      <item>
-        <title>ミニチェスアプリもテスト</title>
-        <description>&lt;h3 id=&quot;ミニチェスアプリは盤面編集可能&quot;&gt;ミニチェスアプリは盤面編集可能&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/software/2024-12-15/chessPIN&quot;&gt;前回記事&lt;/a&gt;の内容を&lt;a href=&quot;https://happyclam.booth.pm/items/6346197&quot;&gt;ミニチェスアプリ&lt;/a&gt;でもテストしてみました。&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;チェス入門&lt;/a&gt;のステイルメイトの問題集を6x6のミニチェス用にアレンジして解かせてみると、元々の問題の趣旨とは違った発見があります。&lt;br /&gt;
-　&lt;a href=&quot;https://happyclam.booth.pm/items/6346197&quot;&gt;ミニチェスアプリ&lt;/a&gt;は&lt;a href=&quot;https://happyclam.booth.pm/items/6399553&quot;&gt;チェスアプリ&lt;/a&gt;と違って盤面編集機能があるので、暇な方は試してみて下さい。もしソースコードを見るつもりの方はアンパッサンとかキャスリングの実装でかなり汚くなっている&lt;a href=&quot;https://happyclam.booth.pm/items/6399553&quot;&gt;チェスアプリ&lt;/a&gt;のコードよりも&lt;a href=&quot;https://happyclam.booth.pm/items/6346197&quot;&gt;ミニチェスアプリ&lt;/a&gt;の方をお勧めします。&lt;/p&gt;
-
-&lt;h3 id=&quot;問題３&quot;&gt;&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;問題３&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;　元々の問題は以下の局面です。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;元の問題、初期盤面&lt;/div&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/Q3_org.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/Q3_org.png&quot; alt=&quot;ステイルメイト問題３&quot; width=&quot;320&quot; height=&quot;459&quot; title=&quot;ステイルメイト問題３&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　正解は白&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc8+&lt;/code&gt;で、以下黒&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qxc8&lt;/code&gt;と進み、白がステイルメイトに持ち込むという問題です。&lt;br /&gt;
-これを以下のように6x6に編集してみました。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;６ｘ６初期盤面&lt;/div&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/Q3-1.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/Q3-1.png&quot; alt=&quot;ステイルメイト問題３ー１&quot; width=&quot;320&quot; height=&quot;500&quot; title=&quot;ステイルメイト問題３ー１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;ここからAI同士で対戦させると以下のように進みます。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;詰みあり&lt;/div&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/chess66_3-1.gif&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/chess66_3-1.gif&quot; alt=&quot;ステイルメイト問題３&quot; width=&quot;320&quot; height=&quot;500&quot; title=&quot;ステイルメイト問題３&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　6x6に編集した結果、詰みがある局面になってしまったので黒を詰ましてしまいましたが、当然こうなるべきでしょう。&lt;br /&gt;
-今度は黒のキングを一路ずらして配置してみます。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;初期盤面を変更&lt;/div&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/Q3-2.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/Q3-2.png&quot; alt=&quot;ステイルメイト問題３ー２&quot; width=&quot;320&quot; height=&quot;500&quot; title=&quot;ステイルメイト問題３ー２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;ここからAI同士で対戦させると以下のように進みます。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;ステイルメイト&lt;/div&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/chess66_3-2.gif&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/chess66_3-2.gif&quot; alt=&quot;ステイルメイト問題３&quot; width=&quot;320&quot; height=&quot;500&quot; title=&quot;ステイルメイト問題３&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　白が劣勢ですが一旦&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4+&lt;/code&gt;と黒のキングにチェックを掛けて、その後はステイルメイトが最善と判断して&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc6+&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qxc6&lt;/code&gt;とステイルメイトに持ち込みました、最善の応酬だと思います。下手に勝とうと思って白が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qd5&lt;/code&gt;（詰めろ）なんていう手を選ぶと、黒に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qd1+&lt;/code&gt;とチェックされてクィーンを交換後に戦力不足で白が負けてしまいます。&lt;/p&gt;
-
-&lt;h3 id=&quot;問題７&quot;&gt;&lt;a href=&quot;https://chess-primer.jp/stalemate-flow.html&quot;&gt;問題７&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;　元々の問題は以下の局面です。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;元の問題、初期盤面&lt;/div&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/stalemate_01.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/stalemate_01.png&quot; alt=&quot;ステイルメイト問題７&quot; width=&quot;320&quot; height=&quot;365&quot; title=&quot;ステイルメイト問題７&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　正解は白&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qc4+&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qxc4&lt;/code&gt;で白がステイルメイトに持ち込むという問題です。&lt;br /&gt;
-これを以下のように6x6に編集してみました。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;６ｘ６初期盤面&lt;/div&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/Q7-1.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/Q7-1.png&quot; alt=&quot;ステイルメイト問題７ー１&quot; width=&quot;320&quot; height=&quot;500&quot; title=&quot;ステイルメイト問題７ー１&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;ここからAI同士で対戦させると以下のように進みます。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;白、負けは避けられない&lt;/div&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/chess66_7.gif&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/chess66_7.gif&quot; alt=&quot;ステイルメイト問題７&quot; width=&quot;320&quot; height=&quot;500&quot; title=&quot;ステイルメイト問題７&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　元々の問題のようにステイルメイトを狙って白が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qa4+&lt;/code&gt;なんてやると、黒が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qxa4&lt;/code&gt;とクィーンで取ってくれれば良いのですが、以下のように&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rxa4&lt;/code&gt;とルークで白のクィーンを取られて&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;黒はステイルメイトを避ける&lt;/div&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/Q7-2.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/Q7-2.png&quot; alt=&quot;ステイルメイト問題７ー２&quot; width=&quot;320&quot; height=&quot;500&quot; title=&quot;ステイルメイト問題７ー２&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;　白は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;c3&lt;/code&gt;しか指す手がなくなり黒&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Qb3#&lt;/code&gt;とチェックメイトになります。結局この問題は白の負けが避けられないので、上記の変化は最善の応酬だったことが分かります。もちろん黒がルークで白のクィーンを取る（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rxa4&lt;/code&gt;）ことも確認済みです。&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  === intro07-2
-    --- problem -7-2
-
-6|♜| | | | | |
-5| |♛| | | |♟|
-4|♕| | | | |♚|
-3| | | | |♟| |
-2| | |♙|♟|♙| |
-1| | | |♔| | |
-  a b c d e f
-
-      ✔ expects checkmate -7-2 (206ms)
-♕
-6| | | | | | |
-5| |♛| | | |♟|
-4|♜| | | | |♚|
-3| | | | |♟| |
-2| | |♙|♟|♙| |
-1| | | |♔| | |
-  a b c d e f
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　&lt;a href=&quot;https://happyclam.booth.pm/items/6399553&quot;&gt;チェスアプリ&lt;/a&gt;も&lt;a href=&quot;https://happyclam.booth.pm/items/6346197&quot;&gt;ミニチェスアプリ&lt;/a&gt;も多くのソースコードは同じなので問題がなくて当然なのですが、&lt;a href=&quot;https://happyclam.booth.pm/items/6346197&quot;&gt;ミニチェスアプリ&lt;/a&gt;に関しては&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mocha&lt;/code&gt;と&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chai&lt;/code&gt;のテストを省略していたので、あらためてテストスクリプトを書いて確認してみました。&lt;/p&gt;
-
-&lt;h3 id=&quot;ステイルメイトの評価値について&quot;&gt;ステイルメイトの評価値について&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/software/2024-12-15/chessPIN&quot;&gt;前回の記事&lt;/a&gt;で先手勝ちの評価値を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;50000&lt;/code&gt;、後手勝ちの評価値を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-50000&lt;/code&gt;、ステイルメイトの局面に掛ける係数を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-0.0009&lt;/code&gt;にして様子を見ると書きましたが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-0.0009&lt;/code&gt;という値があまりにも小さすぎて奇異に感じるので先手勝ちを&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;500&lt;/code&gt;、後手勝ちを&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-500&lt;/code&gt;、係数を&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-0.09&lt;/code&gt;にして試してみたのですが、今度は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;駒の重み&lt;/code&gt;に使ってる値とバランスが取れず？に&lt;strong&gt;不都合&lt;/strong&gt;が出てきたので止めました。もし値を変えるとしたら&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;駒の重み&lt;/code&gt;の数値も全面的に見直さないといけないんだろうなぁと思っていたところ、タイミング良く？&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;X（Twitter）&lt;/code&gt;で&lt;a href=&quot;https://x.com/yaneuraou/status/1870996558600441943&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やねうら王&lt;/code&gt;開発者のポスト&lt;/a&gt;を見かけました。&lt;br /&gt;
-　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やねうら王&lt;/code&gt;では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;400&lt;/code&gt;,&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-400&lt;/code&gt;を最大・最小値として使用しているそうで、以前&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やねうら王&lt;/code&gt;をインストールした時（&lt;a href=&quot;/software/2024-06-12/yaneuraou&quot;&gt;「Ubuntuでやねうら王」&lt;/a&gt;）のソースを&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;grep&lt;/code&gt;すると確かにそのようです（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;eval_limit&lt;/code&gt;定数）。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;やねうら王&lt;/code&gt;のソースを読んでみてもいいのですが、理解するのは大変でしょうし何かアイデアが浮かばない限り当面はこのままにしておくつもりです。&lt;/p&gt;
-
-&lt;p&gt;※&lt;strong&gt;不都合&lt;/strong&gt;とは何か…自分のアプリの場合、単純に評価値の最大・最小値を小さな値にすると「相手キングを積極的に詰ましにいかなくなる」、「千日手になりやすくなる」という現象を確認してます。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-</description>
-        <pubDate>Sun, 22 Dec 2024 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/software/2024-12-22/chess66_test</link>
-        <guid isPermaLink="true">https://happyclam.github.io/software/2024-12-22/chess66_test</guid>
         
         <category>coffeescript</category>
         
