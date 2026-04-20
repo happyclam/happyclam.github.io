@@ -174,7 +174,7 @@
 
 <h3 id="まずはgrokで試す">まずはGrokで試す</h3>
 <p>　無料版でも結構大きなサイズのファイルもアップロード出来ます（但し無料版の場合はファイル単位でアップロード出来ず、コピペ作業が必要です）。<br />
-　ソースファイルと画像イメージをアップロードして「jQueryを外して」と依頼すると、すぐに簡略化された独自デザインのHTMLとCSSを作成してGUIのコードの修正に掛かりました。画面をレンダリングする処理はGameGUIクラスのdisplayメソッド一つに纏まってますが、独自に追加したイベントハンドラ類も全部jQueryを使っているので、それらを一発でエラー無くVanilla.jsに置き換えた時は「すごい！」と思いましたが、独自のHTML画面から始めてますのでその後が全然うまく行きません。特にソースをアップロードした時点で、こちらとしてはGrokがソースコードを把握しているような錯覚を覚えますが、範囲が広いのでソースの意味を把握しているはずもなく、見当違いのリファクタリングをして後戻りが多く手間がかかりすぎるんですよね。数時間奮闘しましたが、「こりゃ無理だ」と思い諦めました。<br />
+　ソースファイルと画像イメージをアップロードして「jQueryを外して」と依頼すると、すぐに簡略化された独自デザインのHTMLとCSSを作成してGUIのコードの修正に掛かりました。画面をレンダリングする処理はBoardGUIクラスのdisplayメソッド一つに纏まってますが、独自に追加したイベントハンドラ類も全部jQueryを使っているので、それらを一発でエラー無くVanilla.jsに置き換えた時は「すごい！」と思いましたが、独自のHTML画面から始めてますのでその後が全然うまく行きません。特にソースをアップロードした時点で、こちらとしてはGrokがソースコードを把握しているような錯覚を覚えますが、範囲が広いのでソースの意味を把握しているはずもなく、見当違いのリファクタリングをして後戻りが多く手間がかかりすぎるんですよね。数時間奮闘しましたが、「こりゃ無理だ」と思い諦めました。<br />
 　有料版だと違ってくると思いますが、たとえ生成AIを使っても既存のソースを修正するのは大変なのだと痛感しました。</p>
 
 <h3 id="次はchatgpt">次はChatGPT</h3>
@@ -199,7 +199,7 @@
 </blockquote>
 
 <p>　と言って、初めてトランスパイルエラーが出ないソースを出力してきました。始めからこうやればよかったのかもしれません。<br />
-　ただ、出力された中身を確認すると、こちらが全く想定していなかったやり方でした。jQueryを使ったソースをVanilla.jsに置き換えるのではなく、<strong>アプリが使っているjQueryの機能を代替する新たなクラスを新規作成</strong>して、jQueryを外すという目的を果たすやり方です。これはこれで「すごい！」と感心しました。まさか<strong>jQuery代替品を自作</strong>するとは！自分では全く思いつきませんし、思いついても作れないです。わすか200行程のクラス（<code class="language-plaintext highlighter-rouge">ChatGPT</code>は<code class="language-plaintext highlighter-rouge">shim</code>と呼んでました）を自分のアプリとVanilla.jsとの隙間を埋める部品（まさに<code class="language-plaintext highlighter-rouge">shim</code>）として追加することで、jQueryライブラリを使わずに済ませるという解決策には驚きました。<br />
+　ただ、出力された中身を確認すると前回試したときと違って、こちらが全く想定していなかったやり方でした。jQueryを使ったソースをVanilla.jsに置き換えるのではなく、<strong>アプリが使っているjQueryの機能を代替する新たなクラスを新規作成</strong>して、jQueryを外すという目的を果たすやり方です。これはこれで「すごい！」と感心しました。まさか<strong>jQuery代替品を自作</strong>するとわ！自分では全く思いつきませんし、思いついても作れないです。わすか200行程のクラス（<code class="language-plaintext highlighter-rouge">ChatGPT</code>は<code class="language-plaintext highlighter-rouge">shim</code>と呼んでました）を自分のアプリとVanilla.jsとの隙間を埋める部品（まさに<code class="language-plaintext highlighter-rouge">shim</code>）として追加することで、jQueryライブラリを使わずに済ませるという解決策には驚きました。<br />
 　以下は<code class="language-plaintext highlighter-rouge">ChatGPT</code>によるものです。</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jQuery → shimで代替済み
@@ -216,13 +216,14 @@ jQuery Mobile → 画面遷移だけ自前実装でOK
 </code></pre></div></div>
 
 <p>　その後ChatGPTとのやり取りは２０回程？ありましたが、そのほとんどは見た目に関する修正で、コードの変更は僅かで済み、あっという間に完成しました。<br />
-　<code class="language-plaintext highlighter-rouge">ChatGPT</code>もこれが最善でないことは分かっているようですし、もっと高額なプランならもしかしたらこういう一種の妥協？のような方法は取らずに一気にVanilla.jsに置き換えられるのかもしれませんが、自分にとってはこのやり方のほうが都合がいい面もあります。<br />
-　既存のコードはほとんど修正する必要がないので新たなバグが入り込む心配がありませんし、複数の<a href="https://happyclam.booth.pm/">将棋・チェス関連アプリ</a>に対して同じようなしかも大量のコードを書き換える必要がなく、<code class="language-plaintext highlighter-rouge">shim</code>とそれ用のCSSさえ追加すれば<code class="language-plaintext highlighter-rouge">jQuery関連ライブラリ一式</code>をプロジェクトから完全削除することが出来ます。</p>
+　<code class="language-plaintext highlighter-rouge">ChatGPT</code>もこれが最善でないことは分かっているようですし、もっと高額なプランならもしかしたらこういう一種の妥協？のような方法は取らずに一気にVanilla.jsに置き換えられるのかもしれません。おそらくChatGPTがこのような方法を採用したのはjQueryの機能をプログラム内のどこで、どこまでjQueryの機能を使っているのか把握したいという思惑があったのでしょう。でも、自分にとってもこのやり方のほうが都合がいい面があります。<br />
+　このやり方だと既存のコードはほとんど修正する必要がないので新たなバグが入り込む心配がありませんし、複数の<a href="https://happyclam.booth.pm/">将棋・チェス関連アプリ</a>に対して同じようなしかも大量のコードを書き換える必要がなく、<code class="language-plaintext highlighter-rouge">shim</code>とそれ用のCSSさえ追加すれば<code class="language-plaintext highlighter-rouge">jQuery関連ライブラリ一式</code>をプロジェクトから完全削除することが出来ます。</p>
 
 <h3 id="切が良いので一気にアップデート">切が良いので一気にアップデート</h3>
-<p>　<a href="https://happyclam.booth.pm/">自分の将棋・チェス関連アプリ</a>は<a href="https://happyclam.github.io/software/2025-10-12/ListOrArray">以前の記事</a>の冒頭で書いたような処理を施して、若干の速度アップをしていたのですが、「わざわざ新しいバージョンとしてリリースする程の変更じゃないな」と判断して放置していたのですが、すべてのアプリを<code class="language-plaintext highlighter-rouge">脱jQuery</code>して順次アップデートしていこうと思ってます。<br />
+<p>　<a href="https://happyclam.booth.pm/">自分の将棋・チェス関連アプリ</a>は<a href="https://happyclam.github.io/software/2025-10-12/ListOrArray">以前の記事</a>の冒頭で書いたような処理を施して、若干の速度アップをしていたのですが、「わざわざ新しいバージョンとしてリリースする程の変更じゃないな」と判断して放置していたのですが、これを機に、すべてのアプリを<code class="language-plaintext highlighter-rouge">脱jQuery</code>して順次アップデートしていこうと思ってます。<br />
 　既にアプリを購入済みの方には新バージョンリリース時に<a href="https://booth.pm/ja">BOOTH</a>から<a href="https://booth.pm/booth_apps/mass_message">通知</a>が届くようにします。<br />
-　今回は<a href="https://happyclam.booth.pm/items/6346070">７七将棋アプリ</a>を対象にして<code class="language-plaintext highlighter-rouge">脱jQuery</code>を果たしたのですが、他のアプリの修正作業を始めると今回ChatGPTが作ってくれた<code class="language-plaintext highlighter-rouge">shim</code>では不足する部分が出てくるかもしれません。その場合はその部分だけ自力でVanilla化しようと思ってますので、アプリによっては少し時間がかかるかもしれません。</p>
+　今回は<a href="https://happyclam.booth.pm/items/6346070">７七将棋アプリ</a>を対象にして<code class="language-plaintext highlighter-rouge">脱jQuery</code>を果たした（リリース済み）のですが、他のアプリの修正作業を始めると今回ChatGPTが作ってくれた<code class="language-plaintext highlighter-rouge">shim</code>では不足する部分が出てくるかもしれません。その場合はその部分だけ自力でVanilla化しようと思ってますので、アプリによっては少し時間がかかるかもしれません。<br />
+　結局、jQueryは使っていないけどコードはjQuery風の書式になっていて完全Vanilla化したとは言えないかもしれませんが、今後例えばNode.jsに置き換えるとかすることがあればその時にやればいいと思っていて、取り敢えずこのまま運用していくつもりです。</p>
 
 <hr />
 
