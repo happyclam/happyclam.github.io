@@ -169,7 +169,7 @@
 
         <article class="page-content">
           <h3 id="長年の懸案事項">長年の懸案事項</h3>
-<p>　スマホアプリのGUI作成時に安易に飛びついてしまった<code class="language-plaintext highlighter-rouge">jQuery</code>と<code class="language-plaintext highlighter-rouge">jQuery-Mobile</code>ですが、外して<code class="language-plaintext highlighter-rouge">Vanilla.js</code>にしたいなぁと思いながらも長年放置していました。将棋・チェス関連アプリ作成当時、CUI版に<code class="language-plaintext highlighter-rouge">CoffeeScript</code>を使ったことは今でも良かったと思ってますが、GUI作成時楽をするために<code class="language-plaintext highlighter-rouge">jQuery</code>に手を出したことは後悔してました。<br />
+<p>　スマホアプリのGUI作成時に安易に飛びついてしまった<code class="language-plaintext highlighter-rouge">jQuery</code>と<code class="language-plaintext highlighter-rouge">jQuery-Mobile</code>ですが、外して<code class="language-plaintext highlighter-rouge">Vanilla.js</code>にしたいなぁと思いながらも長年放置していました。以前Reactに書き換えたいと思ったときも、「まずはjQueryを外すべきだよなぁ」と考えて面倒なので見送ったこともありました（実際にReactに移植出来るかどうかは別の話）。将棋・チェス関連アプリ作成当時、CUI版に<code class="language-plaintext highlighter-rouge">CoffeeScript</code>を使ったことは今でも良かったと思ってますが、GUI作成時楽をするために<code class="language-plaintext highlighter-rouge">jQuery</code>に手を出したことは後悔してました。<br />
 　でも、生成AIを使えば一気に置き換えてくれるかもと期待して試してみました。</p>
 
 <h3 id="まずはgrokで試す">まずはGrokで試す</h3>
@@ -216,7 +216,7 @@ jQuery Mobile → 画面遷移だけ自前実装でOK
 </code></pre></div></div>
 
 <p>　その後ChatGPTとのやり取りは２０回程？ありましたが、そのほとんどは見た目に関する修正で、コードの変更は僅かで済み、あっという間に完成しました。<br />
-　<code class="language-plaintext highlighter-rouge">ChatGPT</code>もこれが最善でないことは分かっているようですし、もっと高額なプランならもしかしたらこういう一種の妥協？のような方法は取らずに一気にVanilla.jsに置き換えられるのかもしれません。おそらくChatGPTがこのような方法を採用したのはjQueryの機能をプログラム内のどこで、どこまでjQueryの機能を使っているのか把握したいという思惑があったのでしょう。でも、自分にとってもこのやり方のほうが都合がいい面があります。<br />
+　<code class="language-plaintext highlighter-rouge">ChatGPT</code>もこれが最善でないことは分かっているようですし、もっと高額なプランならもしかしたらこういう一種の妥協？のような方法は取らずに一気にVanilla.jsに置き換えられるのかもしれません。おそらくChatGPTがこのような方法を採用したのはjQueryの機能をプログラム内のどこで、どこまで使っているのか把握したいという思惑があったのでしょう。でも、自分にとってもこのやり方のほうが都合がいい面があります。<br />
 　このやり方だと既存のコードはほとんど修正する必要がないので新たなバグが入り込む心配がありませんし、複数の<a href="https://happyclam.booth.pm/">将棋・チェス関連アプリ</a>に対して同じようなしかも大量のコードを書き換える必要がなく、<code class="language-plaintext highlighter-rouge">shim</code>とそれ用のCSSさえ追加すれば<code class="language-plaintext highlighter-rouge">jQuery関連ライブラリ一式</code>をプロジェクトから完全削除することが出来ます。</p>
 
 <h3 id="切が良いので一気にアップデート">切が良いので一気にアップデート</h3>

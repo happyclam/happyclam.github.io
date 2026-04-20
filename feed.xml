@@ -5,14 +5,14 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 20 Apr 2026 19:59:32 +0900</pubDate>
-    <lastBuildDate>Mon, 20 Apr 2026 19:59:32 +0900</lastBuildDate>
+    <pubDate>Mon, 20 Apr 2026 22:15:18 +0900</pubDate>
+    <lastBuildDate>Mon, 20 Apr 2026 22:15:18 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
         <title>jQueryを外したい</title>
         <description>&lt;h3 id=&quot;長年の懸案事項&quot;&gt;長年の懸案事項&lt;/h3&gt;
-&lt;p&gt;　スマホアプリのGUI作成時に安易に飛びついてしまった&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jQuery&lt;/code&gt;と&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jQuery-Mobile&lt;/code&gt;ですが、外して&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Vanilla.js&lt;/code&gt;にしたいなぁと思いながらも長年放置していました。将棋・チェス関連アプリ作成当時、CUI版に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript&lt;/code&gt;を使ったことは今でも良かったと思ってますが、GUI作成時楽をするために&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jQuery&lt;/code&gt;に手を出したことは後悔してました。&lt;br /&gt;
+&lt;p&gt;　スマホアプリのGUI作成時に安易に飛びついてしまった&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jQuery&lt;/code&gt;と&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jQuery-Mobile&lt;/code&gt;ですが、外して&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Vanilla.js&lt;/code&gt;にしたいなぁと思いながらも長年放置していました。以前Reactに書き換えたいと思ったときも、「まずはjQueryを外すべきだよなぁ」と考えて面倒なので見送ったこともありました（実際にReactに移植出来るかどうかは別の話）。将棋・チェス関連アプリ作成当時、CUI版に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoffeeScript&lt;/code&gt;を使ったことは今でも良かったと思ってますが、GUI作成時楽をするために&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jQuery&lt;/code&gt;に手を出したことは後悔してました。&lt;br /&gt;
 　でも、生成AIを使えば一気に置き換えてくれるかもと期待して試してみました。&lt;/p&gt;
 
 &lt;h3 id=&quot;まずはgrokで試す&quot;&gt;まずはGrokで試す&lt;/h3&gt;
@@ -59,7 +59,7 @@ jQuery Mobile → 画面遷移だけ自前実装でOK
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;　その後ChatGPTとのやり取りは２０回程？ありましたが、そのほとんどは見た目に関する修正で、コードの変更は僅かで済み、あっという間に完成しました。&lt;br /&gt;
-　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT&lt;/code&gt;もこれが最善でないことは分かっているようですし、もっと高額なプランならもしかしたらこういう一種の妥協？のような方法は取らずに一気にVanilla.jsに置き換えられるのかもしれません。おそらくChatGPTがこのような方法を採用したのはjQueryの機能をプログラム内のどこで、どこまでjQueryの機能を使っているのか把握したいという思惑があったのでしょう。でも、自分にとってもこのやり方のほうが都合がいい面があります。&lt;br /&gt;
+　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT&lt;/code&gt;もこれが最善でないことは分かっているようですし、もっと高額なプランならもしかしたらこういう一種の妥協？のような方法は取らずに一気にVanilla.jsに置き換えられるのかもしれません。おそらくChatGPTがこのような方法を採用したのはjQueryの機能をプログラム内のどこで、どこまで使っているのか把握したいという思惑があったのでしょう。でも、自分にとってもこのやり方のほうが都合がいい面があります。&lt;br /&gt;
 　このやり方だと既存のコードはほとんど修正する必要がないので新たなバグが入り込む心配がありませんし、複数の&lt;a href=&quot;https://happyclam.booth.pm/&quot;&gt;将棋・チェス関連アプリ&lt;/a&gt;に対して同じようなしかも大量のコードを書き換える必要がなく、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shim&lt;/code&gt;とそれ用のCSSさえ追加すれば&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jQuery関連ライブラリ一式&lt;/code&gt;をプロジェクトから完全削除することが出来ます。&lt;/p&gt;
 
 &lt;h3 id=&quot;切が良いので一気にアップデート&quot;&gt;切が良いので一気にアップデート&lt;/h3&gt;
