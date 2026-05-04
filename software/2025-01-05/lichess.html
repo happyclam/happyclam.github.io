@@ -255,9 +255,41 @@ Kg1 hxg2 16. Re1 g3 17. hxg3 Qh3 18. f4 Rxg3 19. Nf2 Qh6 20. fxe5 Ke7 21. exd6+
 Kf8 22. Qe8+ Kg7 23. Re3 Qh2+ 24. Kxh2 g1=Q# 0-1
 </code></pre></div></div>
 
-<p>　<a href="https://www.chess.com/home"><code class="language-plaintext highlighter-rouge">chess.com</code>AI</a>が必勝局面で23手目<code class="language-plaintext highlighter-rouge">Re3</code>と指したことで３手詰が生じて頓死です。これも<a href="https://www.chess.com/home"><code class="language-plaintext highlighter-rouge">chess.com</code>のAI</a>が短手数の詰みを読んでいなかった（先読み探索をしてなかった）のだと思います。<br />
+<p>　<a href="https://www.chess.com/home"><code class="language-plaintext highlighter-rouge">chess.com</code>AI</a>が必勝局面で23手目<code class="language-plaintext highlighter-rouge">Re3</code>と指したことで３手詰が生じて頓死です。<del>これも<a href="https://www.chess.com/home"><code class="language-plaintext highlighter-rouge">chess.com</code>のAI</a>が短手数の詰みを読んでいなかった（先読み探索をしてなかった）のだと思います。</del><br />
 　自分の<a href="https://happyclam.booth.pm/items/6399553">チェスアプリ</a>が勝つ時はだいたいこんな感じで、出来の悪い評価関数のせいで序盤からずっと劣勢でなんとか終盤まで縺れた時に相手の頓死で勝つパターンが多いです。<br />
 　あと、<a href="https://lichess.org/"><code class="language-plaintext highlighter-rouge">lichess</code></a>の方は<a href="https://www.chess.com/home"><code class="language-plaintext highlighter-rouge">chess.com</code></a>と違って無料の棋譜解析の回数制限が無いようなのでお勧めです。</p>
+
+<h3 id="実はaiはわざと負けてる2026-05-04追記">実はAIは、わざと負けてる（2026-05-04追記）</h3>
+<p>　記事のタイトルに「AIは一手先も読んでいない？」なんて書きましたが、間違っているようなので訂正しておきます。<code class="language-plaintext highlighter-rouge">ChatGPT</code>に聞いて確認したところ<code class="language-plaintext highlighter-rouge">chess.com</code>も<code class="language-plaintext highlighter-rouge">lichess</code>も機械学習系のAIは使ってなくて、αβ探索（いわゆるブルートフォース系）が主で「詰みを見逃すことがあるように作られている」らしいです。つまり、一手先の詰みを読んでいないわけではなく、候補手の中から敢えて負ける手を確率的に選ぶようにしているそうです。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">項目</th>
+      <th style="text-align: left">αβ系（Stockfish系）</th>
+      <th style="text-align: left">ML系（AlphaZero系）</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">手の選び方</td>
+      <td style="text-align: left">決定的（最善手）</td>
+      <td style="text-align: left">確率的</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">弱体化方法</td>
+      <td style="text-align: left">後付けランダム</td>
+      <td style="text-align: left">温度調整など</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">詰み回避</td>
+      <td style="text-align: left">基本100%</td>
+      <td style="text-align: left">温度次第でミスあり</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>　AlphaZeroのような機械学習系のAIは最初から確率的に着手を選ぶけど、現代チェスAIの主流はまだαβ＋評価関数で、強過ぎてユーザーが楽しめないので後付けで確率的に悪手を選ぶように演出されてるそうです。</p>
 
 <hr />
 

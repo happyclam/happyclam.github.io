@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 20 Apr 2026 22:15:18 +0900</pubDate>
-    <lastBuildDate>Mon, 20 Apr 2026 22:15:18 +0900</lastBuildDate>
+    <pubDate>Mon, 04 May 2026 12:51:17 +0900</pubDate>
+    <lastBuildDate>Mon, 04 May 2026 12:51:17 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -960,9 +960,41 @@ Kg1 hxg2 16. Re1 g3 17. hxg3 Qh3 18. f4 Rxg3 19. Nf2 Qh6 20. fxe5 Ke7 21. exd6+
 Kf8 22. Qe8+ Kg7 23. Re3 Qh2+ 24. Kxh2 g1=Q# 0-1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;　&lt;a href=&quot;https://www.chess.com/home&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chess.com&lt;/code&gt;AI&lt;/a&gt;が必勝局面で23手目&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Re3&lt;/code&gt;と指したことで３手詰が生じて頓死です。これも&lt;a href=&quot;https://www.chess.com/home&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chess.com&lt;/code&gt;のAI&lt;/a&gt;が短手数の詰みを読んでいなかった（先読み探索をしてなかった）のだと思います。&lt;br /&gt;
+&lt;p&gt;　&lt;a href=&quot;https://www.chess.com/home&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chess.com&lt;/code&gt;AI&lt;/a&gt;が必勝局面で23手目&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Re3&lt;/code&gt;と指したことで３手詰が生じて頓死です。&lt;del&gt;これも&lt;a href=&quot;https://www.chess.com/home&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chess.com&lt;/code&gt;のAI&lt;/a&gt;が短手数の詰みを読んでいなかった（先読み探索をしてなかった）のだと思います。&lt;/del&gt;&lt;br /&gt;
 　自分の&lt;a href=&quot;https://happyclam.booth.pm/items/6399553&quot;&gt;チェスアプリ&lt;/a&gt;が勝つ時はだいたいこんな感じで、出来の悪い評価関数のせいで序盤からずっと劣勢でなんとか終盤まで縺れた時に相手の頓死で勝つパターンが多いです。&lt;br /&gt;
 　あと、&lt;a href=&quot;https://lichess.org/&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lichess&lt;/code&gt;&lt;/a&gt;の方は&lt;a href=&quot;https://www.chess.com/home&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chess.com&lt;/code&gt;&lt;/a&gt;と違って無料の棋譜解析の回数制限が無いようなのでお勧めです。&lt;/p&gt;
+
+&lt;h3 id=&quot;実はaiはわざと負けてる2026-05-04追記&quot;&gt;実はAIは、わざと負けてる（2026-05-04追記）&lt;/h3&gt;
+&lt;p&gt;　記事のタイトルに「AIは一手先も読んでいない？」なんて書きましたが、間違っているようなので訂正しておきます。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT&lt;/code&gt;に聞いて確認したところ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chess.com&lt;/code&gt;も&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lichess&lt;/code&gt;も機械学習系のAIは使ってなくて、αβ探索（いわゆるブルートフォース系）が主で「詰みを見逃すことがあるように作られている」らしいです。つまり、一手先の詰みを読んでいないわけではなく、候補手の中から敢えて負ける手を確率的に選ぶようにしているそうです。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;項目&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;αβ系（Stockfish系）&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;ML系（AlphaZero系）&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;手の選び方&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;決定的（最善手）&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;確率的&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;弱体化方法&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;後付けランダム&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;温度調整など&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;詰み回避&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;基本100%&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;温度次第でミスあり&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;　AlphaZeroのような機械学習系のAIは最初から確率的に着手を選ぶけど、現代チェスAIの主流はまだαβ＋評価関数で、強過ぎてユーザーが楽しめないので後付けで確率的に悪手を選ぶように演出されてるそうです。&lt;/p&gt;
 
 &lt;hr /&gt;
 
