@@ -264,6 +264,20 @@
 　今回の修正は<code class="language-plaintext highlighter-rouge">DFS版</code>には影響ないはずです。<br>
 　やはり<strong>直感精読</strong>の<code class="language-plaintext highlighter-rouge">精読</code>も大事ですね<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"></p>
 
+<h3 id="ゲーム木を生成しない高速bfs版追加2026-06-01追記">ゲーム木を生成しない高速BFS版追加（2026-06-01追記）</h3>
+<p>　この記事結構読まれていて（当ブログ内で断トツトップが続いてます）、<code class="language-plaintext highlighter-rouge">git clone</code>される数も多いのでゲーム木を生成しない形のBFS版も追加しました。</p>
+
+<div align="center">
+<div align="center">tree-lessブランチ</div>
+<div style="width:320px; margin: 0 auto;">
+
+    <p><a href="https://github.com/happyclam/water_sort_puzzle/tree/tree-less"><img src="/images/github-mark.png" alt="ゲーム木を生成しないBFS版" title="ゲーム木を生成しないBFS版" width="120" height="120"></a></p>
+
+  </div>
+</div>
+
+<p>　そもそもゲーム木を生成していたのは<a href="/software/2018-08-18/puzzle">将棋パズル</a>の時のロジックをそのまま使ったためです。<code class="language-plaintext highlighter-rouge">将棋パズル</code>の時は問題を作る目的もあったのでゲーム木を生成する意味がありました。<code class="language-plaintext highlighter-rouge">ウォーターソートパズル</code>に関しては問題を解くためだけのプログラムなのでゲーム木は不要なので高速版が欲しい人のために別ブランチ（tree-less）を追加しました。ただ<code class="language-plaintext highlighter-rouge">Nodeクラス</code>の存在意義はほぼ無くなってるのに、使ったほうが改変しやすかったのでソースは<code class="language-plaintext highlighter-rouge">Nodeクラス</code>を使ってます<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"></p>
+
 <hr>
 
 

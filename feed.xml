@@ -5,8 +5,8 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 19 May 2026 18:20:53 +0900</pubDate>
-    <lastBuildDate>Tue, 19 May 2026 18:20:53 +0900</lastBuildDate>
+    <pubDate>Mon, 01 Jun 2026 22:05:31 +0900</pubDate>
+    <lastBuildDate>Mon, 01 Jun 2026 22:05:31 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
     
       <item>
@@ -852,6 +852,20 @@ waterBottles/node.kt:94:22: warning: recursive call is not a tail call.
 　バグと言うか同じ結果は得られるはずですが、同一局面の判定に無意味なことをしていて&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS版&lt;/code&gt;のレスポンスが極端に悪くなっていました。&lt;a href=&quot;https://github.com/happyclam/water_sort_puzzle&quot;&gt;github&lt;/a&gt;のソースは修正済みですが、それでも&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BFS版&lt;/code&gt;は時間が掛かって、記事冒頭の問題の最短手順の答えを得るまでに、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;279.599430481秒（約４分半）&lt;/code&gt;掛かり、最短手数は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;36手&lt;/code&gt;でした。同じPCで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;で解いてみると&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0.016248494秒&lt;/code&gt;で、手数は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;46手&lt;/code&gt;でした。&lt;br /&gt;
 　今回の修正は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DFS版&lt;/code&gt;には影響ないはずです。&lt;br /&gt;
 　やはり&lt;strong&gt;直感精読&lt;/strong&gt;の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;精読&lt;/code&gt;も大事ですね:sweat_smile:&lt;/p&gt;
+
+&lt;h3 id=&quot;ゲーム木を生成しない高速bfs版追加2026-06-01追記&quot;&gt;ゲーム木を生成しない高速BFS版追加（2026-06-01追記）&lt;/h3&gt;
+&lt;p&gt;　この記事結構読まれていて（当ブログ内で断トツトップが続いてます）、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git clone&lt;/code&gt;される数も多いのでゲーム木を生成しない形のBFS版も追加しました。&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;div align=&quot;center&quot;&gt;tree-lessブランチ&lt;/div&gt;
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+    &lt;p&gt;&lt;a href=&quot;https://github.com/happyclam/water_sort_puzzle/tree/tree-less&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/github-mark.png&quot; alt=&quot;ゲーム木を生成しないBFS版&quot; title=&quot;ゲーム木を生成しないBFS版&quot; width=&quot;120&quot; height=&quot;120&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;　そもそもゲーム木を生成していたのは&lt;a href=&quot;/software/2018-08-18/puzzle&quot;&gt;将棋パズル&lt;/a&gt;の時のロジックをそのまま使ったためです。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;将棋パズル&lt;/code&gt;の時は問題を作る目的もあったのでゲーム木を生成する意味がありました。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ウォーターソートパズル&lt;/code&gt;に関しては問題を解くためだけのプログラムなのでゲーム木は不要なので高速版が欲しい人のために別ブランチ（tree-less）を追加しました。ただ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Nodeクラス&lt;/code&gt;の存在意義はほぼ無くなってるのに、使ったほうが改変しやすかったのでソースは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Nodeクラス&lt;/code&gt;を使ってます:sweat_smile:&lt;/p&gt;
 
 &lt;hr /&gt;
 
