@@ -305,6 +305,97 @@ int32_t karah_think(int32_t* pResult, int32_t* pBoard, int32_t turn, int32_t dep
 <p>　上で紹介している<a href="https://flutter.dev/docs/development/platform-integration/c-interop">公式サイトのURL</a>が変わった？ｰ&gt;現在は<a href="https://flutter-ko.dev/development/platform-integration/android/c-interop">ここ</a>です<br />
 　あと、ffiパッケージの記述も古かったので現在アプリで使っているバージョン（ffi: ^2.1.0）のコードに修正しました。</p>
 
+<h3 id="追記2026-07-25">追記（2026-07-25）</h3>
+<p>　最近新しい環境でビルドし直す機会があったので更新しておきます。-&gt;<a href="https://docs.flutter.dev/platform-integration/legacy-ffi-plugin">公式サイト</a><br />
+　Dart側もC++側もソースコードは書き換える必要ありませんが、Flutterが出力するテンプレートファイル群もディレクトリ構成も結構変わっていますので、<code class="language-plaintext highlighter-rouge">CMakeLists.txt</code>とヘッダーファイルは書き換える必要がありました。</p>
+<h5 id="現環境">現環境</h5>
+
+<ul>
+  <li>Flutter 3.44.6</li>
+  <li>Android Studio Quail 2</li>
+  <li>Gradle 9.5</li>
+  <li>ffi: 2.1.3</li>
+</ul>
+
+<p>　プロジェクト作成時に現在はGUI画面でFFI_PLUGIN作成のためのメニューが選べます。</p>
+
+<div align="center">新規プロジェクト作成画面</div>
+<div style="width:480px; margin: 0 auto;">
+
+  <p><a href="/images/flutter_dll.png"><img src="/images/flutter_dll.png" alt="新規プロジェクト作成画面" width="480" height="171" title="新規プロジェクト作成ウィザード" /></a></p>
+
+</div>
+
+<h5 id="古い記事内容との相違点">古い記事内容との相違点</h5>
+
+<p>１、C++のソースファイルはプロジェクト下の<code class="language-plaintext highlighter-rouge">src/</code>ディレクトリ内に配置（昔のようにディレクトリを適当に作るのは良くなさそう）<br />
+　プロジェクト作成時に<code class="language-plaintext highlighter-rouge">FFI_PLUGIN</code>を選ぶと、Flutterによって<code class="language-plaintext highlighter-rouge">sum</code>と<code class="language-plaintext highlighter-rouge">sum_long_running</code>というサンプルのエクスポート関数が一緒に出力されますが、サンプルの関数はC++ではなくC言語ですし、メソッドチャネル呼び出し？用の<code class="language-plaintext highlighter-rouge">kalah_think.dart</code>内にバインディング処理が書かれていますが、この記事の趣旨のように<code class="language-plaintext highlighter-rouge">FFI Plugin</code>を直接使う場合は<code class="language-plaintext highlighter-rouge">dartファイル</code>を編集する必要はありません。</p>
+
+<p>２、MakeファイルをC++用に書き換える</p>
+
+<p>　//CMakeLists.txt</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># The Flutter tooling requires that developers have CMake 3.10 or later
+# installed. You should not increase this version, as doing so will cause
+# the plugin to fail to compile for some customers of the plugin.
+cmake_minimum_required(VERSION 3.10)
+
+project(kalah_think_library VERSION 1.14.0 LANGUAGES CXX)
+
+add_library(kalah_think SHARED
+  "kalah_think.cpp"
+)
+set(CMAKE_CXX_FLAGS "-O2 -std=c++11 -Wall")
+set_target_properties(kalah_think PROPERTIES
+  PUBLIC_HEADER kalah_think.h
+  OUTPUT_NAME "kalah_think"
+)
+
+target_compile_definitions(kalah_think PUBLIC DART_SHARED_LIB)
+
+if (ANDROID)
+  # Support Android 15 16k page size
+  target_link_options(kalah_think PRIVATE "-Wl,-z,max-page-size=16384")
+endif()
+</code></pre></div></div>
+
+<p>※<code class="language-plaintext highlighter-rouge">C</code>から<code class="language-plaintext highlighter-rouge">CXX</code>に書き換える</p>
+
+<p>３、ライブラリ用ヘッダーファイルをC++用に書き換える</p>
+
+<p>　// kalah_think.h</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;stdint.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;iostream&gt;
+#include &lt;array&gt;
+#include &lt;map&gt;
+#include "./const.cpp"
+#include "./player.cpp"
+
+#if _WIN32
+#include &lt;windows.h&gt;
+#else
+#include &lt;pthread.h&gt;
+#include &lt;unistd.h&gt;
+#endif
+
+#if _WIN32
+#define FFI_PLUGIN_EXPORT __declspec(dllexport)
+#else
+#define FFI_PLUGIN_EXPORT
+#endif
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+FFI_PLUGIN_EXPORT int32_t think(int32_t* pResult, int32_t* pBoard, int32_t turn, int32_t depth);
+#ifdef __cplusplus
+}
+#endif
+</code></pre></div></div>
+
+<p>※<code class="language-plaintext highlighter-rouge">extern "C"</code>を追記</p>
+
 <hr />
 
 
