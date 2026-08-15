@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+  <meta name="author" content="happyclam">
+  <meta name="description"
+    content="itch.io、開発者のためのプラットフォーム もっと早くに存在を知りたかった Reinventing the wheel.">
+  <title> itch.io、開発者のためのプラットフォーム - 自己満足プログラミング </title>
+
+  <!-- <\!-- Global Site Tag (gtag.js) - Google Analytics -\-> -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1752720-7"></script> -->
+  <!-- <script> -->
+  <!--   window.dataLayer = window.dataLayer || []; -->
+  <!--   function gtag(){dataLayer.push(arguments);} -->
+  <!--   gtag('js', new Date()); -->
+  <!--   gtag('config', 'UA-1752720-7'); -->
+  <!-- </script> -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DEV3LMTH6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DEV3LMTH6C');
+</script>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@SappierBoy">
+  <meta name="twitter:creator" content="@SappierBoy">
+  
+  <meta name="twitter:title" content="itch.io、開発者のためのプラットフォーム">
+  
+  
+  <meta name="twitter:url" content="/miscellaneous/2026-08-16/itchio">
+  
+  
+  <meta name="twitter:description" content="自作アプリをGoogle Play以外で収益化する">
+  
+  
+  <meta name="twitter:image:src" content="https://happyclam.github.io/images/itch-icon.png">
+  
+
+  <link rel="canonical" href="https://happyclam.github.io/miscellaneous/2026-08-16/itchio" />
+  <link rel="alternate" type="application/rss+xml" title="自己満足プログラミング" href="/feed.xml" />
+  <!-- stylesheets -->
+  <link media="all" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link media="all" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link media="all" rel="stylesheet" href="/assets/css/site.css">
+
+</head>
+
+
+<body>
+  <header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="site-title" class="navbar-brand" href="/">
+          <img class="pull-left img-responsive" src="">
+          <span class="name-holder">自己満足プログラミング</span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <ul id="main-menu" class="nav navbar-nav navbar-right">
+
+          
+            <li>
+<a href="/">
+              <i class="fa fa-home"></i> Home</a>
+            </li>
+          
+            <li>
+<a href="/categories/">
+              <i class="fa fa-sitemap"></i> Categories</a>
+            </li>
+          
+            <li>
+<a href="/tags/">
+              <i class="fa fa-tag"></i> Tags</a>
+            </li>
+          
+            <li>
+<a href="/about/">
+              <i class="fa fa-info-circle"></i> About</a>
+            </li>
+          
+            <li>
+<a href="/policy/">
+              <i class="fa fa-check"></i> Policy</a>
+            </li>
+          
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1238485061299241" -->
+<!--      crossorigin="anonymous"></script> -->
+
+  <div class="blog-header">
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="SappierBoy">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+      <div class="span9">
+        <!-- Html Elements for Search -->
+        <div id="search-container" align="right">
+          <input type="text" id="search-input" placeholder="search...">
+          <ul class="searchresult" id="results-container"></ul>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+<script type="text/javascript">
+  SimpleJekyllSearch.init({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}:{title}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 15,
+    fuzzy: false,
+  })
+</script>
+  <script src="/assets/js/jquery.min.js"></script>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="page">
+
+        <header class="page-header">
+          <h2 class="page-title"><a href="/miscellaneous/2026-08-16/itchio">itch.io、開発者のためのプラットフォーム</a></h2>
+          <div class="post-metadata">
+            <div> <i class="fa fa-calendar"></i>
+              <time>
+                Sunday, August 16, 2026
+              </time>
+            </div>
+            <div> <i class="fa fa-tag"></i>
+                
+                  <span class="label label-tag">android</span>
+                
+                  <span class="label label-tag">ubuntu</span>
+                
+                  <span class="label label-tag">programming</span>
+                
+                  <span class="label label-tag">steam</span>
+                
+            </div>
+          </div>
+
+        </header>
+
+        <article class="page-content">
+          <p><a href="https://happyclamu.itch.io/mancala-nuts"><img src="/images/itchio-logo.png" alt="マンカラアプリ" title="マンカラ ナッツ" width="233" height="60"></a></p>
+
+<h3 id="steamで売ってみようと思ったら">Steamで売ってみようと思ったら…</h3>
+<p>　マンカラアプリ（<a href="https://happyclam.github.io/project/2020-08-10/mancalanuts">マンカラナッツ</a>）は、せっかくFlutterで開発したのだからAndroid版だけではなくLinux版として<code class="language-plaintext highlighter-rouge">Steam</code>に登録してみようかと思って<code class="language-plaintext highlighter-rouge">ChatGPT</code>に相談していたら、<code class="language-plaintext highlighter-rouge">itch.io</code>というアプリの販売プラットフォームが存在することを知りました。現在<a href="https://happyclam.booth.pm/items/6325341">BOOTH</a>でアプリを販売していますが、ソフトウェアのソースコードを販売している人は何人か見かけましたが、アプリを販売している人はほとんどいないと思います。でも、日本には他に適当なところが見当たらなかったので諦めてました（<a href="https://happyclam.github.io/miscellaneous/2024-11-30/strayapp">過去記事「野良アプリ販売始めました」参照</a>）が、やはり海外には<a href="https://itch.io/">こういう<code class="language-plaintext highlighter-rouge">自由な</code>サイト</a>が存在するんですねぇ。日本の起業家とは一味違います。</p>
+
+<h3 id="どこが自由なのか">どこが自由なのか？</h3>
+<p>　かなり昔の話ですが、「広告表示を少なめにしようとして、起動時に一回だけ広告を出すようにアプリを修正」したら「起動時に広告を出すな」と<code class="language-plaintext highlighter-rouge">google play</code>に却下されたことがあります（現在は広告の規約が変わって可能なようです）。また、「歩なし将棋」、「３三将棋」、「５五将棋」…と似たようなアプリを出品していた所為で「似たようなアプリばかり出すな！」と指摘されたこともあります。その結果ミニチェスアプリは残ったけど通常のチェスアプリは<code class="language-plaintext highlighter-rouge">google play</code>によって削除されました。<br>
+　このようにユーザーが望んでいるかどうかとは関係なしにAppleやGoogleのプラットフォーム側の都合で開発者が制限を加えられます。そこへ行くと<code class="language-plaintext highlighter-rouge">itch.io</code>は開発者の都合を優先してくれます。特に驚いたのは販売金額に対するプラットフォーム側の取り分を開発者が決められるという仕様です。</p>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/itchio_revenue.png"><img src="/images/itchio_revenue.png" alt="プラットフォーム取り分" width="320" title="プラットフォーム取り分"></a></p>
+
+</div>
+
+<p>　AppleやGoogleやSteamではプラットフォーム側の取り分は決められていて開発者はそれに従うしかありませんが、<code class="language-plaintext highlighter-rouge">itch.io</code>ではプラットフォーム側の取り分を０にすることも出来るようです。０にするということは「ユーザーに対する責任は自分で負うから、仲介者は口を出すな！」ということでしょう。自分は<code class="language-plaintext highlighter-rouge">itch.io</code>を応援したい気持ちもあるのでデフォルトの<code class="language-plaintext highlighter-rouge">10%</code>のままにしましたが、この設定を開発者側が決められるようにしている<code class="language-plaintext highlighter-rouge">itch.io</code>側の姿勢に共感しますし、「ここまでやるのか！」と感心しました。</p>
+
+<h3 id="アプリの登録が簡単">アプリの登録が簡単</h3>
+<p>　<code class="language-plaintext highlighter-rouge">itch.io</code>ではアプリの登録の際に入力しなければならない必須項目が非常に少なくて簡単にアプリを登録できます。ということで、<code class="language-plaintext highlighter-rouge">BOOTH</code>で販売しているアプリを<code class="language-plaintext highlighter-rouge">itch.io</code>にも登録しました→<a href="https://happyclamu.itch.io/">itch.ioマイページ</a><br>
+アプリ登録にかかる手間暇はAppleやGoogleに比べたら雲泥の差です、Steamも現時点で調べた限りではGoogle以上に大変そうだなぁという印象です。<br>
+　既に<a href="https://happyclam.booth.pm/"><code class="language-plaintext highlighter-rouge">BOOTH</code>のサイト</a>で購入していただいた顧客がいますので既存アプリに関しては今後も<code class="language-plaintext highlighter-rouge">BOOTH</code>で続けますが、今後新しいアプリを作ることがあれば<code class="language-plaintext highlighter-rouge">itch.io</code>を使っていくつもりです。<code class="language-plaintext highlighter-rouge">itch.io</code>で出品してみてユーザーの反応が良ければ<code class="language-plaintext highlighter-rouge">Steam</code>に移行するという開発者も多いようですが、私なら、こんなことは起こらないと思いますが、自分のアプリが<code class="language-plaintext highlighter-rouge">itch.io</code>でバカ売れしたとしたら、移行ではなく併用・併売して<code class="language-plaintext highlighter-rouge">itch.io</code>を応援してあげたいと思ってます<img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"><br>
+　<code class="language-plaintext highlighter-rouge">itch.io</code>は元々開発者が自分の作品を容易に展示出来ることを目的にサービス開始したようで、<strong>「喜んで使ってくれる人がいるかも知れないから、そういう人に届けば良い」</strong>という自分のスタンスにもピッタリあったサービスだと思っています。<br>
+　アプリの価格設定についても<code class="language-plaintext highlighter-rouge">pay-what-you-want</code>（望むだけ支払う方式）という形式が選べるそうです。</p>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/itchio_pricing.png"><img src="/images/itchio_pricing.png" alt="itch.io価格設定" width="320" title="itch.io価格設定"></a></p>
+
+</div>
+
+<p>　今後のアプリについては、この形式の価格設定を利用しようと思ってます。</p>
+
+<h3 id="ユーザーの抵抗感">ユーザーの抵抗感</h3>
+<p>　ITに詳しくない人だと一律に<strong>「野良アプリ（apkファイル）は危険」</strong>なんて思い込んでいる人が多そうですし、特に権威に弱くて「自分たちの権利を守る」という意識が希薄な日本人だと<code class="language-plaintext highlighter-rouge">itch.io</code>のようなサービスに対して嫌悪感を抱く人の方が多いかも知れません。先日も将棋アプリの<code class="language-plaintext highlighter-rouge">棋桜</code>で開発元がGoogleの審査を待たずに<code class="language-plaintext highlighter-rouge">APKファイル</code>を配布したら、Twitterで「APKファイルを配布するとは何事か！」みたいに怒っている人を見かけました。Googleの審査を待たずに済むように開発元が早期に<code class="language-plaintext highlighter-rouge">APKファイル</code>を配布してくれているのに、それに対して怒る人は私には理解できません。現在では<code class="language-plaintext highlighter-rouge">APKファイル</code>をインストールしようとすると<code class="language-plaintext highlighter-rouge">Google Play プロテクト</code>が自動でチェックするようになっていますし、出処が明確なファイルであればそれほど心配する必要はないと思います。もちろん開発元が用意してくれたファイルとダウンロードしたファイルが同じものとは言い切れないという懸念もありますが、SSL/TLS通信（HTTPS）が当たり前になっている現代にそれを心配するのであればネットからダウンロードするファイルは<code class="language-plaintext highlighter-rouge">APKファイル</code>に限らず全て危険ということになってしまいます。<br>
+　ここでは一々例示しませんが、寧ろ<code class="language-plaintext highlighter-rouge">BigTech</code>が窓口を独占することでユーザーが不利益を被る裁判例のほうが多いでしょう（何故か日本のユーザーや開発者が<code class="language-plaintext highlighter-rouge">BigTech</code>に対して訴訟を起こした例は聞いたことがありませんが、海外のニュースではよく聞きます）。選択の自由があっていいと思います。<br>
+　また、Mac用アプリに関しては<code class="language-plaintext highlighter-rouge">itch.io</code>はネットからダウンロードした未署名のアプリでも動かせるランチャーを用意してくれてます。</p>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/itchio_lancher.png"><img src="/images/itchio_lancher.png" alt="itch.ioランチャー" width="320" title="itch.ioランチャー"></a>
+<a href="https://itch.io/app">itch.ioランチャー</a></p>
+
+</div>
+
+<p>　ということで私も<a href="https://happyclamu.itch.io/mancala-nuts">Mancala Nuts Mac版</a>をリリースしました。<strong>未署名（=Appleにお金を払ってない）</strong>なので普通ならMacPCで動かそうとすると、アプリに対して設定変更（「プライバシーとセキュリティ」項目に出る警告に対して回答）しないと動きませんが、<code class="language-plaintext highlighter-rouge">itch.io</code>のランチャー経由で起動すればそういう作業をしなくても動きます。</p>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/itchio_lancher02.png"><img src="/images/itchio_lancher02.png" alt="itchioランチャー起動画面" width="320" title="itchioランチャー起動画面"></a></p>
+
+</div>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/mancalanuts_for_mac.png"><img src="/images/mancalanuts_for_mac.png" alt="Mancala Nuts for Mac" width="320" title="Mancala Nuts for Mac"></a></p>
+
+</div>
+
+<h3 id="売れるかどうかは別問題">売れるかどうかは別問題</h3>
+<p>　開発者に優しいサービスであっても開発者より遥かに多いユーザーという存在にどれ程支持されるかは別問題ですし、どうやら<code class="language-plaintext highlighter-rouge">itch.io</code>は開発者同士のコミュニティという面が強いようなので<code class="language-plaintext highlighter-rouge">itch.io</code>に登録したから急に売れ出すなんてことは無さそうです。ただ、10年程前私が初めてアプリを公開した頃には既に<code class="language-plaintext highlighter-rouge">itch.io</code>はサービスを開始していたらしくて、その頃から<code class="language-plaintext highlighter-rouge">itch.io</code>を利用していればよかったなぁと思います。</p>
+
+<hr>
+
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <small>© rifyll theme, 2014</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+  <!--<script src="/assets/js/prism.js"></script> -->
+  <script src="/assets/js/site.js"></script>
+</body>
+
+</html>

@@ -5,9 +5,92 @@
     <description>Reinventing the wheel.</description>
     <link>https://happyclam.github.io/</link>
     <atom:link href="https://happyclam.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 23 Jul 2026 17:59:26 +0900</pubDate>
-    <lastBuildDate>Thu, 23 Jul 2026 17:59:26 +0900</lastBuildDate>
+    <pubDate>Sat, 15 Aug 2026 10:10:27 +0900</pubDate>
+    <lastBuildDate>Sat, 15 Aug 2026 10:10:27 +0900</lastBuildDate>
     <generator>Jekyll v3.10.0</generator>
+    
+      <item>
+        <title>itch.io、開発者のためのプラットフォーム</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://happyclamu.itch.io/mancala-nuts&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/itchio-logo.png&quot; alt=&quot;マンカラアプリ&quot; title=&quot;マンカラ ナッツ&quot; width=&quot;233&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;steamで売ってみようと思ったら&quot;&gt;Steamで売ってみようと思ったら…&lt;/h3&gt;
+&lt;p&gt;　マンカラアプリ（&lt;a href=&quot;https://happyclam.github.io/project/2020-08-10/mancalanuts&quot;&gt;マンカラナッツ&lt;/a&gt;）は、せっかくFlutterで開発したのだからAndroid版だけではなくLinux版として&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Steam&lt;/code&gt;に登録してみようかと思って&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT&lt;/code&gt;に相談していたら、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;itch.io&lt;/code&gt;というアプリの販売プラットフォームが存在することを知りました。現在&lt;a href=&quot;https://happyclam.booth.pm/items/6325341&quot;&gt;BOOTH&lt;/a&gt;でアプリを販売していますが、ソフトウェアのソースコードを販売している人は何人か見かけましたが、アプリを販売している人はほとんどいないと思います。でも、日本には他に適当なところが見当たらなかったので諦めてました（&lt;a href=&quot;https://happyclam.github.io/miscellaneous/2024-11-30/strayapp&quot;&gt;過去記事「野良アプリ販売始めました」参照&lt;/a&gt;）が、やはり海外には&lt;a href=&quot;https://itch.io/&quot;&gt;こういう&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;自由な&lt;/code&gt;サイト&lt;/a&gt;が存在するんですねぇ。日本の起業家とは一味違います。&lt;/p&gt;
+
+&lt;h3 id=&quot;どこが自由なのか&quot;&gt;どこが自由なのか？&lt;/h3&gt;
+&lt;p&gt;　かなり昔の話ですが、「広告表示を少なめにしようとして、起動時に一回だけ広告を出すようにアプリを修正」したら「起動時に広告を出すな」と&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;google play&lt;/code&gt;に却下されたことがあります（現在は広告の規約が変わって可能なようです）。また、「歩なし将棋」、「３三将棋」、「５五将棋」…と似たようなアプリを出品していた所為で「似たようなアプリばかり出すな！」と指摘されたこともあります。その結果ミニチェスアプリは残ったけど通常のチェスアプリは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;google play&lt;/code&gt;によって削除されました。&lt;br /&gt;
+　このようにユーザーが望んでいるかどうかとは関係なしにAppleやGoogleのプラットフォーム側の都合で開発者が制限を加えられます。そこへ行くと&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;itch.io&lt;/code&gt;は開発者の都合を優先してくれます。特に驚いたのは販売金額に対するプラットフォーム側の取り分を開発者が決められるという仕様です。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/itchio_revenue.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/itchio_revenue.png&quot; alt=&quot;プラットフォーム取り分&quot; width=&quot;320&quot; title=&quot;プラットフォーム取り分&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　AppleやGoogleやSteamではプラットフォーム側の取り分は決められていて開発者はそれに従うしかありませんが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;itch.io&lt;/code&gt;ではプラットフォーム側の取り分を０にすることも出来るようです。０にするということは「ユーザーに対する責任は自分で負うから、仲介者は口を出すな！」ということでしょう。自分は&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;itch.io&lt;/code&gt;を応援したい気持ちもあるのでデフォルトの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;10%&lt;/code&gt;のままにしましたが、この設定を開発者側が決められるようにしている&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;itch.io&lt;/code&gt;側の姿勢に共感しますし、「ここまでやるのか！」と感心しました。&lt;/p&gt;
+
+&lt;h3 id=&quot;アプリの登録が簡単&quot;&gt;アプリの登録が簡単&lt;/h3&gt;
+&lt;p&gt;　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;itch.io&lt;/code&gt;ではアプリの登録の際に入力しなければならない必須項目が非常に少なくて簡単にアプリを登録できます。ということで、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BOOTH&lt;/code&gt;で販売しているアプリを&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;itch.io&lt;/code&gt;にも登録しました→&lt;a href=&quot;https://happyclamu.itch.io/&quot;&gt;itch.ioマイページ&lt;/a&gt;&lt;br /&gt;
+アプリ登録にかかる手間暇はAppleやGoogleに比べたら雲泥の差です、Steamも現時点で調べた限りではGoogle以上に大変そうだなぁという印象です。&lt;br /&gt;
+　既に&lt;a href=&quot;https://happyclam.booth.pm/&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BOOTH&lt;/code&gt;のサイト&lt;/a&gt;で購入していただいた顧客がいますので既存アプリに関しては今後も&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BOOTH&lt;/code&gt;で続けますが、今後新しいアプリを作ることがあれば&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;itch.io&lt;/code&gt;を使っていくつもりです。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;itch.io&lt;/code&gt;で出品してみてユーザーの反応が良ければ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Steam&lt;/code&gt;に移行するという開発者も多いようですが、私なら、こんなことは起こらないと思いますが、自分のアプリが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;itch.io&lt;/code&gt;でバカ売れしたとしたら、移行ではなく併用・併売して&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;itch.io&lt;/code&gt;を応援してあげたいと思ってます:sweat_smile:&lt;br /&gt;
+　&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;itch.io&lt;/code&gt;は元々開発者が自分の作品を容易に展示出来ることを目的にサービス開始したようで、&lt;strong&gt;「喜んで使ってくれる人がいるかも知れないから、そういう人に届けば良い」&lt;/strong&gt;という自分のスタンスにもピッタリあったサービスだと思っています。&lt;br /&gt;
+　アプリの価格設定についても&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pay-what-you-want&lt;/code&gt;（望むだけ支払う方式）という形式が選べるそうです。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/itchio_pricing.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/itchio_pricing.png&quot; alt=&quot;itch.io価格設定&quot; width=&quot;320&quot; title=&quot;itch.io価格設定&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　今後のアプリについては、この形式の価格設定を利用しようと思ってます。&lt;/p&gt;
+
+&lt;h3 id=&quot;ユーザーの抵抗感&quot;&gt;ユーザーの抵抗感&lt;/h3&gt;
+&lt;p&gt;　ITに詳しくない人だと一律に&lt;strong&gt;「野良アプリ（apkファイル）は危険」&lt;/strong&gt;なんて思い込んでいる人が多そうですし、特に権威に弱くて「自分たちの権利を守る」という意識が希薄な日本人だと&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;itch.io&lt;/code&gt;のようなサービスに対して嫌悪感を抱く人の方が多いかも知れません。先日も将棋アプリの&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;棋桜&lt;/code&gt;で開発元がGoogleの審査を待たずに&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;APKファイル&lt;/code&gt;を配布したら、Twitterで「APKファイルを配布するとは何事か！」みたいに怒っている人を見かけました。Googleの審査を待たずに済むように開発元が早期に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;APKファイル&lt;/code&gt;を配布してくれているのに、それに対して怒る人は私には理解できません。現在では&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;APKファイル&lt;/code&gt;をインストールしようとすると&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Google Play プロテクト&lt;/code&gt;が自動でチェックするようになっていますし、出処が明確なファイルであればそれほど心配する必要はないと思います。もちろん開発元が用意してくれたファイルとダウンロードしたファイルが同じものとは言い切れないという懸念もありますが、SSL/TLS通信（HTTPS）が当たり前になっている現代にそれを心配するのであればネットからダウンロードするファイルは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;APKファイル&lt;/code&gt;に限らず全て危険ということになってしまいます。&lt;br /&gt;
+　ここでは一々例示しませんが、寧ろ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BigTech&lt;/code&gt;が窓口を独占することでユーザーが不利益を被る裁判例のほうが多いでしょう（何故か日本のユーザーや開発者が&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BigTech&lt;/code&gt;に対して訴訟を起こした例は聞いたことがありませんが、海外のニュースではよく聞きます）。選択の自由があっていいと思います。&lt;br /&gt;
+　また、Mac用アプリに関しては&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;itch.io&lt;/code&gt;はネットからダウンロードした未署名のアプリでも動かせるランチャーを用意してくれてます。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/itchio_lancher.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/itchio_lancher.png&quot; alt=&quot;itch.ioランチャー&quot; width=&quot;320&quot; title=&quot;itch.ioランチャー&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;https://itch.io/app&quot;&gt;itch.ioランチャー&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;　ということで私も&lt;a href=&quot;https://happyclamu.itch.io/mancala-nuts&quot;&gt;Mancala Nuts Mac版&lt;/a&gt;をリリースしました。&lt;strong&gt;未署名（=Appleにお金を払ってない）&lt;/strong&gt;なので普通ならMacPCで動かそうとすると、アプリに対して設定変更（「プライバシーとセキュリティ」項目に出る警告に対して回答）しないと動きませんが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;itch.io&lt;/code&gt;のランチャー経由で起動すればそういう作業をしなくても動きます。&lt;/p&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/itchio_lancher02.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/itchio_lancher02.png&quot; alt=&quot;itchioランチャー起動画面&quot; width=&quot;320&quot; title=&quot;itchioランチャー起動画面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/images/mancalanuts_for_mac.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/mancalanuts_for_mac.png&quot; alt=&quot;Mancala Nuts for Mac&quot; width=&quot;320&quot; title=&quot;Mancala Nuts for Mac&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h3 id=&quot;売れるかどうかは別問題&quot;&gt;売れるかどうかは別問題&lt;/h3&gt;
+&lt;p&gt;　開発者に優しいサービスであっても開発者より遥かに多いユーザーという存在にどれ程支持されるかは別問題ですし、どうやら&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;itch.io&lt;/code&gt;は開発者同士のコミュニティという面が強いようなので&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;itch.io&lt;/code&gt;に登録したから急に売れ出すなんてことは無さそうです。ただ、10年程前私が初めてアプリを公開した頃には既に&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;itch.io&lt;/code&gt;はサービスを開始していたらしくて、その頃から&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;itch.io&lt;/code&gt;を利用していればよかったなぁと思います。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+</description>
+        <pubDate>Sun, 16 Aug 2026 00:00:00 +0900</pubDate>
+        <link>https://happyclam.github.io/miscellaneous/2026-08-16/itchio</link>
+        <guid isPermaLink="true">https://happyclam.github.io/miscellaneous/2026-08-16/itchio</guid>
+        
+        <category>android</category>
+        
+        <category>ubuntu</category>
+        
+        <category>programming</category>
+        
+        <category>steam</category>
+        
+        
+        <category>miscellaneous</category>
+        
+      </item>
     
       <item>
         <title>jQueryを外したい</title>
@@ -877,153 +960,6 @@ waterBottles/node.kt:94:22: warning: recursive call is not a tail call.
         <category>ruby</category>
         
         <category>shogi</category>
-        
-        
-        <category>software</category>
-        
-      </item>
-    
-      <item>
-        <title>lichessに挑戦</title>
-        <description>&lt;h3 id=&quot;チェスサイトのaiはすべてstockfish&quot;&gt;チェスサイトのAIはすべてStockfish？&lt;/h3&gt;
-&lt;p&gt;　&lt;a href=&quot;/project/2019-11-16/chessapp&quot;&gt;以前の記事&lt;/a&gt;で&lt;a href=&quot;https://www.chess.com/home&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chess.com&lt;/code&gt;&lt;/a&gt;のAIと&lt;a href=&quot;https://happyclam.booth.pm/items/6399553&quot;&gt;チェスアプリ&lt;/a&gt;との対戦成績を紹介したので、今度は&lt;a href=&quot;https://lichess.org/&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lichess&lt;/code&gt;&lt;/a&gt;で試してみました。でも中で動いているAIは&lt;a href=&quot;https://www.chess.com/home&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chess.com&lt;/code&gt;&lt;/a&gt;も&lt;a href=&quot;https://lichess.org/&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lichess&lt;/code&gt;&lt;/a&gt;も&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Stockfish&lt;/code&gt;を使っているようで大きな違いは無いようです。対戦結果も&lt;a href=&quot;/project/2019-11-16/chessapp&quot;&gt;以前の記事&lt;/a&gt;と似たようなものだったので、同じAIが動いていると思われますが、自分の&lt;a href=&quot;https://happyclam.booth.pm/items/6399553&quot;&gt;チェスアプリ&lt;/a&gt;が勝つ時はある特定のパターンがありそうです。そしてチェス対戦サイトのAI（&lt;a href=&quot;https://www.chess.com/home&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chess.com&lt;/code&gt;&lt;/a&gt;、&lt;a href=&quot;https://lichess.org/&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lichess&lt;/code&gt;&lt;/a&gt;）の&lt;strong&gt;ある特徴&lt;/strong&gt;に気付きました…。&lt;/p&gt;
-
-&lt;h3 id=&quot;チェスアプリが勝った対局&quot;&gt;&lt;a href=&quot;https://happyclam.booth.pm/items/6399553&quot;&gt;チェスアプリ&lt;/a&gt;が勝った対局&lt;/h3&gt;
-&lt;p&gt;　レベル４で１０戦して３勝７敗だったのですが、&lt;a href=&quot;https://happyclam.booth.pm/items/6399553&quot;&gt;チェスアプリ&lt;/a&gt;が勝った３局をgifファイルで紹介します。gitファイルの下側が&lt;a href=&quot;https://happyclam.booth.pm/items/6399553&quot;&gt;チェスアプリ&lt;/a&gt;です。テキストの棋譜は&lt;a href=&quot;https://happyclam.booth.pm/items/6399553&quot;&gt;チェスアプリ&lt;/a&gt;に入力して再現することも可能です。&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;序盤は大抵&lt;a href=&quot;https://happyclam.booth.pm/items/6399553&quot;&gt;チェスアプリ&lt;/a&gt;側が劣勢になります。&lt;/p&gt;
-
-    &lt;div align=&quot;center&quot;&gt;勝局１:劣勢から逆転&lt;/div&gt;
-    &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-      &lt;p&gt;&lt;a href=&quot;/images/vs_lichess01.gif&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/vs_lichess01.gif&quot; alt=&quot;vs.lichess_level04_1&quot; width=&quot;320&quot; height=&quot;373&quot; title=&quot;vs.lichess_level04_1&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-    &lt;/div&gt;
-
-    &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-
-      &lt;p&gt;&lt;a href=&quot;/images/vs_lichess01.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/vs_lichess01.png&quot; alt=&quot;vs.lichess_level04_1&quot; width=&quot;480&quot; height=&quot;218&quot; title=&quot;vs.lichess_level04_1&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-    &lt;/div&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; 1. e3 e6 2. Qg4 f5 3. Qf4 g5 4. Qf3 g4 5. Qf4 Bh6 6. Qe5 Nf6 7. h4 Nc6 8. Qb5 a6 9. Qc4 b5 10. Qc3 b4 11. Qc4 Bb7 12. a4 d5 13. Qb3 a5 14. Bb5 O-O 15. Bxc6 Bxc6 16. d4 Bg7 17. Nd2 Ra6 18. Qd3 Rb6 19. f3 Qe7 20. Ne2 h5 21. Kf2 Ne4+ 22. Kf1 Bd7 23. Ke1 Nd6 24. Ng3 Be8 25. Kf2 f4 26. exf4 Rf6 27. Nxh5 g3+ 28. Nxg3 Bg6 29. f5 Nxf5 30. Nde4 Nd6 31. Nxf6+ Kf7 32. Nge4 Qxf6 33. Nxf6 Bxd3 34. cxd3 Bxf6 35. Be3 Nf5 36. Rac1 c6 37. g4 Nxd4 38. g5 Bh8 39. g6+ Kxg6 40. Rhg1+ Kh5 41. Rg5+ Kh6 42. Rxd5+ Kh7 43. Rd7+ Kg8 44. Bxd4 Bxd4+ 45. Rxd4 c5 46. Rxc5 Kf7 47. Rf4+ Ke7 48. Rxa5 Kd7 49. Rg5 Kc7 50. Rg7+ Kd6 51. Rf8 Ra6 52. Rd8+ Kc6 53. Re8 Kd6 54. Rd8+ Kc5 55. Rg5+ e5 56. Rxe5+ Kc6 57. Re7 b3 58. Rd4 Kc5 59. Rde4 Rf6 60. R4e6 Rxe6 61. Rxe6 Kb4 62. Ra6 Kc5 63. f4 Kb4 64. h5 Kc5 65. f5 Kd5 66. Re6 Kc5 67. Re4 Kd6 68. Re1 Kc5 69. Re4 Kd6 70. Re6+ Kc7 71. d4 Kc8 72. Re3 Kc7 73. Rxb3 Kd8 74. Rc3 Ke7 75. b4 Kd8 76. a5 Ke7 77. b5 Kf6 78. Rf3 Kg5 79. d5 Kxh5 80. d6 Kg5 81. d7 Kf6 82. d8=Q+ Ke5 83. Qe7+ Kd4 84. a6 Kd5 85. Rg3 Kd4 86. Rg4+ Kd3 87. Qc7 Kd2 88. Rd4# 1-0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;なんと！６手（将棋で言うと１２手）でチェックメイト。lichessAIは一手詰めを読んでない？&lt;br /&gt;
-　棋譜解析によると&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Nf3&lt;/code&gt;が悪手で、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;d4&lt;/code&gt;と着手すればlichessAI側が優勢のままだったようです。&lt;/p&gt;
-
-    &lt;div align=&quot;center&quot;&gt;勝局２:６手でチェックメイト&lt;/div&gt;
-    &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-      &lt;p&gt;&lt;a href=&quot;/images/vs_lichess02.gif&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/vs_lichess02.gif&quot; alt=&quot;vs.lichess_level04_2&quot; width=&quot;320&quot; height=&quot;373&quot; title=&quot;vs.lichess_level04_2&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-    &lt;/div&gt;
-
-    &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-
-      &lt;p&gt;&lt;a href=&quot;/images/vs_lichess02.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/vs_lichess02.png&quot; alt=&quot;vs.lichess_level04_2&quot; width=&quot;480&quot; height=&quot;218&quot; title=&quot;vs.lichess_level04_2&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-    &lt;/div&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; 1. g4 d5 2. g5 e5 3. Bg2 Qxg5 4. Bxd5 Bc5 5. Nf3 Qg2 6. Rg1 Qxf2# 0-1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://happyclam.booth.pm/items/6399553&quot;&gt;チェスアプリ&lt;/a&gt;の序盤は相変わらず定跡無視の乱戦、終盤は５手詰め以内の詰みならほぼ逃すことはありませんが、大優勢な局面であっても詰みがない局面だとも勝ち切るまでがもたつきます。評価関数の出来の悪さとしか言えません。&lt;/p&gt;
-
-    &lt;div align=&quot;center&quot;&gt;勝局３:終盤はもたつく&lt;/div&gt;
-    &lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-      &lt;p&gt;&lt;a href=&quot;/images/vs_lichess03.gif&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/vs_lichess03.gif&quot; alt=&quot;vs.lichess_level04_3&quot; width=&quot;320&quot; height=&quot;373&quot; title=&quot;vs.lichess_level04_3&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-    &lt;/div&gt;
-
-    &lt;div style=&quot;width:480px; margin: 0 auto;&quot;&gt;
-
-      &lt;p&gt;&lt;a href=&quot;/images/vs_lichess03.png&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/vs_lichess03.png&quot; alt=&quot;vs.lichess_level04_3&quot; width=&quot;480&quot; height=&quot;218&quot; title=&quot;vs.lichess_level04_3&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-    &lt;/div&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; 1. c4 e5 2. Nc3 Qh4 3. e3 a5 4. g3 Qg5 5. h4 Qf5 6. g4 Qf6 7. g5 Qf5 8. e4 Qe6 9. Nd5 Kd8 10. Bh3 Qc6 11. d4 Qxc4 12. Qh5 Bb4+ 13. Nxb4 axb4 14. g6 Qxd4 15. gxf7 Qxe4+ 16. Kf1 Ne7 17. Bg2 Qd3+ 18. Qe2 Qxe2+ 19. Nxe2 Rf8 20. a3 d5 21. Be3 Rxf7 22. Rh2 Bg4 23. Bc5 Nd7 24. Be3 Ra6 25. Bd2 Nc5 26. Bxb4 Nd3 27. Bxe7+ Kxe7 28. Nc1 Rxf2+ 29. Kg1 Nxc1 30. Kxf2 Nb3 31. Rg1 Rf6+ 32. Kg3 Be6 33. Rhh1 Rf4 34. Re1 Rg4+ 35. Kf2 e4 36. Rd1 b5 37. Bf1 Rf4+ 38. Kg2 Rg4+ 39. Kh2 Rxh4+ 40. Kg2 Rg4+ 41. Kf2 Rf4+ 42. Ke1 e3 43. Bg2 Nd4 44. Rc1 Nf3+ 45. Bxf3 Rxf3 46. Rg1 Rf4 47. Rxc7+ Kd6 48. Rcxg7 d4 49. Rxh7 d3 50. Rg6 Rc4 51. Kd1 Rf4 52. Ke1 Rc4 53. Rxe6+ Kxe6 54. Rh6+ Kd7 55. Rh7+ Kd6 56. Rh6+ Kc7 57. Kd1 Rf4 58. Ke1 Rg4 59. Rh7+ Kc6 60. Rh1 Rf4 61. Rh5 Rg4 62. Rh1 Rg2 63. a4 bxa4 64. b4 axb3 65. Rh6+ Kb7 66. Kf1 Rf2+ 67. Kg1 Rf4 68. Rh3 e2 69. Kg2 e1=Q 70. Rh7+ Ka8 71. Rh8+ Ka7 72. Rh7+ Ka8 73. Kh3 Qe5 74. Rh6 Rf2 75. Kg4 Qg7+ 76. Rg6 Qxg6+ 77. Kh3 d2 78. Kh4 Rh2# 0-1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;lichessのaiは先読み探索をしていない&quot;&gt;lichessのAIは&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;先読み（探索）&lt;/code&gt;をしていない？&lt;/h3&gt;
-&lt;p&gt;　AIの強さを調整する（適度に弱くする）のはなかなか難しいと思いますが、上記の２番目の勝局のように１手詰め（詰めろ）を受けないというのはどういうことでしょうか？lichessAIが&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rg1&lt;/code&gt;と指したところで&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rf1&lt;/code&gt;と指して１手詰めを受けていればまだまだ勝負は分からなかったと思います。それをせずにわざと負ける（チェックメイトされる）ような手を選ぶのは、「何回かに一回はわざと負けてあげる」というようなことをしているわけではなく、AIのレベルが低い時（今回の場合はレベル４）は「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;先読み&lt;/code&gt;を一切しない」というような調整の仕方をしている気がします。&lt;br /&gt;
-　一般的に学習型のAIは詰将棋（チェスプロブレム）は苦手と言われますが、それを補うためにまず短い手数の&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;先読み（探索）&lt;/code&gt;を行い、詰みが無ければ学習データを利用した静的評価関数で指し手を決めるようになっていると聞きますが、その&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;先読み&lt;/code&gt;（よく&lt;strong&gt;力任せ&lt;/strong&gt;とか&lt;strong&gt;brute-force&lt;/strong&gt;と表現される指し手の探索）をせずに静的評価関数のみ（計算式のパラメータ調整のみ？）で指し手を決めているのかも知れません。冒頭で&lt;strong&gt;ある特徴&lt;/strong&gt;と書いたのはこのことです。&lt;br /&gt;
-　実際のところは分かりませんし、他にも強さ調整のためにいろいろやってると思いますが、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;先読み（探索）&lt;/code&gt;をしなければサイトの負荷軽減にもなるので当たってる気がします。&lt;br /&gt;
-　ちなみに先読みをしないという点では&lt;a href=&quot;https://happyclam.booth.pm/items/6582961&quot;&gt;「消える三目並べ」アプリ&lt;/a&gt;も同じような作りになっています。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;モンテカルロ法&lt;/code&gt;を使った強化学習で学習データを作り、そのデータに基づいて確率によって指し手を選択します。確率によって指し手を選択するので一手詰め（あと一手でラインが揃う）を見逃したりするのですが、学習が進むにつれて間違う確率が低くなっていきます。最近「消える三目並べ」を検索ワードにした当ブログへの訪問者が増えてるので、また記事を書くかも知れません。&lt;/p&gt;
-
-&lt;h3 id=&quot;chesscomも同じ&quot;&gt;chess.comも同じ？&lt;/h3&gt;
-&lt;p&gt;　以下の対局は&lt;a href=&quot;https://www.chess.com/home&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chess.com&lt;/code&gt;のAI（Santa BOT）&lt;/a&gt;と&lt;a href=&quot;https://happyclam.booth.pm/items/6399553&quot;&gt;チェスアプリ&lt;/a&gt;の対戦ですが&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;chess.com AI が必勝局面から３手詰め頓死&lt;/div&gt;
-&lt;div style=&quot;width:320px; margin: 0 auto;&quot;&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/images/vs_chesscom01.gif&quot;&gt;&lt;img src=&quot;https://happyclam.github.io/images/vs_chesscom01.gif&quot; alt=&quot;vs.chesscom_santa_1&quot; width=&quot;320&quot; height=&quot;373&quot; title=&quot;vs.chesscom_santa_1&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. e4 e5 2. Nf3 Qf6 3. Bc4 a5 4. O-O g5 5. Qe2 h5 6. Bd5 g4 7. Ne1 Ne7 8. Kh1
-Rg8 9. Nd3 Nxd5 10. exd5 Bd6 11. Nc3 h4 12. Ne4 Qf5 13. Nxd6+ cxd6 14. b3 h3 15.
-Kg1 hxg2 16. Re1 g3 17. hxg3 Qh3 18. f4 Rxg3 19. Nf2 Qh6 20. fxe5 Ke7 21. exd6+
-Kf8 22. Qe8+ Kg7 23. Re3 Qh2+ 24. Kxh2 g1=Q# 0-1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;　&lt;a href=&quot;https://www.chess.com/home&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chess.com&lt;/code&gt;AI&lt;/a&gt;が必勝局面で23手目&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Re3&lt;/code&gt;と指したことで３手詰が生じて頓死です。&lt;del&gt;これも&lt;a href=&quot;https://www.chess.com/home&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chess.com&lt;/code&gt;のAI&lt;/a&gt;が短手数の詰みを読んでいなかった（先読み探索をしてなかった）のだと思います。&lt;/del&gt;&lt;br /&gt;
-　自分の&lt;a href=&quot;https://happyclam.booth.pm/items/6399553&quot;&gt;チェスアプリ&lt;/a&gt;が勝つ時はだいたいこんな感じで、出来の悪い評価関数のせいで序盤からずっと劣勢でなんとか終盤まで縺れた時に相手の頓死で勝つパターンが多いです。&lt;br /&gt;
-　あと、&lt;a href=&quot;https://lichess.org/&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lichess&lt;/code&gt;&lt;/a&gt;の方は&lt;a href=&quot;https://www.chess.com/home&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chess.com&lt;/code&gt;&lt;/a&gt;と違って無料の棋譜解析の回数制限が無いようなのでお勧めです。&lt;/p&gt;
-
-&lt;h3 id=&quot;実はaiはわざと負けてる2026-05-04追記&quot;&gt;実はAIは、わざと負けてる（2026-05-04追記）&lt;/h3&gt;
-&lt;p&gt;　記事のタイトルに「AIは一手先も読んでいない？」なんて書きましたが、間違っているようなので訂正しておきます。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChatGPT&lt;/code&gt;に聞いて確認したところ&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chess.com&lt;/code&gt;も&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lichess&lt;/code&gt;も機械学習系のAIは使ってなくて、αβ探索（いわゆるブルートフォース系）が主で「詰みを見逃すことがあるように作られている」らしいです。つまり、一手先の詰みを読んでいないわけではなく、候補手の中から敢えて負ける手を確率的に選ぶようにしているそうです。&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;項目&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;αβ系（Stockfish系）&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;ML系（AlphaZero系）&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;手の選び方&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;決定的（最善手）&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;確率的&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;弱体化方法&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;後付けランダム&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;温度調整など&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;詰み回避&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;基本100%&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;温度次第でミスあり&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;　AlphaZeroのような機械学習系のAIは最初から確率的に着手を選ぶけど、現代チェスAIの主流はまだαβ＋評価関数で、強過ぎてユーザーが楽しめないので後付けで確率的に悪手を選ぶように演出されてるそうです。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-</description>
-        <pubDate>Sun, 05 Jan 2025 00:00:00 +0900</pubDate>
-        <link>https://happyclam.github.io/software/2025-01-05/lichess</link>
-        <guid isPermaLink="true">https://happyclam.github.io/software/2025-01-05/lichess</guid>
-        
-        <category>coffeescript</category>
-        
-        <category>javascript</category>
-        
-        <category>shogi</category>
-        
-        <category>chess</category>
         
         
         <category>software</category>
