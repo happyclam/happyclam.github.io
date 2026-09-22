@@ -221,6 +221,20 @@
 <p>　実はJavaScript製のアプリに関してはソースファイルの数カ所をコメントアウトするだけでPCで動かすことも可能です。スマホよりハイスペックのPC上のブラウザで動かすことも出来るのですが、これに関しては別記事で紹介するかもしれません。<br />
 　<code class="language-plaintext highlighter-rouge">CoffeeScript</code>のソース販売と合わせてニーズがあるかどうか知りたいので、<a href="https://happyclam.booth.pm/">Boothサイト</a>から是非ご意見をお寄せ下さい。</p>
 
+<h3 id="追記2026-09-22">追記（2026-09-22）</h3>
+<p>　GoogleによるAndroidアプリの規制で日本でも2026/08頃に<code class="language-plaintext highlighter-rouge">Google Play プロテクト</code>のチェックが変更されたようです。過去の<code class="language-plaintext highlighter-rouge">署名済みAPKファイル</code>をインストールするためにタップすると以下のような画面が表示されます。</p>
+
+<div style="width:320px; margin: 0 auto;">
+
+  <p><a href="/images/certificate_previously.png"><img src="/images/certificate_previously.png" alt="証明書チェック" width="320" height="693" title="証明書チェック" /></a></p>
+
+</div>
+
+<p>　ここで<code class="language-plaintext highlighter-rouge">OK</code>をタップするとアプリはインストールされません。最初、サードパーティ製のアプリ（野良アプリ）はすべて排除する気か？と勘違いしたのですが、よく見ると「インストールする」という文字が表示されています。リンク表示もされていなくて分かりにくいのですが、<code class="language-plaintext highlighter-rouge">OKボタン</code>を押さずにこの「<code class="language-plaintext highlighter-rouge">インストールする</code>」という文字の部分をタップすると今まで通りインストールが進行します。<br />
+　Googleによるサードパーティ製アプリ（野良アプリ）に対する嫌がらせですね。<br />
+　ただ、APKファイルに添付している開発者の証明書を<code class="language-plaintext highlighter-rouge">Androidデバッグ証明書</code>に差し替えると、この警告画面は表示されずに今まで通りの進行手順でインストールが完了します。<code class="language-plaintext highlighter-rouge">Google Play プロテクト</code>の仕様はすべては公開されていないのでどういうことなのかよく分かりませんが、いたずらにユーザーの不安を煽るようなこの画面を表示させないために、取り敢えずすべてのアプリを<code class="language-plaintext highlighter-rouge">Androidデバッグ証明書</code>に差し替えて様子を見ています。と言うか、インストール出来ないことに驚いてデバッグ証明書に切り替えたのですが、Googleが予定している2027年以降の<a href="https://android-developers.googleblog.com/2026/06/android-developer-verification.html?utm_source=chatgpt.com">Android規制</a>が、今は過渡期で不明確なためとりあえずこのまま様子を見てます。認証を受けている（お金を払っている）開発者証明書だとこの警告画面が表示されて、Androidデバッグ証明書だと警告なしでインストールが進行するという仕様が理解できないのですが、今後元に戻すかもしれません。<a href="https://happyclam.booth.pm/">BOOTH</a>にアップロードされている<code class="language-plaintext highlighter-rouge">過去のAPKファイル</code>もユーザーがダウンロードして利用する分には何の問題もなく利用できます。<br />
+　今後どのように変わるか分かりませんが、もし「アプリがインストールできない」等の問題が発生した場合は、<a href="https://happyclam.booth.pm/">BOOTH</a>の各商品のページにある「ショップへのお問い合わせ」機能を使ってお気軽にお問い合わせ下さい。</p>
+
 <hr />
 
 
